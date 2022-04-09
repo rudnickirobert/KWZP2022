@@ -202,6 +202,11 @@ ID_etap_produkcji INT FOREIGN KEY
 Czas_od DATETIME NOT NULL,
 Czas_do DATETIME
 )
+CREATE TABLE Narzedzia(
+ID_narzedzia INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+Nazwa NVARCHAR(50) NOT NULL,
+Nr_seryjny INT NOT NULL
+)
 
 CREATE TABLE Sklad_stanowisko_produkcyjne_maszyny(
 ID_stanowisko_produkcyjne INT FOREIGN KEY
