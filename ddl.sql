@@ -76,8 +76,6 @@ Uwagi NVARCHAR(250)
 
 CREATE TABLE Produkt(
 ID_produkt INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-ID_proces_technologoiczny INT FOREIGN KEY
-	REFERENCES Proces_technologiczny(ID_proces_technologiczny) NOT NULL,
 Nazwa_produktu NVARCHAR(50) NOT NULL,
 Cena_produkt MONEY NOT NULL
 )
