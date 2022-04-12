@@ -334,10 +334,10 @@ CREATE TABLE Email_klient
 	Data_do DATE
 	)
 
-CREATE TABLE Typ_zamowienia
+CREATE TABLE Typ_zamowienie
 	(
-	ID_typ_zamowienia INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-	Typ_zamowienia NVARCHAR(50) NOT NULL
+	ID_typ_zamowienie INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	Typ_zamowienie NVARCHAR(50) NOT NULL
 	)
 
 CREATE TABLE Zamowienie
@@ -345,22 +345,14 @@ CREATE TABLE Zamowienie
 	ID_zamowienie INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	ID_klient INT FOREIGN KEY REFERENCES Klient(ID_klient) NOT NULL,
 	ID_pracownik INT FOREIGN KEY REFERENCES Pracownik(ID_pracownik) NOT NULL,
-	Data_zamowienia DATE NOT NULL,
-	ID_typ_zamowienia INT FOREIGN KEY REFERENCES Typ_zamowienia(ID_typ_zamowienia) NOT NULL 
+	Data_zamowienie DATE NOT NULL,
+	ID_typ_zamowienie INT FOREIGN KEY REFERENCES Typ_zamowienie(ID_typ_zamowienie) NOT NULL 
 	)
 
-CREATE TABLE Szczegoly_zamowienia
+CREATE TABLE Status_oferta
 	(
-	ID_szczegoly_zamowienie INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-	ID_zamowienie INT FOREIGN KEY REFERENCES Zamowienie(ID_zamowienie) NOT NULL,
-	ID_produkt INT FOREIGN KEY REFERENCES Produkt(ID_produkt) NOT NULL,
-	Ilosc INT NOT NULL
-	)
-
-CREATE TABLE Status_oferty
-	(
-	ID_status_oferty INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-	Nazwa_status NVARCHAR(20) NOT NULL
+	ID_status_oferta INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	Nazwa_status_oferta NVARCHAR(20) NOT NULL
 	)
 
 CREATE TABLE Gwarancja
@@ -373,15 +365,17 @@ CREATE TABLE Gwarancja
 CREATE TABLE Oferta_handlowa
 	(
 	ID_oferta_handlowa INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	ID_zamowienie INT FOREIGN KEY REFERENCES Zamowienie(ID_zamowienie) NOT NULL,
 	ID_pracownik INT FOREIGN KEY REFERENCES Pracownik(ID_pracownik) NOT NULL,
+	ID_produkt INT FOREIGN KEY REFERENCES Produkt(ID_produkt) NOT NULL,
 	Termin_realizacja DATE NOT NULL,
-	ID_status_oferty INT FOREIGN KEY REFERENCES Status_oferty(ID_status_oferty) NOT NULL,
+	ID_status_oferta INT FOREIGN KEY REFERENCES Status_oferta(ID_status_oferta) NOT NULL,
 	ID_gwarancja INT FOREIGN KEY REFERENCES Gwarancja(ID_gwarancja) NOT NULL
 	)
 
-CREATE TABLE Forma_platnosci
+CREATE TABLE Forma_platnosc
 	(
-	ID_forma_platnosci INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	ID_forma_platnosc INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	Forma_platnosc NVARCHAR(100) NOT NULL
 	)
 
@@ -396,16 +390,17 @@ CREATE TABLE Sprzedaz
 	ID_sprzedaz INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	Nr_sprzadaz INT NOT NULL,
 	ID_oferta_handlowa INT FOREIGN KEY REFERENCES Oferta_handlowa(ID_oferta_handlowa) NOT NULL,
-	Data_sprzedazy DATE NOT NULL,
-	Termin_zaplaty DATE NOT NULL,
-	ID_forma_platnosci INT FOREIGN KEY REFERENCES Forma_platnosci(ID_forma_platnosci) NOT NULL,
+	Data_sprzedaz DATE NOT NULL,
+	Termin_zaplata DATE NOT NULL,
+	ID_forma_platnosc INT FOREIGN KEY REFERENCES Forma_platnosc(ID_forma_platnosc) NOT NULL,
+	Ilosc INT NOT NULL,
 	)
 
 CREATE TABLE Szczegoly_sprzedaz
 	(
 	ID_szczegoly_sprzedaz INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	ID_sprzedaz INT FOREIGN KEY REFERENCES Sprzedaz(ID_sprzedaz) NOT NULL,
-	Kwota_sprzedazy MONEY NOT NULL,
+	Kwota_sprzedaz MONEY NOT NULL,
 	ID_podatek INT FOREIGN KEY REFERENCES Podatek(ID_Podatek) NOT NULL
 	)
 
@@ -414,8 +409,8 @@ CREATE TABLE Reklamacja
 	ID_reklamacja INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	ID_pracownik INT FOREIGN KEY REFERENCES Pracownik(ID_pracownik) NOT NULL,
 	ID_sprzedaz INT FOREIGN KEY REFERENCES Sprzedaz(ID_sprzedaz) NOT NULL,
-	Data_reklamacji DATE NOT NULL,
-	Opis_reklamacji NVARCHAR(250) NOT NULL,
+	Data_reklamacja DATE NOT NULL,
+	Opis_reklamacja NVARCHAR(250) NOT NULL,
 	Akceptacja BIT NOT NULL
 	)
 
@@ -426,7 +421,8 @@ CREATE TABLE Zwrot
 	Utylizacja BIT NOT NULL,
 	)
 
-CREATE TABLE Jednostka (
+CREATE TABLE Jednostka 
+(
 ID_jednostka INT IDENTITY(1,1) NOT NULL PRIMARY KEY ,
 Nazwa NVARCHAR(20) NOT NULL,
 Skrot NVARCHAR(5) NOT NULL
@@ -647,9 +643,6 @@ ID_dokumentacja INT FOREIGN KEY
 	REFERENCES Dokumentacja(ID_dokumentacja) NOT NULL,
 );
 
-
-
-
 CREATE TABLE PT_Parametr_produkt(
 ID_parametr INT PRIMARY KEY NOT NULL,
 Nazwa NVarchar(50)NOT NULL,
@@ -690,7 +683,6 @@ Wartosc_dolna INT NOT NULL,
 Nominal INT NOT NULL,
 Wartosc_gorna INT NOT NULL
 );
-
 
 CREATE TABLE PT_Szczegoly_polprodukt(
 ID_polprodukt INT  FOREIGN KEY REFERENCES PT_polprodukt(ID_polprodukt) NOT NULL,
