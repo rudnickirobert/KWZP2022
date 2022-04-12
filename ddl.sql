@@ -6,7 +6,7 @@ CREATE DATABASE KWZP
 GO
 USE KWZP
 
-CREATE TABLE Pracownicy(
+CREATE TABLE Pracownik(
 	ID_pracownik INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	Nazwisko VARCHAR(50) NOT NULL,
 	Imie VARCHAR(50) NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE Pracownicy(
 CREATE TABLE Dane_adresowe_pracownik(
 	ID_dane_adresowe_pracownik INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	ID_pracownik INT FOREIGN KEY 
-		REFERENCES Pracownicy(ID_pracownik) NOT NULL,
+		REFERENCES Pracownik(ID_pracownik) NOT NULL,
 	Miejscowosc VARCHAR(50) NOT NULL,
 	Ulica VARCHAR(50),
 	Nr_budynku VARCHAR(10)NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE Dane_adresowe_pracownik(
 CREATE TABLE Nr_telefon_pracownik(
 	ID_numer_telefonu INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	ID_pracownik INT FOREIGN KEY 
-		REFERENCES Pracownicy(ID_pracownik) NOT NULL,
+		REFERENCES Pracownik(ID_pracownik) NOT NULL,
 	Numer VARCHAR(20) NOT NULL,
 	Data_od DATE NOT NULL,
 	Data_do DATE
@@ -40,7 +40,7 @@ CREATE TABLE Nr_telefon_pracownik(
 CREATE TABLE Email_pracownik(
 	ID_email_pracownik INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	ID_pracownik INT FOREIGN KEY 
-		REFERENCES Pracownicy(ID_pracownik) NOT NULL,
+		REFERENCES Pracownik(ID_pracownik) NOT NULL,
 	Email VARCHAR(100) NOT NULL,
 	Data_od DATE NOT NULL,
 	Data_do DATE
@@ -86,7 +86,7 @@ CREATE TABLE Kontrola_jakosci_produkt(
 ID_wytworzony_produkt INT FOREIGN KEY
 	REFERENCES Wytworzony_produkt(ID_wytworzony_produkt) NOT NULL,
 ID_pracownik INT FOREIGN KEY 
-	REFERENCES Pracownicy(ID_pracownik) NOT NULL,
+	REFERENCES Pracownick(ID_pracownik) NOT NULL,
 ID_rodzaj_kontroli INT FOREIGN KEY
 	REFERENCES Rodzaj_kontroli(ID_rodzaj_kontroli) NOT NULL,
 Data_od DATETIME NOT NULL,
@@ -115,9 +115,9 @@ ID_polprodukt INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 Nazwa NVARCHAR(50) NOT NULL
 )
 
-CREATE TABLE Materialy (
+CREATE TABLE Material (
 ID_material int IDENTITY(1,1) NOT NULL PRIMARY KEY,
-Nazwa_materialu nvarchar(25) NOT NULL
+Nazwa_material nvarchar(25) NOT NULL
 );
 
 
@@ -125,7 +125,7 @@ CREATE TABLE Sklad_polprodukt(
 ID_polprodukt INT FOREIGN KEY 
 	REFERENCES Slownik_polprodukt(ID_polprodukt) NOT NULL,
 ID_material INT FOREIGN KEY
-	REFERENCES Materialy(ID_material) NOT NULL,
+	REFERENCES Material(ID_material) NOT NULL,
 Liczba INT NOT NULL
 )
 
@@ -150,7 +150,7 @@ CREATE TABLE Sklad_produkt_material(
 ID_produkt INT FOREIGN KEY
 	REFERENCES Produkt(ID_produkt) NOT NULL,
 ID_material INT FOREIGN KEY
-	REFERENCES Materialy(ID_material) NOT NULL,
+	REFERENCES Material(ID_material) NOT NULL,
 Liczba INT NOT NULL
 )
 
@@ -170,8 +170,8 @@ Nazwa nvarchar(20) NOT NULL,
 Opis nvarchar(50)
 );
 
-CREATE TABLE Maszyny(
-ID_maszyny int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+CREATE TABLE Maszyna(
+ID_maszyna int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 Nazwa nvarchar(25) NOT NULL,
 ID_rodzaj_maszyny int FOREIGN KEY REFERENCES Rodzaj_maszyny(ID_rodzaj_maszyny) NOT NULL,
 Nr_seryjny nvarchar(25) NOT NULL
@@ -179,8 +179,8 @@ Nr_seryjny nvarchar(25) NOT NULL
 
 CREATE TABLE Stanowisko_produkcyjne(
 ID_stanowisko_produkcyjne INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-ID_maszyny INT FOREIGN KEY 
-	REFERENCES Maszyny(ID_maszyny) NOT NULL,
+ID_maszyna INT FOREIGN KEY 
+	REFERENCES Maszyna(ID_maszyna) NOT NULL,
 ID_nazwa_stanowiska INT FOREIGN KEY
 	REFERENCES Slownik_stanowisko(ID_nazwa_stanowiska) NOT NULL
 )
@@ -197,30 +197,31 @@ CREATE TABLE Wytwarzanie_polprodukt(
 ID_polprodukt INT FOREIGN KEY
 	REFERENCES Slownik_polprodukt(ID_polprodukt) NOT NULL,
 ID_pracownik INT FOREIGN KEY 
-	REFERENCES Pracownicy(ID_pracownik) NOT NULL,
+	REFERENCES Pracownik(ID_pracownik) NOT NULL,
 ID_etap_produkcji INT FOREIGN KEY
 	REFERENCES Etap_produkcji(ID_etap_produkcji) NOT NULL,
 Czas_od DATETIME NOT NULL,
 Czas_do DATETIME
 )
-CREATE TABLE Narzedzia(
-ID_narzedzia INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+
+CREATE TABLE Narzedzie(
+ID_narzedzie INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 Nazwa NVARCHAR(50) NOT NULL,
 Nr_seryjny INT NOT NULL
 )
 
-CREATE TABLE Sklad_stanowisko_produkcyjne_maszyny(
+CREATE TABLE Sklad_stanowisko_produkcyjne_maszyna(
 ID_stanowisko_produkcyjne INT FOREIGN KEY
 	REFERENCES Stanowisko_produkcyjne(ID_stanowisko_produkcyjne) NOT NULL,
-ID_maszyny INT FOREIGN KEY
-	REFERENCES Maszyny(ID_maszyny) NOT NULL,
+ID_maszyna INT FOREIGN KEY
+	REFERENCES Maszyna(ID_maszyna) NOT NULL,
 )
 
 CREATE TABLE Sklad_stanowisko_produkcyjne(
 ID_stanowisko_produkcyjne INT FOREIGN KEY
 	REFERENCES Stanowisko_produkcyjne(ID_stanowisko_produkcyjne) NOT NULL,
-ID_narzedzia INT FOREIGN KEY
-	REFERENCES Narzedzia(ID_narzedzia) NOT NULL,
+ID_narzedzie INT FOREIGN KEY
+	REFERENCES Narzedzie(ID_narzedzie) NOT NULL,
 )
 
 CREATE TABLE Rodzaj_czesci (
@@ -228,16 +229,16 @@ ID_rodzaj_czesci int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 Nazwa nvarchar(20) NOT NULL
 );
 
-CREATE TABLE Czesci (
-ID_czesci int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+CREATE TABLE Czesc (
+ID_czesc int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 Nazwa_czesci nvarchar(25) NOT NULL,
 ID_rodzaj_czesci int FOREIGN KEY REFERENCES Rodzaj_czesci(ID_rodzaj_czesci) NOT NULL
 );
 
 CREATE TABLE Wymienione_czesci(
 ID_wymienione_czesci INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-ID_czesci INT FOREIGN KEY
-	REFERENCES Czesci(ID_czesci)
+ID_czesc INT FOREIGN KEY
+	REFERENCES Czesc(ID_czesc)
 )
 CREATE TABLE Etat(
 	ID_etat INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
@@ -273,12 +274,13 @@ CREATE TABLE Rodzaj_nieobecnosci(
 CREATE TABLE Nieobecnosc(
 	ID_nieobecnosc INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	ID_pracownik INT FOREIGN KEY
-	REFERENCES Pracownicy(ID_pracownik),
+	REFERENCES Pracownik(ID_pracownik),
 	ID_rodzaj_nieobecnosci  INT FOREIGN KEY
 	REFERENCES Rodzaj_nieobecnosci(ID_rodzaj_nieobecnosci),
 	Data_od DATE NOT NULL,
 	Data_do DATE NOT NULL,
 	)
+
 CREATE TABLE Wymiar_pracy(
 ID_wymiar_pracy INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 Nazwa NVARCHAR(50) NOT NULL,
@@ -291,7 +293,7 @@ CREATE TABLE Umowa(
 	ID_rodzaj_zatrudnienia INT FOREIGN KEY
 	REFERENCES Rodzaj_zatrudnienia(ID_rodzaj_zatrudnienia),
 	ID_pracownik INT FOREIGN KEY
-	REFERENCES Pracownicy(ID_pracownik),
+	REFERENCES Pracownik(ID_pracownik),
 	ID_posada INT FOREIGN KEY
 	REFERENCES Posada_pracownika(ID_posada),
 	Wynagrodzenie INT NOT NULL,
@@ -343,7 +345,7 @@ CREATE TABLE Zamowienie
 	(
 	ID_zamowienie INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	ID_klient INT FOREIGN KEY REFERENCES Klient(ID_klient) NOT NULL,
-	ID_pracownik INT FOREIGN KEY REFERENCES Pracownicy(ID_pracownik) NOT NULL,
+	ID_pracownik INT FOREIGN KEY REFERENCES Pracownik(ID_pracownik) NOT NULL,
 	Data_zamowienia DATE NOT NULL,
 	ID_typ_zamowienia INT FOREIGN KEY REFERENCES Typ_zamowienia(ID_typ_zamowienia) NOT NULL 
 	)
@@ -372,7 +374,7 @@ CREATE TABLE Gwarancja
 CREATE TABLE Oferta_handlowa
 	(
 	ID_oferta_handlowa INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-	ID_pracownik INT FOREIGN KEY REFERENCES Pracownicy(ID_pracownik) NOT NULL,
+	ID_pracownik INT FOREIGN KEY REFERENCES Pracownik(ID_pracownik) NOT NULL,
 	Termin_realizacja DATE NOT NULL,
 	ID_status_oferty INT FOREIGN KEY REFERENCES Status_oferty(ID_status_oferty) NOT NULL,
 	ID_gwarancja INT FOREIGN KEY REFERENCES Gwarancja(ID_gwarancja) NOT NULL
@@ -411,7 +413,7 @@ CREATE TABLE Szczegoly_sprzedaz
 CREATE TABLE Reklamacja
 	(
 	ID_reklamacja INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-	ID_pracownik INT FOREIGN KEY REFERENCES Pracownicy(ID_pracownik) NOT NULL,
+	ID_pracownik INT FOREIGN KEY REFERENCES Pracownik(ID_pracownik) NOT NULL,
 	ID_sprzedaz INT FOREIGN KEY REFERENCES Sprzedaz(ID_sprzedaz) NOT NULL,
 	Data_reklamacji DATE NOT NULL,
 	Opis_reklamacji NVARCHAR(250) NOT NULL,
@@ -442,79 +444,79 @@ Nazwa NVARCHAR(50) NOT NULL,
 ID_jednostka INT FOREIGN KEY REFERENCES Jednostka(ID_jednostka) NOT NULL
 );
 
-CREATE TABLE Dostawcy(
-ID_dostawcy INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+CREATE TABLE Dostawca(
+ID_dostawca INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 Nazwa_dostawcy NVARCHAR(25) NOT NULL
 );
  
-CREATE TABLE Producenci (
+CREATE TABLE Producent (
 ID_producent INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 Nazwa_producenta NVARCHAR(25) NOT NULL,
 Opis NVARCHAR(50)
 );
 
-CREATE TABLE Statusy (
-ID_status INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+CREATE TABLE Status_zamowienie (
+ID_status_zamowienie INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 Status NVARCHAR(20) NOT NULL
 );
 
-CREATE TABLE Zamowienia_maszyn (
-ID_zamowienia_maszyny INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-ID_pracownik INT FOREIGN KEY REFERENCES Pracownicy(ID_pracownik) NOT NULL,
+CREATE TABLE Zamowienie_maszyna (
+ID_zamowienie_maszyna INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+ID_pracownik INT FOREIGN KEY REFERENCES Pracownik(ID_pracownik) NOT NULL,
 Data DATE NOT NULL,
-ID_dostawcy INT FOREIGN KEY REFERENCES Dostawcy(ID_dostawcy) NOT NULL
+ID_dostawca INT FOREIGN KEY REFERENCES Dostawca(ID_dostawca) NOT NULL
 );
  
-CREATE TABLE Stan_realizacji_zamowienia_maszyny (
-ID_zamowienia_maszyny INT FOREIGN KEY REFERENCES Zamowienia_maszyn(ID_zamowienia_maszyny) NOT NULL,
-ID_status INT FOREIGN KEY REFERENCES Statusy(ID_status) NOT NULL,
+CREATE TABLE Stan_realizacji_zamowienie_maszyna (
+ID_zamowienie_maszyna INT FOREIGN KEY REFERENCES Zamowienie_maszyna(ID_zamowienie_maszyna) NOT NULL,
+ID_status_zamowienie INT FOREIGN KEY REFERENCES Status_zamowienie(ID_status_zamowienie) NOT NULL,
 Data SMALLDATETIME NOT NULL,
-ID_pracownik INT FOREIGN KEY REFERENCES Pracownicy(ID_pracownik) NOT NULL,
-CONSTRAINT PK_StanRZM PRIMARY KEY (ID_zamowienia_maszyny, ID_status)
+ID_pracownik INT FOREIGN KEY REFERENCES Pracownik(ID_pracownik) NOT NULL,
+CONSTRAINT PK_StanRZM PRIMARY KEY (ID_zamowienie_maszyna, ID_status)
 );
  
-CREATE TABLE Szczegoly_zamowienia_maszyny (
-ID_zamowienia_maszyny INT FOREIGN KEY REFERENCES Zamowienia_maszyn(ID_zamowienia_maszyny) NOT NULL,
-ID_maszyny INT FOREIGN KEY REFERENCES Maszyny(ID_maszyny) NOT NULL,
-ID_producent INT FOREIGN KEY REFERENCES Producenci(ID_producent) NOT NULL,
+CREATE TABLE Szczegoly_zamowienie_maszyna (
+ID_zamowienie_maszyna INT FOREIGN KEY REFERENCES Zamowienie_maszyna(ID_zamowienie_maszyna) NOT NULL,
+ID_maszyna INT FOREIGN KEY REFERENCES Maszyna(ID_maszyna) NOT NULL,
+ID_producent INT FOREIGN KEY REFERENCES Producent(ID_producent) NOT NULL,
 Cena DECIMAL(15,2) NOT NULL,
-CONSTRAINT PK_SzczegolyZM PRIMARY KEY (ID_zamowienia_maszyny, ID_maszyny, ID_producent)
+CONSTRAINT PK_SzczegolyZM PRIMARY KEY (ID_zamowienie_maszyna, ID_maszyna, ID_producent)
 );
  
-CREATE TABLE Zamowienia_narzedzia (
-ID_zamowienia_narzedzia int IDENTITY(1,1) NOT NULL PRIMARY KEY,
-ID_pracownik INT FOREIGN KEY REFERENCES Pracownicy(ID_pracownik) NOT NULL,
+CREATE TABLE Zamowienie_narzedzie (
+ID_zamowienie_narzedzie int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+ID_pracownik INT FOREIGN KEY REFERENCES Pracownik(ID_pracownik) NOT NULL,
 Data DATE NOT NULL,
-ID_dostawcy INT FOREIGN KEY REFERENCES Dostawcy(ID_dostawcy) NOT NULL
+ID_dostawca INT FOREIGN KEY REFERENCES Dostawca(ID_dostawca) NOT NULL
 );
  
-CREATE TABLE Stan_realizacji_zamowienia_narzedzia (
-ID_zamowienia_narzedzia INT FOREIGN KEY REFERENCES Zamowienia_narzedzia(ID_zamowienia_narzedzia) NOT NULL,
-ID_status INT FOREIGN KEY REFERENCES Statusy(ID_status) NOT NULL,
+CREATE TABLE Stan_realizacji_zamowienie_narzedzie (
+ID_zamowienie_narzedzie INT FOREIGN KEY REFERENCES Zamowienie_narzedzie(ID_zamowienie_narzedzie) NOT NULL,
+ID_status_zamowienie INT FOREIGN KEY REFERENCES Status_zamowienie(ID_status_zamowienie) NOT NULL,
 Data SMALLDATETIME NOT NULL,
-ID_pracownik INT FOREIGN KEY REFERENCES Pracownicy(ID_pracownik) NOT NULL,
-CONSTRAINT PK_StanRZN PRIMARY KEY (ID_zamowienia_narzedzia, ID_status)
+ID_pracownik INT FOREIGN KEY REFERENCES Pracownik(ID_pracownik) NOT NULL,
+CONSTRAINT PK_StanRZN PRIMARY KEY (ID_zamowienie_narzedzie, ID_status_zamowienie)
 );
  
-CREATE TABLE Szczegoly_zamowienia_narzedzia (
-ID_zamowienia_narzedzia int FOREIGN KEY REFERENCES Zamowienia_narzedzia(ID_zamowienia_narzedzia) NOT NULL,
-ID_narzedzia INT FOREIGN KEY REFERENCES Narzedzia(ID_narzedzia) NOT NULL,
-ID_producent INT FOREIGN KEY REFERENCES Producenci(ID_producent) NOT NULL,
+CREATE TABLE Szczegoly_zamowienie_narzedzie (
+ID_zamowienie_narzedzie int FOREIGN KEY REFERENCES Zamowienie_narzedzie(ID_zamowienie_narzedzie) NOT NULL,
+ID_narzedzie INT FOREIGN KEY REFERENCES Narzedzie(ID_narzedzie) NOT NULL,
+ID_producent INT FOREIGN KEY REFERENCES Producent(ID_producent) NOT NULL,
 Cena decimal(15,2) NOT NULL,
-CONSTRAINT PK_SzczegolyZN PRIMARY KEY (ID_zamowienia_narzedzia, ID_narzedzia, ID_producent)
+CONSTRAINT PK_SzczegolyZN PRIMARY KEY (ID_zamowienie_narzedzie, ID_narzedzie, ID_producent)
 );
  
 CREATE TABLE Sklad_maszyny (
 ID_sklad_maszyny INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 ID_rodzaj_maszyny INT FOREIGN KEY REFERENCES Rodzaj_maszyny(ID_rodzaj_maszyny) NOT NULL,
-ID_czesci INT FOREIGN KEY REFERENCES Czesci(ID_czesci) NOT NULL,
+ID_czesc INT FOREIGN KEY REFERENCES Czesc(ID_czesc) NOT NULL,
 Liczba_czesci INT NOT NULL
 );
 
-CREATE TABLE Obslugi(
-ID_obslugi INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+CREATE TABLE Obsluga(
+ID_obsluga INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 ID_pracownik INT FOREIGN KEY 
-	REFERENCES Pracownicy(ID_pracownik) NOT NULL,
+	REFERENCES Pracownik(ID_pracownik) NOT NULL,
 ID_rodzaj_obslugi INT FOREIGN KEY
 	REFERENCES Rodzaj_obslugi(ID_rodzaj_obslugi) NOT NULL,
 Data_od DATETIME NOT NULL,
@@ -522,111 +524,112 @@ Data_do DATETIME,
 Uwagi NVARCHAR(100) NOT NULL
 );
 
-CREATE TABLE Wymiana_czesci (
-ID_obslugi INT FOREIGN KEY REFERENCES Obslugi(ID_obslugi) NOT NULL,
+CREATE TABLE Wymiana_czesc (
+ID_obsluga INT FOREIGN KEY REFERENCES Obsluga(ID_obsluga) NOT NULL,
 ID_sklad_maszyny INT FOREIGN KEY REFERENCES Sklad_maszyny(ID_sklad_maszyny) NOT NULL,
-ID_czesci INT FOREIGN KEY REFERENCES Czesci(ID_czesci) NOT NULL,
-ID_narzedzia INT FOREIGN KEY REFERENCES Narzedzia(ID_narzedzia) NOT NULL,
-CONSTRAINT PK_Wymiana_czesci PRIMARY KEY (ID_obslugi, ID_sklad_maszyny, ID_czesci, ID_narzedzia)
+ID_czesc INT FOREIGN KEY REFERENCES Czesc(ID_czesc) NOT NULL,
+ID_narzedzie INT FOREIGN KEY REFERENCES Narzedzie(ID_narzedzie) NOT NULL,
+CONSTRAINT PK_Wymiana_czesci PRIMARY KEY (ID_obsluga, ID_sklad_maszyny, ID_czesc, ID_narzedzie)
 );
 
-CREATE TABLE Parametry_material (
-ID_material INT FOREIGN KEY REFERENCES Materialy(ID_material) NOT NULL,
+CREATE TABLE Parametr_material (
+ID_material INT FOREIGN KEY REFERENCES Material(ID_material) NOT NULL,
 ID_rodzaj_parametr INT FOREIGN KEY REFERENCES Rodzaj_parametr(ID_rodzaj_parametr) NOT NULL,
 Zakres_dol INT NOT NULL,
 Zakres_gora INT NOT NULL,
-CONSTRAINT PK_ParametryMat PRIMARY KEY (ID_material, ID_rodzaj_parametr)
+CONSTRAINT PK_ParametrMat PRIMARY KEY (ID_material, ID_rodzaj_parametr)
 );
 
-CREATE TABLE Parametry_narzedzia (
-ID_narzedzia INT FOREIGN KEY REFERENCES Narzedzia(ID_narzedzia) NOT NULL,
+CREATE TABLE Parametr_narzedzie (
+ID_narzedzie INT FOREIGN KEY REFERENCES Narzedzie(ID_narzedzie) NOT NULL,
 ID_rodzaj_parametr INT FOREIGN KEY REFERENCES Rodzaj_parametr(ID_rodzaj_parametr) NOT NULL,
 Zakres_dol INT NOT NULL,
 Zakres_gora INT NOT NULL,
-CONSTRAINT PK_ParametryNarz PRIMARY KEY (ID_narzedzia, ID_rodzaj_parametr)
+CONSTRAINT PK_ParametrNarz PRIMARY KEY (ID_narzedzie, ID_rodzaj_parametr)
 );
 
-CREATE TABLE Parametry_maszyny (
-ID_maszyny INT FOREIGN KEY REFERENCES Maszyny(ID_maszyny) NOT NULL,
+CREATE TABLE Parametr_maszyna (
+ID_maszyna INT FOREIGN KEY REFERENCES Maszyna(ID_maszyna) NOT NULL,
 ID_rodzaj_parametr int FOREIGN KEY REFERENCES Rodzaj_parametr(ID_rodzaj_parametr) NOT NULL,
 Zakres_dol INT NOT NULL,
 Zakres_gora INT NOT NULL,
-CONSTRAINT PK_ParametryMasz PRIMARY KEY (ID_maszyny, ID_rodzaj_parametr)
+CONSTRAINT PK_ParametrMasz PRIMARY KEY (ID_maszyna, ID_rodzaj_parametr)
 );
 
-CREATE TABLE Parametry_czesci (
-ID_czesci INT FOREIGN KEY REFERENCES Czesci(ID_czesci) NOT NULL,
+CREATE TABLE Parametr_czesc (
+ID_czesc INT FOREIGN KEY REFERENCES Czesc(ID_czesc) NOT NULL,
 ID_rodzaj_parametr int FOREIGN KEY REFERENCES Rodzaj_parametr(ID_rodzaj_parametr) NOT NULL,
 Zakres_dol INT NOT NULL,
 Zakres_gora INT NOT NULL,
-CONSTRAINT PK_ParametryCz PRIMARY KEY (ID_czesci, ID_rodzaj_parametr)
+CONSTRAINT PK_ParametrCz PRIMARY KEY (ID_czesc, ID_rodzaj_parametr)
 );
 
 CREATE TABLE Dane_adresowe_producent(
 ID_dane_adresowe_producent INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-ID_producent INT FOREIGN KEY REFERENCES Producenci(ID_producent) NOT NULL,
+ID_producent INT FOREIGN KEY REFERENCES Producent(ID_producent) NOT NULL,
 Miejscowosc INT NOT NULL,
 Ulica INT NOT NULL,
 Nr_budynku INT NOT NULL,
 Kod_pocztowy INT NOT NULL
 );
 
-CREATE TABLE Dane_adresowe_dostawcy(
-ID_dane_adresowe_dostawcy INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-ID_dostawcy INT FOREIGN KEY REFERENCES Dostawcy(ID_dostawcy) NOT NULL,
+CREATE TABLE Dane_adresowe_dostawca(
+ID_dane_adresowe_dostawca INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+ID_dostawca INT FOREIGN KEY REFERENCES Dostawca(ID_dostawca) NOT NULL,
 Miejscowosc INT NOT NULL,
 Ulica INT NOT NULL,
 Nr_budynku INT NOT NULL,
 Kod_pocztowy INT NOT NULL
 );
 
-CREATE TABLE Zamowienia_materialy (
-ID_zamowienia_materialy INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-ID_pracownik INT FOREIGN KEY REFERENCES Pracownicy(ID_pracownik) NOT NULL,
+CREATE TABLE Zamowienie_material (
+ID_zamowienie_material INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+ID_pracownik INT FOREIGN KEY REFERENCES Pracownik(ID_pracownik) NOT NULL,
 Data DATE NOT NULL,
-ID_dostawcy INT FOREIGN KEY REFERENCES Dostawcy(ID_dostawcy) NOT NULL
+ID_dostawca INT FOREIGN KEY REFERENCES Dostawca(ID_dostawca) NOT NULL
 );
  
-CREATE TABLE Stan_realizacji_zamowienia_materialy (
-ID_zamowienia_materialy INT FOREIGN KEY REFERENCES Zamowienia_materialy(ID_zamowienia_materialy) NOT NULL,
-ID_status INT FOREIGN KEY REFERENCES Statusy(ID_status) NOT NULL,
+CREATE TABLE Stan_realizacji_zamowienie_material (
+ID_zamowienie_material INT FOREIGN KEY REFERENCES Zamowienie_material(ID_zamowienie_material) NOT NULL,
+ID_status_zamowienie INT FOREIGN KEY REFERENCES Status_zamowienie(ID_status_zamowienie) NOT NULL,
 Data DATE NOT NULL,
-ID_pracownik INT FOREIGN KEY REFERENCES Pracownicy(ID_pracownik) NOT NULL,
-CONSTRAINT PK_StanRZMAT PRIMARY KEY (ID_zamowienia_materialy, ID_status, ID_pracownik)
+ID_pracownik INT FOREIGN KEY REFERENCES Pracownik(ID_pracownik) NOT NULL,
+CONSTRAINT PK_StanRZMAT PRIMARY KEY (ID_zamowienie_material, ID_status_zamowienie, ID_pracownik)
 );
  
-CREATE TABLE Szczegoly_zamowienia_materialy (
-ID_zamowienia_materialy INT FOREIGN KEY REFERENCES Zamowienia_materialy(ID_zamowienia_materialy) NOT NULL,
-ID_material INT FOREIGN KEY REFERENCES Materialy(ID_material) NOT NULL,
-ID_producent INT FOREIGN KEY REFERENCES Producenci(ID_producent) NOT NULL,
+CREATE TABLE Szczegoly_zamowienie_material (
+ID_zamowienie_material INT FOREIGN KEY REFERENCES Zamowienie_material(ID_zamowienie_material) NOT NULL,
+ID_material INT FOREIGN KEY REFERENCES Material(ID_material) NOT NULL,
+ID_producent INT FOREIGN KEY REFERENCES Producent(ID_producent) NOT NULL,
 Waga_kg INT NOT NULL,
 Cena DECIMAL(15,2) NOT NULL,
-CONSTRAINT PK_SzczegolyZMAT PRIMARY KEY (ID_zamowienia_materialy, ID_material, ID_producent)
+CONSTRAINT PK_SzczegolyZMAT PRIMARY KEY (ID_zamowienie_material, ID_material, ID_producent)
 );
 
-CREATE TABLE Zamowienia_czesci (
-ID_zamowienia_czesci int IDENTITY(1,1) NOT NULL PRIMARY KEY,
-ID_pracownik int FOREIGN KEY REFERENCES Pracownicy(ID_pracownik) NOT NULL,
+CREATE TABLE Zamowienie_czesc (
+ID_zamowienie_czesc int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+ID_pracownik int FOREIGN KEY REFERENCES Pracownik(ID_pracownik) NOT NULL,
 Data DATE NOT NULL,
-ID_dostawcy INT FOREIGN KEY REFERENCES Dostawcy(ID_dostawcy) NOT NULL
+ID_dostawca INT FOREIGN KEY REFERENCES Dostawca(ID_dostawca) NOT NULL
 );
 
-CREATE TABLE Stan_realizacji_zamowienia_czesci (
-ID_zamowienia_czesci INT FOREIGN KEY REFERENCES Zamowienia_czesci(ID_zamowienia_czesci) NOT NULL,
-ID_status INT FOREIGN KEY REFERENCES Statusy(ID_status) NOT NULL,
+CREATE TABLE Stan_realizacji_zamowienie_czesc (
+ID_zamowienie_czesc INT FOREIGN KEY REFERENCES Zamowienie_czesc(ID_zamowienie_czesc) NOT NULL,
+ID_status_zamowienie INT FOREIGN KEY REFERENCES Status_zamowienie(ID_status_zamowienie) NOT NULL,
 Data DATE NOT NULL,
-ID_pracownik INT FOREIGN KEY REFERENCES Pracownicy(ID_pracownik) NOT NULL,
-CONSTRAINT PK_StanRZCZ PRIMARY KEY (ID_zamowienia_czesci, ID_status, ID_pracownik)
+ID_pracownik INT FOREIGN KEY REFERENCES Pracownik(ID_pracownik) NOT NULL,
+CONSTRAINT PK_StanRZCZ PRIMARY KEY (ID_zamowienie_czesc, ID_status_zamowienie, ID_pracownik)
 );
 
-CREATE TABLE Szczegoly_zamowienia_czesci (
-ID_zamowienia_czesci INT FOREIGN KEY REFERENCES Zamowienia_czesci(ID_zamowienia_czesci) NOT NULL,
-ID_czesci INT FOREIGN KEY REFERENCES Czesci(ID_czesci) NOT NULL,
-ID_producent INT FOREIGN KEY REFERENCES Producenci(ID_producent) NOT NULL,
+CREATE TABLE Szczegoly_zamowienie_czesc (
+ID_zamowienie_czesc INT FOREIGN KEY REFERENCES Zamowienie_czesc(ID_zamowienie_czesc) NOT NULL,
+ID_czesc INT FOREIGN KEY REFERENCES Czesc(ID_czesc) NOT NULL,
+ID_producent INT FOREIGN KEY REFERENCES Producent(ID_producent) NOT NULL,
 Ilosc INT NOT NULL,
 Cena DECIMAL(15,2) NOT NULL,
-CONSTRAINT PK_SzczegolyZCZ PRIMARY KEY (ID_zamowienia_czesci, ID_czesci, ID_producent)
+CONSTRAINT PK_SzczegolyZCZ PRIMARY KEY (ID_zamowienie_czesc, ID_czesc, ID_producent)
 );
+
 CREATE TABLE PT_Produkt(
 ID_produkt INT PRIMARY KEY NOT NULL,
 ID_proces_technologiczny INT NOT NULL,
