@@ -1,6 +1,6 @@
 USE MASTER
 GO
-DROP DATABASE KWZP
+--DROP DATABASE KWZP
 GO
 CREATE DATABASE KWZP
 GO
@@ -66,12 +66,11 @@ Procedura NVARCHAR(250) NOT NULL
 CREATE TABLE Rezultat_kontrola(
 ID_rezultat INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 Wynik NVARCHAR(50) NOT NULL,
-Uwagi NVARCHAR(250)
 );
 
 CREATE TABLE Produkt(
 ID_produkt INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-Nazwa_produktu NVARCHAR(50) NOT NULL
+Nazwa_produkt NVARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Wytworzony_produkt(
@@ -92,24 +91,30 @@ ID_rodzaj_kontrola INT FOREIGN KEY
 Data_od DATETIME NOT NULL,
 Data_do DATETIME, 
 ID_rezultat INT FOREIGN KEY 
-	REFERENCES Rezultat_kontrola(ID_rezultat) NOT NULL
+	REFERENCES Rezultat_kontrola(ID_rezultat) NOT NULL,
+Uwagi NVARCHAR(250)
+);
+
+CREATE TABLE Jednostka (
+	ID_jednostka INT IDENTITY(1,1) NOT NULL PRIMARY KEY ,
+	Nazwa NVARCHAR(20) NOT NULL,
+	Skrot NVARCHAR(5) NOT NULL
+);
+
+CREATE TABLE Rodzaj_parametr(
+	ID_rodzaj_parametr INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	Nazwa NVARCHAR(50) NOT NULL,
+	ID_jednostka INT FOREIGN KEY REFERENCES Jednostka(ID_jednostka) NOT NULL
 );
 
 CREATE TABLE Parametr_produkt(
-ID_parametr INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-Nazwa NVARCHAR(50) NOT NULL,
-Wartosc_gorna INT,
-Nominal INT NOT NULL,
-Wartosc_dolna INT
+ID_produkt INT FOREIGN KEY REFERENCES Produkt(ID_produkt) NOT NULL,
+ID_rodzaj_parametr INT FOREIGN KEY REFERENCES Rodzaj_parametr(ID_rodzaj_parametr) NOT NULL,
+Zakres_dol INT NOT NULL,
+Zakres_gora INT NOT NULL,
+	CONSTRAINT PK_ParamPro PRIMARY KEY (ID_produkt, ID_rodzaj_parametr)
 );
 
-CREATE TABLE Szczegoly_produkt(
-ID_szczegoly_produkt INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-ID_produkt INT FOREIGN KEY
-	REFERENCES Produkt(ID_produkt) NOT NULL,
-ID_parametr INT FOREIGN KEY
-	REFERENCES Parametr_produkt(ID_parametr) NOT NULL
-);
 
 CREATE TABLE Slownik_polprodukt(
 ID_polprodukt INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
@@ -137,11 +142,11 @@ Liczba INT NOT NULL
 );
 
 CREATE TABLE Parametr_polprodukt(
-ID_parametr INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-Nazwa NVARCHAR(50) NOT NULL,
-Wartosc_gorna INT,
-Nominal INT NOT NULL,
-Wartosc_dolna INT
+ID_polprodukt INT FOREIGN KEY REFERENCES Slownik_polprodukt(ID_polprodukt) NOT NULL,
+ID_rodzaj_parametr INT FOREIGN KEY REFERENCES Rodzaj_parametr(ID_rodzaj_parametr) NOT NULL,
+Zakres_dol INT,
+Zakres_gora INT,
+	CONSTRAINT PK_ParamPolPro PRIMARY KEY (ID_polprodukt, ID_rodzaj_parametr)
 );
 
 CREATE TABLE Sklad_produkt(
@@ -250,8 +255,8 @@ CREATE TABLE Sklad_stanowisko_produkcyjne_maszyna(
 ID_sklad_stanowisko_produkcyjne_maszyna INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 ID_stanowisko_produkcyjne INT FOREIGN KEY
 	REFERENCES Stanowisko_produkcyjne(ID_stanowisko_produkcyjne) NOT NULL,
-ID_maszyna INT FOREIGN KEY
-	REFERENCES Maszyna(ID_maszyna) NOT NULL,
+ID_maszyna_nr INT FOREIGN KEY
+	REFERENCES Maszyna_nr_seryjny(ID_maszyna_nr) NOT NULL,
 )
 
 CREATE TABLE Sklad_stanowisko_produkcyjne(
@@ -262,15 +267,15 @@ ID_narzedzie INT FOREIGN KEY
 	REFERENCES Narzedzie(ID_narzedzie) NOT NULL,
 )
 
-CREATE TABLE Rodzaj_czesci (
-	ID_rodzaj_czesci int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+CREATE TABLE Rodzaj_czesc (
+	ID_rodzaj_czesc int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	Nazwa nvarchar(20) NOT NULL
 );
 
 CREATE TABLE Czesc (
 	ID_czesc int IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	Nazwa_czesci nvarchar(25) NOT NULL,
-	ID_rodzaj_czesci int FOREIGN KEY REFERENCES Rodzaj_czesci(ID_rodzaj_czesci) NOT NULL
+	Nazwa_czesc nvarchar(25) NOT NULL,
+	ID_rodzaj_czesc int FOREIGN KEY REFERENCES Rodzaj_czesc(ID_rodzaj_czesc) NOT NULL
 );
 
 CREATE TABLE Etat(
@@ -464,37 +469,28 @@ CREATE TABLE Zwrot
 	Utylizacja BIT NOT NULL,
 	);
 
-CREATE TABLE Jednostka (
-	ID_jednostka INT IDENTITY(1,1) NOT NULL PRIMARY KEY ,
-	Nazwa NVARCHAR(20) NOT NULL,
-	Skrot NVARCHAR(5) NOT NULL
-);
+
 
 CREATE TABLE Rodzaj_obslugi(
 	ID_rodzaj_obslugi INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	Nazwa NVARCHAR(50) NOT NULL
 );
  
-CREATE TABLE Rodzaj_parametr(
-	ID_rodzaj_parametr INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	Nazwa NVARCHAR(50) NOT NULL,
-	ID_jednostka INT FOREIGN KEY REFERENCES Jednostka(ID_jednostka) NOT NULL
-);
 
 CREATE TABLE Dostawca(
 	ID_dostawca INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	Nazwa_dostawcy NVARCHAR(25) NOT NULL
+	Nazwa_dostawca NVARCHAR(25) NOT NULL
 );
  
 CREATE TABLE Producent (
 	ID_producent INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	Nazwa_producenta NVARCHAR(25) NOT NULL,
+	Nazwa_producenta NVARCHAR(50) NOT NULL,
 	Opis NVARCHAR(50)
 );
 
 CREATE TABLE Status_zamowienie (
 	ID_status_zamowienie INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	Status NVARCHAR(20) NOT NULL
+	Nazwa_status NVARCHAR(20) NOT NULL
 );
 
 CREATE TABLE Zamowienie_maszyna (
@@ -617,19 +613,19 @@ CREATE TABLE Parametr_czesc (
 CREATE TABLE Dane_adresowe_producent(
 	ID_dane_adresowe_producent INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	ID_producent INT FOREIGN KEY REFERENCES Producent(ID_producent) NOT NULL,
-	Miejscowosc INT NOT NULL,
-	Ulica INT NOT NULL,
+	Miejscowosc NVARCHAR(50) NOT NULL,
+	Ulica NVARCHAR(50) NOT NULL,
 	Nr_budynku INT NOT NULL,
-	Kod_pocztowy INT NOT NULL
+	Kod_pocztowy NVARCHAR(10)
 );
 
 CREATE TABLE Dane_adresowe_dostawca(
 	ID_dane_adresowe_dostawca INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	ID_dostawca INT FOREIGN KEY REFERENCES Dostawca(ID_dostawca) NOT NULL,
-	Miejscowosc INT NOT NULL,
-	Ulica INT NOT NULL,
+	Miejscowosc NVARCHAR(50) NOT NULL,
+	Ulica NVARCHAR(50) NOT NULL,
 	Nr_budynku INT NOT NULL,
-	Kod_pocztowy INT NOT NULL
+	Kod_pocztowy NVARCHAR(10)
 );
 
 CREATE TABLE Zamowienie_material (

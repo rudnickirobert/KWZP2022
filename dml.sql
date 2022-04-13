@@ -1,6 +1,5 @@
-USE KWZP
+﻿USE KWZP
 GO
-
 
 INSERT INTO Czynnosc_produkcyjna (Nazwa)
 VALUES
@@ -11,7 +10,6 @@ VALUES
 ('Klejenie'),
 ('Skladanie');
 
-
 INSERT INTO Rodzaj_kontrola (Rodzaj_kontrola, Procedura)
 VALUES
 ('Wymiarowa', 'Dokonac pomiaru najwazniejszych wymiarow'),
@@ -20,14 +18,11 @@ VALUES
 ('Badanie chropowatosci', 'Okreslic chropowatosc uzyskanej powierzchni'),
 ('Wytrzymalosciowa', 'Poddac produkt obciazeniu probnemu');
 
-
-
 INSERT INTO Rezultat_kontrola (Wynik)
 VALUES
 ('Pozytywny'),
 ('Negatywny - do porawy'),
 ('Do utylizacji');
-
 
 INSERT INTO Slownik_stanowisko (Nazwa_stanowiska)
 VALUES
@@ -37,6 +32,14 @@ VALUES
 ('Stanowisko do drukowania SLA'),
 ('Stanowisko do szlifowania'),
 ('Stanowisko do laczenia polproduktow');
+
+INSERT INTO Produkt (Nazwa_produkt)
+VALUES
+('Litofanowy klosz do lampy'),
+('Przekladnia zebata'),
+('Tapicerka samochodowa'),
+('Obudowa PC'),
+('Kostka rubika');
 
 INSERT INTO Narzedzie (Nazwa)
 VALUES
@@ -54,7 +57,7 @@ VALUES
 ('PETG'),
 ('Proszek stali 316L'),
 ('Nylon PA12'),
-('�ywica termoutwardzalna');
+('¯ywica termoutwardzalna');
 
 INSERT INTO Rodzaj_maszyna (Nazwa, Opis)
 VALUES
@@ -65,7 +68,7 @@ VALUES
 ('Drukarka laserowa','Laserowa'),
 ('PC','Komputer stacjonarny');
 
-INSERT INTO Rodzaj_czesci (Nazwa)
+INSERT INTO Rodzaj_czesc (Nazwa)
 VALUES
 ('Ekstruder'),
 ('Rama'),
@@ -82,7 +85,7 @@ VALUES
 ('Kalibracja'),
 ('Smarowanie');
 
-INSERT INTO Status_zamowienie(Status)
+INSERT INTO Status_zamowienie(Nazwa_status)
 VALUES
 ('Zamowiono'),
 ('W trakcie realizacji'),
@@ -115,4 +118,66 @@ VALUES
 (2,'Filament Czerwony PLA Podraskov'),
 (2,'Filament Niebieski PLA POODZIAN');
 
+INSERT INTO Czesc (Nazwa_czesc, ID_rodzaj_czesc)
+VALUES
+('Ekstruder Bondtech',1),
+('Kolo zebate phi60',5),
+('Rama i3 MK3S+',2),
+('Glowica i3 MK3S+',4),
+('Stol i3 MK3S+',3);
 
+INSERT INTO Maszyna (Nazwa, ID_rodzaj_maszyna, Koszt_RBG)
+VALUES
+('PRUSA i3 MK3S+',1,200),
+('Shining 3D EinScan SE',4,150),
+('Sinterit Lisa 2 Pro',3,500),
+('Anycubic Photon Mono X',2,250),
+('Creality Ender-5 Pro',1,200);
+
+INSERT INTO Nr_seryjny (Nr_seryjny)
+VALUES
+('000-001'),
+('000-002'),
+('000-003'),
+('000-004'),
+('000-005');
+
+INSERT INTO Maszyna_nr_seryjny (ID_maszyna, ID_nr_seryjny)
+VALUES
+(1,1),
+(2,2),
+(3,3),
+(4,4),
+(5,5);
+
+INSERT INTO Dostawca (Nazwa_dostawca)
+VALUES
+('Marinex'),
+('Druczex'),
+('Polex'),
+('Brexus'),
+('Blablin');
+
+INSERT INTO Dane_adresowe_dostawca (ID_dostawca, Miejscowosc, Ulica, Nr_budynku, Kod_pocztowy)
+VALUES
+(1,'Warszawa','Dzwigowa',12,01-376),
+(2,'Warszawa','Swietlikow',5,01-358),
+(3,'Warszawa','Gorna',3,04-413),
+(4,'Skierniewice','Dluga',4,96-100),
+(5,'Nadarzyn','Blonska',1,05-830);
+
+INSERT INTO Producent (Nazwa_producenta, Opis)
+VALUES
+('PRUSA',NULL),
+('Shining3D',NULL),
+('Sinterit',NULL),
+('Anycubic',NULL),
+('CREALITY ',NULL);
+
+INSERT INTO Dane_adresowe_producent (ID_producent, Miejscowosc, Ulica, Nr_budynku, Kod_pocztowy)
+VALUES
+(1,'Praga','Partyzanska',7,NULL),
+(2,'Stuttgart','Breitwiesenstrasse',28,70565),
+(3,'Krakow','Nad Drwina',10,30-741),
+(4,'Hongkong','Chatham Road South',45,NULL),
+(5,'Shenzhen','Meilong Blvd.', 18,518131);
