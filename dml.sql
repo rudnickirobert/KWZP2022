@@ -41,6 +41,18 @@ VALUES
 ('Obudowa PC'),
 ('Kostka rubika');
 
+INSERT INTO Wytworzony_produkt (ID_produkt, Data_ukonczenia)
+VALUES
+(1, '2022-03-22'),
+(2, '2022-03-31'),
+(2, '2022-04-08'),
+(3, '2022-04-01'),
+(4, '2022-03-29'),
+(4, '2022-03-15'),
+(5, '2022-04-04'),
+(5, '2022-03-18'),
+(5, '2022-04-11');
+
 INSERT INTO Slownik_polprodukt (Nazwa)
 VALUES
 ('Obudowa PC'),
@@ -146,6 +158,17 @@ VALUES
 (1,2,100,99),
 (3,2,49,51);
 
+INSERT INTO Parametr_polprodukt (ID_polprodukt, ID_rodzaj_parametr, Zakres_dol, Zakres_gora)
+VALUES
+(1,3,45,50),
+(2,1,1,4),
+(3,2,99,100),
+(4,5,30,35),
+(5,2,39,45),
+(5,4,30,35),
+(1,4,80,90),
+(3,3,120,121);
+
 INSERT INTO Material (ID_rodzaj_material, Nazwa_material)
 VALUES
 (4,'Proszek S316L DRUTEX'),
@@ -153,6 +176,17 @@ VALUES
 (3,'Filament Zolty PETG Stakchovsky'),
 (2,'Filament Czerwony PLA Podraskov'),
 (2,'Filament Niebieski PLA POODZIAN');
+
+INSERT INTO Sklad_polprodukt (ID_polprodukt, ID_material, Liczba)
+VALUES
+(1,5,2),
+(2,2,1),
+(3,3,4),
+(2,4,1),
+(3,2,1),
+(4,1,3),
+(4,3,2),
+(5,5,4);
 
 INSERT INTO Czesc (Nazwa_czesc, ID_rodzaj_czesc)
 VALUES
@@ -185,6 +219,30 @@ VALUES
 (3,3),
 (4,4),
 (5,5);
+
+INSERT INTO Stanowisko_produkcyjne (ID_nazwa_stanowiska)
+VALUES
+(2),
+(3),
+(1),
+(4),
+(5);
+
+INSERT INTO Sklad_stanowisko_produkcyjne_maszyna (ID_stanowisko_produkcyjne, ID_maszyna_nr)
+VALUES
+(2,1),
+(3,2),
+(1,5),
+(4,3),
+(5,4);
+
+INSERT INTO Sklad_stanowisko_produkcyjne (ID_stanowisko_produkcyjne, ID_narzedzie)
+VALUES
+(3,1),
+(3,3),
+(2,5),
+(4,2),
+(5,2);
 
 INSERT INTO Dostawca (Nazwa_dostawca)
 VALUES
