@@ -1,6 +1,6 @@
 USE MASTER
 GO
---DROP DATABASE KWZP
+DROP DATABASE KWZP
 GO
 CREATE DATABASE KWZP
 GO
@@ -112,7 +112,7 @@ ID_produkt INT FOREIGN KEY REFERENCES Produkt(ID_produkt) NOT NULL,
 ID_rodzaj_parametr INT FOREIGN KEY REFERENCES Rodzaj_parametr(ID_rodzaj_parametr) NOT NULL,
 Zakres_dol DECIMAL(15,2) NOT NULL,
 Zakres_gora DECIMAL(15,2) NOT NULL,
-	CONSTRAINT PK_ParamPro PRIMARY KEY (ID_produkt, ID_rodzaj_parametr)
+CONSTRAINT PK_ParamPro PRIMARY KEY (ID_produkt, ID_rodzaj_parametr)
 );
 
 

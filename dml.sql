@@ -139,12 +139,12 @@ INSERT INTO Parametr_produkt(ID_produkt, ID_rodzaj_parametr, Zakres_dol, Zakres_
 VALUES
 (1,4,149,151),
 (2,2,299,301),
-(2,3,99,102),
-(2,5,30,35),
-(3,1,3,4),
-(3,5,1,3),
-(4,2,100,99),
-(5,2,49,51);
+(3,3,99,102),
+(4,5,30,35),
+(5,1,3,4),
+(5,5,1,3),
+(1,2,100,99),
+(3,2,49,51);
 
 INSERT INTO Material (ID_rodzaj_material, Nazwa_material)
 VALUES
@@ -225,3 +225,138 @@ VALUES
 (3,4,1.75,1.75),
 (4,4,2.25,2.25),
 (5,4,1.75,1.75);
+
+INSERT INTO Klient (Nazwisko, Imie, NIP)
+	VALUES 
+	('Marczak', 'Marek', NULL),
+	('Adamiak', 'Adam', NULL),
+	('Nowak', 'Karol', NULL),
+	('Kowalski', 'Jan', NULL),
+	('Lewandowski', 'Robert', NULL);
+
+INSERT INTO Email_klient (ID_klient, Email, Data_od, Data_do)
+	VALUES
+	(1, 'marczak.marek@drukarczyk.com', '2022-01-01', NULL),
+	(2, 'adamiak.adam@drukarczyk.com', '2022-01-01', NULL),
+	(3, 'nowak.karol@drukarczyk.com', '2022-01-01', NULL),
+	(4, 'kowalski.jan@drukarczyk.com', '2022-01-01', NULL),
+	(5, 'lewandowski.robert@drukarczyk.com', '2022-01-01', NULL);
+
+INSERT INTO Nr_telefon_klient (ID_klient, Numer, Data_od, Data_do)
+	VALUES
+	(1, 508553123, '2022-01-01', NULL),
+	(2, 508553456, '2022-01-01', NULL),
+	(3, 508553789, '2022-01-01', NULL),
+	(4, 508553987, '2022-01-01', NULL),
+	(5, 508553654, '2022-01-01', NULL);
+
+INSERT INTO Dane_adresowe_klient (ID_klient, Miejscowosc, Ulica, Nr_budynek, Nr_lokal, Kod_pocztowy)
+	VALUES
+	(1, 'Warszawa', 'Warszawska', 1, NULL, '12-345'),
+	(2, 'Bydgoszcz', 'Bydgoska', 1, 2, '54-321'),
+	(3, 'Grójec', NULL, 1, NULL, '98-765'),
+	(4, 'Żyrardów', '3 Maja', 3, 5, '32-654'),
+	(5, 'Warszawa', 'Warszawska', 53, 24, '12-345');
+
+INSERT INTO Typ_zamowienie (Typ_zamowienie)
+	VALUES
+	('Indywidualne'),
+	('Standardowe');
+
+--INSERT INTO Zamowienie (ID_klient, ID_pracownik, Data_zamowienie, ID_typ_zamowienie)
+--	VALUES
+--	(1, 1, '2022-04-04', 2),
+--	(2, 2, '2022-04-05', 2),
+--	(3, 2, '2022-04-06', 1),
+--	(4, 3, '2022-04-07', 1),
+--	(5, 4, '2022-04-08', 2);
+
+INSERT INTO Gwarancja (Okres_gwarancja, Opis_gwarancja)
+	VALUES 
+	(2, 'GWARANCJA NA USZKODZENIA MECHANICZNE NA OKRES 2 LAT'),
+	(1, 'GWARANCJA NA USZKODZENIA MECHANICZNE NA OKRES 1 ROKU'),
+	(3, 'GWARANCJA NA USZKODZENIA MECHANICZNE NA OKRES 3 LAT'),
+	(4, 'GWARANCJA NA USZKODZENIA MECHANICZNE NA OKRES 4 LAT'),
+	(5, 'GWARANCJA NA USZKODZENIA MECHANICZNE NA OKRES 5 LAT');
+
+INSERT INTO Status_oferta (Nazwa_status_oferta)
+	VALUES
+	('Zaakceptowana'),
+	('Odrzucona'),
+	('Do rozpatrzenia'),
+	('W trakcie realizacji');
+
+--INSERT INTO Oferta_handlowa (ID_zamowienie, ID_pracownik, ID_produkt, Termin_realizacja, ID_gwarancja, ID_status_oferta, Ilosc)
+--	VALUES 
+--	(1, 1, 1, '2022-04-28', 1, 1, 50),
+--	(2, 3, 2, '2022-04-29', 1, 1, 40),
+--	(3, 2, 3, '2022-04-30', 1, 1, 30),
+--	(4, 4, 4, '2022-04-27', 1, 1, 20),
+--	(5, 5, 5, '2022-05-04', 1, 1, 10),
+--	(1, 1, 1, '2022-05-30', 1, 2, 51);
+
+INSERT INTO Podatek (Procent)
+	VALUES
+	(0),
+	(8),
+	(23),
+	(11),
+	(28);
+
+INSERT INTO Forma_platnosc (Forma_platnosc)
+	VALUES
+	('Przelew'),
+	('Karta płatnicza'),
+	('Gotówka'),
+	('BLIK'),
+	('Przelew pocztowy');
+
+--INSERT INTO Umowa_sprzedaz (ID_oferta_handlowa)
+--	VALUES
+--	(1),
+--	(2),
+--	(3),
+--	(4),
+--	(5);
+
+--INSERT INTO Sprzedaz (Nr_sprzadaz, Data_sprzedaz_poczatek, Data_sprzedaz_koniec, Termin_zaplata, ID_forma_platnosc, ID_umowa_sprzedaz, Ilosc)
+--	VALUES
+--	(1, '2022-03-01', '2022-03-15', '2022-03-22', 1, 1, 50),
+--	(2, '2022-03-02', '2022-03-16', '2022-03-23', 2, 2, 40),
+--	(3, '2022-03-03', '2022-03-17', '2022-03-24', 3, 3, 31),
+--	(4, '2022-03-03', '2022-03-17', '2022-03-24', 2, 4, 20),
+--	(5, '2022-03-04', '2022-03-18', '2022-03-25', 1, 5, 15),
+--	(6, '2022-03-01', '2022-03-15', '2022-03-22', 1, 1, 50),
+--	(7, '2022-03-02', '2022-03-16', '2022-03-23', 2, 2, 40),
+--	(8, '2022-03-03', '2022-03-17', '2022-03-24', 3, 3, 31),
+--	(9, '2022-03-03', '2022-03-17', '2022-03-24', 2, 4, 20),
+--	(10, '2022-03-04', '2022-03-18', '2022-03-25', 1, 5, 15),
+--	(11, '2022-03-03', '2022-03-17', '2022-03-24', 2, 4, 20),
+--	(12, '2022-03-04', '2022-03-18', '2022-03-25', 1, 5, 15);
+
+
+--INSERT INTO Reklamacja (ID_pracownik, ID_sprzedaz, Data_reklamacja, Opis_reklamacja, Akceptacja)
+--	VALUES
+--	(1, 6, '2022-04-01', 'Uszkodzenie mechaniczne', 1),
+--	(3, 7, '2022-04-02', 'Rozklejenie produtku', 1),
+--	(2, 8, '2022-04-03', 'Uszkodzenie mechaniczne', 2),
+--	(5, 9, '2022-04-04', 'Pękniecie materiału', 1),
+--	(4, 10, '2022-04-05', 'Uszkodzenie mechaniczne', 2),
+--	(5, 11, '2022-04-01', 'Uszkodzenie mechaniczne', 1),
+--	(4, 12, '2022-04-01', 'Uszkodzenie mechaniczne', 1);
+
+--INSERT INTO Zwrot (ID_reklamacja, ID_produkt, Utylizacja)
+--	VALUES
+--	(1,1,1),
+--	(2,2,1),
+--	(4,3,0),
+--	(6,4,0),
+--	(7,5,1);
+
+--INSERT INTO Szczegoly_sprzedaz (ID_sprzedaz, Kwota_sprzedaz, ID_podatek)
+--	VALUES
+--	(1, 50000.00, 1),
+--	(2, 25000.00, 2),
+--	(3, 3.50, 1),
+--	(4, 785.98, 3),
+--	(5, 9870.99, 4);
