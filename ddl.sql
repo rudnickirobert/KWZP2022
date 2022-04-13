@@ -124,7 +124,7 @@ CREATE TABLE Rodzaj_material(
 CREATE TABLE Material (
 	ID_material int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	ID_rodzaj_material INT FOREIGN KEY REFERENCES Rodzaj_material(ID_rodzaj_material) NOT NULL,
-	Nazwa_material nvarchar(25) NOT NULL
+	Nazwa_material nvarchar(100) NOT NULL
 );
 
 CREATE TABLE Sklad_polprodukt(
@@ -174,7 +174,7 @@ Nazwa_stanowiska NVARCHAR(50) NOT NULL
 
 CREATE TABLE Nr_seryjny(
 	ID_nr_seryjny INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-	Nr_seryjny int NOT NULL
+	Nr_seryjny nvarchar(30) NOT NULL
 );
 
 CREATE TABLE Rodzaj_maszyna (
