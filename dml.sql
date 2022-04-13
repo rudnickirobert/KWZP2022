@@ -1,4 +1,4 @@
-﻿USE KWZP
+USE KWZP
 GO
 
 INSERT INTO Czynnosc_produkcyjna (Nazwa)
@@ -360,3 +360,12 @@ INSERT INTO Forma_platnosc (Forma_platnosc)
 --	(3, 3.50, 1),
 --	(4, 785.98, 3),
 --	(5, 9870.99, 4);
+
+INSERT INTO Parametr_czesc (ID_czesc, ID_rodzaj_parametr, Zakres_dol, Zakres_gora)
+VALUES
+(1,5,7,7),
+(2,4,59,61),
+(3,2,74,76),
+(4,4,10,10),
+(5,3,60,60);
+
