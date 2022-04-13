@@ -226,3 +226,10 @@ VALUES
 (4,4,2.25,2.25),
 (5,4,1.75,1.75);
 
+INSERT INTO Parametr_czesc (ID_czesc, ID_rodzaj_parametr, Zakres_dol, Zakres_gora)
+VALUES
+(1,5,7,7),
+(2,4,59,61),
+(3,2,74,76),
+(4,4,10,10),
+(5,3,60,60);
