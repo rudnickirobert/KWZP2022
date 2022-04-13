@@ -130,6 +130,7 @@ CREATE TABLE Material (
 	ID_material int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	ID_rodzaj_material INT FOREIGN KEY REFERENCES Rodzaj_material(ID_rodzaj_material) NOT NULL,
 	Nazwa_material nvarchar(100) NOT NULL
+
 );
 
 CREATE TABLE Sklad_polprodukt(
@@ -180,6 +181,7 @@ Nazwa_stanowiska NVARCHAR(50) NOT NULL
 CREATE TABLE Nr_seryjny(
 	ID_nr_seryjny INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	Nr_seryjny nvarchar(30) NOT NULL
+
 );
 
 CREATE TABLE Rodzaj_maszyna (
@@ -390,6 +392,7 @@ CREATE TABLE Zamowienie
 	ID_pracownik INT FOREIGN KEY REFERENCES Pracownik(ID_pracownik) NOT NULL,
 	Data_zamowienie DATE NOT NULL,
 	ID_typ_zamowienie INT FOREIGN KEY REFERENCES Typ_zamowienie(ID_typ_zamowienie) NOT NULL 
+
 	);
 
 CREATE TABLE Status_oferta
@@ -429,11 +432,13 @@ CREATE TABLE Podatek
 	Procent INT NOT NULL,
 	);
 
+
 CREATE TABLE Umowa_sprzedaz
 	(
 	ID_umowa_sprzedaz INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	ID_oferta_handlowa INT FOREIGN KEY REFERENCES Oferta_handlowa(ID_oferta_handlowa) NOT NULL,
 	)
+
 
 CREATE TABLE Sprzedaz
 	(
@@ -474,7 +479,6 @@ CREATE TABLE Zwrot
 	);
 
 
-
 CREATE TABLE Rodzaj_obslugi(
 	ID_rodzaj_obslugi INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	Nazwa NVARCHAR(50) NOT NULL
@@ -484,6 +488,7 @@ CREATE TABLE Rodzaj_obslugi(
 CREATE TABLE Dostawca(
 	ID_dostawca INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	Nazwa_dostawca NVARCHAR(25) NOT NULL
+
 );
  
 CREATE TABLE Producent (
@@ -495,6 +500,7 @@ CREATE TABLE Producent (
 CREATE TABLE Status_zamowienie (
 	ID_status_zamowienie INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	Nazwa_status NVARCHAR(20) NOT NULL
+
 );
 
 CREATE TABLE Zamowienie_maszyna (
@@ -566,6 +572,7 @@ CREATE TABLE Obsluga_pracownik(
 	ID_obsluga INT FOREIGN KEY REFERENCES Obsluga(ID_Obsluga) NOT NULL,
 	ID_pracownik INT FOREIGN KEY REFERENCES Pracownik(ID_Pracownik) NOT NULL,
 	CONSTRAINT PK_ObsPrac PRIMARY KEY (ID_obsluga, ID_pracownik)
+
 );
 
 CREATE TABLE Wymiana_czesc(
@@ -609,6 +616,7 @@ CREATE TABLE Parametr_maszyna (
 CREATE TABLE Parametr_czesc (
 	ID_czesc INT FOREIGN KEY REFERENCES Czesc(ID_czesc) NOT NULL,
 	ID_rodzaj_parametr int FOREIGN KEY REFERENCES Rodzaj_parametr(ID_rodzaj_parametr) NOT NULL,
+
 	Zakres_dol DECIMAL(15,2) NOT NULL,
 	Zakres_gora DECIMAL(15,2) NOT NULL,
 	CONSTRAINT PK_ParametrCz PRIMARY KEY (ID_czesc, ID_rodzaj_parametr)
