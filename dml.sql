@@ -427,3 +427,97 @@ VALUES
 (4,4,10,10),
 (5,3,60,60);
 
+INSERT INTO Parametr_narzedzie (ID_narzedzie, ID_rodzaj_parametr, Zakres_dol, Zakres_gora)
+VALUES
+(1,4,19,21),
+(2,5,3.5,3.6),
+(3,2,15,15),
+(4,2,13,13),
+(5,2,20,20);
+
+INSERT INTO Parametr_maszyna (ID_maszyna, ID_rodzaj_parametr, Zakres_dol, Zakres_gora)
+VALUES
+(1,2,29.9,30.1),
+(2,2,35,36),
+(3,2,15,15),
+(4,2,24,24),
+(5,2,20,20);
+
+--INSERT INTO Zamowienie_material(ID_pracownik, Data, ID_dostawca)
+--VALUES
+--(1,13.04.2022,1),
+
+
+--INSERT INTO Stan_realizacji_zamowienie_material(ID_zamowienie_material, ID_status_zamowienie, Data, ID_pracownik)
+--VALUES
+--(1,1,13.04.2022,1),
+
+--INSERT INTO Szczegoly_zamowienie_material(ID_zamowienie_material, ID_material, ID_producent, Masa_kg, Cena)
+--VALUES
+--(1,1,1,25,4500),
+
+
+
+--INSERT INTO Zamowienie_czesc(ID_pracownik, Data, ID_dostawca)
+--VALUES
+--(1,13.04.2022,1),
+
+--INSERT INTO Stan_realizacji_zamowienie_czesc(ID_zamowienie_czesc, ID_status_zamowienie, Data, ID_pracownik)
+--VALUES
+--(1,1,13.04.2022,1),
+
+--INSERT INTO Szczegoly_zamowienie_czesc(ID_zamowienie_czesc, ID_czesc, ID_producent, Sztuk, Cena)
+--VALUES
+--(1,1,1,5,500),
+
+
+
+--INSERT INTO Zamowienie_narzedzie(ID_pracownik, Data, ID_dostawca)
+--VALUES
+--(1,13.04.2022,1),
+
+--INSERT INTO Stan_realizacji_zamowienie_narzedzie(ID_zamowienie_narzedzie, ID_status_zamowienie, Data, ID_pracownik)
+--VALUES
+--(1,1,13.04.2022,1),
+
+--INSERT INTO Szczegoly_zamowienie_narzedzie(ID_zamowienie_narzedzie, ID_narzedzie, ID_producent, Sztuk, Cena)
+--VALUES
+--(1,1,1,2,400),
+
+
+
+--INSERT INTO Zamowienie_maszyna(ID_pracownik, Data, ID_dostawca)
+--VALUES
+--(1,13.04.2022,1),
+
+--INSERT INTO Stan_realizacji_zamowienie_maszyna(ID_zamowienie_maszyna, ID_status_zamowienie, Data, ID_pracownik)
+--VALUES
+--(1,1,13.04.2022,1),
+
+--INSERT INTO Szczegoly_zamowienie_maszyna(ID_zamowienie_maszyna, ID_maszyna_nr, ID_producent, Cena)
+--VALUES
+--(1,1,1,2400),
+
+
+INSERT INTO Obsluga (ID_rodzaj_obslugi, ID_stanowisko_produkcyjne, Data_od, Data_do, Uwagi)
+VALUES
+(3,1,'2022-02-12','2022-02-14', 'Brak'),
+(1,2,'2022-01-15','2022-01-22', 'Brak'),
+(1,3,'2021-12-22','2021-12-31', 'Nowa czesc'),
+(2,5,'2022-03-02','2022-03-22', 'Gotowe do pracy'),
+(3,2,'2022-04-12','2022-04-14', 'Brak');
+
+
+--INSERT Obsluga_pracownik (ID_obsluga, ID_pracownik)
+--VALUES
+--(1,1),
+
+--INSERT INTO Wymiana_czesc(ID_obsluga, ID_maszyna_nr, ID_czesc)
+--VALUE
+--(1,1,1);
+
+
+--INSERT INTO Wymiana_narzedzie(ID_obsluga, ID_maszyna_nr, ID_narzedzie)
+--VALUE
+--(2,2,1);
+
