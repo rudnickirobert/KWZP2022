@@ -110,8 +110,8 @@ CREATE TABLE Rodzaj_parametr(
 CREATE TABLE Parametr_produkt(
 ID_produkt INT FOREIGN KEY REFERENCES Produkt(ID_produkt) NOT NULL,
 ID_rodzaj_parametr INT FOREIGN KEY REFERENCES Rodzaj_parametr(ID_rodzaj_parametr) NOT NULL,
-Zakres_dol INT NOT NULL,
-Zakres_gora INT NOT NULL,
+Zakres_dol DECIMAL(15,2) NOT NULL,
+Zakres_gora DECIMAL(15,2) NOT NULL,
 	CONSTRAINT PK_ParamPro PRIMARY KEY (ID_produkt, ID_rodzaj_parametr)
 );
 
@@ -144,8 +144,8 @@ Liczba INT NOT NULL
 CREATE TABLE Parametr_polprodukt(
 ID_polprodukt INT FOREIGN KEY REFERENCES Slownik_polprodukt(ID_polprodukt) NOT NULL,
 ID_rodzaj_parametr INT FOREIGN KEY REFERENCES Rodzaj_parametr(ID_rodzaj_parametr) NOT NULL,
-Zakres_dol INT,
-Zakres_gora INT,
+Zakres_dol DECIMAL(15,2) NOT NULL,
+Zakres_gora DECIMAL(15,2) NOT NULL,
 	CONSTRAINT PK_ParamPolPro PRIMARY KEY (ID_polprodukt, ID_rodzaj_parametr)
 );
 
@@ -581,32 +581,32 @@ CREATE TABLE Wymiana_narzedzie(
 CREATE TABLE Parametr_material (
 	ID_material INT FOREIGN KEY REFERENCES Material(ID_material) NOT NULL,
 	ID_rodzaj_parametr INT FOREIGN KEY REFERENCES Rodzaj_parametr(ID_rodzaj_parametr) NOT NULL,
-	Zakres_dol INT NOT NULL,
-	Zakres_gora INT NOT NULL,
+	Zakres_dol DECIMAL(15,2) NOT NULL,
+	Zakres_gora DECIMAL(15,2) NOT NULL,
 	CONSTRAINT PK_ParametrMat PRIMARY KEY (ID_material, ID_rodzaj_parametr)
 );
 
 CREATE TABLE Parametr_narzedzie (
 	ID_narzedzie INT FOREIGN KEY REFERENCES Narzedzie(ID_narzedzie) NOT NULL,
 	ID_rodzaj_parametr INT FOREIGN KEY REFERENCES Rodzaj_parametr(ID_rodzaj_parametr) NOT NULL,
-	Zakres_dol INT NOT NULL,
-	Zakres_gora INT NOT NULL,
+	Zakres_dol DECIMAL(15,2) NOT NULL,
+	Zakres_gora DECIMAL(15,2) NOT NULL,
 	CONSTRAINT PK_ParametrNarz PRIMARY KEY (ID_narzedzie, ID_rodzaj_parametr)
 );
 
 CREATE TABLE Parametr_maszyna (
 	ID_maszyna INT FOREIGN KEY REFERENCES Maszyna(ID_maszyna) NOT NULL,
 	ID_rodzaj_parametr int FOREIGN KEY REFERENCES Rodzaj_parametr(ID_rodzaj_parametr) NOT NULL,
-	Zakres_dol INT NOT NULL,
-	Zakres_gora INT NOT NULL,
+	Zakres_dol DECIMAL(15,2) NOT NULL,
+	Zakres_gora DECIMAL(15,2) NOT NULL,
 	CONSTRAINT PK_ParametrMasz PRIMARY KEY (ID_maszyna, ID_rodzaj_parametr)
 );
 
 CREATE TABLE Parametr_czesc (
 	ID_czesc INT FOREIGN KEY REFERENCES Czesc(ID_czesc) NOT NULL,
 	ID_rodzaj_parametr int FOREIGN KEY REFERENCES Rodzaj_parametr(ID_rodzaj_parametr) NOT NULL,
-	Zakres_dol INT NOT NULL,
-	Zakres_gora INT NOT NULL,
+	Zakres_dol DECIMAL(15,2) NOT NULL,
+	Zakres_gora DECIMAL(15,2) NOT NULL,
 	CONSTRAINT PK_ParametrCz PRIMARY KEY (ID_czesc, ID_rodzaj_parametr)
 );
 
