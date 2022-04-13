@@ -82,6 +82,7 @@ Data_ukonczenia DATE NOT NULL
 );
 
 CREATE TABLE Kontrola_jakosci_produkt(
+ID_kontrola_jakosci_produkt INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 ID_wytworzony_produkt INT FOREIGN KEY
 	REFERENCES Wytworzony_produkt(ID_wytworzony_produkt) NOT NULL,
 ID_pracownik INT FOREIGN KEY 
@@ -103,6 +104,7 @@ Wartosc_dolna INT
 );
 
 CREATE TABLE Szczegoly_produkt(
+ID_szczegoly_produkt INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 ID_produkt INT FOREIGN KEY
 	REFERENCES Produkt(ID_produkt) NOT NULL,
 ID_parametr INT FOREIGN KEY
@@ -120,6 +122,7 @@ Nazwa_material nvarchar(25) NOT NULL
 );
 
 CREATE TABLE Sklad_polprodukt(
+ID_sklad_polprodukt INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 ID_polprodukt INT FOREIGN KEY 
 	REFERENCES Slownik_polprodukt(ID_polprodukt) NOT NULL,
 ID_material INT FOREIGN KEY
@@ -136,6 +139,7 @@ Wartosc_dolna INT
 );
 
 CREATE TABLE Sklad_produkt(
+ID_sklad_produkt INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 ID_produkt INT FOREIGN KEY
 	REFERENCES Produkt(ID_produkt) NOT NULL,
 ID_polprodukt INT FOREIGN KEY
@@ -144,6 +148,7 @@ Liczba INT NOT NULL
 );
 
 CREATE TABLE Sklad_produkt_material(
+ID_sklad_produkt_material INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 ID_produkt INT FOREIGN KEY
 	REFERENCES Produkt(ID_produkt) NOT NULL,
 ID_material INT FOREIGN KEY
@@ -205,6 +210,7 @@ Czas_do DATETIME
 );
 
 CREATE TABLE Proces_wytwarzanie_produkt(
+ID_proces_wytwarzanie_produkt INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 ID_wytwarzanie INT FOREIGN KEY
 	REFERENCES Wytwarzanie(ID_wytwarzanie) NOT NULL,
 ID_proces_produkt INT FOREIGN KEY
@@ -212,6 +218,7 @@ ID_proces_produkt INT FOREIGN KEY
 );
 
 CREATE TABLE Proces_wytwarzanie_polprodukt(
+ID_proces_wytwarzanie_polprodukt INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 ID_wytwarzanie INT FOREIGN KEY
 	REFERENCES Wytwarzanie(ID_wytwarzanie) NOT NULL,
 ID_proces_polprodukt INT FOREIGN KEY
@@ -225,6 +232,7 @@ Nr_seryjny INT NOT NULL
 )
 
 CREATE TABLE Sklad_stanowisko_produkcyjne_maszyna(
+ID_sklad_stanowisko_produkcyjne_maszyna INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 ID_stanowisko_produkcyjne INT FOREIGN KEY
 	REFERENCES Stanowisko_produkcyjne(ID_stanowisko_produkcyjne) NOT NULL,
 ID_maszyna INT FOREIGN KEY
@@ -232,6 +240,7 @@ ID_maszyna INT FOREIGN KEY
 )
 
 CREATE TABLE Sklad_stanowisko_produkcyjne(
+ID_sklad_stanowisko_produkcyjne INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 ID_stanowisko_produkcyjne INT FOREIGN KEY
 	REFERENCES Stanowisko_produkcyjne(ID_stanowisko_produkcyjne) NOT NULL,
 ID_narzedzie INT FOREIGN KEY
