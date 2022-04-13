@@ -345,7 +345,7 @@ CREATE TABLE Klient
 	ID_klient INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	Nazwisko NVARCHAR(50) NOT NULL,
 	Imie NVARCHAR(50) NOT NULL,
-	NIP NVARCHAR(10) NOT NULL
+	NIP NVARCHAR(10)
 	);
 
 CREATE TABLE Dane_adresowe_klient
@@ -354,9 +354,9 @@ CREATE TABLE Dane_adresowe_klient
 	ID_klient INT FOREIGN KEY REFERENCES Klient(ID_klient) NOT NULL,
 	Miejscowosc NVARCHAR(50) NOT NULL,
 	Ulica NVARCHAR(50),
-	Nr_budynku INT NOT NULL,
-	Nr_lokalu INT,
-	Kod_pocztowy NVARCHAR(5) NOT NULL
+	Nr_budynek INT NOT NULL,
+	Nr_lokal INT,
+	Kod_pocztowy NVARCHAR(10) NOT NULL
 	);
 
 CREATE TABLE Nr_telefon_klient
@@ -377,10 +377,10 @@ CREATE TABLE Email_klient
 	Data_do DATE
 	);
 
-CREATE TABLE Typ_zamowienia
+CREATE TABLE Typ_zamowienie
 	(
-	ID_typ_zamowienia INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-	Typ_zamowienia NVARCHAR(50) NOT NULL
+	ID_typ_zamowienie INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	Typ_zamowienie NVARCHAR(50) NOT NULL
 	);
 
 CREATE TABLE Zamowienie
@@ -388,43 +388,38 @@ CREATE TABLE Zamowienie
 	ID_zamowienie INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	ID_klient INT FOREIGN KEY REFERENCES Klient(ID_klient) NOT NULL,
 	ID_pracownik INT FOREIGN KEY REFERENCES Pracownik(ID_pracownik) NOT NULL,
-	Data_zamowienia DATE NOT NULL,
-	ID_typ_zamowienia INT FOREIGN KEY REFERENCES Typ_zamowienia(ID_typ_zamowienia) NOT NULL 
+	Data_zamowienie DATE NOT NULL,
+	ID_typ_zamowienie INT FOREIGN KEY REFERENCES Typ_zamowienie(ID_typ_zamowienie) NOT NULL 
 	);
 
-CREATE TABLE Szczegoly_zamowienia
+CREATE TABLE Status_oferta
 	(
-	ID_szczegoly_zamowienie INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-	ID_zamowienie INT FOREIGN KEY REFERENCES Zamowienie(ID_zamowienie) NOT NULL,
-	ID_produkt INT FOREIGN KEY REFERENCES Produkt(ID_produkt) NOT NULL,
-	Ilosc INT NOT NULL
-	);
-
-CREATE TABLE Status_oferty
-	(
-	ID_status_oferty INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-	Nazwa_status NVARCHAR(20) NOT NULL
+	ID_status_oferta INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	Nazwa_status_oferta NVARCHAR(20) NOT NULL
 	);
 
 CREATE TABLE Gwarancja
 	(
 	ID_gwarancja INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-	Okres_gwarancja TIME NOT NULL,
+	Okres_gwarancja INT NOT NULL,
 	Opis_gwarancja NVARCHAR(100)
 	);
 
 CREATE TABLE Oferta_handlowa
 	(
 	ID_oferta_handlowa INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	ID_zamowienie INT FOREIGN KEY REFERENCES Zamowienie(ID_zamowienie) NOT NULL,
 	ID_pracownik INT FOREIGN KEY REFERENCES Pracownik(ID_pracownik) NOT NULL,
+	ID_produkt INT FOREIGN KEY REFERENCES Produkt(ID_produkt) NOT NULL,
 	Termin_realizacja DATE NOT NULL,
-	ID_status_oferty INT FOREIGN KEY REFERENCES Status_oferty(ID_status_oferty) NOT NULL,
-	ID_gwarancja INT FOREIGN KEY REFERENCES Gwarancja(ID_gwarancja) NOT NULL
+	ID_gwarancja INT FOREIGN KEY REFERENCES Gwarancja(ID_gwarancja) NOT NULL,
+	ID_status_oferta INT FOREIGN KEY REFERENCES Status_oferta(ID_status_oferta) NOT NULL,
+	Ilosc INT NOT NULL,
 	);
 
-CREATE TABLE Forma_platnosci
+CREATE TABLE Forma_platnosc
 	(
-	ID_forma_platnosci INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	ID_forma_platnosc INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	Forma_platnosc NVARCHAR(100) NOT NULL
 	);
 
@@ -434,21 +429,29 @@ CREATE TABLE Podatek
 	Procent INT NOT NULL,
 	);
 
+CREATE TABLE Umowa_sprzedaz
+	(
+	ID_umowa_sprzedaz INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	ID_oferta_handlowa INT FOREIGN KEY REFERENCES Oferta_handlowa(ID_oferta_handlowa) NOT NULL,
+	)
+
 CREATE TABLE Sprzedaz
 	(
 	ID_sprzedaz INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	Nr_sprzadaz INT NOT NULL,
-	ID_oferta_handlowa INT FOREIGN KEY REFERENCES Oferta_handlowa(ID_oferta_handlowa) NOT NULL,
-	Data_sprzedazy DATE NOT NULL,
-	Termin_zaplaty DATE NOT NULL,
-	ID_forma_platnosci INT FOREIGN KEY REFERENCES Forma_platnosci(ID_forma_platnosci) NOT NULL,
+	Data_sprzedaz_poczatek DATE NOT NULL,
+	Data_sprzedaz_koniec DATE NOT NULL,
+	Termin_zaplata DATE NOT NULL,
+	ID_forma_platnosc INT FOREIGN KEY REFERENCES Forma_platnosc(ID_forma_platnosc) NOT NULL,
+	ID_umowa_sprzedaz INT FOREIGN KEY REFERENCES Umowa_sprzedaz(ID_umowa_sprzedaz) NOT NULL,
+	Ilosc INT NOT NULL,
 	);
 
 CREATE TABLE Szczegoly_sprzedaz
 	(
 	ID_szczegoly_sprzedaz INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	ID_sprzedaz INT FOREIGN KEY REFERENCES Sprzedaz(ID_sprzedaz) NOT NULL,
-	Kwota_sprzedazy MONEY NOT NULL,
+	Kwota_sprzedaz MONEY NOT NULL,
 	ID_podatek INT FOREIGN KEY REFERENCES Podatek(ID_Podatek) NOT NULL
 	);
 
@@ -457,8 +460,8 @@ CREATE TABLE Reklamacja
 	ID_reklamacja INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	ID_pracownik INT FOREIGN KEY REFERENCES Pracownik(ID_pracownik) NOT NULL,
 	ID_sprzedaz INT FOREIGN KEY REFERENCES Sprzedaz(ID_sprzedaz) NOT NULL,
-	Data_reklamacji DATE NOT NULL,
-	Opis_reklamacji NVARCHAR(250) NOT NULL,
+	Data_reklamacja DATE NOT NULL,
+	Opis_reklamacja NVARCHAR(250) NOT NULL,
 	Akceptacja BIT NOT NULL
 	);
 	
@@ -466,6 +469,7 @@ CREATE TABLE Zwrot
 	(
 	ID_zwrot INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	ID_reklamacja INT FOREIGN KEY REFERENCES Reklamacja(ID_reklamacja) NOT NULL,
+	ID_produkt INT FOREIGN KEY REFERENCES Produkt(ID_Produkt) NOT NULL,
 	Utylizacja BIT NOT NULL,
 	);
 
