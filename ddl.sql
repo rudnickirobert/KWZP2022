@@ -1,6 +1,6 @@
 USE MASTER
 GO
-DROP DATABASE KWZP
+--DROP DATABASE KWZP
 GO
 CREATE DATABASE KWZP
 GO
@@ -241,27 +241,7 @@ CREATE TABLE Proces_produkt_czynnosc
 	Czas_trwania TIME NOT NULL,
 );
 
-CREATE TABLE Proces_wytwarzanie_produkt
-	(
-	ID_proces_wytwarzanie_produkt INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-	ID_wytwarzanie INT FOREIGN KEY
-		REFERENCES Wytwarzanie(ID_wytwarzanie) NOT NULL,
-	ID_proces_produkt INT FOREIGN KEY
-		REFERENCES Proces_produkt_czynnosc(ID_proces_produkt),
-	ID_stanowisko_produkcyjne INT FOREIGN KEY
-		REFERENCES	Stanowisko_produkcyjne(ID_stanowisko_produkcyjne) NOT NULL
-);
 
-CREATE TABLE Proces_wytwarzanie_polprodukt
-	(
-	ID_proces_wytwarzanie_polprodukt INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-	ID_wytwarzanie INT FOREIGN KEY
-		REFERENCES Wytwarzanie(ID_wytwarzanie) NOT NULL,
-	ID_proces_polprodukt INT FOREIGN KEY
-		REFERENCES Proces_polprodukt_czynnosc(ID_proces_polprodukt),
-	ID_stanowisko_produkcyjne INT FOREIGN KEY
-		REFERENCES	Stanowisko_produkcyjne(ID_stanowisko_produkcyjne) NOT NULL
-);
 
 CREATE TABLE Narzedzie
 	(
@@ -476,9 +456,31 @@ CREATE TABLE Wytwarzanie
 	ID_pracownik INT FOREIGN KEY
 		REFERENCES Pracownik(ID_pracownik) NOT NULL,
 	ID_oferta_handlowa INT FOREIGN KEY
-		REFERENCES Oferta_handlowa(ID_oferty_handlowej, NOT NULL,
+		REFERENCES Oferta_handlowa(ID_oferta_handlowa) NOT NULL,
 	Czas_od DATETIME NOT NULL,
 	Czas_do DATETIME
+);
+
+CREATE TABLE Proces_wytwarzanie_produkt
+	(
+	ID_proces_wytwarzanie_produkt INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	ID_wytwarzanie INT FOREIGN KEY
+		REFERENCES Wytwarzanie(ID_wytwarzanie) NOT NULL,
+	ID_proces_produkt INT FOREIGN KEY
+		REFERENCES Proces_produkt_czynnosc(ID_proces_produkt),
+	ID_stanowisko_produkcyjne INT FOREIGN KEY
+		REFERENCES	Stanowisko_produkcyjne(ID_stanowisko_produkcyjne) NOT NULL
+);
+
+CREATE TABLE Proces_wytwarzanie_polprodukt
+	(
+	ID_proces_wytwarzanie_polprodukt INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	ID_wytwarzanie INT FOREIGN KEY
+		REFERENCES Wytwarzanie(ID_wytwarzanie) NOT NULL,
+	ID_proces_polprodukt INT FOREIGN KEY
+		REFERENCES Proces_polprodukt_czynnosc(ID_proces_polprodukt),
+	ID_stanowisko_produkcyjne INT FOREIGN KEY
+		REFERENCES	Stanowisko_produkcyjne(ID_stanowisko_produkcyjne) NOT NULL
 );
 
 CREATE TABLE Kontrola_jakosci_produkt
@@ -680,7 +682,7 @@ CREATE TABLE Obsluga
 	ID_stanowisko_produkcyjne INT FOREIGN KEY
 		REFERENCES Stanowisko_produkcyjne(ID_stanowisko_produkcyjne) NOT NULL,
 	Data_od DATETIME NOT NULL,
-	Data_do DATETIME NOT NULL,
+	Data_do DATETIME ,
 	Uwagi NVARCHAR(100) NOT NULL
 );
 
