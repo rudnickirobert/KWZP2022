@@ -98,9 +98,16 @@ VALUES
 ('Ekstruder'),
 ('Rama'),
 ('Platforma robocza'),
-('Glowica'),
+('Glowica drukarki'),
 ('Kolo zebate'),
-('Silnik krokowy');
+('Silnik krokowy'),
+('Stolik obrotowy'),
+('Glowica optyczna'),
+('Obiektyw'),
+('Glowica lasera'),
+('Ekran LCD'),
+('Wentylator'),
+('Zgarniacz');
 
 INSERT INTO Rodzaj_obslugi(Nazwa)
 VALUES
@@ -186,11 +193,26 @@ VALUES
 
 INSERT INTO Czesc (Nazwa_czesc, ID_rodzaj_czesc)
 VALUES
-('Ekstruder Bondtech',1),
+('Ekstruder Bondtech phi0.4',1),
 ('Kolo zebate phi60',5),
 ('Rama i3 MK3S+',2),
 ('Glowica i3 MK3S+',4),
-('Stol i3 MK3S+',3);
+('Stol i3 MK3S+',3),
+('Stolik Shining', 6),
+('Glowica skanera Shining',7),
+('Obiektyw Canon',8),
+('Rama Ender5',2),
+('Glowica Ender5',4),
+('Stol Ender5',3),
+('Zgarniacz b0bll',12),
+('Ekran LG',10),
+('Ekran HP',10),
+('Wentylator IDZ',11),
+('Ekstruder Bondtech phi0.1',1),
+('Ekstruder Bondtech phi0.2',1),
+('Silnik krokowy KROK',6),
+('Glowica lasera LG', 9);
+
 
 INSERT INTO Maszyna (Nazwa, ID_rodzaj_maszyna, Koszt_RBG)
 VALUES
@@ -517,3 +539,11 @@ VALUES
 --VALUE
 --(2,2,1);
 
+INSERT INTO Sklad_maszyny ( ID_maszyna, ID_czesc, Liczba_czesci)
+VALUES
+(1,3,3),
+(1,4,1),
+(1,5,1),
+(2,6,1),
+(2,7,1),
+(2,8,1);
