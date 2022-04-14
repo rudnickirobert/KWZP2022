@@ -131,7 +131,11 @@ VALUES
 ('Megapascal','MPa'),
 ('Sekunda','s'),
 ('Gram/cm3','g/cm3'),
-('Stopien Celsjusza','oC');
+('Stopien Celsjusza','oC'),
+('Decybel','db'),
+('Metr/s2','m/s2'),
+('Wat','W');
+
 
 INSERT INTO Rodzaj_parametr (Nazwa, ID_Jednostka)
 VALUES
@@ -140,7 +144,12 @@ VALUES
 ('Szerokosc',1),
 ('Srednica',1),
 ('Masa',2),
-('Temperatura stolu roboczego',6);
+('Temperatura stolu roboczego',6),
+('Glosnosc pracy',7),
+('Predkosc druku', 8),
+('Predkosc przejazdow jalowych', 8),
+('Temperatura przechowywania',6),
+('Maksymalny pobór mocy',9);
 
 INSERT INTO Parametr_produkt(ID_produkt, ID_rodzaj_parametr, Zakres_dol, Zakres_gora)
 VALUES
@@ -439,11 +448,44 @@ INSERT INTO Forma_platnosc (Forma_platnosc)
 
 INSERT INTO Parametr_czesc (ID_czesc, ID_rodzaj_parametr, Zakres_dol, Zakres_gora)
 VALUES
-(1,5,7,7),
-(2,4,59,61),
-(3,2,74,76),
-(4,4,10,10),
-(5,3,60,60);
+(1,5,0.005,0.006),
+(1,4,0.36,0.44),
+(2,4,59,61), 
+(2,5,0.54,0.58),
+(3,2,350,350), 
+(3,3,35,40),
+(4,5,0.2,0.2), 
+(4,10,10,30),
+(5,2,300,300),
+(5,3,290,290),
+(6,7,30,40),
+(6,11,450,450),
+(7,5,0.4,0.4),
+(7,4,60,60),
+(8,4,60,60),
+(8,5,0.3,0.3),
+(9,2,400,400), 
+(9,3,50,50),
+(10,5,0.3,0.3), 
+(10,10,10,30),
+(11,2,330,330),
+(11,3,300,300),
+(12,2,200,2000),
+(12,3,50,50),
+(13,2,60,60), 
+(13,3,60,60),
+(14,2,80,80), 
+(14,3,60,60),
+(15,7,10,50), 
+(15,5,0.2,0.2),
+(16,5,0.004,0.004),
+(16,4,0.08,0.12),
+(17,5,0.004,0.005),
+(17,4,0.18,0.22),
+(18,7,10,35),
+(18,5,0.1,0.1),
+(19,5,0.5,0.5),
+(19,10,15,24);
 
 INSERT INTO Parametr_narzedzie (ID_narzedzie, ID_rodzaj_parametr, Zakres_dol, Zakres_gora)
 VALUES
@@ -455,11 +497,26 @@ VALUES
 
 INSERT INTO Parametr_maszyna (ID_maszyna, ID_rodzaj_parametr, Zakres_dol, Zakres_gora)
 VALUES
-(1,2,29.9,30.1),
-(2,2,35,36),
-(3,2,15,15),
-(4,2,24,24),
-(5,2,20,20);
+(1,7,30,40),
+(1,8,10,100),
+(1,9,200,200),
+(1,10,10,40),
+(2,5,20,20),
+(2,7,20,25),
+(2,10,15,25),
+(2,11,1000,1000),
+(3,5,150,150),
+(3,7,10,15),
+(3,10,10,40),
+(3,11,2000,2000),
+(4,5,15,15),
+(4,7,10,20),
+(4,10,15,25),
+(4,11,700,700),
+(5,7,50,60),
+(5,8,10,100),
+(5,9,200,200),
+(5,10,10,30);
 
 --INSERT INTO Zamowienie_material(ID_pracownik, Data, ID_dostawca)
 --VALUES
