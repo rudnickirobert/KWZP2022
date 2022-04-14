@@ -41,18 +41,6 @@ VALUES
 ('Obudowa PC'),
 ('Kostka rubika');
 
-INSERT INTO Wytworzony_produkt (ID_produkt, Data_ukonczenia)
-VALUES
-(1, '2022-03-22'),
-(2, '2022-03-31'),
-(2, '2022-04-08'),
-(3, '2022-04-01'),
-(4, '2022-03-29'),
-(4, '2022-03-15'),
-(5, '2022-04-04'),
-(5, '2022-03-18'),
-(5, '2022-04-11');
-
 INSERT INTO Slownik_polprodukt (Nazwa)
 VALUES
 ('Obudowa PC'),
@@ -160,7 +148,7 @@ VALUES
 (2,1,1,3),
 (1,2,100,105),
 (5,4,35,36),
-(3,2,48,51);
+(3,1,48,51);
 
 INSERT INTO Parametr_polprodukt (ID_polprodukt, ID_rodzaj_parametr, Zakres_dol, Zakres_gora)
 VALUES
