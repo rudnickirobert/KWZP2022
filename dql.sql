@@ -24,23 +24,40 @@ GO
 -----RESOURCE DEPARTMENT----
 
 CREATE VIEW v_Sklad_maszyna AS 
-SELECT Maszyna.Nazwa, Czesc.Nazwa_czesc, Sklad_maszyna.Liczba_czesci AS [Liczba czesci]
+SELECT Maszyna.Nazwa_maszyna, Czesc.Nazwa_czesc, Sklad_maszyna.Liczba_czesci AS [Liczba czesci]
 FROM Sklad_maszyna 
 INNER JOIN Maszyna  
 ON Sklad_maszyna.ID_maszyna=Maszyna.ID_maszyna
 INNER JOIN Czesc 
 ON Sklad_maszyna.ID_czesc=Czesc.ID_czesc
-GROUP BY Maszyna.Nazwa, Czesc.Nazwa_czesc, Sklad_maszyna.Liczba_czesci;
+GROUP BY Maszyna.Nazwa_maszyna, Czesc.Nazwa_czesc, Sklad_maszyna.Liczba_czesci;
+GO
+
+CREATE VIEW v_Parametry_maszyna AS
+SELECT Maszyna.Nazwa_maszyna, Rodzaj_parametr.Nazwa_rodzaj_parametr, Jednostka.Skrot, Zakres_dol, Zakres_gora
+FROM Parametr_maszyna
+INNER JOIN Maszyna
+ON Parametr_maszyna.ID_maszyna=Maszyna.ID_maszyna
+INNER JOIN (Jednostka INNER JOIN Rodzaj_parametr ON Jednostka.ID_jednostka=Rodzaj_parametr.ID_jednostka)
+ON Parametr_maszyna.ID_rodzaj_parametr=Rodzaj_parametr.ID_rodzaj_parametr
+GROUP BY Maszyna.Nazwa_maszyna, Rodzaj_parametr.Nazwa_rodzaj_parametr, Jednostka.Skrot, Zakres_dol, Zakres_gora;
 GO
 
 CREATE VIEW v_Parametry_materialy AS
-SELECT Material.Nazwa_material, Rodzaj_parametr.Nazwa, Jednostka.Skrot, Zakres_dol, Zakres_gora
+SELECT Material.Nazwa_material, Rodzaj_parametr.Nazwa_rodzaj_parametr, Jednostka.Skrot, Zakres_dol, Zakres_gora
 FROM Parametr_material
 INNER JOIN Material
 ON Parametr_material.ID_material=Material.ID_material
 INNER JOIN (Jednostka INNER JOIN Rodzaj_parametr ON Jednostka.ID_jednostka=Rodzaj_parametr.ID_jednostka)
 ON Parametr_material.ID_rodzaj_parametr=Rodzaj_parametr.ID_rodzaj_parametr
-GROUP BY Material.Nazwa_material, Rodzaj_parametr.Nazwa, Jednostka.Skrot, Zakres_dol, Zakres_gora;
+GROUP BY Material.Nazwa_material, Rodzaj_parametr.Nazwa_rodzaj_parametr, Jednostka.Skrot, Zakres_dol, Zakres_gora;
 GO
 
+--CREATE VIEW v_Zamowienia_maszyn_w_trakcie AS
+--SELECT 
+--FROM Stan_realizacji_zamowienie_maszyna
+--INNER JOIN
+--ON
+--WHERE NOT ID_status_zamowienie
+--GO
 

@@ -84,14 +84,14 @@ CREATE TABLE Produkt
 CREATE TABLE Jednostka 
 	(
 	ID_jednostka INT IDENTITY(1,1) NOT NULL PRIMARY KEY ,
-	Nazwa NVARCHAR(100) NOT NULL,
+	Nazwa_jednostka NVARCHAR(100) NOT NULL,
 	Skrot NVARCHAR(10) NOT NULL
 );
 
 CREATE TABLE Rodzaj_parametr
 	(
 	ID_rodzaj_parametr INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	Nazwa NVARCHAR(50) NOT NULL,
+	Nazwa_rodzaj_parametr NVARCHAR(50) NOT NULL,
 	ID_jednostka INT FOREIGN KEY 
 		REFERENCES Jednostka(ID_jednostka) NOT NULL
 );
@@ -117,7 +117,7 @@ CREATE TABLE Slownik_polprodukt
 CREATE TABLE Rodzaj_material
 	(
 	ID_rodzaj_material INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-	Nazwa nvarchar(25) NOT NULL
+	Nazwa_rodzaj_material nvarchar(50) NOT NULL
 );
 
 CREATE TABLE Material 
@@ -192,14 +192,14 @@ CREATE TABLE Nr_seryjny
 CREATE TABLE Rodzaj_maszyna	
 	(
 	ID_rodzaj_maszyna INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	Nazwa NVARCHAR(20) NOT NULL,
+	Nazwa_rodzaj_maszyna NVARCHAR(50) NOT NULL,
 	Opis NVARCHAR(50)
 );
 
 CREATE TABLE Maszyna
 	(
 	ID_maszyna int IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	Nazwa nvarchar(25) NOT NULL,
+	Nazwa_maszyna nvarchar(50) NOT NULL,
 	ID_rodzaj_maszyna int FOREIGN KEY 
 		REFERENCES Rodzaj_maszyna(ID_rodzaj_maszyna) NOT NULL,
 	Koszt_RBG SMALLMONEY NOT NULL
@@ -246,7 +246,7 @@ CREATE TABLE Proces_produkt_czynnosc
 CREATE TABLE Narzedzie
 	(
 	ID_narzedzie INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-	Nazwa NVARCHAR(50) NOT NULL
+	Nazwa_narzedzie NVARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Sklad_stanowisko_produkcyjne_maszyna
@@ -270,13 +270,13 @@ CREATE TABLE Sklad_stanowisko_produkcyjne
 CREATE TABLE Rodzaj_czesc 
 	(
 	ID_rodzaj_czesc int IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	Nazwa nvarchar(20) NOT NULL
+	Nazwa_rodzaj_czesc nvarchar(50) NOT NULL
 );
 
 CREATE TABLE Czesc 
 	(
 	ID_czesc int IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	Nazwa_czesc nvarchar(25) NOT NULL,
+	Nazwa_czesc nvarchar(50) NOT NULL,
 	ID_rodzaj_czesc int FOREIGN KEY 
 		REFERENCES Rodzaj_czesc(ID_rodzaj_czesc) NOT NULL
 );
@@ -569,7 +569,7 @@ CREATE TABLE Zwrot
 CREATE TABLE Rodzaj_obsluga
 	(
 	ID_rodzaj_obsluga INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	Nazwa NVARCHAR(50) NOT NULL
+	Nazwa_rodzaj_obsluga NVARCHAR(50) NOT NULL
 );
  
 

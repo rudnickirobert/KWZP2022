@@ -65,7 +65,7 @@ VALUES
 (5,5,5);
 
 
-INSERT INTO Narzedzie (Nazwa)
+INSERT INTO Narzedzie (Nazwa_narzedzie)
 VALUES
 ('Srubokret plaski'),
 ('Kombinerki'),
@@ -74,7 +74,7 @@ VALUES
 ('Suwmiarka'),
 ('Klucz francuski');
 
-INSERT INTO Rodzaj_material (Nazwa)
+INSERT INTO Rodzaj_material (Nazwa_rodzaj_material)
 VALUES
 ('ABS'),
 ('PLA'),
@@ -84,7 +84,7 @@ VALUES
 ('Zywica termoutwardzalna'),
 ('Klej')
 
-INSERT INTO Rodzaj_maszyna (Nazwa, Opis)
+INSERT INTO Rodzaj_maszyna (Nazwa_rodzaj_maszyna, Opis)
 VALUES
 ('Drukarka FDM','Drukowanie przy wykorzystaniu technologii FDM'),
 ('Drukarka SLA','Drukowanie przy wykorzystaniu technologii SLA'),
@@ -93,7 +93,7 @@ VALUES
 ('Drukarka laserowa','Laserowa'),
 ('PC','Komputer stacjonarny');
 
-INSERT INTO Rodzaj_czesc (Nazwa)
+INSERT INTO Rodzaj_czesc (Nazwa_rodzaj_czesc)
 VALUES
 ('Ekstruder'),
 ('Rama'),
@@ -109,7 +109,7 @@ VALUES
 ('Wentylator'),
 ('Zgarniacz');
 
-INSERT INTO Rodzaj_obsluga(Nazwa)
+INSERT INTO Rodzaj_obsluga(Nazwa_rodzaj_obsluga)
 VALUES
 ('Wymiana czesci'),
 ('Czyszczenie'),
@@ -124,7 +124,7 @@ VALUES
 ('Dostarczono'),
 ('Odebrano');
 
-INSERT INTO Jednostka (Nazwa, Skrot)
+INSERT INTO Jednostka (Nazwa_jednostka, Skrot)
 VALUES
 ('Milimetr','mm'),
 ('Gram','g'),
@@ -138,7 +138,7 @@ VALUES
 
 
 
-INSERT INTO Rodzaj_parametr (Nazwa, ID_Jednostka)
+INSERT INTO Rodzaj_parametr (Nazwa_rodzaj_parametr, ID_Jednostka)
 VALUES
 ('Gestosc',5),
 ('Dlugosc',1),
@@ -225,7 +225,7 @@ VALUES
 ('Glowica lasera LG', 9);
 
 
-INSERT INTO Maszyna (Nazwa, ID_rodzaj_maszyna, Koszt_RBG)
+INSERT INTO Maszyna (Nazwa_maszyna, ID_rodzaj_maszyna, Koszt_RBG)
 VALUES
 ('PRUSA i3 MK3S+',1,200),
 ('Shining 3D EinScan SE',4,150),
