@@ -7,6 +7,7 @@ CREATE VIEW v_Czynnosc_produkcyjna
 AS
 SELECT ID_czynnosc_produkcyjna AS [Identyfikator czynnosci], Nazwa AS [Nazwa czynnosci]
 FROM Czynnosc_produkcyjna;
+GO
 
 --CREATE VIEW	v_Parametry_produkt
 --AS
@@ -28,5 +29,18 @@ FROM Sklad_maszyna
 INNER JOIN Maszyna  
 ON Sklad_maszyna.ID_maszyna=Maszyna.ID_maszyna
 INNER JOIN Czesc 
-ON Sklad_maszyna.ID_czesc=Czesc.ID_czesc;
+ON Sklad_maszyna.ID_czesc=Czesc.ID_czesc
+GROUP BY Maszyna.Nazwa, Czesc.Nazwa_czesc, Sklad_maszyna.Liczba_czesci;
+GO
+
+CREATE VIEW v_Parametry_materialy AS
+SELECT Material.Nazwa_material, Rodzaj_parametr.Nazwa, Jednostka.Skrot, Zakres_dol, Zakres_gora
+FROM Parametr_material
+INNER JOIN Material
+ON Parametr_material.ID_material=Material.ID_material
+INNER JOIN (Jednostka INNER JOIN Rodzaj_parametr ON Jednostka.ID_jednostka=Rodzaj_parametr.ID_jednostka)
+ON Parametr_material.ID_rodzaj_parametr=Rodzaj_parametr.ID_rodzaj_parametr
+GROUP BY Material.Nazwa_material, Rodzaj_parametr.Nazwa, Jednostka.Skrot, Zakres_dol, Zakres_gora;
+GO
+
 
