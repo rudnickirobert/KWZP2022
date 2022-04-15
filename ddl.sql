@@ -417,7 +417,7 @@ CREATE TABLE Zamowienie_szczegol
 		REFERENCES Zamowienie(ID_zamowienie) NOT NULL,
 	ID_produkt INT FOREIGN KEY
 		REFERENCES Produkt(ID_produkt) NOT NULL,
-	Ilosc INT
+	Ilosc INT NOT NULL
 );
 
 CREATE TABLE Status_oferta
@@ -440,8 +440,6 @@ CREATE TABLE Oferta_handlowa
 		REFERENCES Zamowienie(ID_zamowienie) NOT NULL,
 	ID_pracownik INT FOREIGN KEY 
 		REFERENCES Pracownik(ID_pracownik) NOT NULL,
-	ID_produkt INT FOREIGN KEY 
-		REFERENCES Produkt(ID_produkt) NOT NULL,
 	Termin_realizacja DATE NOT NULL,
 	ID_gwarancja INT FOREIGN KEY 
 		REFERENCES Gwarancja(ID_gwarancja) NOT NULL,
@@ -539,6 +537,7 @@ CREATE TABLE Szczegoly_sprzedaz
 	ID_szczegoly_sprzedaz INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	ID_sprzedaz INT FOREIGN KEY 
 		REFERENCES Sprzedaz(ID_sprzedaz) NOT NULL,
+	ID_produkt INT FOREIGN KEY REFERENCES Produkt(ID_Produkt) NOT NULL,
 	Kwota_sprzedaz MONEY NOT NULL,
 	ID_podatek INT FOREIGN KEY 
 		REFERENCES Podatek(ID_Podatek) NOT NULL

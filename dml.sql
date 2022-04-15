@@ -356,6 +356,14 @@ INSERT INTO Typ_zamowienie (Typ_zamowienie)
 --	(4, 3, '2022-04-07', 1),
 --	(5, 4, '2022-04-08', 2);
 
+--INSERT INTO Zamowienie_szczegol (ID_zamowienie, ID_produkt, Ilosc)
+--	VALUES
+--	(1, 2, 50),
+--	(1, 1, 30),
+--	(2, 3, 100),
+--	(3, 3, 150),
+--	(3, 5, 120);
+
 INSERT INTO Gwarancja (Okres_gwarancja, Opis_gwarancja)
 	VALUES 
 	(2, 'GWARANCJA NA USZKODZENIA MECHANICZNE NA OKRES 2 LAT'),
@@ -371,7 +379,7 @@ INSERT INTO Status_oferta (Nazwa_status_oferta)
 	('Do rozpatrzenia'),
 	('W trakcie realizacji');
 
---INSERT INTO Oferta_handlowa (ID_zamowienie, ID_pracownik, ID_produkt, Termin_realizacja, ID_gwarancja, ID_status_oferta, Ilosc)
+--INSERT INTO Oferta_handlowa (ID_zamowienie, ID_pracownik, Termin_realizacja, ID_gwarancja, ID_status_oferta, Cena)
 --	VALUES 
 --	(1, 1, 1, '2022-04-28', 1, 1, 50),
 --	(2, 3, 2, '2022-04-29', 1, 1, 40),
@@ -420,31 +428,31 @@ INSERT INTO Forma_platnosc (Forma_platnosc)
 --	(12, '2022-03-04', '2022-03-18', '2022-03-25', 1, 5, 15);
 
 
---INSERT INTO Reklamacja (ID_pracownik, ID_sprzedaz, Data_reklamacja, Opis_reklamacja, Akceptacja)
+--INSERT INTO Reklamacja (ID_pracownik, ID_sprzedaz, Data_reklamacja, Opis_reklamacja)
 --	VALUES
---	(1, 6, '2022-04-01', 'Uszkodzenie mechaniczne', 1),
---	(3, 7, '2022-04-02', 'Rozklejenie produtku', 1),
---	(2, 8, '2022-04-03', 'Uszkodzenie mechaniczne', 2),
+--	(1, 6, '2022-04-01', 'Uszkodzenie mechaniczne'),
+--	(3, 7, '2022-04-02', 'Rozklejenie produtku'),
+--	(2, 8, '2022-04-03', 'Uszkodzenie mechaniczne'),
 --	(5, 9, '2022-04-04', 'Pękniecie materiału', 1),
---	(4, 10, '2022-04-05', 'Uszkodzenie mechaniczne', 2),
---	(5, 11, '2022-04-01', 'Uszkodzenie mechaniczne', 1),
---	(4, 12, '2022-04-01', 'Uszkodzenie mechaniczne', 1);
+--	(4, 10, '2022-04-05', 'Uszkodzenie mechaniczne'),
+--	(5, 11, '2022-04-01', 'Uszkodzenie mechaniczne'),
+--	(4, 12, '2022-04-01', 'Uszkodzenie mechaniczne');
 
---INSERT INTO Zwrot (ID_reklamacja, ID_produkt, Utylizacja)
+--INSERT INTO Zwrot (ID_reklamacja, ID_produkt, Ilosc, Akceptacja)
 --	VALUES
---	(1,1,1),
---	(2,2,1),
---	(4,3,0),
---	(6,4,0),
---	(7,5,1);
+--	(1,1,1,1),
+--	(2,2,2,1),
+--	(4,3,4,0),
+--	(6,4,3,0),
+--	(7,5,1,1);
 
---INSERT INTO Szczegoly_sprzedaz (ID_sprzedaz, Kwota_sprzedaz, ID_podatek)
+--INSERT INTO Szczegoly_sprzedaz (ID_sprzedaz, ID_produkt, Kwota_sprzedaz, ID_podatek)
 --	VALUES
---	(1, 50000.00, 1),
---	(2, 25000.00, 2),
---	(3, 3.50, 1),
---	(4, 785.98, 3),
---	(5, 9870.99, 4);
+--	(1, 1, 50000.00, 1),
+--	(2, 2, 25000.00, 2),
+--	(3, 3, 3.50, 1),
+--	(4, 4, 785.98, 3),
+--	(5, 5, 9870.99, 4);
 
 INSERT INTO Parametr_czesc (ID_czesc, ID_rodzaj_parametr, Zakres_dol, Zakres_gora)
 VALUES
