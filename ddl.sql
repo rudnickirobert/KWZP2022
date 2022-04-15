@@ -584,7 +584,7 @@ CREATE TABLE Producent
 	(
 	ID_producent INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	Nazwa_producenta NVARCHAR(50) NOT NULL,
-	Opis NVARCHAR(50)
+	Opis NVARCHAR(60)
 );
 
 CREATE TABLE Status_zamowienie 

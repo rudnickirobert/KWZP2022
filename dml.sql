@@ -109,7 +109,7 @@ VALUES
 ('Wentylator'),
 ('Zgarniacz');
 
-INSERT INTO Rodzaj_obslugi(Nazwa)
+INSERT INTO Rodzaj_obsluga(Nazwa)
 VALUES
 ('Wymiana czesci'),
 ('Czyszczenie'),
@@ -582,7 +582,7 @@ VALUES
 --(1,1,1,2400),
 
 
-INSERT INTO Obsluga (ID_rodzaj_obslugi, ID_stanowisko_produkcyjne, Data_od, Data_do, Uwagi)
+INSERT INTO Obsluga (ID_rodzaj_obsluga, ID_stanowisko_produkcyjne, Data_od, Data_do, Uwagi)
 VALUES
 (3,1,'2022-02-12','2022-02-14', 'Brak'),
 (1,2,'2022-01-15','2022-01-22', 'Brak'),
@@ -604,7 +604,7 @@ VALUES
 --VALUE
 --(2,2,1);
 
-INSERT INTO Sklad_maszyny ( ID_maszyna, ID_czesc, Liczba_czesci)
+INSERT INTO Sklad_maszyna ( ID_maszyna, ID_czesc, Liczba_czesci)
 VALUES
 (1,3,3),
 (1,4,1),
