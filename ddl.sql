@@ -342,7 +342,7 @@ CREATE TABLE Umowa
 	ID_wymiar_pracy INT FOREIGN KEY
 		REFERENCES Wymiar_pracy(ID_wymiar_pracy),
 	ID_rodzaj_zatrudnienia INT FOREIGN KEY
-		REFERENCES Rodzaj_zatrudnienia(ID_rodzaj_zatrudnienia),
+		REFERENCES Rodzaj_umowy(ID_rodzaj_umowy),
 	ID_pracownik INT FOREIGN KEY
 		REFERENCES Pracownik(ID_pracownik),
 	ID_posada INT FOREIGN KEY
