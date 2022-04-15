@@ -8,7 +8,7 @@ USE KWZP
 
 CREATE TABLE Wyksztalcenie(
 ID_wyksztalcenie INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-Nazwa VARCHAR(9) NOT NULL
+Nazwa VARCHAR(35) NOT NULL
 );
 
 
@@ -18,7 +18,7 @@ CREATE TABLE Pracownik
 	Nazwisko VARCHAR(50) NOT NULL,
 	Imie VARCHAR(50) NOT NULL,
 	Nr_dowodu VARCHAR(9) NOT NULL,
-	Pesel INT NOT NULL,
+	Pesel BIGINT NOT NULL,
 	Wyksztalcenie VARCHAR(10) NOT NULL,
 	-- ID_umowa INT FOREIGN KEY REFERENCES Umowa(ID_umowa),
 );
@@ -65,7 +65,7 @@ CREATE TABLE Stanowisko
 CREATE TABLE Dzial
 	(
 	ID_dzial INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-	Nazwa_dzialu VARCHAR(50) NOT NULL
+	Nazwa_dzial VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Rodzaj_kontrola
@@ -341,7 +341,7 @@ CREATE TABLE Umowa
 	ID_umowa INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	ID_wymiar_pracy INT FOREIGN KEY
 		REFERENCES Wymiar_pracy(ID_wymiar_pracy),
-	ID_rodzaj_zatrudnienia INT FOREIGN KEY
+	ID_rodzaj_umowy INT FOREIGN KEY
 		REFERENCES Rodzaj_umowy(ID_rodzaj_umowy),
 	ID_pracownik INT FOREIGN KEY
 		REFERENCES Pracownik(ID_pracownik),
@@ -597,7 +597,7 @@ CREATE TABLE Zamowienie_maszyna
 	ID_zamowienie_maszyna INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	ID_pracownik INT FOREIGN KEY 
 		REFERENCES Pracownik(ID_pracownik) NOT NULL,
-	Data DATE NOT NULL,
+	Data_zamowienia DATE NOT NULL,
 	ID_dostawca INT FOREIGN KEY 
 		REFERENCES Dostawca(ID_dostawca) NOT NULL
 );
@@ -608,7 +608,7 @@ CREATE TABLE Stan_realizacji_zamowienie_maszyna
 		REFERENCES Zamowienie_maszyna(ID_zamowienie_maszyna) NOT NULL,
 	ID_status_zamowienie INT FOREIGN KEY 
 		REFERENCES Status_zamowienie(ID_status_zamowienie) NOT NULL,
-	Data SMALLDATETIME NOT NULL,
+	Data_stan SMALLDATETIME NOT NULL,
 	ID_pracownik INT FOREIGN KEY 
 		REFERENCES Pracownik(ID_pracownik) NOT NULL,
 	CONSTRAINT PK_StanRZM PRIMARY KEY (ID_zamowienie_maszyna, ID_status_zamowienie)
@@ -631,7 +631,7 @@ CREATE TABLE Zamowienie_narzedzie
 	ID_zamowienie_narzedzie int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	ID_pracownik INT FOREIGN KEY 
 		REFERENCES Pracownik(ID_pracownik) NOT NULL,
-	Data DATE NOT NULL,
+	Data_zamowienia DATE NOT NULL,
 	ID_dostawca INT FOREIGN KEY 
 		REFERENCES Dostawca(ID_dostawca) NOT NULL
 );
@@ -642,7 +642,7 @@ CREATE TABLE Stan_realizacji_zamowienie_narzedzie
 		REFERENCES Zamowienie_narzedzie(ID_zamowienie_narzedzie) NOT NULL,
 	ID_status_zamowienie INT FOREIGN KEY 
 		REFERENCES Status_zamowienie(ID_status_zamowienie) NOT NULL,
-	Data SMALLDATETIME NOT NULL,
+	Data_stan SMALLDATETIME NOT NULL,
 	ID_pracownik INT FOREIGN KEY 
 		REFERENCES Pracownik(ID_pracownik) NOT NULL,
 	CONSTRAINT PK_StanRZN PRIMARY KEY (ID_zamowienie_narzedzie, ID_status_zamowienie)
@@ -786,7 +786,7 @@ CREATE TABLE Zamowienie_material
 	ID_zamowienie_material INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	ID_pracownik INT FOREIGN KEY 
 		REFERENCES Pracownik(ID_pracownik) NOT NULL,
-		Data DATE NOT NULL,
+		Data_zamowienia DATE NOT NULL,
 	ID_dostawca INT FOREIGN KEY 
 		REFERENCES Dostawca(ID_dostawca) NOT NULL
 );
@@ -797,7 +797,7 @@ CREATE TABLE Stan_realizacji_zamowienie_material
 		REFERENCES Zamowienie_material(ID_zamowienie_material) NOT NULL,
 	ID_status_zamowienie INT FOREIGN KEY 
 		REFERENCES Status_zamowienie(ID_status_zamowienie) NOT NULL,
-		Data DATE NOT NULL,
+	Data_stan SMALLDATETIME NOT NULL,
 	ID_pracownik INT FOREIGN KEY 
 		REFERENCES Pracownik(ID_pracownik) NOT NULL,
 		CONSTRAINT PK_StanRZMAT PRIMARY KEY (ID_zamowienie_material, ID_status_zamowienie, ID_pracownik)
@@ -821,7 +821,7 @@ CREATE TABLE Zamowienie_czesc
 	ID_zamowienie_czesc int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	ID_pracownik int FOREIGN KEY 
 		REFERENCES Pracownik(ID_pracownik) NOT NULL,
-	Data DATE NOT NULL,
+	Data_zamowienia DATE NOT NULL,
 	ID_dostawca INT FOREIGN KEY 
 		REFERENCES Dostawca(ID_dostawca) NOT NULL
 );
@@ -832,7 +832,7 @@ CREATE TABLE Stan_realizacji_zamowienie_czesc
 		REFERENCES Zamowienie_czesc(ID_zamowienie_czesc) NOT NULL,
 	ID_status_zamowienie INT FOREIGN KEY 
 		REFERENCES Status_zamowienie(ID_status_zamowienie) NOT NULL,
-		Data DATE NOT NULL,
+	Data_stan SMALLDATETIME NOT NULL,
 	ID_pracownik INT FOREIGN KEY 
 		REFERENCES Pracownik(ID_pracownik) NOT NULL,
 	CONSTRAINT PK_StanRZCZ PRIMARY KEY (ID_zamowienie_czesc, ID_status_zamowienie, ID_pracownik)

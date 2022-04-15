@@ -7,27 +7,27 @@ VALUES
 ('Średnie branżowe'),
 ('Średnie'),
 ('Inżynier'), 
-('Wyższe')
+('Wyższe');
 
 INSERT INTO Pracownik (Nazwisko, Imie, Nr_dowodu, Pesel, Wyksztalcenie)
 VALUES
-('Nowak','Jan','AAA00000','550500000',1),
-('Marszał','Grzegorz','ABC20000','8809010000',2),
-('Gont','Józef','RF004050','9703040000',3),
-('Markowska', 'Anna', 'ABC00020','8806360300',1),
-('Pawlak','Katarzyna','GDE00900','9004120000',2),
-('Kowalczylk','Adam','UJG02033','9905170780', 3),
-('Andrzejewski', 'Michał',' DCE986557','7907290003',1),
-('Krawczyk', 'Karol', 'GDT80967','9005000450',2),
-('Wieczorek', 'Laura', 'HNR23123','8705050000',3),
-('Baran', 'Szymon', 'MFN67926','9905006800',1),
-('Wilk', 'Zuzanna', 'MDK85609','6805045067',2),
-('Sadowski', 'Aleksander', 'NFL48923','9805005680',3),
-('Borkowska', 'Zofia', 'LDG57291','7605004500',1),
-('Sikora', 'Julia', 'LFB57823','8505008700',2),
-('Nowicki', 'Filip', 'LAP46723','9505065700',3),
-('Duda', 'Wojciech', 'PKE95123','9805067000',1),
-('Grabowski', 'Stanisław', 'LDH65793','9205000890',1)
+('Nowak','Jan','AAA00000',550500000,1),
+('Marszał','Grzegorz','ABC20000',8809010000,2),
+('Gont','Józef','RF004050',9703040000,3),
+('Markowska', 'Anna', 'ABC00020',8806360300,1),
+('Pawlak','Katarzyna','GDE00900',9004120000,2),
+('Kowalczylk','Adam','UJG02033',9905170780, 3),
+('Andrzejewski', 'Michał','DCE986557',7907290003,1),
+('Krawczyk', 'Karol', 'GDT80967',9005000450,2),
+('Wieczorek', 'Laura', 'HNR23123',8705050000,3),
+('Baran', 'Szymon', 'MFN67926',9905006800,1),
+('Wilk', 'Zuzanna', 'MDK85609',6805045067,2),
+('Sadowski', 'Aleksander', 'NFL48923',9805005680,3),
+('Borkowska', 'Zofia', 'LDG57291',7605004500,1),
+('Sikora', 'Julia', 'LFB57823',8505008709,2),
+('Nowicki', 'Filip', 'LAP46723',9505065700,3),
+('Duda', 'Wojciech', 'PKE95123',9805067000,1),
+('Grabowski', 'Stanisław', 'LDH65793',9205000890,1);
 
 INSERT INTO Dane_adresowe_pracownik (ID_pracownik, Miejscowosc, Ulica, Nr_budynku, Nr_lokalu, Kod_pocztowy, Data_od)
 VALUES
@@ -47,7 +47,7 @@ VALUES
 (14, 'Warszawa', 'Al. Jerozolimskie', '5','10', '02147', '2017-01-01'),
 (15, 'Pruszków', 'Marszałkowska', '1', '1', '03332', '2019-01-01'),
 (16, 'Pruszków', 'Prosta', '27', '22', '01712', '2020-01-01'),
-(17, 'Pruszków', 'Karolkowa' ,'3', '34', '04543', '2022-01-01')
+(17, 'Pruszków', 'Karolkowa' ,'3', '34', '04543', '2022-01-01');
 
 INSERT INTO Nr_telefon_pracownik (ID_pracownik, Numer, Data_od)
 VALUES
@@ -55,6 +55,7 @@ VALUES
 (2,'321321321','2022-02-01'),
 (3,'456456456','2021-12-10'),
 (4,'321321321','2020-05-01'),
+
 (5,'321321321','2021-06-01')
 
 INSERT INTO Email_pracownik (ID_pracownik,Email,Data_od)
@@ -95,7 +96,10 @@ VALUES
 ('Zasobów i dostaw'),
 ('Utrzymania ruchu'),
 ('Logistyczny'),
-('Kontroli jakości')
+('Kontroli jakości');
+
+
+
 
 INSERT INTO Czynnosc_produkcyjna (Nazwa)
 VALUES
@@ -339,40 +343,40 @@ VALUES
 (15,4,1),
 (16,5,1),
 (17,6,1),
-(18,7,1)
+(18,7,1);
 
-INSERT INTO Posada_pracownik (ID_etat, Data_od)
+INSERT INTO Posada_pracownika (ID_etat, Data_od)
 VALUES
-(1,'13.04.2022'),
-(2,'14.04.2022'),
-(3,'14.04.2022'),
-(4,'13.04.2022'),
-(5,'13.04.2022'),
-(6,'13.04.2022'),
-(7,'14.04.2022'),
-(8,'14.04.2022'),
-(9,'13.04.2022'),
-(10,'13.04.2022'),
-(11,'13.04.2022'),
-(12,'14.04.2022'),
-(13,'14.04.2022'),
-(14,'13.04.2022'),
-(15,'13.04.2022'),
-(16,'13.04.2022'),
-(17,'14.04.2022'),
-(18,'14.04.2022')
+(1,'2022-04-12'),
+(2,'2022-04-12'),
+(3,'2022-04-12'),
+(4,'2022-04-14'),
+(5,'2022-04-13'),
+(6,'2022-04-12'),
+(7,'2022-04-15'),
+(8,'2022-04-12'),
+(9,'2022-04-12'),
+(10,'2022-04-13'),
+(11,'2022-04-15'),
+(12,'2022-04-15'),
+(13,'2022-04-12'),
+(14,'2022-04-13'),
+(15,'2022-04-12'),
+(16,'2022-04-14'),
+(17,'2022-04-12'),
+(18,'2022-04-13');
 
 INSERT INTO Rodzaj_umowy (Nazwa, Urlop)
 VALUES
 ('Umowa o pracę',26),
 ('Umowa zlecenie',0),
-('Umowa o dzieło',0)
+('Umowa o dzieło',0);
 
 INSERT INTO Rodzaj_nieobecnosci (Symbol)
 VALUES
-(’U’),
-(’ZW’),
-(’O’)
+('U'),
+('ZW'),
+('O');
 
 INSERT INTO Nieobecnosc (ID_pracownik, ID_rodzaj_nieobecnosci, Data_od, Data_do)
 VALUES
@@ -380,12 +384,12 @@ VALUES
 (1,1,'05.04.2022','10.04.2022'),
 (3,2,'04.04.2022','04.04.2022'),
 (4,3,'01.04.2022','05.04.2022'),
-(5,1,'01.04.2022','03.04.2022')
+(5,1,'01.04.2022','03.04.2022');
 
 INSERT INTO Wymiar_pracy (Nazwa)
 VALUES
 ('Pełny etat'),
-('Pół etatu')
+('Pół etatu');
 
 INSERT INTO Umowa (ID_wymiar_pracy, ID_rodzaj_umowy, ID_pracownik, ID_posada, Wynagrodzenie)
 VALUES
@@ -405,7 +409,7 @@ VALUES
 (1,1,14,14,3600),
 (1,1,15,15,5500),
 (1,1,16,16,6000),
-(1,1,17,18,5000)
+(1,1,17,18,5000);
 
 
 INSERT INTO Maszyna (Nazwa_maszyna, ID_rodzaj_maszyna, Koszt_RBG)
@@ -711,9 +715,10 @@ VALUES
 (5,9,200,200),
 (5,10,10,30);
 
---INSERT INTO Zamowienie_material(ID_pracownik, Data, ID_dostawca)
---VALUES
---(1,13.04.2022,1),
+INSERT INTO Zamowienie_material(ID_pracownik, Data_zamowienia, ID_dostawca)
+VALUES
+(1,'2022-04-14',1);
+
 
 
 --INSERT INTO Stan_realizacji_zamowienie_material(ID_zamowienie_material, ID_status_zamowienie, Data, ID_pracownik)
