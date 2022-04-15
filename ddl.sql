@@ -310,15 +310,7 @@ CREATE TABLE Rodzaj_umowy
 	(
 	ID_rodzaj_umowy INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	Nazwa NVARCHAR(50) NOT NULL,
-	Skrot NVARCHAR(10) NOT NULL,
-);
-
-CREATE TABLE Rodzaj_zatrudnienia
-	(
-	ID_rodzaj_zatrudnienia INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-	ID_rodzaj_umowy INT FOREIGN KEY
-		REFERENCES Rodzaj_umowy(ID_rodzaj_umowy),
-	Przyslugujacy_urlop INT NOT NULL,
+	Urlop INT NOT NULL,
 );
 
 CREATE TABLE Rodzaj_nieobecnosci
