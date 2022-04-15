@@ -29,6 +29,27 @@ VALUES
 ('Duda', 'Wojciech', 'PKE95123','9805067000','1'),
 ('Grabowski', 'Stanisław', 'LDH65793','9205000890','1')
 
+INSERT INTO Dane_adresowe_pracownik (ID_pracownik, Miejscowosc, Ulica, Nr_budynku, Nr_lokalu, Kod_pocztowy, Data_od, Data_do)
+VALUES
+('1', 'Warszawa', 'Jana Pawła II', '21', '37', '02137', '14.04.2021'),
+('2', 'Marki', 'Markowa', '23', '11', '12000', '14.08.2019'),
+('3', 'Warszawa', 'Kombatantów', '6', '26', '11500', '13.02.2020'),
+('4', 'Warszawa', 'Królowej Jadwigi', '11', '20', '02347', '19.04.2020'),
+('5', 'Warszawa', 'Kościuszki', '51', '32', '02952', '02.10.2018'),
+('6', 'Marki', 'Długa', '1', '1', '12301','09.03.2019'),
+('7', 'Warszawa', 'Krótka', '2','2','02022','11.06.2021'),
+('8', 'Warszawa', 'Średnia', '3','3','01437','11.06.2021'),
+('9', 'Warszawa', 'Kaliskiego', '2', '11', '01534','11.02.2020'),
+('10', 'Warszawa', 'Górczewska', '11', '20', '03321','13.01.2020'),
+('11', 'Marki', 'Naturalna', '21', '36', '08808', '13.07.2018'), 
+('12', 'Pruszków', 'Wiejska', '13', '32', '11111','13.05.2017'),
+('13', 'Warszawa',' Połczyńska', '2','33', '01910','01.01.2018'),
+('14', 'Warszawa', 'Al. Jerozolimskie', '5','10', '02147', '01.01.2017'),
+('15', 'Pruszków', 'Marszałkowska', '1', '1', '03332', '01.01.2019'),
+('16', 'Pruszków', 'Prosta', '27', '22', '01712', '01.01.2020'),
+('17', 'Pruszków', 'Karolkowa' ,'3', '34', '04543', '01.01.2022')
+
+
 
 INSERT INTO Czynnosc_produkcyjna (Nazwa)
 VALUES
