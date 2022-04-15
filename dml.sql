@@ -762,18 +762,44 @@ VALUES
 
 
 
---INSERT INTO Zamowienie_czesc(ID_pracownik, Data, ID_dostawca)
---VALUES
---(1,13.04.2022,1),
+INSERT INTO Zamowienie_czesc(ID_pracownik, Data_zamowienia, ID_dostawca)
+VALUES
+(14,'2022-04-17',4),
+(14,'2022-04-17',2),
+(14,'2022-04-17',1),
+(14,'2022-04-17',3),
+(14,'2022-04-17',5);
 
---INSERT INTO Stan_realizacji_zamowienie_czesc(ID_zamowienie_czesc, ID_status_zamowienie, Data, ID_pracownik)
---VALUES
---(1,1,13.04.2022,1),
+INSERT INTO Stan_realizacji_zamowienie_czesc(ID_zamowienie_czesc, ID_status_zamowienie, Data_stan, ID_pracownik)
+VALUES
+(1,1,'2022-04-17 08:10:00',14),
+(2,1,'2022-04-17 09:11:00',14),
+(3,1,'2022-04-17 09:45:00',14),
+(4,1,'2022-04-17 10:40:00',14),
+(5,1,'2022-04-17 10:50:00',14),
+(1,2,'2022-04-18 09:40:00',14),
+(2,2,'2022-04-18 09:50:00',14),
+(3,2,'2022-04-18 10:30:00',14),
+(4,2,'2022-04-18 11:10:00',14),
+(5,2,'2022-04-18 11:30:00',14),
+(1,3,'2022-04-19 08:30:00',18),
+(2,3,'2022-04-19 09:10:00',15),
+(3,3,'2022-04-19 09:30:00',19),
+(4,3,'2022-04-19 10:10:00',19),
+(5,3,'2022-04-19 10:40:00',15),
+(1,4,'2022-04-20 08:30:00',18),
+(2,4,'2022-04-20 09:10:00',18),
+(3,4,'2022-04-20 09:16:00',19),
+(4,4,'2022-04-20 10:14:00',15),
+(5,4,'2022-04-20 11:10:00',18);
 
---INSERT INTO Szczegoly_zamowienie_czesc(ID_zamowienie_czesc, ID_czesc, ID_producent, Sztuk, Cena)
---VALUES
---(1,1,1,5,500),
-
+INSERT INTO Szczegoly_zamowienie_czesc(ID_zamowienie_czesc, ID_czesc, ID_producent, Ilosc, Cena)
+VALUES
+(1,1,1,1,500),
+(2,5,4,2,50),
+(3,7,5,1,7000),
+(4,8,2,1,1700),
+(5,10,3,3,1300);
 
 
 --INSERT INTO Zamowienie_narzedzie(ID_pracownik, Data, ID_dostawca)
