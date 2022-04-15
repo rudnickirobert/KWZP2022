@@ -1,6 +1,35 @@
 USE KWZP
 GO
 
+INSERT INTO Wyksztalcenie (Nazwa)
+VALUES
+('Podstawowe'),
+('Średnie branżowe'),
+('Średnie'),
+('Inżynier'), 
+('Wyższe')
+
+INSERT INTO Pracownik (Nazwisko, Imie, Nr_dowodu, Pesel, Wyksztalcenie)
+VALUES
+('Nowak','Jan','AAA00000','550500000','1'),
+('Marszał','Grzegorz','ABC20000','8809010000','2'),
+('Gont','Józef','RF004050','9703040000','3'),
+('Markowska', 'Anna', 'ABC00020','8806360300','1'),
+('Pawlak','Katarzyna','GDE00900','9004120000','2'),
+('Kowalczylk','Adam','UJG02033','9905170780', '3'),
+('Andrzejewski', 'Michał',' DCE986557','7907290003','1'),
+('Krawczyk', 'Karol', 'GDT80967','9005000450','2'),
+('Wieczorek', 'Laura', 'HNR23123','8705050000','3'),
+('Baran', 'Szymon', 'MFN67926','9905006800','1'),
+('Wilk', 'Zuzanna', 'MDK85609','6805045067','2'),
+('Sadowski', 'Aleksander', 'NFL48923','9805005680','3'),
+('Borkowska', 'Zofia', 'LDG57291','7605004500','1'),
+('Sikora', 'Julia', 'LFB57823','8505008700','2'),
+('Nowicki', 'Filip', 'LAP46723','9505065700','3'),
+('Duda', 'Wojciech', 'PKE95123','9805067000','1'),
+('Grabowski', 'Stanisław', 'LDH65793','9205000890','1')
+
+
 INSERT INTO Czynnosc_produkcyjna (Nazwa)
 VALUES
 ('Przygotowanie stanowiska'),
