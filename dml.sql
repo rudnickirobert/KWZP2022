@@ -57,6 +57,45 @@ VALUES
 (4,'321321321','2020-05-01'),
 (5,'321321321','2021-06-01')
 
+INSERT INTO Email_pracownik (ID_pracownik,Email,Data_od)
+VALUES
+(1,'jannowak@drukarczyk.pl','2022-01-01'),
+(2,'grzegorzmarszal@drukarczyk.pl','2022-02-01'),
+(3,'jozefgont@drukarczyk.pl','2021-12-10'),
+(4,'annamarkowska@drukarczyk.pl','2020-05-01'),
+(5,'katarzynapawlak@drukarczyk.pl','2021-06-01')
+
+INSERT INTO Stanowisko (Nazwa_stanowiska)
+VALUES
+('Prezes'),
+('Dyrektor operacyjny'),
+('Specjalista do spraw kadr i płac'),
+('Projektant'),
+('Project manager'),
+('Specjalista do spraw finansów'),
+('Kierownik handlu i marketingu'),
+('Handlowiec'),
+('Marketingowiec'),
+('Kierownik produkcji i utrzymania ruchu'),
+('Brygadzista'),
+('Operator'),
+('Kierownik zasobów i dostaw'),
+('Zaopatrzeniowiec'),
+('Magazynier'),
+('Brygadzista utrzymania ruchu'),
+('Elektromechanik'),
+('Logistyk'),
+('Kontroler jakości')
+
+INSERT INTO Dzial (Nazwa_dzial)
+VALUES
+('Kadr i przygotowania produkcji'),
+('Handlowy i marketingu'),
+('Produkcji'),
+('Zasobów i dostaw'),
+('Utrzymania ruchu'),
+('Logistyczny'),
+('Kontroli jakości')
 
 INSERT INTO Czynnosc_produkcyjna (Nazwa)
 VALUES
@@ -280,6 +319,69 @@ VALUES
 ('Ekstruder Bondtech phi0.2',1),
 ('Silnik krokowy KROK',6),
 ('Glowica lasera LG', 9);
+
+INSERT INTO Etat (ID_stanowisko, ID_dzial, Liczba_miejsc)
+VALUES
+(1,2,1),
+(2,2,1),
+(3,1,1),
+(4,1,2),
+(5,1,1),
+(6,2,2),
+(7,2,1),
+(8,2,2),
+(9,2,1),
+(10,5,1),
+(11,5,1),
+(12,3,4),
+(13,4,1),
+(14,4,1),
+(15,4,1),
+(16,5,1),
+(17,6,1),
+(18,7,1)
+
+INSERT INTO Posada_pracownik (ID_etat, Data_od)
+VALUES
+(1,'13.04.2022'),
+(2,'14.04.2022'),
+(3,'14.04.2022'),
+(4,'13.04.2022'),
+(5,'13.04.2022'),
+(6,'13.04.2022'),
+(7,'14.04.2022'),
+(8,'14.04.2022'),
+(9,'13.04.2022'),
+(10,'13.04.2022'),
+(11,'13.04.2022'),
+(12,'14.04.2022'),
+(13,'14.04.2022'),
+(14,'13.04.2022'),
+(15,'13.04.2022'),
+(16,'13.04.2022'),
+(17,'14.04.2022'),
+(18,'14.04.2022')
+
+INSERT INTO Rodzaj_umowy (Nazwa, Urlop)
+VALUES
+('Umowa o pracę',26),
+('Umowa zlecenie',0),
+('Umowa o dzieło',0)
+
+INSERT INTO Rodzaj_nieobecnosci (Symbol)
+VALUES
+(’U’),
+(’ZW’),
+(’O’)
+
+INSERT INTO Nieobecnosc (ID_pracownik, ID_rodzaj_nieobecnosci, Data_od, Data_do)
+VALUES
+(1,1,'01.04.2022','03.04.2022'),
+(1,1,'05.04.2022','10.04.2022'),
+(3,2,'04.04.2022','04.04.2022'),
+(4,3,'01.04.2022','05.04.2022'),
+(5,1,'01.04.2022','03.04.2022')
+
 
 
 INSERT INTO Maszyna (Nazwa_maszyna, ID_rodzaj_maszyna, Koszt_RBG)
