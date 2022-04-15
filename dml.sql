@@ -382,6 +382,30 @@ VALUES
 (4,3,'01.04.2022','05.04.2022'),
 (5,1,'01.04.2022','03.04.2022')
 
+INSERT INTO Wymiar_pracy (Nazwa)
+VALUES
+('Pełny etat'),
+('Pół etatu')
+
+INSERT INTO Umowa (ID_wymiar_pracy, ID_rodzaj_umowy, ID_pracownik, ID_posada, Wynagrodzenie)
+VALUES
+(1,1,1,1,5000),
+(1,1,2,12,4000),
+(1,1,3,12,3600),
+(2,2,4,12,5500),
+(2,1,5,2,5500),
+(2,2,06,3,4500),
+(1,1,07,4,4500),
+(1,2,8,4,3500),
+(1,2,9,8,5500),
+(1,1,10,9,6000),
+(2,1,11,10,7000),
+(2,1,12,11,5000),
+(1,1,13,13,3600),
+(1,1,14,14,3600),
+(1,1,15,15,5500),
+(1,1,16,16,6000),
+(1,1,17,18,5000)
 
 
 INSERT INTO Maszyna (Nazwa_maszyna, ID_rodzaj_maszyna, Koszt_RBG)
