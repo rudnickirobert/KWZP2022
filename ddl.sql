@@ -663,9 +663,9 @@ CREATE TABLE Szczegoly_zamowienie_narzedzie
 	CONSTRAINT PK_SzczegolyZN PRIMARY KEY (ID_zamowienie_narzedzie, ID_narzedzie, ID_producent)
 );
  
-CREATE TABLE Sklad_maszyny 
+CREATE TABLE Sklad_maszyna 
 	(
-	ID_sklad_maszyny INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	ID_sklad_maszyna INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	ID_maszyna INT FOREIGN KEY 
 		REFERENCES Maszyna(ID_maszyna) NOT NULL,
 	ID_czesc INT FOREIGN KEY 
