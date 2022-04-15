@@ -566,9 +566,9 @@ CREATE TABLE Zwrot
 );
 
 
-CREATE TABLE Rodzaj_obslugi
+CREATE TABLE Rodzaj_obsluga
 	(
-	ID_rodzaj_obslugi INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	ID_rodzaj_obsluga INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	Nazwa NVARCHAR(50) NOT NULL
 );
  
@@ -676,8 +676,8 @@ CREATE TABLE Sklad_maszyna
 CREATE TABLE Obsluga
 	(
 	ID_obsluga INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-	ID_rodzaj_obslugi INT FOREIGN KEY
-		REFERENCES Rodzaj_obslugi(ID_rodzaj_obslugi) NOT NULL,
+	ID_rodzaj_obsluga INT FOREIGN KEY
+		REFERENCES Rodzaj_obsluga(ID_rodzaj_obsluga) NOT NULL,
 	ID_stanowisko_produkcyjne INT FOREIGN KEY
 		REFERENCES Stanowisko_produkcyjne(ID_stanowisko_produkcyjne) NOT NULL,
 	Data_od DATETIME NOT NULL,
