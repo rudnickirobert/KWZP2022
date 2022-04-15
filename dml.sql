@@ -11,44 +11,51 @@ VALUES
 
 INSERT INTO Pracownik (Nazwisko, Imie, Nr_dowodu, Pesel, Wyksztalcenie)
 VALUES
-('Nowak','Jan','AAA00000','550500000','1'),
-('Marszał','Grzegorz','ABC20000','8809010000','2'),
-('Gont','Józef','RF004050','9703040000','3'),
-('Markowska', 'Anna', 'ABC00020','8806360300','1'),
-('Pawlak','Katarzyna','GDE00900','9004120000','2'),
-('Kowalczylk','Adam','UJG02033','9905170780', '3'),
-('Andrzejewski', 'Michał',' DCE986557','7907290003','1'),
-('Krawczyk', 'Karol', 'GDT80967','9005000450','2'),
-('Wieczorek', 'Laura', 'HNR23123','8705050000','3'),
-('Baran', 'Szymon', 'MFN67926','9905006800','1'),
-('Wilk', 'Zuzanna', 'MDK85609','6805045067','2'),
-('Sadowski', 'Aleksander', 'NFL48923','9805005680','3'),
-('Borkowska', 'Zofia', 'LDG57291','7605004500','1'),
-('Sikora', 'Julia', 'LFB57823','8505008700','2'),
-('Nowicki', 'Filip', 'LAP46723','9505065700','3'),
-('Duda', 'Wojciech', 'PKE95123','9805067000','1'),
-('Grabowski', 'Stanisław', 'LDH65793','9205000890','1')
+('Nowak','Jan','AAA00000','550500000',1),
+('Marszał','Grzegorz','ABC20000','8809010000',2),
+('Gont','Józef','RF004050','9703040000',3),
+('Markowska', 'Anna', 'ABC00020','8806360300',1),
+('Pawlak','Katarzyna','GDE00900','9004120000',2),
+('Kowalczylk','Adam','UJG02033','9905170780', 3),
+('Andrzejewski', 'Michał',' DCE986557','7907290003',1),
+('Krawczyk', 'Karol', 'GDT80967','9005000450',2),
+('Wieczorek', 'Laura', 'HNR23123','8705050000',3),
+('Baran', 'Szymon', 'MFN67926','9905006800',1),
+('Wilk', 'Zuzanna', 'MDK85609','6805045067',2),
+('Sadowski', 'Aleksander', 'NFL48923','9805005680',3),
+('Borkowska', 'Zofia', 'LDG57291','7605004500',1),
+('Sikora', 'Julia', 'LFB57823','8505008700',2),
+('Nowicki', 'Filip', 'LAP46723','9505065700',3),
+('Duda', 'Wojciech', 'PKE95123','9805067000',1),
+('Grabowski', 'Stanisław', 'LDH65793','9205000890',1)
 
-INSERT INTO Dane_adresowe_pracownik (ID_pracownik, Miejscowosc, Ulica, Nr_budynku, Nr_lokalu, Kod_pocztowy, Data_od, Data_do)
+INSERT INTO Dane_adresowe_pracownik (ID_pracownik, Miejscowosc, Ulica, Nr_budynku, Nr_lokalu, Kod_pocztowy, Data_od)
 VALUES
-('1', 'Warszawa', 'Jana Pawła II', '21', '37', '02137', '14.04.2021'),
-('2', 'Marki', 'Markowa', '23', '11', '12000', '14.08.2019'),
-('3', 'Warszawa', 'Kombatantów', '6', '26', '11500', '13.02.2020'),
-('4', 'Warszawa', 'Królowej Jadwigi', '11', '20', '02347', '19.04.2020'),
-('5', 'Warszawa', 'Kościuszki', '51', '32', '02952', '02.10.2018'),
-('6', 'Marki', 'Długa', '1', '1', '12301','09.03.2019'),
-('7', 'Warszawa', 'Krótka', '2','2','02022','11.06.2021'),
-('8', 'Warszawa', 'Średnia', '3','3','01437','11.06.2021'),
-('9', 'Warszawa', 'Kaliskiego', '2', '11', '01534','11.02.2020'),
-('10', 'Warszawa', 'Górczewska', '11', '20', '03321','13.01.2020'),
-('11', 'Marki', 'Naturalna', '21', '36', '08808', '13.07.2018'), 
-('12', 'Pruszków', 'Wiejska', '13', '32', '11111','13.05.2017'),
-('13', 'Warszawa',' Połczyńska', '2','33', '01910','01.01.2018'),
-('14', 'Warszawa', 'Al. Jerozolimskie', '5','10', '02147', '01.01.2017'),
-('15', 'Pruszków', 'Marszałkowska', '1', '1', '03332', '01.01.2019'),
-('16', 'Pruszków', 'Prosta', '27', '22', '01712', '01.01.2020'),
-('17', 'Pruszków', 'Karolkowa' ,'3', '34', '04543', '01.01.2022')
+(1, 'Warszawa', 'Jana Pawła II', '21', '37', '02137', '2021-04-14'),
+(2, 'Marki', 'Markowa', '23', '11', '12000', '2019-08-14'),
+(3, 'Warszawa', 'Kombatantów', '6', '26', '11500', '2020-02-13'),
+(4, 'Warszawa', 'Królowej Jadwigi', '11', '20', '02347', '2020-04-19'),
+(5, 'Warszawa', 'Kościuszki', '51', '32', '02952', '2018-10-02'),
+(6, 'Marki', 'Długa', '1', '1', '12301','2019-03-09'),
+(7, 'Warszawa', 'Krótka', '2','2','02022','2021-06-11'),
+(8, 'Warszawa', 'Średnia', '3','3','01437','2021-06-11'),
+(9, 'Warszawa', 'Kaliskiego', '2', '11', '01534','2020-02-11'),
+(10, 'Warszawa', 'Górczewska', '11', '20', '03321','2020-01-13'),
+(11, 'Marki', 'Naturalna', '21', '36', '08808', '2018-07-13'), 
+(12, 'Pruszków', 'Wiejska', '13', '32', '11111','2017-05-13'),
+(13, 'Warszawa',' Połczyńska', '2','33', '01910','2018-01-01'),
+(14, 'Warszawa', 'Al. Jerozolimskie', '5','10', '02147', '2017-01-01'),
+(15, 'Pruszków', 'Marszałkowska', '1', '1', '03332', '2019-01-01'),
+(16, 'Pruszków', 'Prosta', '27', '22', '01712', '2020-01-01'),
+(17, 'Pruszków', 'Karolkowa' ,'3', '34', '04543', '2022-01-01')
 
+INSERT INTO Nr_telefon_pracownik (ID_pracownik, Numer, Data_od)
+VALUES
+(1,'123123123','2022-01-01'),
+(2,'321321321','2022-02-01'),
+(3,'456456456','2021-12-10'),
+(4,'321321321','2020-05-01'),
+(5,'321321321','2021-06-01')
 
 
 INSERT INTO Czynnosc_produkcyjna (Nazwa)
