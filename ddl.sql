@@ -1,11 +1,11 @@
-USE MASTER
+USE master
 GO
---DROP DATABASE KWZP
+DROP DATABASE KWZP
 GO
 CREATE DATABASE KWZP
 GO
 USE KWZP
-
+GO
 CREATE TABLE Wyksztalcenie(
 ID_wyksztalcenie INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 Nazwa VARCHAR(35) NOT NULL
@@ -20,7 +20,6 @@ CREATE TABLE Pracownik
 	Nr_dowodu VARCHAR(9) NOT NULL,
 	Pesel BIGINT NOT NULL,
 	Wyksztalcenie VARCHAR(10) NOT NULL,
-	-- ID_umowa INT FOREIGN KEY REFERENCES Umowa(ID_umowa),
 );
 
 CREATE TABLE Dane_adresowe_pracownik
@@ -811,7 +810,7 @@ CREATE TABLE Szczegoly_zamowienie_material
 		REFERENCES Material(ID_material) NOT NULL,
 	ID_producent INT FOREIGN KEY 
 		REFERENCES Producent(ID_producent) NOT NULL,
-	Waga_kg INT NOT NULL,
+	Waga_g INT NOT NULL,
 	Cena DECIMAL(15,2) NOT NULL,
 		CONSTRAINT PK_SzczegolyZMAT PRIMARY KEY (ID_zamowienie_material, ID_material, ID_producent)
 );
