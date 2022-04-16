@@ -1,4 +1,4 @@
-USE KWZP
+﻿USE KWZP
 GO
 
 ------- PRODUCTION DEPARTMENT --------
@@ -9,17 +9,52 @@ SELECT ID_czynnosc_produkcyjna AS [Identyfikator czynnosci], Nazwa AS [Nazwa czy
 FROM Czynnosc_produkcyjna;
 GO
 
---CREATE VIEW	v_Parametry_produkt
---AS
---SELECT P.Nazwa_produkt AS [Nazwa produktu], Parametr_produkt.Nazwa AS [Nazwa parametru], Parametr_produkt.Nominal AS [Wartos� nominalna]
---FROM Szczegoly_produkt AS SP
---INNER JOIN 
---Produkt AS P ON SP.ID_produkt = P.ID_produkt
---INNER JOIN
---Parametr_produkt AS PP ON SP.ID_parametr = PP.ID_parametr;
+CREATE VIEW v_Parametry_produkt
+AS
+SELECT P.Nazwa_produkt AS [Nazwa produktu], RP.Nazwa_rodzaj_parametr AS [Parametr],
+PP.Zakres_dol AS [Wymiar minimalny], PP.Zakres_gora AS [Wymiar maksymalny], J.Skrot AS [Jednostka]
+FROM Parametr_produkt AS PP
+INNER JOIN Produkt AS P ON PP.ID_produkt = P.ID_produkt
+INNER JOIN Rodzaj_parametr AS RP ON PP.ID_rodzaj_parametr = RP.ID_rodzaj_parametr
+INNER JOIN Jednostka AS J ON RP.ID_jednostka = J.ID_jednostka
+GO
 
---NIE DZIA�A/ CO TO JEST??--
+CREATE VIEW v_Parametry_polprodukt
+AS
+SELECT SP.Nazwa AS [Nazwa półproduktu], RP.Nazwa_rodzaj_parametr AS [Parametr],
+PPp.Zakres_dol AS [Wymiar minimalny], PPp.Zakres_gora AS [Wymiar maksymalny], J.Skrot AS [Jednostka]
+FROM Parametr_polprodukt AS PPp
+INNER JOIN Slownik_polprodukt AS SP ON PPp.ID_polprodukt = SP.ID_polprodukt
+INNER JOIN Rodzaj_parametr AS RP ON PPp.ID_rodzaj_parametr = RP.ID_rodzaj_parametr
+INNER JOIN Jednostka AS J ON RP.ID_jednostka = J.ID_jednostka
+GO
 
+CREATE VIEW v_Sklad_produkt
+AS
+SELECT P.Nazwa_produkt AS [Produkt], SlwPP.Nazwa AS [Półprodukt], SP.Liczba
+FROM Sklad_produkt AS SP
+INNER JOIN Produkt AS P ON SP.ID_produkt = P.ID_produkt
+INNER JOIN Slownik_polprodukt AS SlwPP ON SP.ID_polprodukt = SlwPP.ID_polprodukt
+GO
+
+CREATE VIEW v_Sklad_polprodukt
+AS
+SELECT SlwPp.Nazwa AS [Półprodukt], M.Nazwa_material AS [Materiał], RM.Nazwa_rodzaj_material AS [Rodzaj materiału]
+FROM Sklad_polprodukt AS SP
+INNER JOIN Slownik_polprodukt AS SlwPp ON SP.ID_polprodukt = SlwPp.ID_polprodukt
+INNER JOIN Material AS M ON SP.ID_material = M.ID_material
+INNER JOIN Rodzaj_material AS RM ON M.ID_rodzaj_material = RM.ID_rodzaj_material
+GO
+
+CREATE VIEW v_Slownik_stanowisko
+AS
+SELECT * FROM Slownik_stanowisko
+GO
+
+CREATE VIEW v_Stanowisko_produkcyjne
+AS
+SELECT * FROM Stanowisko_produkcyjne
+GO
 
 -----RESOURCE DEPARTMENT----
 
