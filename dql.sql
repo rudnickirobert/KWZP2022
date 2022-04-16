@@ -48,13 +48,41 @@ GO
 
 CREATE VIEW v_Slownik_stanowisko
 AS
-SELECT * FROM Slownik_stanowisko
+SELECT ID_nazwa_stanowiska AS ID, Nazwa_stanowiska AS [Nazwa stanowiska] 
+FROM Slownik_stanowisko
 GO
 
 CREATE VIEW v_Stanowisko_produkcyjne
 AS
-SELECT * FROM Stanowisko_produkcyjne
+SELECT SP.ID_stanowisko_produkcyjne AS [ID], SS.Nazwa_stanowiska AS [Nazwa stanowiska]
+FROM Stanowisko_produkcyjne AS SP
+INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
 GO
+
+CREATE VIEW v_Sklad_stanowisko_produkcyjne_narzedzie
+AS
+SELECT SP.ID_stanowisko_produkcyjne AS [ID Stanowiska], SS.Nazwa_stanowiska, N.ID_narzedzie, N.Nazwa_narzedzie 
+FROM Sklad_stanowisko_produkcyjne AS SSP
+INNER JOIN Stanowisko_produkcyjne AS SP ON SSP.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
+INNER JOIN Narzedzie AS N ON SSP.ID_narzedzie = N.ID_narzedzie
+INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
+WHERE SP.ID_stanowisko_produkcyjne = 3
+GO
+
+CREATE VIEW v_Sklad_stanowisko_produkcyjne_maszyna
+AS
+SELECT SSPM.ID_sklad_stanowisko_produkcyjne_maszyna, 
+SP.ID_stanowisko_produkcyjne, SS.Nazwa_stanowiska, MS.ID_maszyna, NS.Nr_seryjny,
+M.Nazwa_maszyna, RM.Nazwa_rodzaj_maszyna
+FROM Sklad_stanowisko_produkcyjne_maszyna AS SSPM
+INNER JOIN Stanowisko_produkcyjne AS SP ON SSPM.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
+INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
+INNER JOIN Maszyna_nr_seryjny AS MS ON SSPM.ID_maszyna_nr = MS.ID_maszyna_nr
+INNER JOIN Maszyna AS M ON MS.ID_maszyna = M.ID_maszyna
+INNER JOIN Rodzaj_maszyna AS RM ON M.ID_rodzaj_maszyna = RM.ID_rodzaj_maszyna
+INNER JOIN Nr_seryjny AS NS ON MS.ID_maszyna_nr = NS.ID_nr_seryjny
+GO
+
 
 -----RESOURCE DEPARTMENT----
 
