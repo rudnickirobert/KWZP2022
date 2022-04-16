@@ -703,17 +703,6 @@ CREATE TABLE Wymiana_czesc
 	CONSTRAINT PK_WymCZ PRIMARY KEY (ID_obsluga, ID_maszyna_nr, ID_czesc)
 );
 
-CREATE TABLE Wymiana_narzedzie
-	(
-	ID_obsluga INT FOREIGN KEY 
-		REFERENCES Obsluga(ID_Obsluga) NOT NULL,
-	ID_maszyna_nr INT FOREIGN KEY 
-		REFERENCES Maszyna_nr_seryjny(ID_maszyna_nr) NOT NULL,
-	ID_narzedzie INT FOREIGN KEY 
-		REFERENCES Narzedzie(ID_narzedzie) NOT NULL
-	CONSTRAINT PK_WymNA PRIMARY KEY (ID_obsluga, ID_maszyna_nr, ID_narzedzie )
-);
-
 CREATE TABLE Parametr_material 
 	(
 	ID_material INT FOREIGN KEY 

@@ -11,25 +11,28 @@ VALUES
 
 INSERT INTO Pracownik (Nazwisko, Imie, Nr_dowodu, Pesel, Wyksztalcenie)
 VALUES
-('Nowak','Jan','AAA00000',550500000,1),
-('Marszał','Grzegorz','ABC20000',8809010000,2),
-('Gont','Józef','RF004050',9703040000,3),
-('Markowska', 'Anna', 'ABC00020',8806360300,1),
-('Pawlak','Katarzyna','GDE00900',9004120000,2),
-('Kowalczylk','Adam','UJG02033',9905170780, 3),
-('Andrzejewski', 'Michał','DCE986557',7907290003,1),
-('Krawczyk', 'Karol', 'GDT80967',9005000450,2),
-('Wieczorek', 'Laura', 'HNR23123',8705050000,3),
-('Baran', 'Szymon', 'MFN67926',9905006800,1),
-('Wilk', 'Zuzanna', 'MDK85609',6805045067,2),
-('Sadowski', 'Aleksander', 'NFL48923',9805005680,3),
-('Borkowska', 'Zofia', 'LDG57291',7605004500,1),
-('Sikora', 'Julia', 'LFB57823',8505008709,2),
-('Nowicki', 'Filip', 'LAP46723',9505065700,3),
-('Duda', 'Wojciech', 'PKE95123',9805067000,1),
-('Grabowski', 'Stanisław', 'LDH65793',9205000890,1),
-('Dzban', 'Jan', 'LDP65793',9805022890,1),
-('Gawron', 'Patrycja', 'LPG69699',8205000890,1);
+('Nowak','Jan','AAA00000',5505000005,1),
+('Marszał','Grzegorz','ABC20000',88090100005,2),
+('Gont','Józef','RF004050',97030400005,3),
+('Markowska', 'Anna', 'ABC00020',88063603005,1),
+('Pawlak','Katarzyna','GDE00900',90041200003,2),
+('Kowalczylk','Adam','UJG02033',99051707802, 3),
+('Andrzejewski', 'Michał','DCE986557',79072900034,1),
+('Krawczyk', 'Karol', 'GDT80967',90050004505,2),
+('Wieczorek', 'Laura', 'HNR23123',87050500006,3),
+('Baran', 'Szymon', 'MFN67926',99050068003,1),
+('Wilk', 'Zuzanna', 'MDK85609',68050450673,2),
+('Sadowski', 'Aleksander', 'NFL48923',98050056806,3),
+('Borkowska', 'Zofia', 'LDG57291',76050045006,1),
+('Sikora', 'Julia', 'LFB57823',85050087096,2),
+('Nowicki', 'Filip', 'LAP46723',95050657006,3),
+('Duda', 'Wojciech', 'PKE95123',98050670006,1),
+('Grabowski', 'Stanisław', 'LDH65793',92050008906,1),
+('Dzban', 'Jan', 'LDP65793',98050228905,1),
+('Gawron', 'Patrycja', 'LPG69699',82050008902,1),
+('Pudzianowski', 'Mariusz', 'XD954821',74010508905,4),
+('Mahyz', 'Ednan', 'SNG65602',88092408590,4),
+('Nierob', 'Janusz', 'M6565PO1',81123157832,3);
 
 INSERT INTO Dane_adresowe_pracownik (ID_pracownik, Miejscowosc, Ulica, Nr_budynku, Nr_lokalu, Kod_pocztowy, Data_od)
 VALUES
@@ -49,7 +52,12 @@ VALUES
 (14, 'Warszawa', 'Al. Jerozolimskie', '5','10', '02147', '2017-01-01'),
 (15, 'Pruszków', 'Marszałkowska', '1', '1', '03332', '2019-01-01'),
 (16, 'Pruszków', 'Prosta', '27', '22', '01712', '2020-01-01'),
-(17, 'Pruszków', 'Karolkowa' ,'3', '34', '04543', '2022-01-01');
+(17, 'Pruszków', 'Karolkowa' ,'3', '34', '04543', '2022-01-01'),
+(18, 'Warszawa', 'Piertucha' ,'5', '15', '02495', '2022-02-21'),
+(19, 'Warszawa', 'Ziemniaczana' ,'13', '13', '00251', '2022-01-12'),
+(20, 'Warszawa', 'Marchewkowa' ,'15', '12', '00957', '2021-01-11'),
+(21, 'Nadarzyn', 'Porowa' ,'1', '31', '05830', '2022-01-05'),
+(22, 'Marki', 'Cebulowa' ,'21', '3', '04543', '2020-01-03');
 
 INSERT INTO Nr_telefon_pracownik (ID_pracownik, Numer, Data_od)
 VALUES
@@ -57,8 +65,7 @@ VALUES
 (2,'321321321','2022-02-01'),
 (3,'456456456','2021-12-10'),
 (4,'321321321','2020-05-01'),
-
-(5,'321321321','2021-06-01')
+(5,'321321321','2021-06-01');
 
 INSERT INTO Email_pracownik (ID_pracownik,Email,Data_od)
 VALUES
@@ -66,7 +73,7 @@ VALUES
 (2,'grzegorzmarszal@drukarczyk.pl','2022-02-01'),
 (3,'jozefgont@drukarczyk.pl','2021-12-10'),
 (4,'annamarkowska@drukarczyk.pl','2020-05-01'),
-(5,'katarzynapawlak@drukarczyk.pl','2021-06-01')
+(5,'katarzynapawlak@drukarczyk.pl','2021-06-01');
 
 INSERT INTO Stanowisko (Nazwa_stanowiska)
 VALUES
@@ -88,7 +95,7 @@ VALUES
 ('Brygadzista utrzymania ruchu'),
 ('Elektromechanik'),
 ('Logistyk'),
-('Kontroler jakości')
+('Kontroler jakości');
 
 INSERT INTO Dzial (Nazwa_dzial)
 VALUES
@@ -99,9 +106,6 @@ VALUES
 ('Utrzymania ruchu'),
 ('Logistyczny'),
 ('Kontroli jakości');
-
-
-
 
 INSERT INTO Czynnosc_produkcyjna (Nazwa)
 VALUES
@@ -148,7 +152,7 @@ VALUES
 ('Obudowa PC'),
 ('Wal czynny'),
 ('Wal bierny'),
-('Obudowa przkladnia'),
+('Obudowa przekladnia'),
 ('Elementy montazowe - kostka'),
 ('Klosz fi150'),
 ('Mocowanie chlodzenia'),
@@ -238,8 +242,6 @@ VALUES
 ('Metr na sekunde do kwadratu','m/s2'),
 ('Wat','W');
 
-
-
 INSERT INTO Rodzaj_parametr (Nazwa_rodzaj_parametr, ID_Jednostka)
 VALUES
 ('Gestosc',5),
@@ -253,7 +255,6 @@ VALUES
 ('Predkosc przejazdow jalowych', 8),
 ('Temperatura przechowywania',6),
 ('Maksymalny pobór mocy',9);
-
 
 INSERT INTO Parametr_produkt(ID_produkt, ID_rodzaj_parametr, Zakres_dol, Zakres_gora)
 VALUES
@@ -344,7 +345,7 @@ VALUES
 (14,4,1),
 (15,4,3),
 (16,5,1),
-(17,6,1),
+(17,5,3),
 (18,7,1);
 
 INSERT INTO Posada_pracownika (ID_etat, Data_od)
@@ -368,7 +369,10 @@ VALUES
 (17,'2022-04-10'),
 (18,'2022-04-10'),
 (15,'2022-04-11'),
-(15,'2022-04-11');
+(15,'2022-04-11'),
+(16,'2022-04-11'),
+(17,'2022-04-11'),
+(17,'2022-04-11');
 
 INSERT INTO Rodzaj_umowy (Nazwa, Urlop)
 VALUES
@@ -384,11 +388,11 @@ VALUES
 
 INSERT INTO Nieobecnosc (ID_pracownik, ID_rodzaj_nieobecnosci, Data_od, Data_do)
 VALUES
-(1,1,'01.04.2022','03.04.2022'),
-(1,1,'05.04.2022','10.04.2022'),
-(3,2,'04.04.2022','04.04.2022'),
-(4,3,'01.04.2022','05.04.2022'),
-(5,1,'01.04.2022','03.04.2022');
+(1,1,'2022-04-11','2022-04-12'),
+(1,1,'2022-04-12','2022-04-13'),
+(3,2,'2022-04-13','2022-04-14'),
+(4,3,'2022-04-13','2022-04-14'),
+(5,1,'2022-04-13','2022-04-15');
 
 INSERT INTO Wymiar_pracy (Nazwa)
 VALUES
@@ -415,7 +419,10 @@ VALUES
 (1,1,16,16,6000),
 (1,1,17,18,5000),
 (1,1,18,15,1800),
-(1,1,19,15,1200);
+(1,1,19,15,1200),
+(1,1,20,21,3600),
+(1,1,21,22,3400),
+(1,1,22,22,3350);
 
 
 INSERT INTO Maszyna (Nazwa_maszyna, ID_rodzaj_maszyna, Koszt_RBG)
@@ -760,8 +767,6 @@ VALUES
 (4,4,5,25000,17000),
 (5,5,5,45000,15000);
 
-
-
 INSERT INTO Zamowienie_czesc(ID_pracownik, Data_zamowienia, ID_dostawca)
 VALUES
 (14,'2022-04-17',4),
@@ -814,8 +819,6 @@ VALUES
 --VALUES
 --(1,1,1,2,400),
 
-
-
 --INSERT INTO Zamowienie_maszyna(ID_pracownik, Data, ID_dostawca)
 --VALUES
 --(1,13.04.2022,1),
@@ -836,19 +839,21 @@ VALUES
 (2,5,'2022-03-02','2022-03-22', 'Gotowe do pracy'),
 (3,2,'2022-04-12','2022-04-14', 'Brak');
 
+INSERT Obsluga_pracownik (ID_obsluga, ID_pracownik)
+VALUES
+(1,22),
+(2,22),
+(3,21),
+(4,22),
+(5,21);
 
---INSERT Obsluga_pracownik (ID_obsluga, ID_pracownik)
---VALUES
---(1,1),
-
---INSERT INTO Wymiana_czesc(ID_obsluga, ID_maszyna_nr, ID_czesc)
---VALUE
---(1,1,1);
-
-
---INSERT INTO Wymiana_narzedzie(ID_obsluga, ID_maszyna_nr, ID_narzedzie)
---VALUE
---(2,2,1);
+INSERT INTO Wymiana_czesc(ID_obsluga, ID_maszyna_nr, ID_czesc)
+VALUES
+(2,1,3),
+(2,1,4),
+(2,1,5),
+(3,2,7),
+(3,2,8);
 
 INSERT INTO Sklad_maszyna ( ID_maszyna, ID_czesc, Liczba_czesci)
 VALUES

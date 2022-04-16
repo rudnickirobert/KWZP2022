@@ -108,6 +108,23 @@ ON Parametr_narzedzie.ID_rodzaj_parametr=Rodzaj_parametr.ID_rodzaj_parametr
 GROUP BY Narzedzie.Nazwa_narzedzie, Rodzaj_parametr.Nazwa_rodzaj_parametr, Jednostka.Skrot, Zakres_dol, Zakres_gora
 GO
 
+--CREATE VIEW v_Obluga_maszyna AS
+--SELECT Maszyna.Nazwa_maszyna, Rodzaj_obsluga.Nazwa_rodzaj_obsluga, Data_od, Data_do, Pracownik.Nazwisko, Pracownik.Imie
+--FROM Obsluga
+--INNER JOIN Rodzaj_obsluga
+--ON 
+
+--CREATE VIEW v_Zamowienia_czesci AS
+--SELECT Czesc.Nazwa_czesc, Producent.Nazwa_producenta, Szczegoly_zamowienie_czesc.Ilosc, Szczegoly_zamowienie_czesc.Cena, Dostawca.Nazwa_dostawca, Data_zamowienia
+--FROM Zamowienie_czesc
+--INNER JOIN Czesc
+--ON Zamowienie_czesc.ID
+--INNER JOIN
+--ON
+--INNER JOIN
+--ON
+--GO
+
 --CREATE VIEW v_Zamowienia_maszyn_w_trakcie AS
 --SELECT 
 --FROM Stan_realizacji_zamowienie_maszyna
