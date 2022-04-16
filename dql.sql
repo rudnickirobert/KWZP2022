@@ -161,3 +161,42 @@ GO
 --WHERE NOT ID_status_zamowienie
 --GO
 
+--SALES AND MARKETING DEPARTMENT --
+CREATE VIEW v_Szczegoly_sprzedaz AS
+SELECT Szczegoly_sprzedaz.ID_sprzedaz AS [Numer sprzedaży], Produkt.Nazwa_produkt AS [Produkt], 
+Szczegoly_sprzedaz.Ilosc AS [Ilość], Szczegoly_sprzedaz.Kwota_sprzedaz AS [Cena za sztukę], Podatek.Procent AS [Podatek %],
+Forma_platnosc.Forma_platnosc AS [Forma płatności]
+FROM Szczegoly_sprzedaz
+INNER JOIN Podatek ON Szczegoly_sprzedaz.ID_podatek = Podatek.ID_podatek
+INNER JOIN (Sprzedaz INNER JOIN Forma_platnosc ON Sprzedaz.ID_forma_platnosc = Forma_platnosc.ID_Forma_platnosc) 
+ON Szczegoly_sprzedaz.ID_sprzedaz = Sprzedaz.ID_sprzedaz
+INNER JOIN Produkt ON Produkt.ID_produkt = Szczegoly_sprzedaz.ID_produkt
+
+CREATE VIEW v_Sprzedaz AS
+SELECT Sprzedaz.Nr_sprzedaz AS [Numer sprzedaży], Klient.Nazwisko AS [Nazwisko klienta], Klient.Imie AS [Imię klienta], Klient.NIP,
+		Sprzedaz.Data_sprzedaz_poczatek AS [Data początku sprzedaży], Sprzedaz.Data_sprzedaz_koniec AS [Data końca sprzedaży],
+		Umowa_sprzedaz.ID_umowa_sprzedaz AS [Umowa], (Szczegoly_sprzedaz.Ilosc * Szczegoly_sprzedaz.Kwota_sprzedaz) AS [Koszt]
+FROM Sprzedaz
+INNER JOIN 
+(Umowa_sprzedaz INNER JOIN 
+(Oferta_handlowa INNER JOIN 
+(Klient INNER JOIN Zamowienie ON Klient.ID_klient = Zamowienie.ID_klient) 
+ON Oferta_handlowa.ID_zamowienie = Zamowienie.ID_zamowienie) 
+ON Umowa_sprzedaz.ID_oferta_handlowa = Oferta_handlowa.ID_oferta_handlowa) ON Umowa_sprzedaz.ID_umowa_sprzedaz = Sprzedaz.ID_umowa_sprzedaz
+INNER JOIN Szczegoly_sprzedaz ON Szczegoly_sprzedaz.ID_sprzedaz = Sprzedaz.ID_sprzedaz
+GO
+
+CREATE VIEW v_Oferta_handlowa AS
+SELECT Oferta_handlowa.ID_zamowienie AS [Numer zamówienia], 
+Oferta_handlowa.ID_Oferta_handlowa AS [Nr oferty], 
+Status_oferta.Nazwa_status_oferta AS [Status oferty],
+Gwarancja.Okres_gwarancja AS [Okres gwarancji], 
+Gwarancja.Opis_gwarancja AS [Opis gwarancji],
+Oferta_handlowa.Cena, Oferta_handlowa.Termin_realizacja,
+Pracownik.Nazwisko AS [Nazwisko pracownika], Pracownik.Imie AS [Imię pracownika]
+FROM Oferta_handlowa
+INNER JOIN Status_oferta ON Status_oferta.ID_status_oferta = Oferta_handlowa.ID_status_oferta
+INNER JOIN Gwarancja ON Gwarancja.ID_gwarancja = Oferta_handlowa.ID_gwarancja
+INNER JOIN Pracownik ON Pracownik.ID_pracownik = Oferta_Handlowa.ID_pracownik
+ORDER BY [Numer zamówienia] OFFSET 0 ROWS
+GO 
