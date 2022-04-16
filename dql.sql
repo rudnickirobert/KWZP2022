@@ -208,4 +208,31 @@ INNER JOIN Status_oferta ON Status_oferta.ID_status_oferta = Oferta_handlowa.ID_
 INNER JOIN Gwarancja ON Gwarancja.ID_gwarancja = Oferta_handlowa.ID_gwarancja
 INNER JOIN Pracownik ON Pracownik.ID_pracownik = Oferta_Handlowa.ID_pracownik
 ORDER BY [Numer zamówienia] OFFSET 0 ROWS
-GO 
+GO
+
+CREATE VIEV v_Produkty_na_gwarancji
+AS
+SELECT Szczegoly_sprzedaz.ID_produkt AS [Nazwa produktu],
+Szczegoly_sprzedaz.ID_sprzedaz AS [Numer sprzedaży],
+Szczegoly_sprzedaz.Data_sprzedaz_koniec AS [Data sprzedaży],
+Gwarancja.Okres_gwarancji AS [Okres gwarancji]
+FROM Szczegoly_sprzedaz
+INNER JOIN Gwarancja ON Szczegoly_sprzedaz.Okres_gwarancji = Gwarancja.Okres_gwarancji
+GO
+
+CREATE VIEV v_Reklamacja
+AS
+SELECT Reklamacja.ID_sprzedaz AS [Numer sprzedaży],
+Reklamacja.ID_reklamacja AS [Numer reklamacji],
+Reklamacja.Data_reklamacja AS [Data reklamacji],
+Rekalamcja.Opis_reklamacja AS [Opis reklamacji],
+Zwrot.ID_produkt AS [Nazwa produktu],
+Zwrot.Ilosc AS [Ilość],
+Zwrot.Akceptacja AS [Akceptacja]
+FROM Reklamacja
+INNER JOIN ZWROT ON Reklamacja ON Reklamacja.ID_produkt = Zwrot.ID_produkt
+INNER JOIN ZWROT ON Reklamacja ON Reklamacja.Ilosc = Zwrot.Ilosc
+INNER JOIN ZWROT ON Reklamacja ON Reklamacja.Akceptacja = Zwrot.Akceptacja
+GO
+
+
