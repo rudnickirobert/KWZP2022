@@ -210,29 +210,31 @@ INNER JOIN Pracownik ON Pracownik.ID_pracownik = Oferta_Handlowa.ID_pracownik
 ORDER BY [Numer zamówienia] OFFSET 0 ROWS
 GO
 
-CREATE VIEV v_Produkty_na_gwarancji
+CREATE VIEW v_Produkty_na_gwarancji
 AS
-SELECT Szczegoly_sprzedaz.ID_produkt AS [Nazwa produktu],
+SELECT Produkt.Nazwa_produkt AS [Nazwa produktu],
 Szczegoly_sprzedaz.ID_sprzedaz AS [Numer sprzedaży],
-Szczegoly_sprzedaz.Data_sprzedaz_koniec AS [Data sprzedaży],
-Gwarancja.Okres_gwarancji AS [Okres gwarancji]
+Sprzedaz.Data_sprzedaz_koniec AS [Data sprzedaży]
 FROM Szczegoly_sprzedaz
-INNER JOIN Gwarancja ON Szczegoly_sprzedaz.Okres_gwarancji = Gwarancja.Okres_gwarancji
+INNER JOIN Sprzedaz ON Sprzedaz.ID_sprzedaz = Szczegoly_sprzedaz.ID_sprzedaz
+INNER JOIN Produkt ON Szczegoly_sprzedaz.ID_produkt = Produkt.ID_produkt
 GO
 
-CREATE VIEV v_Reklamacja
+
+
+CREATE VIEW v_Reklamacja
 AS
 SELECT Reklamacja.ID_sprzedaz AS [Numer sprzedaży],
 Reklamacja.ID_reklamacja AS [Numer reklamacji],
 Reklamacja.Data_reklamacja AS [Data reklamacji],
-Rekalamcja.Opis_reklamacja AS [Opis reklamacji],
-Zwrot.ID_produkt AS [Nazwa produktu],
+Reklamacja.Opis_reklamacja AS [Opis reklamacji],
+Produkt.Nazwa_produkt AS [Nazwa produktu],
 Zwrot.Ilosc AS [Ilość],
-Zwrot.Akceptacja AS [Akceptacja]
-FROM Reklamacja
-INNER JOIN ZWROT ON Reklamacja ON Reklamacja.ID_produkt = Zwrot.ID_produkt
-INNER JOIN ZWROT ON Reklamacja ON Reklamacja.Ilosc = Zwrot.Ilosc
-INNER JOIN ZWROT ON Reklamacja ON Reklamacja.Akceptacja = Zwrot.Akceptacja
+Zwrot.Akceptacja AS [Akceptacja] 
+FROM Zwrot
+INNER JOIN Reklamacja ON Reklamacja.ID_reklamacja = Zwrot.ID_reklamacja
+INNER JOIN Produkt ON Produkt.ID_produkt = Zwrot.ID_produkt 
 GO
+
 
 

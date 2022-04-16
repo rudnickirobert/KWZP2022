@@ -233,7 +233,7 @@ CREATE TABLE Proces_polprodukt_czynnosc
 		REFERENCES Slownik_polprodukt(ID_polprodukt) NOT NULL,
 	ID_czynnosc_produkcyjna INT FOREIGN KEY 
 		REFERENCES Czynnosc_produkcyjna(ID_czynnosc_produkcyjna) NOT NULL,
-	Czas_trwania TIME NOT NULL,
+	Czas_trwania INT NOT NULL,
 );
 
 CREATE TABLE Proces_produkt_czynnosc 
@@ -243,7 +243,7 @@ CREATE TABLE Proces_produkt_czynnosc
 		REFERENCES Produkt(ID_produkt) NOT NULL,
 	ID_czynnosc_produkcyjna INT FOREIGN KEY 
 		REFERENCES Czynnosc_produkcyjna(ID_czynnosc_produkcyjna) NOT NULL,
-	Czas_trwania TIME NOT NULL,
+	Czas_trwania INT NOT NULL,
 );
 
 
