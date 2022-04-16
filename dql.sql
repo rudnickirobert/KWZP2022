@@ -48,13 +48,41 @@ GO
 
 CREATE VIEW v_Slownik_stanowisko
 AS
-SELECT * FROM Slownik_stanowisko
+SELECT ID_nazwa_stanowiska AS ID, Nazwa_stanowiska AS [Nazwa stanowiska] 
+FROM Slownik_stanowisko
 GO
 
 CREATE VIEW v_Stanowisko_produkcyjne
 AS
-SELECT * FROM Stanowisko_produkcyjne
+SELECT SP.ID_stanowisko_produkcyjne AS [ID], SS.Nazwa_stanowiska AS [Nazwa stanowiska]
+FROM Stanowisko_produkcyjne AS SP
+INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
 GO
+
+CREATE VIEW v_Sklad_stanowisko_produkcyjne_narzedzie
+AS
+SELECT SP.ID_stanowisko_produkcyjne AS [ID Stanowiska], SS.Nazwa_stanowiska, N.ID_narzedzie, N.Nazwa_narzedzie 
+FROM Sklad_stanowisko_produkcyjne AS SSP
+INNER JOIN Stanowisko_produkcyjne AS SP ON SSP.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
+INNER JOIN Narzedzie AS N ON SSP.ID_narzedzie = N.ID_narzedzie
+INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
+WHERE SP.ID_stanowisko_produkcyjne = 3
+GO
+
+CREATE VIEW v_Sklad_stanowisko_produkcyjne_maszyna
+AS
+SELECT SSPM.ID_sklad_stanowisko_produkcyjne_maszyna, 
+SP.ID_stanowisko_produkcyjne, SS.Nazwa_stanowiska, MS.ID_maszyna, NS.Nr_seryjny,
+M.Nazwa_maszyna, RM.Nazwa_rodzaj_maszyna
+FROM Sklad_stanowisko_produkcyjne_maszyna AS SSPM
+INNER JOIN Stanowisko_produkcyjne AS SP ON SSPM.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
+INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
+INNER JOIN Maszyna_nr_seryjny AS MS ON SSPM.ID_maszyna_nr = MS.ID_maszyna_nr
+INNER JOIN Maszyna AS M ON MS.ID_maszyna = M.ID_maszyna
+INNER JOIN Rodzaj_maszyna AS RM ON M.ID_rodzaj_maszyna = RM.ID_rodzaj_maszyna
+INNER JOIN Nr_seryjny AS NS ON MS.ID_maszyna_nr = NS.ID_nr_seryjny
+GO
+
 
 -----RESOURCE DEPARTMENT----
 
@@ -133,3 +161,42 @@ GO
 --WHERE NOT ID_status_zamowienie
 --GO
 
+--SALES AND MARKETING DEPARTMENT --
+CREATE VIEW v_Szczegoly_sprzedaz AS
+SELECT Szczegoly_sprzedaz.ID_sprzedaz AS [Numer sprzedaży], Produkt.Nazwa_produkt AS [Produkt], 
+Szczegoly_sprzedaz.Ilosc AS [Ilość], Szczegoly_sprzedaz.Kwota_sprzedaz AS [Cena za sztukę], Podatek.Procent AS [Podatek %],
+Forma_platnosc.Forma_platnosc AS [Forma płatności]
+FROM Szczegoly_sprzedaz
+INNER JOIN Podatek ON Szczegoly_sprzedaz.ID_podatek = Podatek.ID_podatek
+INNER JOIN (Sprzedaz INNER JOIN Forma_platnosc ON Sprzedaz.ID_forma_platnosc = Forma_platnosc.ID_Forma_platnosc) 
+ON Szczegoly_sprzedaz.ID_sprzedaz = Sprzedaz.ID_sprzedaz
+INNER JOIN Produkt ON Produkt.ID_produkt = Szczegoly_sprzedaz.ID_produkt
+
+CREATE VIEW v_Sprzedaz AS
+SELECT Sprzedaz.Nr_sprzedaz AS [Numer sprzedaży], Klient.Nazwisko AS [Nazwisko klienta], Klient.Imie AS [Imię klienta], Klient.NIP,
+		Sprzedaz.Data_sprzedaz_poczatek AS [Data początku sprzedaży], Sprzedaz.Data_sprzedaz_koniec AS [Data końca sprzedaży],
+		Umowa_sprzedaz.ID_umowa_sprzedaz AS [Umowa], (Szczegoly_sprzedaz.Ilosc * Szczegoly_sprzedaz.Kwota_sprzedaz) AS [Koszt]
+FROM Sprzedaz
+INNER JOIN 
+(Umowa_sprzedaz INNER JOIN 
+(Oferta_handlowa INNER JOIN 
+(Klient INNER JOIN Zamowienie ON Klient.ID_klient = Zamowienie.ID_klient) 
+ON Oferta_handlowa.ID_zamowienie = Zamowienie.ID_zamowienie) 
+ON Umowa_sprzedaz.ID_oferta_handlowa = Oferta_handlowa.ID_oferta_handlowa) ON Umowa_sprzedaz.ID_umowa_sprzedaz = Sprzedaz.ID_umowa_sprzedaz
+INNER JOIN Szczegoly_sprzedaz ON Szczegoly_sprzedaz.ID_sprzedaz = Sprzedaz.ID_sprzedaz
+GO
+
+CREATE VIEW v_Oferta_handlowa AS
+SELECT Oferta_handlowa.ID_zamowienie AS [Numer zamówienia], 
+Oferta_handlowa.ID_Oferta_handlowa AS [Nr oferty], 
+Status_oferta.Nazwa_status_oferta AS [Status oferty],
+Gwarancja.Okres_gwarancja AS [Okres gwarancji], 
+Gwarancja.Opis_gwarancja AS [Opis gwarancji],
+Oferta_handlowa.Cena, Oferta_handlowa.Termin_realizacja,
+Pracownik.Nazwisko AS [Nazwisko pracownika], Pracownik.Imie AS [Imię pracownika]
+FROM Oferta_handlowa
+INNER JOIN Status_oferta ON Status_oferta.ID_status_oferta = Oferta_handlowa.ID_status_oferta
+INNER JOIN Gwarancja ON Gwarancja.ID_gwarancja = Oferta_handlowa.ID_gwarancja
+INNER JOIN Pracownik ON Pracownik.ID_pracownik = Oferta_Handlowa.ID_pracownik
+ORDER BY [Numer zamówienia] OFFSET 0 ROWS
+GO 

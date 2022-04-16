@@ -590,21 +590,23 @@ INSERT INTO Typ_zamowienie (Typ_zamowienie)
 	('Indywidualne'),
 	('Standardowe');
 
---INSERT INTO Zamowienie (ID_klient, ID_pracownik, Data_zamowienie, ID_typ_zamowienie)
---	VALUES
---	(1, 1, '2022-04-04', 2),
---	(2, 2, '2022-04-05', 2),
---	(3, 2, '2022-04-06', 1),
---	(4, 3, '2022-04-07', 1),
---	(5, 4, '2022-04-08', 2);
+INSERT INTO Zamowienie (ID_klient, ID_pracownik, Data_zamowienie, ID_typ_zamowienie)
+	VALUES
+	(1, 1, '2022-04-04', 2),
+	(2, 2, '2022-04-05', 2),
+	(3, 2, '2022-04-06', 1),
+	(4, 3, '2022-04-07', 1),
+	(5, 4, '2022-04-08', 2);
 
---INSERT INTO Zamowienie_szczegol (ID_zamowienie, ID_produkt, Ilosc)
---	VALUES
---	(1, 2, 50),
---	(1, 1, 30),
---	(2, 3, 100),
---	(3, 3, 150),
---	(3, 5, 120);
+INSERT INTO Zamowienie_szczegol (ID_zamowienie, ID_produkt, Ilosc)
+	VALUES
+	(1, 2, 50),
+	(1, 1, 30),
+	(2, 3, 100),
+	(3, 3, 150),
+	(3, 5, 120),
+	(4, 3, 150),
+	(5, 5, 120);
 
 INSERT INTO Gwarancja (Okres_gwarancja, Opis_gwarancja)
 	VALUES 
@@ -621,14 +623,14 @@ INSERT INTO Status_oferta (Nazwa_status_oferta)
 	('Do rozpatrzenia'),
 	('W trakcie realizacji');
 
---INSERT INTO Oferta_handlowa (ID_zamowienie, ID_pracownik, Termin_realizacja, ID_gwarancja, ID_status_oferta, Cena)
---	VALUES 
---	(1, 1, 1, '2022-04-28', 1, 1, 50),
---	(2, 3, 2, '2022-04-29', 1, 1, 40),
---	(3, 2, 3, '2022-04-30', 1, 1, 30),
---	(4, 4, 4, '2022-04-27', 1, 1, 20),
---	(5, 5, 5, '2022-05-04', 1, 1, 10),
---	(1, 1, 1, '2022-05-30', 1, 2, 51);
+INSERT INTO Oferta_handlowa (ID_zamowienie, ID_pracownik, Termin_realizacja, ID_gwarancja, ID_status_oferta, Cena)
+	VALUES 
+	(1, 1, '2022-04-28', 1, 1, 5000),
+	(2, 2, '2022-04-29', 1, 1, 4000),
+	(3, 3, '2022-04-30', 1, 1, 3000),
+	(4, 4, '2022-04-27', 1, 1, 2000),
+	(5, 5, '2022-05-04', 1, 1, 1000),
+	(1, 1, '2022-05-30', 1, 2, 5100);
 
 INSERT INTO Podatek (Procent)
 	VALUES
@@ -646,55 +648,49 @@ INSERT INTO Forma_platnosc (Forma_platnosc)
 	('BLIK'),
 	('Przelew pocztowy');
 
---INSERT INTO Umowa_sprzedaz (ID_oferta_handlowa)
---	VALUES
---	(1),
---	(2),
---	(3),
---	(4),
---	(5);
+INSERT INTO Umowa_sprzedaz (ID_oferta_handlowa)
+	VALUES
+	(1),
+	(2),
+	(3),
+	(4),
+	(5);
 
---INSERT INTO Sprzedaz (Nr_sprzadaz, Data_sprzedaz_poczatek, Data_sprzedaz_koniec, Termin_zaplata, ID_forma_platnosc, ID_umowa_sprzedaz, Ilosc)
---	VALUES
---	(1, '2022-03-01', '2022-03-15', '2022-03-22', 1, 1, 50),
---	(2, '2022-03-02', '2022-03-16', '2022-03-23', 2, 2, 40),
---	(3, '2022-03-03', '2022-03-17', '2022-03-24', 3, 3, 31),
---	(4, '2022-03-03', '2022-03-17', '2022-03-24', 2, 4, 20),
---	(5, '2022-03-04', '2022-03-18', '2022-03-25', 1, 5, 15),
---	(6, '2022-03-01', '2022-03-15', '2022-03-22', 1, 1, 50),
---	(7, '2022-03-02', '2022-03-16', '2022-03-23', 2, 2, 40),
---	(8, '2022-03-03', '2022-03-17', '2022-03-24', 3, 3, 31),
---	(9, '2022-03-03', '2022-03-17', '2022-03-24', 2, 4, 20),
---	(10, '2022-03-04', '2022-03-18', '2022-03-25', 1, 5, 15),
---	(11, '2022-03-03', '2022-03-17', '2022-03-24', 2, 4, 20),
---	(12, '2022-03-04', '2022-03-18', '2022-03-25', 1, 5, 15);
+INSERT INTO Sprzedaz (Nr_sprzedaz, Data_sprzedaz_poczatek, Data_sprzedaz_koniec, Termin_zaplata, ID_forma_platnosc, ID_umowa_sprzedaz)
+	VALUES
+	(1, '2022-03-01', '2022-03-15', '2022-03-22', 1, 1),
+	(2, '2022-03-02', '2022-03-16', '2022-03-23', 2, 2),
+	(3, '2022-03-03', '2022-03-17', '2022-03-24', 3, 3),
+	(4, '2022-03-03', '2022-03-17', '2022-03-24', 2, 4),
+	(5, '2022-03-04', '2022-03-18', '2022-03-25', 1, 5)
 
+INSERT INTO Reklamacja (ID_pracownik, ID_sprzedaz, Data_reklamacja, Opis_reklamacja)
+	VALUES
+	(1, 1, '2022-04-01', 'Uszkodzenie mechaniczne'),
+	(3, 1, '2022-04-02', 'Rozklejenie produtku'),
+	(2, 2, '2022-04-03', 'Uszkodzenie mechaniczne'),
+	(5, 3, '2022-04-04', 'Pękniecie materiału'),
+	(4, 3, '2022-04-05', 'Uszkodzenie mechaniczne'),
+	(5, 4, '2022-04-01', 'Uszkodzenie mechaniczne'),
+	(4, 5, '2022-04-01', 'Uszkodzenie mechaniczne');
 
---INSERT INTO Reklamacja (ID_pracownik, ID_sprzedaz, Data_reklamacja, Opis_reklamacja)
---	VALUES
---	(1, 6, '2022-04-01', 'Uszkodzenie mechaniczne'),
---	(3, 7, '2022-04-02', 'Rozklejenie produtku'),
---	(2, 8, '2022-04-03', 'Uszkodzenie mechaniczne'),
---	(5, 9, '2022-04-04', 'Pękniecie materiału', 1),
---	(4, 10, '2022-04-05', 'Uszkodzenie mechaniczne'),
---	(5, 11, '2022-04-01', 'Uszkodzenie mechaniczne'),
---	(4, 12, '2022-04-01', 'Uszkodzenie mechaniczne');
+INSERT INTO Zwrot (ID_reklamacja, ID_produkt, Ilosc, Akceptacja)
+	VALUES
+	(1,1,1,1),
+	(2,2,2,1),
+	(4,3,4,0),
+	(6,4,3,0),
+	(7,5,1,1);
 
---INSERT INTO Zwrot (ID_reklamacja, ID_produkt, Ilosc, Akceptacja)
---	VALUES
---	(1,1,1,1),
---	(2,2,2,1),
---	(4,3,4,0),
---	(6,4,3,0),
---	(7,5,1,1);
-
---INSERT INTO Szczegoly_sprzedaz (ID_sprzedaz, ID_produkt, Kwota_sprzedaz, ID_podatek)
---	VALUES
---	(1, 1, 50000.00, 1),
---	(2, 2, 25000.00, 2),
---	(3, 3, 3.50, 1),
---	(4, 4, 785.98, 3),
---	(5, 5, 9870.99, 4);
+INSERT INTO Szczegoly_sprzedaz (ID_sprzedaz, ID_produkt, Kwota_sprzedaz, ID_podatek, Ilosc)
+	VALUES
+	(1, 2, 5, 1, 50),
+	(1, 1, 2.5, 2, 30),
+	(2, 3, 3.5, 1, 100),
+	(3, 3, 3.5, 3, 150),
+	(3, 5, 9.8, 4, 120),
+	(4, 3, 3.5, 3, 150),
+	(5, 5, 9.8, 4, 120);
 
 INSERT INTO Parametr_czesc (ID_czesc, ID_rodzaj_parametr, Zakres_dol, Zakres_gora)
 VALUES
