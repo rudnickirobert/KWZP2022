@@ -31,7 +31,7 @@ VALUES
 ('Kowalczylk','Adam','UJG02033',99051707802, 3),
 ('Andrzejewski', 'Michał','DCE986557',79072900034,1),
 ('Krawczyk', 'Karol', 'GDT80967',90050004505,2),
-('Wieczorek', 'Laura', 'HNR23123',87050500006,3),
+('Wieczorek', 'Karolina', 'HNR23123',87050500006,3),
 ('Baran', 'Szymon', 'MFN67926',99050068003,1),
 ('Wilk', 'Zuzanna', 'MDK85609',68050450673,2),
 ('Sadowski', 'Aleksander', 'NFL48923',98050056806,3),
@@ -624,7 +624,7 @@ INSERT INTO Status_oferta (Nazwa_status_oferta)
 	('W trakcie realizacji');
 
 INSERT INTO Oferta_handlowa (ID_zamowienie, ID_pracownik, Termin_realizacja, ID_gwarancja, ID_status_oferta, Cena)
-	VALUES 
+	VALUES
 	(1, 1, '2022-04-28', 1, 1, 5000),
 	(2, 2, '2022-04-29', 1, 1, 4000),
 	(3, 3, '2022-04-30', 1, 1, 3000),
