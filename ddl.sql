@@ -228,7 +228,7 @@ CREATE TABLE Stanowisko_produkcyjne
 
 CREATE TABLE Proces_polprodukt_czynnosc 
 	(
-	ID_proces_polprodukt INT PRIMARY KEY NOT NULL,
+	ID_proces_polprodukt INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	ID_polprodukt INT FOREIGN KEY 
 		REFERENCES Slownik_polprodukt(ID_polprodukt) NOT NULL,
 	ID_czynnosc_produkcyjna INT FOREIGN KEY 
@@ -238,7 +238,7 @@ CREATE TABLE Proces_polprodukt_czynnosc
 
 CREATE TABLE Proces_produkt_czynnosc 
 	(
-	ID_proces_produkt INT PRIMARY KEY NOT NULL,
+	ID_proces_produkt INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	ID_produkt INT FOREIGN KEY 
 		REFERENCES Produkt(ID_produkt) NOT NULL,
 	ID_czynnosc_produkcyjna INT FOREIGN KEY 
