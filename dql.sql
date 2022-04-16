@@ -83,6 +83,15 @@ INNER JOIN Rodzaj_maszyna AS RM ON M.ID_rodzaj_maszyna = RM.ID_rodzaj_maszyna
 INNER JOIN Nr_seryjny AS NS ON MS.ID_maszyna_nr = NS.ID_nr_seryjny
 GO
 
+CREATE VIEW v_Kontrola_jakosci_produkt
+AS
+SELECT P.Nazwa AS [Produkt], Rk.Rodzaj_kontrola AS [Rodzaj kontroli], Rek.Wynik AS [Wynik kontroli], P.Nazwisko AS [Nazwisko kontrolującego], P.Imie AS [Imię], Kjp.Uwagi AS [Uwagi]
+FROM Kontrola_jakosci_produkt AS Kjp
+INNER JOIN Rezultat_kontrola AS Rek ON Kjp.ID_rezultat = Rek.ID_rezultat
+INNER JOIN Produkt AS P ON Kjp.ID_produkt = P.Produkt
+INNER JOIN Rodzaj_kontrola AS Rk ON Kjp.ID_rodzaj_kontrola = Rk.Rodzaj_kontrola
+GO
+
 
 -----RESOURCE DEPARTMENT----
 
