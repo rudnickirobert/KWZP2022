@@ -1,6 +1,6 @@
 USE master
 GO
---DROP DATABASE KWZP
+DROP DATABASE KWZP
 GO
 CREATE DATABASE KWZP
 GO
@@ -518,15 +518,14 @@ CREATE TABLE Umowa_sprzedaz
 CREATE TABLE Sprzedaz
 	(
 	ID_sprzedaz INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-	Nr_sprzadaz INT NOT NULL,
+	Nr_sprzedaz INT NOT NULL,
 	Data_sprzedaz_poczatek DATE NOT NULL,
 	Data_sprzedaz_koniec DATE NOT NULL,
 	Termin_zaplata DATE NOT NULL,
 	ID_forma_platnosc INT FOREIGN KEY 
 		REFERENCES Forma_platnosc(ID_forma_platnosc) NOT NULL,
 	ID_umowa_sprzedaz INT FOREIGN KEY 
-		REFERENCES Umowa_sprzedaz(ID_umowa_sprzedaz) NOT NULL,
-	Ilosc INT NOT NULL,
+		REFERENCES Umowa_sprzedaz(ID_umowa_sprzedaz) NOT NULL
 );
 
 CREATE TABLE Szczegoly_sprzedaz
@@ -537,7 +536,8 @@ CREATE TABLE Szczegoly_sprzedaz
 	ID_produkt INT FOREIGN KEY REFERENCES Produkt(ID_Produkt) NOT NULL,
 	Kwota_sprzedaz MONEY NOT NULL,
 	ID_podatek INT FOREIGN KEY 
-		REFERENCES Podatek(ID_Podatek) NOT NULL
+		REFERENCES Podatek(ID_Podatek) NOT NULL,
+		Ilosc INT NOT NULL
 );
 
 CREATE TABLE Reklamacja
