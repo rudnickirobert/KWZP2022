@@ -11,14 +11,14 @@ VALUES
 
 INSERT INTO Czynnosc_produkcyjna (Nazwa)
 VALUES
-('Klejenie'),
-('Szlifowanie'),
-('Wygładzanie'),
-('Polerowanie'),
-('Drukowanie'),
+('Przygotowanie stanowiska'),
 ('Skanowanie'),
 ('Projektowanie'),
+('Drukowanie'),
+('Wygładzanie'),
+('Szlifowanie'),
 ('Lakierowanie'),
+('Klejenie'),
 ('Montaż');
 
 INSERT INTO Pracownik (Nazwisko, Imie, Nr_dowodu, Pesel, Wyksztalcenie)
@@ -119,22 +119,13 @@ VALUES
 ('Logistyczny'),
 ('Kontroli jakości');
 
-INSERT INTO Czynnosc_produkcyjna (Nazwa)
-VALUES
-('Przygotowanie stanowiska'),
-('Skanowanie'),
-('Drukowanie'),
-('Szlifowanie'),
-('Klejenie'),
-('Skladanie');
-
 INSERT INTO Rodzaj_kontrola (Rodzaj_kontrola, Procedura)
 VALUES
-('Wymiarowa', 'Dokonac pomiaru najwazniejszych wymiarow'),
-('Wzrokowa', 'Ogolne ogledziny otrzymanego produktu'),
-('Badanie twardosci', 'Dokonac pomiaru twardosci badanego produktu'),
-('Badanie chropowatosci', 'Okreslic chropowatosc uzyskanej powierzchni'),
-('Wytrzymalosciowa', 'Poddac produkt obciazeniu probnemu');
+('Wymiarowa', 'Dokonać pomiaru najważniejszych wymiarów'),
+('Wzrokowa', 'Ogólne oględziny otrzymanego produktu'),
+('Badanie twardości', 'Dokonać pomiaru twardości badanego produktu'),
+('Badanie chropowatości', 'Określić chropowatość uzyskanej powierzchni'),
+('Wytrzymałościowa', 'Poddać produkt obciążeniu próbnemu');
 
 INSERT INTO Rezultat_kontrola (Wynik)
 VALUES
@@ -149,25 +140,25 @@ VALUES
 ('Stanowisko do drukowania SLS'),
 ('Stanowisko do drukowania SLA'),
 ('Stanowisko do szlifowania'),
-('Stanowisko do laczenia polproduktow');
+('Stanowisko do łączenia półproduktów');
 
 INSERT INTO Produkt (Nazwa_produkt)
 VALUES
 ('Litofanowy klosz do lampy'),
-('Przekladnia zebata'),
+('Przekładnia zębata'),
 ('Tapicerka samochodowa'),
 ('Obudowa PC'),
 ('Kostka rubika');
 
 INSERT INTO Slownik_polprodukt (Nazwa)
 VALUES
-('Obudowa PC'),
-('Wal czynny'),
-('Wal bierny'),
-('Obudowa przekladnia'),
-('Elementy montazowe - kostka'),
+('Uchwyt zasilacza'),
+('Wał czynny'),
+('Wał bierny'),
+('Obudowa przekładni'),
+('Elementy montażowe - kostka'),
 ('Klosz fi150'),
-('Mocowanie chlodzenia'),
+('Mocowanie chłodzenia'),
 ('Maskownica do kabli'),
 ('Elementy powierzchniowe');
 
@@ -182,13 +173,12 @@ VALUES
 (4,8,3),
 (5,5,5);
 
-
 INSERT INTO Narzedzie (Nazwa_narzedzie)
 VALUES
-('Srubokret plaski'),
+('Śrubokręt płaski'),
 ('Kombinerki'),
-('Noz'),
-('Nozyczki'),
+('Nóż'),
+('Nożyczki'),
 ('Suwmiarka'),
 ('Klucz francuski');
 
@@ -199,7 +189,7 @@ VALUES
 ('PETG'),
 ('Proszek stali 316L'),
 ('Nylon PA12'),
-('Zywica termoutwardzalna'),
+('Żywica termoutwardzalna'),
 ('Klej')
 
 INSERT INTO Rodzaj_maszyna (Nazwa_rodzaj_maszyna, Opis)
@@ -256,47 +246,72 @@ VALUES
 
 INSERT INTO Rodzaj_parametr (Nazwa_rodzaj_parametr, ID_Jednostka)
 VALUES
-('Gestosc',5),
-('Dlugosc',1),
-('Szerokosc',1),
-('Srednica',1),
+('Gęstość',5),
+('Długość',1),
+('Szerokość',1),
+('Średnica',1),
 ('Masa',2),
-('Temperatura stolu roboczego',6),
-('Glosnosc pracy',7),
-('Predkosc druku', 8),
-('Predkosc przejazdow jalowych', 8),
+('Wytrzymałość na rozciąganie', 3),
+('Wytrzymałość na skręcanie', 3),
+('Moduł Younga',3),
+('Temperatura stołu roboczego',6),
+('Głośność pracy',7),
+('Prędkość druku', 8),
+('Prędkość przejazdów jałowych', 8),
 ('Temperatura przechowywania',6),
 ('Maksymalny pobór mocy',9);
 
 INSERT INTO Parametr_produkt(ID_produkt, ID_rodzaj_parametr, Zakres_dol, Zakres_gora)
 VALUES
 (1,4,149,151),
+(1,5,100,105),
 (2,2,299,301),
+(2,3,100,104),
+(2,7,80,85),
+(2,5,45,50),
 (3,3,99,102),
 (3,2,99,100),
+(3,1,48,51),
+(3,5,10,11),
 (4,5,30000,35000),
 (4,2,99,100),
+(4,3,40,42),
 (5,1,3,4),
 (5,5,1000,3000),
-(2,1,1,3),
-(1,2,100,105),
-(5,4,35,36),
-(3,1,48,51);
+(5,4,35,36);
+
 
 INSERT INTO Parametr_polprodukt (ID_polprodukt, ID_rodzaj_parametr, Zakres_dol, Zakres_gora)
 VALUES
 (1,3,45,50),
+(1,2,60,63),
+(1,4,80,90),
 (2,3,40,45),
 (2,1,1,4),
-(3,2,99,100),
-(3,3,50,55),
+(2,6,80,90),
+(2,7,100,105),
+(2,8,120,130),
+(3,3,120,121),
+(3,1,20,22),
+(3,6,45,50),
+(3,7,80,85),
+(3,8,100,110),
 (4,5,30000,35000),
+(4,3,40,45),
 (4,2,99,100),
 (5,2,39,45),
 (5,4,30,35),
-(1,4,80,90),
-(4,3,40,45),
-(5,3,120,121);
+(5,3,120,121),
+(6,4,150,151),
+(6,5,250,270),
+(7,2,30,31),
+(7,3,30,31),
+(7,5,120,125),
+(8,2,150,155),
+(8,3,30,31),
+(9,2,3500,3505),
+(9,3,1200,1201);
+
 
 INSERT INTO Material (ID_rodzaj_material, Nazwa_material)
 VALUES
