@@ -71,7 +71,7 @@ GO
 
 CREATE VIEW v_Sklad_stanowisko_produkcyjne_maszyna
 AS
-SELECT SSPM.ID_sklad_stanowisko_produkcyjne_maszyna, 
+SELECT SSPM.ID_sklad_stanowisko_produkcyjne_maszyna AS [ID], 
 SP.ID_stanowisko_produkcyjne, SS.Nazwa_stanowiska, MS.ID_maszyna, NS.Nr_seryjny,
 M.Nazwa_maszyna, RM.Nazwa_rodzaj_maszyna
 FROM Sklad_stanowisko_produkcyjne_maszyna AS SSPM
@@ -81,15 +81,69 @@ INNER JOIN Maszyna_nr_seryjny AS MS ON SSPM.ID_maszyna_nr = MS.ID_maszyna_nr
 INNER JOIN Maszyna AS M ON MS.ID_maszyna = M.ID_maszyna
 INNER JOIN Rodzaj_maszyna AS RM ON M.ID_rodzaj_maszyna = RM.ID_rodzaj_maszyna
 INNER JOIN Nr_seryjny AS NS ON MS.ID_maszyna_nr = NS.ID_nr_seryjny
+ORDER BY SP.ID_stanowisko_produkcyjne ASC OFFSET 0 ROWS
 GO
 
 CREATE VIEW v_Kontrola_jakosci_produkt
 AS
-SELECT P.Nazwa AS [Produkt], Rk.Rodzaj_kontrola AS [Rodzaj kontroli], Rek.Wynik AS [Wynik kontroli], P.Nazwisko AS [Nazwisko kontrolującego], P.Imie AS [Imię], Kjp.Uwagi AS [Uwagi]
+SELECT P.Nazwa_produkt AS [Produkt], Rk.Rodzaj_kontrola AS [Rodzaj kontroli], 
+PR.Nazwisko AS [Osoba kontrolująca], Rek.Wynik AS [Wynik kontroli], Kjp.Uwagi AS [Uwagi]
 FROM Kontrola_jakosci_produkt AS Kjp
 INNER JOIN Rezultat_kontrola AS Rek ON Kjp.ID_rezultat = Rek.ID_rezultat
-INNER JOIN Produkt AS P ON Kjp.ID_produkt = P.Produkt
+INNER JOIN Produkt AS P ON Kjp.ID_produkt = P.ID_produkt
 INNER JOIN Rodzaj_kontrola AS Rk ON Kjp.ID_rodzaj_kontrola = Rk.Rodzaj_kontrola
+INNER JOIN Pracownik AS PR ON Kjp.ID_pracownik = PR.ID_pracownik
+GO
+
+CREATE VIEW v_Proces_polprodukt_czynnosc
+AS
+SELECT PPPC.ID_polprodukt AS [ID Półproduktu], SP.Nazwa AS [Produkt], CP.Nazwa AS [Czynność]
+FROM Proces_polprodukt_czynnosc AS PPPC
+INNER JOIN Slownik_polprodukt SP ON PPPC.ID_polprodukt = SP.ID_polprodukt
+INNER JOIN Czynnosc_produkcyjna CP ON PPPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
+GO
+
+CREATE VIEW v_Proces_produkt_czynnosc
+AS
+SELECT PPC.ID_produkt AS [ID Półproduktu], P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynność] 
+FROM Proces_produkt_czynnosc AS PPC
+INNER JOIN Produkt AS P ON PPC.ID_produkt = P.ID_produkt
+INNER JOIN Czynnosc_produkcyjna CP ON PPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
+GO
+
+CREATE VIEW v_Liczba_zabiegow_wytworczych_polprodukt
+AS
+SELECT Count(PPPC.ID_polprodukt) AS [Ilosc zabiegow], SP.Nazwa AS [Półprodukt]
+FROM Proces_polprodukt_czynnosc AS PPPC
+INNER JOIN Slownik_polprodukt SP ON PPPC.ID_polprodukt = SP.ID_polprodukt
+INNER JOIN Czynnosc_produkcyjna CP ON PPPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
+GROUP BY SP.Nazwa
+GO
+
+CREATE VIEW v_Liczba_zabiegow_wytworczych_produkt
+AS
+SELECT Count(PPC.ID_produkt) AS [Ilosc zabiegow], P.Nazwa_produkt AS [Produkt]
+FROM Proces_produkt_czynnosc AS PPC
+INNER JOIN Produkt AS P ON PPC.ID_produkt = P.ID_produkt
+INNER JOIN Czynnosc_produkcyjna CP ON PPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
+GROUP BY P.Nazwa_produkt
+GO
+
+CREATE VIEW v_Wytwarzanie
+AS
+SELECT * FROM Wytwarzanie AS W
+INNER JOIN Pracownik AS P ON W.ID_pracownik = P.ID_pracownik
+INNER JOIN Oferta_handlowa AS OH ON W.ID_oferta_handlowa = OH.ID_oferta_handlowa
+GO
+
+CREATE VIEW v_Proces_wytwarzanie_polprodukt
+AS
+SELECT * FROM Proces_wytwarzanie_polprodukt
+GO
+
+CREATE VIEW v_Proces_wytwarzanie_produkt
+AS
+SELECT * FROM Proces_wytwarzanie_produkt
 GO
 
 

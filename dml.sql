@@ -199,7 +199,8 @@ VALUES
 ('Drukarka SLS','Drukowanie przy wykorzystaniu technologii SLS'),
 ('Skaner 3D',NULL),
 ('Drukarka laserowa','Laserowa'),
-('PC','Komputer stacjonarny');
+('PC','Komputer stacjonarny'),
+('Szlifierka', NULL);
 
 INSERT INTO Rodzaj_czesc (Nazwa_rodzaj_czesc)
 VALUES
@@ -451,14 +452,15 @@ VALUES
 (1,1,21,22,3400),
 (1,1,22,22,3350);
 
-
 INSERT INTO Maszyna (Nazwa_maszyna, ID_rodzaj_maszyna, Koszt_RBG)
 VALUES
 ('PRUSA i3 MK3S+',1,200),
 ('Shining 3D EinScan SE',4,150),
 ('Sinterit Lisa 2 Pro',3,500),
 ('Anycubic Photon Mono X',2,250),
-('Creality Ender-5 Pro',1,200);
+('Creality Ender-5 Pro',1,200),
+('Macbook PRO M1',6,50),
+('Szlifierka Fiberfox',7,80);
 
 INSERT INTO Nr_seryjny (Nr_seryjny)
 VALUES
@@ -466,7 +468,9 @@ VALUES
 ('000-002'),
 ('000-003'),
 ('000-004'),
-('000-005');
+('000-005'),
+('000-006'),
+('000-007');
 
 INSERT INTO Maszyna_nr_seryjny (ID_maszyna, ID_nr_seryjny)
 VALUES
@@ -474,7 +478,9 @@ VALUES
 (2,2),
 (3,3),
 (4,4),
-(5,5);
+(5,5),
+(6,6),
+(7,7);
 
 INSERT INTO Stanowisko_produkcyjne (ID_nazwa_stanowiska)
 VALUES
@@ -484,17 +490,21 @@ VALUES
 (4),
 (5);
 
+
 INSERT INTO Sklad_stanowisko_produkcyjne_maszyna (ID_stanowisko_produkcyjne, ID_maszyna_nr)
 VALUES
-(2,1),
-(3,2),
 (1,5),
-(1,4),
-(3,1),
-(3,4),
-(4,3),
-(4,2),
-(5,4);
+(1,6),
+(1,1),
+(2,3),
+(2,6),
+(3,6),
+(3,2),
+(3,2),
+(4,4),
+(4,6),
+(5,7);
+
 
 INSERT INTO Sklad_stanowisko_produkcyjne (ID_stanowisko_produkcyjne, ID_narzedzie)
 VALUES
@@ -926,3 +936,38 @@ VALUES
 (5,11,1),
 (5,13,1),
 (5,17,1);
+
+INSERT INTO Wytwarzanie (Id_pracownik, Id_oferta_handlowa, Czas_od, Czas_do)
+VALUES
+(1,1,'2022-03-16','2022-03-11'),
+(4,4,'2022-03-16',NULL),
+(2,5,'2022-03-16',NULL),
+(4,2,'2022-03-16','2022-03-12'),
+(5,3,'2022-03-16','2022-03-14');
+
+
+INSERT INTO Proces_wytwarzanie_produkt (Id_wytwarzanie, Id_proces_produkt, Id_stanowisko_produkcyjne)
+VALUES
+(1,2,1),
+(2,4,2),
+(3,7,3),
+(4,1,4),
+(5,2,5);
+
+
+INSERT INTO Proces_wytwarzanie_polprodukt (Id_wytwarzanie, Id_proces_polprodukt, Id_stanowisko_produkcyjne)
+VALUES
+(1,4,3),
+(2,5,2),
+(3,1,4),
+(4,3,1),
+(5,7,5);
+
+
+INSERT INTO Kontrola_jakosci_produkt (Id_pracownik, Id_rodzaj_kontrola, Id_produkt, Data_od, Data_do, Uwagi, Id_rezultat)
+VALUES
+(2,3,2,'2022-03-11','2022-03-12','Przesuniecie warstw druku',2),
+(4,2,4,'2022-04-04','2022-04-05','BRAK',1),
+(3,1,5,'2022-03-01','2022-03-02','BRAK',1),
+(5,4,4,'2022-05-22','2022-05-23','BRAK',3),
+(1,5,1,'2022-02-13','2022-02-14','BRAK',1);
