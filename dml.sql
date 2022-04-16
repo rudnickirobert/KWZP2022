@@ -9,6 +9,18 @@ VALUES
 ('Inżynier'), 
 ('Wyższe');
 
+INSERT INTO Czynnosc_produkcyjna (Nazwa)
+VALUES
+('Klejenie'),
+('Szlifowanie'),
+('Wygładzanie'),
+('Polerowanie'),
+('Drukowanie'),
+('Skanowanie'),
+('Projektowanie'),
+('Lakierowanie'),
+('Montaż');
+
 INSERT INTO Pracownik (Nazwisko, Imie, Nr_dowodu, Pesel, Wyksztalcenie)
 VALUES
 ('Nowak','Jan','AAA00000',5505000005,1),
@@ -462,7 +474,11 @@ VALUES
 (2,1),
 (3,2),
 (1,5),
+(1,4),
+(3,1),
+(3,4),
 (4,3),
+(4,2)
 (5,4);
 
 INSERT INTO Sklad_stanowisko_produkcyjne (ID_stanowisko_produkcyjne, ID_narzedzie)
@@ -470,8 +486,32 @@ VALUES
 (3,1),
 (3,3),
 (2,5),
+(1,4),
+(4,3),
+(2,1),
+(3,4),
 (4,2),
 (5,2);
+
+INSERT INTO Proces_polprodukt_czynnosc (ID_polprodukt, ID_czynnosc_produkcyjna, Czas_trwania)
+VALUES
+(1, 2, 80),
+(1, 4, 50),
+(1, 8, 60),
+(2, 1, 120),
+(2, 5, 1200),
+(1, 5, 4000),
+(2, 4, 75);
+
+INSERT INTO Proces_produkt_czynnosc (ID_produkt, ID_czynnosc_produkcyjna, Czas_trwania)
+VALUES
+(3, 2, 80),
+(3, 4, 70),
+(4, 8, 80),
+(5, 1, 60),
+(5, 5, 6000),
+(6, 5, 4200),
+(6, 4, 60);
 
 INSERT INTO Dostawca (Nazwa_dostawca)
 VALUES
