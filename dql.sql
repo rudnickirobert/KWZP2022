@@ -95,6 +95,12 @@ INNER JOIN Rodzaj_kontrola AS Rk ON Kjp.ID_rodzaj_kontrola = Rk.Rodzaj_kontrola
 INNER JOIN Pracownik AS PR ON Kjp.ID_pracownik = PR.ID_pracownik
 GO
 
+CREATE VIEW v_Rodzaj_kontrola
+AS
+SELECT ID_rodzaj_kontrola AS ID, Rodzaj_kontrola AS [Rodzaj kontroli], Procedura AS [Procedura kontrolna]
+FROM Rodzaj_kontrola
+GO
+
 CREATE VIEW v_Proces_polprodukt_czynnosc
 AS
 SELECT PPPC.ID_polprodukt AS [ID Półproduktu], SP.Nazwa AS [Produkt], CP.Nazwa AS [Czynność]
