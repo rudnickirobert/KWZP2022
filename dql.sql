@@ -138,12 +138,18 @@ GO
 
 CREATE VIEW v_Proces_wytwarzanie_polprodukt
 AS
-SELECT * FROM Proces_wytwarzanie_polprodukt
+SELECT * FROM Proces_wytwarzanie_polprodukt AS PWPP
+INNER JOIN Wytwarzanie AS W ON PWPP.ID_wytwarzanie = W.ID_wytwarzanie
+INNER JOIN Proces_polprodukt_czynnosc AS PPPC ON PWPP.ID_proces_polprodukt = PPPC.ID_proces_polprodukt
+INNER JOIN Stanowisko_produkcyjne AS SP ON PWPP.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
 GO
 
 CREATE VIEW v_Proces_wytwarzanie_produkt
 AS
-SELECT * FROM Proces_wytwarzanie_produkt
+SELECT * FROM Proces_wytwarzanie_produkt AS PWP
+INNER JOIN Wytwarzanie AS W ON PWP.ID_wytwarzanie = W.ID_wytwarzanie
+INNER JOIN Proces_produkt_czynnosc AS PPPC ON PWP.ID_proces_produkt = PPPC.ID_proces_polprodukt
+INNER JOIN Stanowisko_produkcyjne AS SP ON PWP.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
 GO
 
 
