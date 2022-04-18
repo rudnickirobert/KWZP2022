@@ -12,20 +12,18 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class Wytworzony_produkt
+    public partial class Rodzaj_czesc
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Wytworzony_produkt()
+        public Rodzaj_czesc()
         {
-            this.Kontrola_jakosci_produkt = new HashSet<Kontrola_jakosci_produkt>();
+            this.Czesc = new HashSet<Czesc>();
         }
     
-        public int ID_wytworzony_produkt { get; set; }
-        public int ID_produkt { get; set; }
-        public System.DateTime Data_ukonczenia { get; set; }
+        public int ID_rodzaj_czesc { get; set; }
+        public string Nazwa_rodzaj_czesc { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Kontrola_jakosci_produkt> Kontrola_jakosci_produkt { get; set; }
-        public virtual Produkt Produkt { get; set; }
+        public virtual ICollection<Czesc> Czesc { get; set; }
     }
 }

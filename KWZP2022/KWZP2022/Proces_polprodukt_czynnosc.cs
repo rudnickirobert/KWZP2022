@@ -23,12 +23,10 @@ namespace KWZP2022
         public int ID_proces_polprodukt { get; set; }
         public int ID_polprodukt { get; set; }
         public int ID_czynnosc_produkcyjna { get; set; }
-        public int ID_stanowisko_produkcyjne { get; set; }
-        public System.TimeSpan Czas_trwania { get; set; }
+        public int Czas_trwania { get; set; }
     
         public virtual Czynnosc_produkcyjna Czynnosc_produkcyjna { get; set; }
         public virtual Slownik_polprodukt Slownik_polprodukt { get; set; }
-        public virtual Stanowisko_produkcyjne Stanowisko_produkcyjne { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Proces_wytwarzanie_polprodukt> Proces_wytwarzanie_polprodukt { get; set; }
     }

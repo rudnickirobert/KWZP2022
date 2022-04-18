@@ -12,11 +12,9 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class Wymienione_czesci
+    public partial class v_Slownik_stanowisko
     {
-        public int ID_wymienione_czesci { get; set; }
-        public Nullable<int> ID_czesc { get; set; }
-    
-        public virtual Czesc Czesc { get; set; }
+        public int ID { get; set; }
+        public string Nazwa_stanowiska { get; set; }
     }
 }

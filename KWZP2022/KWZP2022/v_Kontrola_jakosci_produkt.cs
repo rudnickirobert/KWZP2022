@@ -12,14 +12,12 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class Szczegoly_zamowienia
+    public partial class v_Kontrola_jakosci_produkt
     {
-        public int ID_szczegoly_zamowienie { get; set; }
-        public int ID_zamowienie { get; set; }
-        public int ID_produkt { get; set; }
-        public int Ilosc { get; set; }
-    
-        public virtual Produkt Produkt { get; set; }
-        public virtual Zamowienie Zamowienie { get; set; }
+        public string Produkt { get; set; }
+        public string Rodzaj_kontroli { get; set; }
+        public string Osoba_kontrolująca { get; set; }
+        public string Wynik_kontroli { get; set; }
+        public string Uwagi { get; set; }
     }
 }

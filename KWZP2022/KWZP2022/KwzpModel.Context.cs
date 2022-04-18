@@ -13,10 +13,10 @@ namespace KWZP2022
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class KWZPEntities : DbContext
+    public partial class KWZP2022Entities : DbContext
     {
-        public KWZPEntities()
-            : base("name=KWZPEntities")
+        public KWZP2022Entities()
+            : base("name=KWZP2022Entities")
         {
         }
     
@@ -25,6 +25,7 @@ namespace KWZP2022
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Alert> Alert { get; set; }
         public virtual DbSet<Czesc> Czesc { get; set; }
         public virtual DbSet<Czynnosc_produkcyjna> Czynnosc_produkcyjna { get; set; }
         public virtual DbSet<Dane_adresowe_dostawca> Dane_adresowe_dostawca { get; set; }
@@ -36,15 +37,17 @@ namespace KWZP2022
         public virtual DbSet<Email_klient> Email_klient { get; set; }
         public virtual DbSet<Email_pracownik> Email_pracownik { get; set; }
         public virtual DbSet<Etat> Etat { get; set; }
-        public virtual DbSet<Forma_platnosci> Forma_platnosci { get; set; }
+        public virtual DbSet<Forma_platnosc> Forma_platnosc { get; set; }
         public virtual DbSet<Gwarancja> Gwarancja { get; set; }
         public virtual DbSet<Jednostka> Jednostka { get; set; }
         public virtual DbSet<Klient> Klient { get; set; }
         public virtual DbSet<Kontrola_jakosci_produkt> Kontrola_jakosci_produkt { get; set; }
         public virtual DbSet<Maszyna> Maszyna { get; set; }
+        public virtual DbSet<Maszyna_nr_seryjny> Maszyna_nr_seryjny { get; set; }
         public virtual DbSet<Material> Material { get; set; }
         public virtual DbSet<Narzedzie> Narzedzie { get; set; }
         public virtual DbSet<Nieobecnosc> Nieobecnosc { get; set; }
+        public virtual DbSet<Nr_seryjny> Nr_seryjny { get; set; }
         public virtual DbSet<Nr_telefon_klient> Nr_telefon_klient { get; set; }
         public virtual DbSet<Nr_telefon_pracownik> Nr_telefon_pracownik { get; set; }
         public virtual DbSet<Obsluga> Obsluga { get; set; }
@@ -66,15 +69,15 @@ namespace KWZP2022
         public virtual DbSet<Produkt> Produkt { get; set; }
         public virtual DbSet<Reklamacja> Reklamacja { get; set; }
         public virtual DbSet<Rezultat_kontrola> Rezultat_kontrola { get; set; }
-        public virtual DbSet<Rodzaj_czesci> Rodzaj_czesci { get; set; }
+        public virtual DbSet<Rodzaj_czesc> Rodzaj_czesc { get; set; }
         public virtual DbSet<Rodzaj_kontrola> Rodzaj_kontrola { get; set; }
         public virtual DbSet<Rodzaj_maszyna> Rodzaj_maszyna { get; set; }
+        public virtual DbSet<Rodzaj_material> Rodzaj_material { get; set; }
         public virtual DbSet<Rodzaj_nieobecnosci> Rodzaj_nieobecnosci { get; set; }
-        public virtual DbSet<Rodzaj_obslugi> Rodzaj_obslugi { get; set; }
+        public virtual DbSet<Rodzaj_obsluga> Rodzaj_obsluga { get; set; }
         public virtual DbSet<Rodzaj_parametr> Rodzaj_parametr { get; set; }
         public virtual DbSet<Rodzaj_umowy> Rodzaj_umowy { get; set; }
-        public virtual DbSet<Rodzaj_zatrudnienia> Rodzaj_zatrudnienia { get; set; }
-        public virtual DbSet<Sklad_maszyny> Sklad_maszyny { get; set; }
+        public virtual DbSet<Sklad_maszyna> Sklad_maszyna { get; set; }
         public virtual DbSet<Sklad_polprodukt> Sklad_polprodukt { get; set; }
         public virtual DbSet<Sklad_produkt> Sklad_produkt { get; set; }
         public virtual DbSet<Sklad_produkt_material> Sklad_produkt_material { get; set; }
@@ -89,27 +92,49 @@ namespace KWZP2022
         public virtual DbSet<Stan_realizacji_zamowienie_narzedzie> Stan_realizacji_zamowienie_narzedzie { get; set; }
         public virtual DbSet<Stanowisko> Stanowisko { get; set; }
         public virtual DbSet<Stanowisko_produkcyjne> Stanowisko_produkcyjne { get; set; }
-        public virtual DbSet<Status_oferty> Status_oferty { get; set; }
+        public virtual DbSet<Status_oferta> Status_oferta { get; set; }
         public virtual DbSet<Status_zamowienie> Status_zamowienie { get; set; }
-        public virtual DbSet<Szczegoly_produkt> Szczegoly_produkt { get; set; }
         public virtual DbSet<Szczegoly_sprzedaz> Szczegoly_sprzedaz { get; set; }
-        public virtual DbSet<Szczegoly_zamowienia> Szczegoly_zamowienia { get; set; }
         public virtual DbSet<Szczegoly_zamowienie_czesc> Szczegoly_zamowienie_czesc { get; set; }
         public virtual DbSet<Szczegoly_zamowienie_maszyna> Szczegoly_zamowienie_maszyna { get; set; }
         public virtual DbSet<Szczegoly_zamowienie_material> Szczegoly_zamowienie_material { get; set; }
         public virtual DbSet<Szczegoly_zamowienie_narzedzie> Szczegoly_zamowienie_narzedzie { get; set; }
-        public virtual DbSet<Typ_zamowienia> Typ_zamowienia { get; set; }
+        public virtual DbSet<Typ_zamowienie> Typ_zamowienie { get; set; }
         public virtual DbSet<Umowa> Umowa { get; set; }
+        public virtual DbSet<Umowa_sprzedaz> Umowa_sprzedaz { get; set; }
+        public virtual DbSet<Wyksztalcenie> Wyksztalcenie { get; set; }
         public virtual DbSet<Wymiana_czesc> Wymiana_czesc { get; set; }
         public virtual DbSet<Wymiar_pracy> Wymiar_pracy { get; set; }
-        public virtual DbSet<Wymienione_czesci> Wymienione_czesci { get; set; }
         public virtual DbSet<Wytwarzanie> Wytwarzanie { get; set; }
-        public virtual DbSet<Wytworzony_produkt> Wytworzony_produkt { get; set; }
         public virtual DbSet<Zamowienie> Zamowienie { get; set; }
         public virtual DbSet<Zamowienie_czesc> Zamowienie_czesc { get; set; }
         public virtual DbSet<Zamowienie_maszyna> Zamowienie_maszyna { get; set; }
         public virtual DbSet<Zamowienie_material> Zamowienie_material { get; set; }
         public virtual DbSet<Zamowienie_narzedzie> Zamowienie_narzedzie { get; set; }
+        public virtual DbSet<Zamowienie_szczegol> Zamowienie_szczegol { get; set; }
         public virtual DbSet<Zwrot> Zwrot { get; set; }
+        public virtual DbSet<v_Czynnosc_produkcyjna> v_Czynnosc_produkcyjna { get; set; }
+        public virtual DbSet<v_Kontrola_jakosci_produkt> v_Kontrola_jakosci_produkt { get; set; }
+        public virtual DbSet<v_Liczba_zabiegow_wytworczych_polprodukt> v_Liczba_zabiegow_wytworczych_polprodukt { get; set; }
+        public virtual DbSet<v_Liczba_zabiegow_wytworczych_produkt> v_Liczba_zabiegow_wytworczych_produkt { get; set; }
+        public virtual DbSet<v_Oferta_handlowa> v_Oferta_handlowa { get; set; }
+        public virtual DbSet<v_Parametry_czesc> v_Parametry_czesc { get; set; }
+        public virtual DbSet<v_Parametry_maszyna> v_Parametry_maszyna { get; set; }
+        public virtual DbSet<v_Parametry_material> v_Parametry_material { get; set; }
+        public virtual DbSet<v_Parametry_narzedzie> v_Parametry_narzedzie { get; set; }
+        public virtual DbSet<v_Parametry_polprodukt> v_Parametry_polprodukt { get; set; }
+        public virtual DbSet<v_Parametry_produkt> v_Parametry_produkt { get; set; }
+        public virtual DbSet<v_Proces_polprodukt_czynnosc> v_Proces_polprodukt_czynnosc { get; set; }
+        public virtual DbSet<v_Proces_produkt_czynnosc> v_Proces_produkt_czynnosc { get; set; }
+        public virtual DbSet<v_Produkty_na_gwarancji> v_Produkty_na_gwarancji { get; set; }
+        public virtual DbSet<v_Reklamacja> v_Reklamacja { get; set; }
+        public virtual DbSet<v_Rodzaj_kontrola> v_Rodzaj_kontrola { get; set; }
+        public virtual DbSet<v_Sklad_maszyna> v_Sklad_maszyna { get; set; }
+        public virtual DbSet<v_Sklad_polprodukt> v_Sklad_polprodukt { get; set; }
+        public virtual DbSet<v_Sklad_produkt> v_Sklad_produkt { get; set; }
+        public virtual DbSet<v_Sklad_stanowisko_produkcyjne_maszyna> v_Sklad_stanowisko_produkcyjne_maszyna { get; set; }
+        public virtual DbSet<v_Sklad_stanowisko_produkcyjne_narzedzie> v_Sklad_stanowisko_produkcyjne_narzedzie { get; set; }
+        public virtual DbSet<v_Slownik_stanowisko> v_Slownik_stanowisko { get; set; }
+        public virtual DbSet<v_Stanowisko_produkcyjne> v_Stanowisko_produkcyjne { get; set; }
     }
 }

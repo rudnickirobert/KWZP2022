@@ -17,6 +17,7 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Slownik_polprodukt()
         {
+            this.Parametr_polprodukt = new HashSet<Parametr_polprodukt>();
             this.Proces_polprodukt_czynnosc = new HashSet<Proces_polprodukt_czynnosc>();
             this.Sklad_polprodukt = new HashSet<Sklad_polprodukt>();
             this.Sklad_produkt = new HashSet<Sklad_produkt>();
@@ -25,6 +26,8 @@ namespace KWZP2022
         public int ID_polprodukt { get; set; }
         public string Nazwa { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Parametr_polprodukt> Parametr_polprodukt { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Proces_polprodukt_czynnosc> Proces_polprodukt_czynnosc { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

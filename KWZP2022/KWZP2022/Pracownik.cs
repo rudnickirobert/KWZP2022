@@ -22,7 +22,6 @@ namespace KWZP2022
             this.Kontrola_jakosci_produkt = new HashSet<Kontrola_jakosci_produkt>();
             this.Nieobecnosc = new HashSet<Nieobecnosc>();
             this.Nr_telefon_pracownik = new HashSet<Nr_telefon_pracownik>();
-            this.Obsluga = new HashSet<Obsluga>();
             this.Oferta_handlowa = new HashSet<Oferta_handlowa>();
             this.Reklamacja = new HashSet<Reklamacja>();
             this.Stan_realizacji_zamowienie_material = new HashSet<Stan_realizacji_zamowienie_material>();
@@ -31,18 +30,19 @@ namespace KWZP2022
             this.Stan_realizacji_zamowienie_narzedzie = new HashSet<Stan_realizacji_zamowienie_narzedzie>();
             this.Umowa = new HashSet<Umowa>();
             this.Wytwarzanie = new HashSet<Wytwarzanie>();
+            this.Zamowienie = new HashSet<Zamowienie>();
             this.Zamowienie_material = new HashSet<Zamowienie_material>();
             this.Zamowienie_czesc = new HashSet<Zamowienie_czesc>();
-            this.Zamowienie = new HashSet<Zamowienie>();
             this.Zamowienie_maszyna = new HashSet<Zamowienie_maszyna>();
             this.Zamowienie_narzedzie = new HashSet<Zamowienie_narzedzie>();
+            this.Obsluga = new HashSet<Obsluga>();
         }
     
         public int ID_pracownik { get; set; }
         public string Nazwisko { get; set; }
         public string Imie { get; set; }
         public string Nr_dowodu { get; set; }
-        public int Pesel { get; set; }
+        public long Pesel { get; set; }
         public string Wyksztalcenie { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -55,8 +55,6 @@ namespace KWZP2022
         public virtual ICollection<Nieobecnosc> Nieobecnosc { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Nr_telefon_pracownik> Nr_telefon_pracownik { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Obsluga> Obsluga { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Oferta_handlowa> Oferta_handlowa { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -74,14 +72,16 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Wytwarzanie> Wytwarzanie { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Zamowienie> Zamowienie { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zamowienie_material> Zamowienie_material { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zamowienie_czesc> Zamowienie_czesc { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Zamowienie> Zamowienie { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zamowienie_maszyna> Zamowienie_maszyna { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zamowienie_narzedzie> Zamowienie_narzedzie { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Obsluga> Obsluga { get; set; }
     }
 }
