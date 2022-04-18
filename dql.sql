@@ -285,6 +285,7 @@ INNER JOIN Podatek ON Szczegoly_sprzedaz.ID_podatek = Podatek.ID_podatek
 INNER JOIN (Sprzedaz INNER JOIN Forma_platnosc ON Sprzedaz.ID_forma_platnosc = Forma_platnosc.ID_Forma_platnosc) 
 ON Szczegoly_sprzedaz.ID_sprzedaz = Sprzedaz.ID_sprzedaz
 INNER JOIN Produkt ON Produkt.ID_produkt = Szczegoly_sprzedaz.ID_produkt
+GO
 
 CREATE VIEW v_Sprzedaz AS
 SELECT Sprzedaz.Nr_sprzedaz AS [Numer sprzedaży], Klient.Nazwisko AS [Nazwisko klienta], Klient.Imie AS [Imię klienta], Klient.NIP,
@@ -302,11 +303,11 @@ GO
 
 CREATE VIEW v_Oferta_handlowa AS
 SELECT Oferta_handlowa.ID_zamowienie AS [Numer zamówienia], 
-Oferta_handlowa.ID_Oferta_handlowa AS [Nr oferty], 
+Oferta_handlowa.ID_Oferta_handlowa AS [Numer oferty], 
 Status_oferta.Nazwa_status_oferta AS [Status oferty],
 Gwarancja.Okres_gwarancja AS [Okres gwarancji], 
 Gwarancja.Opis_gwarancja AS [Opis gwarancji],
-Oferta_handlowa.Cena, Oferta_handlowa.Termin_realizacja,
+Oferta_handlowa.Cena, Oferta_handlowa.Termin_realizacja AS [Termin realizacji],
 Pracownik.Nazwisko AS [Nazwisko pracownika], Pracownik.Imie AS [Imię pracownika]
 FROM Oferta_handlowa
 INNER JOIN Status_oferta ON Status_oferta.ID_status_oferta = Oferta_handlowa.ID_status_oferta
@@ -341,5 +342,24 @@ INNER JOIN Reklamacja ON Reklamacja.ID_reklamacja = Zwrot.ID_reklamacja
 INNER JOIN Produkt ON Produkt.ID_produkt = Zwrot.ID_produkt 
 GO
 
+CREATE VIEW v_Klient AS
+	SELECT Klient.Nazwisko AS [Nazwisko], Klient.Imie AS [Imię], Klient.NIP, Dane_adresowe_klient.Miejscowosc AS [Miejscowość], 
+	Dane_adresowe_klient.Ulica, Dane_adresowe_klient.Nr_budynek AS [Numer budynku], 
+	Dane_adresowe_klient.Nr_lokal AS [Numer lokalu], Dane_adresowe_klient.Kod_pocztowy AS [Kod pocztowy]
+	FROM Klient 
+	INNER JOIN Dane_adresowe_klient ON Klient.ID_klient = Dane_adresowe_klient.ID_klient
+	GO
 
+CREATE VIEW v_Klient_telefon_aktualny AS 
+	SELECT Klient.Nazwisko, Klient.Imie AS [Imię], Nr_telefon_klient.Numer AS [Numer telefonu]
+	FROM Klient 
+	INNER JOIN Nr_telefon_klient ON Klient.ID_klient = Nr_telefon_klient.ID_klient
+	WHERE Data_do IS NULL
+	GO
 
+CREATE VIEW v_Klient_telefon_Historia AS
+	SELECT Klient.Nazwisko, Klient.Imie AS [Imię], Nr_telefon_klient.Numer AS [Numer telefonu]
+	FROM Klient 
+	INNER JOIN Nr_telefon_klient ON Klient.ID_klient = Nr_telefon_klient.ID_klient
+	ORDER BY Data_do DESC
+	GO
