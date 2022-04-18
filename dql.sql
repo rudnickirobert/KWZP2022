@@ -385,3 +385,35 @@ SELECT P.Nazwisko AS [Nazwisko], P.Imie AS [Imię], RN.Symbol AS [Rodzaj nieobec
 INNER JOIN Pracownik AS P ON N.ID_pracownik = P.ID_pracownik
 INNER JOIN Rodzaj_nieobecnosci AS RN ON N.ID_rodzaj_nieobecnosci = RN. ID_rodzaj_nieobecnosci
 GO
+
+CREATE VIEW v_Nr_telefon_pracownik
+AS
+SELECT P.Nazwisko AS [Nazwisko], P.Imie AS [Imię], NTP.Numer AS [Numer telefonu], NTP.Data_od AS [Data od:], NTP.Data_do AS [Data do:] From Nr_telefon_pracownik AS NTP
+INNER JOIN Pracownik AS P ON NTP.ID_pracownik = P.ID_pracownik
+GO
+
+CREATE VIEW v_Email_pracownik
+AS
+SELECT P.Nazwisko AS [Nazwisko], P.Imie AS [Imię], EP.Email AS [Email], EP.Data_od AS [Data od:], EP.Data_do AS [Data do:] From Email_pracownik AS EP
+INNER JOIN Pracownik AS P ON EP.ID_pracownik = P.ID_pracownik
+GO
+
+CREATE VIEW v_Etat
+AS
+SELECT E.ID_etat AS [ID], ST.Nazwa_stanowiska AS [Stanowisko], DZ.Nazwa_dzial AS [Dzial], E.Liczba_miejsc AS [Liczba stanowisk] FROM Etat AS E
+INNER JOIN Stanowisko AS ST ON E.ID_stanowisko = ST.ID_stanowisko
+INNER JOIN Dzial AS DZ ON E.ID_dzial = DZ.ID_dzial
+GO
+
+CREATE VIEW v_Umowa
+AS
+SELECT UM.ID_umowa AS [ID], P.Nazwisko AS [Nazwisko], P.Imie AS [Imię], WP.Nazwa AS [Wymiar pracy], ST.Nazwa_stanowiska AS [Nazwa stanowiska], UM.Wynagrodzenie AS [Podstawa wynagrodzenia]  
+FROM Umowa AS UM
+INNER JOIN
+(Posada_pracownika AS PO INNER JOIN
+(Etat AS ET INNER JOIN Stanowisko AS ST ON ET.ID_stanowisko = ST.ID_stanowisko)
+ON ET.ID_etat = PO.ID_etat) ON UM.ID_posada = PO.ID_posada
+INNER JOIN Pracownik AS P ON UM.ID_pracownik = P.ID_pracownik
+INNER JOIN Wymiar_pracy AS WP ON UM.ID_wymiar_pracy = WP.ID_wymiar_pracy
+GO
+
