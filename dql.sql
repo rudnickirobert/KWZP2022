@@ -363,3 +363,25 @@ CREATE VIEW v_Klient_telefon_Historia AS
 	INNER JOIN Nr_telefon_klient ON Klient.ID_klient = Nr_telefon_klient.ID_klient
 	ORDER BY Data_do DESC
 	GO
+
+	--HR DEPARTMENT --
+CREATE VIEW v_Pracownik
+AS
+SELECT P.ID_pracownik AS [ID], P.Nazwisko AS [Nazwisko], P.Imie AS [Imię], P.Nr_dowodu AS [Nr dowodu], P.Pesel AS [Pesel], W.Nazwa AS [Wykształcenie], NTP.Numer AS [Numer telefonu], EP.Email AS [Email] FROM Pracownik AS P
+INNER JOIN Wyksztalcenie AS W ON P.ID_wyksztalcenie = W.ID_wyksztalcenie
+INNER JOIN Nr_telefon_pracownik AS NTP ON P.ID_pracownik = NTP.ID_pracownik
+INNER JOIN Email_pracownik AS EP ON P.ID_pracownik = EP.ID_pracownik
+GO
+
+CREATE VIEW v_Dane_adresowe_pracownik
+AS
+SELECT ID_pracownik AS [ID], Miejscowosc AS [Miejscowość zamieszkania], Ulica AS [Ulica], Nr_budynku AS [Nr budynku], Nr_lokalu AS [Nr_lokalu], Kod_pocztowy AS [Kod pocztowy], Data_od AS [Data od:], Data_do AS [Data do:]
+FROM Dane_adresowe_pracownik;
+GO
+
+CREATE VIEW v_Nieobecnosc
+AS
+SELECT P.Nazwisko AS [Nazwisko], P.Imie AS [Imię], RN.Symbol AS [Rodzaj nieobecności], N.Data_od AS [Data od:], N.Data_do AS [Data do:] FROM Nieobecnosc AS N
+INNER JOIN Pracownik AS P ON N.ID_pracownik = P.ID_pracownik
+INNER JOIN Rodzaj_nieobecnosci AS RN ON N.ID_rodzaj_nieobecnosci = RN. ID_rodzaj_nieobecnosci
+GO

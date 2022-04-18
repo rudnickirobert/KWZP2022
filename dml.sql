@@ -21,7 +21,7 @@ VALUES
 ('Klejenie'),
 ('Montaż');
 
-INSERT INTO Pracownik (Nazwisko, Imie, Nr_dowodu, Pesel, Wyksztalcenie)
+INSERT INTO Pracownik (Nazwisko, Imie, Nr_dowodu, Pesel, ID_wyksztalcenie)
 VALUES
 ('Nowak','Jan','AAA00000',5505000005,1),
 ('Marszał','Grzegorz','ABC20000',88090100005,2),
