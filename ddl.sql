@@ -19,7 +19,8 @@ CREATE TABLE Pracownik
 	Imie VARCHAR(50) NOT NULL,
 	Nr_dowodu VARCHAR(9) NOT NULL,
 	Pesel BIGINT NOT NULL,
-	Wyksztalcenie VARCHAR(10) NOT NULL,
+	ID_wyksztalcenie INT FOREIGN KEY 
+		REFERENCES Wyksztalcenie(ID_wyksztalcenie) NOT NULL,
 );
 
 CREATE TABLE Dane_adresowe_pracownik
