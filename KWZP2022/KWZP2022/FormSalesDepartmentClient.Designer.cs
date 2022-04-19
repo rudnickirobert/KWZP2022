@@ -50,6 +50,8 @@
             this.textBoxNo2 = new System.Windows.Forms.TextBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAddNewClient = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
+            this.btnModify = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).BeginInit();
             this.SuspendLayout();
             // 
@@ -249,7 +251,7 @@
             // btnAddNewClient
             // 
             this.btnAddNewClient.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAddNewClient.Location = new System.Drawing.Point(1100, 149);
+            this.btnAddNewClient.Location = new System.Drawing.Point(1100, 148);
             this.btnAddNewClient.Name = "btnAddNewClient";
             this.btnAddNewClient.Size = new System.Drawing.Size(152, 27);
             this.btnAddNewClient.TabIndex = 34;
@@ -257,12 +259,36 @@
             this.btnAddNewClient.UseVisualStyleBackColor = true;
             this.btnAddNewClient.Click += new System.EventHandler(this.btnAddNewClient_Click);
             // 
+            // btnRemove
+            // 
+            this.btnRemove.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnRemove.Location = new System.Drawing.Point(563, 673);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(152, 27);
+            this.btnRemove.TabIndex = 35;
+            this.btnRemove.Text = "Usuń";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
+            // btnModify
+            // 
+            this.btnModify.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnModify.Location = new System.Drawing.Point(1100, 115);
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Size = new System.Drawing.Size(152, 27);
+            this.btnModify.TabIndex = 36;
+            this.btnModify.Text = "Modyfikuj";
+            this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
+            // 
             // FormSalesDepartmentClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 711);
+            this.Controls.Add(this.btnModify);
+            this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnAddNewClient);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label7);
@@ -315,5 +341,7 @@
         private System.Windows.Forms.TextBox textBoxNo2;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnAddNewClient;
+        private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.Button btnModify;
     }
 }

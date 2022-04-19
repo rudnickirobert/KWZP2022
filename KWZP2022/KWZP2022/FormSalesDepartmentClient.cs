@@ -37,7 +37,20 @@ namespace KWZP2022
         }
         private void showData()
         {
-            this.dgvClient.DataSource = db.v_Klient.ToList();
+            var dane = from v_klient in db.v_Klient
+                       select new
+                       {
+                           v_klient.ID,
+                           v_klient.Nazwisko,
+                           v_klient.Imię,
+                           v_klient.NIP,
+                           v_klient.Miejscowość,
+                           v_klient.Ulica,
+                           v_klient.Numer_budynku,
+                           v_klient.Numer_lokalu,
+                           v_klient.Kod_pocztowy
+                       };
+            this.dgvClient.DataSource = dane.ToList();
             this.dgvClient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -225,6 +238,18 @@ namespace KWZP2022
         {
             FormSalesDepartmentClientNewClient formSalesDepartmentClientNewClient = new FormSalesDepartmentClientNewClient(db);
             formSalesDepartmentClientNewClient.ShowDialog();
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            FormSalesDepartmentClientRemoveClient formSalesDepartmentClientRemoveClient = new FormSalesDepartmentClientRemoveClient(db);
+            formSalesDepartmentClientRemoveClient.ShowDialog();
+        }
+
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+            FormSalesDepartmentClientModifyClient formSalesDepartmentClientModifyClient = new FormSalesDepartmentClientModifyClient(db);
+            formSalesDepartmentClientModifyClient.ShowDialog();
         }
     }
 }

@@ -57,8 +57,10 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.dtpEmaiDate1 = new System.Windows.Forms.DateTimePicker();
             this.dtpEmailDate2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.dtpTelDate2 = new System.Windows.Forms.DateTimePicker();
             this.dtpTelDate1 = new System.Windows.Forms.DateTimePicker();
+            this.cbTelDate2 = new System.Windows.Forms.CheckBox();
+            this.cbEmailDate2 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnAddNewClient
@@ -332,17 +334,17 @@
             this.dtpEmailDate2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpEmailDate2.Location = new System.Drawing.Point(418, 205);
             this.dtpEmailDate2.Name = "dtpEmailDate2";
-            this.dtpEmailDate2.Size = new System.Drawing.Size(152, 26);
+            this.dtpEmailDate2.Size = new System.Drawing.Size(130, 26);
             this.dtpEmailDate2.TabIndex = 63;
             // 
-            // dateTimePicker3
+            // dtpTelDate2
             // 
-            this.dateTimePicker3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker3.Location = new System.Drawing.Point(620, 205);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(152, 26);
-            this.dateTimePicker3.TabIndex = 65;
+            this.dtpTelDate2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dtpTelDate2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpTelDate2.Location = new System.Drawing.Point(620, 205);
+            this.dtpTelDate2.Name = "dtpTelDate2";
+            this.dtpTelDate2.Size = new System.Drawing.Size(130, 26);
+            this.dtpTelDate2.TabIndex = 65;
             // 
             // dtpTelDate1
             // 
@@ -353,13 +355,35 @@
             this.dtpTelDate1.Size = new System.Drawing.Size(152, 26);
             this.dtpTelDate1.TabIndex = 64;
             // 
+            // cbTelDate2
+            // 
+            this.cbTelDate2.AutoSize = true;
+            this.cbTelDate2.BackColor = System.Drawing.Color.Transparent;
+            this.cbTelDate2.Location = new System.Drawing.Point(757, 213);
+            this.cbTelDate2.Name = "cbTelDate2";
+            this.cbTelDate2.Size = new System.Drawing.Size(15, 14);
+            this.cbTelDate2.TabIndex = 66;
+            this.cbTelDate2.UseVisualStyleBackColor = false;
+            // 
+            // cbEmailDate2
+            // 
+            this.cbEmailDate2.AutoSize = true;
+            this.cbEmailDate2.BackColor = System.Drawing.Color.Transparent;
+            this.cbEmailDate2.Location = new System.Drawing.Point(555, 213);
+            this.cbEmailDate2.Name = "cbEmailDate2";
+            this.cbEmailDate2.Size = new System.Drawing.Size(15, 14);
+            this.cbEmailDate2.TabIndex = 67;
+            this.cbEmailDate2.UseVisualStyleBackColor = false;
+            // 
             // FormSalesDepartmentClientNewClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(784, 461);
-            this.Controls.Add(this.dateTimePicker3);
+            this.Controls.Add(this.cbEmailDate2);
+            this.Controls.Add(this.cbTelDate2);
+            this.Controls.Add(this.dtpTelDate2);
             this.Controls.Add(this.dtpTelDate1);
             this.Controls.Add(this.dtpEmailDate2);
             this.Controls.Add(this.dtpEmaiDate1);
@@ -425,7 +449,9 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.DateTimePicker dtpEmaiDate1;
         private System.Windows.Forms.DateTimePicker dtpEmailDate2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.DateTimePicker dtpTelDate2;
         private System.Windows.Forms.DateTimePicker dtpTelDate1;
+        private System.Windows.Forms.CheckBox cbTelDate2;
+        private System.Windows.Forms.CheckBox cbEmailDate2;
     }
 }

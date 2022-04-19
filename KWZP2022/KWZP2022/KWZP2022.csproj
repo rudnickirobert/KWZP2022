@@ -118,11 +118,23 @@
     <Compile Include="FormSalesDepartmentClient.Designer.cs">
       <DependentUpon>FormSalesDepartmentClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSalesDepartmentClientModifyClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesDepartmentClientModifyClient.Designer.cs">
+      <DependentUpon>FormSalesDepartmentClientModifyClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSalesDepartmentClientNewClient.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormSalesDepartmentClientNewClient.Designer.cs">
       <DependentUpon>FormSalesDepartmentClientNewClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSalesDepartmentClientRemoveClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesDepartmentClientRemoveClient.Designer.cs">
+      <DependentUpon>FormSalesDepartmentClientRemoveClient.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSalesDepartmentSales.cs">
       <SubType>Form</SubType>
@@ -522,8 +534,14 @@
     <EmbeddedResource Include="FormSalesDepartmentClient.resx">
       <DependentUpon>FormSalesDepartmentClient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSalesDepartmentClientModifyClient.resx">
+      <DependentUpon>FormSalesDepartmentClientModifyClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSalesDepartmentClientNewClient.resx">
       <DependentUpon>FormSalesDepartmentClientNewClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSalesDepartmentClientRemoveClient.resx">
+      <DependentUpon>FormSalesDepartmentClientRemoveClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSalesDepartmentSales.resx">
       <DependentUpon>FormSalesDepartmentSales.cs</DependentUpon>
