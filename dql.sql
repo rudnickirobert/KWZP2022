@@ -535,6 +535,15 @@ CREATE VIEW v_Klient_telefon_Historia AS
 	ORDER BY Data_do DESC OFFSET 0 ROWS
 	GO
 
+CREATE VIEW	v_Szczegoly_oferta AS
+	SELECT Zamowienie.ID_zamowienie, Oferta_handlowa.ID_oferta_handlowa AS [Nr oferty], Produkt.Nazwa_produkt AS [Produkt], Szczegoly_oferta.Ilosc AS [Ilość]
+	FROM Szczegoly_oferta
+	INNER JOIN Oferta_handlowa ON Oferta_handlowa.ID_oferta_handlowa = Szczegoly_oferta.ID_oferta_handlowa
+	INNER JOIN Produkt ON Produkt.ID_produkt = Szczegoly_oferta.ID_produkt
+	INNER JOIN Zamowienie ON Zamowienie.ID_zamowienie = Oferta_handlowa.ID_zamowienie
+	ORDER BY ID_zamowienie OFFSET 0 ROWS
+	GO
+
 	--HR DEPARTMENT --
 CREATE VIEW v_Pracownik
 AS
