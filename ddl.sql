@@ -446,6 +446,17 @@ CREATE TABLE Oferta_handlowa
 	Cena DECIMAL(15,2),
 );
 
+CREATE TABLE Szczegoly_oferta
+	(
+	ID_szczegoly_oferta INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	ID_oferta_handlowa INT FOREIGN KEY 
+		REFERENCES Oferta_handlowa(ID_oferta_handlowa) NOT NULL, 
+	ID_produkt INT FOREIGN KEY 
+		REFERENCES Produkt(ID_produkt) NOT NULL, 
+	Ilosc INT NOT NULL,
+	Cena_jednostkowa INT NOT NULL
+	);
+
 CREATE TABLE Wytwarzanie
 	(
 	ID_wytwarzanie INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
