@@ -18,7 +18,7 @@ namespace KWZP2022
         public Oferta_handlowa()
         {
             this.Umowa_sprzedaz = new HashSet<Umowa_sprzedaz>();
-            this.Wytwarzanies = new HashSet<Wytwarzanie>();
+            this.Wytwarzanie = new HashSet<Wytwarzanie>();
         }
     
         public int ID_oferta_handlowa { get; set; }
@@ -36,6 +36,6 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Umowa_sprzedaz> Umowa_sprzedaz { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Wytwarzanie> Wytwarzanies { get; set; }
+        public virtual ICollection<Wytwarzanie> Wytwarzanie { get; set; }
     }
 }

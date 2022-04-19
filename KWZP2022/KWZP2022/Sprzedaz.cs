@@ -17,7 +17,7 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Sprzedaz()
         {
-            this.Reklamacjas = new HashSet<Reklamacja>();
+            this.Reklamacja = new HashSet<Reklamacja>();
             this.Szczegoly_sprzedaz = new HashSet<Szczegoly_sprzedaz>();
         }
     
@@ -31,7 +31,7 @@ namespace KWZP2022
     
         public virtual Forma_platnosc Forma_platnosc { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reklamacja> Reklamacjas { get; set; }
+        public virtual ICollection<Reklamacja> Reklamacja { get; set; }
         public virtual Umowa_sprzedaz Umowa_sprzedaz { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Szczegoly_sprzedaz> Szczegoly_sprzedaz { get; set; }

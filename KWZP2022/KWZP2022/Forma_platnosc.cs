@@ -17,13 +17,13 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Forma_platnosc()
         {
-            this.Sprzedazs = new HashSet<Sprzedaz>();
+            this.Sprzedaz = new HashSet<Sprzedaz>();
         }
     
         public int ID_forma_platnosc { get; set; }
         public string Forma_platnosc1 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sprzedaz> Sprzedazs { get; set; }
+        public virtual ICollection<Sprzedaz> Sprzedaz { get; set; }
     }
 }

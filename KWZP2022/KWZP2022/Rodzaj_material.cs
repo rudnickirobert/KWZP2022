@@ -17,13 +17,13 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Rodzaj_material()
         {
-            this.Materials = new HashSet<Material>();
+            this.Material = new HashSet<Material>();
         }
     
         public int ID_rodzaj_material { get; set; }
         public string Nazwa_rodzaj_material { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Material> Materials { get; set; }
+        public virtual ICollection<Material> Material { get; set; }
     }
 }

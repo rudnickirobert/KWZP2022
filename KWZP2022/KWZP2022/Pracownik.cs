@@ -20,22 +20,22 @@ namespace KWZP2022
             this.Dane_adresowe_pracownik = new HashSet<Dane_adresowe_pracownik>();
             this.Email_pracownik = new HashSet<Email_pracownik>();
             this.Kontrola_jakosci_produkt = new HashSet<Kontrola_jakosci_produkt>();
-            this.Nieobecnoscs = new HashSet<Nieobecnosc>();
+            this.Nieobecnosc = new HashSet<Nieobecnosc>();
             this.Nr_telefon_pracownik = new HashSet<Nr_telefon_pracownik>();
             this.Oferta_handlowa = new HashSet<Oferta_handlowa>();
-            this.Reklamacjas = new HashSet<Reklamacja>();
+            this.Reklamacja = new HashSet<Reklamacja>();
             this.Stan_realizacji_zamowienie_material = new HashSet<Stan_realizacji_zamowienie_material>();
             this.Stan_realizacji_zamowienie_czesc = new HashSet<Stan_realizacji_zamowienie_czesc>();
             this.Stan_realizacji_zamowienie_maszyna = new HashSet<Stan_realizacji_zamowienie_maszyna>();
             this.Stan_realizacji_zamowienie_narzedzie = new HashSet<Stan_realizacji_zamowienie_narzedzie>();
-            this.Umowas = new HashSet<Umowa>();
-            this.Wytwarzanies = new HashSet<Wytwarzanie>();
-            this.Zamowienies = new HashSet<Zamowienie>();
+            this.Umowa = new HashSet<Umowa>();
+            this.Wytwarzanie = new HashSet<Wytwarzanie>();
+            this.Zamowienie = new HashSet<Zamowienie>();
             this.Zamowienie_material = new HashSet<Zamowienie_material>();
             this.Zamowienie_czesc = new HashSet<Zamowienie_czesc>();
             this.Zamowienie_maszyna = new HashSet<Zamowienie_maszyna>();
             this.Zamowienie_narzedzie = new HashSet<Zamowienie_narzedzie>();
-            this.Obslugas = new HashSet<Obsluga>();
+            this.Obsluga = new HashSet<Obsluga>();
         }
     
         public int ID_pracownik { get; set; }
@@ -52,14 +52,14 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Kontrola_jakosci_produkt> Kontrola_jakosci_produkt { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Nieobecnosc> Nieobecnoscs { get; set; }
+        public virtual ICollection<Nieobecnosc> Nieobecnosc { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Nr_telefon_pracownik> Nr_telefon_pracownik { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Oferta_handlowa> Oferta_handlowa { get; set; }
         public virtual Wyksztalcenie Wyksztalcenie { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reklamacja> Reklamacjas { get; set; }
+        public virtual ICollection<Reklamacja> Reklamacja { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stan_realizacji_zamowienie_material> Stan_realizacji_zamowienie_material { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -69,11 +69,11 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stan_realizacji_zamowienie_narzedzie> Stan_realizacji_zamowienie_narzedzie { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Umowa> Umowas { get; set; }
+        public virtual ICollection<Umowa> Umowa { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Wytwarzanie> Wytwarzanies { get; set; }
+        public virtual ICollection<Wytwarzanie> Wytwarzanie { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Zamowienie> Zamowienies { get; set; }
+        public virtual ICollection<Zamowienie> Zamowienie { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zamowienie_material> Zamowienie_material { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -83,6 +83,6 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zamowienie_narzedzie> Zamowienie_narzedzie { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Obsluga> Obslugas { get; set; }
+        public virtual ICollection<Obsluga> Obsluga { get; set; }
     }
 }

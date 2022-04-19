@@ -17,7 +17,7 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Posada_pracownika()
         {
-            this.Umowas = new HashSet<Umowa>();
+            this.Umowa = new HashSet<Umowa>();
         }
     
         public int ID_posada_pracownika { get; set; }
@@ -27,6 +27,6 @@ namespace KWZP2022
     
         public virtual Etat Etat { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Umowa> Umowas { get; set; }
+        public virtual ICollection<Umowa> Umowa { get; set; }
     }
 }

@@ -20,7 +20,7 @@ namespace KWZP2022
             this.Dane_adresowe_klient = new HashSet<Dane_adresowe_klient>();
             this.Email_klient = new HashSet<Email_klient>();
             this.Nr_telefon_klient = new HashSet<Nr_telefon_klient>();
-            this.Zamowienies = new HashSet<Zamowienie>();
+            this.Zamowienie = new HashSet<Zamowienie>();
         }
     
         public int ID_klient { get; set; }
@@ -35,6 +35,6 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Nr_telefon_klient> Nr_telefon_klient { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Zamowienie> Zamowienies { get; set; }
+        public virtual ICollection<Zamowienie> Zamowienie { get; set; }
     }
 }

@@ -17,13 +17,13 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Rodzaj_obsluga()
         {
-            this.Obslugas = new HashSet<Obsluga>();
+            this.Obsluga = new HashSet<Obsluga>();
         }
     
         public int ID_rodzaj_obsluga { get; set; }
         public string Nazwa_rodzaj_obsluga { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Obsluga> Obslugas { get; set; }
+        public virtual ICollection<Obsluga> Obsluga { get; set; }
     }
 }
