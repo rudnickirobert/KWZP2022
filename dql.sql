@@ -365,7 +365,7 @@ GO
 
 CREATE VIEW v_Zamowienia_materialy_w_trakcie_wszystko 
 AS 
-SELECT ZM.ID_zamowienie_material AS [Nr zamówienia], M.Nazwa_material AS [Nazwa materiału], SRZM.Data_stan [Data zmiany stanu], Waga_g AS [Waga], Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID] 
+SELECT ZM.ID_zamowienie_material AS [Nr zamówienia], M.Nazwa_material AS [Nazwa materiału], SRZM.Data_stan [Data zmiany stanu], Waga_g AS [Waga (g)], Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID] 
 FROM Szczegoly_zamowienie_material AS SZM 
 INNER JOIN Zamowienie_material AS ZM ON SZM.ID_zamowienie_material = ZM.ID_zamowienie_material 
 INNER JOIN Material AS M ON SZM.ID_material = M.ID_material 
@@ -376,7 +376,7 @@ GO
 
 CREATE VIEW v_Zamowienia_materialy_w_trakcie_bez_odebranych 
 AS 
-SELECT ZMWTW.[Nr zamówienia], ZMWTW.[Nazwa materiału], ZMWTW.[Data zmiany stanu], ZMWTW.Waga, ZMWTW.Cena, ZMWTW.[Status], ZMWTW.[StatusID] 
+SELECT ZMWTW.[Nr zamówienia], ZMWTW.[Nazwa materiału], ZMWTW.[Data zmiany stanu], ZMWTW.[Waga (g)], ZMWTW.Cena, ZMWTW.[Status], ZMWTW.[StatusID] 
 FROM v_Zamowienia_materialy_w_trakcie_wszystko AS ZMWTW 
 LEFT JOIN v_Zamowienia_materialy_w_trakcie_wszystko AS ZMWTWA ON ZMWTW.[Nr zamówienia] = ZMWTWA.[Nr zamówienia] AND ZMWTWA.[Status] = 'Odebrano' 
 WHERE ZMWTWA.[Nr zamówienia] IS NULL 
@@ -444,6 +444,58 @@ SELECT a.*
 FROM v_Zamowienia_maszyny_w_trakcie_bez_odebranych AS a 
 LEFT JOIN v_Zamowienia_maszyny_w_trakcie_bez_odebranych AS b ON a.[Nr zamówienia] = b.[Nr zamówienia] AND a.StatusID < b.StatusID 
 WHERE b.StatusID IS NULL 
+GO
+
+CREATE VIEW v_Magazyn_maszyn_wszystko 
+AS
+SELECT [Nazwa maszyny], [Nr Seryjny]
+FROM v_Zamowienia_maszyny_w_trakcie_wszystko 
+WHERE StatusID = 4
+GROUP BY [Nazwa maszyny], [Nr Seryjny]
+GO
+
+CREATE VIEW v_Magazyn_maszyn_nieuzywane
+AS
+SELECT [Nazwa maszyny], [Nr Seryjny]
+FROM v_Magazyn_maszyn_wszystko AS MMW
+LEFT JOIN v_Sklad_stanowisko_produkcyjne_maszyna AS SSPM ON MMW.[Nr Seryjny]=SSPM.[Nr seryjny maszyny]
+WHERE SSPM.[Nr seryjny maszyny] IS NULL
+GO
+
+CREATE VIEW v_Magazyn_narzedzia_wszystko
+AS
+SELECT [Nazwa narzędzia], Sztuk
+FROM v_Zamowienia_narzedzia_w_trakcie_wszystko 
+WHERE StatusID = 4
+GROUP BY [Nazwa narzędzia], Sztuk
+GO
+
+CREATE VIEW v_Magazyn_narzedzia_uzywane
+AS
+SELECT Narzędzie, SUM (Liczba) AS Liczba
+FROM v_Sklad_stanowisko_produkcyjne_narzedzie AS SSPN
+GROUP BY Narzędzie
+GO
+
+CREATE VIEW v_Magazyn_narzedzia_stan
+AS
+SELECT [Nazwa narzędzia], Sztuk, IsNull(Liczba,0) as Używane
+FROM v_Magazyn_narzedzia_wszystko AS MNW
+LEFT JOIN v_Magazyn_narzedzia_uzywane AS MNU ON MNW.[Nazwa narzędzia]=MNU.[Narzędzie]
+GO
+
+CREATE VIEW v_Magazyn_narzedzia_nieuzywane
+AS
+SELECT [Nazwa narzędzia], Sztuk-Używane AS [Ilość w magazynie]
+FROM v_Magazyn_narzedzia_stan
+GO
+
+CREATE VIEW v_Magazyn_material_wszystko
+AS
+SELECT [Nazwa materiału], [Waga (g)]
+FROM v_Zamowienia_materialy_w_trakcie_wszystko 
+WHERE StatusID = 4
+GROUP BY [Nazwa materiału], [Waga (g)]
 GO
 
 --SALES AND MARKETING DEPARTMENT --
