@@ -324,7 +324,6 @@ INNER JOIN Stanowisko_produkcyjne AS SP ON O.ID_stanowisko_produkcyjne = SP.ID_s
 WHERE Data_do IS NOT NULL AND GETDATE() > Data_do
 GO
 
-
 CREATE VIEW v_Oblugi_w_trakcie
 AS
 SELECT SP.ID_stanowisko_produkcyjne AS [Nr stanowiska], RO.Nazwa_rodzaj_obsluga AS [Obsługa], Data_od AS [Data rozpoczęcia], Data_do AS [Data zakończenia], P.Imie + ' ' + P.Nazwisko AS [Pracownik]
@@ -338,12 +337,13 @@ GO
 
 CREATE VIEW v_Zamowienia_czesci_w_trakcie_wszystko 
 AS 
-SELECT ZC.ID_zamowienie_czesc AS [Nr zamówienia], C.Nazwa_czesc AS [Nazwa części], SRZC.Data_stan [Data zmiany stanu], Ilosc, Cena, SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie as [StatusID] 
+SELECT ZC.ID_zamowienie_czesc AS [Nr zamówienia], C.Nazwa_czesc AS [Nazwa części], SRZC.Data_stan [Data zmiany stanu], Ilosc, Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID] 
 FROM Szczegoly_zamowienie_czesc AS SZC 
 INNER JOIN Zamowienie_czesc AS ZC ON SZC.ID_zamowienie_czesc = ZC.ID_zamowienie_czesc 
 INNER JOIN Czesc AS C ON SZC.ID_czesc = C.ID_czesc 
 INNER JOIN Stan_realizacji_zamowienie_czesc AS SRZC ON ZC.ID_zamowienie_czesc = SRZC.ID_zamowienie_czesc 
 INNER JOIN Status_zamowienie AS SZ ON SRZC.ID_status_zamowienie = SZ.ID_status_zamowienie 
+INNER JOIN Dostawca AS D ON ZC.ID_dostawca = D.ID_dostawca
 GO 
 
 CREATE VIEW v_Zamowienia_czesci_w_trakcie_bez_odebranych 
@@ -364,12 +364,13 @@ GO
 
 CREATE VIEW v_Zamowienia_materialy_w_trakcie_wszystko 
 AS 
-SELECT ZM.ID_zamowienie_material AS [Nr zamówienia], M.Nazwa_material AS [Nazwa materiału], SRZM.Data_stan [Data zmiany stanu], Waga_g AS [Waga], Cena, SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie as [StatusID] 
+SELECT ZM.ID_zamowienie_material AS [Nr zamówienia], M.Nazwa_material AS [Nazwa materiału], SRZM.Data_stan [Data zmiany stanu], Waga_g AS [Waga], Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID] 
 FROM Szczegoly_zamowienie_material AS SZM 
 INNER JOIN Zamowienie_material AS ZM ON SZM.ID_zamowienie_material = ZM.ID_zamowienie_material 
 INNER JOIN Material AS M ON SZM.ID_material = M.ID_material 
 INNER JOIN Stan_realizacji_zamowienie_material AS SRZM ON ZM.ID_zamowienie_material = SRZM.ID_zamowienie_material 
 INNER JOIN Status_zamowienie AS SZ ON SRZM.ID_status_zamowienie = SZ.ID_status_zamowienie 
+INNER JOIN Dostawca AS D ON ZM.ID_dostawca = D.ID_dostawca
 GO 
 
 CREATE VIEW v_Zamowienia_materialy_w_trakcie_bez_odebranych 
@@ -385,6 +386,62 @@ AS
 SELECT a.* 
 FROM v_Zamowienia_materialy_w_trakcie_bez_odebranych AS a 
 LEFT JOIN v_Zamowienia_materialy_w_trakcie_bez_odebranych AS b ON a.[Nr zamówienia] = b.[Nr zamówienia] AND a.StatusID < b.StatusID 
+WHERE b.StatusID IS NULL 
+GO
+
+CREATE VIEW v_Zamowienia_narzedzia_w_trakcie_wszystko 
+AS 
+SELECT ZN.ID_zamowienie_narzedzie AS [Nr zamówienia], N.Nazwa_narzedzie AS [Nazwa narzędzia], SRZN.Data_stan [Data zmiany stanu], Sztuk, Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID] 
+FROM Szczegoly_zamowienie_narzedzie AS SZN 
+INNER JOIN Zamowienie_narzedzie AS ZN ON SZN.ID_zamowienie_narzedzie = ZN.ID_zamowienie_narzedzie 
+INNER JOIN Narzedzie AS N ON SZN.ID_narzedzie = N.ID_narzedzie
+INNER JOIN Stan_realizacji_zamowienie_narzedzie AS SRZN ON ZN.ID_zamowienie_narzedzie = SRZN.ID_zamowienie_narzedzie 
+INNER JOIN Status_zamowienie AS SZ ON SRZN.ID_status_zamowienie = SZ.ID_status_zamowienie 
+INNER JOIN Dostawca AS D ON ZN.ID_dostawca = D.ID_dostawca
+GO 
+
+CREATE VIEW v_Zamowienia_narzedzia_w_trakcie_bez_odebranych 
+AS 
+SELECT ZNWTW.[Nr zamówienia], ZNWTW.[Nazwa narzędzia], ZNWTW.[Data zmiany stanu], ZNWTW.Sztuk, ZNWTW.Cena, ZNWTW.[Status], ZNWTW.[StatusID] 
+FROM v_Zamowienia_narzedzia_w_trakcie_wszystko AS ZNWTW 
+LEFT JOIN v_Zamowienia_materialy_w_trakcie_wszystko AS ZNWTWA ON ZNWTW.[Nr zamówienia] = ZNWTWA.[Nr zamówienia] AND ZNWTWA.[Status] = 'Odebrano' 
+WHERE ZNWTWA.[Nr zamówienia] IS NULL 
+GO 
+
+CREATE VIEW v_Zamowienia_narzedzia_w_trakcie 
+AS 
+SELECT a.* 
+FROM v_Zamowienia_narzedzia_w_trakcie_bez_odebranych AS a 
+LEFT JOIN v_Zamowienia_narzedzia_w_trakcie_bez_odebranych AS b ON a.[Nr zamówienia] = b.[Nr zamówienia] AND a.StatusID < b.StatusID 
+WHERE b.StatusID IS NULL 
+GO
+
+CREATE VIEW v_Zamowienia_maszyny_w_trakcie_wszystko 
+AS 
+SELECT ZM.ID_zamowienie_maszyna AS [Nr zamówienia], M.Nazwa_maszyna AS [Nazwa maszyny], NR.Nr_seryjny AS [Nr Seryjny], SRZM.Data_stan [Data zmiany stanu], Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID] 
+FROM Szczegoly_zamowienie_maszyna AS SZM 
+INNER JOIN Zamowienie_maszyna AS ZM ON SZM.ID_zamowienie_maszyna = ZM.ID_zamowienie_maszyna
+INNER JOIN Maszyna_nr_seryjny AS MNR ON SZM.ID_maszyna_nr = MNR.ID_maszyna_nr
+INNER JOIN Maszyna AS M ON MNR.ID_maszyna = M.ID_maszyna
+INNER JOIN Stan_realizacji_zamowienie_maszyna AS SRZM ON ZM.ID_zamowienie_maszyna = SRZM.ID_zamowienie_maszyna
+INNER JOIN Status_zamowienie AS SZ ON SRZM.ID_status_zamowienie = SZ.ID_status_zamowienie 
+INNER JOIN Dostawca AS D ON ZM.ID_dostawca = D.ID_dostawca
+INNER JOIN Nr_seryjny AS NR ON MNR.ID_nr_seryjny = NR.ID_nr_seryjny
+GO
+
+CREATE VIEW v_Zamowienia_maszyny_w_trakcie_bez_odebranych 
+AS 
+SELECT ZMWTW.[Nr zamówienia], ZMWTW.[Nazwa maszyny], ZMWTW.[Nr Seryjny], ZMWTW.[Data zmiany stanu], ZMWTW.Cena, ZMWTW.[Status], ZMWTW.[StatusID] 
+FROM v_Zamowienia_maszyny_w_trakcie_wszystko  AS ZMWTW 
+LEFT JOIN v_Zamowienia_maszyny_w_trakcie_wszystko AS ZMWTWA ON ZMWTW.[Nr zamówienia] = ZMWTWA.[Nr zamówienia] AND ZMWTWA.[Status] = 'Odebrano' 
+WHERE ZMWTWA.[Nr zamówienia] IS NULL 
+GO 
+
+CREATE VIEW v_Zamowienia_maszyny_w_trakcie 
+AS 
+SELECT a.* 
+FROM v_Zamowienia_maszyny_w_trakcie_bez_odebranych AS a 
+LEFT JOIN v_Zamowienia_maszyny_w_trakcie_bez_odebranych AS b ON a.[Nr zamówienia] = b.[Nr zamówienia] AND a.StatusID < b.StatusID 
 WHERE b.StatusID IS NULL 
 GO
 
