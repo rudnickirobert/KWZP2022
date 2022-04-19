@@ -97,6 +97,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="PolproduktForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PolproduktForm.Designer.cs">
+      <DependentUpon>PolproduktForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProduktForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -539,6 +545,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSalesDepartmentSales.resx">
       <DependentUpon>FormSalesDepartmentSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PolproduktForm.resx">
+      <DependentUpon>PolproduktForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProdukcjaFrom.resx">
       <DependentUpon>ProdukcjaFrom.cs</DependentUpon>

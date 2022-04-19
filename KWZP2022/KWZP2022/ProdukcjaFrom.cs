@@ -25,5 +25,11 @@ namespace KWZP2022
             produktFrom.ShowDialog();
          
         }
+
+        private void btnPolprodukty_Click(object sender, EventArgs e)
+        {
+            PolproduktForm polproduktForm = new PolproduktForm(db);
+            polproduktForm.ShowDialog();
+        }
     }
 }
