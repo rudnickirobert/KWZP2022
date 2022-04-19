@@ -105,7 +105,7 @@ GO
 
 CREATE VIEW v_Koszt_procesow_polprodukt
 AS
-SELECT P.ID_polprodukt AS ID, P.Nazwa AS [Półprodukt], SUM(vK.[Koszt roboczogodziny stanowiska {PLN}] * PPPC.Czas_trwania/60) AS [Całkowity koszt produkcji]
+SELECT P.ID_polprodukt AS ID, P.Nazwa AS [Półprodukt], SUM(vK.[Koszt roboczogodziny stanowiska {PLN}] * PPPC.Czas_trwania/60) AS [Suma kosztu procesów]
 FROM Proces_wytwarzanie_polprodukt AS PWPP
 INNER JOIN Proces_polprodukt_czynnosc AS PPPC ON PWPP.ID_proces_polprodukt = PPPC.ID_proces_polprodukt
 INNER JOIN v_Koszt_roboczogodziny_stanowiska AS vK ON PWPP.ID_stanowisko_produkcyjne = vK.[ID stanowiska produkcyjnego]
@@ -125,13 +125,22 @@ GO
 
 CREATE VIEW v_Koszt_produkcji
 AS
-SELECT P.Nazwa_produkt AS [Produkt], SUM(KPP.[Całkowity koszt produkcji] * SP.Liczba + KP.[Suma kosztu procesów]) AS [Koszt wytworzenia produktu {PLN}]
+SELECT SUM(KPP.[Całkowity koszt produkcji] * SP.Liczba) AS [Koszt wytworzenia produktu {PLN}]
 FROM Sklad_produkt AS SP
 INNER JOIN Produkt AS P ON SP.ID_produkt = P.ID_produkt
 INNER JOIN Slownik_polprodukt AS SlwPP ON SP.ID_polprodukt = SlwPP.ID_polprodukt
-LEFT JOIN v_Koszt_procesow_polprodukt AS KPP ON SlWPP.Nazwa = KPP.Półprodukt
-LEFT JOIN v_Koszt_procesow_produkt AS KP ON P.Nazwa_produkt = KP.Produkt
+INNER JOIN v_Koszt_procesow_polprodukt AS KPP ON SlWPP.Nazwa = KPP.Półprodukt
+INNER JOIN v_Koszt_procesow_produkt AS KP ON P.Nazwa_produkt = KP.Produkt
 GROUP BY P.Nazwa_produkt
+GO
+
+CREATE VIEW v_Koszt
+AS
+SELECT P.Nazwa_produkt, SlwPP.Nazwa, SP.Liczba, KPP.[Całkowity koszt produkcji] * SP.Liczba AS [Koszt półproduktów]
+FROM Sklad_produkt AS SP
+INNER JOIN Produkt AS P ON SP.ID_produkt = P.ID_produkt
+INNER JOIN Slownik_polprodukt AS SlwPP ON SP.ID_polprodukt = SlwPP.ID_polprodukt
+INNER JOIN v_Koszt_procesow_polprodukt AS KPP ON SlWPP.Nazwa = KPP.Półprodukt
 GO
 
 CREATE VIEW v_Kontrola_jakosci_produkt
@@ -328,24 +337,16 @@ INNER JOIN Stanowisko_produkcyjne AS SP ON O.ID_stanowisko_produkcyjne = SP.ID_s
 WHERE Data_do IS NULL
 GO
 
---CREATE VIEW v_Zamowienia_czesci AS
---SELECT Czesc.Nazwa_czesc, Producent.Nazwa_producenta, Szczegoly_zamowienie_czesc.Ilosc, Szczegoly_zamowienie_czesc.Cena, Dostawca.Nazwa_dostawca, Data_zamowienia
---FROM Zamowienie_czesc
---INNER JOIN Czesc
---ON Zamowienie_czesc.ID
---INNER JOIN
---ON
---INNER JOIN
---ON
---GO
-
---CREATE VIEW v_Zamowienia_maszyn_w_trakcie AS
---SELECT 
---FROM Stan_realizacji_zamowienie_maszyna
---INNER JOIN
---ON
---WHERE NOT ID_status_zamowienie
---GO
+CREATE VIEW v_Zamowienia_czesci_w_trakcie
+AS
+SELECT ZC.ID_zamowienie_czesc AS [Nr zamówienia], C.Nazwa_czesc AS [Nazwa części], SRZC.Data_stan [Data zmiany stanu], SZC.Ilosc, Cena, SZ.Nazwa_status AS [Status]
+FROM Szczegoly_zamowienie_czesc AS SZC
+INNER JOIN Zamowienie_czesc AS ZC ON SZC.ID_zamowienie_czesc = ZC.ID_zamowienie_czesc
+INNER JOIN Czesc AS C ON SZC.ID_czesc = C.ID_czesc
+INNER JOIN Stan_realizacji_zamowienie_czesc AS SRZC ON ZC.ID_zamowienie_czesc = SRZC.ID_zamowienie_czesc
+INNER JOIN Status_zamowienie AS SZ ON SRZC.ID_status_zamowienie = SZ.ID_status_zamowienie
+--WHERE SZ.ID_status_zamowienie != 4
+GO
 
 --SALES AND MARKETING DEPARTMENT --
 CREATE VIEW v_Szczegoly_sprzedaz AS
