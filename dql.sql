@@ -123,13 +123,6 @@ INNER JOIN Produkt AS P ON PPPC.ID_produkt = P.ID_produkt
 GROUP BY P.Nazwa_produkt
 GO
 
-SELECT  P.Nazwa_produkt AS [Produkt], vK.[Koszt roboczogodziny stanowiska {PLN}] * PPPC.Czas_trwania/60 AS [Suma kosztu procesów]
-FROM Proces_wytwarzanie_polprodukt AS PWPP
-INNER JOIN Proces_produkt_czynnosc AS PPPC ON PWPP.ID_proces_polprodukt = PPPC.ID_proces_produkt
-INNER JOIN v_Koszt_roboczogodziny_stanowiska AS vK ON PWPP.ID_stanowisko_produkcyjne = vK.[ID stanowiska produkcyjnego]
-INNER JOIN Produkt AS P ON PPPC.ID_produkt = P.ID_produkt
-
-
 CREATE VIEW v_Koszt_produkcji
 AS
 SELECT P.Nazwa_produkt AS [Produkt], SUM(KPP.[Całkowity koszt produkcji] * SP.Liczba + KP.[Suma kosztu procesów]) AS [Koszt wytworzenia produktu {PLN}]
