@@ -255,7 +255,7 @@ GO
 -----RESOURCE DEPARTMENT----
 
 CREATE VIEW v_Sklad_maszyna AS 
-SELECT Maszyna.Nazwa_maszyna, Czesc.Nazwa_czesc, Sklad_maszyna.Liczba_czesci AS [Liczba czesci]
+SELECT Maszyna.Nazwa_maszyna AS [Nazwa maszyny], Czesc.Nazwa_czesc AS [Nazwa części], Sklad_maszyna.Liczba_czesci AS [Liczba czesci]
 FROM Sklad_maszyna 
 INNER JOIN Maszyna  
 ON Sklad_maszyna.ID_maszyna=Maszyna.ID_maszyna
@@ -265,7 +265,7 @@ GROUP BY Maszyna.Nazwa_maszyna, Czesc.Nazwa_czesc, Sklad_maszyna.Liczba_czesci;
 GO
 
 CREATE VIEW v_Parametry_maszyna AS
-SELECT Maszyna.Nazwa_maszyna, Rodzaj_parametr.Nazwa_rodzaj_parametr, Jednostka.Skrot, Zakres_dol, Zakres_gora
+SELECT Maszyna.Nazwa_maszyna AS [Nazwa maszyny], Rodzaj_parametr.Nazwa_rodzaj_parametr AS [Parametr], Jednostka.Skrot AS [Jednostka], Zakres_dol AS [Zakres - granica dolna], Zakres_gora AS [Zakres - granica górna]
 FROM Parametr_maszyna
 INNER JOIN Maszyna
 ON Parametr_maszyna.ID_maszyna=Maszyna.ID_maszyna
@@ -275,7 +275,7 @@ GROUP BY Maszyna.Nazwa_maszyna, Rodzaj_parametr.Nazwa_rodzaj_parametr, Jednostka
 GO
 
 CREATE VIEW v_Parametry_material AS
-SELECT Material.Nazwa_material, Rodzaj_parametr.Nazwa_rodzaj_parametr, Jednostka.Skrot, Zakres_dol, Zakres_gora
+SELECT Material.Nazwa_material AS [Nazwa materiału], Rodzaj_parametr.Nazwa_rodzaj_parametr AS [Parametr], Jednostka.Skrot AS [Jednostka], Zakres_dol AS [Zakres - granica dolna], Zakres_gora AS [Zakres - granica górna]
 FROM Parametr_material
 INNER JOIN Material
 ON Parametr_material.ID_material=Material.ID_material
@@ -285,7 +285,7 @@ GROUP BY Material.Nazwa_material, Rodzaj_parametr.Nazwa_rodzaj_parametr, Jednost
 GO
 
 CREATE VIEW v_Parametry_czesc AS
-SELECT Czesc.Nazwa_czesc, Rodzaj_parametr.Nazwa_rodzaj_parametr, Jednostka.Skrot, Zakres_dol, Zakres_gora
+SELECT Czesc.Nazwa_czesc AS [Nazwa części], Rodzaj_parametr.Nazwa_rodzaj_parametr AS [Parametr], Jednostka.Skrot AS [Jednostka], Zakres_dol AS [Zakres - granica dolna], Zakres_gora AS [Zakres - granica górna]
 FROM Parametr_czesc
 INNER JOIN Czesc
 ON Parametr_czesc.ID_czesc=Czesc.ID_czesc
@@ -295,7 +295,7 @@ GROUP BY Czesc.Nazwa_czesc, Rodzaj_parametr.Nazwa_rodzaj_parametr, Jednostka.Skr
 GO
 
 CREATE VIEW v_Parametry_narzedzie AS
-SELECT Narzedzie.Nazwa_narzedzie, Rodzaj_parametr.Nazwa_rodzaj_parametr, Jednostka.Skrot, Zakres_dol, Zakres_gora
+SELECT Narzedzie.Nazwa_narzedzie AS [Nazwa narzędzia], Rodzaj_parametr.Nazwa_rodzaj_parametr AS [Parametr], Jednostka.Skrot AS [Jednostka], Zakres_dol AS [Zakres - granica dolna], Zakres_gora AS [Zakres - granica górna]
 FROM Parametr_narzedzie
 INNER JOIN Narzedzie
 ON Parametr_narzedzie.ID_narzedzie=Narzedzie.ID_narzedzie
@@ -304,11 +304,25 @@ ON Parametr_narzedzie.ID_rodzaj_parametr=Rodzaj_parametr.ID_rodzaj_parametr
 GROUP BY Narzedzie.Nazwa_narzedzie, Rodzaj_parametr.Nazwa_rodzaj_parametr, Jednostka.Skrot, Zakres_dol, Zakres_gora
 GO
 
---CREATE VIEW v_Obluga_maszyna AS
---SELECT Maszyna.Nazwa_maszyna, Rodzaj_obsluga.Nazwa_rodzaj_obsluga, Data_od, Data_do, Pracownik.Nazwisko, Pracownik.Imie
---FROM Obsluga
---INNER JOIN Rodzaj_obsluga
---ON 
+CREATE VIEW v_Oblugi_zakonczone AS
+SELECT Stanowisko.ID_stanowisko_produkcyjne AS [Nr stanowiska], Rodzaj_obsluga.Nazwa_rodzaj_obsluga AS [Obsługa], Data_od AS [Data rozpoczęcia], Data_do AS [Data zakończenia], Pracownik.Imie + ' ' + Pracownik.Nazwisko AS [Pracownik]
+FROM Obsluga
+INNER JOIN Rodzaj_obsluga 
+ON Obsluga.ID_rodzaj_obsluga=Rodzaj_obsluga.ID_rodzaj_obsluga
+INNER JOIN Pracownik
+ON Obsluga.ID_pracownik=Pracownik.ID_pracownik
+WHERE Data_do IS NOT NULL AND GETDATE() > Data_do
+GO
+
+CREATE VIEW v_Oblugi_w_trakcie AS
+SELECT Stanowisko.ID_stanowisko_produkcyjne AS [Nr stanowiska], Rodzaj_obsluga.Nazwa_rodzaj_obsluga AS [Obsługa], Data_od AS [Data rozpoczęcia], Data_do AS [Data zakończenia], Pracownik.Imie + ' ' + Pracownik.Nazwisko AS [Pracownik]
+FROM Obsluga
+INNER JOIN Rodzaj_obsluga 
+ON Obsluga.ID_rodzaj_obsluga=Rodzaj_obsluga.ID_rodzaj_obsluga
+INNER JOIN Pracownik
+ON Obsluga.ID_pracownik=Pracownik.ID_pracownik
+WHERE Data_do IS NULL
+GO
 
 --CREATE VIEW v_Zamowienia_czesci AS
 --SELECT Czesc.Nazwa_czesc, Producent.Nazwa_producenta, Szczegoly_zamowienie_czesc.Ilosc, Szczegoly_zamowienie_czesc.Cena, Dostawca.Nazwa_dostawca, Data_zamowienia
