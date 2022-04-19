@@ -16,8 +16,8 @@ namespace KWZP2022
     {
         public int ID_material { get; set; }
         public int ID_rodzaj_parametr { get; set; }
-        public int Zakres_dol { get; set; }
-        public int Zakres_gora { get; set; }
+        public decimal Zakres_dol { get; set; }
+        public decimal Zakres_gora { get; set; }
     
         public virtual Material Material { get; set; }
         public virtual Rodzaj_parametr Rodzaj_parametr { get; set; }

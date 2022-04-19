@@ -12,13 +12,9 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class Szczegoly_produkt
+    public partial class v_Liczba_zabiegow_wytworczych_polprodukt
     {
-        public int ID_szczegoly_produkt { get; set; }
-        public int ID_produkt { get; set; }
-        public int ID_parametr { get; set; }
-    
-        public virtual Parametr_produkt Parametr_produkt { get; set; }
-        public virtual Produkt Produkt { get; set; }
+        public Nullable<int> Ilosc_zabiegow { get; set; }
+        public string Półprodukt { get; set; }
     }
 }

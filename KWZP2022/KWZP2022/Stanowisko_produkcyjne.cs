@@ -17,8 +17,9 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Stanowisko_produkcyjne()
         {
-            this.Proces_polprodukt_czynnosc = new HashSet<Proces_polprodukt_czynnosc>();
-            this.Proces_produkt_czynnosc = new HashSet<Proces_produkt_czynnosc>();
+            this.Obsluga = new HashSet<Obsluga>();
+            this.Proces_wytwarzanie_polprodukt = new HashSet<Proces_wytwarzanie_polprodukt>();
+            this.Proces_wytwarzanie_produkt = new HashSet<Proces_wytwarzanie_produkt>();
             this.Sklad_stanowisko_produkcyjne = new HashSet<Sklad_stanowisko_produkcyjne>();
             this.Sklad_stanowisko_produkcyjne_maszyna = new HashSet<Sklad_stanowisko_produkcyjne_maszyna>();
         }
@@ -27,9 +28,11 @@ namespace KWZP2022
         public int ID_nazwa_stanowiska { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Proces_polprodukt_czynnosc> Proces_polprodukt_czynnosc { get; set; }
+        public virtual ICollection<Obsluga> Obsluga { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Proces_produkt_czynnosc> Proces_produkt_czynnosc { get; set; }
+        public virtual ICollection<Proces_wytwarzanie_polprodukt> Proces_wytwarzanie_polprodukt { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Proces_wytwarzanie_produkt> Proces_wytwarzanie_produkt { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sklad_stanowisko_produkcyjne> Sklad_stanowisko_produkcyjne { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

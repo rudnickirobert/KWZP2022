@@ -12,18 +12,18 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class Forma_platnosci
+    public partial class Wyksztalcenie
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Forma_platnosci()
+        public Wyksztalcenie()
         {
-            this.Sprzedaz = new HashSet<Sprzedaz>();
+            this.Pracownik = new HashSet<Pracownik>();
         }
     
-        public int ID_forma_platnosci { get; set; }
-        public string Forma_platnosc { get; set; }
+        public int ID_wyksztalcenie { get; set; }
+        public string Nazwa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sprzedaz> Sprzedaz { get; set; }
+        public virtual ICollection<Pracownik> Pracownik { get; set; }
     }
 }

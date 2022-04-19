@@ -12,18 +12,19 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class Status_oferty
+    public partial class Umowa_sprzedaz
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Status_oferty()
+        public Umowa_sprzedaz()
         {
-            this.Oferta_handlowa = new HashSet<Oferta_handlowa>();
+            this.Sprzedaz = new HashSet<Sprzedaz>();
         }
     
-        public int ID_status_oferty { get; set; }
-        public string Nazwa_status { get; set; }
+        public int ID_umowa_sprzedaz { get; set; }
+        public int ID_oferta_handlowa { get; set; }
     
+        public virtual Oferta_handlowa Oferta_handlowa { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Oferta_handlowa> Oferta_handlowa { get; set; }
+        public virtual ICollection<Sprzedaz> Sprzedaz { get; set; }
     }
 }

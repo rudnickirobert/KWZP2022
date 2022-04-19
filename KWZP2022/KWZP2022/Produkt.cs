@@ -17,17 +17,23 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Produkt()
         {
+            this.Kontrola_jakosci_produkt = new HashSet<Kontrola_jakosci_produkt>();
+            this.Parametr_produkt = new HashSet<Parametr_produkt>();
             this.Proces_produkt_czynnosc = new HashSet<Proces_produkt_czynnosc>();
             this.Sklad_produkt = new HashSet<Sklad_produkt>();
             this.Sklad_produkt_material = new HashSet<Sklad_produkt_material>();
-            this.Szczegoly_zamowienia = new HashSet<Szczegoly_zamowienia>();
-            this.Szczegoly_produkt = new HashSet<Szczegoly_produkt>();
-            this.Wytworzony_produkt = new HashSet<Wytworzony_produkt>();
+            this.Szczegoly_sprzedaz = new HashSet<Szczegoly_sprzedaz>();
+            this.Zamowienie_szczegol = new HashSet<Zamowienie_szczegol>();
+            this.Zwrot = new HashSet<Zwrot>();
         }
     
         public int ID_produkt { get; set; }
-        public string Nazwa_produktu { get; set; }
+        public string Nazwa_produkt { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Kontrola_jakosci_produkt> Kontrola_jakosci_produkt { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Parametr_produkt> Parametr_produkt { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Proces_produkt_czynnosc> Proces_produkt_czynnosc { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -35,10 +41,10 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sklad_produkt_material> Sklad_produkt_material { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Szczegoly_zamowienia> Szczegoly_zamowienia { get; set; }
+        public virtual ICollection<Szczegoly_sprzedaz> Szczegoly_sprzedaz { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Szczegoly_produkt> Szczegoly_produkt { get; set; }
+        public virtual ICollection<Zamowienie_szczegol> Zamowienie_szczegol { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Wytworzony_produkt> Wytworzony_produkt { get; set; }
+        public virtual ICollection<Zwrot> Zwrot { get; set; }
     }
 }

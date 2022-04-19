@@ -15,11 +15,11 @@ namespace KWZP2022
     public partial class Szczegoly_zamowienie_maszyna
     {
         public int ID_zamowienie_maszyna { get; set; }
-        public int ID_maszyna { get; set; }
+        public int ID_maszyna_nr { get; set; }
         public int ID_producent { get; set; }
         public decimal Cena { get; set; }
     
-        public virtual Maszyna Maszyna { get; set; }
+        public virtual Maszyna_nr_seryjny Maszyna_nr_seryjny { get; set; }
         public virtual Producent Producent { get; set; }
         public virtual Zamowienie_maszyna Zamowienie_maszyna { get; set; }
     }
