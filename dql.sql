@@ -485,7 +485,7 @@ FROM Umowa AS UM
 INNER JOIN
 (Posada_pracownika AS PO INNER JOIN
 (Etat AS ET INNER JOIN Stanowisko AS ST ON ET.ID_stanowisko = ST.ID_stanowisko)
-ON ET.ID_etat = PO.ID_etat) ON UM.ID_posada = PO.ID_posada
+ON ET.ID_etat = PO.ID_etat) ON UM.ID_posada_pracownika = PO.ID_posada_pracownika
 INNER JOIN Pracownik AS P ON UM.ID_pracownik = P.ID_pracownik
 INNER JOIN Wymiar_pracy AS WP ON UM.ID_wymiar_pracy = WP.ID_wymiar_pracy
 GO

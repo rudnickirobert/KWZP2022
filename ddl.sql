@@ -1,6 +1,6 @@
 USE master
 GO
---DROP DATABASE KWZP
+DROP DATABASE KWZP
 GO
 CREATE DATABASE KWZP
 GO
@@ -39,7 +39,7 @@ CREATE TABLE Dane_adresowe_pracownik
 
 CREATE TABLE Nr_telefon_pracownik
 	(
-	ID_numer_telefonu INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	ID_Nr_telefon_pracownik INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	ID_pracownik INT FOREIGN KEY 
 		REFERENCES Pracownik(ID_pracownik) NOT NULL,
 	Numer VARCHAR(20) NOT NULL,
@@ -299,7 +299,7 @@ CREATE TABLE Etat
 
 CREATE TABLE Posada_pracownika
 	(
-	ID_posada INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	ID_posada_pracownika INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	ID_etat INT FOREIGN KEY
 		REFERENCES Etat(ID_etat),
 	Data_od DATE NOT NULL,
@@ -345,8 +345,8 @@ CREATE TABLE Umowa
 		REFERENCES Rodzaj_umowy(ID_rodzaj_umowy),
 	ID_pracownik INT FOREIGN KEY
 		REFERENCES Pracownik(ID_pracownik),
-	ID_posada INT FOREIGN KEY
-		REFERENCES Posada_pracownika(ID_posada),
+	ID_posada_pracownika INT FOREIGN KEY
+		REFERENCES Posada_pracownika(ID_posada_pracownika),
 	Wynagrodzenie INT NOT NULL,
 );
 CREATE TABLE Klient

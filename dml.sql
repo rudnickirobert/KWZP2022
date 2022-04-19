@@ -431,7 +431,7 @@ VALUES
 ('Pełny etat'),
 ('Pół etatu');
 
-INSERT INTO Umowa (ID_wymiar_pracy, ID_rodzaj_umowy, ID_pracownik, ID_posada, Wynagrodzenie)
+INSERT INTO Umowa (ID_wymiar_pracy, ID_rodzaj_umowy, ID_pracownik, ID_posada_pracownika, Wynagrodzenie)
 VALUES
 (1,1,1,1,5000),
 (1,1,2,12,4000),
