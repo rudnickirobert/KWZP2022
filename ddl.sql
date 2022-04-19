@@ -462,8 +462,8 @@ CREATE TABLE Wytwarzanie
 	ID_wytwarzanie INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	ID_pracownik INT FOREIGN KEY
 		REFERENCES Pracownik(ID_pracownik) NOT NULL,
-	ID_oferta_handlowa INT FOREIGN KEY
-		REFERENCES Oferta_handlowa(ID_oferta_handlowa) NOT NULL,
+	ID_szczegoly_oferta INT FOREIGN KEY
+		REFERENCES Szczegoly_oferta(ID_szczegoly_oferta) NOT NULL,
 	Czas_od DATETIME NOT NULL,
 	Czas_do DATETIME
 );
