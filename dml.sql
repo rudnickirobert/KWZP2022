@@ -735,10 +735,22 @@ INSERT INTO Oferta_handlowa (ID_zamowienie, ID_pracownik, Termin_realizacja, ID_
 	VALUES
 	(1, 1, '2022-04-28', 1, 1, 5000),
 	(2, 2, '2022-04-29', 1, 1, 4000),
-	(3, 3, '2022-04-30', 1, 1, 3000),
-	(4, 4, '2022-04-27', 1, 1, 2000),
-	(5, 5, '2022-05-04', 1, 1, 1000),
-	(1, 1, '2022-05-30', 1, 2, 5100);
+	(3, 3, '2022-04-30', 1, 1, 3900),
+	(4, 4, '2022-04-27', 1, 1, 6000),
+	(5, 5, '2022-05-04', 1, 1, 2400),
+	(1, 1, '2022-05-30', 1, 2, 7500);
+
+INSERT INTO Szczegoly_oferta (ID_oferta_handlowa, ID_produkt, Ilosc, Cena_jednostkowa)
+	VALUES
+	(1, 2, 50, 40),
+	(1, 1, 30, 100),
+	(2, 3, 100, 40),
+	(3, 3, 150, 10),
+	(3, 5, 120, 20),
+	(4, 3, 150, 40),
+	(5, 5, 120, 20),
+	(6, 2, 100, 30),
+	(6, 1, 60, 75);
 
 INSERT INTO Podatek (Procent)
 	VALUES
@@ -792,13 +804,13 @@ INSERT INTO Zwrot (ID_reklamacja, ID_produkt, Ilosc, Akceptacja)
 
 INSERT INTO Szczegoly_sprzedaz (ID_sprzedaz, ID_produkt, Kwota_sprzedaz, ID_podatek, Ilosc)
 	VALUES
-	(1, 2, 5, 1, 50),
-	(1, 1, 2.5, 2, 30),
-	(2, 3, 3.5, 1, 100),
-	(3, 3, 3.5, 3, 150),
-	(3, 5, 9.8, 4, 120),
-	(4, 3, 3.5, 3, 150),
-	(5, 5, 9.8, 4, 120);
+	(1, 2, 40, 1, 50),
+	(1, 1, 100, 2, 30),
+	(2, 3, 40, 1, 100),
+	(3, 3, 10, 3, 150),
+	(3, 5, 20, 4, 120),
+	(4, 3, 40, 3, 150),
+	(5, 5, 20, 4, 120);
 
 INSERT INTO Parametr_czesc (ID_czesc, ID_rodzaj_parametr, Zakres_dol, Zakres_gora)
 VALUES
