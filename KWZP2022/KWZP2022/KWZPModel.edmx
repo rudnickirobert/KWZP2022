@@ -872,12 +872,14 @@ warning 6002: The table/view 'KWZP.dbo.v_Etat' does not have a primary key defin
 warning 6002: The table/view 'KWZP.dbo.v_Klient' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Klient">
           <Key>
+            <PropertyRef Name="ID" />
             <PropertyRef Name="Nazwisko" />
             <PropertyRef Name="Imię" />
             <PropertyRef Name="Miejscowość" />
             <PropertyRef Name="Numer budynku" />
             <PropertyRef Name="Kod pocztowy" />
           </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Nazwisko" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Imię" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="NIP" Type="nvarchar" MaxLength="10" />
@@ -3092,6 +3094,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_czesci_w_trakcie' does not h
           </EntitySet>
           <EntitySet Name="v_Klient" EntityType="Self.v_Klient" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [v_Klient].[ID] AS [ID], 
     [v_Klient].[Nazwisko] AS [Nazwisko], 
     [v_Klient].[Imię] AS [Imię], 
     [v_Klient].[NIP] AS [NIP], 
@@ -5041,12 +5044,14 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_czesci_w_trakcie' does not h
         </EntityType>
         <EntityType Name="v_Klient">
           <Key>
+            <PropertyRef Name="ID" />
             <PropertyRef Name="Nazwisko" />
             <PropertyRef Name="Imię" />
             <PropertyRef Name="Miejscowość" />
             <PropertyRef Name="Numer_budynku" />
             <PropertyRef Name="Kod_pocztowy" />
           </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Imię" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NIP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
@@ -8570,6 +8575,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_czesci_w_trakcie' does not h
           <EntitySetMapping Name="v_Klient">
             <EntityTypeMapping TypeName="KWZPModel.v_Klient">
               <MappingFragment StoreEntitySet="v_Klient">
+                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
                 <ScalarProperty Name="Imię" ColumnName="Imię" />
                 <ScalarProperty Name="NIP" ColumnName="NIP" />
