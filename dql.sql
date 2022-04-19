@@ -62,10 +62,10 @@ GO
 
 CREATE VIEW v_Sklad_stanowisko_produkcyjne_narzedzie
 AS
-SELECT SP.ID_stanowisko_produkcyjne AS [ID Stanowiska], SS.Nazwa_stanowiska, N.Nazwa_narzedzie AS [Narzędzie]
-FROM Sklad_stanowisko_produkcyjne AS SSP
-INNER JOIN Stanowisko_produkcyjne AS SP ON SSP.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
-INNER JOIN Narzedzie AS N ON SSP.ID_narzedzie = N.ID_narzedzie
+SELECT SP.ID_stanowisko_produkcyjne AS [ID Stanowiska], SS.Nazwa_stanowiska, N.Nazwa_narzedzie AS [Narzędzie], Liczba 
+FROM Sklad_stanowisko_produkcyjne_narzedzie AS SSPN
+INNER JOIN Stanowisko_produkcyjne AS SP ON SSPN.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
+INNER JOIN Narzedzie AS N ON SSPN.ID_narzedzie = N.ID_narzedzie
 INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
 ORDER BY SP.ID_stanowisko_produkcyjne ASC OFFSET 0 ROWS
 GO

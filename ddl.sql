@@ -264,13 +264,14 @@ CREATE TABLE Sklad_stanowisko_produkcyjne_maszyna
 		REFERENCES Maszyna_nr_seryjny(ID_maszyna_nr) NOT NULL,
 	);
 
-CREATE TABLE Sklad_stanowisko_produkcyjne
+CREATE TABLE Sklad_stanowisko_produkcyjne_narzedzie
 	(
-	ID_sklad_stanowisko_produkcyjne INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	ID_sklad_stanowisko_produkcyjne_narzedzie INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	ID_stanowisko_produkcyjne INT FOREIGN KEY
 		REFERENCES Stanowisko_produkcyjne(ID_stanowisko_produkcyjne) NOT NULL,
 	ID_narzedzie INT FOREIGN KEY
 		REFERENCES Narzedzie(ID_narzedzie) NOT NULL,
+	Liczba INT NOT NULL
 );
 
 CREATE TABLE Rodzaj_czesc 
