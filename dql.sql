@@ -125,7 +125,7 @@ GO
 
 CREATE VIEW v_Koszt_produkcji
 AS
-SELECT SUM(KPP.[Całkowity koszt produkcji] * SP.Liczba) AS [Koszt wytworzenia produktu {PLN}]
+SELECT P.Nazwa_produkt, SUM(KPP.[Suma kosztu procesów] * SP.Liczba) AS [Koszt wytworzenia produktu {PLN}]
 FROM Sklad_produkt AS SP
 INNER JOIN Produkt AS P ON SP.ID_produkt = P.ID_produkt
 INNER JOIN Slownik_polprodukt AS SlwPP ON SP.ID_polprodukt = SlwPP.ID_polprodukt
@@ -136,7 +136,7 @@ GO
 
 CREATE VIEW v_Koszt
 AS
-SELECT P.Nazwa_produkt, SlwPP.Nazwa, SP.Liczba, KPP.[Całkowity koszt produkcji] * SP.Liczba AS [Koszt półproduktów]
+SELECT P.Nazwa_produkt, SlwPP.Nazwa, SP.Liczba, KPP.[Suma kosztu procesów] * SP.Liczba AS [Koszt półproduktów]
 FROM Sklad_produkt AS SP
 INNER JOIN Produkt AS P ON SP.ID_produkt = P.ID_produkt
 INNER JOIN Slownik_polprodukt AS SlwPP ON SP.ID_polprodukt = SlwPP.ID_polprodukt
@@ -150,7 +150,7 @@ PR.Nazwisko AS [Osoba kontrolująca], Rek.Wynik AS [Wynik kontroli], Kjp.Uwagi A
 FROM Kontrola_jakosci_produkt AS Kjp
 INNER JOIN Rezultat_kontrola AS Rek ON Kjp.ID_rezultat = Rek.ID_rezultat
 INNER JOIN Produkt AS P ON Kjp.ID_produkt = P.ID_produkt
-INNER JOIN Rodzaj_kontrola AS Rk ON Kjp.ID_rodzaj_kontrola = Rk.Rodzaj_kontrola
+INNER JOIN Rodzaj_kontrola AS Rk ON Kjp.ID_rodzaj_kontrola = Rk.ID_rodzaj_kontrola
 INNER JOIN Pracownik AS PR ON Kjp.ID_pracownik = PR.ID_pracownik
 GO
 
@@ -162,7 +162,7 @@ GO
 
 CREATE VIEW v_Proces_polprodukt_czynnosc
 AS
-SELECT PPPC.ID_polprodukt AS [ID Półproduktu], SP.Nazwa AS [Półprodukt], CP.Nazwa AS [Czynność]
+SELECT SP.Nazwa AS [Półprodukt], CP.Nazwa AS [Czynność], PPPC.Czas_trwania AS [Czas {min}]
 FROM Proces_polprodukt_czynnosc AS PPPC
 INNER JOIN Slownik_polprodukt SP ON PPPC.ID_polprodukt = SP.ID_polprodukt
 INNER JOIN Czynnosc_produkcyjna CP ON PPPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
@@ -171,7 +171,7 @@ GO
 
 CREATE VIEW v_Proces_produkt_czynnosc
 AS
-SELECT PPC.ID_produkt AS [ID Produktu], P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynność] 
+SELECT P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynność], PPC.Czas_trwania AS [Czas {min}] 
 FROM Proces_produkt_czynnosc AS PPC
 INNER JOIN Produkt AS P ON PPC.ID_produkt = P.ID_produkt
 INNER JOIN Czynnosc_produkcyjna CP ON PPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
@@ -198,8 +198,8 @@ GO
 
 CREATE VIEW v_Wytwarzanie
 AS
-SELECT W.ID_wytwarzanie AS [ID zabiegu produkcyjnego], W.Czas_od [Data rozpoczęcia], W.Czas_do AS [Data zakończenia],
-P.Nazwisko + ' ' + P.Imie AS [Pracownik], OH.Termin_realizacja AS [Termin realizacji oferty]
+SELECT W.Czas_od [Data rozpoczęcia], W.Czas_do AS [Data zakończenia],
+P.Nazwisko + ' ' + P.Imie AS [Pracownik], OH.Termin_realizacja AS [Termin realizacji oferty], OH.ID_oferta_handlowa AS [Oferta handlowa]
 FROM Wytwarzanie AS W
 INNER JOIN Pracownik AS P ON W.ID_pracownik = P.ID_pracownik
 INNER JOIN Oferta_handlowa AS OH ON W.ID_oferta_handlowa = OH.ID_oferta_handlowa
