@@ -24,7 +24,7 @@ namespace KWZP2022
         }
     
         public int ID_status_zamowienie { get; set; }
-        public string Nazwa_status { get; set; }
+        public string Status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stan_realizacji_zamowienie_czesc> Stan_realizacji_zamowienie_czesc { get; set; }

@@ -12,16 +12,16 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class Rodzaj_czesc
+    public partial class Rodzaj_czesci
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Rodzaj_czesc()
+        public Rodzaj_czesci()
         {
             this.Czesc = new HashSet<Czesc>();
         }
     
-        public int ID_rodzaj_czesc { get; set; }
-        public string Nazwa_rodzaj_czesc { get; set; }
+        public int ID_rodzaj_czesci { get; set; }
+        public string Nazwa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Czesc> Czesc { get; set; }

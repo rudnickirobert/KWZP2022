@@ -18,8 +18,8 @@ namespace KWZP2022
         public int ID_klient { get; set; }
         public string Miejscowosc { get; set; }
         public string Ulica { get; set; }
-        public int Nr_budynek { get; set; }
-        public Nullable<int> Nr_lokal { get; set; }
+        public int Nr_budynku { get; set; }
+        public Nullable<int> Nr_lokalu { get; set; }
         public string Kod_pocztowy { get; set; }
     
         public virtual Klient Klient { get; set; }

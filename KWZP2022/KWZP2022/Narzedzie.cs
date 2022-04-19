@@ -20,10 +20,12 @@ namespace KWZP2022
             this.Parametr_narzedzie = new HashSet<Parametr_narzedzie>();
             this.Sklad_stanowisko_produkcyjne = new HashSet<Sklad_stanowisko_produkcyjne>();
             this.Szczegoly_zamowienie_narzedzie = new HashSet<Szczegoly_zamowienie_narzedzie>();
+            this.Wymiana_czesc = new HashSet<Wymiana_czesc>();
         }
     
         public int ID_narzedzie { get; set; }
-        public string Nazwa_narzedzie { get; set; }
+        public string Nazwa { get; set; }
+        public int Nr_seryjny { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Parametr_narzedzie> Parametr_narzedzie { get; set; }
@@ -31,5 +33,7 @@ namespace KWZP2022
         public virtual ICollection<Sklad_stanowisko_produkcyjne> Sklad_stanowisko_produkcyjne { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Szczegoly_zamowienie_narzedzie> Szczegoly_zamowienie_narzedzie { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Wymiana_czesc> Wymiana_czesc { get; set; }
     }
 }

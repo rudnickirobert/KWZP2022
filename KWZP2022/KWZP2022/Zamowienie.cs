@@ -17,22 +17,19 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Zamowienie()
         {
-            this.Oferta_handlowa = new HashSet<Oferta_handlowa>();
-            this.Zamowienie_szczegol = new HashSet<Zamowienie_szczegol>();
+            this.Szczegoly_zamowienia = new HashSet<Szczegoly_zamowienia>();
         }
     
         public int ID_zamowienie { get; set; }
         public int ID_klient { get; set; }
         public int ID_pracownik { get; set; }
-        public System.DateTime Data_zamowienie { get; set; }
-        public int ID_typ_zamowienie { get; set; }
+        public System.DateTime Data_zamowienia { get; set; }
+        public int ID_typ_zamowienia { get; set; }
     
         public virtual Klient Klient { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Oferta_handlowa> Oferta_handlowa { get; set; }
         public virtual Pracownik Pracownik { get; set; }
-        public virtual Typ_zamowienie Typ_zamowienie { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Zamowienie_szczegol> Zamowienie_szczegol { get; set; }
+        public virtual ICollection<Szczegoly_zamowienia> Szczegoly_zamowienia { get; set; }
+        public virtual Typ_zamowienia Typ_zamowienia { get; set; }
     }
 }

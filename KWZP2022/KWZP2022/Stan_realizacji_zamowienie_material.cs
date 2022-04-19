@@ -16,7 +16,7 @@ namespace KWZP2022
     {
         public int ID_zamowienie_material { get; set; }
         public int ID_status_zamowienie { get; set; }
-        public System.DateTime Data_stan { get; set; }
+        public System.DateTime Data { get; set; }
         public int ID_pracownik { get; set; }
     
         public virtual Pracownik Pracownik { get; set; }

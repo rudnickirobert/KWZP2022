@@ -14,12 +14,10 @@ namespace KWZP2022
     
     public partial class Parametr_polprodukt
     {
-        public int ID_polprodukt { get; set; }
-        public int ID_rodzaj_parametr { get; set; }
-        public decimal Zakres_dol { get; set; }
-        public decimal Zakres_gora { get; set; }
-    
-        public virtual Slownik_polprodukt Slownik_polprodukt { get; set; }
-        public virtual Rodzaj_parametr Rodzaj_parametr { get; set; }
+        public int ID_parametr { get; set; }
+        public string Nazwa { get; set; }
+        public Nullable<int> Wartosc_gorna { get; set; }
+        public int Nominal { get; set; }
+        public Nullable<int> Wartosc_dolna { get; set; }
     }
 }

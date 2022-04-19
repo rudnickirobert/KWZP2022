@@ -12,18 +12,18 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class Rodzaj_material
+    public partial class Typ_zamowienia
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Rodzaj_material()
+        public Typ_zamowienia()
         {
-            this.Material = new HashSet<Material>();
+            this.Zamowienie = new HashSet<Zamowienie>();
         }
     
-        public int ID_rodzaj_material { get; set; }
-        public string Nazwa_rodzaj_material { get; set; }
+        public int ID_typ_zamowienia { get; set; }
+        public string Typ_zamowienia1 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Material> Material { get; set; }
+        public virtual ICollection<Zamowienie> Zamowienie { get; set; }
     }
 }

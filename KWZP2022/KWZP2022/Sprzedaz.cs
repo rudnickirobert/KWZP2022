@@ -22,17 +22,16 @@ namespace KWZP2022
         }
     
         public int ID_sprzedaz { get; set; }
-        public int Nr_sprzedaz { get; set; }
-        public System.DateTime Data_sprzedaz_poczatek { get; set; }
-        public System.DateTime Data_sprzedaz_koniec { get; set; }
-        public System.DateTime Termin_zaplata { get; set; }
-        public int ID_forma_platnosc { get; set; }
-        public int ID_umowa_sprzedaz { get; set; }
+        public int Nr_sprzadaz { get; set; }
+        public int ID_oferta_handlowa { get; set; }
+        public System.DateTime Data_sprzedazy { get; set; }
+        public System.DateTime Termin_zaplaty { get; set; }
+        public int ID_forma_platnosci { get; set; }
     
-        public virtual Forma_platnosc Forma_platnosc { get; set; }
+        public virtual Forma_platnosci Forma_platnosci { get; set; }
+        public virtual Oferta_handlowa Oferta_handlowa { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Reklamacja> Reklamacja { get; set; }
-        public virtual Umowa_sprzedaz Umowa_sprzedaz { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Szczegoly_sprzedaz> Szczegoly_sprzedaz { get; set; }
     }

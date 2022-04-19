@@ -21,7 +21,7 @@ namespace KWZP2022
         }
     
         public int ID_jednostka { get; set; }
-        public string Nazwa_jednostka { get; set; }
+        public string Nazwa { get; set; }
         public string Skrot { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

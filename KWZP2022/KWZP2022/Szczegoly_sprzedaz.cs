@@ -16,13 +16,10 @@ namespace KWZP2022
     {
         public int ID_szczegoly_sprzedaz { get; set; }
         public int ID_sprzedaz { get; set; }
-        public int ID_produkt { get; set; }
-        public decimal Kwota_sprzedaz { get; set; }
+        public decimal Kwota_sprzedazy { get; set; }
         public int ID_podatek { get; set; }
-        public int Ilosc { get; set; }
     
         public virtual Podatek Podatek { get; set; }
-        public virtual Produkt Produkt { get; set; }
         public virtual Sprzedaz Sprzedaz { get; set; }
     }
 }
