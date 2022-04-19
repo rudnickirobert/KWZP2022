@@ -17,19 +17,18 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Reklamacja()
         {
-            this.Zwrot = new HashSet<Zwrot>();
+            this.Zwrots = new HashSet<Zwrot>();
         }
     
         public int ID_reklamacja { get; set; }
         public int ID_pracownik { get; set; }
         public int ID_sprzedaz { get; set; }
-        public System.DateTime Data_reklamacji { get; set; }
-        public string Opis_reklamacji { get; set; }
-        public bool Akceptacja { get; set; }
+        public System.DateTime Data_reklamacja { get; set; }
+        public string Opis_reklamacja { get; set; }
     
         public virtual Pracownik Pracownik { get; set; }
         public virtual Sprzedaz Sprzedaz { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Zwrot> Zwrot { get; set; }
+        public virtual ICollection<Zwrot> Zwrots { get; set; }
     }
 }

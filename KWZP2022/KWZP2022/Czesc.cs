@@ -18,26 +18,23 @@ namespace KWZP2022
         public Czesc()
         {
             this.Parametr_czesc = new HashSet<Parametr_czesc>();
-            this.Sklad_maszyny = new HashSet<Sklad_maszyny>();
+            this.Sklad_maszyna = new HashSet<Sklad_maszyna>();
             this.Szczegoly_zamowienie_czesc = new HashSet<Szczegoly_zamowienie_czesc>();
             this.Wymiana_czesc = new HashSet<Wymiana_czesc>();
-            this.Wymienione_czesci = new HashSet<Wymienione_czesci>();
         }
     
         public int ID_czesc { get; set; }
-        public string Nazwa_czesci { get; set; }
-        public int ID_rodzaj_czesci { get; set; }
+        public string Nazwa_czesc { get; set; }
+        public int ID_rodzaj_czesc { get; set; }
     
-        public virtual Rodzaj_czesci Rodzaj_czesci { get; set; }
+        public virtual Rodzaj_czesc Rodzaj_czesc { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Parametr_czesc> Parametr_czesc { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sklad_maszyny> Sklad_maszyny { get; set; }
+        public virtual ICollection<Sklad_maszyna> Sklad_maszyna { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Szczegoly_zamowienie_czesc> Szczegoly_zamowienie_czesc { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Wymiana_czesc> Wymiana_czesc { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Wymienione_czesci> Wymienione_czesci { get; set; }
     }
 }

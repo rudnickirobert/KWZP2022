@@ -17,17 +17,14 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Rodzaj_maszyna()
         {
-            this.Maszyna = new HashSet<Maszyna>();
-            this.Sklad_maszyny = new HashSet<Sklad_maszyny>();
+            this.Maszynas = new HashSet<Maszyna>();
         }
     
         public int ID_rodzaj_maszyna { get; set; }
-        public string Nazwa { get; set; }
+        public string Nazwa_rodzaj_maszyna { get; set; }
         public string Opis { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Maszyna> Maszyna { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sklad_maszyny> Sklad_maszyny { get; set; }
+        public virtual ICollection<Maszyna> Maszynas { get; set; }
     }
 }

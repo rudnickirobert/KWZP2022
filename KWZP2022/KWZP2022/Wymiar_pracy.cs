@@ -17,13 +17,13 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Wymiar_pracy()
         {
-            this.Umowa = new HashSet<Umowa>();
+            this.Umowas = new HashSet<Umowa>();
         }
     
         public int ID_wymiar_pracy { get; set; }
         public string Nazwa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Umowa> Umowa { get; set; }
+        public virtual ICollection<Umowa> Umowas { get; set; }
     }
 }

@@ -18,18 +18,21 @@ namespace KWZP2022
         public Obsluga()
         {
             this.Wymiana_czesc = new HashSet<Wymiana_czesc>();
+            this.Pracowniks = new HashSet<Pracownik>();
         }
     
         public int ID_obsluga { get; set; }
-        public int ID_pracownik { get; set; }
-        public int ID_rodzaj_obslugi { get; set; }
+        public int ID_rodzaj_obsluga { get; set; }
+        public int ID_stanowisko_produkcyjne { get; set; }
         public System.DateTime Data_od { get; set; }
         public Nullable<System.DateTime> Data_do { get; set; }
         public string Uwagi { get; set; }
     
-        public virtual Pracownik Pracownik { get; set; }
-        public virtual Rodzaj_obslugi Rodzaj_obslugi { get; set; }
+        public virtual Rodzaj_obsluga Rodzaj_obsluga { get; set; }
+        public virtual Stanowisko_produkcyjne Stanowisko_produkcyjne { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Wymiana_czesc> Wymiana_czesc { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Pracownik> Pracowniks { get; set; }
     }
 }

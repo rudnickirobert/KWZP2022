@@ -17,14 +17,14 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Rodzaj_umowy()
         {
-            this.Rodzaj_zatrudnienia = new HashSet<Rodzaj_zatrudnienia>();
+            this.Umowas = new HashSet<Umowa>();
         }
     
         public int ID_rodzaj_umowy { get; set; }
         public string Nazwa { get; set; }
-        public string Skrot { get; set; }
+        public int Urlop { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Rodzaj_zatrudnienia> Rodzaj_zatrudnienia { get; set; }
+        public virtual ICollection<Umowa> Umowas { get; set; }
     }
 }

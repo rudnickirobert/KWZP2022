@@ -15,16 +15,17 @@ namespace KWZP2022
     public partial class Kontrola_jakosci_produkt
     {
         public int ID_kontrola_jakosci_produkt { get; set; }
-        public int ID_wytworzony_produkt { get; set; }
+        public int ID_produkt { get; set; }
         public int ID_pracownik { get; set; }
         public int ID_rodzaj_kontrola { get; set; }
         public System.DateTime Data_od { get; set; }
         public Nullable<System.DateTime> Data_do { get; set; }
         public int ID_rezultat { get; set; }
+        public string Uwagi { get; set; }
     
+        public virtual Produkt Produkt { get; set; }
         public virtual Pracownik Pracownik { get; set; }
         public virtual Rezultat_kontrola Rezultat_kontrola { get; set; }
         public virtual Rodzaj_kontrola Rodzaj_kontrola { get; set; }
-        public virtual Wytworzony_produkt Wytworzony_produkt { get; set; }
     }
 }
