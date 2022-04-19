@@ -97,6 +97,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProduktForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProduktForm.Designer.cs">
+      <DependentUpon>ProduktForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProdukcjaFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProdukcjaFrom.Designer.cs">
+      <DependentUpon>ProdukcjaFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forma_platnosc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -527,6 +539,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSalesDepartmentSales.resx">
       <DependentUpon>FormSalesDepartmentSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProdukcjaFrom.resx">
+      <DependentUpon>ProdukcjaFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProduktForm.resx">
+      <DependentUpon>ProduktForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

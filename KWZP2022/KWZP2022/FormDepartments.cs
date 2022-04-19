@@ -24,5 +24,11 @@ namespace KWZP2022.Forms
             FormSalesDepartment formSalesDepartment = new FormSalesDepartment(db);
             formSalesDepartment.ShowDialog();
         }
+
+        private void btnProductionDepartment_Click(object sender, EventArgs e)
+        {
+            ProdukcjaFrom produkcjaFrom = new ProdukcjaFrom(db);
+            produkcjaFrom.ShowDialog();
+        }
     }
 }

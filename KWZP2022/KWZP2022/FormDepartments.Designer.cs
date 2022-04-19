@@ -45,6 +45,7 @@
             this.btnProductionDepartment.TabIndex = 4;
             this.btnProductionDepartment.Text = "Dział produkcji";
             this.btnProductionDepartment.UseVisualStyleBackColor = true;
+            this.btnProductionDepartment.Click += new System.EventHandler(this.btnProductionDepartment_Click);
             // 
             // btnSalesDepartment
             // 
