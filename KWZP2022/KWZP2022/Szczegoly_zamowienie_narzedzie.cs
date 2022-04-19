@@ -17,7 +17,6 @@ namespace KWZP2022
         public int ID_zamowienie_narzedzie { get; set; }
         public int ID_narzedzie { get; set; }
         public int ID_producent { get; set; }
-        public int Sztuk { get; set; }
         public decimal Cena { get; set; }
     
         public virtual Narzedzie Narzedzie { get; set; }

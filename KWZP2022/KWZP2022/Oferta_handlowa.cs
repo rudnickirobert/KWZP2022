@@ -17,25 +17,19 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Oferta_handlowa()
         {
-            this.Umowa_sprzedaz = new HashSet<Umowa_sprzedaz>();
-            this.Wytwarzanie = new HashSet<Wytwarzanie>();
+            this.Sprzedaz = new HashSet<Sprzedaz>();
         }
     
         public int ID_oferta_handlowa { get; set; }
-        public int ID_zamowienie { get; set; }
         public int ID_pracownik { get; set; }
         public System.DateTime Termin_realizacja { get; set; }
+        public int ID_status_oferty { get; set; }
         public int ID_gwarancja { get; set; }
-        public int ID_status_oferta { get; set; }
-        public Nullable<decimal> Cena { get; set; }
     
         public virtual Gwarancja Gwarancja { get; set; }
         public virtual Pracownik Pracownik { get; set; }
-        public virtual Status_oferta Status_oferta { get; set; }
-        public virtual Zamowienie Zamowienie { get; set; }
+        public virtual Status_oferty Status_oferty { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Umowa_sprzedaz> Umowa_sprzedaz { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Wytwarzanie> Wytwarzanie { get; set; }
+        public virtual ICollection<Sprzedaz> Sprzedaz { get; set; }
     }
 }

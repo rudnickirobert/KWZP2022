@@ -24,10 +24,8 @@ namespace KWZP2022
         }
     
         public int ID_material { get; set; }
-        public int ID_rodzaj_material { get; set; }
         public string Nazwa_material { get; set; }
     
-        public virtual Rodzaj_material Rodzaj_material { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Parametr_material> Parametr_material { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

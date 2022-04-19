@@ -21,12 +21,10 @@ namespace KWZP2022
             this.Parametr_maszyna = new HashSet<Parametr_maszyna>();
             this.Parametr_material = new HashSet<Parametr_material>();
             this.Parametr_narzedzie = new HashSet<Parametr_narzedzie>();
-            this.Parametr_polprodukt = new HashSet<Parametr_polprodukt>();
-            this.Parametr_produkt = new HashSet<Parametr_produkt>();
         }
     
         public int ID_rodzaj_parametr { get; set; }
-        public string Nazwa_rodzaj_parametr { get; set; }
+        public string Nazwa { get; set; }
         public int ID_jednostka { get; set; }
     
         public virtual Jednostka Jednostka { get; set; }
@@ -38,9 +36,5 @@ namespace KWZP2022
         public virtual ICollection<Parametr_material> Parametr_material { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Parametr_narzedzie> Parametr_narzedzie { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Parametr_polprodukt> Parametr_polprodukt { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Parametr_produkt> Parametr_produkt { get; set; }
     }
 }

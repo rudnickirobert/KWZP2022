@@ -23,8 +23,9 @@ namespace KWZP2022
         public int ID_reklamacja { get; set; }
         public int ID_pracownik { get; set; }
         public int ID_sprzedaz { get; set; }
-        public System.DateTime Data_reklamacja { get; set; }
-        public string Opis_reklamacja { get; set; }
+        public System.DateTime Data_reklamacji { get; set; }
+        public string Opis_reklamacji { get; set; }
+        public bool Akceptacja { get; set; }
     
         public virtual Pracownik Pracownik { get; set; }
         public virtual Sprzedaz Sprzedaz { get; set; }

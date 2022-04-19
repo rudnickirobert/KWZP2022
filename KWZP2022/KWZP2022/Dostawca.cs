@@ -25,7 +25,7 @@ namespace KWZP2022
         }
     
         public int ID_dostawca { get; set; }
-        public string Nazwa_dostawca { get; set; }
+        public string Nazwa_dostawcy { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dane_adresowe_dostawca> Dane_adresowe_dostawca { get; set; }

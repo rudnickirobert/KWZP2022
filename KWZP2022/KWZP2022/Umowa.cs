@@ -16,14 +16,14 @@ namespace KWZP2022
     {
         public int ID_umowa { get; set; }
         public Nullable<int> ID_wymiar_pracy { get; set; }
-        public Nullable<int> ID_rodzaj_umowy { get; set; }
+        public Nullable<int> ID_rodzaj_zatrudnienia { get; set; }
         public Nullable<int> ID_pracownik { get; set; }
         public Nullable<int> ID_posada { get; set; }
         public int Wynagrodzenie { get; set; }
     
         public virtual Posada_pracownika Posada_pracownika { get; set; }
         public virtual Pracownik Pracownik { get; set; }
-        public virtual Rodzaj_umowy Rodzaj_umowy { get; set; }
+        public virtual Rodzaj_zatrudnienia Rodzaj_zatrudnienia { get; set; }
         public virtual Wymiar_pracy Wymiar_pracy { get; set; }
     }
 }

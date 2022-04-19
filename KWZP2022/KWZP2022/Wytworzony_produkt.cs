@@ -12,18 +12,20 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class Forma_platnosc
+    public partial class Wytworzony_produkt
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Forma_platnosc()
+        public Wytworzony_produkt()
         {
-            this.Sprzedaz = new HashSet<Sprzedaz>();
+            this.Kontrola_jakosci_produkt = new HashSet<Kontrola_jakosci_produkt>();
         }
     
-        public int ID_forma_platnosc { get; set; }
-        public string Forma_platnosc1 { get; set; }
+        public int ID_wytworzony_produkt { get; set; }
+        public int ID_produkt { get; set; }
+        public System.DateTime Data_ukonczenia { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sprzedaz> Sprzedaz { get; set; }
+        public virtual ICollection<Kontrola_jakosci_produkt> Kontrola_jakosci_produkt { get; set; }
+        public virtual Produkt Produkt { get; set; }
     }
 }

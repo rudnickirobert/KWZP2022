@@ -16,9 +16,9 @@ namespace KWZP2022
     {
         public int ID_sklad_stanowisko_produkcyjne_maszyna { get; set; }
         public int ID_stanowisko_produkcyjne { get; set; }
-        public int ID_maszyna_nr { get; set; }
+        public int ID_maszyna { get; set; }
     
-        public virtual Maszyna_nr_seryjny Maszyna_nr_seryjny { get; set; }
+        public virtual Maszyna Maszyna { get; set; }
         public virtual Stanowisko_produkcyjne Stanowisko_produkcyjne { get; set; }
     }
 }

@@ -12,12 +12,11 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Nr_telefon_pracownik
+    public partial class Wymienione_czesci
     {
-        public string Nazwisko { get; set; }
-        public string Imię { get; set; }
-        public string Numer_telefonu { get; set; }
-        public System.DateTime Data_od_ { get; set; }
-        public Nullable<System.DateTime> Data_do_ { get; set; }
+        public int ID_wymienione_czesci { get; set; }
+        public Nullable<int> ID_czesc { get; set; }
+    
+        public virtual Czesc Czesc { get; set; }
     }
 }

@@ -17,15 +17,12 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Dzial()
         {
-            this.Alert = new HashSet<Alert>();
             this.Etat = new HashSet<Etat>();
         }
     
         public int ID_dzial { get; set; }
-        public string Nazwa_dzial { get; set; }
+        public string Nazwa_dzialu { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Alert> Alert { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Etat> Etat { get; set; }
     }

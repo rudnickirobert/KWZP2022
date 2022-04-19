@@ -23,11 +23,9 @@ namespace KWZP2022
     
         public int ID_wytwarzanie { get; set; }
         public int ID_pracownik { get; set; }
-        public int ID_oferta_handlowa { get; set; }
         public System.DateTime Czas_od { get; set; }
         public Nullable<System.DateTime> Czas_do { get; set; }
     
-        public virtual Oferta_handlowa Oferta_handlowa { get; set; }
         public virtual Pracownik Pracownik { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Proces_wytwarzanie_polprodukt> Proces_wytwarzanie_polprodukt { get; set; }

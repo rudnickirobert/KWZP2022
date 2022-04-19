@@ -23,7 +23,7 @@ namespace KWZP2022
     
         public int ID_zamowienie_narzedzie { get; set; }
         public int ID_pracownik { get; set; }
-        public System.DateTime Data_zamowienia { get; set; }
+        public System.DateTime Data { get; set; }
         public int ID_dostawca { get; set; }
     
         public virtual Dostawca Dostawca { get; set; }
