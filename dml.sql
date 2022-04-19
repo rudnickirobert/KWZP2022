@@ -140,7 +140,10 @@ VALUES
 ('Stanowisko do drukowania SLS'),
 ('Stanowisko do drukowania SLA'),
 ('Stanowisko do szlifowania'),
-('Stanowisko do łączenia półproduktów');
+('Stanowisko do łączenia półproduktów'),
+('Stanowisko do lakierowania'),
+('Stanowisko do projektowania'),
+('Stanowisko do wygladzania');
 
 INSERT INTO Produkt (Nazwa_produkt)
 VALUES
@@ -169,6 +172,7 @@ VALUES
 (2,3,2),
 (2,4,1),
 (3,9,4),
+(4,1,1),
 (4,7,2),
 (4,8,3),
 (5,5,5);
@@ -530,7 +534,11 @@ VALUES
 (3),
 (1),
 (4),
-(5);
+(5),
+(6),
+(7),
+(8),
+(9);
 
 
 INSERT INTO Sklad_stanowisko_produkcyjne_maszyna (ID_stanowisko_produkcyjne, ID_maszyna_nr)
@@ -562,23 +570,51 @@ VALUES
 
 INSERT INTO Proces_polprodukt_czynnosc (ID_polprodukt, ID_czynnosc_produkcyjna, Czas_trwania)
 VALUES
-(1, 2, 80),
-(1, 4, 50),
-(1, 8, 60),
-(2, 1, 120),
-(2, 5, 1200),
-(1, 5, 4000),
-(2, 4, 75);
+(1,2,180),	--Skanowanie				--1.Stanowisko do skanowania
+(1,1,15), 	--Przygotowanie stanowiska	--2.Stanowisko do drukowania FDM
+(1,4,360),	--Drukowanie				--2.Stanowisko do drukowania FDM
+(1,5,60),	--Wygladzanie				--9.Stanowisko do wygladzania
+(2,3,300),	--Projektowanie				--8.Stanowisko do projektowania
+(2,1,15),	--Przygotowanie stanowiska	--3.Stanowisko do drukowania SLS	
+(2,4,720),	--Drukowanie				--3.Stanowisko do drukowania SLS
+(2,6,60),	--Szlifowanie				--5.Stanowisko do szlifowania
+(3,3,300),	--Projektowanie				--8.Stanowisko do projektowania
+(3,1,15),	--Przygotowanie stanowiska	--3.Stanowisko do drukowania
+(3,4,720),	--Drukowanie				--3.Stanowisko do drukowania
+(3,6,60),	--Szlifowanie				--5.Stanowisko do szlifowania
+(4,3,180),	--Projektowanie				--8.Stanowisko do projektowania
+(4,1,15),	--Przygotowanie Stanowiska	--4.Stanowisko do drukowania SLA
+(4,4,720),	--Drukowanie				--4.Stanowisko do drukowania SLA
+(4,5,60),	--Wygladzanie				--9.Stanowisko do wygladzania
+(4,7,120),	--Lakierowanie				--7.Stanowisko do lakierowania
+(5,3,120),	--Projektowanie				--8.Stanowisko do projektowania
+(5,1,15),	--Przygotowanie stanowiska	--2.Stanowisko do drukowania FDM
+(5,4,240),	--Drukowanie				--2.Stanowisko do drukowania FDM
+(5,6,60),	--Szlifowanie				--5.Stanowisko do szlifowania
+(6,3,90),	--Projektowanie				--8.Stanowisko do projektowania
+(6,1,15),	--Przygotowanie stanowiska	--4.Stanowisko do drukowania SLA
+(6,4,480),	--Drukowanie				--4.Stanowisko do drukowania SLA
+(7,3,120),	--Projektowanie				--8.Stanowisko do projektowania
+(7,1,15),	--Przygotowanie stanowiska	--2.Stanowisko do drukowania FDM
+(7,4,360),	--Drukowanie				--2.Stanowisko do drukowania FDM
+(8,3,90),	--Projektowanie				--8.Stanowisko do projektowania
+(8,1,15),	--Przygotowanie stanowiska	--2.Stanowisko do drukowania FDM
+(8,4,300),	--Drukowanie				--2.Stanowisko do drukowania FDM
+(8,5,120),	--Wygladzanie				--9.Stanowisko do wygladzania
+(8,7,120),	--Lakierowanie				--7.Stanowisko do lakierownaia
+(9,3,120),	--Projektowanie				--8.Stanowisko do projektowania
+(9,1,15),	--Przygotowanie stanowiska	--4.Stanowisko do drukowania SLA
+(9,4,240),	--Drukowanie				--4.Stanowisko do drukowania SLA
+(9,5,60);	--Wygladzanie				--9.Stanowisko do wygladzania
 
 INSERT INTO Proces_produkt_czynnosc (ID_produkt, ID_czynnosc_produkcyjna, Czas_trwania)
 VALUES
-(3, 2, 80),
-(3, 4, 70),
-(4, 8, 80),
-(5, 1, 60),
-(5, 5, 6000),
-(2, 5, 4200),
-(1, 4, 60);
+(1,9,30),	--Montaż		--6.Stanowisko do łączenia półproduktów
+(2,9,60),	--Montaż		--6.
+(2,8,60),	--Klejenie		--6.
+(3,9,120),	--Montaż		--6.
+(4,9,180),	--Montaż		--6.
+(5,9,60);	--Montaż		--6.
 
 INSERT INTO Dostawca (Nazwa_dostawca)
 VALUES
@@ -1184,29 +1220,105 @@ VALUES
 
 INSERT INTO Wytwarzanie (Id_pracownik, Id_oferta_handlowa, Czas_od, Czas_do)
 VALUES
-(1,1,'2022-03-16','2022-03-11'),
-(4,4,'2022-03-16',NULL),
-(2,5,'2022-03-16',NULL),
-(4,2,'2022-03-16','2022-03-12'),
-(5,3,'2022-03-16','2022-03-14');
+(7,1,'2022-04-04 08:00:00 AM','2022-04-04 13:00:00 PM'), 		--Wał czynny, projektowanie, 300
+(2,1,'2022-04-04 08:00:00 AM','2022-04-04 08:15:00 AM'),		--Wał czynny, przygotowanie stanowiska, 15
+(2,1,'2022-04-04 13:30:00 PM','2022-04-05 01:30:00 AM'),		--Wał czynny, drukowanie, 720
+(2,1,'2022-04-05 08:00:00 AM','2022-04-05 09:00:00 AM'),		--Wał czynny, szlifowanie, 60
+(8,1,'2022-04-04 08:00:00 AM','2022-04-04 13:00:00 PM'),		--Wał bierny, projektowanie,300
+(2,1,'2022-04-05 08:00:00 AM','2022-04-05 08:15:00 AM'),		--Wał bierny, przygotowanie stanowiska, 15
+(2,1,'2022-04-05 09:15:00 AM','2022-04-05 21:00:00 PM'),		--Wał bierny, drukowanie, 720
+(2,1,'2022-04-06 08:00:00 AM','2022-04-06 09:00:00 AM'),		--Wał bierny, szlifowanie, 60
+(7,1,'2022-04-04 01:00:00 PM','2022-04-04 16:00:00 PM'),		--Obudowa przekładni, projektowanie, 180
+(2,1,'2022-04-06 09:15:00 AM','2022-04-06 09:30:00 AM'),		--Obudowa przekładni,przygotowanie stanow.,15
+(2,1,'2022-04-06 09:30:00 AM','2022-04-06 21:30:00 PM'),		--Obudowa przekładni, drukowanie, 720
+(2,1,'2022-04-07 08:00:00 AM','2022-04-07 09:00:00 AM'),		--Obudowa przekładni, wygładzanie, 60
+(2,1,'2022-04-07 09:00:00 AM','2022-04-07 11:00:00 AM'),		--Obudowa przekładni, lakierowanie, 120
+(2,1,'2022-04-07 11:00:00 AM','2022-04-07 12:00:00 PM'),		--Przekladnia zebata, montaz, 60
+(2,1,'2022-04-07 12:00:00 PM','2022-04-07 13:00:00 PM'),		--Przekladnia zebata, klejenie, 60
+(2,1,'2022-04-07 13:00:00 PM','2022-04-07 16:00:00 PM'), 		--Litofanowy klosz, skanowanie, 180
+(2,1,'2022-04-04 13:00:00 PM','2022-04-04 16:00:00 PM'),		--Litofanowy klosz, projektowanie, 90
+(2,1,'2022-04-08 08:00:00 AM','2022-04-08 08:15:00 AM'),  		--Litofanowy klosz, przygotowanie stanow., 15
+(2,1,'2022-04-08 08:15:00 AM','2022-04-08 16:15:00 PM'),		--Litofanowy klosz, drukowanie, 480
+(2,1,'2022-04-09 08:00:00 AM','2022-04-09 08:30:00 AM'),		--Litofanowy klosz, montaz, 30
+(7,2,'2022-04-05 08:00:00 AM','2022-04-05 10:00:00 AM'),		--Tapicerka samochodowa, projektowanie, 120
+(3,2,'2022-04-05 08:00:00 AM','2022-04-05 08:15:00 AM'),		--Tapicerka samochodowa, przygotowanie stano, 15
+(3,2,'2022-04-05 08:15:00 AM','2022-04-05 12:15:00 PM'), 		--Tapicerka samochodowa, drukowanie, 240
+(3,2,'2022-04-05 12:15:00 PM','2022-04-05 13:15:00 PM'),		--Tapicerka samochodowa, wygladzanie, 60
+(3,2,'2022-04-05 13:15:00 PM','2022-04-05 15:15:00 PM'),		--Tapicerka samochodowa, montaz, 120
+(7,3,'2022-04-06 08:00:00 PM','2022-04-06 10:00:00 PM'),		--Tapicerka samochodowa, projektowanie, 120
+(3,3,'2022-04-06 15:15:00 PM','2022-04-06 15:30:00 PM'),		--Tapicerka samochodowa, przygotowanie stano, 15
+(3,3,'2022-04-06 15:30:00 PM','2022-04-06 19:30:00 PM'),		--Tapicerka samochodowa, drukowanie, 240
+(3,3,'2022-04-07 08:00:00 AM','2022-04-07 09:00:00 AM'),		--Tapicerka samochodowa, wygladzanie, 60
+(3,3,'2022-04-07 09:00:00 AM','2022-04-07 11:00:00 AM'),		--Tapicerka samochodowa, montaz, 120
+(7,3,'2022-04-06 10:00:00 PM','2022-04-06 12:00:00 PM'), 		--Kostka rubika, projektowanie, 120
+(3,3,'2022-04-07 11:00:00 AM','2022-04-07 11:15:00 AM'),		--Kostka rubika, przygotowanie stanowiska, 15
+(3,3,'2022-04-07 11:15:00 AM','2022-04-07 15:15:00 PM'), 		--Kostka rubika, drukowanie, 240
+(3,3,'2022-04-08 08:00:00 AM','2022-04-08 09:00:00 AM'),		--Kostka rubika, szlifowanie, 60
+(3,3,'2022-04-08 09:00:00 AM','2022-04-08 10:00:00 AM'),		--Kostka rubika, montaz, 60
+(7,4,'2022-04-07 08:00:00 AM','2022-04-07 10:00:00 AM'),		--Tapicerka samochodowa, projektowanie, 120
+(4,4,'2022-04-07 08:00:00 AM','2022-04-07 08:15:00 AM'),		--Tapicerka samochodowa, przygotowanie stano, 15
+(4,4,'2022-04-07 10:00:00 AM','2022-04-07 14:00:00 PM'),		--Tapicerka samochodowa, drukowanie, 240
+(4,4,'2022-04-07 14:00:00 PM','2022-04-07 15:00:00 PM'),		--Tapicerka samochodowa, wygladzanie, 60
+(4,4,'2022-04-08 08:00:00 AM','2022-04-08 10:00:00 AM'),		--Tapicerka samochodowa, montaz, 120
+(7,5,'2022-04-08 08:00:00 AM','2022-04-08 10:00:00 AM'),		--Kostka rubika, projektowanie, 120
+(4,5,'2022-04-08 08:00:00 AM','2022-04-08 08:15:00 AM'),		--Kostka rubika, przygotowanie stanowiska, 15
+(4,5,'2022-04-08 08:15:00 AM','2022-04-08 12:15:00 PM'),		--Kostka rubika, drukowanie, 240
+(4,5,'2022-04-08 12:15:00 PM','2022-04-08 13:15:00 PM'),		--Kostka rubika, szlifowanie, 60
+(4,5,'2022-04-08 13:15:00 PM','2022-04-08 14:15:00 PM');		--Kostka rubika, montaz, 60
 
 
 INSERT INTO Proces_wytwarzanie_produkt (Id_wytwarzanie, Id_proces_produkt, Id_stanowisko_produkcyjne)
 VALUES
-(1,2,1),
-(2,4,2),
-(3,7,3),
-(4,1,4),
-(5,2,5);
+(14,2,6),
+(15,3,6),
+(20,1,6),
+(25,4,6),
+(30,4,6),
+(35,6,6),
+(40,4,6),
+(45,6,6);
 
 
 INSERT INTO Proces_wytwarzanie_polprodukt (Id_wytwarzanie, Id_proces_polprodukt, Id_stanowisko_produkcyjne)
 VALUES
-(1,4,3),
-(2,5,2),
-(3,1,4),
-(4,3,1),
-(5,7,5);
+(1,5,8),
+(2,6,3),
+(3,7,3),
+(4,8,5),
+(5,9,8),
+(6,10,3),
+(7,11,3),
+(8,12,5),
+(9,13,8),
+(10,14,4),
+(11,15,4),
+(12,16,9),
+(13,17,7),
+(16,1,1),
+(17,22,2),
+(18,23,2),
+(19,24,9),
+(21,33,8),
+(22,34,4),
+(23,35,4),
+(24,36,9),
+(26,33,8),
+(27,34,4),
+(28,35,4),
+(29,36,9),
+(31,18,8),
+(32,19,2),
+(33,20,2),
+(34,21,5),
+(36,33,8),
+(37,34,4),
+(38,35,4),
+(39,36,9),
+(41,18,8),
+(42,19,2),
+(43,20,2),
+(44,21,5);
+
 
 
 INSERT INTO Kontrola_jakosci_produkt (Id_pracownik, Id_rodzaj_kontrola, Id_produkt, Data_od, Data_do, Uwagi, Id_rezultat)
