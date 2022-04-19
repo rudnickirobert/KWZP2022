@@ -1230,7 +1230,7 @@ VALUES
 (5,13,1),
 (5,17,1);
 
-INSERT INTO Wytwarzanie (Id_pracownik, Id_oferta_handlowa, Czas_od, Czas_do)
+INSERT INTO Wytwarzanie (Id_pracownik, Id_szczegoly_oferta, Czas_od, Czas_do)
 VALUES
 (7,1,'2022-04-04 08:00:00 AM','2022-04-04 13:00:00 PM'), 		--Wał czynny, projektowanie, 300
 (2,1,'2022-04-04 08:00:00 AM','2022-04-04 08:15:00 AM'),		--Wał czynny, przygotowanie stanowiska, 15
@@ -1247,36 +1247,36 @@ VALUES
 (2,1,'2022-04-07 09:00:00 AM','2022-04-07 11:00:00 AM'),		--Obudowa przekładni, lakierowanie, 120
 (2,1,'2022-04-07 11:00:00 AM','2022-04-07 12:00:00 PM'),		--Przekladnia zebata, montaz, 60
 (2,1,'2022-04-07 12:00:00 PM', NULL),							--Przekladnia zebata, klejenie, 60
-(2,1,'2022-04-07 13:00:00 PM','2022-04-07 16:00:00 PM'), 		--Litofanowy klosz, skanowanie, 180
-(2,1,'2022-04-04 13:00:00 PM','2022-04-04 16:00:00 PM'),		--Litofanowy klosz, projektowanie, 90
-(2,1,'2022-04-08 08:00:00 AM','2022-04-08 08:15:00 AM'),  		--Litofanowy klosz, przygotowanie stanow., 15
-(2,1,'2022-04-08 08:15:00 AM','2022-04-08 16:15:00 PM'),		--Litofanowy klosz, drukowanie, 480
-(2,1,'2022-04-09 08:00:00 AM','2022-04-09 08:30:00 AM'),		--Litofanowy klosz, montaz, 30
-(7,2,'2022-04-05 08:00:00 AM','2022-04-05 10:00:00 AM'),		--Tapicerka samochodowa, projektowanie, 120
-(3,2,'2022-04-05 08:00:00 AM','2022-04-05 08:15:00 AM'),		--Tapicerka samochodowa, przygotowanie stano, 15
-(3,2,'2022-04-05 08:15:00 AM','2022-04-05 12:15:00 PM'), 		--Tapicerka samochodowa, drukowanie, 240
-(3,2,'2022-04-05 12:15:00 PM','2022-04-05 13:15:00 PM'),		--Tapicerka samochodowa, wygladzanie, 60
-(3,2,'2022-04-05 13:15:00 PM','2022-04-05 15:15:00 PM'),		--Tapicerka samochodowa, montaz, 120
-(7,3,'2022-04-06 08:00:00 PM','2022-04-06 10:00:00 PM'),		--Tapicerka samochodowa, projektowanie, 120
-(3,3,'2022-04-06 15:15:00 PM', NULL),							--Tapicerka samochodowa, przygotowanie stano, 15
-(3,3,'2022-04-06 15:30:00 PM','2022-04-06 19:30:00 PM'),		--Tapicerka samochodowa, drukowanie, 240
-(3,3,'2022-04-07 08:00:00 AM','2022-04-07 09:00:00 AM'),		--Tapicerka samochodowa, wygladzanie, 60
-(3,3,'2022-04-07 09:00:00 AM','2022-04-07 11:00:00 AM'),		--Tapicerka samochodowa, montaz, 120
-(7,3,'2022-04-06 10:00:00 PM','2022-04-06 12:00:00 PM'), 		--Kostka rubika, projektowanie, 120
-(3,3,'2022-04-07 11:00:00 AM','2022-04-07 11:15:00 AM'),		--Kostka rubika, przygotowanie stanowiska, 15
-(3,3,'2022-04-07 11:15:00 AM','2022-04-07 15:15:00 PM'), 		--Kostka rubika, drukowanie, 240
-(3,3,'2022-04-08 08:00:00 AM', NULL),							--Kostka rubika, szlifowanie, 60
-(3,3,'2022-04-08 09:00:00 AM', NULL),							--Kostka rubika, montaz, 60
-(7,4,'2022-04-07 08:00:00 AM','2022-04-07 10:00:00 AM'),		--Tapicerka samochodowa, projektowanie, 120
-(4,4,'2022-04-07 08:00:00 AM','2022-04-07 08:15:00 AM'),		--Tapicerka samochodowa, przygotowanie stano, 15
-(4,4,'2022-04-07 10:00:00 AM','2022-04-07 14:00:00 PM'),		--Tapicerka samochodowa, drukowanie, 240
-(4,4,'2022-04-07 14:00:00 PM','2022-04-07 15:00:00 PM'),		--Tapicerka samochodowa, wygladzanie, 60
-(4,4,'2022-04-08 08:00:00 AM','2022-04-08 10:00:00 AM'),		--Tapicerka samochodowa, montaz, 120
-(7,5,'2022-04-08 08:00:00 AM','2022-04-08 10:00:00 AM'),		--Kostka rubika, projektowanie, 120
-(4,5,'2022-04-08 08:00:00 AM','2022-04-08 08:15:00 AM'),		--Kostka rubika, przygotowanie stanowiska, 15
-(4,5,'2022-04-08 08:15:00 AM','2022-04-08 12:15:00 PM'),		--Kostka rubika, drukowanie, 240
-(4,5,'2022-04-08 12:15:00 PM','2022-04-08 13:15:00 PM'),		--Kostka rubika, szlifowanie, 60
-(4,5,'2022-04-08 13:15:00 PM','2022-04-08 14:15:00 PM');		--Kostka rubika, montaz, 60
+(2,2,'2022-04-07 13:00:00 PM','2022-04-07 16:00:00 PM'), 		--Litofanowy klosz, skanowanie, 180
+(2,2,'2022-04-04 13:00:00 PM','2022-04-04 16:00:00 PM'),		--Litofanowy klosz, projektowanie, 90
+(2,2,'2022-04-08 08:00:00 AM','2022-04-08 08:15:00 AM'),  		--Litofanowy klosz, przygotowanie stanow., 15
+(2,2,'2022-04-08 08:15:00 AM','2022-04-08 16:15:00 PM'),		--Litofanowy klosz, drukowanie, 480
+(2,2,'2022-04-09 08:00:00 AM','2022-04-09 08:30:00 AM'),		--Litofanowy klosz, montaz, 30
+(7,3,'2022-04-05 08:00:00 AM','2022-04-05 10:00:00 AM'),		--Tapicerka samochodowa, projektowanie, 120
+(3,3,'2022-04-05 08:00:00 AM','2022-04-05 08:15:00 AM'),		--Tapicerka samochodowa, przygotowanie stano, 15
+(3,3,'2022-04-05 08:15:00 AM','2022-04-05 12:15:00 PM'), 		--Tapicerka samochodowa, drukowanie, 240
+(3,3,'2022-04-05 12:15:00 PM','2022-04-05 13:15:00 PM'),		--Tapicerka samochodowa, wygladzanie, 60
+(3,3,'2022-04-05 13:15:00 PM','2022-04-05 15:15:00 PM'),		--Tapicerka samochodowa, montaz, 120
+(7,4,'2022-04-06 08:00:00 PM','2022-04-06 10:00:00 PM'),		--Tapicerka samochodowa, projektowanie, 120
+(3,4,'2022-04-06 15:15:00 PM', NULL),							--Tapicerka samochodowa, przygotowanie stano, 15
+(3,4,'2022-04-06 15:30:00 PM','2022-04-06 19:30:00 PM'),		--Tapicerka samochodowa, drukowanie, 240
+(3,4,'2022-04-07 08:00:00 AM','2022-04-07 09:00:00 AM'),		--Tapicerka samochodowa, wygladzanie, 60
+(3,4,'2022-04-07 09:00:00 AM','2022-04-07 11:00:00 AM'),		--Tapicerka samochodowa, montaz, 120
+(7,5,'2022-04-06 10:00:00 PM','2022-04-06 12:00:00 PM'), 		--Kostka rubika, projektowanie, 120
+(3,5,'2022-04-07 11:00:00 AM','2022-04-07 11:15:00 AM'),		--Kostka rubika, przygotowanie stanowiska, 15
+(3,5,'2022-04-07 11:15:00 AM','2022-04-07 15:15:00 PM'), 		--Kostka rubika, drukowanie, 240
+(3,5,'2022-04-08 08:00:00 AM', NULL),							--Kostka rubika, szlifowanie, 60
+(3,5,'2022-04-08 09:00:00 AM', NULL),							--Kostka rubika, montaz, 60
+(7,6,'2022-04-07 08:00:00 AM','2022-04-07 10:00:00 AM'),		--Tapicerka samochodowa, projektowanie, 120
+(4,6,'2022-04-07 08:00:00 AM','2022-04-07 08:15:00 AM'),		--Tapicerka samochodowa, przygotowanie stano, 15
+(4,6,'2022-04-07 10:00:00 AM','2022-04-07 14:00:00 PM'),		--Tapicerka samochodowa, drukowanie, 240
+(4,6,'2022-04-07 14:00:00 PM','2022-04-07 15:00:00 PM'),		--Tapicerka samochodowa, wygladzanie, 60
+(4,6,'2022-04-08 08:00:00 AM','2022-04-08 10:00:00 AM'),		--Tapicerka samochodowa, montaz, 120
+(7,7,'2022-04-08 08:00:00 AM','2022-04-08 10:00:00 AM'),		--Kostka rubika, projektowanie, 120
+(4,7,'2022-04-08 08:00:00 AM','2022-04-08 08:15:00 AM'),		--Kostka rubika, przygotowanie stanowiska, 15
+(4,7,'2022-04-08 08:15:00 AM','2022-04-08 12:15:00 PM'),		--Kostka rubika, drukowanie, 240
+(4,7,'2022-04-08 12:15:00 PM','2022-04-08 13:15:00 PM'),		--Kostka rubika, szlifowanie, 60
+(4,7,'2022-04-08 13:15:00 PM','2022-04-08 14:15:00 PM');		--Kostka rubika, montaz, 60
 
 
 INSERT INTO Proces_wytwarzanie_produkt (Id_wytwarzanie, Id_proces_produkt, Id_stanowisko_produkcyjne)
