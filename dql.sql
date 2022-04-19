@@ -134,14 +134,6 @@ LEFT JOIN v_Koszt_procesow_produkt AS KP ON P.Nazwa_produkt = KP.Produkt
 GROUP BY P.Nazwa_produkt
 GO
 
-SELECT P.Nazwa_produkt AS [Produkt], SUM(KPP.[Całkowity koszt produkcji] * SP.Liczba) AS [Koszt wytworzenia produktu {PLN}]
-FROM Sklad_produkt AS SP
-INNER JOIN Produkt AS P ON SP.ID_produkt = P.ID_produkt
-INNER JOIN Slownik_polprodukt AS SlwPP ON SP.ID_polprodukt = SlwPP.ID_polprodukt
-LEFT JOIN v_Koszt_procesow_polprodukt AS KPP ON SlWPP.Nazwa = KPP.Półprodukt
-GROUP BY P.Nazwa_produkt
-
---nie dziala
 CREATE VIEW v_Kontrola_jakosci_produkt
 AS
 SELECT P.Nazwa_produkt AS [Produkt], Rk.Rodzaj_kontrola AS [Rodzaj kontroli], 
@@ -232,18 +224,34 @@ INNER JOIN Produkt AS P ON PPPC.ID_produkt = P.ID_produkt
 INNER JOIN Pracownik AS Pr ON W.ID_pracownik = Pr.ID_pracownik
 GO
 
---CREATE VIEW v_Stanowiska_gotowe_do_uzycia
---AS
---SELECT * FROM Proces_wytwarzanie_polprodukt AS PWPP
---INNER JOIN Wytwarzanie AS W ON PWPP.ID_wytwarzanie = W.ID_wytwarzanie
---INNER JOIN Proces_polprodukt_czynnosc AS PPPC ON PWPP.ID_proces_polprodukt = PPPC.ID_proces_polprodukt
---INNER JOIN Stanowisko_produkcyjne AS SP ON PWPP.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
---UNION
---SELECT * FROM Proces_wytwarzanie_produkt AS PWP
---INNER JOIN Wytwarzanie AS W ON PWP.ID_wytwarzanie = W.ID_wytwarzanie
---INNER JOIN Proces_produkt_czynnosc AS PPPC ON PWP.ID_proces_produkt = PPPC.ID_proces_produkt
---INNER JOIN Stanowisko_produkcyjne AS SP ON PWP.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
---GO
+CREATE VIEW v_Stanowiska_w_uzyciu
+AS
+SELECT SP.ID_stanowisko_produkcyjne, SS.Nazwa_stanowiska AS Nazwa 
+FROM Proces_wytwarzanie_produkt AS PWP
+INNER JOIN Wytwarzanie AS W ON PWP.ID_wytwarzanie = W.ID_wytwarzanie
+INNER JOIN Proces_produkt_czynnosc AS PPPC ON PWP.ID_proces_produkt = PPPC.ID_proces_produkt
+INNER JOIN Stanowisko_produkcyjne AS SP ON PWP.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
+INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
+WHERE W.Czas_do IS NULL
+UNION 
+SELECT SP.ID_stanowisko_produkcyjne, SS.Nazwa_stanowiska AS Nazwa 
+FROM Proces_wytwarzanie_polprodukt AS PWPP
+INNER JOIN Wytwarzanie AS W ON PWPP.ID_wytwarzanie = W.ID_wytwarzanie
+INNER JOIN Proces_polprodukt_czynnosc AS PPPC ON PWPP.ID_proces_polprodukt = PPPC.ID_proces_polprodukt
+INNER JOIN Stanowisko_produkcyjne AS SP ON PWPP.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
+INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
+WHERE W.Czas_do IS NULL
+GO
+
+CREATE VIEW v_Stanowiska_do_uzycia
+AS
+SELECT SP.ID_stanowisko_produkcyjne, SS.Nazwa_stanowiska AS Nazwa FROM Stanowisko_produkcyjne AS SP
+INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
+EXCEPT
+SELECT * FROM v_Stanowiska_w_uzyciu
+GO
+
+
 
 -----RESOURCE DEPARTMENT----
 
@@ -297,23 +305,26 @@ ON Parametr_narzedzie.ID_rodzaj_parametr=Rodzaj_parametr.ID_rodzaj_parametr
 GROUP BY Narzedzie.Nazwa_narzedzie, Rodzaj_parametr.Nazwa_rodzaj_parametr, Jednostka.Skrot, Zakres_dol, Zakres_gora
 GO
 
-CREATE VIEW v_Oblugi_zakonczone AS
-SELECT Stanowisko.ID_stanowisko_produkcyjne AS [Nr stanowiska], Rodzaj_obsluga.Nazwa_rodzaj_obsluga AS [Obsługa], Data_od AS [Data rozpoczęcia], Data_do AS [Data zakończenia], Pracownik.Imie + ' ' + Pracownik.Nazwisko AS [Pracownik]
-FROM Obsluga
-INNER JOIN Rodzaj_obsluga 
-ON Obsluga.ID_rodzaj_obsluga=Rodzaj_obsluga.ID_rodzaj_obsluga
-INNER JOIN Pracownik
-ON Obsluga.ID_pracownik=Pracownik.ID_pracownik
+CREATE VIEW v_Oblugi_zakonczone
+AS
+SELECT SP.ID_stanowisko_produkcyjne AS [Nr stanowiska], RO.Nazwa_rodzaj_obsluga AS [Obsługa], Data_od AS [Data rozpoczęcia], Data_do AS [Data zakończenia], P.Imie + ' ' + P.Nazwisko AS [Pracownik]
+FROM Obsluga_pracownik AS OP
+INNER JOIN Obsluga AS O ON OP.ID_obsluga = O.ID_obsluga
+INNER JOIN Pracownik AS P ON OP.ID_pracownik = P.ID_pracownik
+INNER JOIN Rodzaj_obsluga AS RO ON O.ID_rodzaj_obsluga = RO.ID_rodzaj_obsluga
+INNER JOIN Stanowisko_produkcyjne AS SP ON O.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
 WHERE Data_do IS NOT NULL AND GETDATE() > Data_do
 GO
 
-CREATE VIEW v_Oblugi_w_trakcie AS
-SELECT Stanowisko.ID_stanowisko_produkcyjne AS [Nr stanowiska], Rodzaj_obsluga.Nazwa_rodzaj_obsluga AS [Obsługa], Data_od AS [Data rozpoczęcia], Data_do AS [Data zakończenia], Pracownik.Imie + ' ' + Pracownik.Nazwisko AS [Pracownik]
-FROM Obsluga
-INNER JOIN Rodzaj_obsluga 
-ON Obsluga.ID_rodzaj_obsluga=Rodzaj_obsluga.ID_rodzaj_obsluga
-INNER JOIN Pracownik
-ON Obsluga.ID_pracownik=Pracownik.ID_pracownik
+
+CREATE VIEW v_Oblugi_w_trakcie
+AS
+SELECT SP.ID_stanowisko_produkcyjne AS [Nr stanowiska], RO.Nazwa_rodzaj_obsluga AS [Obsługa], Data_od AS [Data rozpoczęcia], Data_do AS [Data zakończenia], P.Imie + ' ' + P.Nazwisko AS [Pracownik]
+FROM Obsluga_pracownik AS OP
+INNER JOIN Obsluga AS O ON OP.ID_obsluga = O.ID_obsluga
+INNER JOIN Pracownik AS P ON OP.ID_pracownik = P.ID_pracownik
+INNER JOIN Rodzaj_obsluga AS RO ON O.ID_rodzaj_obsluga = RO.ID_rodzaj_obsluga
+INNER JOIN Stanowisko_produkcyjne AS SP ON O.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
 WHERE Data_do IS NULL
 GO
 
