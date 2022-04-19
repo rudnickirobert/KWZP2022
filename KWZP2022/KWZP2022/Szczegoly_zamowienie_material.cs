@@ -17,7 +17,7 @@ namespace KWZP2022
         public int ID_zamowienie_material { get; set; }
         public int ID_material { get; set; }
         public int ID_producent { get; set; }
-        public int Waga_kg { get; set; }
+        public int Waga_g { get; set; }
         public decimal Cena { get; set; }
     
         public virtual Material Material { get; set; }

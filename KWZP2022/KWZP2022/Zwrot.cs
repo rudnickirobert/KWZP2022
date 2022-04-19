@@ -16,8 +16,11 @@ namespace KWZP2022
     {
         public int ID_zwrot { get; set; }
         public int ID_reklamacja { get; set; }
-        public bool Utylizacja { get; set; }
+        public int ID_produkt { get; set; }
+        public int Ilosc { get; set; }
+        public bool Akceptacja { get; set; }
     
+        public virtual Produkt Produkt { get; set; }
         public virtual Reklamacja Reklamacja { get; set; }
     }
 }

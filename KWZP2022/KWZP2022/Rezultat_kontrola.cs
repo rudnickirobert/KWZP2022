@@ -22,7 +22,6 @@ namespace KWZP2022
     
         public int ID_rezultat { get; set; }
         public string Wynik { get; set; }
-        public string Uwagi { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Kontrola_jakosci_produkt> Kontrola_jakosci_produkt { get; set; }

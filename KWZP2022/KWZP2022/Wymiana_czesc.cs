@@ -15,13 +15,11 @@ namespace KWZP2022
     public partial class Wymiana_czesc
     {
         public int ID_obsluga { get; set; }
-        public int ID_sklad_maszyny { get; set; }
+        public int ID_maszyna_nr { get; set; }
         public int ID_czesc { get; set; }
-        public int ID_narzedzie { get; set; }
     
         public virtual Czesc Czesc { get; set; }
-        public virtual Narzedzie Narzedzie { get; set; }
+        public virtual Maszyna_nr_seryjny Maszyna_nr_seryjny { get; set; }
         public virtual Obsluga Obsluga { get; set; }
-        public virtual Sklad_maszyny Sklad_maszyny { get; set; }
     }
 }
