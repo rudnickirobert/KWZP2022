@@ -97,6 +97,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="SlownikStanowiskoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SlownikStanowiskoForm.Designer.cs">
+      <DependentUpon>SlownikStanowiskoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PolproduktForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -564,6 +570,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SlownikStanowiskoForm.resx">
+      <DependentUpon>SlownikStanowiskoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="KWZPModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>KWZPModel.Designer.cs</LastGenOutput>

@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProdukcjaFrom));
             this.btnProdukty = new System.Windows.Forms.Button();
             this.btnPolprodukty = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnStanowiska = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -57,14 +57,16 @@
             this.btnPolprodukty.UseVisualStyleBackColor = true;
             this.btnPolprodukty.Click += new System.EventHandler(this.btnPolprodukty_Click);
             // 
-            // button3
+            // btnStanowiska
             // 
-            this.button3.Location = new System.Drawing.Point(81, 362);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(337, 123);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnStanowiska.Font = new System.Drawing.Font("Arial", 20F);
+            this.btnStanowiska.Location = new System.Drawing.Point(81, 362);
+            this.btnStanowiska.Name = "btnStanowiska";
+            this.btnStanowiska.Size = new System.Drawing.Size(337, 123);
+            this.btnStanowiska.TabIndex = 2;
+            this.btnStanowiska.Text = "Stanowiska produkcyjne";
+            this.btnStanowiska.UseVisualStyleBackColor = true;
+            this.btnStanowiska.Click += new System.EventHandler(this.btnStanowiska_Click);
             // 
             // button4
             // 
@@ -82,7 +84,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 711);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnStanowiska);
             this.Controls.Add(this.btnPolprodukty);
             this.Controls.Add(this.btnProdukty);
             this.Font = new System.Drawing.Font("Arial", 8.25F);
@@ -96,7 +98,7 @@
 
         private System.Windows.Forms.Button btnProdukty;
         private System.Windows.Forms.Button btnPolprodukty;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnStanowiska;
         private System.Windows.Forms.Button button4;
     }
 }

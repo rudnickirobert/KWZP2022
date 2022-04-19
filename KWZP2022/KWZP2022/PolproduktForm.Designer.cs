@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PolproduktForm));
             this.label1 = new System.Windows.Forms.Label();
             this.btnAktualizuj = new System.Windows.Forms.Button();
             this.btnUsun = new System.Windows.Forms.Button();
@@ -61,7 +62,7 @@
             // 
             this.btnAktualizuj.BackColor = System.Drawing.Color.SkyBlue;
             this.btnAktualizuj.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnAktualizuj.Location = new System.Drawing.Point(27, 477);
+            this.btnAktualizuj.Location = new System.Drawing.Point(27, 484);
             this.btnAktualizuj.Name = "btnAktualizuj";
             this.btnAktualizuj.Size = new System.Drawing.Size(334, 37);
             this.btnAktualizuj.TabIndex = 12;
@@ -73,7 +74,7 @@
             // 
             this.btnUsun.BackColor = System.Drawing.Color.IndianRed;
             this.btnUsun.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnUsun.Location = new System.Drawing.Point(27, 551);
+            this.btnUsun.Location = new System.Drawing.Point(27, 553);
             this.btnUsun.Name = "btnUsun";
             this.btnUsun.Size = new System.Drawing.Size(334, 37);
             this.btnUsun.TabIndex = 11;
@@ -83,7 +84,7 @@
             // 
             // btnOdswiez
             // 
-            this.btnOdswiez.Font = new System.Drawing.Font("Arial", 10F);
+            this.btnOdswiez.Font = new System.Drawing.Font("Arial", 15F);
             this.btnOdswiez.Location = new System.Drawing.Point(27, 624);
             this.btnOdswiez.Name = "btnOdswiez";
             this.btnOdswiez.Size = new System.Drawing.Size(334, 37);
@@ -105,7 +106,7 @@
             // 
             this.btnDodaj.BackColor = System.Drawing.Color.PaleGreen;
             this.btnDodaj.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnDodaj.Location = new System.Drawing.Point(27, 395);
+            this.btnDodaj.Location = new System.Drawing.Point(27, 415);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(334, 37);
             this.btnDodaj.TabIndex = 8;
@@ -116,7 +117,7 @@
             // dgvPolprodukt
             // 
             this.dgvPolprodukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPolprodukt.Location = new System.Drawing.Point(423, 52);
+            this.dgvPolprodukt.Location = new System.Drawing.Point(423, 87);
             this.dgvPolprodukt.Name = "dgvPolprodukt";
             this.dgvPolprodukt.Size = new System.Drawing.Size(434, 313);
             this.dgvPolprodukt.TabIndex = 7;
@@ -124,7 +125,7 @@
             // dgvProdukt
             // 
             this.dgvProdukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProdukt.Location = new System.Drawing.Point(902, 52);
+            this.dgvProdukt.Location = new System.Drawing.Point(902, 87);
             this.dgvProdukt.Name = "dgvProdukt";
             this.dgvProdukt.Size = new System.Drawing.Size(334, 313);
             this.dgvProdukt.TabIndex = 14;
@@ -181,6 +182,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 711);
             this.Controls.Add(this.txtIlosc);
             this.Controls.Add(this.label3);

@@ -31,5 +31,11 @@ namespace KWZP2022
             PolproduktForm polproduktForm = new PolproduktForm(db);
             polproduktForm.ShowDialog();
         }
+
+        private void btnStanowiska_Click(object sender, EventArgs e)
+        {
+            SlownikStanowiskoForm slownikStanowiskoForm = new SlownikStanowiskoForm(db);
+            slownikStanowiskoForm.ShowDialog();
+        }
     }
 }

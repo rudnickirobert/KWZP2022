@@ -70,7 +70,7 @@
             // 
             // btnOdswiez
             // 
-            this.btnOdswiez.Font = new System.Drawing.Font("Arial", 10F);
+            this.btnOdswiez.Font = new System.Drawing.Font("Arial", 15F);
             this.btnOdswiez.Location = new System.Drawing.Point(26, 390);
             this.btnOdswiez.Name = "btnOdswiez";
             this.btnOdswiez.Size = new System.Drawing.Size(334, 37);

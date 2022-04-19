@@ -128,5 +128,6 @@ namespace KWZP2022
             txtPolprodukt.Text = this.dgvSkladProdukt.CurrentRow.Cells[1].Value.ToString();
             txtIlosc.Text = this.dgvSkladProdukt.CurrentRow.Cells[2].Value.ToString();
         }
+
     }
 }
