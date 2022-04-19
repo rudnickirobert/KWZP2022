@@ -68,7 +68,6 @@ INNER JOIN Stanowisko_produkcyjne AS SP ON SSP.ID_stanowisko_produkcyjne = SP.ID
 INNER JOIN Narzedzie AS N ON SSP.ID_narzedzie = N.ID_narzedzie
 INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
 ORDER BY SP.ID_stanowisko_produkcyjne ASC OFFSET 0 ROWS
---WHERE SP.ID_stanowisko_produkcyjne = 3
 GO
 
 CREATE VIEW v_Sklad_stanowisko_produkcyjne_maszyna
@@ -125,7 +124,7 @@ GO
 
 CREATE VIEW v_Koszt_produkcji
 AS
-SELECT P.Nazwa_produkt, SUM(KPP.[Suma kosztu procesów] * SP.Liczba) AS [Koszt wytworzenia produktu {PLN}]
+SELECT SUM(KPP.[Suma kosztu procesów] * SP.Liczba) AS [Koszt wytworzenia produktu {PLN}]
 FROM Sklad_produkt AS SP
 INNER JOIN Produkt AS P ON SP.ID_produkt = P.ID_produkt
 INNER JOIN Slownik_polprodukt AS SlwPP ON SP.ID_polprodukt = SlwPP.ID_polprodukt
@@ -150,7 +149,7 @@ PR.Nazwisko AS [Osoba kontrolująca], Rek.Wynik AS [Wynik kontroli], Kjp.Uwagi A
 FROM Kontrola_jakosci_produkt AS Kjp
 INNER JOIN Rezultat_kontrola AS Rek ON Kjp.ID_rezultat = Rek.ID_rezultat
 INNER JOIN Produkt AS P ON Kjp.ID_produkt = P.ID_produkt
-INNER JOIN Rodzaj_kontrola AS Rk ON Kjp.ID_rodzaj_kontrola = Rk.ID_rodzaj_kontrola
+INNER JOIN Rodzaj_kontrola AS Rk ON Kjp.ID_rodzaj_kontrola = Rk.Rodzaj_kontrola
 INNER JOIN Pracownik AS PR ON Kjp.ID_pracownik = PR.ID_pracownik
 GO
 
@@ -162,20 +161,20 @@ GO
 
 CREATE VIEW v_Proces_polprodukt_czynnosc
 AS
-SELECT SP.Nazwa AS [Półprodukt], CP.Nazwa AS [Czynność], PPPC.Czas_trwania AS [Czas {min}]
+SELECT PPPC.ID_polprodukt AS [ID Półproduktu], SP.Nazwa AS [Półprodukt], CP.Nazwa AS [Czynność]
 FROM Proces_polprodukt_czynnosc AS PPPC
 INNER JOIN Slownik_polprodukt SP ON PPPC.ID_polprodukt = SP.ID_polprodukt
 INNER JOIN Czynnosc_produkcyjna CP ON PPPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
-ORDER BY PPPC.ID_polprodukt DESC
+ORDER BY PPPC.ID_polprodukt DESC OFFSET 0 ROWS
 GO
 
 CREATE VIEW v_Proces_produkt_czynnosc
 AS
-SELECT P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynność], PPC.Czas_trwania AS [Czas {min}] 
+SELECT PPC.ID_produkt AS [ID Produktu], P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynność] 
 FROM Proces_produkt_czynnosc AS PPC
 INNER JOIN Produkt AS P ON PPC.ID_produkt = P.ID_produkt
 INNER JOIN Czynnosc_produkcyjna CP ON PPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
-ORDER BY PPC.ID_produkt DESC
+ORDER BY PPC.ID_produkt DESC OFFSET 0 ROWS
 GO
 
 CREATE VIEW v_Liczba_zabiegow_wytworczych_polprodukt
@@ -198,8 +197,8 @@ GO
 
 CREATE VIEW v_Wytwarzanie
 AS
-SELECT W.Czas_od [Data rozpoczęcia], W.Czas_do AS [Data zakończenia],
-P.Nazwisko + ' ' + P.Imie AS [Pracownik], OH.Termin_realizacja AS [Termin realizacji oferty], OH.ID_oferta_handlowa AS [Oferta handlowa]
+SELECT W.ID_wytwarzanie AS [ID zabiegu produkcyjnego], W.Czas_od [Data rozpoczęcia], W.Czas_do AS [Data zakończenia],
+P.Nazwisko + ' ' + P.Imie AS [Pracownik], OH.Termin_realizacja AS [Termin realizacji oferty]
 FROM Wytwarzanie AS W
 INNER JOIN Pracownik AS P ON W.ID_pracownik = P.ID_pracownik
 INNER JOIN Oferta_handlowa AS OH ON W.ID_oferta_handlowa = OH.ID_oferta_handlowa
@@ -434,7 +433,7 @@ CREATE VIEW v_Klient_telefon_Historia AS
 	SELECT Klient.Nazwisko, Klient.Imie AS [Imię], Nr_telefon_klient.Numer AS [Numer telefonu]
 	FROM Klient 
 	INNER JOIN Nr_telefon_klient ON Klient.ID_klient = Nr_telefon_klient.ID_klient
-	ORDER BY Data_do DESC
+	ORDER BY Data_do DESC OFFSET 0 ROWS
 	GO
 
 	--HR DEPARTMENT --
@@ -485,7 +484,7 @@ FROM Umowa AS UM
 INNER JOIN
 (Posada_pracownika AS PO INNER JOIN
 (Etat AS ET INNER JOIN Stanowisko AS ST ON ET.ID_stanowisko = ST.ID_stanowisko)
-ON ET.ID_etat = PO.ID_etat) ON UM.ID_posada_pracownika = PO.ID_posada_pracownika
+ON ET.ID_etat = PO.ID_etat) ON UM.ID_posada = PO.ID_posada
 INNER JOIN Pracownik AS P ON UM.ID_pracownik = P.ID_pracownik
 INNER JOIN Wymiar_pracy AS WP ON UM.ID_wymiar_pracy = WP.ID_wymiar_pracy
 GO
