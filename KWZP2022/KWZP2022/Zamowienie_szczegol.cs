@@ -14,12 +14,20 @@ namespace KWZP2022
     
     public partial class Zamowienie_szczegol
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Zamowienie_szczegol()
+        {
+            this.Wytwarzanie = new HashSet<Wytwarzanie>();
+        }
+    
         public int ID_zamowienie_szczegol { get; set; }
         public int ID_zamowienie { get; set; }
         public int ID_produkt { get; set; }
         public int Ilosc { get; set; }
     
         public virtual Produkt Produkt { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Wytwarzanie> Wytwarzanie { get; set; }
         public virtual Zamowienie Zamowienie { get; set; }
     }
 }

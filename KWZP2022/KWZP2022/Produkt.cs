@@ -17,7 +17,6 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Produkt()
         {
-            this.Kontrola_jakosci_produkt = new HashSet<Kontrola_jakosci_produkt>();
             this.Parametr_produkt = new HashSet<Parametr_produkt>();
             this.Proces_produkt_czynnosc = new HashSet<Proces_produkt_czynnosc>();
             this.Sklad_produkt = new HashSet<Sklad_produkt>();
@@ -30,8 +29,6 @@ namespace KWZP2022
         public int ID_produkt { get; set; }
         public string Nazwa_produkt { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Kontrola_jakosci_produkt> Kontrola_jakosci_produkt { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Parametr_produkt> Parametr_produkt { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

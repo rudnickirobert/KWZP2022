@@ -12,16 +12,13 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class Szczegoly_zamowienie_maszyna
+    public partial class v_Umowa
     {
-        public int ID_zamowienie_maszyna { get; set; }
-        public int ID_maszyna { get; set; }
-        public int ID_producent { get; set; }
-        public int Ilosc { get; set; }
-        public decimal Cena { get; set; }
-    
-        public virtual Maszyna Maszyna { get; set; }
-        public virtual Producent Producent { get; set; }
-        public virtual Zamowienie_maszyna Zamowienie_maszyna { get; set; }
+        public int ID { get; set; }
+        public string Nazwisko { get; set; }
+        public string Imię { get; set; }
+        public string Wymiar_pracy { get; set; }
+        public string Nazwa_stanowiska { get; set; }
+        public int Podstawa_wynagrodzenia { get; set; }
     }
 }

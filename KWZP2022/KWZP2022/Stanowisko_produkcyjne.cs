@@ -20,8 +20,8 @@ namespace KWZP2022
             this.Obsluga = new HashSet<Obsluga>();
             this.Proces_wytwarzanie_polprodukt = new HashSet<Proces_wytwarzanie_polprodukt>();
             this.Proces_wytwarzanie_produkt = new HashSet<Proces_wytwarzanie_produkt>();
-            this.Sklad_stanowisko_produkcyjne = new HashSet<Sklad_stanowisko_produkcyjne>();
             this.Sklad_stanowisko_produkcyjne_maszyna = new HashSet<Sklad_stanowisko_produkcyjne_maszyna>();
+            this.Sklad_stanowisko_produkcyjne_narzedzie = new HashSet<Sklad_stanowisko_produkcyjne_narzedzie>();
         }
     
         public int ID_stanowisko_produkcyjne { get; set; }
@@ -34,9 +34,9 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Proces_wytwarzanie_produkt> Proces_wytwarzanie_produkt { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sklad_stanowisko_produkcyjne> Sklad_stanowisko_produkcyjne { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sklad_stanowisko_produkcyjne_maszyna> Sklad_stanowisko_produkcyjne_maszyna { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Sklad_stanowisko_produkcyjne_narzedzie> Sklad_stanowisko_produkcyjne_narzedzie { get; set; }
         public virtual Slownik_stanowisko Slownik_stanowisko { get; set; }
     }
 }

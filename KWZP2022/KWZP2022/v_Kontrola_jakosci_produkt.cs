@@ -14,10 +14,8 @@ namespace KWZP2022
     
     public partial class v_Kontrola_jakosci_produkt
     {
-        public string Produkt { get; set; }
         public string Rodzaj_kontroli { get; set; }
         public string Osoba_kontrolująca { get; set; }
-        public string Wynik_kontroli { get; set; }
         public string Uwagi { get; set; }
     }
 }

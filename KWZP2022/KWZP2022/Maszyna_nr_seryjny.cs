@@ -18,7 +18,6 @@ namespace KWZP2022
         public Maszyna_nr_seryjny()
         {
             this.Sklad_stanowisko_produkcyjne_maszyna = new HashSet<Sklad_stanowisko_produkcyjne_maszyna>();
-            this.Szczegoly_zamowienie_maszyna = new HashSet<Szczegoly_zamowienie_maszyna>();
             this.Wymiana_czesc = new HashSet<Wymiana_czesc>();
         }
     
@@ -30,8 +29,6 @@ namespace KWZP2022
         public virtual Nr_seryjny Nr_seryjny { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sklad_stanowisko_produkcyjne_maszyna> Sklad_stanowisko_produkcyjne_maszyna { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Szczegoly_zamowienie_maszyna> Szczegoly_zamowienie_maszyna { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Wymiana_czesc> Wymiana_czesc { get; set; }
     }

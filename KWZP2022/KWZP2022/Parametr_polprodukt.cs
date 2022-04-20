@@ -14,6 +14,7 @@ namespace KWZP2022
     
     public partial class Parametr_polprodukt
     {
+        public int ID_parametr_polprodukt { get; set; }
         public int ID_polprodukt { get; set; }
         public int ID_rodzaj_parametr { get; set; }
         public decimal Zakres_dol { get; set; }

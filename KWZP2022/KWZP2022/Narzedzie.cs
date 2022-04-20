@@ -18,7 +18,7 @@ namespace KWZP2022
         public Narzedzie()
         {
             this.Parametr_narzedzie = new HashSet<Parametr_narzedzie>();
-            this.Sklad_stanowisko_produkcyjne = new HashSet<Sklad_stanowisko_produkcyjne>();
+            this.Sklad_stanowisko_produkcyjne_narzedzie = new HashSet<Sklad_stanowisko_produkcyjne_narzedzie>();
             this.Szczegoly_zamowienie_narzedzie = new HashSet<Szczegoly_zamowienie_narzedzie>();
         }
     
@@ -28,7 +28,7 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Parametr_narzedzie> Parametr_narzedzie { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sklad_stanowisko_produkcyjne> Sklad_stanowisko_produkcyjne { get; set; }
+        public virtual ICollection<Sklad_stanowisko_produkcyjne_narzedzie> Sklad_stanowisko_produkcyjne_narzedzie { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Szczegoly_zamowienie_narzedzie> Szczegoly_zamowienie_narzedzie { get; set; }
     }

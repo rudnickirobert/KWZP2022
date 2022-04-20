@@ -20,6 +20,7 @@ namespace KWZP2022
             this.Dane_adresowe_pracownik = new HashSet<Dane_adresowe_pracownik>();
             this.Email_pracownik = new HashSet<Email_pracownik>();
             this.Kontrola_jakosci_produkt = new HashSet<Kontrola_jakosci_produkt>();
+            this.Nadgodziny = new HashSet<Nadgodziny>();
             this.Nieobecnosc = new HashSet<Nieobecnosc>();
             this.Nr_telefon_pracownik = new HashSet<Nr_telefon_pracownik>();
             this.Oferta_handlowa = new HashSet<Oferta_handlowa>();
@@ -51,6 +52,8 @@ namespace KWZP2022
         public virtual ICollection<Email_pracownik> Email_pracownik { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Kontrola_jakosci_produkt> Kontrola_jakosci_produkt { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Nadgodziny> Nadgodziny { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Nieobecnosc> Nieobecnosc { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -12,13 +12,14 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class Sklad_stanowisko_produkcyjne
+    public partial class v_Zamowienia_maszyny_w_trakcie
     {
-        public int ID_sklad_stanowisko_produkcyjne { get; set; }
-        public int ID_stanowisko_produkcyjne { get; set; }
-        public int ID_narzedzie { get; set; }
-    
-        public virtual Narzedzie Narzedzie { get; set; }
-        public virtual Stanowisko_produkcyjne Stanowisko_produkcyjne { get; set; }
+        public int Nr_zamówienia { get; set; }
+        public string Nazwa_maszyny { get; set; }
+        public System.DateTime Data_zmiany_stanu { get; set; }
+        public int Ilość { get; set; }
+        public decimal Cena { get; set; }
+        public string Status { get; set; }
+        public int StatusID { get; set; }
     }
 }

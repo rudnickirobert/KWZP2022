@@ -20,5 +20,6 @@ namespace KWZP2022
         public int Ilosc { get; set; }
         public decimal Cena { get; set; }
         public string Status { get; set; }
+        public int StatusID { get; set; }
     }
 }

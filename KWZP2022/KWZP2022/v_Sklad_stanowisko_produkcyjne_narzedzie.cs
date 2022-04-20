@@ -17,5 +17,6 @@ namespace KWZP2022
         public int ID_Stanowiska { get; set; }
         public string Nazwa_stanowiska { get; set; }
         public string Narzędzie { get; set; }
+        public int Liczba { get; set; }
     }
 }

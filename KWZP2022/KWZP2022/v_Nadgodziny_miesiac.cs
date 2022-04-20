@@ -12,16 +12,10 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class Szczegoly_zamowienie_maszyna
+    public partial class v_Nadgodziny_miesiac
     {
-        public int ID_zamowienie_maszyna { get; set; }
-        public int ID_maszyna { get; set; }
-        public int ID_producent { get; set; }
-        public int Ilosc { get; set; }
-        public decimal Cena { get; set; }
-    
-        public virtual Maszyna Maszyna { get; set; }
-        public virtual Producent Producent { get; set; }
-        public virtual Zamowienie_maszyna Zamowienie_maszyna { get; set; }
+        public int ID_Pracownik { get; set; }
+        public Nullable<int> Miesiąc { get; set; }
+        public int Czas { get; set; }
     }
 }

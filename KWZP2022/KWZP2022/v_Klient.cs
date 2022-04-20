@@ -14,7 +14,6 @@ namespace KWZP2022
     
     public partial class v_Klient
     {
-        public int ID { get; set; }
         public string Nazwisko { get; set; }
         public string Imię { get; set; }
         public string NIP { get; set; }

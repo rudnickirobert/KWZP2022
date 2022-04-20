@@ -20,6 +20,7 @@ namespace KWZP2022
             this.Maszyna_nr_seryjny = new HashSet<Maszyna_nr_seryjny>();
             this.Parametr_maszyna = new HashSet<Parametr_maszyna>();
             this.Sklad_maszyna = new HashSet<Sklad_maszyna>();
+            this.Szczegoly_zamowienie_maszyna = new HashSet<Szczegoly_zamowienie_maszyna>();
         }
     
         public int ID_maszyna { get; set; }
@@ -34,5 +35,7 @@ namespace KWZP2022
         public virtual ICollection<Parametr_maszyna> Parametr_maszyna { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sklad_maszyna> Sklad_maszyna { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Szczegoly_zamowienie_maszyna> Szczegoly_zamowienie_maszyna { get; set; }
     }
 }
