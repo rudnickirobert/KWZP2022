@@ -4,10 +4,10 @@ GO
 INSERT INTO Wyksztalcenie (Nazwa)
 VALUES
 ('Podstawowe'),
-('årednie branøowe'),
-('årednie'),
-('Inøynier'), 
-('Wyøsze');
+('≈örednie bran≈ºowe'),
+('≈örednie'),
+('In≈ºynier'), 
+('Wy≈ºsze');
 
 INSERT INTO Czynnosc_produkcyjna (Nazwa)
 VALUES
@@ -15,21 +15,21 @@ VALUES
 ('Skanowanie'),
 ('Projektowanie'),
 ('Drukowanie'),
-('Wyg≥adzanie'),
+('Wyg≈Çadzanie'),
 ('Szlifowanie'),
 ('Lakierowanie'),
 ('Klejenie'),
-('Montaø');
+('Monta≈º');
 
 INSERT INTO Pracownik (Nazwisko, Imie, Nr_dowodu, Pesel, ID_wyksztalcenie)
 VALUES
 ('Nowak','Jan','AAA00000',5505000005,1),
-('Marsza≥','Grzegorz','ABC20000',88090100005,2),
-('Gont','JÛzef','RF004050',97030400005,3),
+('Marsza≈Ç','Grzegorz','ABC20000',88090100005,2),
+('Gont','J√≥zef','RF004050',97030400005,3),
 ('Markowska', 'Anna', 'ABC00020',88063603005,1),
 ('Pawlak','Katarzyna','GDE00900',90041200003,2),
 ('Kowalczylk','Adam','UJG02033',99051707802, 3),
-('Andrzejewski', 'Micha≥','DCE986557',79072900034,1),
+('Andrzejewski', 'Micha≈Ç','DCE986557',79072900034,1),
 ('Krawczyk', 'Karol', 'GDT80967',90050004505,2),
 ('Wieczorek', 'Karolina', 'HNR23123',87050500006,3),
 ('Baran', 'Szymon', 'MFN67926',99050068003,1),
@@ -39,7 +39,7 @@ VALUES
 ('Sikora', 'Julia', 'LFB57823',85050087096,2),
 ('Nowicki', 'Filip', 'LAP46723',95050657006,3),
 ('Duda', 'Wojciech', 'PKE95123',98050670006,1),
-('Grabowski', 'Stanis≥aw', 'LDH65793',92050008906,1),
+('Grabowski', 'Stanis≈Çaw', 'LDH65793',92050008906,1),
 ('Dzban', 'Jan', 'LDP65793',98050228905,1),
 ('Gawron', 'Patrycja', 'LPG69699',82050008902,1),
 ('Pudzianowski', 'Mariusz', 'XD954821',74010508905,4),
@@ -48,23 +48,23 @@ VALUES
 
 INSERT INTO Dane_adresowe_pracownik (ID_pracownik, Miejscowosc, Ulica, Nr_budynku, Nr_lokalu, Kod_pocztowy, Data_od)
 VALUES
-(1, 'Warszawa', 'Jana Paw≥a II', '21', '37', '02137', '2021-04-14'),
+(1, 'Warszawa', 'Jana Paw≈Ça II', '21', '37', '02137', '2021-04-14'),
 (2, 'Marki', 'Markowa', '23', '11', '12000', '2019-08-14'),
-(3, 'Warszawa', 'KombatantÛw', '6', '26', '11500', '2020-02-13'),
-(4, 'Warszawa', 'KrÛlowej Jadwigi', '11', '20', '02347', '2020-04-19'),
-(5, 'Warszawa', 'Koúciuszki', '51', '32', '02952', '2018-10-02'),
-(6, 'Marki', 'D≥uga', '1', '1', '12301','2019-03-09'),
-(7, 'Warszawa', 'KrÛtka', '2','2','02022','2021-06-11'),
-(8, 'Warszawa', 'årednia', '3','3','01437','2021-06-11'),
+(3, 'Warszawa', 'Kombatant√≥w', '6', '26', '11500', '2020-02-13'),
+(4, 'Warszawa', 'Kr√≥lowej Jadwigi', '11', '20', '02347', '2020-04-19'),
+(5, 'Warszawa', 'Ko≈õciuszki', '51', '32', '02952', '2018-10-02'),
+(6, 'Marki', 'D≈Çuga', '1', '1', '12301','2019-03-09'),
+(7, 'Warszawa', 'Kr√≥tka', '2','2','02022','2021-06-11'),
+(8, 'Warszawa', '≈örednia', '3','3','01437','2021-06-11'),
 (9, 'Warszawa', 'Kaliskiego', '2', '11', '01534','2020-02-11'),
-(10, 'Warszawa', 'GÛrczewska', '11', '20', '03321','2020-01-13'),
+(10, 'Warszawa', 'G√≥rczewska', '11', '20', '03321','2020-01-13'),
 (11, 'Marki', 'Naturalna', '21', '36', '08808', '2018-07-13'), 
-(12, 'PruszkÛw', 'Wiejska', '13', '32', '11111','2017-05-13'),
-(13, 'Warszawa',' Po≥czyÒska', '2','33', '01910','2018-01-01'),
+(12, 'Pruszk√≥w', 'Wiejska', '13', '32', '11111','2017-05-13'),
+(13, 'Warszawa',' Po≈Çczy≈Ñska', '2','33', '01910','2018-01-01'),
 (14, 'Warszawa', 'Al. Jerozolimskie', '5','10', '02147', '2017-01-01'),
-(15, 'PruszkÛw', 'Marsza≥kowska', '1', '1', '03332', '2019-01-01'),
-(16, 'PruszkÛw', 'Prosta', '27', '22', '01712', '2020-01-01'),
-(17, 'PruszkÛw', 'Karolkowa' ,'3', '34', '04543', '2022-01-01'),
+(15, 'Pruszk√≥w', 'Marsza≈Çkowska', '1', '1', '03332', '2019-01-01'),
+(16, 'Pruszk√≥w', 'Prosta', '27', '22', '01712', '2020-01-01'),
+(17, 'Pruszk√≥w', 'Karolkowa' ,'3', '34', '04543', '2022-01-01'),
 (18, 'Warszawa', 'Piertucha' ,'5', '15', '02495', '2022-02-21'),
 (19, 'Warszawa', 'Ziemniaczana' ,'13', '13', '00251', '2022-01-12'),
 (20, 'Warszawa', 'Marchewkowa' ,'15', '12', '00957', '2021-01-11'),
@@ -91,41 +91,41 @@ INSERT INTO Stanowisko (Nazwa_stanowiska)
 VALUES
 ('Prezes'),
 ('Dyrektor operacyjny'),
-('Specjalista do spraw kadr i p≥ac'),
+('Specjalista do spraw kadr i p≈Çac'),
 ('Projektant'),
 ('Project manager'),
-('Specjalista do spraw finansÛw'),
+('Specjalista do spraw finans√≥w'),
 ('Kierownik handlu i marketingu'),
 ('Handlowiec'),
 ('Marketingowiec'),
 ('Kierownik produkcji i utrzymania ruchu'),
 ('Brygadzista'),
 ('Operator'),
-('Kierownik zasobÛw i dostaw'),
+('Kierownik zasob√≥w i dostaw'),
 ('Zaopatrzeniowiec'),
 ('Magazynier'),
 ('Brygadzista utrzymania ruchu'),
 ('Elektromechanik'),
 ('Logistyk'),
-('Kontroler jakoúci');
+('Kontroler jako≈õci');
 
 INSERT INTO Dzial (Nazwa_dzial)
 VALUES
 ('Kadr i przygotowania produkcji'),
 ('Handlowy i marketingu'),
 ('Produkcji'),
-('ZasobÛw i dostaw'),
+('Zasob√≥w i dostaw'),
 ('Utrzymania ruchu'),
 ('Logistyczny'),
-('Kontroli jakoúci');
+('Kontroli jako≈õci');
 
 INSERT INTO Rodzaj_kontrola (Rodzaj_kontrola, Procedura)
 VALUES
-('Wymiarowa', 'DokonaÊ pomiaru najwaøniejszych wymiarÛw'),
-('Wzrokowa', 'OgÛlne oglÍdziny otrzymanego produktu'),
-('Badanie twardoúci', 'DokonaÊ pomiaru twardoúci badanego produktu'),
-('Badanie chropowatoúci', 'OkreúliÊ chropowatoúÊ uzyskanej powierzchni'),
-('Wytrzyma≥oúciowa', 'PoddaÊ produkt obciπøeniu prÛbnemu');
+('Wymiarowa', 'Dokonaƒá pomiaru najwa≈ºniejszych wymiar√≥w'),
+('Wzrokowa', 'Og√≥lne oglƒôdziny otrzymanego produktu'),
+('Badanie twardo≈õci', 'Dokonaƒá pomiaru twardo≈õci badanego produktu'),
+('Badanie chropowato≈õci', 'Okre≈õliƒá chropowato≈õƒá uzyskanej powierzchni'),
+('Wytrzyma≈Ço≈õciowa', 'Poddaƒá produkt obciƒÖ≈ºeniu pr√≥bnemu');
 
 INSERT INTO Slownik_stanowisko (Nazwa_stanowiska)
 VALUES
@@ -134,7 +134,7 @@ VALUES
 ('Stanowisko do drukowania SLS'),
 ('Stanowisko do drukowania SLA'),
 ('Stanowisko do szlifowania'),
-('Stanowisko do ≥πczenia pÛ≥produktÛw'),
+('Stanowisko do ≈ÇƒÖczenia p√≥≈Çprodukt√≥w'),
 ('Stanowisko do lakierowania'),
 ('Stanowisko do projektowania'),
 ('Stanowisko do wygladzania');
@@ -142,7 +142,7 @@ VALUES
 INSERT INTO Produkt (Nazwa_produkt)
 VALUES
 ('Litofanowy klosz do lampy'),
-('Przek≥adnia zÍbata'),
+('Przek≈Çadnia zƒôbata'),
 ('Tapicerka samochodowa'),
 ('Obudowa PC'),
 ('Kostka rubika');
@@ -150,12 +150,12 @@ VALUES
 INSERT INTO Slownik_polprodukt (Nazwa)
 VALUES
 ('Uchwyt zasilacza'),
-('Wa≥ czynny'),
-('Wa≥ bierny'),
-('Obudowa przek≥adni'),
-('Elementy montaøowe - kostka'),
+('Wa≈Ç czynny'),
+('Wa≈Ç bierny'),
+('Obudowa przek≈Çadni'),
+('Elementy monta≈ºowe - kostka'),
 ('Klosz fi150'),
-('Mocowanie ch≥odzenia'),
+('Mocowanie ch≈Çodzenia'),
 ('Maskownica do kabli'),
 ('Elementy powierzchniowe');
 
@@ -173,10 +173,10 @@ VALUES
 
 INSERT INTO Narzedzie (Nazwa_narzedzie)
 VALUES
-('årubokrÍt p≥aski'),
+('≈örubokrƒôt p≈Çaski'),
 ('Kombinerki'),
-('NÛø'),
-('Noøyczki'),
+('N√≥≈º'),
+('No≈ºyczki'),
 ('Suwmiarka'),
 ('Klucz francuski');
 
@@ -187,7 +187,7 @@ VALUES
 ('PETG'),
 ('Proszek stali 316L'),
 ('Nylon PA12'),
-('Øywica termoutwardzalna'),
+('≈ªywica termoutwardzalna'),
 ('Klej')
 
 INSERT INTO Rodzaj_maszyna (Nazwa_rodzaj_maszyna, Opis)
@@ -245,20 +245,20 @@ VALUES
 
 INSERT INTO Rodzaj_parametr (Nazwa_rodzaj_parametr, ID_Jednostka)
 VALUES
-('GÍstoúÊ',5),
-('D≥ugoúÊ',1),
-('SzerokoúÊ',1),
-('årednica',1),
+('Gƒôsto≈õƒá',5),
+('D≈Çugo≈õƒá',1),
+('Szeroko≈õƒá',1),
+('≈örednica',1),
 ('Masa',2),
-('Wytrzyma≥oúÊ na rozciπganie', 3),
-('Wytrzyma≥oúÊ na skrÍcanie', 3),
-('Modu≥ Younga',3),
-('Temperatura sto≥u roboczego',6),
-('G≥oúnoúÊ pracy',7),
-('PrÍdkoúÊ druku', 8),
-('PrÍdkoúÊ przejazdÛw ja≥owych', 8),
+('Wytrzyma≈Ço≈õƒá na rozciƒÖganie', 3),
+('Wytrzyma≈Ço≈õƒá na skrƒôcanie', 3),
+('Modu≈Ç Younga',3),
+('Temperatura sto≈Çu roboczego',6),
+('G≈Ço≈õno≈õƒá pracy',7),
+('Prƒôdko≈õƒá druku', 8),
+('Prƒôdko≈õƒá przejazd√≥w ja≈Çowych', 8),
 ('Temperatura przechowywania',6),
-('Maksymalny pobÛr mocy',9);
+('Maksymalny pob√≥r mocy',9);
 
 INSERT INTO Parametr_produkt(ID_produkt, ID_rodzaj_parametr, Zakres_dol, Zakres_gora)
 VALUES
@@ -318,18 +318,21 @@ VALUES
 (1,'Filament Czarny ABS Black'),
 (3,'Filament Zolty PETG Stakchovsky'),
 (2,'Filament Czerwony PLA Podraskov'),
-(2,'Filament Niebieski PLA POODZIAN');
+(2,'Filament Niebieski PLA POODZIAN'),
+(5,'Nylon PA12 Marka Jarka'),
+(6,'ƒπ¬ªywica Biala STRONG'),
+(7,'Klej GIGADZIECIACZEK');
 
 INSERT INTO Sklad_polprodukt (ID_polprodukt, ID_material, Liczba)
 VALUES
-(1,5,2),
-(2,2,1),
-(3,3,4),
-(2,4,1),
-(3,2,1),
-(4,1,3),
-(4,3,2),
-(5,5,4);
+(1,5,200),
+(2,2,150),
+(3,3,400),
+(2,4,100),
+(3,2,100),
+(4,1,300),
+(4,3,200),
+(5,5,400);
 
 INSERT INTO Czesc (Nazwa_czesc, ID_rodzaj_czesc)
 VALUES
@@ -402,9 +405,9 @@ VALUES
 
 INSERT INTO Rodzaj_umowy (Nazwa, Urlop)
 VALUES
-('Umowa o pracÍ',26),
+('Umowa o pracƒô',26),
 ('Umowa zlecenie',0),
-('Umowa o dzie≥o',0);
+('Umowa o dzie≈Ço',0);
 
 INSERT INTO Rodzaj_nieobecnosci (Symbol)
 VALUES
@@ -422,8 +425,8 @@ VALUES
 
 INSERT INTO Wymiar_pracy (Nazwa)
 VALUES
-('Pe≥ny etat'),
-('PÛ≥ etatu');
+('Pe≈Çny etat'),
+('P√≥≈Ç etatu');
 
 INSERT INTO Umowa (ID_wymiar_pracy, ID_rodzaj_umowy, ID_pracownik, ID_posada_pracownika, Wynagrodzenie)
 VALUES
@@ -603,12 +606,12 @@ VALUES
 
 INSERT INTO Proces_produkt_czynnosc (ID_produkt, ID_czynnosc_produkcyjna, Czas_trwania)
 VALUES
-(1,9,30),	--Montaø		--6.Stanowisko do ≥πczenia pÛ≥produktÛw
-(2,9,60),	--Montaø		--6.
+(1,9,30),	--Monta≈º		--6.Stanowisko do ≈ÇƒÖczenia p√≥≈Çprodukt√≥w
+(2,9,60),	--Monta≈º		--6.
 (2,8,60),	--Klejenie		--6.
-(3,9,120),	--Montaø		--6.
-(4,9,180),	--Montaø		--6.
-(5,9,60);	--Montaø		--6.
+(3,9,120),	--Monta≈º		--6.
+(4,9,180),	--Monta≈º		--6.
+(5,9,60);	--Monta≈º		--6.
 
 INSERT INTO Dostawca (Nazwa_dostawca)
 VALUES
@@ -683,8 +686,8 @@ INSERT INTO Dane_adresowe_klient (ID_klient, Miejscowosc, Ulica, Nr_budynek, Nr_
 	VALUES
 	(1, 'Warszawa', 'Warszawska', 1, NULL, '12-345'),
 	(2, 'Bydgoszcz', 'Bydgoska', 1, 2, '54-321'),
-	(3, 'GrÛjec', NULL, 1, NULL, '98-765'),
-	(4, 'ØyrardÛw', '3 Maja', 3, 5, '32-654'),
+	(3, 'Gr√≥jec', NULL, 1, NULL, '98-765'),
+	(4, '≈ªyrard√≥w', '3 Maja', 3, 5, '32-654'),
 	(5, 'Warszawa', 'Warszawska', 53, 24, '12-345');
 
 INSERT INTO Typ_zamowienie (Typ_zamowienie)
@@ -745,8 +748,8 @@ INSERT INTO Podatek (Procent)
 INSERT INTO Forma_platnosc (Forma_platnosc)
 	VALUES
 	('Przelew'),
-	('Karta p≥atnicza'),
-	('GotÛwka'),
+	('Karta p≈Çatnicza'),
+	('Got√≥wka'),
 	('BLIK'),
 	('Przelew pocztowy');
 
@@ -771,7 +774,7 @@ INSERT INTO Reklamacja (ID_pracownik, ID_sprzedaz, Data_reklamacja, Opis_reklama
 	(1, 1, '2022-04-01', 'Uszkodzenie mechaniczne'),
 	(3, 1, '2022-04-02', 'Rozklejenie produtku'),
 	(2, 2, '2022-04-03', 'Uszkodzenie mechaniczne'),
-	(5, 3, '2022-04-04', 'PÍkniecie materia≥u'),
+	(5, 3, '2022-04-04', 'Pƒôkniecie materia≈Çu'),
 	(4, 3, '2022-04-05', 'Uszkodzenie mechaniczne'),
 	(5, 4, '2022-04-01', 'Uszkodzenie mechaniczne'),
 	(4, 5, '2022-04-01', 'Uszkodzenie mechaniczne');
@@ -1214,19 +1217,19 @@ VALUES
 
 INSERT INTO Wytwarzanie (Id_pracownik, Id_zamowienie_szczegol, Czas_od, Czas_do)
 VALUES
-(7,1,'2022-04-04 08:00:00 AM','2022-04-04 13:00:00 PM'), 		--Wa≥ czynny, projektowanie, 300
-(2,1,'2022-04-04 08:00:00 AM','2022-04-04 08:15:00 AM'),		--Wa≥ czynny, przygotowanie stanowiska, 15
-(2,1,'2022-04-04 13:30:00 PM','2022-04-05 01:30:00 AM'),		--Wa≥ czynny, drukowanie, 720
-(2,1,'2022-04-05 08:00:00 AM','2022-04-05 09:00:00 AM'),		--Wa≥ czynny, szlifowanie, 60
-(8,1,'2022-04-04 08:00:00 AM','2022-04-04 13:00:00 PM'),		--Wa≥ bierny, projektowanie,300
-(2,1,'2022-04-05 08:00:00 AM','2022-04-05 08:15:00 AM'),		--Wa≥ bierny, przygotowanie stanowiska, 15
-(2,1,'2022-04-05 09:15:00 AM','2022-04-05 21:00:00 PM'),		--Wa≥ bierny, drukowanie, 720
-(2,1,'2022-04-06 08:00:00 AM','2022-04-06 09:00:00 AM'),		--Wa≥ bierny, szlifowanie, 60
-(7,1,'2022-04-04 01:00:00 PM','2022-04-04 16:00:00 PM'),		--Obudowa przek≥adni, projektowanie, 180
-(2,1,'2022-04-06 09:15:00 AM','2022-04-06 09:30:00 AM'),		--Obudowa przek≥adni,przygotowanie stanow.,15
-(2,1,'2022-04-06 09:30:00 AM','2022-04-06 21:30:00 PM'),		--Obudowa przek≥adni, drukowanie, 720
-(2,1,'2022-04-07 08:00:00 AM','2022-04-07 09:00:00 AM'),		--Obudowa przek≥adni, wyg≥adzanie, 60
-(2,1,'2022-04-07 09:00:00 AM','2022-04-07 11:00:00 AM'),		--Obudowa przek≥adni, lakierowanie, 120
+(7,1,'2022-04-04 08:00:00 AM','2022-04-04 13:00:00 PM'), 		--Wa≈Ç czynny, projektowanie, 300
+(2,1,'2022-04-04 08:00:00 AM','2022-04-04 08:15:00 AM'),		--Wa≈Ç czynny, przygotowanie stanowiska, 15
+(2,1,'2022-04-04 13:30:00 PM','2022-04-05 01:30:00 AM'),		--Wa≈Ç czynny, drukowanie, 720
+(2,1,'2022-04-05 08:00:00 AM','2022-04-05 09:00:00 AM'),		--Wa≈Ç czynny, szlifowanie, 60
+(8,1,'2022-04-04 08:00:00 AM','2022-04-04 13:00:00 PM'),		--Wa≈Ç bierny, projektowanie,300
+(2,1,'2022-04-05 08:00:00 AM','2022-04-05 08:15:00 AM'),		--Wa≈Ç bierny, przygotowanie stanowiska, 15
+(2,1,'2022-04-05 09:15:00 AM','2022-04-05 21:00:00 PM'),		--Wa≈Ç bierny, drukowanie, 720
+(2,1,'2022-04-06 08:00:00 AM','2022-04-06 09:00:00 AM'),		--Wa≈Ç bierny, szlifowanie, 60
+(7,1,'2022-04-04 01:00:00 PM','2022-04-04 16:00:00 PM'),		--Obudowa przek≈Çadni, projektowanie, 180
+(2,1,'2022-04-06 09:15:00 AM','2022-04-06 09:30:00 AM'),		--Obudowa przek≈Çadni,przygotowanie stanow.,15
+(2,1,'2022-04-06 09:30:00 AM','2022-04-06 21:30:00 PM'),		--Obudowa przek≈Çadni, drukowanie, 720
+(2,1,'2022-04-07 08:00:00 AM','2022-04-07 09:00:00 AM'),		--Obudowa przek≈Çadni, wyg≈Çadzanie, 60
+(2,1,'2022-04-07 09:00:00 AM','2022-04-07 11:00:00 AM'),		--Obudowa przek≈Çadni, lakierowanie, 120
 (2,1,'2022-04-07 11:00:00 AM','2022-04-07 12:00:00 PM'),		--Przekladnia zebata, montaz, 60
 (2,1,'2022-04-07 12:00:00 PM', NULL),							--Przekladnia zebata, klejenie, 60
 (2,2,'2022-04-07 13:00:00 PM','2022-04-07 16:00:00 PM'), 		--Litofanowy klosz, skanowanie, 180
