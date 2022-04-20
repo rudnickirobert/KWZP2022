@@ -547,14 +547,6 @@ SELECT KPP.Produkt AS [Nazwa Produktu], KPP.[Rezultat kontroli]
 FROM v_Kontrola_parametr_produkt AS KPP
 GO
 
---CREATE VIEW v_Magazyn_material_wszystko
---AS
---SELECT [Nazwa materiału], [Waga (g)]
---FROM v_Zamowienia_materialy_w_trakcie_wszystko 
---WHERE StatusID = 4
---GROUP BY [Nazwa materiału], [Waga (g)]
---GO
-
 
 --SALES AND MARKETING DEPARTMENT --
 CREATE VIEW v_Szczegoly_sprzedaz AS
