@@ -453,7 +453,7 @@ CREATE TABLE Wytwarzanie
 	ID_pracownik INT FOREIGN KEY
 		REFERENCES Pracownik(ID_pracownik) NOT NULL,
 	ID_zamowienie_szczegol INT FOREIGN KEY
-		REFERENCES Zamowienie(ID_zamowienie_szczegol) NOT NULL,
+		REFERENCES Zamowienie_szczegol(ID_zamowienie_szczegol) NOT NULL,
 	Czas_od DATETIME NOT NULL,
 	Czas_do DATETIME
 );
