@@ -217,6 +217,12 @@
     <Compile Include="Reklamacja.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ResDepFORMMagazyn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResDepFORMMagazyn.Designer.cs">
+      <DependentUpon>ResDepFORMMagazyn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Rodzaj_czesc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -636,6 +642,12 @@
     <Compile Include="Wytwarzanie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ZamowieniaResDepFORM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZamowieniaResDepFORM.Designer.cs">
+      <DependentUpon>ZamowieniaResDepFORM.cs</DependentUpon>
+    </Compile>
     <Compile Include="Zamowienie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -703,8 +715,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ResDepFORMMagazyn.resx">
+      <DependentUpon>ResDepFORMMagazyn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SlownikStanowiskoForm.resx">
       <DependentUpon>SlownikStanowiskoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZamowieniaResDepFORM.resx">
+      <DependentUpon>ZamowieniaResDepFORM.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="KWZPModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

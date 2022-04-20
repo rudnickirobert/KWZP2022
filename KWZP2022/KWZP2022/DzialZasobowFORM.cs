@@ -21,15 +21,22 @@ namespace KWZP2022
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
-
+            ZamowieniaResDepFORM zamowieniaFrom = new ZamowieniaResDepFORM(db);
+            zamowieniaFrom.ShowDialog();
         }
 
         private void btnWarehouse_Click(object sender, EventArgs e)
         {
-
+            ResDepFORMMagazyn magazynFrom = new ResDepFORMMagazyn(db);
+            magazynFrom.ShowDialog();
         }
 
         private void btnService_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DzialZasobowFORM_Load(object sender, EventArgs e)
         {
 
         }

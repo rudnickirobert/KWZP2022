@@ -36,5 +36,10 @@ namespace KWZP2022.Forms
             DzialZasobowFORM produkcjaFrom = new DzialZasobowFORM(db);
             produkcjaFrom.ShowDialog();
         }
+
+        private void FormDepartments_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
