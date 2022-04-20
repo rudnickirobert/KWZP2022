@@ -40,7 +40,7 @@ namespace KWZP2022
             var dane = from v_klient in db.v_Klient
                        select new
                        {
-                           v_klient.ID,
+                           v_klient.ID_klient,
                            v_klient.Nazwisko,
                            v_klient.Imię,
                            v_klient.NIP,

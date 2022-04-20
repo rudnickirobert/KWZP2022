@@ -968,11 +968,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Koszt_procesow_produkt' does not have a
           <Property Name="Suma kosztu procesów" Type="money" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'KWZP.dbo.v_Koszt_produkcji' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="v_Koszt_produkcji">
-          <Property Name="Koszt wytworzenia produktu {PLN}" Type="money" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Koszt_roboczogodziny_stanowiska' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Koszt_roboczogodziny_stanowiska">
           <Key>
