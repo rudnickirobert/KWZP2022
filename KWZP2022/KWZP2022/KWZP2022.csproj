@@ -82,6 +82,12 @@
     <Compile Include="Dzial.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DzialZasobowFORM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DzialZasobowFORM.Designer.cs">
+      <DependentUpon>DzialZasobowFORM.cs</DependentUpon>
+    </Compile>
     <Compile Include="Email_klient.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -651,6 +657,9 @@
     <Compile Include="Zwrot.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DzialZasobowFORM.resx">
+      <DependentUpon>DzialZasobowFORM.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -692,6 +701,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="SlownikStanowiskoForm.resx">
       <DependentUpon>SlownikStanowiskoForm.cs</DependentUpon>
@@ -731,6 +741,7 @@
       <DependentUpon>KWZPModel.edmx</DependentUpon>
       <LastGenOutput>KWZPModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\unknown.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
