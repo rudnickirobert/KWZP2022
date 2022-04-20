@@ -512,14 +512,6 @@ SELECT [Nazwa narzędzia], Sztuk-Używane AS [Ilość w magazynie]
 FROM v_Magazyn_narzedzia_stan
 GO
 
-CREATE VIEW v_Magazyn_material_wszystko
-AS
-SELECT [Nazwa materiału], [Waga (g)]
-FROM v_Zamowienia_materialy_w_trakcie_wszystko 
-WHERE StatusID = 4
-GROUP BY [Nazwa materiału], [Waga (g)]
-GO
-
 CREATE VIEW v_Magazyn_czesci_wszystko
 AS
 SELECT [Nazwa części], [Ilość]
@@ -548,6 +540,21 @@ AS
 SELECT [Nazwa części], [Ilość]-[Wymienione części] AS [Ilość w magazynie]
 FROM v_Magazyn_czesci_stan
 GO
+
+CREATE VIEW v_Magazyn_Produkty_Wytworzone
+AS
+SELECT KPP.Produkt AS [Nazwa Produktu], KPP.[Rezultat kontroli]
+FROM v_Kontrola_parametr_produkt AS KPP
+GO
+
+--CREATE VIEW v_Magazyn_material_wszystko
+--AS
+--SELECT [Nazwa materiału], [Waga (g)]
+--FROM v_Zamowienia_materialy_w_trakcie_wszystko 
+--WHERE StatusID = 4
+--GROUP BY [Nazwa materiału], [Waga (g)]
+--GO
+
 
 --SALES AND MARKETING DEPARTMENT --
 CREATE VIEW v_Szczegoly_sprzedaz AS
