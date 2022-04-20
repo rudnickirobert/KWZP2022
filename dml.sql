@@ -740,18 +740,6 @@ INSERT INTO Oferta_handlowa (ID_zamowienie, ID_pracownik, Termin_realizacja, ID_
 	(5, 5, '2022-05-04', 1, 1, 2400),
 	(1, 1, '2022-05-30', 1, 2, 7500);
 
-INSERT INTO Szczegoly_oferta (ID_oferta_handlowa, ID_produkt, Ilosc, Cena_jednostkowa)
-	VALUES
-	(1, 2, 50, 40),
-	(1, 1, 30, 100),
-	(2, 3, 100, 40),
-	(3, 3, 150, 10),
-	(3, 5, 120, 20),
-	(4, 3, 150, 40),
-	(5, 5, 120, 20),
-	(6, 2, 100, 30),
-	(6, 1, 60, 75);
-
 INSERT INTO Podatek (Procent)
 	VALUES
 	(0),
@@ -1230,7 +1218,7 @@ VALUES
 (5,13,1),
 (5,17,1);
 
-INSERT INTO Wytwarzanie (Id_pracownik, Id_szczegoly_oferta, Czas_od, Czas_do)
+INSERT INTO Wytwarzanie (Id_pracownik, Id_zamowienie_szczegol, Czas_od, Czas_do)
 VALUES
 (7,1,'2022-04-04 08:00:00 AM','2022-04-04 13:00:00 PM'), 		--Wał czynny, projektowanie, 300
 (2,1,'2022-04-04 08:00:00 AM','2022-04-04 08:15:00 AM'),		--Wał czynny, przygotowanie stanowiska, 15
