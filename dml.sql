@@ -734,18 +734,6 @@ INSERT INTO Oferta_handlowa (ID_zamowienie, ID_pracownik, Termin_realizacja, ID_
 	(5, 5, '2022-05-04', 1, 1, 2400),
 	(1, 1, '2022-05-30', 1, 2, 7500);
 
-INSERT INTO Szczegoly_oferta (ID_oferta_handlowa, ID_produkt, Ilosc, Cena_jednostkowa)
-	VALUES
-	(1, 2, 50, 40),
-	(1, 1, 30, 100),
-	(2, 3, 100, 40),
-	(3, 3, 150, 10),
-	(3, 5, 120, 20),
-	(4, 3, 150, 40),
-	(5, 5, 120, 20),
-	(6, 2, 100, 30),
-	(6, 1, 60, 75);
-
 INSERT INTO Podatek (Procent)
 	VALUES
 	(0),
@@ -1148,36 +1136,36 @@ VALUES
 (27,4,'2022-04-21 12:09:00',15),
 (28,4,'2022-04-21 12:18:00',15);
 
-INSERT INTO Szczegoly_zamowienie_maszyna(ID_zamowienie_maszyna, ID_maszyna_nr, ID_producent, Cena)
+INSERT INTO Szczegoly_zamowienie_maszyna(ID_zamowienie_maszyna, ID_maszyna, ID_producent, Ilosc,Cena)
 VALUES
-(1,1,1,3500),
-(2,2,2,7000),
-(3,3,3,65000),
-(4,4,4,2700),
-(5,5,5,1649),
-(6,6,6,5700),
-(7,7,7,2100),
-(8,8,1,3500),
-(9,9,1,3500),
-(10,10,1,3500),
-(11,11,2,7000),
-(12,12,2,7000),
-(13,13,2,7000),
-(14,14,3,65000),
-(15,15,3,65000),
-(16,16,3,65000),
-(17,17,4,2700),
-(18,18,4,2700),
-(19,19,4,2700),
-(20,20,5,1649),
-(21,21,5,1649),
-(22,22,5,1649),
-(23,23,6,5700),
-(24,24,6,5700),
-(25,25,6,5700),
-(26,26,7,2100),
-(27,27,7,2100),
-(28,28,7,2100);
+(1,1,1,1,3500),
+(2,2,2,1,7000),
+(3,3,3,1,65000),
+(4,4,4,1,2700),
+(5,5,5,1,1649),
+(6,6,6,1,5700),
+(7,7,7,1,2100),
+(8,1,1,1,3500),
+(9,1,1,1,3500),
+(10,1,1,1,3500),
+(11,2,2,1,7000),
+(12,2,2,1,7000),
+(13,2,2,1,7000),
+(14,3,3,1,65000),
+(15,3,3,1,65000),
+(16,3,3,1,65000),
+(17,4,4,1,2700),
+(18,4,4,1,2700),
+(19,4,4,1,2700),
+(20,5,5,1,1649),
+(21,5,5,1,1649),
+(22,5,5,1,1649),
+(23,6,6,1,5700),
+(24,6,6,1,5700),
+(25,6,6,1,5700),
+(26,7,7,1,2100),
+(27,7,7,1,2100),
+(28,7,7,1,2100);
 
 INSERT INTO Obsluga(ID_rodzaj_obsluga, ID_stanowisko_produkcyjne, Data_od, Data_do, Uwagi)
 VALUES
@@ -1224,7 +1212,7 @@ VALUES
 (5,13,1),
 (5,17,1);
 
-INSERT INTO Wytwarzanie (Id_pracownik, Id_szczegoly_oferta, Czas_od, Czas_do)
+INSERT INTO Wytwarzanie (Id_pracownik, Id_zamowienie_szczegol, Czas_od, Czas_do)
 VALUES
 (7,1,'2022-04-04 08:00:00 AM','2022-04-04 13:00:00 PM'), 		--Wał czynny, projektowanie, 300
 (2,1,'2022-04-04 08:00:00 AM','2022-04-04 08:15:00 AM'),		--Wał czynny, przygotowanie stanowiska, 15

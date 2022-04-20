@@ -199,8 +199,9 @@ SELECT W.ID_wytwarzanie AS [ID zabiegu produkcyjnego], W.Czas_od [Data rozpoczę
 P.Nazwisko + ' ' + P.Imie AS [Pracownik], OH.Termin_realizacja AS [Termin realizacji oferty]
 FROM Wytwarzanie AS W
 INNER JOIN Pracownik AS P ON W.ID_pracownik = P.ID_pracownik
-INNER JOIN Szczegoly_oferta AS SO ON W.ID_szczegoly_oferta = SO.ID_szczegoly_oferta
-INNER JOIN Oferta_handlowa AS OH ON OH.ID_oferta_handlowa = SO.ID_oferta_handlowa
+INNER JOIN Zamowienie_szczegol AS ZS ON W.ID_zamowienie_szczegol = ZS.ID_zamowienie_szczegol
+INNER JOIN Zamowienie AS Z ON ZS.ID_zamowienie = Z.ID_zamowienie
+INNER JOIN Oferta_handlowa AS OH ON OH.ID_zamowienie = z.ID_zamowienie
 GO
 
 CREATE VIEW v_Proces_wytwarzanie_polprodukt
@@ -417,20 +418,19 @@ GO
 
 CREATE VIEW v_Zamowienia_maszyny_w_trakcie_wszystko 
 AS 
-SELECT ZM.ID_zamowienie_maszyna AS [Nr zamówienia], M.Nazwa_maszyna AS [Nazwa maszyny], NR.Nr_seryjny AS [Nr Seryjny], SRZM.Data_stan [Data zmiany stanu], Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID] 
+SELECT ZM.ID_zamowienie_maszyna AS [Nr zamówienia], M.Nazwa_maszyna AS [Nazwa maszyny], SRZM.Data_stan AS [Data zmiany stanu], Ilosc AS [Ilość], Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID] 
 FROM Szczegoly_zamowienie_maszyna AS SZM 
 INNER JOIN Zamowienie_maszyna AS ZM ON SZM.ID_zamowienie_maszyna = ZM.ID_zamowienie_maszyna
-INNER JOIN Maszyna_nr_seryjny AS MNR ON SZM.ID_maszyna_nr = MNR.ID_maszyna_nr
-INNER JOIN Maszyna AS M ON MNR.ID_maszyna = M.ID_maszyna
+INNER JOIN Maszyna AS M ON SZM.ID_maszyna = M.ID_maszyna
 INNER JOIN Stan_realizacji_zamowienie_maszyna AS SRZM ON ZM.ID_zamowienie_maszyna = SRZM.ID_zamowienie_maszyna
 INNER JOIN Status_zamowienie AS SZ ON SRZM.ID_status_zamowienie = SZ.ID_status_zamowienie 
 INNER JOIN Dostawca AS D ON ZM.ID_dostawca = D.ID_dostawca
-INNER JOIN Nr_seryjny AS NR ON MNR.ID_nr_seryjny = NR.ID_nr_seryjny
+GROUP BY M.Nazwa_maszyna, ZM.ID_zamowienie_maszyna, SRZM.Data_stan, Ilosc, Cena, D.Nazwa_dostawca, SZ.Nazwa_status, SZ.ID_status_zamowienie
 GO
 
 CREATE VIEW v_Zamowienia_maszyny_w_trakcie_bez_odebranych 
 AS 
-SELECT ZMWTW.[Nr zamówienia], ZMWTW.[Nazwa maszyny], ZMWTW.[Nr Seryjny], ZMWTW.[Data zmiany stanu], ZMWTW.Cena, ZMWTW.[Status], ZMWTW.[StatusID] 
+SELECT ZMWTW.[Nr zamówienia], ZMWTW.[Nazwa maszyny], ZMWTW.[Data zmiany stanu], ZMWTW.Ilość, ZMWTW.Cena, ZMWTW.[Status], ZMWTW.[StatusID] 
 FROM v_Zamowienia_maszyny_w_trakcie_wszystko  AS ZMWTW 
 LEFT JOIN v_Zamowienia_maszyny_w_trakcie_wszystko AS ZMWTWA ON ZMWTW.[Nr zamówienia] = ZMWTWA.[Nr zamówienia] AND ZMWTWA.[Status] = 'Odebrano' 
 WHERE ZMWTWA.[Nr zamówienia] IS NULL 
@@ -446,18 +446,10 @@ GO
 
 CREATE VIEW v_Magazyn_maszyn_wszystko 
 AS
-SELECT [Nazwa maszyny], [Nr Seryjny]
+SELECT [Nazwa maszyny], SUM([Ilość]) AS [Liczba sztuk]
 FROM v_Zamowienia_maszyny_w_trakcie_wszystko 
 WHERE StatusID = 4
-GROUP BY [Nazwa maszyny], [Nr Seryjny]
-GO
-
-CREATE VIEW v_Magazyn_maszyn_nieuzywane
-AS
-SELECT [Nazwa maszyny], [Nr Seryjny]
-FROM v_Magazyn_maszyn_wszystko AS MMW
-LEFT JOIN v_Sklad_stanowisko_produkcyjne_maszyna AS SSPM ON MMW.[Nr Seryjny]=SSPM.[Nr seryjny maszyny]
-WHERE SSPM.[Nr seryjny maszyny] IS NULL
+GROUP BY [Nazwa maszyny]
 GO
 
 CREATE VIEW v_Magazyn_narzedzia_wszystko
