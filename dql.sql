@@ -576,7 +576,7 @@ INNER JOIN Produkt ON Produkt.ID_produkt = Zwrot.ID_produkt
 GO
 
 CREATE VIEW v_Klient AS
-	SELECT Klient.Nazwisko AS [Nazwisko], Klient.Imie AS [Imię], Klient.NIP, Dane_adresowe_klient.Miejscowosc AS [Miejscowość], 
+	SELECT Klient.ID_klient AS [ID], Klient.Nazwisko AS [Nazwisko], Klient.Imie AS [Imię], Klient.NIP, Dane_adresowe_klient.Miejscowosc AS [Miejscowość],
 	Dane_adresowe_klient.Ulica, Dane_adresowe_klient.Nr_budynek AS [Numer budynku], 
 	Dane_adresowe_klient.Nr_lokal AS [Numer lokalu], Dane_adresowe_klient.Kod_pocztowy AS [Kod pocztowy]
 	FROM Klient 
