@@ -860,3 +860,11 @@ CREATE TABLE Alert
 	Tresc NVARCHAR(250),
 	Czy_odczytano BIT NOT NULL
 );
+CREATE TABLE Nadgodziny 
+	(
+	ID_nadgodziny INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	ID_pracownik INT FOREIGN KEY
+	REFERENCES Pracownik(ID_pracownik) NOT NULL,
+	Data_nadgodziny DATE NOT NULL,
+	Czas INT NOT NULL
+);
