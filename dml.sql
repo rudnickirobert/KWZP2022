@@ -1,1344 +1,692 @@
 USE KWZP
 GO
 
-INSERT INTO Wyksztalcenie (Nazwa)
-VALUES
-('Podstawowe'),
-('Średnie branżowe'),
-('Średnie'),
-('Inżynier'), 
-('Wyższe');
-
-INSERT INTO Czynnosc_produkcyjna (Nazwa)
-VALUES
-('Przygotowanie stanowiska'),
-('Skanowanie'),
-('Projektowanie'),
-('Drukowanie'),
-('Wygładzanie'),
-('Szlifowanie'),
-('Lakierowanie'),
-('Klejenie'),
-('Montaż');
-
-INSERT INTO Pracownik (Nazwisko, Imie, Nr_dowodu, Pesel, ID_wyksztalcenie)
-VALUES
-('Nowak','Jan','AAA00000',5505000005,1),
-('Marszał','Grzegorz','ABC20000',88090100005,2),
-('Gont','Józef','RF004050',97030400005,3),
-('Markowska', 'Anna', 'ABC00020',88063603005,1),
-('Pawlak','Katarzyna','GDE00900',90041200003,2),
-('Kowalczylk','Adam','UJG02033',99051707802, 3),
-('Andrzejewski', 'Michał','DCE986557',79072900034,1),
-('Krawczyk', 'Karol', 'GDT80967',90050004505,2),
-('Wieczorek', 'Karolina', 'HNR23123',87050500006,3),
-('Baran', 'Szymon', 'MFN67926',99050068003,1),
-('Wilk', 'Zuzanna', 'MDK85609',68050450673,2),
-('Sadowski', 'Aleksander', 'NFL48923',98050056806,3),
-('Borkowska', 'Zofia', 'LDG57291',76050045006,1),
-('Sikora', 'Julia', 'LFB57823',85050087096,2),
-('Nowicki', 'Filip', 'LAP46723',95050657006,3),
-('Duda', 'Wojciech', 'PKE95123',98050670006,1),
-('Grabowski', 'Stanisław', 'LDH65793',92050008906,1),
-('Dzban', 'Jan', 'LDP65793',98050228905,1),
-('Gawron', 'Patrycja', 'LPG69699',82050008902,1),
-('Pudzianowski', 'Mariusz', 'XD954821',74010508905,4),
-('Mahyz', 'Ednan', 'SNG65602',88092408590,4),
-('Nierob', 'Janusz', 'M6565PO1',81123157832,3);
-
-INSERT INTO Dane_adresowe_pracownik (ID_pracownik, Miejscowosc, Ulica, Nr_budynku, Nr_lokalu, Kod_pocztowy, Data_od)
-VALUES
-(1, 'Warszawa', 'Jana Pawła II', '21', '37', '02137', '2021-04-14'),
-(2, 'Marki', 'Markowa', '23', '11', '12000', '2019-08-14'),
-(3, 'Warszawa', 'Kombatantów', '6', '26', '11500', '2020-02-13'),
-(4, 'Warszawa', 'Królowej Jadwigi', '11', '20', '02347', '2020-04-19'),
-(5, 'Warszawa', 'Kościuszki', '51', '32', '02952', '2018-10-02'),
-(6, 'Marki', 'Długa', '1', '1', '12301','2019-03-09'),
-(7, 'Warszawa', 'Krótka', '2','2','02022','2021-06-11'),
-(8, 'Warszawa', 'Średnia', '3','3','01437','2021-06-11'),
-(9, 'Warszawa', 'Kaliskiego', '2', '11', '01534','2020-02-11'),
-(10, 'Warszawa', 'Górczewska', '11', '20', '03321','2020-01-13'),
-(11, 'Marki', 'Naturalna', '21', '36', '08808', '2018-07-13'), 
-(12, 'Pruszków', 'Wiejska', '13', '32', '11111','2017-05-13'),
-(13, 'Warszawa',' Połczyńska', '2','33', '01910','2018-01-01'),
-(14, 'Warszawa', 'Al. Jerozolimskie', '5','10', '02147', '2017-01-01'),
-(15, 'Pruszków', 'Marszałkowska', '1', '1', '03332', '2019-01-01'),
-(16, 'Pruszków', 'Prosta', '27', '22', '01712', '2020-01-01'),
-(17, 'Pruszków', 'Karolkowa' ,'3', '34', '04543', '2022-01-01'),
-(18, 'Warszawa', 'Piertucha' ,'5', '15', '02495', '2022-02-21'),
-(19, 'Warszawa', 'Ziemniaczana' ,'13', '13', '00251', '2022-01-12'),
-(20, 'Warszawa', 'Marchewkowa' ,'15', '12', '00957', '2021-01-11'),
-(21, 'Nadarzyn', 'Porowa' ,'1', '31', '05830', '2022-01-05'),
-(22, 'Marki', 'Cebulowa' ,'21', '3', '04543', '2020-01-03');
-
-INSERT INTO Nr_telefon_pracownik (ID_pracownik, Numer, Data_od)
-VALUES
-(1,'123123123','2022-01-01'),
-(2,'321321321','2022-02-01'),
-(3,'456456456','2021-12-10'),
-(4,'321321321','2020-05-01'),
-(5,'321321321','2021-06-01');
-
-INSERT INTO Email_pracownik (ID_pracownik,Email,Data_od)
-VALUES
-(1,'jannowak@drukarczyk.pl','2022-01-01'),
-(2,'grzegorzmarszal@drukarczyk.pl','2022-02-01'),
-(3,'jozefgont@drukarczyk.pl','2021-12-10'),
-(4,'annamarkowska@drukarczyk.pl','2020-05-01'),
-(5,'katarzynapawlak@drukarczyk.pl','2021-06-01');
-
-INSERT INTO Stanowisko (Nazwa_stanowiska)
-VALUES
-('Prezes'),
-('Dyrektor operacyjny'),
-('Specjalista do spraw kadr i płac'),
-('Projektant'),
-('Project manager'),
-('Specjalista do spraw finansów'),
-('Kierownik handlu i marketingu'),
-('Handlowiec'),
-('Marketingowiec'),
-('Kierownik produkcji i utrzymania ruchu'),
-('Brygadzista'),
-('Operator'),
-('Kierownik zasobów i dostaw'),
-('Zaopatrzeniowiec'),
-('Magazynier'),
-('Brygadzista utrzymania ruchu'),
-('Elektromechanik'),
-('Logistyk'),
-('Kontroler jakości');
-
-INSERT INTO Dzial (Nazwa_dzial)
-VALUES
-('Kadr i przygotowania produkcji'),
-('Handlowy i marketingu'),
-('Produkcji'),
-('Zasobów i dostaw'),
-('Utrzymania ruchu'),
-('Logistyczny'),
-('Kontroli jakości');
-
-INSERT INTO Rodzaj_kontrola (Rodzaj_kontrola, Procedura)
-VALUES
-('Wymiarowa', 'Dokonać pomiaru najważniejszych wymiarów'),
-('Wzrokowa', 'Ogólne oględziny otrzymanego produktu'),
-('Badanie twardości', 'Dokonać pomiaru twardości badanego produktu'),
-('Badanie chropowatości', 'Określić chropowatość uzyskanej powierzchni'),
-('Wytrzymałościowa', 'Poddać produkt obciążeniu próbnemu');
-
-INSERT INTO Slownik_stanowisko (Nazwa_stanowiska)
-VALUES
-('Stanowisko do skanowania'),
-('Stanowisko do drukowania FDM'),
-('Stanowisko do drukowania SLS'),
-('Stanowisko do drukowania SLA'),
-('Stanowisko do szlifowania'),
-('Stanowisko do łączenia półproduktów'),
-('Stanowisko do lakierowania'),
-('Stanowisko do projektowania'),
-('Stanowisko do wygladzania');
-
-INSERT INTO Produkt (Nazwa_produkt)
-VALUES
-('Litofanowy klosz do lampy'),
-('Przekładnia zębata'),
-('Tapicerka samochodowa'),
-('Obudowa PC'),
-('Kostka rubika');
-
-INSERT INTO Slownik_polprodukt (Nazwa)
-VALUES
-('Uchwyt zasilacza'),
-('Wał czynny'),
-('Wał bierny'),
-('Obudowa przekładni'),
-('Elementy montażowe - kostka'),
-('Klosz fi150'),
-('Mocowanie chłodzenia'),
-('Maskownica do kabli'),
-('Elementy powierzchniowe');
-
-INSERT INTO Sklad_produkt (ID_produkt, ID_polprodukt, Liczba)
-VALUES
-(1,6,1),
-(2,2,1),
-(2,3,2),
-(2,4,1),
-(3,9,4),
-(4,1,1),
-(4,7,2),
-(4,8,3),
-(5,5,5);
-
-INSERT INTO Narzedzie (Nazwa_narzedzie)
-VALUES
-('Śrubokręt płaski'),
-('Kombinerki'),
-('Nóż'),
-('Nożyczki'),
-('Suwmiarka'),
-('Klucz francuski');
-
-INSERT INTO Rodzaj_material (Nazwa_rodzaj_material)
-VALUES
-('ABS'),
-('PLA'),
-('PETG'),
-('Proszek stali 316L'),
-('Nylon PA12'),
-('Żywica termoutwardzalna'),
-('Klej')
-
-INSERT INTO Rodzaj_maszyna (Nazwa_rodzaj_maszyna, Opis)
-VALUES
-('Drukarka FDM','Drukowanie przy wykorzystaniu technologii FDM'),
-('Drukarka SLA','Drukowanie przy wykorzystaniu technologii SLA'),
-('Drukarka SLS','Drukowanie przy wykorzystaniu technologii SLS'),
-('Skaner 3D',NULL),
-('Drukarka laserowa','Laserowa'),
-('PC','Komputer stacjonarny'),
-('Szlifierka', NULL);
-
-INSERT INTO Rodzaj_czesc (Nazwa_rodzaj_czesc)
-VALUES
-('Ekstruder'),
-('Rama'),
-('Platforma robocza'),
-('Glowica drukarki'),
-('Kolo zebate'),
-('Silnik krokowy'),
-('Stolik obrotowy'),
-('Glowica optyczna'),
-('Obiektyw'),
-('Glowica lasera'),
-('Ekran LCD'),
-('Wentylator'),
-('Zgarniacz');
-
-INSERT INTO Rodzaj_obsluga(Nazwa_rodzaj_obsluga)
-VALUES
-('Wymiana czesci'),
-('Czyszczenie'),
-('Kontrola stanu'),
-('Kalibracja'),
-('Smarowanie');
-
-INSERT INTO Status_zamowienie(Nazwa_status)
-VALUES
-('Zamowiono'),
-('W trakcie realizacji'),
-('Dostarczono'),
-('Odebrano');
-
-INSERT INTO Jednostka (Nazwa_jednostka, Skrot)
-VALUES
-('Milimetr','mm'),
-('Gram','g'),
-('Megapascal','MPa'),
-('Sekunda','s'),
-('Gram na centymetr szescienny','g/cm3'),
-('Stopien Celsjusza','oC'),
-('Decybel','dB'),
-('Metr na sekunde do kwadratu','m/s2'),
-('Wat','W');
-
-INSERT INTO Rodzaj_parametr (Nazwa_rodzaj_parametr, ID_Jednostka)
-VALUES
-('Gęstość',5),
-('Długość',1),
-('Szerokość',1),
-('Średnica',1),
-('Masa',2),
-('Wytrzymałość na rozciąganie', 3),
-('Wytrzymałość na skręcanie', 3),
-('Moduł Younga',3),
-('Temperatura stołu roboczego',6),
-('Głośność pracy',7),
-('Prędkość druku', 8),
-('Prędkość przejazdów jałowych', 8),
-('Temperatura przechowywania',6),
-('Maksymalny pobór mocy',9);
-
-INSERT INTO Parametr_produkt(ID_produkt, ID_rodzaj_parametr, Zakres_dol, Zakres_gora)
-VALUES
-(1,4,149,151),
-(1,5,100,105),
-(2,2,299,301),
-(2,3,100,104),
-(2,7,80,85),
-(2,5,45,50),
-(3,3,99,102),
-(3,2,99,100),
-(3,1,48,51),
-(3,5,10,11),
-(4,5,30000,35000),
-(4,2,99,100),
-(4,3,40,42),
-(5,1,3,4),
-(5,5,1000,3000),
-(5,4,35,36);
-
-
-INSERT INTO Parametr_polprodukt (ID_polprodukt, ID_rodzaj_parametr, Zakres_dol, Zakres_gora)
-VALUES
-(1,3,45,50),
-(1,2,60,63),
-(1,4,80,90),
-(2,3,40,45),
-(2,1,1,4),
-(2,6,80,90),
-(2,7,100,105),
-(2,8,120,130),
-(3,3,120,121),
-(3,1,20,22),
-(3,6,45,50),
-(3,7,80,85),
-(3,8,100,110),
-(4,5,30000,35000),
-(4,3,40,45),
-(4,2,99,100),
-(5,2,39,45),
-(5,4,30,35),
-(5,3,120,121),
-(6,4,150,151),
-(6,5,250,270),
-(7,2,30,31),
-(7,3,30,31),
-(7,5,120,125),
-(8,2,150,155),
-(8,3,30,31),
-(9,2,3500,3505),
-(9,3,1200,1201);
-
-
-INSERT INTO Material (ID_rodzaj_material, Nazwa_material)
-VALUES
-(4,'Proszek S316L DRUTEX'),
-(1,'Filament Czarny ABS Black'),
-(3,'Filament Zolty PETG Stakchovsky'),
-(2,'Filament Czerwony PLA Podraskov'),
-(2,'Filament Niebieski PLA POODZIAN');
-
-INSERT INTO Sklad_polprodukt (ID_polprodukt, ID_material, Liczba)
-VALUES
-(1,5,2),
-(2,2,1),
-(3,3,4),
-(2,4,1),
-(3,2,1),
-(4,1,3),
-(4,3,2),
-(5,5,4);
-
-INSERT INTO Czesc (Nazwa_czesc, ID_rodzaj_czesc)
-VALUES
-('Ekstruder Bondtech phi0.4',1),
-('Kolo zebate phi60',5),
-('Rama i3 MK3S+',2),
-('Glowica i3 MK3S+',4),
-('Stol i3 MK3S+',3),
-('Stolik Shining', 6),
-('Glowica skanera Shining',7),
-('Obiektyw Canon',8),
-('Rama Ender5',2),
-('Glowica Ender5',4),
-('Stol Ender5',3),
-('Zgarniacz b0bll',12),
-('Ekran LG',10),
-('Ekran HP',10),
-('Wentylator IDZ',11),
-('Ekstruder Bondtech phi0.1',1),
-('Ekstruder Bondtech phi0.2',1),
-('Silnik krokowy KROK',6),
-('Glowica lasera LG', 9);
-
-INSERT INTO Etat (ID_stanowisko, ID_dzial, Liczba_miejsc)
-VALUES
-(1,2,1),
-(2,2,1),
-(3,1,1),
-(4,1,2),
-(5,1,1),
-(6,2,2),
-(7,2,1),
-(8,2,2),
-(9,2,1),
-(10,5,1),
-(11,5,1),
-(12,3,4),
-(13,4,1),
-(14,4,1),
-(15,4,3),
-(16,5,1),
-(17,5,3),
-(18,7,1);
-
-INSERT INTO Posada_pracownika (ID_etat, Data_od)
-VALUES
-(1,'2022-04-10'),
-(2,'2022-04-10'),
-(3,'2022-04-10'),
-(4,'2022-04-10'),
-(5,'2022-04-10'),
-(6,'2022-04-10'),
-(7,'2022-04-10'),
-(8,'2022-04-10'),
-(9,'2022-04-10'),
-(10,'2022-04-10'),
-(11,'2022-04-10'),
-(12,'2022-04-10'),
-(13,'2022-04-10'),
-(14,'2022-04-10'),
-(15,'2022-04-10'),
-(16,'2022-04-10'),
-(17,'2022-04-10'),
-(18,'2022-04-10'),
-(15,'2022-04-11'),
-(15,'2022-04-11'),
-(16,'2022-04-11'),
-(17,'2022-04-11'),
-(17,'2022-04-11');
-
-INSERT INTO Rodzaj_umowy (Nazwa, Urlop)
-VALUES
-('Umowa o pracę',26),
-('Umowa zlecenie',0),
-('Umowa o dzieło',0);
-
-INSERT INTO Rodzaj_nieobecnosci (Symbol)
-VALUES
-('U'),
-('ZW'),
-('O');
-
-INSERT INTO Nieobecnosc (ID_pracownik, ID_rodzaj_nieobecnosci, Data_od, Data_do)
-VALUES
-(1,1,'2022-04-11','2022-04-12'),
-(1,1,'2022-04-12','2022-04-13'),
-(3,2,'2022-04-13','2022-04-14'),
-(4,3,'2022-04-13','2022-04-14'),
-(5,1,'2022-04-13','2022-04-15');
-
-INSERT INTO Wymiar_pracy (Nazwa)
-VALUES
-('Pełny etat'),
-('Pół etatu');
-
-INSERT INTO Umowa (ID_wymiar_pracy, ID_rodzaj_umowy, ID_pracownik, ID_posada_pracownika, Wynagrodzenie)
-VALUES
-(1,1,1,1,5000),
-(1,1,2,12,4000),
-(1,1,3,12,3600),
-(2,2,4,12,5500),
-(2,1,5,2,5500),
-(2,2,06,3,4500),
-(1,1,07,4,4500),
-(1,2,8,4,3500),
-(1,2,9,8,5500),
-(1,1,10,9,6000),
-(2,1,11,10,7000),
-(2,1,12,11,5000),
-(1,1,13,13,3600),
-(1,1,14,14,3600),
-(1,1,15,15,2500),
-(1,1,16,16,6000),
-(1,1,17,18,5000),
-(1,1,18,15,1800),
-(1,1,19,15,1200),
-(1,1,20,21,3600),
-(1,1,21,22,3400),
-(1,1,22,22,3350);
-
-INSERT INTO Maszyna (Nazwa_maszyna, ID_rodzaj_maszyna, Koszt_RBG)
-VALUES
-('PRUSA i3 MK3S+',1,200),
-('Shining 3D EinScan SE',4,150),
-('Sinterit Lisa 2 Pro',3,500),
-('Anycubic Photon Mono X',2,250),
-('Creality Ender-5 Pro',1,200),
-('Macbook PRO M1',6,50),
-('Szlifierka Fiberfox',7,80);
-
-INSERT INTO Nr_seryjny (Nr_seryjny)
-VALUES
-('000-001'),
-('000-002'),
-('000-003'),
-('000-004'),
-('000-005'),
-('000-006'),
-('000-007'),
-('000-008'),
-('000-009'),
-('000-010'),
-('000-011'),
-('000-012'),
-('000-013'),
-('000-014'),
-('000-015'),
-('000-016'),
-('000-017'),
-('000-018'),
-('000-019'),
-('000-020'),
-('000-021'),
-('000-022'),
-('000-023'),
-('000-024'),
-('000-025'),
-('000-026'),
-('000-027'),
-('000-028');
-
-INSERT INTO Maszyna_nr_seryjny (ID_maszyna, ID_nr_seryjny)
-VALUES
-(1,1),
-(2,2),
-(3,3),
-(4,4),
-(5,5),
-(6,6),
-(7,7),
-(1,8),
-(1,9),
-(1,10),
-(2,11),
-(2,12),
-(2,13),
-(3,14),
-(3,15),
-(3,16),
-(4,17),
-(4,18),
-(4,19),
-(5,20),
-(5,21),
-(5,22),
-(6,23),
-(6,24),
-(6,25),
-(7,26),
-(7,27),
-(7,28);
-
-INSERT INTO Stanowisko_produkcyjne (ID_nazwa_stanowiska)
-VALUES
-(2),
-(3),
-(1),
-(4),
-(5),
-(6),
-(7),
-(8),
-(9);
-
-
-INSERT INTO Sklad_stanowisko_produkcyjne_maszyna (ID_stanowisko_produkcyjne, ID_maszyna_nr)
-VALUES
-(1,5),
-(1,6),
-(1,1),
-(2,3),
-(2,23),
-(3,24),
-(3,2),
-(3,11),
-(4,4),
-(4,25),
-(5,7);
-
-
-INSERT INTO Sklad_stanowisko_produkcyjne_narzedzie (ID_stanowisko_produkcyjne, ID_narzedzie, Liczba)
-VALUES
-(3,1,5),
-(3,3,2),
-(2,5,1),
-(1,4,1),
-(4,3,3),
-(2,1,5),
-(3,4,1),
-(4,2,1),
-(5,2,2);
-
-INSERT INTO Proces_polprodukt_czynnosc (ID_polprodukt, ID_czynnosc_produkcyjna, Czas_trwania)
-VALUES
-(1,2,180),	--Skanowanie				--1.Stanowisko do skanowania
-(1,1,15), 	--Przygotowanie stanowiska	--2.Stanowisko do drukowania FDM
-(1,4,360),	--Drukowanie				--2.Stanowisko do drukowania FDM
-(1,5,60),	--Wygladzanie				--9.Stanowisko do wygladzania
-(2,3,300),	--Projektowanie				--8.Stanowisko do projektowania
-(2,1,15),	--Przygotowanie stanowiska	--3.Stanowisko do drukowania SLS	
-(2,4,720),	--Drukowanie				--3.Stanowisko do drukowania SLS
-(2,6,60),	--Szlifowanie				--5.Stanowisko do szlifowania
-(3,3,300),	--Projektowanie				--8.Stanowisko do projektowania
-(3,1,15),	--Przygotowanie stanowiska	--3.Stanowisko do drukowania
-(3,4,720),	--Drukowanie				--3.Stanowisko do drukowania
-(3,6,60),	--Szlifowanie				--5.Stanowisko do szlifowania
-(4,3,180),	--Projektowanie				--8.Stanowisko do projektowania
-(4,1,15),	--Przygotowanie Stanowiska	--4.Stanowisko do drukowania SLA
-(4,4,720),	--Drukowanie				--4.Stanowisko do drukowania SLA
-(4,5,60),	--Wygladzanie				--9.Stanowisko do wygladzania
-(4,7,120),	--Lakierowanie				--7.Stanowisko do lakierowania
-(5,3,120),	--Projektowanie				--8.Stanowisko do projektowania
-(5,1,15),	--Przygotowanie stanowiska	--2.Stanowisko do drukowania FDM
-(5,4,240),	--Drukowanie				--2.Stanowisko do drukowania FDM
-(5,6,60),	--Szlifowanie				--5.Stanowisko do szlifowania
-(6,3,90),	--Projektowanie				--8.Stanowisko do projektowania
-(6,1,15),	--Przygotowanie stanowiska	--4.Stanowisko do drukowania SLA
-(6,4,480),	--Drukowanie				--4.Stanowisko do drukowania SLA
-(7,3,120),	--Projektowanie				--8.Stanowisko do projektowania
-(7,1,15),	--Przygotowanie stanowiska	--2.Stanowisko do drukowania FDM
-(7,4,360),	--Drukowanie				--2.Stanowisko do drukowania FDM
-(8,3,90),	--Projektowanie				--8.Stanowisko do projektowania
-(8,1,15),	--Przygotowanie stanowiska	--2.Stanowisko do drukowania FDM
-(8,4,300),	--Drukowanie				--2.Stanowisko do drukowania FDM
-(8,5,120),	--Wygladzanie				--9.Stanowisko do wygladzania
-(8,7,120),	--Lakierowanie				--7.Stanowisko do lakierownaia
-(9,3,120),	--Projektowanie				--8.Stanowisko do projektowania
-(9,1,15),	--Przygotowanie stanowiska	--4.Stanowisko do drukowania SLA
-(9,4,240),	--Drukowanie				--4.Stanowisko do drukowania SLA
-(9,5,60);	--Wygladzanie				--9.Stanowisko do wygladzania
-
-INSERT INTO Proces_produkt_czynnosc (ID_produkt, ID_czynnosc_produkcyjna, Czas_trwania)
-VALUES
-(1,9,30),	--Montaż		--6.Stanowisko do łączenia półproduktów
-(2,9,60),	--Montaż		--6.
-(2,8,60),	--Klejenie		--6.
-(3,9,120),	--Montaż		--6.
-(4,9,180),	--Montaż		--6.
-(5,9,60);	--Montaż		--6.
-
-INSERT INTO Dostawca (Nazwa_dostawca)
-VALUES
-('Marinex'),
-('Druczex'),
-('Polex'),
-('Brexus'),
-('Blablin');
-
-INSERT INTO Dane_adresowe_dostawca (ID_dostawca, Miejscowosc, Ulica, Nr_budynku, Kod_pocztowy)
-VALUES
-(1,'Warszawa','Dzwigowa',12,01-376),
-(2,'Warszawa','Swietlikow',5,01-358),
-(3,'Warszawa','Gorna',3,04-413),
-(4,'Skierniewice','Dluga',4,96-100),
-(5,'Nadarzyn','Blonska',1,05-830);
-
-INSERT INTO Producent (Nazwa_producenta, Opis)
-VALUES
-('PRUSA',NULL),
-('Shining3D',NULL),
-('Sinterit',NULL),
-('Anycubic',NULL),
-('CREALITY ',NULL),
-('Apple',NULL),
-('Fiberfox',NULL);
-
-INSERT INTO Dane_adresowe_producent (ID_producent, Miejscowosc, Ulica, Nr_budynku, Kod_pocztowy)
-VALUES
-(1,'Praga','Partyzanska',7,NULL),
-(2,'Stuttgart','Breitwiesenstrasse',28,70565),
-(3,'Krakow','Nad Drwina',10,30-741),
-(4,'Hongkong','Chatham Road South',45,NULL),
-(5,'Shenzhen','Meilong Blvd.', 18,518131),
-(6,'Cupertino','Apple Park Way',1,NULL),
-(7,'Dae Jeon','Deogmyeong-dong',171,NULL);
-
-
-INSERT INTO Parametr_material (ID_material, ID_rodzaj_parametr, Zakres_dol, Zakres_gora)
-VALUES
-(1,1,4,4),
-(2,4,1.75,1.75),
-(3,4,1.75,1.75),
-(4,4,2.25,2.25),
-(5,4,1.75,1.75);
-
-INSERT INTO Klient (Nazwisko, Imie, NIP)
-	VALUES 
-	('Marczak', 'Marek', NULL),
-	('Adamiak', 'Adam', NULL),
-	('Nowak', 'Karol', NULL),
-	('Kowalski', 'Jan', NULL),
-	('Lewandowski', 'Robert', NULL);
-
-INSERT INTO Email_klient (ID_klient, Email, Data_od, Data_do)
-	VALUES
-	(1, 'marczak.marek@drukarczyk.com', '2022-01-01', NULL),
-	(2, 'adamiak.adam@drukarczyk.com', '2022-01-01', NULL),
-	(3, 'nowak.karol@drukarczyk.com', '2022-01-01', NULL),
-	(4, 'kowalski.jan@drukarczyk.com', '2022-01-01', NULL),
-	(5, 'lewandowski.robert@drukarczyk.com', '2022-01-01', NULL);
-
-INSERT INTO Nr_telefon_klient (ID_klient, Numer, Data_od, Data_do)
-	VALUES
-	(1, 508553123, '2022-01-01', NULL),
-	(2, 508553456, '2022-01-01', NULL),
-	(3, 508553789, '2022-01-01', NULL),
-	(4, 508553987, '2022-01-01', NULL),
-	(5, 508553654, '2022-01-01', NULL);
-
-INSERT INTO Dane_adresowe_klient (ID_klient, Miejscowosc, Ulica, Nr_budynek, Nr_lokal, Kod_pocztowy)
-	VALUES
-	(1, 'Warszawa', 'Warszawska', 1, NULL, '12-345'),
-	(2, 'Bydgoszcz', 'Bydgoska', 1, 2, '54-321'),
-	(3, 'Grójec', NULL, 1, NULL, '98-765'),
-	(4, 'Żyrardów', '3 Maja', 3, 5, '32-654'),
-	(5, 'Warszawa', 'Warszawska', 53, 24, '12-345');
-
-INSERT INTO Typ_zamowienie (Typ_zamowienie)
-	VALUES
-	('Indywidualne'),
-	('Standardowe');
-
-INSERT INTO Zamowienie (ID_klient, ID_pracownik, Data_zamowienie, ID_typ_zamowienie)
-	VALUES
-	(1, 1, '2022-04-04', 2),
-	(2, 2, '2022-04-05', 2),
-	(3, 2, '2022-04-06', 1),
-	(4, 3, '2022-04-07', 1),
-	(5, 4, '2022-04-08', 2);
-
-INSERT INTO Zamowienie_szczegol (ID_zamowienie, ID_produkt, Ilosc)
-	VALUES
-	(1, 2, 50),
-	(1, 1, 30),
-	(2, 3, 100),
-	(3, 3, 150),
-	(3, 5, 120),
-	(4, 3, 150),
-	(5, 5, 120);
-
-INSERT INTO Gwarancja (Okres_gwarancja, Opis_gwarancja)
-	VALUES 
-	(2, 'GWARANCJA NA USZKODZENIA MECHANICZNE NA OKRES 2 LAT'),
-	(1, 'GWARANCJA NA USZKODZENIA MECHANICZNE NA OKRES 1 ROKU'),
-	(3, 'GWARANCJA NA USZKODZENIA MECHANICZNE NA OKRES 3 LAT'),
-	(4, 'GWARANCJA NA USZKODZENIA MECHANICZNE NA OKRES 4 LAT'),
-	(5, 'GWARANCJA NA USZKODZENIA MECHANICZNE NA OKRES 5 LAT');
-
-INSERT INTO Status_oferta (Nazwa_status_oferta)
-	VALUES
-	('Zaakceptowana'),
-	('Odrzucona'),
-	('Do rozpatrzenia'),
-	('W trakcie realizacji');
-
-INSERT INTO Oferta_handlowa (ID_zamowienie, ID_pracownik, Termin_realizacja, ID_gwarancja, ID_status_oferta, Cena)
-	VALUES
-	(1, 1, '2022-04-28', 1, 1, 5000),
-	(2, 2, '2022-04-29', 1, 1, 4000),
-	(3, 3, '2022-04-30', 1, 1, 3900),
-	(4, 4, '2022-04-27', 1, 1, 6000),
-	(5, 5, '2022-05-04', 1, 1, 2400),
-	(1, 1, '2022-05-30', 1, 2, 7500);
-
-INSERT INTO Podatek (Procent)
-	VALUES
-	(0),
-	(8),
-	(23),
-	(11),
-	(28);
-
-INSERT INTO Forma_platnosc (Forma_platnosc)
-	VALUES
-	('Przelew'),
-	('Karta płatnicza'),
-	('Gotówka'),
-	('BLIK'),
-	('Przelew pocztowy');
-
-INSERT INTO Umowa_sprzedaz (ID_oferta_handlowa)
-	VALUES
-	(1),
-	(2),
-	(3),
-	(4),
-	(5);
-
-INSERT INTO Sprzedaz (Nr_sprzedaz, Data_sprzedaz_poczatek, Data_sprzedaz_koniec, Termin_zaplata, ID_forma_platnosc, ID_umowa_sprzedaz)
-	VALUES
-	(1, '2022-03-01', '2022-03-15', '2022-03-22', 1, 1),
-	(2, '2022-03-02', '2022-03-16', '2022-03-23', 2, 2),
-	(3, '2022-03-03', '2022-03-17', '2022-03-24', 3, 3),
-	(4, '2022-03-03', '2022-03-17', '2022-03-24', 2, 4),
-	(5, '2022-03-04', '2022-03-18', '2022-03-25', 1, 5)
-
-INSERT INTO Reklamacja (ID_pracownik, ID_sprzedaz, Data_reklamacja, Opis_reklamacja)
-	VALUES
-	(1, 1, '2022-04-01', 'Uszkodzenie mechaniczne'),
-	(3, 1, '2022-04-02', 'Rozklejenie produtku'),
-	(2, 2, '2022-04-03', 'Uszkodzenie mechaniczne'),
-	(5, 3, '2022-04-04', 'Pękniecie materiału'),
-	(4, 3, '2022-04-05', 'Uszkodzenie mechaniczne'),
-	(5, 4, '2022-04-01', 'Uszkodzenie mechaniczne'),
-	(4, 5, '2022-04-01', 'Uszkodzenie mechaniczne');
-
-INSERT INTO Zwrot (ID_reklamacja, ID_produkt, Ilosc, Akceptacja)
-	VALUES
-	(1,1,1,1),
-	(2,2,2,1),
-	(4,3,4,0),
-	(6,4,3,0),
-	(7,5,1,1);
-
-INSERT INTO Szczegoly_sprzedaz (ID_sprzedaz, ID_produkt, Kwota_sprzedaz, ID_podatek, Ilosc)
-	VALUES
-	(1, 2, 40, 1, 50),
-	(1, 1, 100, 2, 30),
-	(2, 3, 40, 1, 100),
-	(3, 3, 10, 3, 150),
-	(3, 5, 20, 4, 120),
-	(4, 3, 40, 3, 150),
-	(5, 5, 20, 4, 120);
-
-INSERT INTO Parametr_czesc (ID_czesc, ID_rodzaj_parametr, Zakres_dol, Zakres_gora)
-VALUES
-(1,5,50,60),
-(1,4,0.36,0.44),
-(2,4,59,61), 
-(2,5,540,580),
-(3,2,350,350), 
-(3,3,35,40),
-(4,5,200,200), 
-(4,10,10,30),
-(5,2,300,300),
-(5,3,290,290),
-(6,7,30,40),
-(6,11,450,450),
-(7,5,400,400),
-(7,4,60,60),
-(8,4,60,60),
-(8,5,300,300),
-(9,2,400,400), 
-(9,3,50,50),
-(10,5,300,300), 
-(10,10,10,30),
-(11,2,330,330),
-(11,3,300,300),
-(12,2,200,2000),
-(12,3,50,50),
-(13,2,60,60), 
-(13,3,60,60),
-(14,2,80,80), 
-(14,3,60,60),
-(15,7,10,50), 
-(15,5,0.2,0.2),
-(16,5,40,40),
-(16,4,0.08,0.12),
-(17,5,40,50),
-(17,4,0.18,0.22),
-(18,7,10,35),
-(18,5,100,100),
-(19,5,500,500),
-(19,10,15,24);
-
-INSERT INTO Parametr_narzedzie (ID_narzedzie, ID_rodzaj_parametr, Zakres_dol, Zakres_gora)
-VALUES
-(1,4,19,21),
-(2,5,3500,3600),
-(3,2,15,15),
-(4,2,13,13),
-(5,2,20,20);
-
-INSERT INTO Parametr_maszyna (ID_maszyna, ID_rodzaj_parametr, Zakres_dol, Zakres_gora)
-VALUES
-(1,7,30,40),
-(1,8,10,100),
-(1,9,200,200),
-(1,10,10,40),
-(2,5,20000,20000),
-(2,7,20,25),
-(2,10,15,25),
-(2,11,1000,1000),
-(3,5,150000,150000),
-(3,7,10,15),
-(3,10,10,40),
-(3,11,2000,2000),
-(4,5,15000,15000),
-(4,7,10,20),
-(4,10,15,25),
-(4,11,700,700),
-(5,7,50,60),
-(5,8,10,100),
-(5,9,200,200),
-(5,10,10,30);
-
-INSERT INTO Zamowienie_material(ID_pracownik, Data_zamowienia, ID_dostawca)
-VALUES
-(14,'2022-04-16',1),
-(14,'2022-04-16',2),
-(14,'2022-04-16',3),
-(14,'2022-04-16',4),
-(14,'2022-04-16',5);
-
-INSERT INTO Stan_realizacji_zamowienie_material(ID_zamowienie_material, ID_status_zamowienie, Data_stan, ID_pracownik)
-VALUES
-(1,1,'2022-04-16 09:10:00',14),
-(2,1,'2022-04-16 09:20:00',14),
-(3,1,'2022-04-16 09:30:00',14),
-(4,1,'2022-04-16 09:40:00',14),
-(5,1,'2022-04-16 09:50:00',14),
-(1,2,'2022-04-17 08:40:00',14),
-(2,2,'2022-04-17 09:10:00',14),
-(3,2,'2022-04-17 09:30:00',14),
-(4,2,'2022-04-17 10:10:00',14),
-(5,2,'2022-04-17 11:10:00',14),
-(1,3,'2022-04-18 08:30:00',15),
-(2,3,'2022-04-18 12:10:00',18),
-(3,3,'2022-04-18 12:30:00',19),
-(4,3,'2022-04-18 13:10:00',15),
-(5,3,'2022-04-18 13:40:00',19),
-(1,4,'2022-04-19 08:30:00',18),
-(2,4,'2022-04-19 09:10:00',19),
-(3,4,'2022-04-19 10:10:00',18),
-(4,4,'2022-04-19 11:40:00',15),
-(5,4,'2022-04-19 12:10:00',19);
-
-INSERT INTO Szczegoly_zamowienie_material(ID_zamowienie_material, ID_material, ID_producent, Waga_g, Cena)
-VALUES
-(1,1,3,10000,30000),
-(2,2,2,20000,15000),
-(3,3,2,15000,20000),
-(4,4,5,25000,17000),
-(5,5,5,45000,15000);
-
-INSERT INTO Zamowienie_czesc(ID_pracownik, Data_zamowienia, ID_dostawca)
-VALUES
-(14,'2022-04-17',4),
-(14,'2022-04-17',2),
-(14,'2022-04-17',1),
-(14,'2022-04-17',3),
-(14,'2022-04-17',5);
-
-INSERT INTO Stan_realizacji_zamowienie_czesc(ID_zamowienie_czesc, ID_status_zamowienie, Data_stan, ID_pracownik)
-VALUES
-(1,1,'2022-04-17 08:10:00',14),
-(2,1,'2022-04-17 09:11:00',14),
-(3,1,'2022-04-17 09:45:00',14),
-(4,1,'2022-04-17 10:40:00',14),
-(5,1,'2022-04-17 10:50:00',14),
-(1,2,'2022-04-18 09:40:00',14),
-(2,2,'2022-04-18 09:50:00',14),
-(3,2,'2022-04-18 10:30:00',14),
-(4,2,'2022-04-18 11:10:00',14),
-(5,2,'2022-04-18 11:30:00',14),
-(1,3,'2022-04-19 08:30:00',18),
-(2,3,'2022-04-19 09:10:00',15),
-(3,3,'2022-04-19 09:30:00',19),
-(4,3,'2022-04-19 10:10:00',19),
-(5,3,'2022-04-19 10:40:00',15),
-(1,4,'2022-04-20 08:30:00',18),
-(2,4,'2022-04-20 09:10:00',18),
-(3,4,'2022-04-20 09:16:00',19),
-(4,4,'2022-04-20 10:14:00',15),
-(5,4,'2022-04-20 11:10:00',18);
-
-INSERT INTO Szczegoly_zamowienie_czesc(ID_zamowienie_czesc, ID_czesc, ID_producent, Ilosc, Cena)
-VALUES
-(1,1,1,1,500),
-(2,5,4,2,50),
-(3,7,5,1,7000),
-(4,8,2,1,1700),
-(5,10,3,3,1300);
-
-
-INSERT INTO Zamowienie_narzedzie(ID_pracownik, Data_zamowienia, ID_dostawca)
-VALUES
-(14,'2022-04-17',1),
-(14,'2022-04-17',3),
-(14,'2022-04-17',5),
-(14,'2022-04-17',4),
-(14,'2022-04-17',2),
-(14,'2022-04-17',3);
-
-INSERT INTO Stan_realizacji_zamowienie_narzedzie(ID_zamowienie_narzedzie, ID_status_zamowienie, Data_stan, ID_pracownik)
-VALUES
-(1,1,'2022-04-17 08:17:00',14),
-(2,1,'2022-04-17 09:25:00',14),
-(3,1,'2022-04-17 10:15:00',14),
-(4,1,'2022-04-17 10:40:00',14),
-(5,1,'2022-04-17 10:48:00',14),
-(6,1,'2022-04-17 10:57:00',14),
-(1,2,'2022-04-18 09:12:00',14),
-(2,2,'2022-04-18 09:15:00',14),
-(3,2,'2022-04-18 09:37:00',14),
-(4,2,'2022-04-18 10:04:00',14),
-(5,2,'2022-04-18 10:21:00',14),
-(6,2,'2022-04-18 10:45:00',14),
-(1,3,'2022-04-19 08:22:00',18),
-(2,3,'2022-04-19 08:55:00',15),
-(3,3,'2022-04-19 09:29:00',19),
-(4,3,'2022-04-19 10:01:00',19),
-(5,3,'2022-04-19 10:23:00',15),
-(6,3,'2022-04-19 10:55:00',18),
-(1,4,'2022-04-20 08:38:00',19),
-(2,4,'2022-04-20 09:17:00',18),
-(3,4,'2022-04-20 09:48:00',19),
-(4,4,'2022-04-20 10:18:00',15),
-(5,4,'2022-04-20 11:14:00',18),
-(6,4,'2022-04-20 11:58:00',15);
-
-INSERT INTO Szczegoly_zamowienie_narzedzie(ID_zamowienie_narzedzie, ID_narzedzie, ID_producent, Sztuk, Cena)
-VALUES
-(1,1,1,15,65),
-(2,2,4,15,150),
-(3,3,5,11,240),
-(4,4,2,13,520),
-(5,5,3,18,450),
-(6,6,1,14,420);
-
-INSERT INTO Zamowienie_maszyna(ID_pracownik, Data_zamowienia, ID_dostawca)
-VALUES
-(14,'2022-04-18',1),
-(14,'2022-04-18',3),
-(14,'2022-04-18',5),
-(14,'2022-04-18',4),
-(14,'2022-04-18',2),
-(14,'2022-04-18',1),
-(14,'2022-04-18',3),
-(14,'2022-04-18',5),
-(14,'2022-04-18',4),
-(14,'2022-04-18',2),
-(14,'2022-04-18',1),
-(14,'2022-04-18',3),
-(14,'2022-04-18',5),
-(14,'2022-04-18',4),
-(14,'2022-04-18',2),
-(14,'2022-04-18',1),
-(14,'2022-04-18',3),
-(14,'2022-04-18',5),
-(14,'2022-04-18',4),
-(14,'2022-04-18',2),
-(14,'2022-04-18',1),
-(14,'2022-04-18',3),
-(14,'2022-04-18',5),
-(14,'2022-04-18',4),
-(14,'2022-04-18',2),
-(14,'2022-04-18',1),
-(14,'2022-04-18',3),
-(14,'2022-04-18',5);
-
-INSERT INTO Stan_realizacji_zamowienie_maszyna(ID_zamowienie_maszyna, ID_status_zamowienie, Data_stan, ID_pracownik)
-VALUES
-(1,1,'2022-04-18 08:17:00',14),
-(2,1,'2022-04-18 09:03:00',14),
-(3,1,'2022-04-18 09:15:00',14),
-(4,1,'2022-04-18 09:31:00',14),
-(5,1,'2022-04-18 09:43:00',14),
-(6,1,'2022-04-18 09:51:00',14),
-(7,1,'2022-04-18 10:01:00',14),
-(8,1,'2022-04-18 10:13:00',14),
-(9,1,'2022-04-18 10:21:00',14),
-(10,1,'2022-04-18 10:34:00',14),
-(11,1,'2022-04-18 10:39:00',14),
-(12,1,'2022-04-18 10:51:00',14),
-(13,1,'2022-04-18 11:02:00',14),
-(14,1,'2022-04-18 10:13:00',14),
-(15,1,'2022-04-18 10:20:00',14),
-(16,1,'2022-04-18 10:24:00',14),
-(17,1,'2022-04-18 10:29:00',14),
-(18,1,'2022-04-18 10:37:00',14),
-(19,1,'2022-04-18 10:48:00',14),
-(20,1,'2022-04-18 10:56:00',14),
-(21,1,'2022-04-18 11:04:00',14),
-(22,1,'2022-04-18 11:16:00',14),
-(23,1,'2022-04-18 11:21:00',14),
-(24,1,'2022-04-18 11:32:00',14),
-(25,1,'2022-04-18 11:44:00',14),
-(26,1,'2022-04-18 12:01:00',14),
-(27,1,'2022-04-18 12:09:00',14),
-(28,1,'2022-04-18 12:18:00',14),
-(1,2,'2022-04-19 08:17:00',14),
-(2,2,'2022-04-19 09:03:00',14),
-(3,2,'2022-04-19 09:15:00',14),
-(4,2,'2022-04-19 09:31:00',14),
-(5,2,'2022-04-19 09:43:00',14),
-(6,2,'2022-04-19 09:51:00',14),
-(7,2,'2022-04-19 10:02:00',14),
-(8,2,'2022-04-19 10:14:00',14),
-(9,2,'2022-04-19 10:22:00',14),
-(10,2,'2022-04-19 10:35:00',14),
-(11,2,'2022-04-19 10:42:00',14),
-(12,2,'2022-04-19 10:53:00',14),
-(13,2,'2022-04-19 11:01:00',14),
-(14,2,'2022-04-19 10:15:00',14),
-(15,2,'2022-04-19 10:26:00',14),
-(16,2,'2022-04-19 10:28:00',14),
-(17,2,'2022-04-19 10:31:00',14),
-(18,2,'2022-04-19 10:38:00',14),
-(19,2,'2022-04-19 10:43:00',14),
-(20,2,'2022-04-19 10:51:00',14),
-(21,2,'2022-04-19 11:02:00',14),
-(22,2,'2022-04-19 11:11:00',14),
-(23,2,'2022-04-19 11:23:00',14),
-(24,2,'2022-04-19 11:37:00',14),
-(25,2,'2022-04-19 11:44:00',14),
-(26,2,'2022-04-19 12:51:00',14),
-(27,2,'2022-04-19 12:58:00',14),
-(28,2,'2022-04-19 13:03:00',14),
-(1,3,'2022-04-20 08:17:00',15),
-(2,3,'2022-04-20 09:03:00',18),
-(3,3,'2022-04-20 09:15:00',19),
-(4,3,'2022-04-20 09:31:00',19),
-(5,3,'2022-04-20 09:43:00',18),
-(6,3,'2022-04-20 09:51:00',15),
-(7,3,'2022-04-20 10:01:00',15),
-(8,3,'2022-04-18 10:13:00',18),
-(9,3,'2022-04-20 10:21:00',19),
-(10,3,'2022-04-20 10:34:00',15),
-(11,3,'2022-04-20 10:39:00',19),
-(12,3,'2022-04-20 10:51:00',18),
-(13,3,'2022-04-20 11:02:00',18),
-(14,3,'2022-04-20 10:13:00',15),
-(15,3,'2022-04-20 10:20:00',19),
-(16,3,'2022-04-20 10:24:00',15),
-(17,3,'2022-04-20 10:29:00',19),
-(18,3,'2022-04-20 10:37:00',18),
-(19,3,'2022-04-20 10:48:00',18),
-(20,3,'2022-04-20 10:56:00',19),
-(21,3,'2022-04-20 11:04:00',15),
-(22,3,'2022-04-20 11:16:00',18),
-(23,3,'2022-04-20 11:21:00',18),
-(24,3,'2022-04-20 11:32:00',19),
-(25,3,'2022-04-20 11:44:00',19),
-(26,3,'2022-04-20 12:01:00',15),
-(27,3,'2022-04-20 12:09:00',15),
-(28,3,'2022-04-20 12:18:00',15),
-(1,4,'2022-04-21 08:17:00',15),
-(2,4,'2022-04-21 09:03:00',18),
-(3,4,'2022-04-21 09:15:00',19),
-(4,4,'2022-04-21 09:31:00',19),
-(5,4,'2022-04-21 09:43:00',18),
-(6,4,'2022-04-21 09:51:00',15),
-(7,4,'2022-04-21 10:01:00',15),
-(8,4,'2022-04-21 10:13:00',18),
-(9,4,'2022-04-21 10:21:00',19),
-(10,4,'2022-04-21 10:34:00',15),
-(11,4,'2022-04-21 10:39:00',19),
-(12,4,'2022-04-21 10:51:00',18),
-(13,4,'2022-04-21 11:02:00',18),
-(14,4,'2022-04-21 10:13:00',15),
-(15,4,'2022-04-21 10:20:00',19),
-(16,4,'2022-04-21 10:24:00',15),
-(17,4,'2022-04-21 10:29:00',19),
-(18,4,'2022-04-21 10:37:00',18),
-(19,4,'2022-04-21 10:48:00',18),
-(20,4,'2022-04-21 10:56:00',19),
-(21,4,'2022-04-21 11:04:00',15),
-(22,4,'2022-04-21 11:16:00',18),
-(23,4,'2022-04-21 11:21:00',18),
-(24,4,'2022-04-21 11:32:00',19),
-(25,4,'2022-04-21 11:44:00',19),
-(26,4,'2022-04-21 12:01:00',15),
-(27,4,'2022-04-21 12:09:00',15),
-(28,4,'2022-04-21 12:18:00',15);
-
-INSERT INTO Szczegoly_zamowienie_maszyna(ID_zamowienie_maszyna, ID_maszyna, ID_producent, Ilosc,Cena)
-VALUES
-(1,1,1,1,3500),
-(2,2,2,1,7000),
-(3,3,3,1,65000),
-(4,4,4,1,2700),
-(5,5,5,1,1649),
-(6,6,6,1,5700),
-(7,7,7,1,2100),
-(8,1,1,1,3500),
-(9,1,1,1,3500),
-(10,1,1,1,3500),
-(11,2,2,1,7000),
-(12,2,2,1,7000),
-(13,2,2,1,7000),
-(14,3,3,1,65000),
-(15,3,3,1,65000),
-(16,3,3,1,65000),
-(17,4,4,1,2700),
-(18,4,4,1,2700),
-(19,4,4,1,2700),
-(20,5,5,1,1649),
-(21,5,5,1,1649),
-(22,5,5,1,1649),
-(23,6,6,1,5700),
-(24,6,6,1,5700),
-(25,6,6,1,5700),
-(26,7,7,1,2100),
-(27,7,7,1,2100),
-(28,7,7,1,2100);
-
-INSERT INTO Obsluga(ID_rodzaj_obsluga, ID_stanowisko_produkcyjne, Data_od, Data_do, Uwagi)
-VALUES
-(3,1,'2022-02-12','2022-02-14', 'Brak'),
-(1,2,'2022-01-15','2022-01-22', 'Brak'),
-(1,3,'2021-12-22','2021-12-31', 'Nowa czesc'),
-(2,5,'2022-03-02','2022-03-22', 'Gotowe do pracy'),
-(3,2,'2022-04-12','2022-04-14', 'Brak');
-
-INSERT Obsluga_pracownik (ID_obsluga, ID_pracownik)
-VALUES
-(1,22),
-(2,22),
-(3,21),
-(4,22),
-(5,21);
-
-INSERT INTO Wymiana_czesc(ID_obsluga, ID_maszyna_nr, ID_czesc)
-VALUES
-(2,1,3),
-(2,1,4),
-(2,1,5),
-(3,2,7),
-(3,2,8);
-
-INSERT INTO Sklad_maszyna ( ID_maszyna, ID_czesc, Liczba_czesci)
-VALUES
-(1,3,3),
-(1,4,1),
-(1,5,1),
-(2,6,1),
-(2,7,1),
-(2,8,1),
-(3,19,1),
-(3,15,4),
-(3,18,4),
-(3,12,1),
-(4,15,4),
-(4,14,1),
-(4,18,4),
-(5,9,3),
-(5,10,1),
-(5,11,1),
-(5,13,1),
-(5,17,1);
-
-INSERT INTO Wytwarzanie (Id_pracownik, Id_zamowienie_szczegol, Czas_od, Czas_do)
-VALUES
-(7,1,'2022-04-04 08:00:00 AM','2022-04-04 13:00:00 PM'), 		--Wał czynny, projektowanie, 300
-(2,1,'2022-04-04 08:00:00 AM','2022-04-04 08:15:00 AM'),		--Wał czynny, przygotowanie stanowiska, 15
-(2,1,'2022-04-04 13:30:00 PM','2022-04-05 01:30:00 AM'),		--Wał czynny, drukowanie, 720
-(2,1,'2022-04-05 08:00:00 AM','2022-04-05 09:00:00 AM'),		--Wał czynny, szlifowanie, 60
-(8,1,'2022-04-04 08:00:00 AM','2022-04-04 13:00:00 PM'),		--Wał bierny, projektowanie,300
-(2,1,'2022-04-05 08:00:00 AM','2022-04-05 08:15:00 AM'),		--Wał bierny, przygotowanie stanowiska, 15
-(2,1,'2022-04-05 09:15:00 AM','2022-04-05 21:00:00 PM'),		--Wał bierny, drukowanie, 720
-(2,1,'2022-04-06 08:00:00 AM','2022-04-06 09:00:00 AM'),		--Wał bierny, szlifowanie, 60
-(7,1,'2022-04-04 01:00:00 PM','2022-04-04 16:00:00 PM'),		--Obudowa przekładni, projektowanie, 180
-(2,1,'2022-04-06 09:15:00 AM','2022-04-06 09:30:00 AM'),		--Obudowa przekładni,przygotowanie stanow.,15
-(2,1,'2022-04-06 09:30:00 AM','2022-04-06 21:30:00 PM'),		--Obudowa przekładni, drukowanie, 720
-(2,1,'2022-04-07 08:00:00 AM','2022-04-07 09:00:00 AM'),		--Obudowa przekładni, wygładzanie, 60
-(2,1,'2022-04-07 09:00:00 AM','2022-04-07 11:00:00 AM'),		--Obudowa przekładni, lakierowanie, 120
-(2,1,'2022-04-07 11:00:00 AM','2022-04-07 12:00:00 PM'),		--Przekladnia zebata, montaz, 60
-(2,1,'2022-04-07 12:00:00 PM', NULL),							--Przekladnia zebata, klejenie, 60
-(2,2,'2022-04-07 13:00:00 PM','2022-04-07 16:00:00 PM'), 		--Litofanowy klosz, skanowanie, 180
-(2,2,'2022-04-04 13:00:00 PM','2022-04-04 16:00:00 PM'),		--Litofanowy klosz, projektowanie, 90
-(2,2,'2022-04-08 08:00:00 AM','2022-04-08 08:15:00 AM'),  		--Litofanowy klosz, przygotowanie stanow., 15
-(2,2,'2022-04-08 08:15:00 AM','2022-04-08 16:15:00 PM'),		--Litofanowy klosz, drukowanie, 480
-(2,2,'2022-04-09 08:00:00 AM','2022-04-09 08:30:00 AM'),		--Litofanowy klosz, montaz, 30
-(7,3,'2022-04-05 08:00:00 AM','2022-04-05 10:00:00 AM'),		--Tapicerka samochodowa, projektowanie, 120
-(3,3,'2022-04-05 08:00:00 AM','2022-04-05 08:15:00 AM'),		--Tapicerka samochodowa, przygotowanie stano, 15
-(3,3,'2022-04-05 08:15:00 AM','2022-04-05 12:15:00 PM'), 		--Tapicerka samochodowa, drukowanie, 240
-(3,3,'2022-04-05 12:15:00 PM','2022-04-05 13:15:00 PM'),		--Tapicerka samochodowa, wygladzanie, 60
-(3,3,'2022-04-05 13:15:00 PM','2022-04-05 15:15:00 PM'),		--Tapicerka samochodowa, montaz, 120
-(7,4,'2022-04-06 08:00:00 PM','2022-04-06 10:00:00 PM'),		--Tapicerka samochodowa, projektowanie, 120
-(3,4,'2022-04-06 15:15:00 PM', NULL),							--Tapicerka samochodowa, przygotowanie stano, 15
-(3,4,'2022-04-06 15:30:00 PM','2022-04-06 19:30:00 PM'),		--Tapicerka samochodowa, drukowanie, 240
-(3,4,'2022-04-07 08:00:00 AM','2022-04-07 09:00:00 AM'),		--Tapicerka samochodowa, wygladzanie, 60
-(3,4,'2022-04-07 09:00:00 AM','2022-04-07 11:00:00 AM'),		--Tapicerka samochodowa, montaz, 120
-(7,5,'2022-04-06 10:00:00 PM','2022-04-06 12:00:00 PM'), 		--Kostka rubika, projektowanie, 120
-(3,5,'2022-04-07 11:00:00 AM','2022-04-07 11:15:00 AM'),		--Kostka rubika, przygotowanie stanowiska, 15
-(3,5,'2022-04-07 11:15:00 AM','2022-04-07 15:15:00 PM'), 		--Kostka rubika, drukowanie, 240
-(3,5,'2022-04-08 08:00:00 AM', NULL),							--Kostka rubika, szlifowanie, 60
-(3,5,'2022-04-08 09:00:00 AM', NULL),							--Kostka rubika, montaz, 60
-(7,6,'2022-04-07 08:00:00 AM','2022-04-07 10:00:00 AM'),		--Tapicerka samochodowa, projektowanie, 120
-(4,6,'2022-04-07 08:00:00 AM','2022-04-07 08:15:00 AM'),		--Tapicerka samochodowa, przygotowanie stano, 15
-(4,6,'2022-04-07 10:00:00 AM','2022-04-07 14:00:00 PM'),		--Tapicerka samochodowa, drukowanie, 240
-(4,6,'2022-04-07 14:00:00 PM','2022-04-07 15:00:00 PM'),		--Tapicerka samochodowa, wygladzanie, 60
-(4,6,'2022-04-08 08:00:00 AM','2022-04-08 10:00:00 AM'),		--Tapicerka samochodowa, montaz, 120
-(7,7,'2022-04-08 08:00:00 AM','2022-04-08 10:00:00 AM'),		--Kostka rubika, projektowanie, 120
-(4,7,'2022-04-08 08:00:00 AM','2022-04-08 08:15:00 AM'),		--Kostka rubika, przygotowanie stanowiska, 15
-(4,7,'2022-04-08 08:15:00 AM','2022-04-08 12:15:00 PM'),		--Kostka rubika, drukowanie, 240
-(4,7,'2022-04-08 12:15:00 PM','2022-04-08 13:15:00 PM'),		--Kostka rubika, szlifowanie, 60
-(4,7,'2022-04-08 13:15:00 PM','2022-04-08 14:15:00 PM');		--Kostka rubika, montaz, 60
-
-
-INSERT INTO Proces_wytwarzanie_produkt (Id_wytwarzanie, Id_proces_produkt, Id_stanowisko_produkcyjne)
-VALUES
-(14,2,6),
-(15,3,6),
-(20,1,6),
-(25,4,6),
-(30,4,6),
-(35,6,6),
-(40,4,6),
-(45,6,6);
-
-
-INSERT INTO Proces_wytwarzanie_polprodukt (Id_wytwarzanie, Id_proces_polprodukt, Id_stanowisko_produkcyjne)
-VALUES
-(1,5,8),
-(2,6,3),
-(3,7,3),
-(4,8,5),
-(5,9,8),
-(6,10,3),
-(7,11,3),
-(8,12,5),
-(9,13,8),
-(10,14,4),
-(11,15,4),
-(12,16,9),
-(13,17,7),
-(16,1,1),
-(17,22,2),
-(18,23,2),
-(19,24,9),
-(21,33,8),
-(22,34,4),
-(23,35,4),
-(24,36,9),
-(26,33,8),
-(27,34,4),
-(28,35,4),
-(29,36,9),
-(31,18,8),
-(32,19,2),
-(33,20,2),
-(34,21,5),
-(36,33,8),
-(37,34,4),
-(38,35,4),
-(39,36,9),
-(41,18,8),
-(42,19,2),
-(43,20,2),
-(44,21,5);
-
-INSERT INTO Kontrola_jakosci_produkt (Id_pracownik, Id_rodzaj_kontrola, ID_wytwarzanie, Data_od, Data_do, Uwagi)
-VALUES
-(2,2,15,'2022-04-07 13:00:00 PM','2022-04-07 14:00:00 PM','BRAK'),
-(2,1,15,'2022-04-07 14:00:00 PM','2022-04-07 15:00:00 PM','BRAK'),
-(2,2,20,'2022-04-09 08:30:00 AM','2022-04-09 09:00:00 PM','BRAK'),
-(3,2,25,'2022-04-05 15:15:00 PM','2022-04-05 15:30:00 PM','BRAK'),
-(3,5,25,'2022-04-05 15:30:00 PM','2022-04-05 16:00:00 PM','BRAK'),
-(3,2,30,'2022-04-09 09:00:00 AM','2022-04-09 09:30:00 AM','BRAK'),
-(3,5,30,'2022-04-09 09:30:00 AM','2022-04-09 10:00:00 AM','BRAK'),
-(3,2,35,'2022-04-09 10:00:00 AM','2022-04-09 10:30:00 AM','BRAK'),
-(3,3,35,'2022-04-09 10:30:00 AM','2022-04-09 11:00:00 AM','BRAK'),
-(3,4,35,'2022-04-09 11:00:00 AM','2022-04-09 11:30:00 AM','BRAK'),
-(4,2,40,'2022-04-09 08:00:00 AM','2022-04-09 08:30:00 AM','BRAK'),
-(4,5,40,'2022-04-09 08:30:00 AM','2022-04-09 09:00:00 AM','BRAK'),
-(4,2,45,'2022-04-09 09:00:00 AM','2022-04-09 09:30:00 AM','BRAK'),
-(4,3,45,'2022-04-09 09:30:00 AM','2022-04-09 10:00:00 AM','BRAK');
-
-
-INSERT INTO Nadgodziny (ID_pracownik, Data_nadgodziny,Czas)
-Values
-(1,'2022-04-02','2'),
-(1,'2022-04-05','3'),
-(1,'2022-05-05','4'),
-(1,'2022-05-08','1'),
-(2,'2022-03-02','2'),
-(2,'2022-03-06','3'),
-(2,'2022-04-02','1'),
-(2,'2022-04-07','1'),
-(2,'2022-04-09','2');
+------- PRODUCTION DEPARTMENT --------
+
+CREATE VIEW v_Czynnosc_produkcyjna
+AS
+SELECT ID_czynnosc_produkcyjna AS [ID czynnosci], Nazwa AS [Nazwa czynnosci]
+FROM Czynnosc_produkcyjna;
+GO
+
+CREATE VIEW v_Parametry_produkt
+AS
+SELECT P.Nazwa_produkt AS [Produkt], RP.Nazwa_rodzaj_parametr AS [Parametr],
+PP.Zakres_dol AS [Wymiar minimalny], PP.Zakres_gora AS [Wymiar maksymalny], J.Skrot AS [Jednostka]
+FROM Parametr_produkt AS PP
+INNER JOIN Produkt AS P ON PP.ID_produkt = P.ID_produkt
+INNER JOIN Rodzaj_parametr AS RP ON PP.ID_rodzaj_parametr = RP.ID_rodzaj_parametr
+INNER JOIN Jednostka AS J ON RP.ID_jednostka = J.ID_jednostka
+GO
+
+CREATE VIEW v_Parametry_polprodukt
+AS
+SELECT SP.Nazwa AS [Nazwa p�produktu], RP.Nazwa_rodzaj_parametr AS [Parametr],
+PPp.Zakres_dol AS [Wymiar minimalny], PPp.Zakres_gora AS [Wymiar maksymalny], J.Skrot AS [Jednostka]
+FROM Parametr_polprodukt AS PPp
+INNER JOIN Slownik_polprodukt AS SP ON PPp.ID_polprodukt = SP.ID_polprodukt
+INNER JOIN Rodzaj_parametr AS RP ON PPp.ID_rodzaj_parametr = RP.ID_rodzaj_parametr
+INNER JOIN Jednostka AS J ON RP.ID_jednostka = J.ID_jednostka
+GO
+
+CREATE VIEW v_Sklad_produkt
+AS
+SELECT P.Nazwa_produkt AS [Produkt], SlwPP.Nazwa AS [P�produkt], SP.Liczba
+FROM Sklad_produkt AS SP
+INNER JOIN Produkt AS P ON SP.ID_produkt = P.ID_produkt
+INNER JOIN Slownik_polprodukt AS SlwPP ON SP.ID_polprodukt = SlwPP.ID_polprodukt
+GO
+
+CREATE VIEW v_Sklad_polprodukt
+AS
+SELECT SlwPp.Nazwa AS [P�produkt], M.Nazwa_material AS [Materia�], RM.Nazwa_rodzaj_material AS [Rodzaj],
+SP.Liczba AS [Ilo��]
+FROM Sklad_polprodukt AS SP
+INNER JOIN Slownik_polprodukt AS SlwPp ON SP.ID_polprodukt = SlwPp.ID_polprodukt
+INNER JOIN Material AS M ON SP.ID_material = M.ID_material
+INNER JOIN Rodzaj_material AS RM ON M.ID_rodzaj_material = RM.ID_rodzaj_material
+GO
+
+CREATE VIEW v_Slownik_stanowisko
+AS
+SELECT ID_nazwa_stanowiska AS ID, Nazwa_stanowiska AS [Nazwa stanowiska] 
+FROM Slownik_stanowisko
+GO
+
+CREATE VIEW v_Stanowisko_produkcyjne
+AS
+SELECT SP.ID_stanowisko_produkcyjne AS [ID], SS.Nazwa_stanowiska AS [Nazwa stanowiska]
+FROM Stanowisko_produkcyjne AS SP
+INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
+GO
+
+CREATE VIEW v_Sklad_stanowisko_produkcyjne_narzedzie
+AS
+SELECT SP.ID_stanowisko_produkcyjne AS [ID Stanowiska], SS.Nazwa_stanowiska, N.Nazwa_narzedzie AS [Narz�dzie], Liczba 
+FROM Sklad_stanowisko_produkcyjne_narzedzie AS SSPN
+INNER JOIN Stanowisko_produkcyjne AS SP ON SSPN.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
+INNER JOIN Narzedzie AS N ON SSPN.ID_narzedzie = N.ID_narzedzie
+INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
+ORDER BY SP.ID_stanowisko_produkcyjne ASC OFFSET 0 ROWS
+GO
+
+CREATE VIEW v_Sklad_stanowisko_produkcyjne_maszyna
+AS
+SELECT SP.ID_stanowisko_produkcyjne AS [ID stanowiska produkcyjnego], SS.Nazwa_stanowiska AS [Nazwa Stanowiska], 
+NS.Nr_seryjny AS [Nr seryjny maszyny], M.Nazwa_maszyna AS [Maszyna], M.Koszt_RBG [Koszt roboczogodziny {PLN}],
+RM.Nazwa_rodzaj_maszyna AS [Rodzaj maszyny]
+FROM Sklad_stanowisko_produkcyjne_maszyna AS SSPM
+INNER JOIN Stanowisko_produkcyjne AS SP ON SSPM.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
+INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
+INNER JOIN Maszyna_nr_seryjny AS MS ON SSPM.ID_maszyna_nr = MS.ID_maszyna_nr
+INNER JOIN Maszyna AS M ON MS.ID_maszyna = M.ID_maszyna
+INNER JOIN Rodzaj_maszyna AS RM ON M.ID_rodzaj_maszyna = RM.ID_rodzaj_maszyna
+INNER JOIN Nr_seryjny AS NS ON MS.ID_maszyna_nr = NS.ID_nr_seryjny
+ORDER BY SP.ID_stanowisko_produkcyjne ASC OFFSET 0 ROWS
+GO
+
+CREATE VIEW v_Koszt_roboczogodziny_stanowiska
+AS
+SELECT [ID stanowiska produkcyjnego],SUM([Koszt roboczogodziny {PLN}]) AS [Koszt roboczogodziny stanowiska {PLN}] 
+FROM (SELECT SP.ID_stanowisko_produkcyjne AS [ID stanowiska produkcyjnego], SS.Nazwa_stanowiska AS [Nazwa Stanowiska], 
+NS.Nr_seryjny AS [Nr seryjny maszyny], M.Nazwa_maszyna AS [Maszyna], M.Koszt_RBG [Koszt roboczogodziny {PLN}],
+RM.Nazwa_rodzaj_maszyna AS [Rodzaj maszyny]
+FROM Sklad_stanowisko_produkcyjne_maszyna AS SSPM
+INNER JOIN Stanowisko_produkcyjne AS SP ON SSPM.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
+INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
+INNER JOIN Maszyna_nr_seryjny AS MS ON SSPM.ID_maszyna_nr = MS.ID_maszyna_nr
+INNER JOIN Maszyna AS M ON MS.ID_maszyna = M.ID_maszyna
+INNER JOIN Rodzaj_maszyna AS RM ON M.ID_rodzaj_maszyna = RM.ID_rodzaj_maszyna
+INNER JOIN Nr_seryjny AS NS ON MS.ID_maszyna_nr = NS.ID_nr_seryjny
+ORDER BY SP.ID_stanowisko_produkcyjne ASC OFFSET 0 ROWS) AS v_Sklad_stanowisko_produkcyjne_maszyna
+GROUP BY [ID stanowiska produkcyjnego]
+GO
+
+CREATE VIEW v_Koszt_procesow_polprodukt
+AS
+SELECT P.ID_polprodukt AS ID, P.Nazwa AS [P�produkt], SUM(vK.[Koszt roboczogodziny stanowiska {PLN}] * PPPC.Czas_trwania/60) AS [Suma kosztu proces�w]
+FROM Proces_wytwarzanie_polprodukt AS PWPP
+INNER JOIN Proces_polprodukt_czynnosc AS PPPC ON PWPP.ID_proces_polprodukt = PPPC.ID_proces_polprodukt
+INNER JOIN v_Koszt_roboczogodziny_stanowiska AS vK ON PWPP.ID_stanowisko_produkcyjne = vK.[ID stanowiska produkcyjnego]
+INNER JOIN Slownik_polprodukt AS P ON PPPC.ID_polprodukt = P.ID_polprodukt
+GROUP BY P.ID_polprodukt, P.Nazwa
+GO
+
+CREATE VIEW v_Koszt_procesow_produkt
+AS
+SELECT  P.Nazwa_produkt AS [Produkt], SUM(vK.[Koszt roboczogodziny stanowiska {PLN}] * PPPC.Czas_trwania/60) AS [Suma kosztu proces�w]
+FROM Proces_wytwarzanie_polprodukt AS PWPP
+INNER JOIN Proces_produkt_czynnosc AS PPPC ON PWPP.ID_proces_polprodukt = PPPC.ID_proces_produkt
+INNER JOIN v_Koszt_roboczogodziny_stanowiska AS vK ON PWPP.ID_stanowisko_produkcyjne = vK.[ID stanowiska produkcyjnego]
+INNER JOIN Produkt AS P ON PPPC.ID_produkt = P.ID_produkt
+GROUP BY P.Nazwa_produkt
+GO
+
+CREATE VIEW v_Koszt_produkcji
+AS
+SELECT SUM(KPP.[Suma kosztu proces�w] * SP.Liczba) AS [Koszt wytworzenia produktu {PLN}]
+FROM Sklad_produkt AS SP
+INNER JOIN Produkt AS P ON SP.ID_produkt = P.ID_produkt
+INNER JOIN Slownik_polprodukt AS SlwPP ON SP.ID_polprodukt = SlwPP.ID_polprodukt
+INNER JOIN v_Koszt_procesow_polprodukt AS KPP ON SlWPP.Nazwa = KPP.P�produkt
+INNER JOIN v_Koszt_procesow_produkt AS KP ON P.Nazwa_produkt = KP.Produkt
+GROUP BY P.Nazwa_produkt
+GO
+
+CREATE VIEW v_Koszt
+AS
+SELECT P.Nazwa_produkt, SlwPP.Nazwa, SP.Liczba, KPP.[Suma kosztu proces�w] * SP.Liczba AS [Koszt p�produkt�w]
+FROM Sklad_produkt AS SP
+INNER JOIN Produkt AS P ON SP.ID_produkt = P.ID_produkt
+INNER JOIN Slownik_polprodukt AS SlwPP ON SP.ID_polprodukt = SlwPP.ID_polprodukt
+INNER JOIN v_Koszt_procesow_polprodukt AS KPP ON SlWPP.Nazwa = KPP.P�produkt
+GO
+
+CREATE VIEW v_Kontrola_jakosci_produkt
+AS
+SELECT Rk.Rodzaj_kontrola AS [Rodzaj kontroli], 
+PR.Nazwisko AS [Osoba kontroluj�ca], Kjp.Uwagi AS [Uwagi]
+FROM Kontrola_jakosci_produkt AS Kjp
+INNER JOIN Rodzaj_kontrola AS Rk ON Kjp.ID_rodzaj_kontrola = Rk.Rodzaj_kontrola
+INNER JOIN Pracownik AS PR ON Kjp.ID_pracownik = PR.ID_pracownik
+GO
+
+CREATE VIEW v_Rodzaj_kontrola
+AS
+SELECT ID_rodzaj_kontrola AS ID, Rodzaj_kontrola AS [Rodzaj kontroli], Procedura AS [Procedura kontrolna]
+FROM Rodzaj_kontrola
+GO
+
+CREATE VIEW v_Proces_polprodukt_czynnosc
+AS
+SELECT PPPC.ID_polprodukt AS [ID P�produktu], SP.Nazwa AS [P�produkt], CP.Nazwa AS [Czynno��]
+FROM Proces_polprodukt_czynnosc AS PPPC
+INNER JOIN Slownik_polprodukt SP ON PPPC.ID_polprodukt = SP.ID_polprodukt
+INNER JOIN Czynnosc_produkcyjna CP ON PPPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
+ORDER BY PPPC.ID_polprodukt DESC OFFSET 0 ROWS
+GO
+
+CREATE VIEW v_Proces_produkt_czynnosc
+AS
+SELECT PPC.ID_produkt AS [ID Produktu], P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynno��] 
+FROM Proces_produkt_czynnosc AS PPC
+INNER JOIN Produkt AS P ON PPC.ID_produkt = P.ID_produkt
+INNER JOIN Czynnosc_produkcyjna CP ON PPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
+ORDER BY PPC.ID_produkt DESC OFFSET 0 ROWS
+GO
+
+CREATE VIEW v_Liczba_zabiegow_wytworczych_polprodukt
+AS
+SELECT Count(PPPC.ID_polprodukt) AS [Ilosc zabiegow], SP.Nazwa AS [P�produkt]
+FROM Proces_polprodukt_czynnosc AS PPPC
+INNER JOIN Slownik_polprodukt SP ON PPPC.ID_polprodukt = SP.ID_polprodukt
+INNER JOIN Czynnosc_produkcyjna CP ON PPPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
+GROUP BY SP.Nazwa
+GO
+
+CREATE VIEW v_Liczba_zabiegow_wytworczych_produkt
+AS
+SELECT Count(PPC.ID_produkt) AS [Ilosc zabiegow], P.Nazwa_produkt AS [Produkt]
+FROM Proces_produkt_czynnosc AS PPC
+INNER JOIN Produkt AS P ON PPC.ID_produkt = P.ID_produkt
+INNER JOIN Czynnosc_produkcyjna CP ON PPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
+GROUP BY P.Nazwa_produkt
+GO
+
+CREATE VIEW v_Wytwarzanie
+AS
+SELECT W.ID_wytwarzanie AS [ID zabiegu produkcyjnego], W.Czas_od [Data rozpocz�cia], W.Czas_do AS [Data zako�czenia],
+P.Nazwisko + ' ' + P.Imie AS [Pracownik], OH.Termin_realizacja AS [Termin realizacji oferty]
+FROM Wytwarzanie AS W
+INNER JOIN Pracownik AS P ON W.ID_pracownik = P.ID_pracownik
+INNER JOIN Zamowienie_szczegol AS ZS ON W.ID_zamowienie_szczegol = ZS.ID_zamowienie_szczegol
+INNER JOIN Zamowienie AS Z ON ZS.ID_zamowienie = Z.ID_zamowienie
+INNER JOIN Oferta_handlowa AS OH ON OH.ID_zamowienie = z.ID_zamowienie
+GO
+
+CREATE VIEW v_Proces_wytwarzanie_polprodukt
+AS
+SELECT P.Nazwa AS [P�produkt], CP.Nazwa AS [Czynno�� produkcyjna], Pr.Nazwisko + ' ' + Pr.Imie AS [Pracownik],
+SP.ID_stanowisko_produkcyjne, PPPC.Czas_trwania AS [Szacowany czas {min}],
+W.Czas_od AS [Data rozpocz�cia], W.Czas_do AS [Data zako�czenia]
+FROM Proces_wytwarzanie_polprodukt AS PWPP
+INNER JOIN Wytwarzanie AS W ON PWPP.ID_wytwarzanie = W.ID_wytwarzanie
+INNER JOIN Proces_polprodukt_czynnosc AS PPPC ON PWPP.ID_proces_polprodukt = PPPC.ID_proces_polprodukt
+INNER JOIN Stanowisko_produkcyjne AS SP ON PWPP.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
+INNER JOIN Czynnosc_produkcyjna AS CP ON PPPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
+INNER JOIN Slownik_polprodukt AS P ON PPPC.ID_polprodukt = P.ID_polprodukt
+INNER JOIN Pracownik AS Pr ON W.ID_pracownik = Pr.ID_pracownik
+GO
+
+CREATE VIEW v_Proces_wytwarzanie_produkt
+AS
+SELECT P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynno�� produkcyjna], Pr.Nazwisko + ' ' + Pr.Imie AS [Pracownik],
+SP.ID_stanowisko_produkcyjne, PPPC.Czas_trwania AS [Szacowany czas {min}],
+W.Czas_od AS [Data rozpocz�cia], W.Czas_do AS [Data zako�czenia]
+FROM Proces_wytwarzanie_produkt AS PWP
+INNER JOIN Wytwarzanie AS W ON PWP.ID_wytwarzanie = W.ID_wytwarzanie
+INNER JOIN Proces_produkt_czynnosc AS PPPC ON PWP.ID_proces_produkt = PPPC.ID_proces_produkt
+INNER JOIN Stanowisko_produkcyjne AS SP ON PWP.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
+INNER JOIN Czynnosc_produkcyjna AS CP ON PPPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
+INNER JOIN Produkt AS P ON PPPC.ID_produkt = P.ID_produkt
+INNER JOIN Pracownik AS Pr ON W.ID_pracownik = Pr.ID_pracownik
+GO
+
+CREATE VIEW v_Stanowiska_w_uzyciu
+AS
+SELECT SP.ID_stanowisko_produkcyjne, SS.Nazwa_stanowiska AS Nazwa 
+FROM Proces_wytwarzanie_produkt AS PWP
+INNER JOIN Wytwarzanie AS W ON PWP.ID_wytwarzanie = W.ID_wytwarzanie
+INNER JOIN Proces_produkt_czynnosc AS PPPC ON PWP.ID_proces_produkt = PPPC.ID_proces_produkt
+INNER JOIN Stanowisko_produkcyjne AS SP ON PWP.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
+INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
+WHERE W.Czas_do IS NULL
+UNION 
+SELECT SP.ID_stanowisko_produkcyjne, SS.Nazwa_stanowiska AS Nazwa 
+FROM Proces_wytwarzanie_polprodukt AS PWPP
+INNER JOIN Wytwarzanie AS W ON PWPP.ID_wytwarzanie = W.ID_wytwarzanie
+INNER JOIN Proces_polprodukt_czynnosc AS PPPC ON PWPP.ID_proces_polprodukt = PPPC.ID_proces_polprodukt
+INNER JOIN Stanowisko_produkcyjne AS SP ON PWPP.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
+INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
+WHERE W.Czas_do IS NULL
+GO
+
+CREATE VIEW v_Stanowiska_do_uzycia
+AS
+SELECT SP.ID_stanowisko_produkcyjne, SS.Nazwa_stanowiska AS Nazwa FROM Stanowisko_produkcyjne AS SP
+INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
+EXCEPT
+SELECT * FROM v_Stanowiska_w_uzyciu
+GO
+
+
+
+-----RESOURCE DEPARTMENT----
+
+CREATE VIEW v_Sklad_maszyna AS 
+SELECT Maszyna.Nazwa_maszyna AS [Nazwa maszyny], Czesc.Nazwa_czesc AS [Nazwa cz�ci], Sklad_maszyna.Liczba_czesci AS [Liczba czesci]
+FROM Sklad_maszyna 
+INNER JOIN Maszyna  
+ON Sklad_maszyna.ID_maszyna=Maszyna.ID_maszyna
+INNER JOIN Czesc 
+ON Sklad_maszyna.ID_czesc=Czesc.ID_czesc
+GROUP BY Maszyna.Nazwa_maszyna, Czesc.Nazwa_czesc, Sklad_maszyna.Liczba_czesci;
+GO
+
+CREATE VIEW v_Parametry_maszyna AS
+SELECT Maszyna.Nazwa_maszyna AS [Nazwa maszyny], Rodzaj_parametr.Nazwa_rodzaj_parametr AS [Parametr], Jednostka.Skrot AS [Jednostka], Zakres_dol AS [Zakres - granica dolna], Zakres_gora AS [Zakres - granica g�rna]
+FROM Parametr_maszyna
+INNER JOIN Maszyna
+ON Parametr_maszyna.ID_maszyna=Maszyna.ID_maszyna
+INNER JOIN (Jednostka INNER JOIN Rodzaj_parametr ON Jednostka.ID_jednostka=Rodzaj_parametr.ID_jednostka)
+ON Parametr_maszyna.ID_rodzaj_parametr=Rodzaj_parametr.ID_rodzaj_parametr
+GROUP BY Maszyna.Nazwa_maszyna, Rodzaj_parametr.Nazwa_rodzaj_parametr, Jednostka.Skrot, Zakres_dol, Zakres_gora;
+GO
+
+CREATE VIEW v_Parametry_material AS
+SELECT Material.Nazwa_material AS [Nazwa materia�u], Rodzaj_parametr.Nazwa_rodzaj_parametr AS [Parametr], Jednostka.Skrot AS [Jednostka], Zakres_dol AS [Zakres - granica dolna], Zakres_gora AS [Zakres - granica g�rna]
+FROM Parametr_material
+INNER JOIN Material
+ON Parametr_material.ID_material=Material.ID_material
+INNER JOIN (Jednostka INNER JOIN Rodzaj_parametr ON Jednostka.ID_jednostka=Rodzaj_parametr.ID_jednostka)
+ON Parametr_material.ID_rodzaj_parametr=Rodzaj_parametr.ID_rodzaj_parametr
+GROUP BY Material.Nazwa_material, Rodzaj_parametr.Nazwa_rodzaj_parametr, Jednostka.Skrot, Zakres_dol, Zakres_gora;
+GO
+
+CREATE VIEW v_Parametry_czesc AS
+SELECT Czesc.Nazwa_czesc AS [Nazwa cz�ci], Rodzaj_parametr.Nazwa_rodzaj_parametr AS [Parametr], Jednostka.Skrot AS [Jednostka], Zakres_dol AS [Zakres - granica dolna], Zakres_gora AS [Zakres - granica g�rna]
+FROM Parametr_czesc
+INNER JOIN Czesc
+ON Parametr_czesc.ID_czesc=Czesc.ID_czesc
+INNER JOIN (Jednostka INNER JOIN Rodzaj_parametr ON Jednostka.ID_jednostka=Rodzaj_parametr.ID_jednostka)
+ON Parametr_czesc.ID_rodzaj_parametr=Rodzaj_parametr.ID_rodzaj_parametr
+GROUP BY Czesc.Nazwa_czesc, Rodzaj_parametr.Nazwa_rodzaj_parametr, Jednostka.Skrot, Zakres_dol, Zakres_gora;
+GO
+
+CREATE VIEW v_Parametry_narzedzie AS
+SELECT Narzedzie.Nazwa_narzedzie AS [Nazwa narz�dzia], Rodzaj_parametr.Nazwa_rodzaj_parametr AS [Parametr], Jednostka.Skrot AS [Jednostka], Zakres_dol AS [Zakres - granica dolna], Zakres_gora AS [Zakres - granica g�rna]
+FROM Parametr_narzedzie
+INNER JOIN Narzedzie
+ON Parametr_narzedzie.ID_narzedzie=Narzedzie.ID_narzedzie
+INNER JOIN (Jednostka INNER JOIN Rodzaj_parametr ON Jednostka.ID_jednostka=Rodzaj_parametr.ID_jednostka)
+ON Parametr_narzedzie.ID_rodzaj_parametr=Rodzaj_parametr.ID_rodzaj_parametr
+GROUP BY Narzedzie.Nazwa_narzedzie, Rodzaj_parametr.Nazwa_rodzaj_parametr, Jednostka.Skrot, Zakres_dol, Zakres_gora
+GO
+
+CREATE VIEW v_Oblugi_zakonczone
+AS
+SELECT SP.ID_stanowisko_produkcyjne AS [Nr stanowiska], RO.Nazwa_rodzaj_obsluga AS [Obs�uga], Data_od AS [Data rozpocz�cia], Data_do AS [Data zako�czenia], P.Imie + ' ' + P.Nazwisko AS [Pracownik]
+FROM Obsluga_pracownik AS OP
+INNER JOIN Obsluga AS O ON OP.ID_obsluga = O.ID_obsluga
+INNER JOIN Pracownik AS P ON OP.ID_pracownik = P.ID_pracownik
+INNER JOIN Rodzaj_obsluga AS RO ON O.ID_rodzaj_obsluga = RO.ID_rodzaj_obsluga
+INNER JOIN Stanowisko_produkcyjne AS SP ON O.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
+WHERE Data_do IS NOT NULL AND GETDATE() > Data_do
+GO
+
+CREATE VIEW v_Oblugi_w_trakcie
+AS
+SELECT SP.ID_stanowisko_produkcyjne AS [Nr stanowiska], RO.Nazwa_rodzaj_obsluga AS [Obs�uga], Data_od AS [Data rozpocz�cia], Data_do AS [Data zako�czenia], P.Imie + ' ' + P.Nazwisko AS [Pracownik]
+FROM Obsluga_pracownik AS OP
+INNER JOIN Obsluga AS O ON OP.ID_obsluga = O.ID_obsluga
+INNER JOIN Pracownik AS P ON OP.ID_pracownik = P.ID_pracownik
+INNER JOIN Rodzaj_obsluga AS RO ON O.ID_rodzaj_obsluga = RO.ID_rodzaj_obsluga
+INNER JOIN Stanowisko_produkcyjne AS SP ON O.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
+WHERE Data_do IS NULL
+GO
+
+CREATE VIEW v_Zamowienia_czesci_w_trakcie_wszystko 
+AS 
+SELECT ZC.ID_zamowienie_czesc AS [Nr zam�wienia], C.Nazwa_czesc AS [Nazwa cz�ci], SRZC.Data_stan [Data zmiany stanu], Ilosc, Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID] 
+FROM Szczegoly_zamowienie_czesc AS SZC 
+INNER JOIN Zamowienie_czesc AS ZC ON SZC.ID_zamowienie_czesc = ZC.ID_zamowienie_czesc 
+INNER JOIN Czesc AS C ON SZC.ID_czesc = C.ID_czesc 
+INNER JOIN Stan_realizacji_zamowienie_czesc AS SRZC ON ZC.ID_zamowienie_czesc = SRZC.ID_zamowienie_czesc 
+INNER JOIN Status_zamowienie AS SZ ON SRZC.ID_status_zamowienie = SZ.ID_status_zamowienie 
+INNER JOIN Dostawca AS D ON ZC.ID_dostawca = D.ID_dostawca
+GO 
+
+CREATE VIEW v_Zamowienia_czesci_w_trakcie_bez_odebranych 
+AS 
+SELECT ZCWTW.[Nr zam�wienia], ZCWTW.[Nazwa cz�ci], ZCWTW.[Data zmiany stanu], ZCWTW.Ilosc, ZCWTW.Cena, ZCWTW.[Status], ZCWTW.[StatusID] 
+FROM v_Zamowienia_czesci_w_trakcie_wszystko AS ZCWTW 
+LEFT JOIN v_Zamowienia_czesci_w_trakcie_wszystko AS ZCWTWA ON ZCWTW.[Nr zam�wienia] = ZCWTWA.[Nr zam�wienia] AND ZCWTWA.[Status] = 'Odebrano' 
+WHERE ZCWTWA.[Nr zam�wienia] IS NULL 
+GO 
+
+CREATE VIEW v_Zamowienia_czesci_w_trakcie 
+AS 
+SELECT a.* 
+FROM v_Zamowienia_czesci_w_trakcie_bez_odebranych AS a 
+LEFT JOIN v_Zamowienia_czesci_w_trakcie_bez_odebranych AS b ON a.[Nr zam�wienia] = b.[Nr zam�wienia] AND a.StatusID < b.StatusID 
+WHERE b.StatusID IS NULL 
+GO 
+
+CREATE VIEW v_Zamowienia_materialy_w_trakcie_wszystko 
+AS 
+SELECT ZM.ID_zamowienie_material AS [Nr zam�wienia], M.Nazwa_material AS [Nazwa materia�u], SRZM.Data_stan [Data zmiany stanu], Waga_g AS [Waga (g)], Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID] 
+FROM Szczegoly_zamowienie_material AS SZM 
+INNER JOIN Zamowienie_material AS ZM ON SZM.ID_zamowienie_material = ZM.ID_zamowienie_material 
+INNER JOIN Material AS M ON SZM.ID_material = M.ID_material 
+INNER JOIN Stan_realizacji_zamowienie_material AS SRZM ON ZM.ID_zamowienie_material = SRZM.ID_zamowienie_material 
+INNER JOIN Status_zamowienie AS SZ ON SRZM.ID_status_zamowienie = SZ.ID_status_zamowienie 
+INNER JOIN Dostawca AS D ON ZM.ID_dostawca = D.ID_dostawca
+GO 
+
+CREATE VIEW v_Zamowienia_materialy_w_trakcie_bez_odebranych 
+AS 
+SELECT ZMWTW.[Nr zam�wienia], ZMWTW.[Nazwa materia�u], ZMWTW.[Data zmiany stanu], ZMWTW.[Waga (g)], ZMWTW.Cena, ZMWTW.[Status], ZMWTW.[StatusID] 
+FROM v_Zamowienia_materialy_w_trakcie_wszystko AS ZMWTW 
+LEFT JOIN v_Zamowienia_materialy_w_trakcie_wszystko AS ZMWTWA ON ZMWTW.[Nr zam�wienia] = ZMWTWA.[Nr zam�wienia] AND ZMWTWA.[Status] = 'Odebrano' 
+WHERE ZMWTWA.[Nr zam�wienia] IS NULL 
+GO 
+
+CREATE VIEW v_Zamowienia_materialy_w_trakcie 
+AS 
+SELECT a.* 
+FROM v_Zamowienia_materialy_w_trakcie_bez_odebranych AS a 
+LEFT JOIN v_Zamowienia_materialy_w_trakcie_bez_odebranych AS b ON a.[Nr zam�wienia] = b.[Nr zam�wienia] AND a.StatusID < b.StatusID 
+WHERE b.StatusID IS NULL 
+GO
+
+CREATE VIEW v_Zamowienia_narzedzia_w_trakcie_wszystko 
+AS 
+SELECT ZN.ID_zamowienie_narzedzie AS [Nr zam�wienia], N.Nazwa_narzedzie AS [Nazwa narz�dzia], SRZN.Data_stan [Data zmiany stanu], Sztuk, Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID] 
+FROM Szczegoly_zamowienie_narzedzie AS SZN 
+INNER JOIN Zamowienie_narzedzie AS ZN ON SZN.ID_zamowienie_narzedzie = ZN.ID_zamowienie_narzedzie 
+INNER JOIN Narzedzie AS N ON SZN.ID_narzedzie = N.ID_narzedzie
+INNER JOIN Stan_realizacji_zamowienie_narzedzie AS SRZN ON ZN.ID_zamowienie_narzedzie = SRZN.ID_zamowienie_narzedzie 
+INNER JOIN Status_zamowienie AS SZ ON SRZN.ID_status_zamowienie = SZ.ID_status_zamowienie 
+INNER JOIN Dostawca AS D ON ZN.ID_dostawca = D.ID_dostawca
+GO 
+
+CREATE VIEW v_Zamowienia_narzedzia_w_trakcie_bez_odebranych 
+AS 
+SELECT ZNWTW.[Nr zam�wienia], ZNWTW.[Nazwa narz�dzia], ZNWTW.[Data zmiany stanu], ZNWTW.Sztuk, ZNWTW.Cena, ZNWTW.[Status], ZNWTW.[StatusID] 
+FROM v_Zamowienia_narzedzia_w_trakcie_wszystko AS ZNWTW 
+LEFT JOIN v_Zamowienia_materialy_w_trakcie_wszystko AS ZNWTWA ON ZNWTW.[Nr zam�wienia] = ZNWTWA.[Nr zam�wienia] AND ZNWTWA.[Status] = 'Odebrano' 
+WHERE ZNWTWA.[Nr zam�wienia] IS NULL 
+GO 
+
+CREATE VIEW v_Zamowienia_narzedzia_w_trakcie 
+AS 
+SELECT a.* 
+FROM v_Zamowienia_narzedzia_w_trakcie_bez_odebranych AS a 
+LEFT JOIN v_Zamowienia_narzedzia_w_trakcie_bez_odebranych AS b ON a.[Nr zam�wienia] = b.[Nr zam�wienia] AND a.StatusID < b.StatusID 
+WHERE b.StatusID IS NULL 
+GO
+
+CREATE VIEW v_Zamowienia_maszyny_w_trakcie_wszystko 
+AS 
+SELECT ZM.ID_zamowienie_maszyna AS [Nr zam�wienia], M.Nazwa_maszyna AS [Nazwa maszyny], SRZM.Data_stan AS [Data zmiany stanu], Ilosc AS [Ilo��], Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID] 
+FROM Szczegoly_zamowienie_maszyna AS SZM 
+INNER JOIN Zamowienie_maszyna AS ZM ON SZM.ID_zamowienie_maszyna = ZM.ID_zamowienie_maszyna
+INNER JOIN Maszyna AS M ON SZM.ID_maszyna = M.ID_maszyna
+INNER JOIN Stan_realizacji_zamowienie_maszyna AS SRZM ON ZM.ID_zamowienie_maszyna = SRZM.ID_zamowienie_maszyna
+INNER JOIN Status_zamowienie AS SZ ON SRZM.ID_status_zamowienie = SZ.ID_status_zamowienie 
+INNER JOIN Dostawca AS D ON ZM.ID_dostawca = D.ID_dostawca
+GROUP BY M.Nazwa_maszyna, ZM.ID_zamowienie_maszyna, SRZM.Data_stan, Ilosc, Cena, D.Nazwa_dostawca, SZ.Nazwa_status, SZ.ID_status_zamowienie
+GO
+
+CREATE VIEW v_Zamowienia_maszyny_w_trakcie_bez_odebranych 
+AS 
+SELECT ZMWTW.[Nr zam�wienia], ZMWTW.[Nazwa maszyny], ZMWTW.[Data zmiany stanu], ZMWTW.Ilo��, ZMWTW.Cena, ZMWTW.[Status], ZMWTW.[StatusID] 
+FROM v_Zamowienia_maszyny_w_trakcie_wszystko  AS ZMWTW 
+LEFT JOIN v_Zamowienia_maszyny_w_trakcie_wszystko AS ZMWTWA ON ZMWTW.[Nr zam�wienia] = ZMWTWA.[Nr zam�wienia] AND ZMWTWA.[Status] = 'Odebrano' 
+WHERE ZMWTWA.[Nr zam�wienia] IS NULL 
+GO 
+
+CREATE VIEW v_Zamowienia_maszyny_w_trakcie 
+AS 
+SELECT a.* 
+FROM v_Zamowienia_maszyny_w_trakcie_bez_odebranych AS a 
+LEFT JOIN v_Zamowienia_maszyny_w_trakcie_bez_odebranych AS b ON a.[Nr zam�wienia] = b.[Nr zam�wienia] AND a.StatusID < b.StatusID 
+WHERE b.StatusID IS NULL 
+GO
+
+CREATE VIEW v_Magazyn_maszyn_wszystko 
+AS
+SELECT [Nazwa maszyny], SUM([Ilo��]) AS [Liczba sztuk]
+FROM v_Zamowienia_maszyny_w_trakcie_wszystko 
+WHERE StatusID = 4
+GROUP BY [Nazwa maszyny]
+GO
+
+CREATE VIEW v_Magazyn_maszyn_uzywane
+AS
+SELECT Maszyna, COUNT(Maszyna) AS [Liczba]
+FROM v_Sklad_stanowisko_produkcyjne_maszyna AS SSPM
+GROUP BY Maszyna
+GO
+
+CREATE VIEW v_Magazyn_maszyn_stan
+AS
+SELECT [Nazwa maszyny], [Liczba sztuk], IsNull(Liczba,0) as U�ywane
+FROM v_Magazyn_maszyn_wszystko AS MMW
+LEFT JOIN v_Magazyn_maszyn_uzywane AS MMU ON MMW.[Nazwa maszyny]=MMU.Maszyna
+GO
+
+CREATE VIEW v_Magazyn_maszyn_nieuzywane
+AS
+SELECT [Nazwa maszyny], [Liczba sztuk]-U�ywane AS [Ilo�� w magazynie]
+FROM v_Magazyn_maszyn_stan
+GO
+
+CREATE VIEW v_Magazyn_narzedzia_wszystko
+AS
+SELECT [Nazwa narz�dzia], Sztuk
+FROM v_Zamowienia_narzedzia_w_trakcie_wszystko 
+WHERE StatusID = 4
+GROUP BY [Nazwa narz�dzia], Sztuk
+GO
+
+CREATE VIEW v_Magazyn_narzedzia_uzywane
+AS
+SELECT Narz�dzie, SUM (Liczba) AS Liczba
+FROM v_Sklad_stanowisko_produkcyjne_narzedzie AS SSPN
+GROUP BY Narz�dzie
+GO
+
+CREATE VIEW v_Magazyn_narzedzia_stan
+AS
+SELECT [Nazwa narz�dzia], Sztuk, IsNull(Liczba,0) as U�ywane
+FROM v_Magazyn_narzedzia_wszystko AS MNW
+LEFT JOIN v_Magazyn_narzedzia_uzywane AS MNU ON MNW.[Nazwa narz�dzia]=MNU.[Narz�dzie]
+GO
+
+CREATE VIEW v_Magazyn_narzedzia_nieuzywane
+AS
+SELECT [Nazwa narz�dzia], Sztuk-U�ywane AS [Ilo�� w magazynie]
+FROM v_Magazyn_narzedzia_stan
+GO
+
+CREATE VIEW v_Magazyn_material_wszystko
+AS
+SELECT [Nazwa materia�u], [Waga (g)]
+FROM v_Zamowienia_materialy_w_trakcie_wszystko 
+WHERE StatusID = 4
+GROUP BY [Nazwa materia�u], [Waga (g)]
+GO
+
+--SALES AND MARKETING DEPARTMENT --
+CREATE VIEW v_Szczegoly_sprzedaz AS
+SELECT Szczegoly_sprzedaz.ID_sprzedaz AS [Numer sprzeda�y], Produkt.Nazwa_produkt AS [Produkt], 
+Szczegoly_sprzedaz.Ilosc AS [Ilo��], Szczegoly_sprzedaz.Kwota_sprzedaz AS [Cena za sztuk�], Podatek.Procent AS [Podatek %],
+Forma_platnosc.Forma_platnosc AS [Forma p�atno�ci]
+FROM Szczegoly_sprzedaz
+INNER JOIN Podatek ON Szczegoly_sprzedaz.ID_podatek = Podatek.ID_podatek
+INNER JOIN (Sprzedaz INNER JOIN Forma_platnosc ON Sprzedaz.ID_forma_platnosc = Forma_platnosc.ID_Forma_platnosc) 
+ON Szczegoly_sprzedaz.ID_sprzedaz = Sprzedaz.ID_sprzedaz
+INNER JOIN Produkt ON Produkt.ID_produkt = Szczegoly_sprzedaz.ID_produkt
+GO
+
+CREATE VIEW v_Sprzedaz AS
+SELECT Sprzedaz.Nr_sprzedaz AS [Numer sprzeda�y], Klient.Nazwisko AS [Nazwisko klienta], Klient.Imie AS [Imi� klienta], Klient.NIP,
+		Sprzedaz.Data_sprzedaz_poczatek AS [Data pocz�tku sprzeda�y], Sprzedaz.Data_sprzedaz_koniec AS [Data ko�ca sprzeda�y],
+		Umowa_sprzedaz.ID_umowa_sprzedaz AS [Umowa], (Szczegoly_sprzedaz.Ilosc * Szczegoly_sprzedaz.Kwota_sprzedaz) AS [Koszt]
+FROM Sprzedaz
+INNER JOIN 
+(Umowa_sprzedaz INNER JOIN 
+(Oferta_handlowa INNER JOIN 
+(Klient INNER JOIN Zamowienie ON Klient.ID_klient = Zamowienie.ID_klient) 
+ON Oferta_handlowa.ID_zamowienie = Zamowienie.ID_zamowienie) 
+ON Umowa_sprzedaz.ID_oferta_handlowa = Oferta_handlowa.ID_oferta_handlowa) ON Umowa_sprzedaz.ID_umowa_sprzedaz = Sprzedaz.ID_umowa_sprzedaz
+INNER JOIN Szczegoly_sprzedaz ON Szczegoly_sprzedaz.ID_sprzedaz = Sprzedaz.ID_sprzedaz
+GO
+
+CREATE VIEW v_Oferta_handlowa AS
+SELECT Oferta_handlowa.ID_zamowienie AS [Numer zam�wienia], 
+Oferta_handlowa.ID_Oferta_handlowa AS [Numer oferty], 
+Status_oferta.Nazwa_status_oferta AS [Status oferty],
+Gwarancja.Okres_gwarancja AS [Okres gwarancji], 
+Gwarancja.Opis_gwarancja AS [Opis gwarancji],
+Oferta_handlowa.Cena, Oferta_handlowa.Termin_realizacja AS [Termin realizacji],
+Pracownik.Nazwisko AS [Nazwisko pracownika], Pracownik.Imie AS [Imi� pracownika]
+FROM Oferta_handlowa
+INNER JOIN Status_oferta ON Status_oferta.ID_status_oferta = Oferta_handlowa.ID_status_oferta
+INNER JOIN Gwarancja ON Gwarancja.ID_gwarancja = Oferta_handlowa.ID_gwarancja
+INNER JOIN Pracownik ON Pracownik.ID_pracownik = Oferta_Handlowa.ID_pracownik
+ORDER BY [Numer zam�wienia] OFFSET 0 ROWS
+GO
+
+CREATE VIEW v_Produkty_na_gwarancji
+AS
+SELECT Produkt.Nazwa_produkt AS [Nazwa produktu],
+Szczegoly_sprzedaz.ID_sprzedaz AS [Numer sprzeda�y],
+Sprzedaz.Data_sprzedaz_koniec AS [Data sprzeda�y]
+FROM Szczegoly_sprzedaz
+INNER JOIN Sprzedaz ON Sprzedaz.ID_sprzedaz = Szczegoly_sprzedaz.ID_sprzedaz
+INNER JOIN Produkt ON Szczegoly_sprzedaz.ID_produkt = Produkt.ID_produkt
+GO
+
+
+
+CREATE VIEW v_Reklamacja
+AS
+SELECT Reklamacja.ID_sprzedaz AS [Numer sprzeda�y],
+Reklamacja.ID_reklamacja AS [Numer reklamacji],
+Reklamacja.Data_reklamacja AS [Data reklamacji],
+Reklamacja.Opis_reklamacja AS [Opis reklamacji],
+Produkt.Nazwa_produkt AS [Nazwa produktu],
+Zwrot.Ilosc AS [Ilo��],
+Zwrot.Akceptacja AS [Akceptacja] 
+FROM Zwrot
+INNER JOIN Reklamacja ON Reklamacja.ID_reklamacja = Zwrot.ID_reklamacja
+INNER JOIN Produkt ON Produkt.ID_produkt = Zwrot.ID_produkt 
+GO
+
+CREATE VIEW v_Klient AS
+	SELECT Klient.Nazwisko AS [Nazwisko], Klient.Imie AS [Imi�], Klient.NIP, Dane_adresowe_klient.Miejscowosc AS [Miejscowo��], 
+	Dane_adresowe_klient.Ulica, Dane_adresowe_klient.Nr_budynek AS [Numer budynku], 
+	Dane_adresowe_klient.Nr_lokal AS [Numer lokalu], Dane_adresowe_klient.Kod_pocztowy AS [Kod pocztowy]
+	FROM Klient 
+	INNER JOIN Dane_adresowe_klient ON Klient.ID_klient = Dane_adresowe_klient.ID_klient
+	GO
+
+CREATE VIEW v_Klient_telefon_aktualny AS 
+	SELECT Klient.Nazwisko, Klient.Imie AS [Imi�], Nr_telefon_klient.Numer AS [Numer telefonu]
+	FROM Klient 
+	INNER JOIN Nr_telefon_klient ON Klient.ID_klient = Nr_telefon_klient.ID_klient
+	WHERE Data_do IS NULL
+	GO
+
+CREATE VIEW v_Klient_telefon_Historia AS
+	SELECT Klient.Nazwisko, Klient.Imie AS [Imi�], Nr_telefon_klient.Numer AS [Numer telefonu]
+	FROM Klient 
+	INNER JOIN Nr_telefon_klient ON Klient.ID_klient = Nr_telefon_klient.ID_klient
+	ORDER BY Data_do DESC OFFSET 0 ROWS
+	GO
+
+	--HR DEPARTMENT --
+CREATE VIEW v_Pracownik
+AS
+SELECT P.ID_pracownik AS [ID], P.Nazwisko AS [Nazwisko], P.Imie AS [Imi�], P.Nr_dowodu AS [Nr dowodu], P.Pesel AS [Pesel], W.Nazwa AS [Wykszta�cenie], NTP.Numer AS [Numer telefonu], EP.Email AS [Email] FROM Pracownik AS P
+INNER JOIN Wyksztalcenie AS W ON P.ID_wyksztalcenie = W.ID_wyksztalcenie
+INNER JOIN Nr_telefon_pracownik AS NTP ON P.ID_pracownik = NTP.ID_pracownik
+INNER JOIN Email_pracownik AS EP ON P.ID_pracownik = EP.ID_pracownik
+GO
+
+CREATE VIEW v_Dane_adresowe_pracownik
+AS
+SELECT ID_pracownik AS [ID], Miejscowosc AS [Miejscowo�� zamieszkania], Ulica AS [Ulica], Nr_budynku AS [Nr budynku], Nr_lokalu AS [Nr_lokalu], Kod_pocztowy AS [Kod pocztowy], Data_od AS [Data od:], Data_do AS [Data do:]
+FROM Dane_adresowe_pracownik;
+GO
+
+CREATE VIEW v_Nieobecnosc
+AS
+SELECT P.Nazwisko AS [Nazwisko], P.Imie AS [Imi�], RN.Symbol AS [Rodzaj nieobecno�ci], N.Data_od AS [Data od:], N.Data_do AS [Data do:] FROM Nieobecnosc AS N
+INNER JOIN Pracownik AS P ON N.ID_pracownik = P.ID_pracownik
+INNER JOIN Rodzaj_nieobecnosci AS RN ON N.ID_rodzaj_nieobecnosci = RN. ID_rodzaj_nieobecnosci
+GO
+
+CREATE VIEW v_Nr_telefon_pracownik
+AS
+SELECT P.Nazwisko AS [Nazwisko], P.Imie AS [Imi�], NTP.Numer AS [Numer telefonu], NTP.Data_od AS [Data od:], NTP.Data_do AS [Data do:] From Nr_telefon_pracownik AS NTP
+INNER JOIN Pracownik AS P ON NTP.ID_pracownik = P.ID_pracownik
+GO
+
+CREATE VIEW v_Email_pracownik
+AS
+SELECT P.Nazwisko AS [Nazwisko], P.Imie AS [Imi�], EP.Email AS [Email], EP.Data_od AS [Data od:], EP.Data_do AS [Data do:] From Email_pracownik AS EP
+INNER JOIN Pracownik AS P ON EP.ID_pracownik = P.ID_pracownik
+GO
+
+CREATE VIEW v_Etat
+AS
+SELECT E.ID_etat AS [ID], ST.Nazwa_stanowiska AS [Stanowisko], DZ.Nazwa_dzial AS [Dzial], E.Liczba_miejsc AS [Liczba stanowisk] FROM Etat AS E
+INNER JOIN Stanowisko AS ST ON E.ID_stanowisko = ST.ID_stanowisko
+INNER JOIN Dzial AS DZ ON E.ID_dzial = DZ.ID_dzial
+GO
+
+CREATE VIEW v_Umowa
+AS
+SELECT UM.ID_umowa AS [ID], P.Nazwisko AS [Nazwisko], P.Imie AS [Imi�], WP.Nazwa AS [Wymiar pracy], ST.Nazwa_stanowiska AS [Nazwa stanowiska], UM.Wynagrodzenie AS [Podstawa wynagrodzenia]  
+FROM Umowa AS UM
+INNER JOIN
+(Posada_pracownika AS PO INNER JOIN
+(Etat AS ET INNER JOIN Stanowisko AS ST ON ET.ID_stanowisko = ST.ID_stanowisko)
+ON ET.ID_etat = PO.ID_etat) ON UM.ID_posada_pracownika = PO.ID_posada_pracownika
+INNER JOIN Pracownik AS P ON UM.ID_pracownik = P.ID_pracownik
+INNER JOIN Wymiar_pracy AS WP ON UM.ID_wymiar_pracy = WP.ID_wymiar_pracy
+GO
+
+CREATE VIEW v_Sz_czas_proces_polprodukt_czynnosc
+AS
+SELECT PPPC.ID_polprodukt AS [ID P�produktu], SP.Nazwa AS [P�produkt], CP.Nazwa AS [Czynno��], PPPC.Czas_trwania AS [Szacowany czas w min]
+FROM Proces_polprodukt_czynnosc AS PPPC
+INNER JOIN Slownik_polprodukt AS SP ON PPPC.ID_polprodukt = SP.ID_polprodukt
+INNER JOIN Czynnosc_produkcyjna AS CP ON PPPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
+ORDER BY PPPC.ID_polprodukt DESC OFFSET 0 ROWS
+GO
+ 
+CREATE VIEW v_Sz_czas_proces_produkt_czynnosc
+AS
+SELECT PPC.ID_produkt AS [ID Produktu], P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynno��], PPC.Czas_trwania AS [Szacowany czas w min]
+FROM Proces_produkt_czynnosc AS PPC
+INNER JOIN Produkt AS P ON PPC.ID_produkt = P.ID_produkt
+INNER JOIN Czynnosc_produkcyjna CP ON PPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
+ORDER BY PPC.ID_produkt DESC OFFSET 0 ROWS
+GO
+ 
+CREATE VIEW v_Nadgodziny
+AS
+SELECT NG.ID_pracownik AS [ID_Pracownik], NG.Data_nadgodziny AS [Data nadgodziny], NG.Czas AS [Czas]
+FROM Nadgodziny AS NG
+INNER JOIN Pracownik AS P ON NG.ID_pracownik = P.ID_pracownik
+ORDER BY NG.ID_pracownik DESC OFFSET 0 ROWS 
+GO
+
+CREATE VIEW v_Nadgodziny_miesiac
+AS
+SELECT DISTINCT NG.ID_pracownik AS [ID_Pracownik], MONTH(NG.Data_nadgodziny) AS [Miesi�c], NG.Czas AS [Czas]
+FROM Nadgodziny AS NG
+INNER JOIN Pracownik AS P ON NG.ID_pracownik = P.ID_pracownik
+ORDER BY NG.ID_pracownik DESC OFFSET 0 ROWS 
+GO
+
+CREATE VIEW v_Nadgodziny_suma_miesiac
+AS
+SELECT ID_Pracownik, Miesi�c, SUM(Czas) AS [��czny czas]
+FROM  dbo.v_Nadgodziny_miesiac
+GROUP BY ID_Pracownik, Miesi�c
+GO
