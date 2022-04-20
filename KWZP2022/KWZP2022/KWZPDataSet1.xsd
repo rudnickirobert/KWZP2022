@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="KWZPDataSet1" targetNamespace="http://tempuri.org/KWZPDataSet1.xsd" xmlns:mstns="http://tempuri.org/KWZPDataSet1.xsd" xmlns="http://tempuri.org/KWZPDataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="KWZPConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="KWZPConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.KWZP2022.Properties.Settings.GlobalReference.Default.KWZPConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="JednostkaTableAdapter" GeneratorDataComponentClassName="JednostkaTableAdapter" Name="Jednostka" UserDataComponentName="JednostkaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="KWZPConnectionString (Settings)" DbObjectName="KWZP.dbo.Jednostka" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Nazwa_jednostka FROM dbo.Jednostka</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Nazwa_jednostka" DataSetColumn="Nazwa_jednostka" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="KWZPDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="KWZPDataSet1" msprop:Generator_DataSetName="KWZPDataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Jednostka" msprop:Generator_RowEvHandlerName="JednostkaRowChangeEventHandler" msprop:Generator_RowDeletedName="JednostkaRowDeleted" msprop:Generator_RowDeletingName="JednostkaRowDeleting" msprop:Generator_RowEvArgName="JednostkaRowChangeEvent" msprop:Generator_TablePropName="Jednostka" msprop:Generator_RowChangedName="JednostkaRowChanged" msprop:Generator_RowChangingName="JednostkaRowChanging" msprop:Generator_TableClassName="JednostkaDataTable" msprop:Generator_RowClassName="JednostkaRow" msprop:Generator_TableVarName="tableJednostka" msprop:Generator_UserTableName="Jednostka">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Nazwa_jednostka" msprop:Generator_ColumnPropNameInRow="Nazwa_jednostka" msprop:Generator_ColumnPropNameInTable="Nazwa_jednostkaColumn" msprop:Generator_ColumnVarNameInTable="columnNazwa_jednostka" msprop:Generator_UserColumnName="Nazwa_jednostka">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

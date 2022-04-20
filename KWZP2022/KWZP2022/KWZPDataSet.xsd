@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="KWZPDataSet" targetNamespace="http://tempuri.org/KWZPDataSet.xsd" xmlns:mstns="http://tempuri.org/KWZPDataSet.xsd" xmlns="http://tempuri.org/KWZPDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="KWZPConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="KWZPConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.KWZP2022.Properties.Settings.GlobalReference.Default.KWZPConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Rodzaj_parametrTableAdapter" GeneratorDataComponentClassName="Rodzaj_parametrTableAdapter" Name="Rodzaj_parametr" UserDataComponentName="Rodzaj_parametrTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="KWZPConnectionString (Settings)" DbObjectName="KWZP.dbo.Rodzaj_parametr" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Nazwa_rodzaj_parametr FROM dbo.Rodzaj_parametr</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Nazwa_rodzaj_parametr" DataSetColumn="Nazwa_rodzaj_parametr" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="KWZPDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="KWZPDataSet" msprop:Generator_DataSetName="KWZPDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Rodzaj_parametr" msprop:Generator_RowEvHandlerName="Rodzaj_parametrRowChangeEventHandler" msprop:Generator_RowDeletedName="Rodzaj_parametrRowDeleted" msprop:Generator_RowDeletingName="Rodzaj_parametrRowDeleting" msprop:Generator_RowEvArgName="Rodzaj_parametrRowChangeEvent" msprop:Generator_TablePropName="Rodzaj_parametr" msprop:Generator_RowChangedName="Rodzaj_parametrRowChanged" msprop:Generator_RowChangingName="Rodzaj_parametrRowChanging" msprop:Generator_TableClassName="Rodzaj_parametrDataTable" msprop:Generator_RowClassName="Rodzaj_parametrRow" msprop:Generator_TableVarName="tableRodzaj_parametr" msprop:Generator_UserTableName="Rodzaj_parametr">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Nazwa_rodzaj_parametr" msprop:Generator_ColumnPropNameInRow="Nazwa_rodzaj_parametr" msprop:Generator_ColumnPropNameInTable="Nazwa_rodzaj_parametrColumn" msprop:Generator_ColumnVarNameInTable="columnNazwa_rodzaj_parametr" msprop:Generator_UserColumnName="Nazwa_rodzaj_parametr">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
