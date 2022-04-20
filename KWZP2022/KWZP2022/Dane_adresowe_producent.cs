@@ -16,10 +16,10 @@ namespace KWZP2022
     {
         public int ID_dane_adresowe_producent { get; set; }
         public int ID_producent { get; set; }
-        public int Miejscowosc { get; set; }
-        public int Ulica { get; set; }
+        public string Miejscowosc { get; set; }
+        public string Ulica { get; set; }
         public int Nr_budynku { get; set; }
-        public int Kod_pocztowy { get; set; }
+        public string Kod_pocztowy { get; set; }
     
         public virtual Producent Producent { get; set; }
     }

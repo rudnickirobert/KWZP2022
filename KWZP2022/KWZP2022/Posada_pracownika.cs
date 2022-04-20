@@ -20,7 +20,7 @@ namespace KWZP2022
             this.Umowa = new HashSet<Umowa>();
         }
     
-        public int ID_posada { get; set; }
+        public int ID_posada_pracownika { get; set; }
         public Nullable<int> ID_etat { get; set; }
         public System.DateTime Data_od { get; set; }
         public Nullable<System.DateTime> Data_do { get; set; }

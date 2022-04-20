@@ -17,8 +17,10 @@ namespace KWZP2022
         public int ID_proces_wytwarzanie_polprodukt { get; set; }
         public int ID_wytwarzanie { get; set; }
         public Nullable<int> ID_proces_polprodukt { get; set; }
+        public int ID_stanowisko_produkcyjne { get; set; }
     
         public virtual Proces_polprodukt_czynnosc Proces_polprodukt_czynnosc { get; set; }
+        public virtual Stanowisko_produkcyjne Stanowisko_produkcyjne { get; set; }
         public virtual Wytwarzanie Wytwarzanie { get; set; }
     }
 }

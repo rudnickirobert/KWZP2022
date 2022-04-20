@@ -21,7 +21,7 @@ namespace KWZP2022
         }
     
         public int ID_gwarancja { get; set; }
-        public System.TimeSpan Okres_gwarancja { get; set; }
+        public int Okres_gwarancja { get; set; }
         public string Opis_gwarancja { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

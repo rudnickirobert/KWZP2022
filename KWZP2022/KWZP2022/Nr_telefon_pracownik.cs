@@ -14,7 +14,7 @@ namespace KWZP2022
     
     public partial class Nr_telefon_pracownik
     {
-        public int ID_numer_telefonu { get; set; }
+        public int ID_Nr_telefon_pracownik { get; set; }
         public int ID_pracownik { get; set; }
         public string Numer { get; set; }
         public System.DateTime Data_od { get; set; }
