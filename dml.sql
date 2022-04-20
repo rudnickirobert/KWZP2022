@@ -127,12 +127,6 @@ VALUES
 ('Badanie chropowatości', 'Określić chropowatość uzyskanej powierzchni'),
 ('Wytrzymałościowa', 'Poddać produkt obciążeniu próbnemu');
 
-INSERT INTO Rezultat_kontrola (Wynik)
-VALUES
-('Pozytywny'),
-('Negatywny - do porawy'),
-('Do utylizacji');
-
 INSERT INTO Slownik_stanowisko (Nazwa_stanowiska)
 VALUES
 ('Stanowisko do skanowania'),
@@ -1319,15 +1313,23 @@ VALUES
 (43,20,2),
 (44,21,5);
 
-
-
-INSERT INTO Kontrola_jakosci_produkt (Id_pracownik, Id_rodzaj_kontrola, Id_produkt, Data_od, Data_do, Uwagi, Id_rezultat)
+INSERT INTO Kontrola_jakosci_produkt (Id_pracownik, Id_rodzaj_kontrola, ID_wytwarzanie, Data_od, Data_do, Uwagi)
 VALUES
-(2,3,2,'2022-03-11','2022-03-12','Przesuniecie warstw druku',2),
-(4,2,4,'2022-04-04','2022-04-05','BRAK',1),
-(3,1,5,'2022-03-01','2022-03-02','BRAK',1),
-(5,4,4,'2022-05-22','2022-05-23','BRAK',3),
-(1,5,1,'2022-02-13','2022-02-14','BRAK',1);
+(2,2,15,'2022-04-07 13:00:00 PM','2022-04-07 14:00:00 PM','BRAK'),
+(2,1,15,'2022-04-07 14:00:00 PM','2022-04-07 15:00:00 PM','BRAK'),
+(2,2,20,'2022-04-09 08:30:00 AM','2022-04-09 09:00:00 PM','BRAK'),
+(3,2,25,'2022-04-05 15:15:00 PM','2022-04-05 15:30:00 PM','BRAK'),
+(3,5,25,'2022-04-05 15:30:00 PM','2022-04-05 16:00:00 PM','BRAK'),
+(3,2,30,'2022-04-09 09:00:00 AM','2022-04-09 09:30:00 AM','BRAK'),
+(3,5,30,'2022-04-09 09:30:00 AM','2022-04-09 10:00:00 AM','BRAK'),
+(3,2,35,'2022-04-09 10:00:00 AM','2022-04-09 10:30:00 AM','BRAK'),
+(3,3,35,'2022-04-09 10:30:00 AM','2022-04-09 11:00:00 AM','BRAK'),
+(3,4,35,'2022-04-09 11:00:00 AM','2022-04-09 11:30:00 AM','BRAK'),
+(4,2,40,'2022-04-09 08:00:00 AM','2022-04-09 08:30:00 AM','BRAK'),
+(4,5,40,'2022-04-09 08:30:00 AM','2022-04-09 09:00:00 AM','BRAK'),
+(4,2,45,'2022-04-09 09:00:00 AM','2022-04-09 09:30:00 AM','BRAK'),
+(4,3,45,'2022-04-09 09:30:00 AM','2022-04-09 10:00:00 AM','BRAK');
+
 
 INSERT INTO Nadgodziny (ID_pracownik, Data_nadgodziny,Czas)
 Values
