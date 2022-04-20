@@ -147,7 +147,7 @@ AS
 SELECT Rk.Rodzaj_kontrola AS [Rodzaj kontroli], 
 PR.Nazwisko AS [Osoba kontrolująca], Kjp.Uwagi AS [Uwagi]
 FROM Kontrola_jakosci_produkt AS Kjp
-INNER JOIN Rodzaj_kontrola AS Rk ON Kjp.ID_rodzaj_kontrola = Rk.Rodzaj_kontrola
+INNER JOIN Rodzaj_kontrola AS Rk ON Kjp.ID_rodzaj_kontrola = Rk.ID_Rodzaj_kontrola
 INNER JOIN Pracownik AS PR ON Kjp.ID_pracownik = PR.ID_pracownik
 GO
 

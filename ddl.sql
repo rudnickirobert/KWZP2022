@@ -1,6 +1,6 @@
 USE master
 GO
-DROP DATABASE KWZP
+--rDROP DATABASE KWZP
 GO
 CREATE DATABASE KWZP
 GO
@@ -493,7 +493,8 @@ CREATE TABLE Kontrola_parametr
 	ID_kontrola_parametr INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	ID_kontrola_jakosci_produkt INT FOREIGN KEY 
 	REFERENCES Kontrola_jakosci_produkt(ID_kontrola_jakosci_produkt) NOT NULL,
-	ID_parametr_produkt INT,
+	ID_parametr_produkt INT FOREIGN KEY
+	REFERENCES Parametr_produkt (ID_parametr_produkt) NOT NULL,
 	Wartosc DECIMAL(15,2) NOT NULL
 )
 
