@@ -399,7 +399,7 @@
     <Compile Include="v_Klient_telefon_Historia.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="v_Kontrola_jakosci_produkt.cs">
+    <Compile Include="v_Kontrola_parametr_produkt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Koszt.cs">
@@ -411,6 +411,9 @@
     <Compile Include="v_Koszt_procesow_produkt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Koszt_produkcji.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Koszt_roboczogodziny_stanowiska.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -418,6 +421,18 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Liczba_zabiegow_wytworczych_produkt.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Magazyn_czesci_aktualny.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Magazyn_czesci_stan.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Magazyn_czesci_wszystko.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Magazyn_czesci_wymienione.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Magazyn_maszyn_nieuzywane.cs">
@@ -543,6 +558,12 @@
     <Compile Include="v_Stanowisko_produkcyjne.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Szacowany_czas_wytwarzania_polprodukt.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Szacowany_czas_wytwarzania_produkt.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Szczegoly_sprzedaz.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -550,6 +571,9 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Sz_czas_proces_produkt_czynnosc.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Tygodniowe_rozliczenie_pracy_produkcja.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Umowa.cs">
