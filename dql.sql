@@ -649,3 +649,44 @@ INNER JOIN Pracownik AS P ON UM.ID_pracownik = P.ID_pracownik
 INNER JOIN Wymiar_pracy AS WP ON UM.ID_wymiar_pracy = WP.ID_wymiar_pracy
 GO
 
+CREATE VIEW v_Sz_czas_proces_polprodukt_czynnosc
+AS
+SELECT PPPC.ID_polprodukt AS [ID Półproduktu], SP.Nazwa AS [Półprodukt], CP.Nazwa AS [Czynność], PPPC.Czas_trwania AS [Szacowany czas w min]
+FROM Proces_polprodukt_czynnosc AS PPPC
+INNER JOIN Slownik_polprodukt AS SP ON PPPC.ID_polprodukt = SP.ID_polprodukt
+INNER JOIN Czynnosc_produkcyjna AS CP ON PPPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
+ORDER BY PPPC.ID_polprodukt DESC OFFSET 0 ROWS
+GO
+ 
+CREATE VIEW v_Sz_czas_proces_produkt_czynnosc
+AS
+SELECT PPC.ID_produkt AS [ID Produktu], P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynność], PPC.Czas_trwania AS [Szacowany czas w min]
+FROM Proces_produkt_czynnosc AS PPC
+INNER JOIN Produkt AS P ON PPC.ID_produkt = P.ID_produkt
+INNER JOIN Czynnosc_produkcyjna CP ON PPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
+ORDER BY PPC.ID_produkt DESC OFFSET 0 ROWS
+GO
+ 
+CREATE VIEW v_Nadgodziny
+AS
+SELECT NG.ID_pracownik AS [ID_Pracownik], NG.Data_nadgodziny AS [Data nadgodziny], NG.Czas AS [Czas]
+FROM Nadgodziny AS NG
+INNER JOIN Pracownik AS P ON NG.ID_pracownik = P.ID_pracownik
+ORDER BY NG.ID_pracownik DESC OFFSET 0 ROWS 
+GO
+
+CREATE VIEW v_Nadgodziny_miesiac
+AS
+SELECT DISTINCT NG.ID_pracownik AS [ID_Pracownik], MONTH(NG.Data_nadgodziny) AS [Miesiąc], NG.Czas AS [Czas]
+FROM Nadgodziny AS NG
+INNER JOIN Pracownik AS P ON NG.ID_pracownik = P.ID_pracownik
+ORDER BY NG.ID_pracownik DESC OFFSET 0 ROWS 
+GO
+
+CREATE VIEW v_Nadgodziny_suma_miesiac
+AS
+SELECT ID_Pracownik, Miesiąc, SUM(Czas) AS [Łączny czas]
+FROM  dbo.v_Nadgodziny_miesiac
+GROUP BY ID_Pracownik, Miesiąc
+GO
+
