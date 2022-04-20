@@ -40,7 +40,7 @@ GO
 CREATE VIEW v_Sklad_polprodukt
 AS
 SELECT SlwPp.Nazwa AS [Półprodukt], M.Nazwa_material AS [Materiał], RM.Nazwa_rodzaj_material AS [Rodzaj],
-SP.Liczba AS [Ilość]
+SP.Liczba AS [Waga (g)]
 FROM Sklad_polprodukt AS SP
 INNER JOIN Slownik_polprodukt AS SlwPp ON SP.ID_polprodukt = SlwPp.ID_polprodukt
 INNER JOIN Material AS M ON SP.ID_material = M.ID_material
@@ -508,6 +508,13 @@ WHERE StatusID = 4
 GROUP BY [Nazwa materiału], [Waga (g)]
 GO
 
+--CREATE VIEW v_Magazyn_material_uzywane
+--AS
+--SELECT 
+--FROM v_Magazyn_material_wszystko AS MMW
+--GROUP BY 
+--GO
+
 --SALES AND MARKETING DEPARTMENT --
 CREATE VIEW v_Szczegoly_sprzedaz AS
 SELECT Szczegoly_sprzedaz.ID_sprzedaz AS [Numer sprzedaży], Produkt.Nazwa_produkt AS [Produkt], 
@@ -576,19 +583,19 @@ INNER JOIN Produkt ON Produkt.ID_produkt = Zwrot.ID_produkt
 GO
 
 CREATE VIEW v_Klient AS
-	SELECT Klient.Nazwisko AS [Nazwisko], Klient.Imie AS [Imię], Klient.NIP, Dane_adresowe_klient.Miejscowosc AS [Miejscowość], 
+	SELECT Klient.ID_klient AS [ID] ,Klient.Nazwisko AS [Nazwisko], Klient.Imie AS [Imię], Klient.NIP, Dane_adresowe_klient.Miejscowosc AS [Miejscowość], 
 	Dane_adresowe_klient.Ulica, Dane_adresowe_klient.Nr_budynek AS [Numer budynku], 
 	Dane_adresowe_klient.Nr_lokal AS [Numer lokalu], Dane_adresowe_klient.Kod_pocztowy AS [Kod pocztowy]
 	FROM Klient 
 	INNER JOIN Dane_adresowe_klient ON Klient.ID_klient = Dane_adresowe_klient.ID_klient
-	GO
+GO
 
 CREATE VIEW v_Klient_telefon_aktualny AS 
 	SELECT Klient.Nazwisko, Klient.Imie AS [Imię], Nr_telefon_klient.Numer AS [Numer telefonu]
 	FROM Klient 
 	INNER JOIN Nr_telefon_klient ON Klient.ID_klient = Nr_telefon_klient.ID_klient
 	WHERE Data_do IS NULL
-	GO
+GO
 
 CREATE VIEW v_Klient_telefon_Historia AS
 	SELECT Klient.Nazwisko, Klient.Imie AS [Imię], Nr_telefon_klient.Numer AS [Numer telefonu]

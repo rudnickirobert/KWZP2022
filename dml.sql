@@ -188,7 +188,7 @@ VALUES
 ('Proszek stali 316L'),
 ('Nylon PA12'),
 ('Żywica termoutwardzalna'),
-('Klej')
+('Klej');
 
 INSERT INTO Rodzaj_maszyna (Nazwa_rodzaj_maszyna, Opis)
 VALUES
@@ -318,18 +318,21 @@ VALUES
 (1,'Filament Czarny ABS Black'),
 (3,'Filament Zolty PETG Stakchovsky'),
 (2,'Filament Czerwony PLA Podraskov'),
-(2,'Filament Niebieski PLA POODZIAN');
+(2,'Filament Niebieski PLA POODZIAN'),
+(5,'Nylon PA12 Marka Jarka'),
+(6,'Żywica Biala STRONG'),
+(7,'Klej GIGADZIECIACZEK');
 
 INSERT INTO Sklad_polprodukt (ID_polprodukt, ID_material, Liczba)
 VALUES
-(1,5,2),
-(2,2,1),
-(3,3,4),
-(2,4,1),
-(3,2,1),
-(4,1,3),
-(4,3,2),
-(5,5,4);
+(1,5,200),
+(2,2,150),
+(3,3,400),
+(2,4,100),
+(3,2,100),
+(4,1,300),
+(4,3,200),
+(5,5,400);
 
 INSERT INTO Czesc (Nazwa_czesc, ID_rodzaj_czesc)
 VALUES
