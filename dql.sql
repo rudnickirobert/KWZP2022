@@ -142,13 +142,15 @@ INNER JOIN Slownik_polprodukt AS SlwPP ON SP.ID_polprodukt = SlwPP.ID_polprodukt
 INNER JOIN v_Koszt_procesow_polprodukt AS KPP ON SlWPP.Nazwa = KPP.Półprodukt
 GO
 
-CREATE VIEW v_Kontrola_jakosci_produkt
+CREATE VIEW v_Kontrola_parametr_produkt
 AS
-SELECT Rk.Rodzaj_kontrola AS [Rodzaj kontroli], 
-PR.Nazwisko AS [Osoba kontrolująca], Kjp.Uwagi AS [Uwagi]
-FROM Kontrola_jakosci_produkt AS Kjp
-INNER JOIN Rodzaj_kontrola AS Rk ON Kjp.ID_rodzaj_kontrola = Rk.Rodzaj_kontrola
-INNER JOIN Pracownik AS PR ON Kjp.ID_pracownik = PR.ID_pracownik
+SELECT P.Nazwa_produkt AS [Produkt], RP.Nazwa_rodzaj_parametr AS [Parametr], KP.Wartosc AS [Wartość],
+PP.Zakres_dol AS [Zakres dolny], PP.Zakres_gora AS [Zakres górny]
+FROM Kontrola_parametr AS KP
+INNER JOIN Kontrola_jakosci_produkt AS KJP ON KP.ID_kontrola_jakosci_produkt = KJP.ID_kontrola_jakosci_produkt
+INNER JOIN Parametr_produkt AS PP ON KP.ID_parametr_produkt = PP.ID_parametr_produkt
+INNER JOIN Produkt AS P ON PP.ID_produkt = P.ID_produkt
+INNER JOIN Rodzaj_parametr AS RP ON PP.ID_rodzaj_parametr = RP.ID_rodzaj_parametr
 GO
 
 CREATE VIEW v_Rodzaj_kontrola
@@ -207,7 +209,7 @@ CREATE VIEW v_Tygodniowe_rozliczenie_pracy_produkcja
 AS
 SELECT [Pracownik], SUM(DATEDIFF(HOUR, [Data rozpoczęcia],[Data zakończenia])) AS [Czas pracy {h}]
 FROM v_Wytwarzanie
-WHERE [Data zakończenia] IS NOT NULL AND [Data zakończenia] < GETDATE() --AND [Data rozpoczęcia] > DATEADD(day,-7,GETDATE()) 
+WHERE [Data zakończenia] IS NOT NULL AND [Data zakończenia] < GETDATE() AND [Data rozpoczęcia] > DATEADD(day,-7,GETDATE()) 
 GROUP BY [Pracownik]
 GO
 
@@ -244,7 +246,6 @@ INNER JOIN Czynnosc_produkcyjna AS CP ON PPPC.ID_czynnosc_produkcyjna = CP.ID_cz
 INNER JOIN Produkt AS P ON PPPC.ID_produkt = P.ID_produkt
 INNER JOIN Pracownik AS Pr ON W.ID_pracownik = Pr.ID_pracownik
 GO
-
 
 CREATE VIEW v_Szacowany_czas_wytwarzania_produkt
 AS
