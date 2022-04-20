@@ -75,12 +75,6 @@ CREATE TABLE Rodzaj_kontrola
 	Procedura NVARCHAR(250) NOT NULL
 );
 
-CREATE TABLE Rezultat_kontrola
-	(
-	ID_rezultat INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-	Wynik NVARCHAR(50) NOT NULL,
-);
-
 CREATE TABLE Produkt
 	(
 	ID_produkt INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
@@ -104,13 +98,13 @@ CREATE TABLE Rodzaj_parametr
 
 CREATE TABLE Parametr_produkt
 	(
+	ID_parametr_produkt INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	ID_produkt INT FOREIGN KEY 
 		REFERENCES Produkt(ID_produkt) NOT NULL,
 	ID_rodzaj_parametr INT FOREIGN KEY 
 		REFERENCES Rodzaj_parametr(ID_rodzaj_parametr) NOT NULL,
 	Zakres_dol DECIMAL(15,2) NOT NULL,
 	Zakres_gora DECIMAL(15,2) NOT NULL,
-		CONSTRAINT PK_ParamPro PRIMARY KEY (ID_produkt, ID_rodzaj_parametr)
 );
 
 
@@ -147,13 +141,13 @@ CREATE TABLE Sklad_polprodukt
 
 CREATE TABLE Parametr_polprodukt
 	(
+	ID_parametr_polprodukt INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	ID_polprodukt INT FOREIGN KEY 
 		REFERENCES Slownik_polprodukt(ID_polprodukt) NOT NULL,
 	ID_rodzaj_parametr INT FOREIGN KEY 
 		REFERENCES Rodzaj_parametr(ID_rodzaj_parametr) NOT NULL,
 	Zakres_dol DECIMAL(15,2) NOT NULL,
 	Zakres_gora DECIMAL(15,2) NOT NULL,
-		CONSTRAINT PK_ParamPolPro PRIMARY KEY (ID_polprodukt, ID_rodzaj_parametr)
 );
 
 CREATE TABLE Sklad_produkt
@@ -264,13 +258,14 @@ CREATE TABLE Sklad_stanowisko_produkcyjne_maszyna
 		REFERENCES Maszyna_nr_seryjny(ID_maszyna_nr) NOT NULL,
 	);
 
-CREATE TABLE Sklad_stanowisko_produkcyjne
+CREATE TABLE Sklad_stanowisko_produkcyjne_narzedzie
 	(
-	ID_sklad_stanowisko_produkcyjne INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	ID_sklad_stanowisko_produkcyjne_narzedzie INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	ID_stanowisko_produkcyjne INT FOREIGN KEY
 		REFERENCES Stanowisko_produkcyjne(ID_stanowisko_produkcyjne) NOT NULL,
 	ID_narzedzie INT FOREIGN KEY
 		REFERENCES Narzedzie(ID_narzedzie) NOT NULL,
+	Liczba INT NOT NULL
 );
 
 CREATE TABLE Rodzaj_czesc 
@@ -451,8 +446,8 @@ CREATE TABLE Wytwarzanie
 	ID_wytwarzanie INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	ID_pracownik INT FOREIGN KEY
 		REFERENCES Pracownik(ID_pracownik) NOT NULL,
-	ID_oferta_handlowa INT FOREIGN KEY
-		REFERENCES Oferta_handlowa(ID_oferta_handlowa) NOT NULL,
+	ID_zamowienie_szczegol INT FOREIGN KEY
+		REFERENCES Zamowienie_szczegol(ID_zamowienie_szczegol) NOT NULL,
 	Czas_od DATETIME NOT NULL,
 	Czas_do DATETIME
 );
@@ -482,18 +477,26 @@ CREATE TABLE Proces_wytwarzanie_polprodukt
 CREATE TABLE Kontrola_jakosci_produkt
 	(
 	ID_kontrola_jakosci_produkt INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-	ID_produkt INT FOREIGN KEY
-		REFERENCES Produkt(ID_produkt) NOT NULL,
+	ID_wytwarzanie INT FOREIGN KEY
+		REFERENCES Wytwarzanie(ID_wytwarzanie) NOT NULL,
 	ID_pracownik INT FOREIGN KEY 
 		REFERENCES Pracownik(ID_pracownik) NOT NULL,
 	ID_rodzaj_kontrola INT FOREIGN KEY
 		REFERENCES Rodzaj_kontrola(ID_rodzaj_kontrola) NOT NULL,
 	Data_od DATETIME NOT NULL,
 	Data_do DATETIME, 
-	ID_rezultat INT FOREIGN KEY 
-		REFERENCES Rezultat_kontrola(ID_rezultat) NOT NULL,
 	Uwagi NVARCHAR(250)
 );
+
+CREATE TABLE Kontrola_parametr
+(
+	ID_kontrola_parametr INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	ID_kontrola_jakosci_produkt INT FOREIGN KEY 
+	REFERENCES Kontrola_jakosci_produkt(ID_kontrola_jakosci_produkt) NOT NULL,
+	ID_parametr_produkt INT FOREIGN KEY 
+	REFERENCES Parametr_produkt(ID_parametr_produkt),
+	Wartosc DECIMAL(15,2) NOT NULL
+)
 
 CREATE TABLE Forma_platnosc
 	(
@@ -616,14 +619,15 @@ CREATE TABLE Stan_realizacji_zamowienie_maszyna
  
 CREATE TABLE Szczegoly_zamowienie_maszyna 
 	(
-	ID_zamowienie_maszyna INT FOREIGN KEY 
+	ID_zamowienie_maszyna INT FOREIGN KEY
 		REFERENCES Zamowienie_maszyna(ID_zamowienie_maszyna) NOT NULL,
-	ID_maszyna_nr INT FOREIGN KEY 
-		REFERENCES Maszyna_nr_seryjny(ID_maszyna_nr) NOT NULL,
+	ID_maszyna INT FOREIGN KEY 
+		REFERENCES Maszyna(ID_maszyna) NOT NULL,
 	ID_producent INT FOREIGN KEY 
 		REFERENCES Producent(ID_producent) NOT NULL,
+	Ilosc INT NOT NULL,
 	Cena DECIMAL(15,2) NOT NULL,
-	CONSTRAINT PK_SzczegolyZM PRIMARY KEY (ID_zamowienie_maszyna, ID_maszyna_nr, ID_producent)
+	CONSTRAINT PK_SzczegolyZM PRIMARY KEY (ID_zamowienie_maszyna, ID_maszyna, ID_producent)
 );
  
 CREATE TABLE Zamowienie_narzedzie 
@@ -847,4 +851,12 @@ CREATE TABLE Alert
 		REFERENCES Dzial(ID_dzial) NOT NULL,
 	Tresc NVARCHAR(250),
 	Czy_odczytano BIT NOT NULL
+);
+CREATE TABLE Nadgodziny 
+	(
+	ID_nadgodziny INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	ID_pracownik INT FOREIGN KEY
+	REFERENCES Pracownik(ID_pracownik) NOT NULL,
+	Data_nadgodziny DATE NOT NULL,
+	Czas INT NOT NULL
 );

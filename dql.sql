@@ -62,10 +62,10 @@ GO
 
 CREATE VIEW v_Sklad_stanowisko_produkcyjne_narzedzie
 AS
-SELECT SP.ID_stanowisko_produkcyjne AS [ID Stanowiska], SS.Nazwa_stanowiska, N.Nazwa_narzedzie AS [Narzędzie]
-FROM Sklad_stanowisko_produkcyjne AS SSP
-INNER JOIN Stanowisko_produkcyjne AS SP ON SSP.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
-INNER JOIN Narzedzie AS N ON SSP.ID_narzedzie = N.ID_narzedzie
+SELECT SP.ID_stanowisko_produkcyjne AS [ID Stanowiska], SS.Nazwa_stanowiska, N.Nazwa_narzedzie AS [Narzędzie], Liczba 
+FROM Sklad_stanowisko_produkcyjne_narzedzie AS SSPN
+INNER JOIN Stanowisko_produkcyjne AS SP ON SSPN.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
+INNER JOIN Narzedzie AS N ON SSPN.ID_narzedzie = N.ID_narzedzie
 INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
 ORDER BY SP.ID_stanowisko_produkcyjne ASC OFFSET 0 ROWS
 GO
@@ -144,11 +144,9 @@ GO
 
 CREATE VIEW v_Kontrola_jakosci_produkt
 AS
-SELECT P.Nazwa_produkt AS [Produkt], Rk.Rodzaj_kontrola AS [Rodzaj kontroli], 
-PR.Nazwisko AS [Osoba kontrolująca], Rek.Wynik AS [Wynik kontroli], Kjp.Uwagi AS [Uwagi]
+SELECT Rk.Rodzaj_kontrola AS [Rodzaj kontroli], 
+PR.Nazwisko AS [Osoba kontrolująca], Kjp.Uwagi AS [Uwagi]
 FROM Kontrola_jakosci_produkt AS Kjp
-INNER JOIN Rezultat_kontrola AS Rek ON Kjp.ID_rezultat = Rek.ID_rezultat
-INNER JOIN Produkt AS P ON Kjp.ID_produkt = P.ID_produkt
 INNER JOIN Rodzaj_kontrola AS Rk ON Kjp.ID_rodzaj_kontrola = Rk.Rodzaj_kontrola
 INNER JOIN Pracownik AS PR ON Kjp.ID_pracownik = PR.ID_pracownik
 GO
@@ -201,7 +199,9 @@ SELECT W.ID_wytwarzanie AS [ID zabiegu produkcyjnego], W.Czas_od [Data rozpoczę
 P.Nazwisko + ' ' + P.Imie AS [Pracownik], OH.Termin_realizacja AS [Termin realizacji oferty]
 FROM Wytwarzanie AS W
 INNER JOIN Pracownik AS P ON W.ID_pracownik = P.ID_pracownik
-INNER JOIN Oferta_handlowa AS OH ON W.ID_oferta_handlowa = OH.ID_oferta_handlowa
+INNER JOIN Zamowienie_szczegol AS ZS ON W.ID_zamowienie_szczegol = ZS.ID_zamowienie_szczegol
+INNER JOIN Zamowienie AS Z ON ZS.ID_zamowienie = Z.ID_zamowienie
+INNER JOIN Oferta_handlowa AS OH ON OH.ID_zamowienie = z.ID_zamowienie
 GO
 
 CREATE VIEW v_Proces_wytwarzanie_polprodukt
@@ -324,7 +324,6 @@ INNER JOIN Stanowisko_produkcyjne AS SP ON O.ID_stanowisko_produkcyjne = SP.ID_s
 WHERE Data_do IS NOT NULL AND GETDATE() > Data_do
 GO
 
-
 CREATE VIEW v_Oblugi_w_trakcie
 AS
 SELECT SP.ID_stanowisko_produkcyjne AS [Nr stanowiska], RO.Nazwa_rodzaj_obsluga AS [Obsługa], Data_od AS [Data rozpoczęcia], Data_do AS [Data zakończenia], P.Imie + ' ' + P.Nazwisko AS [Pracownik]
@@ -336,15 +335,177 @@ INNER JOIN Stanowisko_produkcyjne AS SP ON O.ID_stanowisko_produkcyjne = SP.ID_s
 WHERE Data_do IS NULL
 GO
 
-CREATE VIEW v_Zamowienia_czesci_w_trakcie
+CREATE VIEW v_Zamowienia_czesci_w_trakcie_wszystko 
+AS 
+SELECT ZC.ID_zamowienie_czesc AS [Nr zamówienia], C.Nazwa_czesc AS [Nazwa części], SRZC.Data_stan [Data zmiany stanu], Ilosc, Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID] 
+FROM Szczegoly_zamowienie_czesc AS SZC 
+INNER JOIN Zamowienie_czesc AS ZC ON SZC.ID_zamowienie_czesc = ZC.ID_zamowienie_czesc 
+INNER JOIN Czesc AS C ON SZC.ID_czesc = C.ID_czesc 
+INNER JOIN Stan_realizacji_zamowienie_czesc AS SRZC ON ZC.ID_zamowienie_czesc = SRZC.ID_zamowienie_czesc 
+INNER JOIN Status_zamowienie AS SZ ON SRZC.ID_status_zamowienie = SZ.ID_status_zamowienie 
+INNER JOIN Dostawca AS D ON ZC.ID_dostawca = D.ID_dostawca
+GO 
+
+CREATE VIEW v_Zamowienia_czesci_w_trakcie_bez_odebranych 
+AS 
+SELECT ZCWTW.[Nr zamówienia], ZCWTW.[Nazwa części], ZCWTW.[Data zmiany stanu], ZCWTW.Ilosc, ZCWTW.Cena, ZCWTW.[Status], ZCWTW.[StatusID] 
+FROM v_Zamowienia_czesci_w_trakcie_wszystko AS ZCWTW 
+LEFT JOIN v_Zamowienia_czesci_w_trakcie_wszystko AS ZCWTWA ON ZCWTW.[Nr zamówienia] = ZCWTWA.[Nr zamówienia] AND ZCWTWA.[Status] = 'Odebrano' 
+WHERE ZCWTWA.[Nr zamówienia] IS NULL 
+GO 
+
+CREATE VIEW v_Zamowienia_czesci_w_trakcie 
+AS 
+SELECT a.* 
+FROM v_Zamowienia_czesci_w_trakcie_bez_odebranych AS a 
+LEFT JOIN v_Zamowienia_czesci_w_trakcie_bez_odebranych AS b ON a.[Nr zamówienia] = b.[Nr zamówienia] AND a.StatusID < b.StatusID 
+WHERE b.StatusID IS NULL 
+GO 
+
+CREATE VIEW v_Zamowienia_materialy_w_trakcie_wszystko 
+AS 
+SELECT ZM.ID_zamowienie_material AS [Nr zamówienia], M.Nazwa_material AS [Nazwa materiału], SRZM.Data_stan [Data zmiany stanu], Waga_g AS [Waga (g)], Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID] 
+FROM Szczegoly_zamowienie_material AS SZM 
+INNER JOIN Zamowienie_material AS ZM ON SZM.ID_zamowienie_material = ZM.ID_zamowienie_material 
+INNER JOIN Material AS M ON SZM.ID_material = M.ID_material 
+INNER JOIN Stan_realizacji_zamowienie_material AS SRZM ON ZM.ID_zamowienie_material = SRZM.ID_zamowienie_material 
+INNER JOIN Status_zamowienie AS SZ ON SRZM.ID_status_zamowienie = SZ.ID_status_zamowienie 
+INNER JOIN Dostawca AS D ON ZM.ID_dostawca = D.ID_dostawca
+GO 
+
+CREATE VIEW v_Zamowienia_materialy_w_trakcie_bez_odebranych 
+AS 
+SELECT ZMWTW.[Nr zamówienia], ZMWTW.[Nazwa materiału], ZMWTW.[Data zmiany stanu], ZMWTW.[Waga (g)], ZMWTW.Cena, ZMWTW.[Status], ZMWTW.[StatusID] 
+FROM v_Zamowienia_materialy_w_trakcie_wszystko AS ZMWTW 
+LEFT JOIN v_Zamowienia_materialy_w_trakcie_wszystko AS ZMWTWA ON ZMWTW.[Nr zamówienia] = ZMWTWA.[Nr zamówienia] AND ZMWTWA.[Status] = 'Odebrano' 
+WHERE ZMWTWA.[Nr zamówienia] IS NULL 
+GO 
+
+CREATE VIEW v_Zamowienia_materialy_w_trakcie 
+AS 
+SELECT a.* 
+FROM v_Zamowienia_materialy_w_trakcie_bez_odebranych AS a 
+LEFT JOIN v_Zamowienia_materialy_w_trakcie_bez_odebranych AS b ON a.[Nr zamówienia] = b.[Nr zamówienia] AND a.StatusID < b.StatusID 
+WHERE b.StatusID IS NULL 
+GO
+
+CREATE VIEW v_Zamowienia_narzedzia_w_trakcie_wszystko 
+AS 
+SELECT ZN.ID_zamowienie_narzedzie AS [Nr zamówienia], N.Nazwa_narzedzie AS [Nazwa narzędzia], SRZN.Data_stan [Data zmiany stanu], Sztuk, Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID] 
+FROM Szczegoly_zamowienie_narzedzie AS SZN 
+INNER JOIN Zamowienie_narzedzie AS ZN ON SZN.ID_zamowienie_narzedzie = ZN.ID_zamowienie_narzedzie 
+INNER JOIN Narzedzie AS N ON SZN.ID_narzedzie = N.ID_narzedzie
+INNER JOIN Stan_realizacji_zamowienie_narzedzie AS SRZN ON ZN.ID_zamowienie_narzedzie = SRZN.ID_zamowienie_narzedzie 
+INNER JOIN Status_zamowienie AS SZ ON SRZN.ID_status_zamowienie = SZ.ID_status_zamowienie 
+INNER JOIN Dostawca AS D ON ZN.ID_dostawca = D.ID_dostawca
+GO 
+
+CREATE VIEW v_Zamowienia_narzedzia_w_trakcie_bez_odebranych 
+AS 
+SELECT ZNWTW.[Nr zamówienia], ZNWTW.[Nazwa narzędzia], ZNWTW.[Data zmiany stanu], ZNWTW.Sztuk, ZNWTW.Cena, ZNWTW.[Status], ZNWTW.[StatusID] 
+FROM v_Zamowienia_narzedzia_w_trakcie_wszystko AS ZNWTW 
+LEFT JOIN v_Zamowienia_materialy_w_trakcie_wszystko AS ZNWTWA ON ZNWTW.[Nr zamówienia] = ZNWTWA.[Nr zamówienia] AND ZNWTWA.[Status] = 'Odebrano' 
+WHERE ZNWTWA.[Nr zamówienia] IS NULL 
+GO 
+
+CREATE VIEW v_Zamowienia_narzedzia_w_trakcie 
+AS 
+SELECT a.* 
+FROM v_Zamowienia_narzedzia_w_trakcie_bez_odebranych AS a 
+LEFT JOIN v_Zamowienia_narzedzia_w_trakcie_bez_odebranych AS b ON a.[Nr zamówienia] = b.[Nr zamówienia] AND a.StatusID < b.StatusID 
+WHERE b.StatusID IS NULL 
+GO
+
+CREATE VIEW v_Zamowienia_maszyny_w_trakcie_wszystko 
+AS 
+SELECT ZM.ID_zamowienie_maszyna AS [Nr zamówienia], M.Nazwa_maszyna AS [Nazwa maszyny], SRZM.Data_stan AS [Data zmiany stanu], Ilosc AS [Ilość], Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID] 
+FROM Szczegoly_zamowienie_maszyna AS SZM 
+INNER JOIN Zamowienie_maszyna AS ZM ON SZM.ID_zamowienie_maszyna = ZM.ID_zamowienie_maszyna
+INNER JOIN Maszyna AS M ON SZM.ID_maszyna = M.ID_maszyna
+INNER JOIN Stan_realizacji_zamowienie_maszyna AS SRZM ON ZM.ID_zamowienie_maszyna = SRZM.ID_zamowienie_maszyna
+INNER JOIN Status_zamowienie AS SZ ON SRZM.ID_status_zamowienie = SZ.ID_status_zamowienie 
+INNER JOIN Dostawca AS D ON ZM.ID_dostawca = D.ID_dostawca
+GROUP BY M.Nazwa_maszyna, ZM.ID_zamowienie_maszyna, SRZM.Data_stan, Ilosc, Cena, D.Nazwa_dostawca, SZ.Nazwa_status, SZ.ID_status_zamowienie
+GO
+
+CREATE VIEW v_Zamowienia_maszyny_w_trakcie_bez_odebranych 
+AS 
+SELECT ZMWTW.[Nr zamówienia], ZMWTW.[Nazwa maszyny], ZMWTW.[Data zmiany stanu], ZMWTW.Ilość, ZMWTW.Cena, ZMWTW.[Status], ZMWTW.[StatusID] 
+FROM v_Zamowienia_maszyny_w_trakcie_wszystko  AS ZMWTW 
+LEFT JOIN v_Zamowienia_maszyny_w_trakcie_wszystko AS ZMWTWA ON ZMWTW.[Nr zamówienia] = ZMWTWA.[Nr zamówienia] AND ZMWTWA.[Status] = 'Odebrano' 
+WHERE ZMWTWA.[Nr zamówienia] IS NULL 
+GO 
+
+CREATE VIEW v_Zamowienia_maszyny_w_trakcie 
+AS 
+SELECT a.* 
+FROM v_Zamowienia_maszyny_w_trakcie_bez_odebranych AS a 
+LEFT JOIN v_Zamowienia_maszyny_w_trakcie_bez_odebranych AS b ON a.[Nr zamówienia] = b.[Nr zamówienia] AND a.StatusID < b.StatusID 
+WHERE b.StatusID IS NULL 
+GO
+
+CREATE VIEW v_Magazyn_maszyn_wszystko 
 AS
-SELECT ZC.ID_zamowienie_czesc AS [Nr zamówienia], C.Nazwa_czesc AS [Nazwa części], SRZC.Data_stan [Data zmiany stanu], SZC.Ilosc, Cena, SZ.Nazwa_status AS [Status]
-FROM Szczegoly_zamowienie_czesc AS SZC
-INNER JOIN Zamowienie_czesc AS ZC ON SZC.ID_zamowienie_czesc = ZC.ID_zamowienie_czesc
-INNER JOIN Czesc AS C ON SZC.ID_czesc = C.ID_czesc
-INNER JOIN Stan_realizacji_zamowienie_czesc AS SRZC ON ZC.ID_zamowienie_czesc = SRZC.ID_zamowienie_czesc
-INNER JOIN Status_zamowienie AS SZ ON SRZC.ID_status_zamowienie = SZ.ID_status_zamowienie
---WHERE SZ.ID_status_zamowienie != 4
+SELECT [Nazwa maszyny], SUM([Ilość]) AS [Liczba sztuk]
+FROM v_Zamowienia_maszyny_w_trakcie_wszystko 
+WHERE StatusID = 4
+GROUP BY [Nazwa maszyny]
+GO
+
+CREATE VIEW v_Magazyn_maszyn_uzywane
+AS
+SELECT Maszyna, COUNT(Maszyna) AS [Liczba]
+FROM v_Sklad_stanowisko_produkcyjne_maszyna AS SSPM
+GROUP BY Maszyna
+GO
+
+CREATE VIEW v_Magazyn_maszyn_stan
+AS
+SELECT [Nazwa maszyny], [Liczba sztuk], IsNull(Liczba,0) as Używane
+FROM v_Magazyn_maszyn_wszystko AS MMW
+LEFT JOIN v_Magazyn_maszyn_uzywane AS MMU ON MMW.[Nazwa maszyny]=MMU.Maszyna
+GO
+
+CREATE VIEW v_Magazyn_maszyn_nieuzywane
+AS
+SELECT [Nazwa maszyny], [Liczba sztuk]-Używane AS [Ilość w magazynie]
+FROM v_Magazyn_maszyn_stan
+GO
+
+CREATE VIEW v_Magazyn_narzedzia_wszystko
+AS
+SELECT [Nazwa narzędzia], Sztuk
+FROM v_Zamowienia_narzedzia_w_trakcie_wszystko 
+WHERE StatusID = 4
+GROUP BY [Nazwa narzędzia], Sztuk
+GO
+
+CREATE VIEW v_Magazyn_narzedzia_uzywane
+AS
+SELECT Narzędzie, SUM (Liczba) AS Liczba
+FROM v_Sklad_stanowisko_produkcyjne_narzedzie AS SSPN
+GROUP BY Narzędzie
+GO
+
+CREATE VIEW v_Magazyn_narzedzia_stan
+AS
+SELECT [Nazwa narzędzia], Sztuk, IsNull(Liczba,0) as Używane
+FROM v_Magazyn_narzedzia_wszystko AS MNW
+LEFT JOIN v_Magazyn_narzedzia_uzywane AS MNU ON MNW.[Nazwa narzędzia]=MNU.[Narzędzie]
+GO
+
+CREATE VIEW v_Magazyn_narzedzia_nieuzywane
+AS
+SELECT [Nazwa narzędzia], Sztuk-Używane AS [Ilość w magazynie]
+FROM v_Magazyn_narzedzia_stan
+GO
+
+CREATE VIEW v_Magazyn_material_wszystko
+AS
+SELECT [Nazwa materiału], [Waga (g)]
+FROM v_Zamowienia_materialy_w_trakcie_wszystko 
+WHERE StatusID = 4
+GROUP BY [Nazwa materiału], [Waga (g)]
 GO
 
 --SALES AND MARKETING DEPARTMENT --
@@ -415,7 +576,7 @@ INNER JOIN Produkt ON Produkt.ID_produkt = Zwrot.ID_produkt
 GO
 
 CREATE VIEW v_Klient AS
-	SELECT Klient.ID_klient AS [ID],Klient.Nazwisko AS [Nazwisko], Klient.Imie AS [Imię], Klient.NIP, Dane_adresowe_klient.Miejscowosc AS [Miejscowość], 
+	SELECT Klient.Nazwisko AS [Nazwisko], Klient.Imie AS [Imię], Klient.NIP, Dane_adresowe_klient.Miejscowosc AS [Miejscowość], 
 	Dane_adresowe_klient.Ulica, Dane_adresowe_klient.Nr_budynek AS [Numer budynku], 
 	Dane_adresowe_klient.Nr_lokal AS [Numer lokalu], Dane_adresowe_klient.Kod_pocztowy AS [Kod pocztowy]
 	FROM Klient 
@@ -484,8 +645,49 @@ FROM Umowa AS UM
 INNER JOIN
 (Posada_pracownika AS PO INNER JOIN
 (Etat AS ET INNER JOIN Stanowisko AS ST ON ET.ID_stanowisko = ST.ID_stanowisko)
-ON ET.ID_etat = PO.ID_etat) ON UM.ID_posada = PO.ID_posada
+ON ET.ID_etat = PO.ID_etat) ON UM.ID_posada_pracownika = PO.ID_posada_pracownika
 INNER JOIN Pracownik AS P ON UM.ID_pracownik = P.ID_pracownik
 INNER JOIN Wymiar_pracy AS WP ON UM.ID_wymiar_pracy = WP.ID_wymiar_pracy
+GO
+
+CREATE VIEW v_Sz_czas_proces_polprodukt_czynnosc
+AS
+SELECT PPPC.ID_polprodukt AS [ID Półproduktu], SP.Nazwa AS [Półprodukt], CP.Nazwa AS [Czynność], PPPC.Czas_trwania AS [Szacowany czas w min]
+FROM Proces_polprodukt_czynnosc AS PPPC
+INNER JOIN Slownik_polprodukt AS SP ON PPPC.ID_polprodukt = SP.ID_polprodukt
+INNER JOIN Czynnosc_produkcyjna AS CP ON PPPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
+ORDER BY PPPC.ID_polprodukt DESC OFFSET 0 ROWS
+GO
+ 
+CREATE VIEW v_Sz_czas_proces_produkt_czynnosc
+AS
+SELECT PPC.ID_produkt AS [ID Produktu], P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynność], PPC.Czas_trwania AS [Szacowany czas w min]
+FROM Proces_produkt_czynnosc AS PPC
+INNER JOIN Produkt AS P ON PPC.ID_produkt = P.ID_produkt
+INNER JOIN Czynnosc_produkcyjna CP ON PPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
+ORDER BY PPC.ID_produkt DESC OFFSET 0 ROWS
+GO
+ 
+CREATE VIEW v_Nadgodziny
+AS
+SELECT NG.ID_pracownik AS [ID_Pracownik], NG.Data_nadgodziny AS [Data nadgodziny], NG.Czas AS [Czas]
+FROM Nadgodziny AS NG
+INNER JOIN Pracownik AS P ON NG.ID_pracownik = P.ID_pracownik
+ORDER BY NG.ID_pracownik DESC OFFSET 0 ROWS 
+GO
+
+CREATE VIEW v_Nadgodziny_miesiac
+AS
+SELECT DISTINCT NG.ID_pracownik AS [ID_Pracownik], MONTH(NG.Data_nadgodziny) AS [Miesiąc], NG.Czas AS [Czas]
+FROM Nadgodziny AS NG
+INNER JOIN Pracownik AS P ON NG.ID_pracownik = P.ID_pracownik
+ORDER BY NG.ID_pracownik DESC OFFSET 0 ROWS 
+GO
+
+CREATE VIEW v_Nadgodziny_suma_miesiac
+AS
+SELECT ID_Pracownik, Miesiąc, SUM(Czas) AS [Łączny czas]
+FROM  dbo.v_Nadgodziny_miesiac
+GROUP BY ID_Pracownik, Miesiąc
 GO
 
