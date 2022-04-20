@@ -201,8 +201,9 @@ SELECT W.ID_wytwarzanie AS [ID zabiegu produkcyjnego], W.Czas_od [Data rozpoczę
 P.Nazwisko + ' ' + P.Imie AS [Pracownik], OH.Termin_realizacja AS [Termin realizacji oferty]
 FROM Wytwarzanie AS W
 INNER JOIN Pracownik AS P ON W.ID_pracownik = P.ID_pracownik
-INNER JOIN Szczegoly_oferta AS SO ON W.ID_szczegoly_oferta = SO.ID_szczegoly_oferta
-INNER JOIN Oferta_handlowa AS OH ON OH.ID_oferta_handlowa = SO.ID_oferta_handlowa
+INNER JOIN Zamowienie_szczegol AS ZS ON W.ID_zamowienie_szczegol = ZS.ID_zamowienie_szczegol
+INNER JOIN Zamowienie AS Z ON ZS.ID_zamowienie = Z.ID_zamowienie
+INNER JOIN Oferta_handlowa AS OH ON OH.ID_zamowienie = z.ID_zamowienie
 GO
 
 CREATE VIEW v_Proces_wytwarzanie_polprodukt
