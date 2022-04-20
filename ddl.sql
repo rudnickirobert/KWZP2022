@@ -628,14 +628,15 @@ CREATE TABLE Stan_realizacji_zamowienie_maszyna
  
 CREATE TABLE Szczegoly_zamowienie_maszyna 
 	(
-	ID_zamowienie_maszyna INT FOREIGN KEY 
+	ID_zamowienie_maszyna INT FOREIGN KEY
 		REFERENCES Zamowienie_maszyna(ID_zamowienie_maszyna) NOT NULL,
-	ID_maszyna_nr INT FOREIGN KEY 
-		REFERENCES Maszyna_nr_seryjny(ID_maszyna_nr) NOT NULL,
+	ID_maszyna INT FOREIGN KEY 
+		REFERENCES Maszyna(ID_maszyna) NOT NULL,
 	ID_producent INT FOREIGN KEY 
 		REFERENCES Producent(ID_producent) NOT NULL,
+	Ilosc INT NOT NULL,
 	Cena DECIMAL(15,2) NOT NULL,
-	CONSTRAINT PK_SzczegolyZM PRIMARY KEY (ID_zamowienie_maszyna, ID_maszyna_nr, ID_producent)
+	CONSTRAINT PK_SzczegolyZM PRIMARY KEY (ID_zamowienie_maszyna, ID_maszyna, ID_producent)
 );
  
 CREATE TABLE Zamowienie_narzedzie 
