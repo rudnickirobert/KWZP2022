@@ -732,3 +732,11 @@ FROM  dbo.v_Nadgodziny_miesiac
 GROUP BY ID_Pracownik, Miesiąc
 GO
 
+CREATE VIEW v_Koszt_godziny_pracy
+AS
+SELECT dbo.Pracownik.ID_pracownik, dbo.Pracownik.Nazwisko, dbo.Pracownik.Imie, dbo.Umowa.Wynagrodzenie, dbo.Czas_pracy.Liczba_godzin, dbo.Umowa.Wynagrodzenie / dbo.Czas_pracy.Liczba_godzin AS [Koszt godziny pracy], 
+MONTH(dbo.Czas_pracy.Data) AS Miesiąc
+FROM     dbo.Umowa INNER JOIN
+dbo.Pracownik ON dbo.Umowa.ID_pracownik = dbo.Pracownik.ID_pracownik CROSS JOIN
+dbo.Czas_pracy
+GO
