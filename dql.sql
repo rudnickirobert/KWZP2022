@@ -1,4 +1,4 @@
-﻿USE KWZP
+USE KWZP
 GO
 
 ------- PRODUCTION DEPARTMENT --------
@@ -39,7 +39,7 @@ GO
 
 CREATE VIEW v_Sklad_polprodukt
 AS
-SELECT SlwPp.Nazwa AS [Półprodukt], M.Nazwa_material AS [Materiał], RM.Nazwa_rodzaj_material AS [Rodzaj],
+SELECT SlwPp.Nazwa AS [PĂłĹ‚produkt], M.Nazwa_material AS [MateriaĹ‚], RM.Nazwa_rodzaj_material AS [Rodzaj],
 SP.Liczba AS [Waga (g)]
 FROM Sklad_polprodukt AS SP
 INNER JOIN Slownik_polprodukt AS SlwPp ON SP.ID_polprodukt = SlwPp.ID_polprodukt
@@ -583,7 +583,7 @@ INNER JOIN Produkt ON Produkt.ID_produkt = Zwrot.ID_produkt
 GO
 
 CREATE VIEW v_Klient AS
-	SELECT Klient.ID_klient AS [ID] ,Klient.Nazwisko AS [Nazwisko], Klient.Imie AS [Imię], Klient.NIP, Dane_adresowe_klient.Miejscowosc AS [Miejscowość], 
+	SELECT Klient.ID_klient AS [ID] ,Klient.Nazwisko AS [Nazwisko], Klient.Imie AS [ImiÄ™], Klient.NIP, Dane_adresowe_klient.Miejscowosc AS [MiejscowoĹ›Ä‡], 
 	Dane_adresowe_klient.Ulica, Dane_adresowe_klient.Nr_budynek AS [Numer budynku], 
 	Dane_adresowe_klient.Nr_lokal AS [Numer lokalu], Dane_adresowe_klient.Kod_pocztowy AS [Kod pocztowy]
 	FROM Klient 
