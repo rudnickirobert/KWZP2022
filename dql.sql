@@ -88,17 +88,7 @@ GO
 CREATE VIEW v_Koszt_roboczogodziny_stanowiska
 AS
 SELECT [ID stanowiska produkcyjnego],SUM([Koszt roboczogodziny {PLN}]) AS [Koszt roboczogodziny stanowiska {PLN}] 
-FROM (SELECT SP.ID_stanowisko_produkcyjne AS [ID stanowiska produkcyjnego], SS.Nazwa_stanowiska AS [Nazwa Stanowiska], 
-NS.Nr_seryjny AS [Nr seryjny maszyny], M.Nazwa_maszyna AS [Maszyna], M.Koszt_RBG [Koszt roboczogodziny {PLN}],
-RM.Nazwa_rodzaj_maszyna AS [Rodzaj maszyny]
-FROM Sklad_stanowisko_produkcyjne_maszyna AS SSPM
-INNER JOIN Stanowisko_produkcyjne AS SP ON SSPM.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
-INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
-INNER JOIN Maszyna_nr_seryjny AS MS ON SSPM.ID_maszyna_nr = MS.ID_maszyna_nr
-INNER JOIN Maszyna AS M ON MS.ID_maszyna = M.ID_maszyna
-INNER JOIN Rodzaj_maszyna AS RM ON M.ID_rodzaj_maszyna = RM.ID_rodzaj_maszyna
-INNER JOIN Nr_seryjny AS NS ON MS.ID_maszyna_nr = NS.ID_nr_seryjny
-ORDER BY SP.ID_stanowisko_produkcyjne ASC OFFSET 0 ROWS) AS v_Sklad_stanowisko_produkcyjne_maszyna
+FROM v_Sklad_stanowisko_produkcyjne_maszyna
 GROUP BY [ID stanowiska produkcyjnego]
 GO
 
@@ -124,7 +114,7 @@ GO
 
 CREATE VIEW v_Koszt_produkcji
 AS
-SELECT SUM(KPP.[Suma kosztu procesów] * SP.Liczba) AS [Koszt wytworzenia produktu {PLN}]
+SELECT P.Nazwa_produkt, SUM(KPP.[Suma kosztu procesów] * SP.Liczba) + SUM(KP.[Suma kosztu procesów]) AS [Koszt wytworzenia produktu {PLN}]
 FROM Sklad_produkt AS SP
 INNER JOIN Produkt AS P ON SP.ID_produkt = P.ID_produkt
 INNER JOIN Slownik_polprodukt AS SlwPP ON SP.ID_polprodukt = SlwPP.ID_polprodukt
@@ -135,17 +125,18 @@ GO
 
 CREATE VIEW v_Koszt
 AS
-SELECT P.Nazwa_produkt, SlwPP.Nazwa, SP.Liczba, KPP.[Suma kosztu procesów] * SP.Liczba AS [Koszt półproduktów]
+SELECT P.Nazwa_produkt, Kp.[Suma kosztu procesów], SlwPP.Nazwa, SP.Liczba, KPP.[Suma kosztu procesów] * SP.Liczba AS [Koszt półproduktów]
 FROM Sklad_produkt AS SP
 INNER JOIN Produkt AS P ON SP.ID_produkt = P.ID_produkt
 INNER JOIN Slownik_polprodukt AS SlwPP ON SP.ID_polprodukt = SlwPP.ID_polprodukt
-INNER JOIN v_Koszt_procesow_polprodukt AS KPP ON SlWPP.Nazwa = KPP.Półprodukt
+LEFT JOIN v_Koszt_procesow_polprodukt AS KPP ON SlWPP.Nazwa = KPP.Półprodukt
+LEFT JOIN v_Koszt_procesow_produkt AS KP ON P.Nazwa_produkt = KP.Produkt
 GO
 
 CREATE VIEW v_Kontrola_parametr_produkt
 AS
 SELECT P.Nazwa_produkt AS [Produkt], RP.Nazwa_rodzaj_parametr AS [Parametr], KP.Wartosc AS [Wartość],
-PP.Zakres_dol AS [Zakres dolny], PP.Zakres_gora AS [Zakres górny]
+PP.Zakres_dol AS [Zakres dolny], PP.Zakres_gora AS [Zakres górny], (CASE WHEN KP.Wartosc BETWEEN PP.Zakres_dol AND PP.Zakres_gora THEN 1 ELSE 0 END) AS [Rezultat kontroli]  
 FROM Kontrola_parametr AS KP
 INNER JOIN Kontrola_jakosci_produkt AS KJP ON KP.ID_kontrola_jakosci_produkt = KJP.ID_kontrola_jakosci_produkt
 INNER JOIN Parametr_produkt AS PP ON KP.ID_parametr_produkt = PP.ID_parametr_produkt
