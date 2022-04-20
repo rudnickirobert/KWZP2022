@@ -452,6 +452,26 @@ WHERE StatusID = 4
 GROUP BY [Nazwa maszyny]
 GO
 
+CREATE VIEW v_Magazyn_maszyn_uzywane
+AS
+SELECT Maszyna, COUNT(Maszyna) AS [Liczba]
+FROM v_Sklad_stanowisko_produkcyjne_maszyna AS SSPM
+GROUP BY Maszyna
+GO
+
+CREATE VIEW v_Magazyn_maszyn_stan
+AS
+SELECT [Nazwa maszyny], [Liczba sztuk], IsNull(Liczba,0) as Używane
+FROM v_Magazyn_maszyn_wszystko AS MMW
+LEFT JOIN v_Magazyn_maszyn_uzywane AS MMU ON MMW.[Nazwa maszyny]=MMU.Maszyna
+GO
+
+CREATE VIEW v_Magazyn_maszyn_nieuzywane
+AS
+SELECT [Nazwa maszyny], [Liczba sztuk]-Używane AS [Ilość w magazynie]
+FROM v_Magazyn_maszyn_stan
+GO
+
 CREATE VIEW v_Magazyn_narzedzia_wszystko
 AS
 SELECT [Nazwa narzędzia], Sztuk
