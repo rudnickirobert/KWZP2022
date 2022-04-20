@@ -337,7 +337,7 @@ GO
 
 CREATE VIEW v_Zamowienia_czesci_w_trakcie_wszystko 
 AS 
-SELECT ZC.ID_zamowienie_czesc AS [Nr zamówienia], C.Nazwa_czesc AS [Nazwa części], SRZC.Data_stan [Data zmiany stanu], Ilosc, Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID] 
+SELECT ZC.ID_zamowienie_czesc AS [Nr zamówienia], C.Nazwa_czesc AS [Nazwa części], SRZC.Data_stan [Data zmiany stanu], Ilosc AS [Ilość], Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID] 
 FROM Szczegoly_zamowienie_czesc AS SZC 
 INNER JOIN Zamowienie_czesc AS ZC ON SZC.ID_zamowienie_czesc = ZC.ID_zamowienie_czesc 
 INNER JOIN Czesc AS C ON SZC.ID_czesc = C.ID_czesc 
@@ -348,7 +348,7 @@ GO
 
 CREATE VIEW v_Zamowienia_czesci_w_trakcie_bez_odebranych 
 AS 
-SELECT ZCWTW.[Nr zamówienia], ZCWTW.[Nazwa części], ZCWTW.[Data zmiany stanu], ZCWTW.Ilosc, ZCWTW.Cena, ZCWTW.[Status], ZCWTW.[StatusID] 
+SELECT ZCWTW.[Nr zamówienia], ZCWTW.[Nazwa części], ZCWTW.[Data zmiany stanu], ZCWTW.[Ilość], ZCWTW.Cena, ZCWTW.[Status], ZCWTW.[StatusID] 
 FROM v_Zamowienia_czesci_w_trakcie_wszystko AS ZCWTW 
 LEFT JOIN v_Zamowienia_czesci_w_trakcie_wszystko AS ZCWTWA ON ZCWTW.[Nr zamówienia] = ZCWTWA.[Nr zamówienia] AND ZCWTWA.[Status] = 'Odebrano' 
 WHERE ZCWTWA.[Nr zamówienia] IS NULL 
@@ -508,12 +508,34 @@ WHERE StatusID = 4
 GROUP BY [Nazwa materiału], [Waga (g)]
 GO
 
---CREATE VIEW v_Magazyn_material_uzywane
---AS
---SELECT 
---FROM v_Magazyn_material_wszystko AS MMW
---GROUP BY 
---GO
+CREATE VIEW v_Magazyn_czesci_wszystko
+AS
+SELECT [Nazwa części], [Ilość]
+FROM v_Zamowienia_czesci_w_trakcie_wszystko 
+WHERE StatusID = 4
+GROUP BY [Nazwa części], [Ilość]
+GO
+
+CREATE VIEW v_Magazyn_czesci_wymienione
+AS
+SELECT C.Nazwa_czesc AS [Nazwa części], COUNT([Nazwa_czesc]) AS [Wymieniono]
+FROM Wymiana_czesc AS WC
+INNER JOIN Czesc AS C ON WC.ID_czesc = C.ID_czesc 
+GROUP BY C.Nazwa_czesc
+GO
+
+CREATE VIEW v_Magazyn_czesci_stan
+AS
+SELECT MCW.[Nazwa części], MCW.[Ilość], ISNULL([Wymieniono],0) AS [Wymienione części]
+FROM v_Magazyn_czesci_wszystko AS MCW
+LEFT JOIN v_Magazyn_czesci_wymienione AS MCWy ON MCW.[Nazwa części]=MCWy.[Nazwa części]
+GO
+
+CREATE VIEW v_Magazyn_czesci_aktualny
+AS
+SELECT [Nazwa części], [Ilość]-[Wymienione części] AS [Ilość w magazynie]
+FROM v_Magazyn_czesci_stan
+GO
 
 --SALES AND MARKETING DEPARTMENT --
 CREATE VIEW v_Szczegoly_sprzedaz AS
