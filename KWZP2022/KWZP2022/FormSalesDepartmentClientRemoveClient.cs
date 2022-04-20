@@ -61,4 +61,3 @@ namespace KWZP2022
         }
     }
 }
-//var dane = this.dgvClient.CurrentRow.Cells

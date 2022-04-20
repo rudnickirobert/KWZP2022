@@ -30,7 +30,6 @@ namespace KWZP2022
             dgvProdukt.Columns["Szczegoly_sprzedaz"].Visible = false;
             dgvProdukt.Columns["Zamowienie_szczegol"].Visible = false;
             dgvProdukt.Columns["Zwrot"].Visible = false;
-            dgvProdukt.Columns["Kontrola_jakosci_produkt"].Visible = false;
             dgvProdukt.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             this.dgvProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 

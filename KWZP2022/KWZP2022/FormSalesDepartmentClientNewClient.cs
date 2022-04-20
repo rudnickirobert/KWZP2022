@@ -28,16 +28,12 @@ namespace KWZP2022
             textBox2Name.Clear();
             textBoxCity.Clear();
             textBoxEmail.Clear();
-            //textBoxEmailDate1.Clear();
-            //textBoxEmailDate2.Clear();
             textBoxNIP.Clear();
             textBoxNo1.Clear();
             textBoxNo2.Clear();
             textBoxPostCode.Clear();
             textBoxStreet.Clear();
             textBoxTel.Clear();
-            //textBoxTelDate1.Clear();
-            //textBoxTelDate2.Clear();
         }
         private void btnClose_Click(object sender, EventArgs e)
         {

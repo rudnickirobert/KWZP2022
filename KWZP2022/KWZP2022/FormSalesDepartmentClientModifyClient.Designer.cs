@@ -62,6 +62,7 @@
             this.dgvClientID = new System.Windows.Forms.DataGridView();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.lblInstr = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientID)).BeginInit();
             this.SuspendLayout();
             // 
@@ -358,11 +359,11 @@
             // dgvClientID
             // 
             this.dgvClientID.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientID.Location = new System.Drawing.Point(420, 256);
+            this.dgvClientID.Location = new System.Drawing.Point(420, 270);
             this.dgvClientID.Name = "dgvClientID";
-            this.dgvClientID.Size = new System.Drawing.Size(354, 180);
+            this.dgvClientID.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvClientID.Size = new System.Drawing.Size(354, 166);
             this.dgvClientID.TabIndex = 98;
-            this.dgvClientID.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientID_CellContentClick);
             this.dgvClientID.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvClientID_MouseDoubleClick);
             // 
             // btnClose
@@ -387,12 +388,24 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // lblInstr
+            // 
+            this.lblInstr.AutoSize = true;
+            this.lblInstr.BackColor = System.Drawing.Color.Transparent;
+            this.lblInstr.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.lblInstr.Location = new System.Drawing.Point(416, 247);
+            this.lblInstr.Name = "lblInstr";
+            this.lblInstr.Size = new System.Drawing.Size(324, 20);
+            this.lblInstr.TabIndex = 101;
+            this.lblInstr.Text = "Kliknij dwa razy na klienta z listy, aby uzupełnić dane";
+            // 
             // FormSalesDepartmentClientModifyClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(794, 491);
+            this.Controls.Add(this.lblInstr);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.dgvClientID);
@@ -469,5 +482,6 @@
         private System.Windows.Forms.DataGridView dgvClientID;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Label lblInstr;
     }
 }
