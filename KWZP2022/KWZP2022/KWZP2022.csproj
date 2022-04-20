@@ -97,8 +97,74 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="SlownikStanowiskoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SlownikStanowiskoForm.Designer.cs">
+      <DependentUpon>SlownikStanowiskoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PolproduktForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PolproduktForm.Designer.cs">
+      <DependentUpon>PolproduktForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProduktForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProduktForm.Designer.cs">
+      <DependentUpon>ProduktForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProdukcjaFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProdukcjaFrom.Designer.cs">
+      <DependentUpon>ProdukcjaFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forma_platnosc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FormDepartments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDepartments.Designer.cs">
+      <DependentUpon>FormDepartments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSalesDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesDepartment.Designer.cs">
+      <DependentUpon>FormSalesDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSalesDepartmentClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesDepartmentClient.Designer.cs">
+      <DependentUpon>FormSalesDepartmentClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSalesDepartmentClientModifyClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesDepartmentClientModifyClient.Designer.cs">
+      <DependentUpon>FormSalesDepartmentClientModifyClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSalesDepartmentClientNewClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesDepartmentClientNewClient.Designer.cs">
+      <DependentUpon>FormSalesDepartmentClientNewClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSalesDepartmentClientRemoveClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesDepartmentClientRemoveClient.Designer.cs">
+      <DependentUpon>FormSalesDepartmentClientRemoveClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSalesDepartmentSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesDepartmentSales.Designer.cs">
+      <DependentUpon>FormSalesDepartmentSales.cs</DependentUpon>
     </Compile>
     <Compile Include="Gwarancja.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
@@ -111,26 +177,6 @@
     </Compile>
     <Compile Include="Kontrola_jakosci_produkt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="KWZPDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>KWZPDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="KWZPDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>KWZPDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="KWZPDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>KWZPDataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="KWZPDataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>KWZPDataSet3.xsd</DependentUpon>
     </Compile>
     <Compile Include="KWZPModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -192,12 +238,6 @@
     <Compile Include="Parametr_polprodukt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Parametr_polproduktForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Parametr_polproduktForm.Designer.cs">
-      <DependentUpon>Parametr_polproduktForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Parametr_produkt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -228,6 +268,8 @@
     <Compile Include="Produkt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reklamacja.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -276,74 +318,6 @@
     <Compile Include="Sklad_stanowisko_produkcyjne_maszyna.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="SlownikStanowiskoForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SlownikStanowiskoForm.Designer.cs">
-      <DependentUpon>SlownikStanowiskoForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PolproduktForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PolproduktForm.Designer.cs">
-      <DependentUpon>PolproduktForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ProduktForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProduktForm.Designer.cs">
-      <DependentUpon>ProduktForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ProdukcjaFrom.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProdukcjaFrom.Designer.cs">
-      <DependentUpon>ProdukcjaFrom.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormDepartments.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormDepartments.Designer.cs">
-      <DependentUpon>FormDepartments.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSalesDepartment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSalesDepartment.Designer.cs">
-      <DependentUpon>FormSalesDepartment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSalesDepartmentClient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSalesDepartmentClient.Designer.cs">
-      <DependentUpon>FormSalesDepartmentClient.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSalesDepartmentClientModifyClient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSalesDepartmentClientModifyClient.Designer.cs">
-      <DependentUpon>FormSalesDepartmentClientModifyClient.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSalesDepartmentClientNewClient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSalesDepartmentClientNewClient.Designer.cs">
-      <DependentUpon>FormSalesDepartmentClientNewClient.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSalesDepartmentClientRemoveClient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSalesDepartmentClientRemoveClient.Designer.cs">
-      <DependentUpon>FormSalesDepartmentClientRemoveClient.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSalesDepartmentSales.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSalesDepartmentSales.Designer.cs">
-      <DependentUpon>FormSalesDepartmentSales.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Slownik_polprodukt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -596,9 +570,6 @@
     <EmbeddedResource Include="FormSalesDepartmentSales.resx">
       <DependentUpon>FormSalesDepartmentSales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Parametr_polproduktForm.resx">
-      <DependentUpon>Parametr_polproduktForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PolproduktForm.resx">
       <DependentUpon>PolproduktForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -616,7 +587,6 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="SlownikStanowiskoForm.resx">
       <DependentUpon>SlownikStanowiskoForm.cs</DependentUpon>
@@ -625,50 +595,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>KWZPModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="KWZPDataSet.xsc">
-      <DependentUpon>KWZPDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="KWZPDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>KWZPDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="KWZPDataSet.xss">
-      <DependentUpon>KWZPDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="KWZPDataSet1.xsc">
-      <DependentUpon>KWZPDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="KWZPDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>KWZPDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="KWZPDataSet1.xss">
-      <DependentUpon>KWZPDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="KWZPDataSet2.xsc">
-      <DependentUpon>KWZPDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="KWZPDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>KWZPDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="KWZPDataSet2.xss">
-      <DependentUpon>KWZPDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="KWZPDataSet3.xsc">
-      <DependentUpon>KWZPDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="KWZPDataSet3.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>KWZPDataSet3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="KWZPDataSet3.xss">
-      <DependentUpon>KWZPDataSet3.xsd</DependentUpon>
-    </None>
     <None Include="KWZPModel.edmx.diagram">
       <DependentUpon>KWZPModel.edmx</DependentUpon>
     </None>
@@ -700,8 +626,6 @@
       <DependentUpon>KWZPModel.edmx</DependentUpon>
       <LastGenOutput>KWZPModel.cs</LastGenOutput>
     </Content>
-    <None Include="Resources\form_background.png" />
-    <None Include="Resources\form_background_small.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

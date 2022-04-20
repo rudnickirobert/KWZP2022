@@ -17,7 +17,7 @@ namespace KWZP2022
         {
             InitializeComponent();
             this.db = db;
-
+            
             initDataGridViewProdukt();
             initDataGridViewPolprodukt();
             initDataGridViewSkladProdukt();
@@ -37,7 +37,7 @@ namespace KWZP2022
 
         private void initDataGridViewProdukt()
         {
-
+            
             dgvProdukt.DataSource = db.Produkt.ToList();
             this.dgvProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dgvProdukt.Columns["Parametr_produkt"].Visible = false;
@@ -69,7 +69,7 @@ namespace KWZP2022
             skladProdukt.ID_produkt = int.Parse(this.dgvProdukt.CurrentRow.Cells[0].Value.ToString());
 
             int numRows = dgvPolprodukt.Rows.Count;
-            skladProdukt.ID_polprodukt = int.Parse(this.dgvPolprodukt.Rows[numRows - 1].Cells[0].Value.ToString());
+            skladProdukt.ID_polprodukt = int.Parse(this.dgvPolprodukt.Rows[numRows-1].Cells[0].Value.ToString());
             skladProdukt.Liczba = int.Parse(txtIlosc.Text);
             db.Sklad_produkt.Add(skladProdukt);
             db.SaveChanges();
@@ -129,9 +129,5 @@ namespace KWZP2022
             txtIlosc.Text = this.dgvSkladProdukt.CurrentRow.Cells[2].Value.ToString();
         }
 
-        private void dgvPolprodukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

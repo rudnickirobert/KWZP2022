@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PolproduktForm));
             this.label1 = new System.Windows.Forms.Label();
             this.btnAktualizuj = new System.Windows.Forms.Button();
             this.btnUsun = new System.Windows.Forms.Button();
@@ -120,7 +121,6 @@
             this.dgvPolprodukt.Name = "dgvPolprodukt";
             this.dgvPolprodukt.Size = new System.Drawing.Size(434, 313);
             this.dgvPolprodukt.TabIndex = 7;
-            this.dgvPolprodukt.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPolprodukt_CellContentClick);
             // 
             // dgvProdukt
             // 
@@ -182,6 +182,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 711);
             this.Controls.Add(this.txtIlosc);
             this.Controls.Add(this.label3);
