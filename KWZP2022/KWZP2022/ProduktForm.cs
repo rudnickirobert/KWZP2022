@@ -77,5 +77,10 @@ namespace KWZP2022
         {
             txtNazwaProdukt.Text = this.dgvProdukt.CurrentRow.Cells[1].Value.ToString();
         }
+
+        private void ProduktForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

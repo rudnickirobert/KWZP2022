@@ -99,7 +99,6 @@
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormDepartments";
             this.Text = "Działy";
-            this.Load += new System.EventHandler(this.FormDepartments_Load);
             this.ResumeLayout(false);
 
         }

@@ -30,15 +30,5 @@ namespace KWZP2022
             FormSalesDepartmentClient formSalesDepartmentClient = new FormSalesDepartmentClient(db);
             formSalesDepartmentClient.ShowDialog(); 
         }
-
-        private void FormSalesDepartment_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnOrder_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

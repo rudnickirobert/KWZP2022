@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace KWZP2022
 {
-    public partial class DzialZasobowFORM : Form
+    public partial class FormResDep : Form
     {
         KWZPEntities db;
-        public DzialZasobowFORM(KWZPEntities db)
+        public FormResDep(KWZPEntities db)
         {
             InitializeComponent();
             this.db = db;
@@ -21,13 +21,13 @@ namespace KWZP2022
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            ZamowieniaResDepFORM zamowieniaFrom = new ZamowieniaResDepFORM(db);
+            FormResDepZamowienia zamowieniaFrom = new FormResDepZamowienia(db);
             zamowieniaFrom.ShowDialog();
         }
 
         private void btnWarehouse_Click(object sender, EventArgs e)
         {
-            ResDepFORMMagazyn magazynFrom = new ResDepFORMMagazyn(db);
+            FormResDepMagazyny magazynFrom = new FormResDepMagazyny(db);
             magazynFrom.ShowDialog();
         }
 

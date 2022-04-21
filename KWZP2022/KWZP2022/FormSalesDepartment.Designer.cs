@@ -44,7 +44,6 @@
             this.btnOrder.TabIndex = 0;
             this.btnOrder.Text = "Zamówienia";
             this.btnOrder.UseVisualStyleBackColor = true;
-            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
             // 
             // btnClient
             // 
@@ -81,7 +80,6 @@
             this.Controls.Add(this.btnOrder);
             this.Name = "FormSalesDepartment";
             this.Text = "Dział handlowy i marketingu";
-            this.Load += new System.EventHandler(this.FormSalesDepartment_Load);
             this.ResumeLayout(false);
 
         }

@@ -1,6 +1,6 @@
 ﻿namespace KWZP2022
 {
-    partial class DzialZasobowFORM
+    partial class FormResDep
     {
         /// <summary>
         /// Required designer variable.
@@ -38,8 +38,8 @@
             this.btnService.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnService.Font = new System.Drawing.Font("Arial Narrow", 18F);
             this.btnService.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnService.Location = new System.Drawing.Point(454, 511);
-            this.btnService.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnService.Location = new System.Drawing.Point(444, 502);
+            this.btnService.Margin = new System.Windows.Forms.Padding(4);
             this.btnService.Name = "btnService";
             this.btnService.Size = new System.Drawing.Size(400, 123);
             this.btnService.TabIndex = 5;
@@ -52,8 +52,8 @@
             this.btnWarehouse.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnWarehouse.Font = new System.Drawing.Font("Arial Narrow", 18F);
             this.btnWarehouse.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnWarehouse.Location = new System.Drawing.Point(454, 362);
-            this.btnWarehouse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnWarehouse.Location = new System.Drawing.Point(444, 353);
+            this.btnWarehouse.Margin = new System.Windows.Forms.Padding(4);
             this.btnWarehouse.Name = "btnWarehouse";
             this.btnWarehouse.Size = new System.Drawing.Size(400, 123);
             this.btnWarehouse.TabIndex = 4;
@@ -66,8 +66,8 @@
             this.btnOrder.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOrder.Font = new System.Drawing.Font("Arial Narrow", 18F);
             this.btnOrder.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnOrder.Location = new System.Drawing.Point(454, 231);
-            this.btnOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOrder.Location = new System.Drawing.Point(444, 222);
+            this.btnOrder.Margin = new System.Windows.Forms.Padding(4);
             this.btnOrder.Name = "btnOrder";
             this.btnOrder.Size = new System.Drawing.Size(400, 123);
             this.btnOrder.TabIndex = 3;
@@ -75,19 +75,19 @@
             this.btnOrder.UseVisualStyleBackColor = true;
             this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
             // 
-            // DzialZasobowFORM
+            // FormResDep
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.unknown;
             this.ClientSize = new System.Drawing.Size(1262, 703);
             this.Controls.Add(this.btnService);
             this.Controls.Add(this.btnWarehouse);
             this.Controls.Add(this.btnOrder);
             this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "DzialZasobowFORM";
-            this.Text = "DzialZasobowFORM";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "FormResDep";
+            this.Text = "Dział Zasobów";
             this.Load += new System.EventHandler(this.DzialZasobowFORM_Load);
             this.ResumeLayout(false);
 
