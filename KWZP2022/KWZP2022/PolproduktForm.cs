@@ -59,12 +59,14 @@ namespace KWZP2022
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            Sklad_produkt skladProdukt = new Sklad_produkt();
             Slownik_polprodukt polprodukt = new Slownik_polprodukt();
             polprodukt.Nazwa = txtPolprodukt.Text;
             db.Slownik_polprodukt.Add(polprodukt);
             db.SaveChanges();
+            initDataGridViewPolprodukt();
+            initDataGridViewSkladProdukt();
 
+            Sklad_produkt skladProdukt = new Sklad_produkt();
             skladProdukt.ID_produkt = int.Parse(this.dgvProdukt.CurrentRow.Cells[0].Value.ToString());
 
             int numRows = dgvPolprodukt.Rows.Count;
@@ -80,9 +82,13 @@ namespace KWZP2022
 
         private void btnAktualizuj_Click(object sender, EventArgs e)
         {
+            Sklad_produkt skladProdukt = new Sklad_produkt();
+
 
             this.dgvSkladProdukt.CurrentRow.Cells[1].Value = txtPolprodukt.Text;
             this.dgvSkladProdukt.CurrentRow.Cells[2].Value = int.Parse(txtIlosc.Text);
+
+
             db.SaveChanges();
             initDataGridViewSkladProdukt();
 
@@ -94,13 +100,15 @@ namespace KWZP2022
             DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz usunąć produkt: " + this.dgvPolprodukt.CurrentRow.Cells[1].Value, "Question", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                string current_polprodukt = this.dgvSkladProdukt.CurrentRow.Cells[1].Value.ToString();
-                db.Produkt.Remove(db.Produkt.Where(product => product.Nazwa_produkt == current_polprodukt).First());
+                int current_id_sklad = int.Parse(this.dgvSkladProdukt.CurrentRow.Cells[0].Value.ToString());
+                db.Sklad_produkt.Remove(db.Sklad_produkt.Where(skladProdukt => skladProdukt.ID_sklad_produkt == current_id_sklad).First());
                 db.SaveChanges();
 
                 initDataGridViewPolprodukt();
                 initDataGridViewSkladProdukt();
                 txtNazwaProdukt.Text = "";
+                txtPolprodukt.Text = "";
+                txtIlosc.Text = "";
             }
         }
 
@@ -123,9 +131,9 @@ namespace KWZP2022
 
         private void dgvSkladProdukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtNazwaProdukt.Text = this.dgvSkladProdukt.CurrentRow.Cells[0].Value.ToString();
-            txtPolprodukt.Text = this.dgvSkladProdukt.CurrentRow.Cells[1].Value.ToString();
-            txtIlosc.Text = this.dgvSkladProdukt.CurrentRow.Cells[2].Value.ToString();
+            txtNazwaProdukt.Text = this.dgvSkladProdukt.CurrentRow.Cells[1].Value.ToString();
+            txtPolprodukt.Text = this.dgvSkladProdukt.CurrentRow.Cells[2].Value.ToString();
+            txtIlosc.Text = this.dgvSkladProdukt.CurrentRow.Cells[3].Value.ToString();
         }
 
     }
