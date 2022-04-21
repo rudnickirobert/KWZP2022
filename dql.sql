@@ -224,6 +224,15 @@ SELECT [Półprodukt], FORMAT(SUM([Szacowany czas {min}])/CAST(60 AS DECIMAL (4,
 GROUP BY [Półprodukt]
 GO
 
+CREATE VIEW v_Tygodniowe_rozliczenie_pracy_maszyna_polprodukt
+AS
+SELECT ID_stanowisko_produkcyjne, SSPM.Maszyna AS [Maszyna], SSPM.[Nr seryjny maszyny] AS [Nr seryjny], SUM(DATEDIFF(HOUR, [Data rozpoczęcia], [Data zakończenia])) AS [Czas pracy {h}]
+FROM v_Proces_wytwarzanie_polprodukt
+INNER JOIN v_Sklad_stanowisko_produkcyjne_maszyna AS SSPM ON v_Proces_wytwarzanie_polprodukt.ID_stanowisko_produkcyjne = SSPM.[ID stanowiska produkcyjnego]
+GROUP BY ID_stanowisko_produkcyjne, SSPM.Maszyna, SSPM.[Nr seryjny maszyny]
+GO
+
+
 CREATE VIEW v_Proces_wytwarzanie_produkt
 AS
 SELECT P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynność produkcyjna], Pr.Nazwisko + ' ' + Pr.Imie AS [Pracownik],
@@ -242,6 +251,29 @@ CREATE VIEW v_Szacowany_czas_wytwarzania_produkt
 AS
 SELECT [Produkt], FORMAT(SUM([Szacowany czas {min}])/CAST(60 AS DECIMAL (4,1)),'0.######') AS [Czas wytwarzania {h}] FROM v_Proces_wytwarzanie_produkt
 GROUP BY [Produkt]
+GO
+
+CREATE VIEW v_Tygodniowe_rozliczenie_pracy_maszyna_produkt
+AS
+SELECT ID_stanowisko_produkcyjne, SSPM.Maszyna AS [Maszyna], SSPM.[Nr seryjny maszyny] AS [Nr seryjny], SUM(DATEDIFF(HOUR, [Data rozpoczęcia], [Data zakończenia])) AS [Czas pracy {h}]
+FROM v_Proces_wytwarzanie_produkt
+INNER JOIN v_Sklad_stanowisko_produkcyjne_maszyna AS SSPM ON v_Proces_wytwarzanie_produkt.ID_stanowisko_produkcyjne = SSPM.[ID stanowiska produkcyjnego]
+GROUP BY ID_stanowisko_produkcyjne, SSPM.Maszyna, SSPM.[Nr seryjny maszyny]
+GO
+
+CREATE VIEW v_Tygodniowe_rozliczenie_pracy_maszyna_union
+AS
+SELECT *
+FROM v_Tygodniowe_rozliczenie_pracy_maszyna_polprodukt 
+UNION ALL
+SELECT *
+FROM v_Tygodniowe_rozliczenie_pracy_maszyna_produkt
+GO
+
+CREATE VIEW v_Tygodniowe_rozliczenie_pracy_maszyna_calosc
+AS 
+SELECT *
+FROM v_Tygodniowe_rozliczenie_pracy_maszyna_union
 GO
 
 CREATE VIEW v_Stanowiska_w_uzyciu
