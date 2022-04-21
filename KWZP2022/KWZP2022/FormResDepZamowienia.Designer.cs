@@ -60,6 +60,7 @@
             this.btnOrder_czesc.TabIndex = 7;
             this.btnOrder_czesc.Text = "Zamówienie części";
             this.btnOrder_czesc.UseVisualStyleBackColor = true;
+            this.btnOrder_czesc.Click += new System.EventHandler(this.btnOrder_czesc_Click);
             // 
             // btnOrder_material
             // 

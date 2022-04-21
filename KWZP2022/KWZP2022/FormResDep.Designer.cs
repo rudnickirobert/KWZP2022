@@ -38,7 +38,7 @@
             this.btnService.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnService.Font = new System.Drawing.Font("Arial Narrow", 18F);
             this.btnService.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnService.Location = new System.Drawing.Point(444, 502);
+            this.btnService.Location = new System.Drawing.Point(444, 510);
             this.btnService.Margin = new System.Windows.Forms.Padding(4);
             this.btnService.Name = "btnService";
             this.btnService.Size = new System.Drawing.Size(400, 123);
@@ -52,7 +52,7 @@
             this.btnWarehouse.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnWarehouse.Font = new System.Drawing.Font("Arial Narrow", 18F);
             this.btnWarehouse.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnWarehouse.Location = new System.Drawing.Point(444, 353);
+            this.btnWarehouse.Location = new System.Drawing.Point(444, 369);
             this.btnWarehouse.Margin = new System.Windows.Forms.Padding(4);
             this.btnWarehouse.Name = "btnWarehouse";
             this.btnWarehouse.Size = new System.Drawing.Size(400, 123);
