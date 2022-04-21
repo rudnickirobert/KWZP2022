@@ -44,7 +44,9 @@ namespace KWZP2022
 
         private void dgvMaszynyWszystko_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            FormDZHistoriaZamowien formzamow = new FormDZHistoriaZamowien(db);
+            formzamow.ShowDialog();
+
         }
     }
 }

@@ -29,7 +29,7 @@ namespace KWZP2022
 
         private void Btn_Refresh_Click(object sender, EventArgs e)
         {
-
+            initDataGridViewHistoria();
         }
     }
 }
