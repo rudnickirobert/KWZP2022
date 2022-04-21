@@ -29,19 +29,33 @@ namespace KWZP2022
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnAddReturn = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // btnAddReturn
+            // 
+            this.btnAddReturn.Font = new System.Drawing.Font("Arial", 10F);
+            this.btnAddReturn.Location = new System.Drawing.Point(321, 449);
+            this.btnAddReturn.Name = "btnAddReturn";
+            this.btnAddReturn.Size = new System.Drawing.Size(152, 30);
+            this.btnAddReturn.TabIndex = 0;
+            this.btnAddReturn.Text = "Dodaj Zwrot";
+            this.btnAddReturn.UseVisualStyleBackColor = true;
             // 
             // FormSalesDepartmentComplaint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 491);
+            this.Controls.Add(this.btnAddReturn);
             this.Name = "FormSalesDepartmentComplaint";
-            this.Text = "FormSalesDepartmentComplaint";
+            this.Text = "Reklamacja";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnAddReturn;
     }
 }
