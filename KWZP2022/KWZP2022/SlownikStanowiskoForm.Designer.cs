@@ -45,7 +45,7 @@
             this.label1.Font = new System.Drawing.Font("Arial", 20F);
             this.label1.Location = new System.Drawing.Point(21, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(246, 32);
+            this.label1.Size = new System.Drawing.Size(247, 32);
             this.label1.TabIndex = 13;
             this.label1.Text = "Nazwa stanowiska:";
             // 
@@ -109,7 +109,7 @@
             this.dgvStanowisko.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStanowisko.Location = new System.Drawing.Point(412, 74);
             this.dgvStanowisko.Name = "dgvStanowisko";
-            this.dgvStanowisko.Size = new System.Drawing.Size(361, 376);
+            this.dgvStanowisko.Size = new System.Drawing.Size(733, 534);
             this.dgvStanowisko.TabIndex = 7;
             this.dgvStanowisko.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStanowisko_CellContentClick);
             // 
@@ -117,7 +117,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(794, 461);
+            this.ClientSize = new System.Drawing.Size(1264, 711);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAktualizuj);
             this.Controls.Add(this.btnUsun);

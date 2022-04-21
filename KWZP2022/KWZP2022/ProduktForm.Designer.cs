@@ -110,7 +110,7 @@
             this.label1.Font = new System.Drawing.Font("Arial", 20F);
             this.label1.Location = new System.Drawing.Point(20, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(217, 32);
+            this.label1.Size = new System.Drawing.Size(218, 32);
             this.label1.TabIndex = 6;
             this.label1.Text = "Nazwa produktu:";
             // 
@@ -119,7 +119,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(794, 461);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1264, 711);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAktualizuj);
             this.Controls.Add(this.btnUsun);
@@ -127,6 +128,7 @@
             this.Controls.Add(this.txtNazwaProdukt);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.dgvProdukt);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Arial", 8.25F);
             this.Name = "ProduktForm";
             this.Text = "Produkty";

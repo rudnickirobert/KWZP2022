@@ -204,6 +204,7 @@
             this.Controls.Add(this.dgvSales);
             this.Name = "FormSalesDepartmentSales";
             this.Text = "Sprzedaż";
+            this.Load += new System.EventHandler(this.FormSalesDepartmentSales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

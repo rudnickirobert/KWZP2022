@@ -100,6 +100,24 @@
     <Compile Include="Forma_platnosc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FormHRandSetupProduction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHRandSetupProduction.Designer.cs">
+      <DependentUpon>FormHRandSetupProduction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHRDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHRDepartment.Designer.cs">
+      <DependentUpon>FormHRDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSetupProductionDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSetupProductionDepartment.Designer.cs">
+      <DependentUpon>FormSetupProductionDepartment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gwarancja.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -657,6 +675,12 @@
     <EmbeddedResource Include="FormDepartments.resx">
       <DependentUpon>FormDepartments.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormHRandSetupProduction.resx">
+      <DependentUpon>FormHRandSetupProduction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHRDepartment.resx">
+      <DependentUpon>FormHRDepartment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSalesDepartment.resx">
       <DependentUpon>FormSalesDepartment.cs</DependentUpon>
     </EmbeddedResource>
@@ -674,6 +698,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSalesDepartmentSales.resx">
       <DependentUpon>FormSalesDepartmentSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSetupProductionDepartment.resx">
+      <DependentUpon>FormSetupProductionDepartment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PolproduktForm.resx">
       <DependentUpon>PolproduktForm.cs</DependentUpon>

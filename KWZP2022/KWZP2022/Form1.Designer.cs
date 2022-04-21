@@ -96,7 +96,8 @@ namespace KWZP2022
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1264, 711);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.lblHello);
             this.Controls.Add(this.btnDepartments);
             this.Controls.Add(this.btnNewOrder);
@@ -105,7 +106,7 @@ namespace KWZP2022
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1280, 750);
-            this.MinimumSize = new System.Drawing.Size(1280, 750);
+            this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "StartForm";
             this.Text = "Drukarczyk";
             this.ResumeLayout(false);

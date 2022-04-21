@@ -164,6 +164,11 @@ namespace KWZP2022
         {
             MessageBox.Show("Wyszukiwany numer sprzedaży nie widnieje w bazie danych.", "Błąd", MessageBoxButtons.OK);
         }
+
+        private void FormSalesDepartmentSales_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
