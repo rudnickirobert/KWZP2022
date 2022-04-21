@@ -91,6 +91,12 @@
     <Compile Include="Etat.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Ewidencja_czasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ewidencja_czasForm.Designer.cs">
+      <DependentUpon>Ewidencja_czasForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -651,6 +657,9 @@
     <Compile Include="Zwrot.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Ewidencja_czasForm.resx">
+      <DependentUpon>Ewidencja_czasForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
