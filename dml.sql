@@ -492,7 +492,8 @@ VALUES
 ('000-025'),
 ('000-026'),
 ('000-027'),
-('000-028');
+('000-028'),
+('000-029');
 
 INSERT INTO Maszyna_nr_seryjny (ID_maszyna, ID_nr_seryjny)
 VALUES
@@ -523,7 +524,8 @@ VALUES
 (6,25),
 (7,26),
 (7,27),
-(7,28);
+(7,28),
+(6,29);
 
 INSERT INTO Stanowisko_produkcyjne (ID_nazwa_stanowiska)
 VALUES
@@ -535,22 +537,23 @@ VALUES
 (6),
 (7),
 (8),
-(9);
+(1),
+(2);
 
 
 INSERT INTO Sklad_stanowisko_produkcyjne_maszyna (ID_stanowisko_produkcyjne, ID_maszyna_nr)
 VALUES
-(1,5),
 (1,6),
 (1,1),
 (2,3),
 (2,23),
 (3,24),
 (3,2),
-(3,11),
 (4,4),
 (4,25),
-(5,7);
+(5,7),
+(10,10),
+(10,29);
 
 
 INSERT INTO Sklad_stanowisko_produkcyjne_narzedzie (ID_stanowisko_produkcyjne, ID_narzedzie, Liczba)
@@ -563,7 +566,10 @@ VALUES
 (2,1,5),
 (3,4,1),
 (4,2,1),
-(5,2,2);
+(5,2,2),
+(10,2,3),
+(10,5,2),
+(10,6,1);
 
 INSERT INTO Proces_polprodukt_czynnosc (ID_polprodukt, ID_czynnosc_produkcyjna, Czas_trwania)
 VALUES
@@ -875,7 +881,8 @@ VALUES
 (14,'2022-04-16',2),
 (14,'2022-04-16',3),
 (14,'2022-04-16',4),
-(14,'2022-04-16',5);
+(14,'2022-04-16',5),
+(14,'2022-04-19',1);
 
 INSERT INTO Stan_realizacji_zamowienie_material(ID_zamowienie_material, ID_status_zamowienie, Data_stan, ID_pracownik)
 VALUES
@@ -898,7 +905,10 @@ VALUES
 (2,4,'2022-04-19 09:10:00',19),
 (3,4,'2022-04-19 10:10:00',18),
 (4,4,'2022-04-19 11:40:00',15),
-(5,4,'2022-04-19 12:10:00',19);
+(5,4,'2022-04-19 12:10:00',19),
+(6,1,'2022-04-19 12:48:51',14),
+(6,2,'2022-04-19 14:21:21',14);
+
 
 INSERT INTO Szczegoly_zamowienie_material(ID_zamowienie_material, ID_material, ID_producent, Waga_g, Cena)
 VALUES
@@ -906,7 +916,8 @@ VALUES
 (2,2,2,20000,15000),
 (3,3,2,15000,20000),
 (4,4,5,25000,17000),
-(5,5,5,45000,15000);
+(5,5,5,45000,15000),
+(6,3,1,16500,19000);
 
 INSERT INTO Zamowienie_czesc(ID_pracownik, Data_zamowienia, ID_dostawca)
 VALUES
@@ -914,7 +925,8 @@ VALUES
 (14,'2022-04-17',2),
 (14,'2022-04-17',1),
 (14,'2022-04-17',3),
-(14,'2022-04-17',5);
+(14,'2022-04-17',5),
+(14,'2022-04-20',1);
 
 INSERT INTO Stan_realizacji_zamowienie_czesc(ID_zamowienie_czesc, ID_status_zamowienie, Data_stan, ID_pracownik)
 VALUES
@@ -937,7 +949,8 @@ VALUES
 (2,4,'2022-04-20 09:10:00',18),
 (3,4,'2022-04-20 09:16:00',19),
 (4,4,'2022-04-20 10:14:00',15),
-(5,4,'2022-04-20 11:10:00',18);
+(5,4,'2022-04-20 11:10:00',18),
+(6,1,'2022-04-20 12:43:51',14);
 
 INSERT INTO Szczegoly_zamowienie_czesc(ID_zamowienie_czesc, ID_czesc, ID_producent, Ilosc, Cena)
 VALUES
@@ -945,7 +958,8 @@ VALUES
 (2,5,4,2,50),
 (3,7,5,1,7000),
 (4,8,2,1,1700),
-(5,10,3,3,1300);
+(5,10,3,3,1300),
+(6,3,1,5,1200);
 
 
 INSERT INTO Zamowienie_narzedzie(ID_pracownik, Data_zamowienia, ID_dostawca)
@@ -955,7 +969,8 @@ VALUES
 (14,'2022-04-17',5),
 (14,'2022-04-17',4),
 (14,'2022-04-17',2),
-(14,'2022-04-17',3);
+(14,'2022-04-17',3),
+(14,'2022-04-20',1);
 
 INSERT INTO Stan_realizacji_zamowienie_narzedzie(ID_zamowienie_narzedzie, ID_status_zamowienie, Data_stan, ID_pracownik)
 VALUES
@@ -982,7 +997,10 @@ VALUES
 (3,4,'2022-04-20 09:48:00',19),
 (4,4,'2022-04-20 10:18:00',15),
 (5,4,'2022-04-20 11:14:00',18),
-(6,4,'2022-04-20 11:58:00',15);
+(6,4,'2022-04-20 11:58:00',15),
+(7,1,'2022-04-20 12:17:00',14),
+(7,2,'2022-04-20 13:51:00',14),
+(7,3,'2022-04-21 14:11:00',18);
 
 INSERT INTO Szczegoly_zamowienie_narzedzie(ID_zamowienie_narzedzie, ID_narzedzie, ID_producent, Sztuk, Cena)
 VALUES
@@ -991,7 +1009,8 @@ VALUES
 (3,3,5,11,240),
 (4,4,2,13,520),
 (5,5,3,18,450),
-(6,6,1,14,420);
+(6,6,1,14,420),
+(7,1,3,2,10);
 
 INSERT INTO Zamowienie_maszyna(ID_pracownik, Data_zamowienia, ID_dostawca)
 VALUES
@@ -1022,7 +1041,8 @@ VALUES
 (14,'2022-04-18',2),
 (14,'2022-04-18',1),
 (14,'2022-04-18',3),
-(14,'2022-04-18',5);
+(14,'2022-04-18',5),
+(14,'2022-04-21',2);
 
 INSERT INTO Stan_realizacji_zamowienie_maszyna(ID_zamowienie_maszyna, ID_status_zamowienie, Data_stan, ID_pracownik)
 VALUES
@@ -1137,7 +1157,9 @@ VALUES
 (25,4,'2022-04-21 11:44:00',19),
 (26,4,'2022-04-21 12:01:00',15),
 (27,4,'2022-04-21 12:09:00',15),
-(28,4,'2022-04-21 12:18:00',15);
+(28,4,'2022-04-21 12:18:00',15),
+(29,1,'2022-04-21 12:20:00',15),
+(29,2,'2022-04-21 12:52:00',15);
 
 INSERT INTO Szczegoly_zamowienie_maszyna(ID_zamowienie_maszyna, ID_maszyna, ID_producent, Ilosc,Cena)
 VALUES
@@ -1165,10 +1187,11 @@ VALUES
 (22,5,5,1,1649),
 (23,6,6,1,5700),
 (24,6,6,1,5700),
-(25,6,6,1,5700),
+(25,6,6,2,11000),
 (26,7,7,1,2100),
 (27,7,7,1,2100),
-(28,7,7,1,2100);
+(28,7,7,1,2100),
+(29,6,6,2,10600);
 
 INSERT INTO Obsluga(ID_rodzaj_obsluga, ID_stanowisko_produkcyjne, Data_od, Data_do, Uwagi)
 VALUES
@@ -1182,6 +1205,7 @@ INSERT Obsluga_pracownik (ID_obsluga, ID_pracownik)
 VALUES
 (1,22),
 (2,22),
+(2,21),
 (3,21),
 (4,22),
 (5,21);
@@ -1217,51 +1241,51 @@ VALUES
 
 INSERT INTO Wytwarzanie (Id_pracownik, Id_zamowienie_szczegol, Czas_od, Czas_do)
 VALUES
-(7,1,'2022-04-04 08:00:00 AM','2022-04-04 13:00:00 PM'), 		--Wał czynny, projektowanie, 300
-(2,1,'2022-04-04 08:00:00 AM','2022-04-04 08:15:00 AM'),		--Wał czynny, przygotowanie stanowiska, 15
-(2,1,'2022-04-04 13:30:00 PM','2022-04-05 01:30:00 AM'),		--Wał czynny, drukowanie, 720
-(2,1,'2022-04-05 08:00:00 AM','2022-04-05 09:00:00 AM'),		--Wał czynny, szlifowanie, 60
-(8,1,'2022-04-04 08:00:00 AM','2022-04-04 13:00:00 PM'),		--Wał bierny, projektowanie,300
-(2,1,'2022-04-05 08:00:00 AM','2022-04-05 08:15:00 AM'),		--Wał bierny, przygotowanie stanowiska, 15
-(2,1,'2022-04-05 09:15:00 AM','2022-04-05 21:00:00 PM'),		--Wał bierny, drukowanie, 720
-(2,1,'2022-04-06 08:00:00 AM','2022-04-06 09:00:00 AM'),		--Wał bierny, szlifowanie, 60
-(7,1,'2022-04-04 01:00:00 PM','2022-04-04 16:00:00 PM'),		--Obudowa przekładni, projektowanie, 180
-(2,1,'2022-04-06 09:15:00 AM','2022-04-06 09:30:00 AM'),		--Obudowa przekładni,przygotowanie stanow.,15
-(2,1,'2022-04-06 09:30:00 AM','2022-04-06 21:30:00 PM'),		--Obudowa przekładni, drukowanie, 720
-(2,1,'2022-04-07 08:00:00 AM','2022-04-07 09:00:00 AM'),		--Obudowa przekładni, wygładzanie, 60
-(2,1,'2022-04-07 09:00:00 AM','2022-04-07 11:00:00 AM'),		--Obudowa przekładni, lakierowanie, 120
-(2,1,'2022-04-07 11:00:00 AM','2022-04-07 12:00:00 PM'),		--Przekladnia zebata, montaz, 60
-(2,1,'2022-04-07 12:00:00 PM', NULL),							--Przekladnia zebata, klejenie, 60
-(2,2,'2022-04-07 13:00:00 PM','2022-04-07 16:00:00 PM'), 		--Litofanowy klosz, skanowanie, 180
-(2,2,'2022-04-04 13:00:00 PM','2022-04-04 16:00:00 PM'),		--Litofanowy klosz, projektowanie, 90
-(2,2,'2022-04-08 08:00:00 AM','2022-04-08 08:15:00 AM'),  		--Litofanowy klosz, przygotowanie stanow., 15
-(2,2,'2022-04-08 08:15:00 AM','2022-04-08 16:15:00 PM'),		--Litofanowy klosz, drukowanie, 480
-(2,2,'2022-04-09 08:00:00 AM','2022-04-09 08:30:00 AM'),		--Litofanowy klosz, montaz, 30
-(7,3,'2022-04-05 08:00:00 AM','2022-04-05 10:00:00 AM'),		--Tapicerka samochodowa, projektowanie, 120
-(3,3,'2022-04-05 08:00:00 AM','2022-04-05 08:15:00 AM'),		--Tapicerka samochodowa, przygotowanie stano, 15
-(3,3,'2022-04-05 08:15:00 AM','2022-04-05 12:15:00 PM'), 		--Tapicerka samochodowa, drukowanie, 240
-(3,3,'2022-04-05 12:15:00 PM','2022-04-05 13:15:00 PM'),		--Tapicerka samochodowa, wygladzanie, 60
-(3,3,'2022-04-05 13:15:00 PM','2022-04-05 15:15:00 PM'),		--Tapicerka samochodowa, montaz, 120
-(7,4,'2022-04-06 08:00:00 PM','2022-04-06 10:00:00 PM'),		--Tapicerka samochodowa, projektowanie, 120
-(3,4,'2022-04-06 15:15:00 PM', NULL),							--Tapicerka samochodowa, przygotowanie stano, 15
-(3,4,'2022-04-06 15:30:00 PM','2022-04-06 19:30:00 PM'),		--Tapicerka samochodowa, drukowanie, 240
-(3,4,'2022-04-07 08:00:00 AM','2022-04-07 09:00:00 AM'),		--Tapicerka samochodowa, wygladzanie, 60
-(3,4,'2022-04-07 09:00:00 AM','2022-04-07 11:00:00 AM'),		--Tapicerka samochodowa, montaz, 120
-(7,5,'2022-04-06 10:00:00 PM','2022-04-06 12:00:00 PM'), 		--Kostka rubika, projektowanie, 120
-(3,5,'2022-04-07 11:00:00 AM','2022-04-07 11:15:00 AM'),		--Kostka rubika, przygotowanie stanowiska, 15
-(3,5,'2022-04-07 11:15:00 AM','2022-04-07 15:15:00 PM'), 		--Kostka rubika, drukowanie, 240
-(3,5,'2022-04-08 08:00:00 AM', NULL),							--Kostka rubika, szlifowanie, 60
-(3,5,'2022-04-08 09:00:00 AM', NULL),							--Kostka rubika, montaz, 60
-(7,6,'2022-04-07 08:00:00 AM','2022-04-07 10:00:00 AM'),		--Tapicerka samochodowa, projektowanie, 120
-(4,6,'2022-04-07 08:00:00 AM','2022-04-07 08:15:00 AM'),		--Tapicerka samochodowa, przygotowanie stano, 15
-(4,6,'2022-04-07 10:00:00 AM','2022-04-07 14:00:00 PM'),		--Tapicerka samochodowa, drukowanie, 240
-(4,6,'2022-04-07 14:00:00 PM','2022-04-07 15:00:00 PM'),		--Tapicerka samochodowa, wygladzanie, 60
-(4,6,'2022-04-08 08:00:00 AM','2022-04-08 10:00:00 AM'),		--Tapicerka samochodowa, montaz, 120
-(7,7,'2022-04-08 08:00:00 AM','2022-04-08 10:00:00 AM'),		--Kostka rubika, projektowanie, 120
-(4,7,'2022-04-08 08:00:00 AM','2022-04-08 08:15:00 AM'),		--Kostka rubika, przygotowanie stanowiska, 15
-(4,7,'2022-04-08 08:15:00 AM','2022-04-08 12:15:00 PM'),		--Kostka rubika, drukowanie, 240
-(4,7,'2022-04-08 12:15:00 PM','2022-04-08 13:15:00 PM'),		--Kostka rubika, szlifowanie, 60
-(4,7,'2022-04-08 13:15:00 PM','2022-04-08 14:15:00 PM');		--Kostka rubika, montaz, 60
+(7,1,'2022-04-04 08:00:00','2022-04-05 13:00:00'), 		--Wał czynny, projektowanie, 300
+(2,1,'2022-04-05 08:00:00','2022-04-05 09:15:00'),		--Wał czynny, przygotowanie stanowiska, 15
+(2,1,'2022-04-05 13:30:00','2022-04-25 01:30:00'),		--Wał czynny, drukowanie, 720
+(2,1,'2022-04-25 08:00:00','2022-04-26 12:00:00'),		--Wał czynny, szlifowanie, 60
+(8,1,'2022-04-04 08:00:00','2022-04-04 13:00:00'),		--Wał bierny, projektowanie,300
+(2,1,'2022-04-05 08:00:00','2022-04-05 10:15:00'),		--Wał bierny, przygotowanie stanowiska, 15
+(2,1,'2022-04-05 11:15:00','2022-04-20 21:00:00'),		--Wał bierny, drukowanie, 720
+(2,1,'2022-04-21 08:00:00','2022-04-21 13:00:00'),		--Wał bierny, szlifowanie, 60
+(7,1,'2022-04-05 11:00:00','2022-04-05 16:00:00'),		--Obudowa przekładni, projektowanie, 180
+(2,1,'2022-04-06 09:15:00','2022-04-06 10:30:00'),		--Obudowa przekładni,przygotowanie stanow.,15
+(2,1,'2022-04-06 11:30:00','2022-04-10 21:30:00'),		--Obudowa przekładni, drukowanie, 720
+(2,1,'2022-04-11 08:00:00','2022-04-11 12:00:00'),		--Obudowa przekładni, wygładzanie, 60
+(2,1,'2022-04-11 13:00:00','2022-04-11 20:00:00'),		--Obudowa przekładni, lakierowanie, 120
+(2,1,'2022-04-26 15:00:00','2022-04-27 12:00:00'),		--Przekladnia zebata, montaz, 60
+(2,1,'2022-04-27 12:00:00', NULL),						--Przekladnia zebata, klejenie, 60
+(2,2,'2022-04-07 13:00:00','2022-04-07 16:00:00'), 		--Litofanowy klosz, skanowanie, 180
+(2,2,'2022-04-08 13:00:00','2022-04-09 16:00:00'),		--Litofanowy klosz, projektowanie, 90
+(2,2,'2022-04-10 08:00:00','2022-04-10 09:15:00'),  	--Litofanowy klosz, przygotowanie stanow., 15
+(2,2,'2022-04-10 10:15:00','2022-04-18 16:15:00'),		--Litofanowy klosz, drukowanie, 480
+(2,2,'2022-04-19 08:00:00','2022-04-20 08:30:00'),		--Litofanowy klosz, montaz, 30
+(7,3,'2022-04-05 08:00:00','2022-04-07 10:00:00'),		--Tapicerka samochodowa, projektowanie, 120
+(3,3,'2022-04-08 02:00:00','2022-04-08 03:15:00'),		--Tapicerka samochodowa, przygotowanie stano, 15
+(3,3,'2022-04-08 03:35:00','2022-04-15 12:15:00'), 		--Tapicerka samochodowa, drukowanie, 240
+(3,3,'2022-04-15 13:15:00','2022-04-15 17:15:00'),		--Tapicerka samochodowa, wygladzanie, 60
+(3,3,'2022-04-15 18:00:00','2022-04-16 01:15:00'),		--Tapicerka samochodowa, montaz, 120
+(7,4,'2022-04-10 08:00:00','2022-04-11 10:00:00'),		--Tapicerka samochodowa, projektowanie, 120
+(3,4,'2022-04-06 15:15:00', NULL),						--Tapicerka samochodowa, przygotowanie stano, 15
+(3,4,'2022-04-06 15:30:00', NULL),						--Tapicerka samochodowa, drukowanie, 240
+(3,4,'2022-04-07 08:00:00', NULL),						--Tapicerka samochodowa, wygladzanie, 60
+(3,4,'2022-04-07 09:00:00', NULL),						--Tapicerka samochodowa, montaz, 120
+(7,5,'2022-04-06 10:00:00','2022-04-07 12:00:00'), 		--Kostka rubika, projektowanie, 120
+(3,5,'2022-04-07 13:00:00','2022-04-07 14:15:00'),		--Kostka rubika, przygotowanie stanowiska, 15
+(3,5,'2022-04-07 14:30:00','2022-04-14 15:15:00'), 		--Kostka rubika, drukowanie, 240
+(3,5,'2022-04-08 08:00:00', NULL),						--Kostka rubika, szlifowanie, 60
+(3,5,'2022-04-08 09:00:00', NULL),						--Kostka rubika, montaz, 60
+(7,6,'2022-04-07 08:00:00','2022-04-07 10:00:00'),		--Tapicerka samochodowa, projektowanie, 120
+(4,6,'2022-04-07 08:00:00','2022-04-07 08:15:00'),		--Tapicerka samochodowa, przygotowanie stano, 15
+(4,6,'2022-04-07 10:00:00', NULL),						--Tapicerka samochodowa, drukowanie, 240
+(4,6,'2022-04-07 14:00:00', NULL),						--Tapicerka samochodowa, wygladzanie, 60
+(4,6,'2022-04-08 08:00:00', NULL),						--Tapicerka samochodowa, montaz, 120
+(7,7,'2022-04-11 08:00:00','2022-04-11 10:00:00'),		--Kostka rubika, projektowanie, 120
+(4,7,'2022-04-11 10:30:00','2022-04-11 11:15:00'),		--Kostka rubika, przygotowanie stanowiska, 15
+(4,7,'2022-04-11 11:30:00','2022-04-17 12:15:00'),		--Kostka rubika, drukowanie, 240
+(4,7,'2022-04-17 16:00:00','2022-04-17 18:00:00'),		--Kostka rubika, szlifowanie, 60
+(4,7,'2022-04-17 19:00:00','2022-04-17 23:00:00');		--Kostka rubika, montaz, 60
 
 
 INSERT INTO Proces_wytwarzanie_produkt (Id_wytwarzanie, Id_proces_produkt, Id_stanowisko_produkcyjne)
@@ -1318,20 +1342,20 @@ VALUES
 
 INSERT INTO Kontrola_jakosci_produkt (Id_pracownik, Id_rodzaj_kontrola, ID_wytwarzanie, Data_od, Data_do, Uwagi)
 VALUES
-(2,2,15,'2022-04-07 13:00:00 PM','2022-04-07 14:00:00 PM','BRAK'),
-(2,1,15,'2022-04-07 14:00:00 PM','2022-04-07 15:00:00 PM','BRAK'),
-(2,2,20,'2022-04-09 08:30:00 AM','2022-04-09 09:00:00 PM','BRAK'),
-(3,2,25,'2022-04-05 15:15:00 PM','2022-04-05 15:30:00 PM','BRAK'),
-(3,5,25,'2022-04-05 15:30:00 PM','2022-04-05 16:00:00 PM','BRAK'),
-(3,2,30,'2022-04-09 09:00:00 AM','2022-04-09 09:30:00 AM','BRAK'),
-(3,5,30,'2022-04-09 09:30:00 AM','2022-04-09 10:00:00 AM','BRAK'),
-(3,2,35,'2022-04-09 10:00:00 AM','2022-04-09 10:30:00 AM','BRAK'),
-(3,3,35,'2022-04-09 10:30:00 AM','2022-04-09 11:00:00 AM','BRAK'),
-(3,4,35,'2022-04-09 11:00:00 AM','2022-04-09 11:30:00 AM','BRAK'),
-(4,2,40,'2022-04-09 08:00:00 AM','2022-04-09 08:30:00 AM','BRAK'),
-(4,5,40,'2022-04-09 08:30:00 AM','2022-04-09 09:00:00 AM','BRAK'),
-(4,2,45,'2022-04-09 09:00:00 AM','2022-04-09 09:30:00 AM','BRAK'),
-(4,3,45,'2022-04-09 09:30:00 AM','2022-04-09 10:00:00 AM','BRAK');
+(2,2,15,'2022-04-07 13:00:00','2022-04-07 14:00:00','BRAK'),
+(2,1,15,'2022-04-07 14:00:00','2022-04-07 15:00:00','BRAK'),
+(2,2,20,'2022-04-09 08:30:00','2022-04-09 09:00:00','BRAK'),
+(3,2,25,'2022-04-05 15:15:00','2022-04-05 15:30:00','BRAK'),
+(3,5,25,'2022-04-05 15:30:00','2022-04-05 16:00:00','BRAK'),
+(3,2,30,'2022-04-09 09:00:00','2022-04-09 09:30:00','BRAK'),
+(3,5,30,'2022-04-09 09:30:00','2022-04-09 10:00:00','BRAK'),
+(3,2,35,'2022-04-09 10:00:00','2022-04-09 10:30:00','BRAK'),
+(3,3,35,'2022-04-09 10:30:00','2022-04-09 11:00:00','BRAK'),
+(3,4,35,'2022-04-09 11:00:00','2022-04-09 11:30:00','BRAK'),
+(4,2,40,'2022-04-09 08:00:00','2022-04-09 08:30:00','BRAK'),
+(4,5,40,'2022-04-09 08:30:00','2022-04-09 09:00:00','BRAK'),
+(4,2,45,'2022-04-09 09:00:00','2022-04-09 09:30:00','BRAK'),
+(4,3,45,'2022-04-09 09:30:00','2022-04-09 10:00:00','BRAK');
 
 
 INSERT INTO Nadgodziny (ID_pracownik, Data_nadgodziny,Czas)
@@ -1345,3 +1369,30 @@ Values
 (2,'2022-04-02','1'),
 (2,'2022-04-07','1'),
 (2,'2022-04-09','2');
+
+INSERT INTO Kontrola_parametr (ID_kontrola_jakosci_produkt, ID_parametr_produkt, Wartosc)
+VALUES
+(2,3,300),
+(2,4,105),
+(2,6,51),
+(3,5,83),
+(5,1,150),
+(5,2,98),
+(7,7,99),
+(7,8,102),
+(7,9,50),
+(7,10,12),
+(9,7,98),
+(9,8,99),
+(9,9,48),
+(9,10,9),
+(11,14,5),
+(11,15,2500),
+(11,16,34),
+(13,7,97),
+(13,8,100),
+(13,9,49),
+(13,10,11),
+(14,14,4),
+(14,15,1500),
+(14,16,37);

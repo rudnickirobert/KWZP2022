@@ -111,6 +111,11 @@
     </Compile>
     <Compile Include="FormResDepZamowienieCzesci.Designer.cs">
       <DependentUpon>FormResDepZamowienieCzesci.cs</DependentUpon>
+    <Compile Include="FormResDepServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepServices.Designer.cs">
+      <DependentUpon>FormResDepServices.cs</DependentUpon>
     </Compile>
     <Compile Include="Gwarancja.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
@@ -686,6 +691,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepZamowienieCzesci.resx">
       <DependentUpon>FormResDepZamowienieCzesci.cs</DependentUpon>
+    <EmbeddedResource Include="FormResDepServices.resx">
+      <DependentUpon>FormResDepServices.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSalesDepartment.resx">
       <DependentUpon>FormSalesDepartment.cs</DependentUpon>

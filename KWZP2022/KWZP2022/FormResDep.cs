@@ -33,12 +33,8 @@ namespace KWZP2022
 
         private void btnService_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void DzialZasobowFORM_Load(object sender, EventArgs e)
-        {
-
+            FormResDepServices obslugaForm = new FormResDepServices(db);
+            obslugaForm.ShowDialog();
         }
     }
 }
