@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="19eb7d0dbf974bcb9c3e3cf0518f4be2" Name="Diagram1" ZoomLevel="62">
+      <Diagram DiagramId="28ef3cd5e09f4795bf160b3e607b55a2" Name="Diagram1">
         <EntityTypeShape EntityType="KWZPModel.Alert" Width="1.5" PointX="11.25" PointY="22.5" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.Czesc" Width="1.5" PointX="20.75" PointY="67.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.Czynnosc_produkcyjna" Width="1.5" PointX="16.5" PointY="61.875" IsExpanded="true" />

@@ -87,6 +87,17 @@ namespace KWZP2022
                     enterIdOrder();
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormSalesDepartmentOrderDetails formSalesDepartmentOrderDetails = new FormSalesDepartmentOrderDetails(db);
+            formSalesDepartmentOrderDetails.ShowDialog();
+        }
     }
 }
 
