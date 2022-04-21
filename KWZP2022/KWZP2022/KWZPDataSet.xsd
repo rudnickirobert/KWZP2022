@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="KWZPDataSet" targetNamespace="http://tempuri.org/KWZPDataSet.xsd" xmlns:mstns="http://tempuri.org/KWZPDataSet.xsd" xmlns="http://tempuri.org/KWZPDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="KWZPConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="KWZPConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.KWZP2022.Properties.Settings.GlobalReference.Default.KWZPConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="v_Zamowienia_maszyny_w_trakcie_wszystkoTableAdapter" GeneratorDataComponentClassName="v_Zamowienia_maszyny_w_trakcie_wszystkoTableAdapter" Name="v_Zamowienia_maszyny_w_trakcie_wszystko" UserDataComponentName="v_Zamowienia_maszyny_w_trakcie_wszystkoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="KWZPConnectionString (Settings)" DbObjectName="KWZP.dbo.v_Zamowienia_maszyny_w_trakcie_wszystko" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT [Nr zamówienia], [Nazwa maszyny], [Data zmiany stanu], Ilość, Cena, Dostawca, Status, StatusID FROM dbo.v_Zamowienia_maszyny_w_trakcie_wszystko</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Nr zamówienia" DataSetColumn="Nr zamówienia" />
+              <Mapping SourceColumn="Nazwa maszyny" DataSetColumn="Nazwa maszyny" />
+              <Mapping SourceColumn="Data zmiany stanu" DataSetColumn="Data zmiany stanu" />
+              <Mapping SourceColumn="Ilość" DataSetColumn="Ilość" />
+              <Mapping SourceColumn="Cena" DataSetColumn="Cena" />
+              <Mapping SourceColumn="Dostawca" DataSetColumn="Dostawca" />
+              <Mapping SourceColumn="Status" DataSetColumn="Status" />
+              <Mapping SourceColumn="StatusID" DataSetColumn="StatusID" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="KWZPDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="KWZPDataSet" msprop:Generator_UserDSName="KWZPDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="v_Zamowienia_maszyny_w_trakcie_wszystko" msprop:Generator_TableClassName="v_Zamowienia_maszyny_w_trakcie_wszystkoDataTable" msprop:Generator_TableVarName="tablev_Zamowienia_maszyny_w_trakcie_wszystko" msprop:Generator_TablePropName="v_Zamowienia_maszyny_w_trakcie_wszystko" msprop:Generator_RowDeletingName="v_Zamowienia_maszyny_w_trakcie_wszystkoRowDeleting" msprop:Generator_RowChangingName="v_Zamowienia_maszyny_w_trakcie_wszystkoRowChanging" msprop:Generator_RowEvHandlerName="v_Zamowienia_maszyny_w_trakcie_wszystkoRowChangeEventHandler" msprop:Generator_RowDeletedName="v_Zamowienia_maszyny_w_trakcie_wszystkoRowDeleted" msprop:Generator_UserTableName="v_Zamowienia_maszyny_w_trakcie_wszystko" msprop:Generator_RowChangedName="v_Zamowienia_maszyny_w_trakcie_wszystkoRowChanged" msprop:Generator_RowEvArgName="v_Zamowienia_maszyny_w_trakcie_wszystkoRowChangeEvent" msprop:Generator_RowClassName="v_Zamowienia_maszyny_w_trakcie_wszystkoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Nr_x0020_zamówienia" msprop:Generator_ColumnVarNameInTable="columnNr_zamówienia" msprop:Generator_ColumnPropNameInRow="Nr_zamówienia" msprop:Generator_ColumnPropNameInTable="Nr_zamówieniaColumn" msprop:Generator_UserColumnName="Nr zamówienia" type="xs:int" />
+              <xs:element name="Nazwa_x0020_maszyny" msprop:Generator_ColumnVarNameInTable="columnNazwa_maszyny" msprop:Generator_ColumnPropNameInRow="Nazwa_maszyny" msprop:Generator_ColumnPropNameInTable="Nazwa_maszynyColumn" msprop:Generator_UserColumnName="Nazwa maszyny">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Data_x0020_zmiany_x0020_stanu" msprop:Generator_ColumnVarNameInTable="columnData_zmiany_stanu" msprop:Generator_ColumnPropNameInRow="Data_zmiany_stanu" msprop:Generator_ColumnPropNameInTable="Data_zmiany_stanuColumn" msprop:Generator_UserColumnName="Data zmiany stanu" type="xs:dateTime" />
+              <xs:element name="Ilość" msprop:Generator_ColumnVarNameInTable="columnIlość" msprop:Generator_ColumnPropNameInRow="Ilość" msprop:Generator_ColumnPropNameInTable="IlośćColumn" msprop:Generator_UserColumnName="Ilość" type="xs:int" />
+              <xs:element name="Cena" msprop:Generator_ColumnVarNameInTable="columnCena" msprop:Generator_ColumnPropNameInRow="Cena" msprop:Generator_ColumnPropNameInTable="CenaColumn" msprop:Generator_UserColumnName="Cena" type="xs:decimal" />
+              <xs:element name="Dostawca" msprop:Generator_ColumnVarNameInTable="columnDostawca" msprop:Generator_ColumnPropNameInRow="Dostawca" msprop:Generator_ColumnPropNameInTable="DostawcaColumn" msprop:Generator_UserColumnName="Dostawca">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_UserColumnName="Status">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StatusID" msprop:Generator_ColumnVarNameInTable="columnStatusID" msprop:Generator_ColumnPropNameInRow="StatusID" msprop:Generator_ColumnPropNameInTable="StatusIDColumn" msprop:Generator_UserColumnName="StatusID" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:v_Zamowienia_maszyny_w_trakcie_wszystko" />
+      <xs:field xpath="mstns:Nr_x0020_zamówienia" />
+      <xs:field xpath="mstns:StatusID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

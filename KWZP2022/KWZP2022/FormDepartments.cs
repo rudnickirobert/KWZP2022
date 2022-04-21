@@ -30,5 +30,11 @@ namespace KWZP2022.Forms
             ProdukcjaFrom produkcjaFrom = new ProdukcjaFrom(db);
             produkcjaFrom.ShowDialog();
         }
+
+        private void btnResourceDeparment_Click(object sender, EventArgs e)
+        {
+            FormDZHistoriaZamowien ZasobyForm = new FormDZHistoriaZamowien(db);
+            ZasobyForm.ShowDialog();
+        }
     }
 }
