@@ -151,5 +151,15 @@ namespace KWZP2022
                 MessageBox.Show("Nie zaznaczono klienta!", "Błąd", MessageBoxButtons.OK);
             }
         }
+
+        private void FormSalesDepartmentClientModifyClient_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvClientID_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

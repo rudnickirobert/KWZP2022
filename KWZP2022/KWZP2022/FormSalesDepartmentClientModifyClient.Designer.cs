@@ -364,6 +364,7 @@
             this.dgvClientID.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClientID.Size = new System.Drawing.Size(354, 166);
             this.dgvClientID.TabIndex = 98;
+            this.dgvClientID.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientID_CellContentClick);
             this.dgvClientID.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvClientID_MouseDoubleClick);
             // 
             // btnClose
@@ -441,6 +442,7 @@
             this.Controls.Add(this.textBoxCity);
             this.Name = "FormSalesDepartmentClientModifyClient";
             this.Text = "FormSalesDepartmentClientModifyClient";
+            this.Load += new System.EventHandler(this.FormSalesDepartmentClientModifyClient_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientID)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

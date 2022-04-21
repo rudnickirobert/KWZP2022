@@ -179,6 +179,7 @@
             this.dgvClient.Name = "dgvClient";
             this.dgvClient.Size = new System.Drawing.Size(1240, 471);
             this.dgvClient.TabIndex = 14;
+            this.dgvClient.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClient_CellContentClick);
             // 
             // label5
             // 

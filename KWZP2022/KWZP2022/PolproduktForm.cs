@@ -128,5 +128,9 @@ namespace KWZP2022
             txtIlosc.Text = this.dgvSkladProdukt.CurrentRow.Cells[2].Value.ToString();
         }
 
+        private void dgvPolprodukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

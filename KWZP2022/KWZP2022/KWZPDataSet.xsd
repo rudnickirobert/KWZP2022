@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="KWZPDataSet" targetNamespace="http://tempuri.org/KWZPDataSet.xsd" xmlns:mstns="http://tempuri.org/KWZPDataSet.xsd" xmlns="http://tempuri.org/KWZPDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="KWZPConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="KWZPConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.KWZP2022.Properties.Settings.GlobalReference.Default.KWZPConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="v_Magazyn_maszyn_wszystkoTableAdapter" GeneratorDataComponentClassName="v_Magazyn_maszyn_wszystkoTableAdapter" Name="v_Magazyn_maszyn_wszystko" UserDataComponentName="v_Magazyn_maszyn_wszystkoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="KWZPConnectionString (Settings)" DbObjectName="KWZP.dbo.v_Magazyn_maszyn_wszystko" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT [Nazwa maszyny], [Liczba sztuk] FROM dbo.v_Magazyn_maszyn_wszystko</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Nazwa maszyny" DataSetColumn="Nazwa maszyny" />
+              <Mapping SourceColumn="Liczba sztuk" DataSetColumn="Liczba sztuk" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="KWZPDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="KWZPDataSet" msprop:Generator_UserDSName="KWZPDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="v_Magazyn_maszyn_wszystko" msprop:Generator_TableClassName="v_Magazyn_maszyn_wszystkoDataTable" msprop:Generator_TableVarName="tablev_Magazyn_maszyn_wszystko" msprop:Generator_TablePropName="v_Magazyn_maszyn_wszystko" msprop:Generator_RowDeletingName="v_Magazyn_maszyn_wszystkoRowDeleting" msprop:Generator_RowChangingName="v_Magazyn_maszyn_wszystkoRowChanging" msprop:Generator_RowEvHandlerName="v_Magazyn_maszyn_wszystkoRowChangeEventHandler" msprop:Generator_RowDeletedName="v_Magazyn_maszyn_wszystkoRowDeleted" msprop:Generator_UserTableName="v_Magazyn_maszyn_wszystko" msprop:Generator_RowChangedName="v_Magazyn_maszyn_wszystkoRowChanged" msprop:Generator_RowEvArgName="v_Magazyn_maszyn_wszystkoRowChangeEvent" msprop:Generator_RowClassName="v_Magazyn_maszyn_wszystkoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Nazwa_x0020_maszyny" msprop:Generator_ColumnVarNameInTable="columnNazwa_maszyny" msprop:Generator_ColumnPropNameInRow="Nazwa_maszyny" msprop:Generator_ColumnPropNameInTable="Nazwa_maszynyColumn" msprop:Generator_UserColumnName="Nazwa maszyny">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Liczba_x0020_sztuk" msprop:Generator_ColumnVarNameInTable="columnLiczba_sztuk" msprop:Generator_ColumnPropNameInRow="Liczba_sztuk" msprop:Generator_ColumnPropNameInTable="Liczba_sztukColumn" msprop:Generator_UserColumnName="Liczba sztuk" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

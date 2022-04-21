@@ -282,5 +282,10 @@ namespace KWZP2022
             MessageBox.Show("Źle wprowadzono dane", "Błąd", MessageBoxButtons.OK);
             showData();
         }
+
+        private void dgvClient_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

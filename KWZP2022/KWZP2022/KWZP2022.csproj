@@ -79,6 +79,12 @@
     <Compile Include="Dostawca.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DZFormMagMaszynWszystko.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DZFormMagMaszynWszystko.Designer.cs">
+      <DependentUpon>DZFormMagMaszynWszystko.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dzial.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -114,6 +120,11 @@
     </Compile>
     <Compile Include="Kontrola_parametr.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KWZPDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KWZPDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="KWZPModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -651,6 +662,9 @@
     <Compile Include="Zwrot.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DZFormMagMaszynWszystko.resx">
+      <DependentUpon>DZFormMagMaszynWszystko.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -700,6 +714,17 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>KWZPModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="KWZPDataSet.xsc">
+      <DependentUpon>KWZPDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="KWZPDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KWZPDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KWZPDataSet.xss">
+      <DependentUpon>KWZPDataSet.xsd</DependentUpon>
+    </None>
     <None Include="KWZPModel.edmx.diagram">
       <DependentUpon>KWZPModel.edmx</DependentUpon>
     </None>

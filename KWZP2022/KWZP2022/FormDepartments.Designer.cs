@@ -69,6 +69,7 @@
             this.btnResourceDeparment.TabIndex = 6;
             this.btnResourceDeparment.Text = "Dział zasobów";
             this.btnResourceDeparment.UseVisualStyleBackColor = true;
+            this.btnResourceDeparment.Click += new System.EventHandler(this.btnResourceDeparment_Click);
             // 
             // btnHumanRsDepartment
             // 

@@ -54,7 +54,7 @@
             this.label1.Font = new System.Drawing.Font("Arial", 20F);
             this.label1.Location = new System.Drawing.Point(21, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 32);
+            this.label1.Size = new System.Drawing.Size(116, 32);
             this.label1.TabIndex = 13;
             this.label1.Text = "Produkt:";
             // 
@@ -121,6 +121,7 @@
             this.dgvPolprodukt.Name = "dgvPolprodukt";
             this.dgvPolprodukt.Size = new System.Drawing.Size(434, 313);
             this.dgvPolprodukt.TabIndex = 7;
+            this.dgvPolprodukt.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPolprodukt_CellContentClick);
             // 
             // dgvProdukt
             // 
@@ -147,7 +148,7 @@
             this.label2.Font = new System.Drawing.Font("Arial", 20F);
             this.label2.Location = new System.Drawing.Point(21, 136);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(253, 32);
+            this.label2.Size = new System.Drawing.Size(254, 32);
             this.label2.TabIndex = 16;
             this.label2.Text = "Nazwa półproduktu:";
             // 
@@ -166,7 +167,7 @@
             this.label3.Font = new System.Drawing.Font("Arial", 20F);
             this.label3.Location = new System.Drawing.Point(21, 254);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 32);
+            this.label3.Size = new System.Drawing.Size(80, 32);
             this.label3.TabIndex = 18;
             this.label3.Text = "Ilość:";
             // 
