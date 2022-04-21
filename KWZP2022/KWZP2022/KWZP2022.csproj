@@ -447,9 +447,6 @@
     <Compile Include="v_Magazyn_maszyn_wszystko.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="v_Magazyn_material_wszystko.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="v_Magazyn_narzedzia_nieuzywane.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -460,6 +457,9 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Magazyn_narzedzia_wszystko.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Magazyn_Produkty_Wytworzone.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Nadgodziny.cs">
