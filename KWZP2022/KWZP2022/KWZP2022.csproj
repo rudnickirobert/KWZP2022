@@ -100,6 +100,12 @@
     <Compile Include="Forma_platnosc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FormSalesDepartmentOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesDepartmentOrders.Designer.cs">
+      <DependentUpon>FormSalesDepartmentOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gwarancja.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -447,9 +453,6 @@
     <Compile Include="v_Magazyn_maszyn_wszystko.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="v_Magazyn_material_wszystko.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="v_Magazyn_narzedzia_nieuzywane.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -460,6 +463,9 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Magazyn_narzedzia_wszystko.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Magazyn_Produkty_Wytworzone.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Nadgodziny.cs">
@@ -618,6 +624,12 @@
     <Compile Include="v_Zamowienia_narzedzia_w_trakcie_wszystko.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Zamowienie.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Zamowienie_szczegol.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Wyksztalcenie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -672,6 +684,9 @@
     <EmbeddedResource Include="FormSalesDepartmentClientRemoveClient.resx">
       <DependentUpon>FormSalesDepartmentClientRemoveClient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSalesDepartmentOrders.resx">
+      <DependentUpon>FormSalesDepartmentOrders.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSalesDepartmentSales.resx">
       <DependentUpon>FormSalesDepartmentSales.cs</DependentUpon>
     </EmbeddedResource>
@@ -692,6 +707,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="SlownikStanowiskoForm.resx">
       <DependentUpon>SlownikStanowiskoForm.cs</DependentUpon>
@@ -731,6 +747,8 @@
       <DependentUpon>KWZPModel.edmx</DependentUpon>
       <LastGenOutput>KWZPModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\form_background.png" />
+    <None Include="Resources\logoo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

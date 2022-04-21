@@ -38,20 +38,23 @@
             // 
             this.btnOrder.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOrder.Font = new System.Drawing.Font("Arial Narrow", 18F);
-            this.btnOrder.Location = new System.Drawing.Point(522, 263);
+            this.btnOrder.Location = new System.Drawing.Point(696, 324);
+            this.btnOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(300, 100);
+            this.btnOrder.Size = new System.Drawing.Size(400, 123);
             this.btnOrder.TabIndex = 0;
             this.btnOrder.Text = "Zamówienia";
             this.btnOrder.UseVisualStyleBackColor = true;
+            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
             // 
             // btnClient
             // 
             this.btnClient.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClient.Font = new System.Drawing.Font("Arial Narrow", 18F);
-            this.btnClient.Location = new System.Drawing.Point(522, 395);
+            this.btnClient.Location = new System.Drawing.Point(696, 486);
+            this.btnClient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClient.Name = "btnClient";
-            this.btnClient.Size = new System.Drawing.Size(300, 100);
+            this.btnClient.Size = new System.Drawing.Size(400, 123);
             this.btnClient.TabIndex = 1;
             this.btnClient.Text = "Klient";
             this.btnClient.UseVisualStyleBackColor = true;
@@ -61,9 +64,10 @@
             // 
             this.btnSale.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSale.Font = new System.Drawing.Font("Arial Narrow", 18F);
-            this.btnSale.Location = new System.Drawing.Point(522, 525);
+            this.btnSale.Location = new System.Drawing.Point(696, 646);
+            this.btnSale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSale.Name = "btnSale";
-            this.btnSale.Size = new System.Drawing.Size(300, 100);
+            this.btnSale.Size = new System.Drawing.Size(400, 123);
             this.btnSale.TabIndex = 2;
             this.btnSale.Text = "Sprzedaż";
             this.btnSale.UseVisualStyleBackColor = true;
@@ -71,13 +75,14 @@
             // 
             // FormSalesDepartment
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1264, 711);
+            this.ClientSize = new System.Drawing.Size(1685, 875);
             this.Controls.Add(this.btnSale);
             this.Controls.Add(this.btnClient);
             this.Controls.Add(this.btnOrder);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormSalesDepartment";
             this.Text = "Dział handlowy i marketingu";
             this.ResumeLayout(false);

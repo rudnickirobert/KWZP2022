@@ -137,11 +137,11 @@ namespace KWZP2022
         public virtual DbSet<v_Magazyn_maszyn_stan> v_Magazyn_maszyn_stan { get; set; }
         public virtual DbSet<v_Magazyn_maszyn_uzywane> v_Magazyn_maszyn_uzywane { get; set; }
         public virtual DbSet<v_Magazyn_maszyn_wszystko> v_Magazyn_maszyn_wszystko { get; set; }
-        public virtual DbSet<v_Magazyn_material_wszystko> v_Magazyn_material_wszystko { get; set; }
         public virtual DbSet<v_Magazyn_narzedzia_nieuzywane> v_Magazyn_narzedzia_nieuzywane { get; set; }
         public virtual DbSet<v_Magazyn_narzedzia_stan> v_Magazyn_narzedzia_stan { get; set; }
         public virtual DbSet<v_Magazyn_narzedzia_uzywane> v_Magazyn_narzedzia_uzywane { get; set; }
         public virtual DbSet<v_Magazyn_narzedzia_wszystko> v_Magazyn_narzedzia_wszystko { get; set; }
+        public virtual DbSet<v_Magazyn_Produkty_Wytworzone> v_Magazyn_Produkty_Wytworzone { get; set; }
         public virtual DbSet<v_Nadgodziny> v_Nadgodziny { get; set; }
         public virtual DbSet<v_Nadgodziny_miesiac> v_Nadgodziny_miesiac { get; set; }
         public virtual DbSet<v_Nadgodziny_suma_miesiac> v_Nadgodziny_suma_miesiac { get; set; }
@@ -194,5 +194,7 @@ namespace KWZP2022
         public virtual DbSet<v_Zamowienia_narzedzia_w_trakcie> v_Zamowienia_narzedzia_w_trakcie { get; set; }
         public virtual DbSet<v_Zamowienia_narzedzia_w_trakcie_bez_odebranych> v_Zamowienia_narzedzia_w_trakcie_bez_odebranych { get; set; }
         public virtual DbSet<v_Zamowienia_narzedzia_w_trakcie_wszystko> v_Zamowienia_narzedzia_w_trakcie_wszystko { get; set; }
+        public virtual DbSet<v_Zamowienie> v_Zamowienie { get; set; }
+        public virtual DbSet<v_Zamowienie_szczegol> v_Zamowienie_szczegol { get; set; }
     }
 }

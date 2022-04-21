@@ -637,6 +637,23 @@ CREATE VIEW v_Klient_telefon_Historia AS
 	ORDER BY Data_do DESC OFFSET 0 ROWS
 	GO
 
+CREATE VIEW v_Zamowienie_szczegol AS
+	SELECT Zamowienie.ID_zamowienie AS [Nr zamówienia], Produkt.Nazwa_produkt AS [Produkt], Zamowienie_szczegol.Ilosc AS [Ilość]
+	FROM Zamowienie_szczegol
+	INNER JOIN Produkt ON Produkt.ID_produkt = Zamowienie_szczegol.ID_produkt
+	INNER JOIN Zamowienie ON Zamowienie.ID_zamowienie = Zamowienie_szczegol.ID_zamowienie
+GO
+
+CREATE VIEW v_Zamowienie AS
+	SELECT Zamowienie.Data_zamowienie AS [Data przyjęcia], Zamowienie.ID_zamowienie AS [Nr zamówienia], Klient.Nazwisko AS [Nazwisko klienta], Klient.Imie AS [Imię klienta], Typ_zamowienie.Typ_zamowienie AS [Typ zamówienia],
+	Pracownik.Nazwisko AS [Nazwisko pracownika], Pracownik.Imie AS [Imię pracownika]
+	FROM Zamowienie
+	INNER JOIN Klient ON Klient.ID_klient = Zamowienie.ID_zamowienie
+	INNER JOIN Pracownik ON Pracownik.ID_pracownik = Zamowienie.ID_pracownik
+	INNER JOIN Typ_zamowienie ON Typ_zamowienie.ID_typ_zamowienie = Zamowienie.ID_typ_zamowienie
+	ORDER BY Data_zamowienie DESC OFFSET 0 ROWS 
+GO
+
 	--HR DEPARTMENT --
 CREATE VIEW v_Pracownik
 AS
