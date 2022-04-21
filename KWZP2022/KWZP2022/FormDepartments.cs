@@ -34,7 +34,7 @@ namespace KWZP2022.Forms
         private void btnResourceDeparment_Click(object sender, EventArgs e)
         {
             DZFormMagMaszynWszystko MagazynFrom = new DZFormMagMaszynWszystko(db);
-            MagazynFrom.ShowDialog();
+            MagazynFrom.ShowDialog()
         }
     }
 }

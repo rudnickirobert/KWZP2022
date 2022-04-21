@@ -72,5 +72,6 @@ namespace KWZP2022
         {
             txtNazwaStanowisko.Text = this.dgvStanowisko.CurrentRow.Cells[1].Value.ToString();
         }
+
     }
 }

@@ -45,7 +45,7 @@
             this.label1.Font = new System.Drawing.Font("Arial", 20F);
             this.label1.Location = new System.Drawing.Point(21, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(246, 32);
+            this.label1.Size = new System.Drawing.Size(247, 32);
             this.label1.TabIndex = 13;
             this.label1.Text = "Nazwa stanowiska:";
             // 

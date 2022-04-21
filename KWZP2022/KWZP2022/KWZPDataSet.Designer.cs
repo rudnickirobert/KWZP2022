@@ -23,9 +23,9 @@ namespace KWZP2022 {
     [global::System.Xml.Serialization.XmlRootAttribute("KWZPDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class KWZPDataSet : global::System.Data.DataSet {
-        
+
         private v_Magazyn_maszyn_wszystkoDataTable tablev_Magazyn_maszyn_wszystko;
-        
+
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -271,7 +271,6 @@ namespace KWZP2022 {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void v_Magazyn_maszyn_wszystkoRowChangeEventHandler(object sender, v_Magazyn_maszyn_wszystkoRowChangeEvent e);
-        
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
@@ -415,6 +414,7 @@ namespace KWZP2022 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public v_Magazyn_maszyn_wszystkoRow Newv_Magazyn_maszyn_wszystkoRow() {
                 return ((v_Magazyn_maszyn_wszystkoRow)(this.NewRow()));
+
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -433,8 +433,10 @@ namespace KWZP2022 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
+
                 if ((this.v_Magazyn_maszyn_wszystkoRowChanged != null)) {
                     this.v_Magazyn_maszyn_wszystkoRowChanged(this, new v_Magazyn_maszyn_wszystkoRowChangeEvent(((v_Magazyn_maszyn_wszystkoRow)(e.Row)), e.Action));
+
                 }
             }
             
@@ -442,8 +444,10 @@ namespace KWZP2022 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
+
                 if ((this.v_Magazyn_maszyn_wszystkoRowChanging != null)) {
                     this.v_Magazyn_maszyn_wszystkoRowChanging(this, new v_Magazyn_maszyn_wszystkoRowChangeEvent(((v_Magazyn_maszyn_wszystkoRow)(e.Row)), e.Action));
+
                 }
             }
             
@@ -451,8 +455,10 @@ namespace KWZP2022 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
+
                 if ((this.v_Magazyn_maszyn_wszystkoRowDeleted != null)) {
                     this.v_Magazyn_maszyn_wszystkoRowDeleted(this, new v_Magazyn_maszyn_wszystkoRowChangeEvent(((v_Magazyn_maszyn_wszystkoRow)(e.Row)), e.Action));
+
                 }
             }
             
@@ -460,14 +466,18 @@ namespace KWZP2022 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
+
                 if ((this.v_Magazyn_maszyn_wszystkoRowDeleting != null)) {
                     this.v_Magazyn_maszyn_wszystkoRowDeleting(this, new v_Magazyn_maszyn_wszystkoRowChangeEvent(((v_Magazyn_maszyn_wszystkoRow)(e.Row)), e.Action));
+
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Removev_Magazyn_maszyn_wszystkoRow(v_Magazyn_maszyn_wszystkoRow row) {
+
+  public void Removev_Magazyn_maszyn_wszystkoRow(v_Magazyn_maszyn_wszystkoRow row) {
+
                 this.Rows.Remove(row);
             }
             
@@ -494,7 +504,9 @@ namespace KWZP2022 {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
+
                 attribute2.FixedValue = "v_Magazyn_maszyn_wszystkoDataTable";
+
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -538,6 +550,7 @@ namespace KWZP2022 {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
+
         public partial class v_Magazyn_maszyn_wszystkoRow : global::System.Data.DataRow {
             
             private v_Magazyn_maszyn_wszystkoDataTable tablev_Magazyn_maszyn_wszystko;
@@ -547,21 +560,25 @@ namespace KWZP2022 {
             internal v_Magazyn_maszyn_wszystkoRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
                 this.tablev_Magazyn_maszyn_wszystko = ((v_Magazyn_maszyn_wszystkoDataTable)(this.Table));
+
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Nazwa_maszyny {
                 get {
+
                     return ((string)(this[this.tablev_Magazyn_maszyn_wszystko.Nazwa_maszynyColumn]));
                 }
                 set {
                     this[this.tablev_Magazyn_maszyn_wszystko.Nazwa_maszynyColumn] = value;
+
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+
             public int Liczba_sztuk {
                 get {
                     try {
@@ -573,19 +590,24 @@ namespace KWZP2022 {
                 }
                 set {
                     this[this.tablev_Magazyn_maszyn_wszystko.Liczba_sztukColumn] = value;
+
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+
             public bool IsLiczba_sztukNull() {
                 return this.IsNull(this.tablev_Magazyn_maszyn_wszystko.Liczba_sztukColumn);
+
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+
             public void SetLiczba_sztukNull() {
                 this[this.tablev_Magazyn_maszyn_wszystko.Liczba_sztukColumn] = global::System.Convert.DBNull;
+
             }
         }
         
@@ -593,22 +615,28 @@ namespace KWZP2022 {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+
         public class v_Magazyn_maszyn_wszystkoRowChangeEvent : global::System.EventArgs {
             
             private v_Magazyn_maszyn_wszystkoRow eventRow;
+
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+
             public v_Magazyn_maszyn_wszystkoRowChangeEvent(v_Magazyn_maszyn_wszystkoRow row, global::System.Data.DataRowAction action) {
+
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+
             public v_Magazyn_maszyn_wszystkoRow Row {
+
                 get {
                     return this.eventRow;
                 }
@@ -775,6 +803,7 @@ namespace KWZP2022.KWZPDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
         public virtual int Fill(KWZPDataSet.v_Magazyn_maszyn_wszystkoDataTable dataTable) {
+
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
