@@ -80,6 +80,7 @@
             this.btnComplaint.TabIndex = 3;
             this.btnComplaint.Text = "Reklamacja";
             this.btnComplaint.UseVisualStyleBackColor = true;
+            this.btnComplaint.Click += new System.EventHandler(this.btnComplaint_Click);
             // 
             // FormSalesDepartment
             // 
