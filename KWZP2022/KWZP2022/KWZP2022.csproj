@@ -82,11 +82,11 @@
     <Compile Include="Dzial.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="FormResDep.cs">
+    <Compile Include="FormResourceDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormResDep.Designer.cs">
-      <DependentUpon>FormResDep.cs</DependentUpon>
+    <Compile Include="FormResourceDepartment.Designer.cs">
+      <DependentUpon>FormResourceDepartment.cs</DependentUpon>
     </Compile>
     <Compile Include="Email_klient.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
@@ -111,6 +111,7 @@
     </Compile>
     <Compile Include="FormResDepZamowienieCzesci.Designer.cs">
       <DependentUpon>FormResDepZamowienieCzesci.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormResDepServices.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -680,8 +681,8 @@
     <Compile Include="Zwrot.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FormResDep.resx">
-      <DependentUpon>FormResDep.cs</DependentUpon>
+    <EmbeddedResource Include="FormResourceDepartment.resx">
+      <DependentUpon>FormResourceDepartment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -691,6 +692,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepZamowienieCzesci.resx">
       <DependentUpon>FormResDepZamowienieCzesci.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormResDepServices.resx">
       <DependentUpon>FormResDepServices.cs</DependentUpon>
     </EmbeddedResource>
