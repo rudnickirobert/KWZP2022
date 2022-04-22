@@ -58,6 +58,9 @@
     <Compile Include="Alert.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Czas_pracy.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Czesc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -100,11 +103,17 @@
     <Compile Include="Forma_platnosc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="FormSalesDepartmentOrderDetails.cs">
+    <Compile Include="FormSalesDepartmentDetailsOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSalesDepartmentOrderDetails.Designer.cs">
-      <DependentUpon>FormSalesDepartmentOrderDetails.cs</DependentUpon>
+    <Compile Include="FormSalesDepartmentDetailsOrder.Designer.cs">
+      <DependentUpon>FormSalesDepartmentDetailsOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSalesDepartmentOffersOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesDepartmentOffersOrder.Designer.cs">
+      <DependentUpon>FormSalesDepartmentOffersOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSalesDepartmentOrders.cs">
       <SubType>Form</SubType>
@@ -417,6 +426,9 @@
     <Compile Include="v_Koszt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Koszt_godziny_pracy.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Koszt_procesow_polprodukt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -690,8 +702,11 @@
     <EmbeddedResource Include="FormSalesDepartmentClientRemoveClient.resx">
       <DependentUpon>FormSalesDepartmentClientRemoveClient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSalesDepartmentOrderDetails.resx">
-      <DependentUpon>FormSalesDepartmentOrderDetails.cs</DependentUpon>
+    <EmbeddedResource Include="FormSalesDepartmentDetailsOrder.resx">
+      <DependentUpon>FormSalesDepartmentDetailsOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSalesDepartmentOffersOrder.resx">
+      <DependentUpon>FormSalesDepartmentOffersOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSalesDepartmentOrders.resx">
       <DependentUpon>FormSalesDepartmentOrders.cs</DependentUpon>

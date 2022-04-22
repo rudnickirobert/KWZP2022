@@ -26,6 +26,7 @@ namespace KWZP2022
         }
     
         public virtual DbSet<Alert> Alert { get; set; }
+        public virtual DbSet<Czas_pracy> Czas_pracy { get; set; }
         public virtual DbSet<Czesc> Czesc { get; set; }
         public virtual DbSet<Czynnosc_produkcyjna> Czynnosc_produkcyjna { get; set; }
         public virtual DbSet<Dane_adresowe_dostawca> Dane_adresowe_dostawca { get; set; }
@@ -123,6 +124,7 @@ namespace KWZP2022
         public virtual DbSet<v_Klient_telefon_Historia> v_Klient_telefon_Historia { get; set; }
         public virtual DbSet<v_Kontrola_parametr_produkt> v_Kontrola_parametr_produkt { get; set; }
         public virtual DbSet<v_Koszt> v_Koszt { get; set; }
+        public virtual DbSet<v_Koszt_godziny_pracy> v_Koszt_godziny_pracy { get; set; }
         public virtual DbSet<v_Koszt_procesow_polprodukt> v_Koszt_procesow_polprodukt { get; set; }
         public virtual DbSet<v_Koszt_procesow_produkt> v_Koszt_procesow_produkt { get; set; }
         public virtual DbSet<v_Koszt_produkcji> v_Koszt_produkcji { get; set; }
