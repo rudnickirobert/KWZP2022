@@ -56,40 +56,40 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Alert.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Czesc.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Czynnosc_produkcyjna.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Dane_adresowe_dostawca.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Dane_adresowe_klient.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Dane_adresowe_pracownik.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Dane_adresowe_producent.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Dostawca.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Dzial.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Email_klient.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Email_pracownik.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Etat.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -98,7 +98,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Forma_platnosc.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="FormHRandSetupProduction.cs">
       <SubType>Form</SubType>
@@ -119,157 +119,157 @@
       <DependentUpon>FormSetupProductionDepartment.cs</DependentUpon>
     </Compile>
     <Compile Include="Gwarancja.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Jednostka.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Klient.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Kontrola_jakosci_produkt.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Kontrola_parametr.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
-    <Compile Include="KWZPModel.Context.cs">
+    <Compile Include="KWZP.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>KWZPModel.Context.tt</DependentUpon>
+      <DependentUpon>KWZP.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="KWZPModel.cs">
+    <Compile Include="KWZP.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
-    <Compile Include="KWZPModel.Designer.cs">
+    <Compile Include="KWZP.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>KWZPModel.edmx</DependentUpon>
+      <DependentUpon>KWZP.edmx</DependentUpon>
     </Compile>
     <Compile Include="Maszyna.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Maszyna_nr_seryjny.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Material.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Nadgodziny.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Narzedzie.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Nieobecnosc.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Nr_seryjny.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Nr_telefon_klient.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Nr_telefon_pracownik.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Obsluga.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Oferta_handlowa.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Parametr_czesc.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Parametr_maszyna.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Parametr_material.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Parametr_narzedzie.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Parametr_polprodukt.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Parametr_produkt.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Podatek.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Posada_pracownika.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Pracownik.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Proces_polprodukt_czynnosc.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Proces_produkt_czynnosc.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Proces_wytwarzanie_polprodukt.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Proces_wytwarzanie_produkt.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Producent.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Produkt.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Reklamacja.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Rodzaj_czesc.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Rodzaj_kontrola.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Rodzaj_maszyna.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Rodzaj_material.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Rodzaj_nieobecnosci.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Rodzaj_obsluga.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Rodzaj_parametr.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Rodzaj_umowy.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Sklad_maszyna.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Sklad_polprodukt.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Sklad_produkt.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Sklad_produkt_material.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Sklad_stanowisko_produkcyjne_maszyna.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Sklad_stanowisko_produkcyjne_narzedzie.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="SlownikStanowiskoForm.cs">
       <SubType>Form</SubType>
@@ -340,334 +340,334 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Slownik_polprodukt.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Slownik_stanowisko.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Sprzedaz.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Stanowisko.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Stanowisko_produkcyjne.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Stan_realizacji_zamowienie_czesc.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Stan_realizacji_zamowienie_maszyna.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Stan_realizacji_zamowienie_material.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Stan_realizacji_zamowienie_narzedzie.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Status_oferta.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Status_zamowienie.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Szczegoly_sprzedaz.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Szczegoly_zamowienie_czesc.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Szczegoly_zamowienie_maszyna.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Szczegoly_zamowienie_material.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Szczegoly_zamowienie_narzedzie.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Typ_zamowienie.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Umowa.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Umowa_sprzedaz.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Czynnosc_produkcyjna.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Dane_adresowe_pracownik.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Email_pracownik.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Etat.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Klient.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Klient_telefon_aktualny.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Klient_telefon_Historia.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Kontrola_parametr_produkt.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Koszt.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Koszt_procesow_polprodukt.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Koszt_procesow_produkt.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Koszt_produkcji.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Koszt_roboczogodziny_stanowiska.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Liczba_zabiegow_wytworczych_polprodukt.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Liczba_zabiegow_wytworczych_produkt.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Magazyn_czesci_aktualny.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Magazyn_czesci_stan.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Magazyn_czesci_wszystko.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Magazyn_czesci_wymienione.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Magazyn_maszyn_nieuzywane.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Magazyn_maszyn_stan.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Magazyn_maszyn_uzywane.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Magazyn_maszyn_wszystko.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="v_Magazyn_material_wszystko.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Magazyn_narzedzia_nieuzywane.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Magazyn_narzedzia_stan.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Magazyn_narzedzia_uzywane.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Magazyn_narzedzia_wszystko.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Magazyn_Produkty_Wytworzone.cs">
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Nadgodziny.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Nadgodziny_miesiac.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Nadgodziny_suma_miesiac.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Nieobecnosc.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Nr_telefon_pracownik.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Oblugi_w_trakcie.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Oblugi_zakonczone.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Oferta_handlowa.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Parametry_czesc.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Parametry_maszyna.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Parametry_material.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Parametry_narzedzie.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Parametry_polprodukt.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Parametry_produkt.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Pracownik.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Proces_polprodukt_czynnosc.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Proces_produkt_czynnosc.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Proces_wytwarzanie_polprodukt.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Proces_wytwarzanie_produkt.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Produkty_na_gwarancji.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Reklamacja.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Rodzaj_kontrola.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Sklad_maszyna.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Sklad_polprodukt.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Sklad_produkt.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Sklad_stanowisko_produkcyjne_maszyna.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Sklad_stanowisko_produkcyjne_narzedzie.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Slownik_stanowisko.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Sprzedaz.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Stanowiska_do_uzycia.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Stanowiska_w_uzyciu.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Stanowisko_produkcyjne.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Szacowany_czas_wytwarzania_polprodukt.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Szacowany_czas_wytwarzania_produkt.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Szczegoly_sprzedaz.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Sz_czas_proces_polprodukt_czynnosc.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Sz_czas_proces_produkt_czynnosc.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Tygodniowe_rozliczenie_pracy_produkcja.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Umowa.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Wytwarzanie.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Zamowienia_czesci_w_trakcie.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Zamowienia_czesci_w_trakcie_bez_odebranych.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Zamowienia_czesci_w_trakcie_wszystko.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Zamowienia_maszyny_w_trakcie.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Zamowienia_maszyny_w_trakcie_bez_odebranych.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Zamowienia_maszyny_w_trakcie_wszystko.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Zamowienia_materialy_w_trakcie.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Zamowienia_materialy_w_trakcie_bez_odebranych.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Zamowienia_materialy_w_trakcie_wszystko.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Zamowienia_narzedzia_w_trakcie.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Zamowienia_narzedzia_w_trakcie_bez_odebranych.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Zamowienia_narzedzia_w_trakcie_wszystko.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Wyksztalcenie.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Wymiana_czesc.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Wymiar_pracy.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Wytwarzanie.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Zamowienie.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Zamowienie_czesc.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Zamowienie_maszyna.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Zamowienie_material.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Zamowienie_narzedzie.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Zamowienie_szczegol.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <Compile Include="Zwrot.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
+      <DependentUpon>KWZP.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -723,12 +723,12 @@
     <EmbeddedResource Include="SlownikStanowiskoForm.resx">
       <DependentUpon>SlownikStanowiskoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="KWZPModel.edmx">
+    <EntityDeploy Include="KWZP.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>KWZPModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>KWZP.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="KWZPModel.edmx.diagram">
-      <DependentUpon>KWZPModel.edmx</DependentUpon>
+    <None Include="KWZP.edmx.diagram">
+      <DependentUpon>KWZP.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -748,15 +748,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="KWZPModel.Context.tt">
+    <Content Include="KWZP.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>KWZPModel.edmx</DependentUpon>
-      <LastGenOutput>KWZPModel.Context.cs</LastGenOutput>
+      <DependentUpon>KWZP.edmx</DependentUpon>
+      <LastGenOutput>KWZP.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="KWZPModel.tt">
+    <Content Include="KWZP.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>KWZPModel.edmx</DependentUpon>
-      <LastGenOutput>KWZPModel.cs</LastGenOutput>
+      <DependentUpon>KWZP.edmx</DependentUpon>
+      <LastGenOutput>KWZP.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
