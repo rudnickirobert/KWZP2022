@@ -703,7 +703,7 @@
             <PropertyRef Name="ID_typ_zamowienie" />
           </Key>
           <Property Name="ID_typ_zamowienie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Typ_zamowienie" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rodzaj_zamowienie" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Umowa">
           <Key>
@@ -5737,7 +5737,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
             <PropertyRef Name="ID_typ_zamowienie" />
           </Key>
           <Property Name="ID_typ_zamowienie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Typ_zamowienie1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Rodzaj_zamowienie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Zamowienie" Relationship="Self.FK__Zamowieni__ID_ty__236943A5" FromRole="Typ_zamowienie" ToRole="Zamowienie" />
         </EntityType>
         <EntityType Name="Umowa">
@@ -9851,7 +9851,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
             <EntityTypeMapping TypeName="KWZPModel.Typ_zamowienie">
               <MappingFragment StoreEntitySet="Typ_zamowienie">
                 <ScalarProperty Name="ID_typ_zamowienie" ColumnName="ID_typ_zamowienie" />
-                <ScalarProperty Name="Typ_zamowienie1" ColumnName="Typ_zamowienie" />
+                <ScalarProperty Name="Rodzaj_zamowienie" ColumnName="Rodzaj_zamowienie" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

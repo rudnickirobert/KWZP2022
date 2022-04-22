@@ -387,7 +387,7 @@ CREATE TABLE Email_klient
 CREATE TABLE Typ_zamowienie
 	(
 	ID_typ_zamowienie INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-	Typ_zamowienie NVARCHAR(50) NOT NULL
+	Rodzaj_zamowienie NVARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Zamowienie

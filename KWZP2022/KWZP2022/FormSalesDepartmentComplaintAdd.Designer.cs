@@ -53,6 +53,7 @@
             // 
             // btnAdd
             // 
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnAdd.Location = new System.Drawing.Point(302, 451);
             this.btnAdd.Name = "btnAdd";
@@ -64,6 +65,7 @@
             // 
             // btnClose
             // 
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnClose.Location = new System.Drawing.Point(684, 451);
             this.btnClose.Name = "btnClose";
@@ -99,6 +101,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label9.Font = new System.Drawing.Font("Arial", 12F);
             this.label9.Location = new System.Drawing.Point(215, 200);
             this.label9.Name = "label9";
@@ -236,6 +239,7 @@
             // 
             // btnCheckComplaint
             // 
+            this.btnCheckComplaint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCheckComplaint.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.btnCheckComplaint.Location = new System.Drawing.Point(218, 214);
             this.btnCheckComplaint.Name = "btnCheckComplaint";

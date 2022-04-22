@@ -21,7 +21,7 @@ namespace KWZP2022
         }
     
         public int ID_typ_zamowienie { get; set; }
-        public string Typ_zamowienie1 { get; set; }
+        public string Rodzaj_zamowienie { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zamowienie> Zamowienie { get; set; }

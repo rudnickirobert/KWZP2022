@@ -696,7 +696,7 @@ INSERT INTO Dane_adresowe_klient (ID_klient, Miejscowosc, Ulica, Nr_budynek, Nr_
 	(4, 'Żyrardów', '3 Maja', 3, 5, '32-654'),
 	(5, 'Warszawa', 'Warszawska', 53, 24, '12-345');
 
-INSERT INTO Typ_zamowienie (Typ_zamowienie)
+INSERT INTO Typ_zamowienie (Rodzaj_zamowienie)
 	VALUES
 	('Indywidualne'),
 	('Standardowe');

@@ -57,6 +57,7 @@
             // 
             // btnRefresh
             // 
+            this.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRefresh.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnRefresh.Location = new System.Drawing.Point(863, 149);
             this.btnRefresh.Name = "btnRefresh";
@@ -155,6 +156,7 @@
             // 
             // btnSearch
             // 
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearch.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnSearch.Location = new System.Drawing.Point(863, 116);
             this.btnSearch.Name = "btnSearch";
@@ -177,6 +179,7 @@
             this.dgvClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClient.Location = new System.Drawing.Point(12, 196);
             this.dgvClient.Name = "dgvClient";
+            this.dgvClient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClient.Size = new System.Drawing.Size(1240, 471);
             this.dgvClient.TabIndex = 14;
             // 
@@ -239,6 +242,7 @@
             // 
             // btnClose
             // 
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnClose.Location = new System.Drawing.Point(1100, 673);
             this.btnClose.Name = "btnClose";
@@ -250,6 +254,7 @@
             // 
             // btnAddNewClient
             // 
+            this.btnAddNewClient.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddNewClient.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnAddNewClient.Location = new System.Drawing.Point(1100, 148);
             this.btnAddNewClient.Name = "btnAddNewClient";
@@ -261,6 +266,7 @@
             // 
             // btnRemove
             // 
+            this.btnRemove.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRemove.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnRemove.Location = new System.Drawing.Point(563, 673);
             this.btnRemove.Name = "btnRemove";
@@ -272,6 +278,7 @@
             // 
             // btnModify
             // 
+            this.btnModify.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnModify.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnModify.Location = new System.Drawing.Point(1100, 115);
             this.btnModify.Name = "btnModify";

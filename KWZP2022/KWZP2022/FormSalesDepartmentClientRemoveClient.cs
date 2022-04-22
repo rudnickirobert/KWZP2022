@@ -21,15 +21,11 @@ namespace KWZP2022
         }
         private void showData()
         {
-            var dane = from klient in db.Klient
-                       select new
-                       {
-                           klient.ID_klient,
-                           klient.Nazwisko,
-                           klient.Imie,
-                           klient.NIP
-                       };
-            this.dgvClientRemove.DataSource = dane.ToList();
+            this.dgvClientRemove.DataSource = this.db.Klient.ToList();
+            this.dgvClientRemove.Columns["Nr_telefon_klient"].Visible = false;
+            this.dgvClientRemove.Columns["Email_klient"].Visible = false;
+            this.dgvClientRemove.Columns["Zamowienie"].Visible = false;
+            this.dgvClientRemove.Columns["Dane_adresowe_klient"].Visible = false;
             this.dgvClientRemove.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
         private void btnClose_Click(object sender, EventArgs e)

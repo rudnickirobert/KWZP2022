@@ -95,7 +95,6 @@ namespace KWZP2022
                 }
                 else
                 {
-                    int returnProduct = 0;
                     v_Reklamacja productReturnSingle = this.db.v_Reklamacja.Single(a => a.Numer_sprzedaży == selectNoSale && a.ID_produkt == selectNoProduct);
                     int amountTotal = productCount.Ilosc - int.Parse(textBoxAmount.Text);
                     if (amountTotal >= 0)

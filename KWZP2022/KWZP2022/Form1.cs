@@ -29,5 +29,11 @@ namespace KWZP2022
             Forms.FormDepartments formDepartments = new Forms.FormDepartments(db);
             formDepartments.ShowDialog();
         }
+
+        private void btnNewOrder_Click(object sender, EventArgs e)
+        {
+            FormNewOreder formNewOreder = new FormNewOreder(db);
+            formNewOreder.ShowDialog();
+        }
     }
 }

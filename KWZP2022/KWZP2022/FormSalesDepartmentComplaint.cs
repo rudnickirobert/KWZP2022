@@ -67,7 +67,7 @@ namespace KWZP2022
                     try
                     {
                         int noSale = int.Parse(textBoxNoSale.Text);
-                        System.Linq.IQueryable numberSale = this.db.v_Reklamacja.Cast<v_Reklamacja>().Where(a => a.Numer_sprzedaży == noSale);
+                        System.Linq.IQueryable numberSale = this.db.v_Reklamacja.Where(a => a.Numer_sprzedaży == noSale);
                         this.dgvComplaint.DataSource = numberSale.Cast<v_Reklamacja>().ToList();
                         this.dgvComplaint.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
                         cleanBox();
@@ -79,27 +79,27 @@ namespace KWZP2022
                     break;
                 case "NoComplaint":
                     int noComplaint = int.Parse(textBoxNoComplaint.Text);
-                    System.Linq.IQueryable numberComplaint = this.db.v_Reklamacja.Cast<v_Reklamacja>().Where(a => a.Numer_reklamacji == noComplaint);
+                    System.Linq.IQueryable numberComplaint = this.db.v_Reklamacja.Where(a => a.Numer_reklamacji == noComplaint);
                     this.dgvComplaint.DataSource = numberComplaint.Cast<v_Reklamacja>().ToList();
                     this.dgvComplaint.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
                     cleanBox();
                     break;
                 case "DateComplaint":
-                    System.Linq.IQueryable dateComplaint = this.db.v_Reklamacja.Cast<v_Reklamacja>().Where(a => DbFunctions.TruncateTime(a.Data_reklamacji) == dtpDateComplaint.Value.Date);
+                    System.Linq.IQueryable dateComplaint = this.db.v_Reklamacja.Where(a => DbFunctions.TruncateTime(a.Data_reklamacji) == dtpDateComplaint.Value.Date);
                     this.dgvComplaint.DataSource = dateComplaint.Cast<v_Reklamacja>().ToList();
                     this.dgvComplaint.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
                     cleanBox();
                     break;
                 case "ComplaintAccept":
                     bool acceptComplaintBOOL = true;
-                    System.Linq.IQueryable complaintAccepted = this.db.v_Reklamacja.Cast<v_Reklamacja>().Where(a => a.Akceptacja == acceptComplaintBOOL);
+                    System.Linq.IQueryable complaintAccepted = this.db.v_Reklamacja.Where(a => a.Akceptacja == acceptComplaintBOOL);
                     this.dgvComplaint.DataSource = complaintAccepted.Cast<v_Reklamacja>().ToList();
                     this.dgvComplaint.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
                     cleanBox();
                     break;
                 case "ComplaintNo":
                     bool notAcceptComplaintBOOL = false;
-                    System.Linq.IQueryable complaintNotAccepted = this.db.v_Reklamacja.Cast<v_Reklamacja>().Where(a => a.Akceptacja == notAcceptComplaintBOOL);
+                    System.Linq.IQueryable complaintNotAccepted = this.db.v_Reklamacja.Where(a => a.Akceptacja == notAcceptComplaintBOOL);
                     this.dgvComplaint.DataSource = complaintNotAccepted.Cast<v_Reklamacja>().ToList();
                     this.dgvComplaint.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
                     cleanBox();

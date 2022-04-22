@@ -231,7 +231,7 @@ namespace KWZP2022
             {
                 string noApartment = textBoxNo2.Text;
                 int noApartmentInt = int.Parse(noApartment);
-                System.Linq.IQueryable vClientNoApartment = db.v_Klient.Cast<v_Klient>().Where(a => a.Numer_lokalu == noApartmentInt);
+                System.Linq.IQueryable vClientNoApartment = db.v_Klient.Where(a => a.Numer_lokalu == noApartmentInt);
                 int vClientNoApartmentInt = vClientNoApartment.Cast<v_Klient>().Where(a => a.Numer_lokalu > 0).Count();
                 if (vClientNoApartmentInt > 0)
                 {
@@ -266,7 +266,7 @@ namespace KWZP2022
         private void enterStreet()
         {
             string street = textBoxStreet.Text;
-            System.Linq.IQueryable vClientStreet = db.v_Klient.Cast<v_Klient>().Where(a => a.Ulica == street);
+            System.Linq.IQueryable vClientStreet = db.v_Klient.Where(a => a.Ulica == street);
             int vClientStreetInt = vClientStreet.Cast<v_Klient>().Count();
             if (vClientStreetInt > 0)
             {

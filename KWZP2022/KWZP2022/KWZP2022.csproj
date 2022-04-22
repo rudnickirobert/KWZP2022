@@ -100,6 +100,18 @@
     <Compile Include="Forma_platnosc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FormNewOrderDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewOrderDetails.Designer.cs">
+      <DependentUpon>FormNewOrderDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNewOreder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewOreder.Designer.cs">
+      <DependentUpon>FormNewOreder.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSalesDepartmentComplaint.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -680,6 +692,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDepartments.resx">
       <DependentUpon>FormDepartments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewOrderDetails.resx">
+      <DependentUpon>FormNewOrderDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewOreder.resx">
+      <DependentUpon>FormNewOreder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSalesDepartment.resx">
       <DependentUpon>FormSalesDepartment.cs</DependentUpon>

@@ -65,6 +65,7 @@
             // 
             // btnAddNewClient
             // 
+            this.btnAddNewClient.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddNewClient.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnAddNewClient.Location = new System.Drawing.Point(310, 421);
             this.btnAddNewClient.Name = "btnAddNewClient";
@@ -310,6 +311,7 @@
             // 
             // btnClose
             // 
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnClose.Location = new System.Drawing.Point(620, 421);
             this.btnClose.Name = "btnClose";

@@ -67,6 +67,7 @@ namespace KWZP2022
             this.btnNewOrder.TabIndex = 2;
             this.btnNewOrder.Text = "Nowe zamówienie";
             this.btnNewOrder.UseVisualStyleBackColor = true;
+            this.btnNewOrder.Click += new System.EventHandler(this.btnNewOrder_Click);
             // 
             // btnDepartments
             // 

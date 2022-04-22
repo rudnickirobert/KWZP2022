@@ -49,6 +49,7 @@ namespace KWZP2022
             // 
             // btnAddReturn
             // 
+            this.btnAddReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddReturn.Font = new System.Drawing.Font("Arial", 10F);
             this.btnAddReturn.Location = new System.Drawing.Point(321, 449);
             this.btnAddReturn.Name = "btnAddReturn";
@@ -63,11 +64,13 @@ namespace KWZP2022
             this.dgvComplaint.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvComplaint.Location = new System.Drawing.Point(12, 176);
             this.dgvComplaint.Name = "dgvComplaint";
+            this.dgvComplaint.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvComplaint.Size = new System.Drawing.Size(770, 255);
             this.dgvComplaint.TabIndex = 1;
             // 
             // btnClose
             // 
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.Font = new System.Drawing.Font("Arial", 10F);
             this.btnClose.Location = new System.Drawing.Point(630, 449);
             this.btnClose.Name = "btnClose";
@@ -149,6 +152,7 @@ namespace KWZP2022
             // 
             // btnSearch
             // 
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearch.Font = new System.Drawing.Font("Arial", 10F);
             this.btnSearch.Location = new System.Drawing.Point(483, 121);
             this.btnSearch.Name = "btnSearch";
@@ -160,6 +164,7 @@ namespace KWZP2022
             // 
             // btnRefresh
             // 
+            this.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRefresh.Font = new System.Drawing.Font("Arial", 10F);
             this.btnRefresh.Location = new System.Drawing.Point(660, 121);
             this.btnRefresh.Name = "btnRefresh";
