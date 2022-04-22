@@ -131,7 +131,6 @@
             this.Font = new System.Drawing.Font("Arial", 8.25F);
             this.Name = "ProduktForm";
             this.Text = "Produkty";
-            this.Load += new System.EventHandler(this.ProduktForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdukt)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -1,6 +1,6 @@
 ﻿namespace KWZP2022
 {
-    partial class FormResDep
+    partial class FormResourceDepartment
     {
         /// <summary>
         /// Required designer variable.
@@ -75,7 +75,7 @@
             this.btnOrder.UseVisualStyleBackColor = true;
             this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
             // 
-            // FormResDep
+            // FormResourceDepartment
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.unknown;
@@ -86,9 +86,8 @@
             this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "FormResDep";
+            this.Name = "FormResourceDepartment";
             this.Text = "Dział Zasobów";
-            this.Load += new System.EventHandler(this.DzialZasobowFORM_Load);
             this.ResumeLayout(false);
 
         }
