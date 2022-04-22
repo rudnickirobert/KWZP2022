@@ -39,10 +39,10 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 20F);
-            this.label1.Location = new System.Drawing.Point(30, 9);
+            this.label1.Location = new System.Drawing.Point(17, 34);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(295, 39);
+            this.label1.Size = new System.Drawing.Size(243, 32);
             this.label1.TabIndex = 20;
             this.label1.Text = "Zamówienie części";
             // 
@@ -60,11 +60,12 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(798, 483);
+            this.ClientSize = new System.Drawing.Size(800, 495);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvZamowienieCzesci);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormResDepZamowienieCzesci";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormResDepZamowienieCzesci";
             ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienieCzesci)).EndInit();
             this.ResumeLayout(false);

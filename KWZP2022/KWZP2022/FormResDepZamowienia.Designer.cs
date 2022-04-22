@@ -74,6 +74,7 @@
             this.btnOrder_material.TabIndex = 6;
             this.btnOrder_material.Text = "Zamówienie materiału";
             this.btnOrder_material.UseVisualStyleBackColor = true;
+            this.btnOrder_material.Click += new System.EventHandler(this.btnOrder_material_Click);
             // 
             // btnOrder_maszyna
             // 
@@ -99,6 +100,7 @@
             this.Controls.Add(this.btnOrder_material);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormResDepZamowienia";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Zamówienia zasobów";
             this.ResumeLayout(false);
 

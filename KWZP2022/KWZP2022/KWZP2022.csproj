@@ -82,6 +82,18 @@
     <Compile Include="Dzial.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FormResDepMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepMaterial.Designer.cs">
+      <DependentUpon>FormResDepMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResDepZamowienieMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepZamowienieMaterial.Designer.cs">
+      <DependentUpon>FormResDepZamowienieMaterial.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormResourceDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -681,6 +693,12 @@
     <Compile Include="Zwrot.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormResDepMaterial.resx">
+      <DependentUpon>FormResDepMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepZamowienieMaterial.resx">
+      <DependentUpon>FormResDepZamowienieMaterial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormResourceDepartment.resx">
       <DependentUpon>FormResourceDepartment.cs</DependentUpon>
     </EmbeddedResource>
