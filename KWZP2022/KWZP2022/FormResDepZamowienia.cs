@@ -24,5 +24,11 @@ namespace KWZP2022
             FormResDepZamowienieCzesci zamowienieCzesc = new FormResDepZamowienieCzesci(db);
             zamowienieCzesc.ShowDialog();
         }
+
+        private void btnOrder_material_Click(object sender, EventArgs e)
+        {
+            FormResDepZamowienieMaterial zamowieniaCzesci = new FormResDepZamowienieMaterial(db);
+            zamowieniaCzesci.ShowDialog();
+        }
     }
 }

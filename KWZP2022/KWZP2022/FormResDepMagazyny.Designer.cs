@@ -98,6 +98,7 @@
             this.Controls.Add(this.btnMagazyn_material);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormResDepMagazyny";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Magazyny";
             this.ResumeLayout(false);
 

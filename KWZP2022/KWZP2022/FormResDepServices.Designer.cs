@@ -99,6 +99,7 @@
             this.Controls.Add(this.dgvCompletedServices);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormResDepServices";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Obsługi";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompletedServices)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOngoingServices)).EndInit();

@@ -21,7 +21,7 @@ namespace KWZP2022
         }
         private void initDataGridView()
         {
-            dgvZamowienieCzesci.DataSource = db.v_Zamowienia_czesci_w_trakcie_wszystko.ToList();
+            dgvZamowienieCzesci.DataSource = db.v_Zamowienia_czesci_w_trakcie.ToList();
             dgvZamowienieCzesci.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 
         }
