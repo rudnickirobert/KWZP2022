@@ -11,8 +11,8 @@ GO
 
 CREATE VIEW v_Parametry_produkt
 AS
-SELECT P.Nazwa_produkt AS [Produkt], RP.Nazwa_rodzaj_parametr AS [Parametr],
-PP.Zakres_dol AS [Wymiar minimalny], PP.Zakres_gora AS [Wymiar maksymalny], J.Skrot AS [Jednostka]
+SELECT ID_parametr_produkt, P.Nazwa_produkt AS [Produkt], RP.ID_rodzaj_parametr, RP.Nazwa_rodzaj_parametr AS [Parametr],
+PP.Zakres_dol AS [Wymiar minimalny], PP.Zakres_gora AS [Wymiar maksymalny], J.ID_jednostka, J.Skrot AS [Jednostka]
 FROM Parametr_produkt AS PP
 INNER JOIN Produkt AS P ON PP.ID_produkt = P.ID_produkt
 INNER JOIN Rodzaj_parametr AS RP ON PP.ID_rodzaj_parametr = RP.ID_rodzaj_parametr
@@ -35,6 +35,7 @@ SELECT P.Nazwa_produkt AS [Produkt], SlwPP.Nazwa AS [Półprodukt], SP.Liczba
 FROM Sklad_produkt AS SP
 INNER JOIN Produkt AS P ON SP.ID_produkt = P.ID_produkt
 INNER JOIN Slownik_polprodukt AS SlwPP ON SP.ID_polprodukt = SlwPP.ID_polprodukt
+ORDER BY P.ID_produkt OFFSET 0 ROWS
 GO
 
 CREATE VIEW v_Sklad_polprodukt

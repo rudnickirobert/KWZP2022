@@ -14,10 +14,13 @@ namespace KWZP2022
     
     public partial class v_Parametry_produkt
     {
+        public int ID_parametr_produkt { get; set; }
         public string Produkt { get; set; }
+        public int ID_rodzaj_parametr { get; set; }
         public string Parametr { get; set; }
         public decimal Wymiar_minimalny { get; set; }
         public decimal Wymiar_maksymalny { get; set; }
+        public int ID_jednostka { get; set; }
         public string Jednostka { get; set; }
     }
 }

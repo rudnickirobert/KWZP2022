@@ -36,6 +36,7 @@
             this.btnUsun = new System.Windows.Forms.Button();
             this.btnAktualizuj = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnDodajParametrProdukt = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdukt)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,12 +115,23 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Nazwa produktu:";
             // 
+            // btnDodajParametrProdukt
+            // 
+            this.btnDodajParametrProdukt.Location = new System.Drawing.Point(438, 17);
+            this.btnDodajParametrProdukt.Name = "btnDodajParametrProdukt";
+            this.btnDodajParametrProdukt.Size = new System.Drawing.Size(118, 35);
+            this.btnDodajParametrProdukt.TabIndex = 8;
+            this.btnDodajParametrProdukt.Text = "Dodaj Parametr";
+            this.btnDodajParametrProdukt.UseVisualStyleBackColor = true;
+            this.btnDodajParametrProdukt.Click += new System.EventHandler(this.btnDodajParametrProdukt_Click);
+            // 
             // ProduktForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(794, 461);
+            this.Controls.Add(this.btnDodajParametrProdukt);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAktualizuj);
             this.Controls.Add(this.btnUsun);
@@ -145,5 +157,6 @@
         private System.Windows.Forms.Button btnUsun;
         private System.Windows.Forms.Button btnAktualizuj;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnDodajParametrProdukt;
     }
 }

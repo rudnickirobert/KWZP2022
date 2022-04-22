@@ -198,7 +198,7 @@
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.dgvPolprodukt);
             this.Name = "PolproduktForm";
-            this.Text = "Półprodukty";
+            this.Text = "7";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPolprodukt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdukt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkladProdukt)).EndInit();

@@ -14,12 +14,20 @@ namespace KWZP2022
     
     public partial class Parametr_produkt
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Parametr_produkt()
+        {
+            this.Kontrola_parametr = new HashSet<Kontrola_parametr>();
+        }
+    
         public int ID_parametr_produkt { get; set; }
         public int ID_produkt { get; set; }
         public int ID_rodzaj_parametr { get; set; }
         public decimal Zakres_dol { get; set; }
         public decimal Zakres_gora { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Kontrola_parametr> Kontrola_parametr { get; set; }
         public virtual Produkt Produkt { get; set; }
         public virtual Rodzaj_parametr Rodzaj_parametr { get; set; }
     }
