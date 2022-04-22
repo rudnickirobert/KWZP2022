@@ -47,6 +47,7 @@ namespace KWZP2022
             this.db.Zamowienie_szczegol.Add(newZamowienie_Szczegol);
             this.db.SaveChanges();
             showData();
+            MessageBox.Show("Dodano szczegóły do zamówienia!","Informacja",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
         private void btnRemove_Click(object sender, EventArgs e)

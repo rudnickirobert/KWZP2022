@@ -121,11 +121,21 @@ namespace KWZP2022
                         }
                     }
                 }
+                else if (comboBoxOrderType.SelectedValue.ToString() == "2")
+                {
+                    this.db.Zamowienie.Add(newZamowienie);
+                    this.db.SaveChanges();
+                    MessageBox.Show("Dodano zamówienie!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    FormNewOrderDetails formNewOrderDetails = new FormNewOrderDetails(db, newZamowienie);
+                    formNewOrderDetails.ShowDialog();
+                    showData();
+                }
             }
             else
             {
                 MessageBox.Show("Błędnie wprowadzono dane!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            MessageBox.Show("Poprawnie zrealizowano zamówienie","Informacja",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
