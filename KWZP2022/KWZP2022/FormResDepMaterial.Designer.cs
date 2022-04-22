@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormResDepMaterial));
             this.lblRodzajMaterial = new System.Windows.Forms.Label();
             this.lblNazwaMaterial = new System.Windows.Forms.Label();
@@ -46,49 +44,36 @@
             // lblRodzajMaterial
             // 
             this.lblRodzajMaterial.AutoSize = true;
+            this.lblRodzajMaterial.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblRodzajMaterial.Location = new System.Drawing.Point(40, 119);
             this.lblRodzajMaterial.Name = "lblRodzajMaterial";
-            this.lblRodzajMaterial.Size = new System.Drawing.Size(177, 31);
+            this.lblRodzajMaterial.Size = new System.Drawing.Size(217, 32);
             this.lblRodzajMaterial.TabIndex = 0;
             this.lblRodzajMaterial.Text = "Rodzaj materiału";
             // 
             // lblNazwaMaterial
             // 
             this.lblNazwaMaterial.AutoSize = true;
+            this.lblNazwaMaterial.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblNazwaMaterial.Location = new System.Drawing.Point(40, 43);
             this.lblNazwaMaterial.Name = "lblNazwaMaterial";
-            this.lblNazwaMaterial.Size = new System.Drawing.Size(176, 31);
+            this.lblNazwaMaterial.Size = new System.Drawing.Size(214, 32);
             this.lblNazwaMaterial.TabIndex = 1;
             this.lblNazwaMaterial.Text = "Nazwa materiału";
             // 
             // txtNazwaMaterial
             // 
-            this.txtNazwaMaterial.Location = new System.Drawing.Point(263, 43);
+            this.txtNazwaMaterial.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtNazwaMaterial.Location = new System.Drawing.Point(263, 36);
             this.txtNazwaMaterial.Name = "txtNazwaMaterial";
-            this.txtNazwaMaterial.Size = new System.Drawing.Size(270, 38);
+            this.txtNazwaMaterial.Size = new System.Drawing.Size(270, 39);
             this.txtNazwaMaterial.TabIndex = 2;
             // 
             // dgvMaterial
             // 
             this.dgvMaterial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMaterial.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvMaterial.Location = new System.Drawing.Point(420, 216);
             this.dgvMaterial.Name = "dgvMaterial";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMaterial.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvMaterial.RowTemplate.Height = 24;
             this.dgvMaterial.Size = new System.Drawing.Size(527, 256);
             this.dgvMaterial.TabIndex = 5;
@@ -141,10 +126,11 @@
             // 
             // cmbRodzajMaterial
             // 
+            this.cmbRodzajMaterial.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbRodzajMaterial.FormattingEnabled = true;
-            this.cmbRodzajMaterial.Location = new System.Drawing.Point(263, 119);
+            this.cmbRodzajMaterial.Location = new System.Drawing.Point(263, 111);
             this.cmbRodzajMaterial.Name = "cmbRodzajMaterial";
-            this.cmbRodzajMaterial.Size = new System.Drawing.Size(270, 39);
+            this.cmbRodzajMaterial.Size = new System.Drawing.Size(270, 40);
             this.cmbRodzajMaterial.TabIndex = 10;
             // 
             // FormResDepMaterial
@@ -163,7 +149,7 @@
             this.Controls.Add(this.lblNazwaMaterial);
             this.Controls.Add(this.lblRodzajMaterial);
             this.DoubleBuffered = true;
-            this.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormResDepMaterial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

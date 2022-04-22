@@ -82,6 +82,18 @@
     <Compile Include="Dzial.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Email_klient.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Email_pracownik.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Etat.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Forma_platnosc.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="FormResDepMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,23 +112,11 @@
     <Compile Include="FormResourceDepartment.Designer.cs">
       <DependentUpon>FormResourceDepartment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Email_klient.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Email_pracownik.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Etat.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forma_platnosc.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="FormResDepZamowienieCzesci.cs">
       <SubType>Form</SubType>
@@ -129,6 +129,12 @@
     </Compile>
     <Compile Include="FormResDepServices.Designer.cs">
       <DependentUpon>FormResDepServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResDepMagazyny.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepMagazyny.Designer.cs">
+      <DependentUpon>FormResDepMagazyny.cs</DependentUpon>
     </Compile>
     <Compile Include="Gwarancja.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
@@ -241,12 +247,6 @@
     <Compile Include="Reklamacja.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="FormResDepMagazyny.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormResDepMagazyny.Designer.cs">
-      <DependentUpon>FormResDepMagazyny.cs</DependentUpon>
-    </Compile>
     <Compile Include="Rodzaj_czesc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -357,6 +357,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FormResDepZamowienia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepZamowienia.Designer.cs">
+      <DependentUpon>FormResDepZamowienia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Slownik_polprodukt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -483,9 +489,6 @@
     <Compile Include="v_Magazyn_maszyn_wszystko.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="v_Magazyn_material_wszystko.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="v_Magazyn_narzedzia_nieuzywane.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -496,6 +499,9 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Magazyn_narzedzia_wszystko.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Magazyn_Produkty_Wytworzone.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Nadgodziny.cs">
@@ -666,12 +672,6 @@
     <Compile Include="Wytwarzanie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="FormResDepZamowienia.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormResDepZamowienia.Designer.cs">
-      <DependentUpon>FormResDepZamowienia.cs</DependentUpon>
-    </Compile>
     <Compile Include="Zamowienie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -785,6 +785,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\unknown.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="KWZPModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>KWZPModel.edmx</DependentUpon>
@@ -795,7 +798,6 @@
       <DependentUpon>KWZPModel.edmx</DependentUpon>
       <LastGenOutput>KWZPModel.cs</LastGenOutput>
     </Content>
-    <None Include="Resources\unknown.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
