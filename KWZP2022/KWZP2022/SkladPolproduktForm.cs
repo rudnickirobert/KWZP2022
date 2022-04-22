@@ -25,6 +25,9 @@ namespace KWZP2022
             initDataGridViewPolprodukt();
             initDataGridViewMaterial();
             initDataGridViewSkladPolprodukt();
+            txtIlosc.Text = "";
+            txtMaterial.Text = "";
+            txtPolprodukt.Text = "";
         }
 
         private void initDataGridViewPolprodukt()
@@ -69,5 +72,52 @@ namespace KWZP2022
         {
             txtMaterial.Text = dgvMaterial.CurrentRow.Cells[2].Value.ToString();
         }
+
+        private void btnDodaj_Click(object sender, EventArgs e)
+        {
+            if (txtPolprodukt != null && txtMaterial != null && txtIlosc != null)
+            {
+                Sklad_polprodukt skladPolprodukt = new Sklad_polprodukt();
+                skladPolprodukt.ID_polprodukt = int.Parse(dgvPolprodukt.CurrentRow.Cells[0].Value.ToString());
+                skladPolprodukt.ID_material = int.Parse(dgvMaterial.CurrentRow.Cells[0].Value.ToString());
+                skladPolprodukt.Liczba = int.Parse(txtIlosc.Text);
+
+                db.Sklad_polprodukt.Add(skladPolprodukt);
+                db.SaveChanges();
+                refreshScreen();
+            }
+            else
+            {
+                MessageBox.Show("Uzupełnij brakujące informacje.");
+            }
+
+        }
+
+        private void btnUsun_Click(object sender, EventArgs e)
+        {
+            DialogResult deleteResult = MessageBox.Show("Czy na pewno chcesz usunąć powiązanie między półproduktem '" + dgvSkladPolprodukt.CurrentRow.Cells[1].Value.ToString() + "',a materiałem '"+ dgvSkladPolprodukt.CurrentRow.Cells[2].Value.ToString() + "'?", "Question",MessageBoxButtons.YesNo);
+            if (deleteResult == DialogResult.Yes)
+            {
+                int currentSkladPolprodukt = int.Parse(dgvSkladPolprodukt.CurrentRow.Cells[0].Value.ToString());
+
+                db.Sklad_polprodukt.Remove(db.Sklad_polprodukt.Where(polprodukt => polprodukt.ID_sklad_polprodukt == currentSkladPolprodukt).First());
+                db.SaveChanges();
+                refreshScreen();
+
+            }
+        }
+
+        private void btnOdswiez_Click(object sender, EventArgs e)
+        {
+            refreshScreen();
+        }
+
+        private void dgvSkladPolprodukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtPolprodukt.Text = dgvSkladPolprodukt.CurrentRow.Cells[1].Value.ToString();
+            txtMaterial.Text = dgvSkladPolprodukt.CurrentRow.Cells[2].Value.ToString();
+            txtIlosc.Text = dgvSkladPolprodukt.CurrentRow.Cells[3].Value.ToString();
+        }
+
     }
 }

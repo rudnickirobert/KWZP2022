@@ -93,6 +93,7 @@
             this.dgvSkladPolprodukt.Name = "dgvSkladPolprodukt";
             this.dgvSkladPolprodukt.Size = new System.Drawing.Size(813, 279);
             this.dgvSkladPolprodukt.TabIndex = 28;
+            this.dgvSkladPolprodukt.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSkladPolprodukt_CellContentClick);
             // 
             // dgvPolprodukt
             // 
@@ -136,6 +137,7 @@
             this.btnUsun.TabIndex = 24;
             this.btnUsun.Text = "Usuń";
             this.btnUsun.UseVisualStyleBackColor = false;
+            this.btnUsun.Click += new System.EventHandler(this.btnUsun_Click);
             // 
             // btnOdswiez
             // 
@@ -146,6 +148,7 @@
             this.btnOdswiez.TabIndex = 23;
             this.btnOdswiez.Text = "Odśwież";
             this.btnOdswiez.UseVisualStyleBackColor = true;
+            this.btnOdswiez.Click += new System.EventHandler(this.btnOdswiez_Click);
             // 
             // txtPolprodukt
             // 
@@ -166,6 +169,7 @@
             this.btnDodaj.TabIndex = 21;
             this.btnDodaj.Text = "Powiąż";
             this.btnDodaj.UseVisualStyleBackColor = false;
+            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
             // 
             // dgvMaterial
             // 

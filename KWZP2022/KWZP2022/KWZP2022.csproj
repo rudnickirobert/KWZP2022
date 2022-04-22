@@ -58,6 +58,9 @@
     <Compile Include="Alert.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Czas_pracy.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Czesc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -96,12 +99,6 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SkladPolproduktForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SkladPolproduktForm.Designer.cs">
-      <DependentUpon>SkladPolproduktForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forma_platnosc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
@@ -240,6 +237,12 @@
     </Compile>
     <Compile Include="Rodzaj_umowy.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SkladPolproduktForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SkladPolproduktForm.Designer.cs">
+      <DependentUpon>SkladPolproduktForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Sklad_maszyna.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
@@ -409,6 +412,9 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Koszt.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Koszt_godziny_pracy.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Koszt_procesow_polprodukt.cs">

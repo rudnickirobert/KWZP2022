@@ -22,6 +22,7 @@ namespace KWZP2022
 
         private void initDataGridView()
         {
+
             dgvProdukt.DataSource = db.Produkt.ToList();
             dgvProdukt.Columns["Parametr_produkt"].Visible = false;
             dgvProdukt.Columns["Proces_produkt_czynnosc"].Visible = false;
