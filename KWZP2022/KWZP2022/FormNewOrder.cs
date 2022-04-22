@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace KWZP2022
 {
-    public partial class FormNewOreder : Form
+    public partial class FormNewOrder : Form
     {
         KWZPEntities db;
-        public FormNewOreder(KWZPEntities db)
+        public FormNewOrder(KWZPEntities db)
         {
             this.db = db;
             InitializeComponent();
@@ -71,23 +71,59 @@ namespace KWZP2022
             {
                 int selectedTyp_ZamowienieInt = int.Parse(comboBoxOrderType.SelectedValue.ToString());
                 Typ_zamowienie selectedTyp_Zamowienie = this.db.Typ_zamowienie.Single(a => a.ID_typ_zamowienie == selectedTyp_ZamowienieInt);
-                Nr_telefon_klient selectedClient = this.db.Nr_telefon_klient.Single(a => a.Numer == textBoxNoTelClient.Text);
-                int selectedEmpployeeInt = int.Parse(comboBoxEmployee.SelectedValue.ToString());
-                Pracownik selectedEmpployee = this.db.Pracownik.Single(a => a.ID_pracownik == selectedEmpployeeInt);
-                Zamowienie newZamowienie = new Zamowienie();
-                newZamowienie.ID_klient = selectedClient.ID_klient;
-                newZamowienie.ID_pracownik = selectedEmpployee.ID_pracownik;
-                newZamowienie.Data_zamowienie = dtpDateOrder.Value.Date;
-                newZamowienie.ID_typ_zamowienie = selectedTyp_Zamowienie.ID_typ_zamowienie;
-
-                if(comboBoxOrderType.SelectedValue.ToString() == "1")
+                Nr_telefon_klient selectedClient = this.db.Nr_telefon_klient.SingleOrDefault(a => a.Numer == textBoxNoTelClient.Text);
+                if (selectedClient != null)
                 {
-                    MessageBox.Show("Wprowadź nowy produkt", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    int counterProdutsBefore = this.db.Produkt.Count();
-                    ProduktForm produktForm = new ProduktForm(db);
-                    produktForm.ShowDialog();
-                    int counterProdutsAfter = this.db.Produkt.Count();
-                    if (counterProdutsAfter > counterProdutsBefore)
+                    int selectedEmpployeeInt = int.Parse(comboBoxEmployee.SelectedValue.ToString());
+                    Pracownik selectedEmpployee = this.db.Pracownik.Single(a => a.ID_pracownik == selectedEmpployeeInt);
+                    Zamowienie newZamowienie = new Zamowienie();
+                    newZamowienie.ID_klient = selectedClient.ID_klient;
+                    newZamowienie.ID_pracownik = selectedEmpployee.ID_pracownik;
+                    newZamowienie.Data_zamowienie = dtpDateOrder.Value.Date;
+                    newZamowienie.ID_typ_zamowienie = selectedTyp_Zamowienie.ID_typ_zamowienie;
+
+                    if (comboBoxOrderType.SelectedValue.ToString() == "1")
+                    {
+                        MessageBox.Show("Wprowadź nowy produkt", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        int counterProdutsBefore = this.db.Produkt.Count();
+                        ProduktForm produktForm = new ProduktForm(db);
+                        produktForm.ShowDialog();
+                        int counterProdutsAfter = this.db.Produkt.Count();
+                        if (counterProdutsAfter > counterProdutsBefore)
+                        {
+                            this.db.Zamowienie.Add(newZamowienie);
+                            this.db.SaveChanges();
+                            MessageBox.Show("Dodano zamówienie!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            FormNewOrderDetails formNewOrderDetails = new FormNewOrderDetails(db, newZamowienie);
+                            formNewOrderDetails.ShowDialog();
+                            showData();
+                        }
+                        else
+                        {
+                            DialogResult resultNewProduct = MessageBox.Show("Nie wprowadzono nowego produktu. Czy chcesz wprowadzić nowy produkt?", "Pytanie", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (resultNewProduct == DialogResult.Yes)
+                            {
+                                int counterProdutsBeforeAgain = this.db.Produkt.Count();
+                                ProduktForm produktFormAgain = new ProduktForm(db);
+                                produktForm.ShowDialog();
+                                int counterProdutsAfterAgain = this.db.Produkt.Count();
+                                if (counterProdutsAfterAgain > counterProdutsBeforeAgain)
+                                {
+                                    this.db.Zamowienie.Add(newZamowienie);
+                                    this.db.SaveChanges();
+                                    MessageBox.Show("Dodano zamówienie!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    FormNewOrderDetails formNewOrderDetails = new FormNewOrderDetails(db, newZamowienie);
+                                    formNewOrderDetails.ShowDialog();
+                                    showData();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Nie wprowadzono nowego produktu", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                        }
+                    }
+                    else if (comboBoxOrderType.SelectedValue.ToString() == "2")
                     {
                         this.db.Zamowienie.Add(newZamowienie);
                         this.db.SaveChanges();
@@ -96,39 +132,10 @@ namespace KWZP2022
                         formNewOrderDetails.ShowDialog();
                         showData();
                     }
-                    else
-                    {
-                        DialogResult resultNewProduct = MessageBox.Show("Nie wprowadzono nowego produktu. Czy chcesz wprowadzić nowy produkt?","Pytanie", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-                        if(resultNewProduct == DialogResult.Yes)
-                        {
-                            int counterProdutsBeforeAgain = this.db.Produkt.Count();
-                            ProduktForm produktFormAgain = new ProduktForm(db);
-                            produktForm.ShowDialog();
-                            int counterProdutsAfterAgain = this.db.Produkt.Count();
-                            if (counterProdutsAfterAgain > counterProdutsBeforeAgain)
-                            {
-                                this.db.Zamowienie.Add(newZamowienie);
-                                this.db.SaveChanges();
-                                MessageBox.Show("Dodano zamówienie!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                FormNewOrderDetails formNewOrderDetails = new FormNewOrderDetails(db, newZamowienie);
-                                formNewOrderDetails.ShowDialog();
-                                showData();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Nie wprowadzono nowego produktu", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        }
-                    }
                 }
-                else if (comboBoxOrderType.SelectedValue.ToString() == "2")
+                else
                 {
-                    this.db.Zamowienie.Add(newZamowienie);
-                    this.db.SaveChanges();
-                    MessageBox.Show("Dodano zamówienie!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    FormNewOrderDetails formNewOrderDetails = new FormNewOrderDetails(db, newZamowienie);
-                    formNewOrderDetails.ShowDialog();
-                    showData();
+                    goto END;
                 }
             }
             else
@@ -136,6 +143,8 @@ namespace KWZP2022
                 MessageBox.Show("Błędnie wprowadzono dane!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             MessageBox.Show("Poprawnie zrealizowano zamówienie","Informacja",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            END:
+                MessageBox.Show("Wprowadź dane nowego klienta do systemu", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
@@ -152,13 +161,21 @@ namespace KWZP2022
                 showData();
             }
         }
-
         private void btnNewOrderDetails_Click(object sender, EventArgs e)
         {
             int selectedOrderDetails = int.Parse(this.dgvOrders.CurrentRow.Cells[1].Value.ToString());
             Zamowienie selectedOrder = this.db.Zamowienie.Single(a => a.ID_zamowienie == selectedOrderDetails);
             FormNewOrderDetails formNewOrderDetails = new FormNewOrderDetails(db, selectedOrder);
             formNewOrderDetails.ShowDialog();
+        }
+        private void btnCommercialOffer_Click(object sender, EventArgs e)
+        {
+            DialogResult commertialOfferResult = MessageBox.Show("Czy na pewno chcesz przejść do oferty handlowej?","Pytanie", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if (commertialOfferResult == DialogResult.Yes)
+            {
+                FormNewCommertialOffer formNewCommertialOffer = new FormNewCommertialOffer(db);
+                formNewCommertialOffer.ShowDialog();
+            }
         }
     }
 }
