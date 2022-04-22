@@ -28,7 +28,7 @@ namespace KWZP2022
 
         private void btnPolprodukty_Click(object sender, EventArgs e)
         {
-            PolproduktDodanieForm polproduktForm = new PolproduktDodanieForm(db);
+            SkladProduktForm polproduktForm = new SkladProduktForm(db);
             polproduktForm.ShowDialog();
         }
 

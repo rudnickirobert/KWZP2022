@@ -1,6 +1,6 @@
 ﻿namespace KWZP2022
 {
-    partial class PolproduktDodanieForm
+    partial class SkladProduktForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PolproduktDodanieForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SkladProduktForm));
             this.label1 = new System.Windows.Forms.Label();
             this.btnAktualizuj = new System.Windows.Forms.Button();
             this.btnUsun = new System.Windows.Forms.Button();
@@ -42,6 +42,7 @@
             this.txtPolprodukt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtIlosc = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPolprodukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkladProdukt)).BeginInit();
@@ -179,12 +180,25 @@
             this.txtIlosc.Size = new System.Drawing.Size(255, 38);
             this.txtIlosc.TabIndex = 19;
             // 
-            // PolproduktDodanieForm
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.SandyBrown;
+            this.button1.Font = new System.Drawing.Font("Arial", 15F);
+            this.button1.Location = new System.Drawing.Point(423, 49);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(434, 37);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Dodaj skład półproduktu";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // SkladProduktForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 711);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtIlosc);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtPolprodukt);
@@ -198,8 +212,8 @@
             this.Controls.Add(this.txtNazwaProdukt);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.dgvPolprodukt);
-            this.Name = "PolproduktDodanieForm";
-            this.Text = "Półprodukty";
+            this.Name = "SkladProduktForm";
+            this.Text = "Skład Produktów";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPolprodukt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdukt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkladProdukt)).EndInit();
@@ -223,5 +237,6 @@
         private System.Windows.Forms.TextBox txtPolprodukt;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtIlosc;
+        private System.Windows.Forms.Button button1;
     }
 }
