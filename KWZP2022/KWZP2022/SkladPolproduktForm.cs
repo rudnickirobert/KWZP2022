@@ -116,8 +116,21 @@ namespace KWZP2022
         {
             txtPolprodukt.Text = dgvSkladPolprodukt.CurrentRow.Cells[1].Value.ToString();
             txtMaterial.Text = dgvSkladPolprodukt.CurrentRow.Cells[2].Value.ToString();
-            txtIlosc.Text = dgvSkladPolprodukt.CurrentRow.Cells[3].Value.ToString();
+            txtIlosc.Text = dgvSkladPolprodukt.CurrentRow.Cells[4].Value.ToString();
         }
 
+        private void btnAktualizuj_Click(object sender, EventArgs e)
+        {
+            int currentID = int.Parse(dgvSkladPolprodukt.CurrentRow.Cells[0].Value.ToString());
+            int newValue = int.Parse(txtIlosc.Text);
+        
+            var result = db.Sklad_polprodukt.SingleOrDefault(b => b.ID_sklad_polprodukt == currentID);
+            if (result != null)
+            {
+                result.Liczba = newValue;
+                db.SaveChanges();
+            }
+            refreshScreen();
+        }
     }
 }

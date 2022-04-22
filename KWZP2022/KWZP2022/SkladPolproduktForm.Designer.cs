@@ -118,7 +118,6 @@
             // btnAktualizuj
             // 
             this.btnAktualizuj.BackColor = System.Drawing.Color.SkyBlue;
-            this.btnAktualizuj.Enabled = false;
             this.btnAktualizuj.Font = new System.Drawing.Font("Arial", 15F);
             this.btnAktualizuj.Location = new System.Drawing.Point(31, 477);
             this.btnAktualizuj.Name = "btnAktualizuj";
@@ -126,6 +125,7 @@
             this.btnAktualizuj.TabIndex = 25;
             this.btnAktualizuj.Text = "Aktualizacja";
             this.btnAktualizuj.UseVisualStyleBackColor = false;
+            this.btnAktualizuj.Click += new System.EventHandler(this.btnAktualizuj_Click);
             // 
             // btnUsun
             // 
