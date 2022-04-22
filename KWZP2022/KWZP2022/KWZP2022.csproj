@@ -100,6 +100,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="WytwarzanieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WytwarzanieForm.Designer.cs">
+      <DependentUpon>WytwarzanieForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forma_platnosc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -665,6 +671,9 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WytwarzanieForm.resx">
+      <DependentUpon>WytwarzanieForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDepartments.resx">
       <DependentUpon>FormDepartments.cs</DependentUpon>

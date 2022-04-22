@@ -60,9 +60,6 @@ namespace KWZP2022
             this.dgvSkladPolprodukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 
-
-
-
         private void dgvPolprodukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             txtPolprodukt.Text = dgvPolprodukt.CurrentRow.Cells[1].Value.ToString();
@@ -72,10 +69,21 @@ namespace KWZP2022
         {
             txtMaterial.Text = dgvMaterial.CurrentRow.Cells[2].Value.ToString();
         }
+        private void dgvSkladPolprodukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtPolprodukt.Text = dgvSkladPolprodukt.CurrentRow.Cells[1].Value.ToString();
+            txtMaterial.Text = dgvSkladPolprodukt.CurrentRow.Cells[2].Value.ToString();
+            txtIlosc.Text = dgvSkladPolprodukt.CurrentRow.Cells[4].Value.ToString();
+        }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            if (txtPolprodukt != null && txtMaterial != null && txtIlosc != null)
+            if (String.IsNullOrEmpty(txtPolprodukt.Text) || String.IsNullOrEmpty(txtMaterial.Text) || String.IsNullOrEmpty(txtIlosc.Text))
+            {
+                MessageBox.Show("Uzupełnij brakujące informacje.");
+                
+            }
+            else
             {
                 Sklad_polprodukt skladPolprodukt = new Sklad_polprodukt();
                 skladPolprodukt.ID_polprodukt = int.Parse(dgvPolprodukt.CurrentRow.Cells[0].Value.ToString());
@@ -85,10 +93,6 @@ namespace KWZP2022
                 db.Sklad_polprodukt.Add(skladPolprodukt);
                 db.SaveChanges();
                 refreshScreen();
-            }
-            else
-            {
-                MessageBox.Show("Uzupełnij brakujące informacje.");
             }
 
         }
@@ -112,12 +116,6 @@ namespace KWZP2022
             refreshScreen();
         }
 
-        private void dgvSkladPolprodukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txtPolprodukt.Text = dgvSkladPolprodukt.CurrentRow.Cells[1].Value.ToString();
-            txtMaterial.Text = dgvSkladPolprodukt.CurrentRow.Cells[2].Value.ToString();
-            txtIlosc.Text = dgvSkladPolprodukt.CurrentRow.Cells[4].Value.ToString();
-        }
 
         private void btnAktualizuj_Click(object sender, EventArgs e)
         {

@@ -69,74 +69,82 @@ namespace KWZP2022
         {
             //Sprawdzenie czy dany półprodukt znajduje się już w słowniku.
 
-            Slownik_polprodukt polprodukt = new Slownik_polprodukt();
-            bool found = false;
-            foreach (DataGridViewRow item in dgvPolprodukt.Rows)
+            if (String.IsNullOrEmpty(txtNazwaProdukt.Text) || String.IsNullOrEmpty(txtPolprodukt.Text) || String.IsNullOrEmpty(txtIlosc.Text))
             {
-                if (item.Cells[1].Value != null && item.Cells[1].Value.ToString() == txtPolprodukt.Text)
+                MessageBox.Show("Uzupełnij brakujące informacje.");
+            }
+            else
+            {
+                Slownik_polprodukt polprodukt = new Slownik_polprodukt();
+                bool found = false;
+                foreach (DataGridViewRow item in dgvPolprodukt.Rows)
                 {
-                    found = true;
-                    break; 
+                    if (item.Cells[1].Value != null && item.Cells[1].Value.ToString() == txtPolprodukt.Text)
+                    {
+                        found = true;
+                        break;
+                    }
+                    else
+                    {
+                        found = false;
+                    }
+                }
+
+                if (found)
+                {
+                    if (txtPolprodukt.Enabled == false)
+                    {
+                        MessageBox.Show("Półproduk istnieje już w bazie danych.");
+                    }
                 }
                 else
                 {
-                    found = false;
+                    polprodukt.Nazwa = txtPolprodukt.Text;
+                    db.Slownik_polprodukt.Add(polprodukt);
+                    db.SaveChanges();
+                    MessageBox.Show("Poprawnie dodano półproduk '" + polprodukt.Nazwa + "' do słownika");
+                    initDataGridViewPolprodukt();
                 }
-            }
 
-            if (found)
-            {
+                // W PLANACH NA DALSZY ROZWÓJ Sprawdzenie czy w sklad_produkt znajduje się już taka para produkt-półprodukt. Jeśli tak, to dodaje ilość półproduktów do istniejącego rekordu w tabeli skład_produkt
+
+                /*bool isPairExisting = new bool();
+                for (int i = 0; i < dgvSkladProdukt.Rows.Count-1; i++)
+                {
+                    if (this.dgvSkladProdukt.Rows[i].Cells[1].Value.ToString() == txtNazwaProdukt.Text && this.dgvSkladProdukt.Rows[i].Cells[2].Value.ToString() == txtPolprodukt.Text)
+                    {
+                        isPairExisting = true;
+                    }
+                    else
+                    {
+                        isPairExisting = false;
+                    }
+                }*/
+
+
+                Sklad_produkt skladProdukt = new Sklad_produkt();
+                skladProdukt.ID_produkt = int.Parse(this.dgvProdukt.CurrentRow.Cells[0].Value.ToString());
+
                 if (txtPolprodukt.Enabled == false)
                 {
-                    MessageBox.Show("Półproduk istnieje już w bazie danych.");
-                }
-            }
-            else
-            {
-                polprodukt.Nazwa = txtPolprodukt.Text;
-                db.Slownik_polprodukt.Add(polprodukt);
-                db.SaveChanges();
-                MessageBox.Show("Poprawnie dodano półproduk '" + polprodukt.Nazwa + "' do słownika");
-                initDataGridViewPolprodukt();
-            }
-
-            // W PLANACH NA DALSZY ROZWÓJ Sprawdzenie czy w sklad_produkt znajduje się już taka para produkt-półprodukt. Jeśli tak, to dodaje ilość półproduktów do istniejącego rekordu w tabeli skład_produkt
-
-            /*bool isPairExisting = new bool();
-            for (int i = 0; i < dgvSkladProdukt.Rows.Count-1; i++)
-            {
-                if (this.dgvSkladProdukt.Rows[i].Cells[1].Value.ToString() == txtNazwaProdukt.Text && this.dgvSkladProdukt.Rows[i].Cells[2].Value.ToString() == txtPolprodukt.Text)
-                {
-                    isPairExisting = true;
+                    skladProdukt.ID_polprodukt = int.Parse(this.dgvPolprodukt.CurrentRow.Cells[0].Value.ToString());
                 }
                 else
                 {
-                    isPairExisting = false;
+                    int numRows = dgvPolprodukt.Rows.Count;
+                    skladProdukt.ID_polprodukt = int.Parse(this.dgvPolprodukt.Rows[numRows - 1].Cells[0].Value.ToString());
                 }
-            }*/
 
+                skladProdukt.Liczba = int.Parse(txtIlosc.Text);
+                db.Sklad_produkt.Add(skladProdukt);
+                db.SaveChanges();
 
-            Sklad_produkt skladProdukt = new Sklad_produkt();
-            skladProdukt.ID_produkt = int.Parse(this.dgvProdukt.CurrentRow.Cells[0].Value.ToString());
-
-            if (txtPolprodukt.Enabled == false)
-            {
-                skladProdukt.ID_polprodukt = int.Parse(this.dgvPolprodukt.CurrentRow.Cells[0].Value.ToString());
+                MessageBox.Show("Poprawnie powiązano półprodukt '" + txtPolprodukt.Text + "' z produktem '" + this.dgvProdukt.CurrentRow.Cells[1].Value.ToString() + "'.");
+                refreshScreen();
             }
-            else
-            {
-                int numRows = dgvPolprodukt.Rows.Count;
-                skladProdukt.ID_polprodukt = int.Parse(this.dgvPolprodukt.Rows[numRows - 1].Cells[0].Value.ToString());
-            }
+
             
-            skladProdukt.Liczba = int.Parse(txtIlosc.Text);
-            db.Sklad_produkt.Add(skladProdukt);
-            db.SaveChanges();
-
-            MessageBox.Show("Poprawnie powiązano półprodukt '" + txtPolprodukt.Text + "' z produktem '"+ this.dgvProdukt.CurrentRow.Cells[1].Value.ToString() + "'.");
-            refreshScreen();
         }
-
 
         private void btnUsun_Click(object sender, EventArgs e)
         {
@@ -203,10 +211,10 @@ namespace KWZP2022
             txtPolprodukt.Enabled = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSkladPolprodukt_Click(object sender, EventArgs e)
         {
             SkladPolproduktForm skladPolproduktu = new SkladPolproduktForm(db);
-            skladPolproduktu.ShowDialog(); 
+            skladPolproduktu.ShowDialog();
         }
     }
 }

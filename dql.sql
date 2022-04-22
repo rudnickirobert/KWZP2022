@@ -35,6 +35,7 @@ SELECT SP.ID_sklad_produkt AS [ID skład], P.Nazwa_produkt AS [Produkt], SlwPP.N
 FROM Sklad_produkt AS SP
 INNER JOIN Produkt AS P ON SP.ID_produkt = P.ID_produkt
 INNER JOIN Slownik_polprodukt AS SlwPP ON SP.ID_polprodukt = SlwPP.ID_polprodukt
+ORDER BY P.Nazwa_produkt OFFSET 0 ROWS
 GO
 
 CREATE VIEW v_Sklad_polprodukt
@@ -45,6 +46,7 @@ FROM Sklad_polprodukt AS SP
 INNER JOIN Slownik_polprodukt AS SlwPp ON SP.ID_polprodukt = SlwPp.ID_polprodukt
 INNER JOIN Material AS M ON SP.ID_material = M.ID_material
 INNER JOIN Rodzaj_material AS RM ON M.ID_rodzaj_material = RM.ID_rodzaj_material
+ORDER BY SlwPp.Nazwa OFFSET 0 ROWS
 GO
 
 CREATE VIEW v_Slownik_stanowisko
