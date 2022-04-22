@@ -14,6 +14,7 @@ namespace KWZP2022
     
     public partial class v_Sklad_produkt
     {
+        public int ID_skład { get; set; }
         public string Produkt { get; set; }
         public string Półprodukt { get; set; }
         public int Liczba { get; set; }

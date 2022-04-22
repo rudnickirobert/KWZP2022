@@ -1,6 +1,6 @@
 ﻿namespace KWZP2022
 {
-    partial class PolproduktForm
+    partial class PolproduktDodanieForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PolproduktForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PolproduktDodanieForm));
             this.label1 = new System.Windows.Forms.Label();
             this.btnAktualizuj = new System.Windows.Forms.Button();
             this.btnUsun = new System.Windows.Forms.Button();
@@ -61,6 +61,7 @@
             // btnAktualizuj
             // 
             this.btnAktualizuj.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnAktualizuj.Enabled = false;
             this.btnAktualizuj.Font = new System.Drawing.Font("Arial", 15F);
             this.btnAktualizuj.Location = new System.Drawing.Point(27, 484);
             this.btnAktualizuj.Name = "btnAktualizuj";
@@ -68,7 +69,6 @@
             this.btnAktualizuj.TabIndex = 12;
             this.btnAktualizuj.Text = "Aktualizacja";
             this.btnAktualizuj.UseVisualStyleBackColor = false;
-            this.btnAktualizuj.Click += new System.EventHandler(this.btnAktualizuj_Click);
             // 
             // btnUsun
             // 
@@ -121,6 +121,7 @@
             this.dgvPolprodukt.Name = "dgvPolprodukt";
             this.dgvPolprodukt.Size = new System.Drawing.Size(434, 313);
             this.dgvPolprodukt.TabIndex = 7;
+            this.dgvPolprodukt.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPolprodukt_CellContentClick);
             // 
             // dgvProdukt
             // 
@@ -178,7 +179,7 @@
             this.txtIlosc.Size = new System.Drawing.Size(255, 38);
             this.txtIlosc.TabIndex = 19;
             // 
-            // PolproduktForm
+            // PolproduktDodanieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -197,7 +198,7 @@
             this.Controls.Add(this.txtNazwaProdukt);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.dgvPolprodukt);
-            this.Name = "PolproduktForm";
+            this.Name = "PolproduktDodanieForm";
             this.Text = "Półprodukty";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPolprodukt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdukt)).EndInit();

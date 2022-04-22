@@ -1511,10 +1511,12 @@ warning 6002: The table/view 'KWZP.dbo.v_Sklad_polprodukt' does not have a prima
 warning 6002: The table/view 'KWZP.dbo.v_Sklad_produkt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Sklad_produkt">
           <Key>
+            <PropertyRef Name="ID skład" />
             <PropertyRef Name="Produkt" />
             <PropertyRef Name="Półprodukt" />
             <PropertyRef Name="Liczba" />
           </Key>
+          <Property Name="ID skład" Type="int" Nullable="false" />
           <Property Name="Produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Półprodukt" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Liczba" Type="int" Nullable="false" />
@@ -3979,6 +3981,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           </EntitySet>
           <EntitySet Name="v_Sklad_produkt" EntityType="Self.v_Sklad_produkt" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [v_Sklad_produkt].[ID skład] AS [ID skład], 
     [v_Sklad_produkt].[Produkt] AS [Produkt], 
     [v_Sklad_produkt].[Półprodukt] AS [Półprodukt], 
     [v_Sklad_produkt].[Liczba] AS [Liczba]
@@ -6388,10 +6391,12 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
         </EntityType>
         <EntityType Name="v_Sklad_produkt">
           <Key>
+            <PropertyRef Name="ID_skład" />
             <PropertyRef Name="Produkt" />
             <PropertyRef Name="Półprodukt" />
             <PropertyRef Name="Liczba" />
           </Key>
+          <Property Name="ID_skład" Type="Int32" Nullable="false" />
           <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Półprodukt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Liczba" Type="Int32" Nullable="false" />
@@ -10351,6 +10356,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <EntitySetMapping Name="v_Sklad_produkt">
             <EntityTypeMapping TypeName="KWZPModel.v_Sklad_produkt">
               <MappingFragment StoreEntitySet="v_Sklad_produkt">
+                <ScalarProperty Name="ID_skład" ColumnName="ID skład" />
                 <ScalarProperty Name="Produkt" ColumnName="Produkt" />
                 <ScalarProperty Name="Półprodukt" ColumnName="Półprodukt" />
                 <ScalarProperty Name="Liczba" ColumnName="Liczba" />

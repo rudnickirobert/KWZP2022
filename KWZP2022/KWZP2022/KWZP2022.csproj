@@ -295,11 +295,11 @@
     <Compile Include="SlownikStanowiskoForm.Designer.cs">
       <DependentUpon>SlownikStanowiskoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PolproduktForm.cs">
+    <Compile Include="PolproduktDodanieForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PolproduktForm.Designer.cs">
-      <DependentUpon>PolproduktForm.cs</DependentUpon>
+    <Compile Include="PolproduktDodanieForm.Designer.cs">
+      <DependentUpon>PolproduktDodanieForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProduktForm.cs">
       <SubType>Form</SubType>
@@ -732,8 +732,8 @@
     <EmbeddedResource Include="FormSalesDepartmentSales.resx">
       <DependentUpon>FormSalesDepartmentSales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PolproduktForm.resx">
-      <DependentUpon>PolproduktForm.cs</DependentUpon>
+    <EmbeddedResource Include="PolproduktDodanieForm.resx">
+      <DependentUpon>PolproduktDodanieForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProdukcjaFrom.resx">
       <DependentUpon>ProdukcjaFrom.cs</DependentUpon>
