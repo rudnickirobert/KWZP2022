@@ -133,5 +133,20 @@ namespace KWZP2022
             txtZakresDolny.Text = this.dgvvParametrPolprodukt.CurrentRow.Cells[3].Value.ToString();
             txtZakresGorny.Text = this.dgvvParametrPolprodukt.CurrentRow.Cells[4].Value.ToString();
         }
+
+        private void btnAktualizuj_Click(object sender, EventArgs e)
+        {
+            int currentID = int.Parse(dgvvParametrPolprodukt.CurrentRow.Cells[0].Value.ToString());
+            int newZD = (int)decimal.Parse(txtZakresDolny.Text);
+            int newZG = (int)decimal.Parse(txtZakresGorny.Text);
+            var result = db.Parametr_polprodukt.SingleOrDefault(b => b.ID_parametr_polprodukt == currentID);
+            if (result != null)
+            {
+                result.Zakres_dol=newZD;
+                result.Zakres_gora=newZG;
+                db.SaveChanges();
+            }
+            refreshScreen();
+        }
     }
 }
