@@ -11,7 +11,7 @@ GO
 
 CREATE VIEW v_Parametry_produkt
 AS
-SELECT P.Nazwa_produkt AS [Produkt], RP.Nazwa_rodzaj_parametr AS [Parametr],
+SELECT ID_parametr_produkt, P.Nazwa_produkt AS [Produkt], RP.Nazwa_rodzaj_parametr AS [Parametr],
 PP.Zakres_dol AS [Wymiar minimalny], PP.Zakres_gora AS [Wymiar maksymalny], J.Skrot AS [Jednostka]
 FROM Parametr_produkt AS PP
 INNER JOIN Produkt AS P ON PP.ID_produkt = P.ID_produkt

@@ -14,6 +14,14 @@
           <Property Name="Tresc" Type="nvarchar" MaxLength="250" />
           <Property Name="Czy_odczytano" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="Czas_pracy">
+          <Key>
+            <PropertyRef Name="ID_czas_pracy" />
+          </Key>
+          <Property Name="ID_czas_pracy" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Data" Type="date" Nullable="false" />
+          <Property Name="Liczba_godzin" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Czesc">
           <Key>
             <PropertyRef Name="ID_czesc" />
@@ -958,6 +966,24 @@ warning 6002: The table/view 'KWZP.dbo.v_Koszt' does not have a primary key defi
           <Property Name="Koszt półproduktów" Type="money" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Koszt_godziny_pracy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Koszt_godziny_pracy">
+          <Key>
+            <PropertyRef Name="ID_pracownik" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="Imie" />
+            <PropertyRef Name="Wynagrodzenie" />
+            <PropertyRef Name="Liczba_godzin" />
+          </Key>
+          <Property Name="ID_pracownik" Type="int" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Imie" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Wynagrodzenie" Type="int" Nullable="false" />
+          <Property Name="Liczba_godzin" Type="int" Nullable="false" />
+          <Property Name="Koszt godziny pracy" Type="int" />
+          <Property Name="Miesiąc" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Koszt_procesow_polprodukt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Koszt_procesow_polprodukt">
           <Key>
@@ -1341,12 +1367,14 @@ warning 6002: The table/view 'KWZP.dbo.v_Parametry_polprodukt' does not have a p
 warning 6002: The table/view 'KWZP.dbo.v_Parametry_produkt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Parametry_produkt">
           <Key>
+            <PropertyRef Name="ID_parametr_produkt" />
             <PropertyRef Name="Produkt" />
             <PropertyRef Name="Parametr" />
             <PropertyRef Name="Wymiar minimalny" />
             <PropertyRef Name="Wymiar maksymalny" />
             <PropertyRef Name="Jednostka" />
           </Key>
+          <Property Name="ID_parametr_produkt" Type="int" Nullable="false" />
           <Property Name="Produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Parametr" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Wymiar minimalny" Type="decimal" Precision="15" Scale="2" Nullable="false" />
@@ -3479,6 +3507,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
         </Association>
         <EntityContainer Name="KWZPModelStoreContainer">
           <EntitySet Name="Alert" EntityType="Self.Alert" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Czas_pracy" EntityType="Self.Czas_pracy" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Czesc" EntityType="Self.Czesc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Czynnosc_produkcyjna" EntityType="Self.Czynnosc_produkcyjna" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dane_adresowe_dostawca" EntityType="Self.Dane_adresowe_dostawca" Schema="dbo" store:Type="Tables" />
@@ -3648,6 +3677,17 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
     [v_Koszt].[Liczba] AS [Liczba], 
     [v_Koszt].[Koszt półproduktów] AS [Koszt półproduktów]
     FROM [dbo].[v_Koszt] AS [v_Koszt]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Koszt_godziny_pracy" EntityType="Self.v_Koszt_godziny_pracy" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Koszt_godziny_pracy].[ID_pracownik] AS [ID_pracownik], 
+    [v_Koszt_godziny_pracy].[Nazwisko] AS [Nazwisko], 
+    [v_Koszt_godziny_pracy].[Imie] AS [Imie], 
+    [v_Koszt_godziny_pracy].[Wynagrodzenie] AS [Wynagrodzenie], 
+    [v_Koszt_godziny_pracy].[Liczba_godzin] AS [Liczba_godzin], 
+    [v_Koszt_godziny_pracy].[Koszt godziny pracy] AS [Koszt godziny pracy], 
+    [v_Koszt_godziny_pracy].[Miesiąc] AS [Miesiąc]
+    FROM [dbo].[v_Koszt_godziny_pracy] AS [v_Koszt_godziny_pracy]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Koszt_procesow_polprodukt" EntityType="Self.v_Koszt_procesow_polprodukt" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -3884,6 +3924,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           </EntitySet>
           <EntitySet Name="v_Parametry_produkt" EntityType="Self.v_Parametry_produkt" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [v_Parametry_produkt].[ID_parametr_produkt] AS [ID_parametr_produkt], 
     [v_Parametry_produkt].[Produkt] AS [Produkt], 
     [v_Parametry_produkt].[Parametr] AS [Parametr], 
     [v_Parametry_produkt].[Wymiar minimalny] AS [Wymiar minimalny], 
@@ -4758,6 +4799,14 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <Property Name="Tresc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Czy_odczytano" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Dzial" Relationship="Self.FK__Alert__ID_dzial__42ACE4D4" FromRole="Alert" ToRole="Dzial" />
+        </EntityType>
+        <EntityType Name="Czas_pracy">
+          <Key>
+            <PropertyRef Name="ID_czas_pracy" />
+          </Key>
+          <Property Name="ID_czas_pracy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Liczba_godzin" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Czesc">
           <Key>
@@ -5925,6 +5974,22 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <Property Name="Liczba" Type="Int32" Nullable="false" />
           <Property Name="Koszt_półproduktów" Type="Decimal" Precision="19" Scale="4" />
         </EntityType>
+        <EntityType Name="v_Koszt_godziny_pracy">
+          <Key>
+            <PropertyRef Name="ID_pracownik" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="Imie" />
+            <PropertyRef Name="Wynagrodzenie" />
+            <PropertyRef Name="Liczba_godzin" />
+          </Key>
+          <Property Name="ID_pracownik" Type="Int32" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Wynagrodzenie" Type="Int32" Nullable="false" />
+          <Property Name="Liczba_godzin" Type="Int32" Nullable="false" />
+          <Property Name="Koszt_godziny_pracy" Type="Int32" />
+          <Property Name="Miesiąc" Type="Int32" />
+        </EntityType>
         <EntityType Name="v_Koszt_procesow_polprodukt">
           <Key>
             <PropertyRef Name="ID" />
@@ -6243,12 +6308,14 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
         </EntityType>
         <EntityType Name="v_Parametry_produkt">
           <Key>
+            <PropertyRef Name="ID_parametr_produkt" />
             <PropertyRef Name="Produkt" />
             <PropertyRef Name="Parametr" />
             <PropertyRef Name="Wymiar_minimalny" />
             <PropertyRef Name="Wymiar_maksymalny" />
             <PropertyRef Name="Jednostka" />
           </Key>
+          <Property Name="ID_parametr_produkt" Type="Int32" Nullable="false" />
           <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Parametr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Wymiar_minimalny" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
@@ -8285,6 +8352,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
         </Association>
         <EntityContainer Name="KWZPEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Alert" EntityType="Self.Alert" />
+          <EntitySet Name="Czas_pracy" EntityType="Self.Czas_pracy" />
           <EntitySet Name="Czesc" EntityType="Self.Czesc" />
           <EntitySet Name="Czynnosc_produkcyjna" EntityType="Self.Czynnosc_produkcyjna" />
           <EntitySet Name="Dane_adresowe_dostawca" EntityType="Self.Dane_adresowe_dostawca" />
@@ -8382,6 +8450,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <EntitySet Name="v_Klient_telefon_Historia" EntityType="Self.v_Klient_telefon_Historia" />
           <EntitySet Name="v_Kontrola_parametr_produkt" EntityType="Self.v_Kontrola_parametr_produkt" />
           <EntitySet Name="v_Koszt" EntityType="Self.v_Koszt" />
+          <EntitySet Name="v_Koszt_godziny_pracy" EntityType="Self.v_Koszt_godziny_pracy" />
           <EntitySet Name="v_Koszt_procesow_polprodukt" EntityType="Self.v_Koszt_procesow_polprodukt" />
           <EntitySet Name="v_Koszt_procesow_produkt" EntityType="Self.v_Koszt_procesow_produkt" />
           <EntitySet Name="v_Koszt_produkcji" EntityType="Self.v_Koszt_produkcji" />
@@ -8967,6 +9036,15 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
                 <ScalarProperty Name="ID_dzial" ColumnName="ID_dzial" />
                 <ScalarProperty Name="Tresc" ColumnName="Tresc" />
                 <ScalarProperty Name="Czy_odczytano" ColumnName="Czy_odczytano" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Czas_pracy">
+            <EntityTypeMapping TypeName="KWZPModel.Czas_pracy">
+              <MappingFragment StoreEntitySet="Czas_pracy">
+                <ScalarProperty Name="ID_czas_pracy" ColumnName="ID_czas_pracy" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Liczba_godzin" ColumnName="Liczba_godzin" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -9937,6 +10015,19 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="v_Koszt_godziny_pracy">
+            <EntityTypeMapping TypeName="KWZPModel.v_Koszt_godziny_pracy">
+              <MappingFragment StoreEntitySet="v_Koszt_godziny_pracy">
+                <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="Wynagrodzenie" ColumnName="Wynagrodzenie" />
+                <ScalarProperty Name="Liczba_godzin" ColumnName="Liczba_godzin" />
+                <ScalarProperty Name="Koszt_godziny_pracy" ColumnName="Koszt godziny pracy" />
+                <ScalarProperty Name="Miesiąc" ColumnName="Miesiąc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="v_Koszt_procesow_polprodukt">
             <EntityTypeMapping TypeName="KWZPModel.v_Koszt_procesow_polprodukt">
               <MappingFragment StoreEntitySet="v_Koszt_procesow_polprodukt">
@@ -10237,6 +10328,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <EntitySetMapping Name="v_Parametry_produkt">
             <EntityTypeMapping TypeName="KWZPModel.v_Parametry_produkt">
               <MappingFragment StoreEntitySet="v_Parametry_produkt">
+                <ScalarProperty Name="ID_parametr_produkt" ColumnName="ID_parametr_produkt" />
                 <ScalarProperty Name="Produkt" ColumnName="Produkt" />
                 <ScalarProperty Name="Parametr" ColumnName="Parametr" />
                 <ScalarProperty Name="Wymiar_minimalny" ColumnName="Wymiar minimalny" />

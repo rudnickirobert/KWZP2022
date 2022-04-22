@@ -58,6 +58,9 @@
     <Compile Include="Alert.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Czas_pracy.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Czesc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -162,6 +165,12 @@
     </Compile>
     <Compile Include="Oferta_handlowa.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ParametrProduktForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ParametrProduktForm.Designer.cs">
+      <DependentUpon>ParametrProduktForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Parametr_czesc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
@@ -403,6 +412,9 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Koszt.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Koszt_godziny_pracy.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Koszt_procesow_polprodukt.cs">
@@ -675,6 +687,9 @@
     <EmbeddedResource Include="FormSalesDepartmentSales.resx">
       <DependentUpon>FormSalesDepartmentSales.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ParametrProduktForm.resx">
+      <DependentUpon>ParametrProduktForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PolproduktDodanieForm.resx">
       <DependentUpon>PolproduktDodanieForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -692,6 +707,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="SlownikStanowiskoForm.resx">
       <DependentUpon>SlownikStanowiskoForm.cs</DependentUpon>
@@ -731,6 +747,7 @@
       <DependentUpon>KWZPModel.edmx</DependentUpon>
       <LastGenOutput>KWZPModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\form_background.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

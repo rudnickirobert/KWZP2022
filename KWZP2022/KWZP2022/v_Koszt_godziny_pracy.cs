@@ -12,13 +12,14 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Parametry_produkt
+    public partial class v_Koszt_godziny_pracy
     {
-        public int ID_parametr_produkt { get; set; }
-        public string Produkt { get; set; }
-        public string Parametr { get; set; }
-        public decimal Wymiar_minimalny { get; set; }
-        public decimal Wymiar_maksymalny { get; set; }
-        public string Jednostka { get; set; }
+        public int ID_pracownik { get; set; }
+        public string Nazwisko { get; set; }
+        public string Imie { get; set; }
+        public int Wynagrodzenie { get; set; }
+        public int Liczba_godzin { get; set; }
+        public Nullable<int> Koszt_godziny_pracy { get; set; }
+        public Nullable<int> Miesiąc { get; set; }
     }
 }
