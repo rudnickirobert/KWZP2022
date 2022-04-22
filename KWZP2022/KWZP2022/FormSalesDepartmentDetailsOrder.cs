@@ -33,7 +33,7 @@ namespace KWZP2022
         {
             MessageBox.Show("Wyszukiwany numer sprzedaży nie widnieje w bazie danych.", "Błąd", MessageBoxButtons.OK);
         }
-        private void msgCleanShowData()
+        private void msgClearShowData()
         {
             messageBox();
             clearTextBox();
@@ -55,12 +55,12 @@ namespace KWZP2022
                 }
                 else
                 {
-                    msgCleanShowData();
+                    msgClearShowData();
                 }
             }
             catch (Exception)
             {
-                msgCleanShowData();
+                msgClearShowData();
             }
         }
         private void btnDetails_Click_1(object sender, EventArgs e)

@@ -19,7 +19,7 @@ namespace KWZP2022
             this.db = db;
             showDgvOrders();
         }
-        private void cleanTextBox()
+        private void clearTextBox()
         {
             textBox1Name.Clear();
             textBox2Name.Clear();
@@ -35,7 +35,7 @@ namespace KWZP2022
         private void msgClearShowData()
         {
             messageBox();
-            cleanTextBox();
+            clearTextBox();
             showDgvOrders();
         }
 
@@ -53,7 +53,7 @@ namespace KWZP2022
             {
                 this.dgvOrders.DataSource = vClientSurname.Cast<v_Zamowienie>().ToList();
                 this.dgvOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-                cleanTextBox();
+                clearTextBox();
             }
             else
             {
@@ -68,7 +68,7 @@ namespace KWZP2022
             {
                 this.dgvOrders.DataSource = vClientName.Cast<v_Zamowienie>().ToList();
                 this.dgvOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-                cleanTextBox();
+                clearTextBox();
             }
             else
             {
@@ -86,7 +86,7 @@ namespace KWZP2022
                 if (vOrderIdInt > 0)
                 {
                     this.dgvOrders.DataSource = vOrderId.Cast<v_Zamowienie>().ToList();
-                    cleanTextBox();
+                    clearTextBox();
                 }
                 else
                 {
@@ -106,7 +106,7 @@ namespace KWZP2022
             {
                 this.dgvOrders.DataSource = vSurnameE.Cast<v_Zamowienie>().ToList();
                 this.dgvOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-                cleanTextBox();
+                clearTextBox();
             }
             else
             {
@@ -121,7 +121,7 @@ namespace KWZP2022
             {
                 this.dgvOrders.DataSource = vNameE.Cast<v_Zamowienie>().ToList();
                 this.dgvOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-                cleanTextBox();
+                clearTextBox();
             }
             else
             {
@@ -136,7 +136,7 @@ namespace KWZP2022
             {
                 this.dgvOrders.DataSource = vTypeOrder.Cast<v_Zamowienie>().ToList();
                 this.dgvOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-                cleanTextBox();
+                clearTextBox();
             }
             else
             {
@@ -231,7 +231,7 @@ namespace KWZP2022
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             showDgvOrders();
-            cleanTextBox();
+            clearTextBox();
         }
         private void btnDetails_Click(object sender, EventArgs e)
         {

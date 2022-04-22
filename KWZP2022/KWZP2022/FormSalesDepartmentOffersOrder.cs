@@ -25,7 +25,7 @@ namespace KWZP2022
             this.dgvOffers.DataSource = db.v_Oferta_handlowa.ToList();
             this.dgvOffers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
-        private void cleanTextBox()
+        private void clearTextBox()
         {
             textBoxOffers.Clear();
         }
@@ -36,7 +36,7 @@ namespace KWZP2022
         private void msgClearShowData()
         {
             messageBox();
-            cleanTextBox();
+            clearTextBox();
             Data();
         }
         private void enterIdOrder()
@@ -50,7 +50,7 @@ namespace KWZP2022
                 if (vOrderIdInt > 0)
                 {
                     this.dgvOffers.DataSource = vOrderId.Cast<v_Oferta_handlowa>().ToList();
-                    cleanTextBox();
+                    clearTextBox();
                 }
                 else
                 {
@@ -72,7 +72,7 @@ namespace KWZP2022
         private void btnRefresh_Click_1(object sender, EventArgs e)
         {
             Data();
-            cleanTextBox();
+            clearTextBox();
         }
     }
 }
