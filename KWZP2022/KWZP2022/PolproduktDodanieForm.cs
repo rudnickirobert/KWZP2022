@@ -70,7 +70,7 @@ namespace KWZP2022
             //Sprawdzenie czy dany półprodukt znajduje się już w słowniku.
 
             Slownik_polprodukt polprodukt = new Slownik_polprodukt();
-            bool found = new bool();
+            bool found = false;
             foreach (DataGridViewRow item in dgvPolprodukt.Rows)
             {
                 if (item.Cells[1].Value != null && item.Cells[1].Value.ToString() == txtPolprodukt.Text)
@@ -84,21 +84,20 @@ namespace KWZP2022
                 }
             }
 
-            if (found == false)
+            if (found)
+            {
+                if (txtPolprodukt.Enabled == false)
+                {
+                    MessageBox.Show("Półproduk istnieje już w bazie danych.");
+                }
+            }
+            else
             {
                 polprodukt.Nazwa = txtPolprodukt.Text;
                 db.Slownik_polprodukt.Add(polprodukt);
                 db.SaveChanges();
                 MessageBox.Show("Poprawnie dodano półproduk '" + polprodukt.Nazwa + "' do słownika");
                 initDataGridViewPolprodukt();
-            }
-            else
-            {
-                if (txtPolprodukt.Enabled = false)
-                {
-                    MessageBox.Show("Półproduk istnieje już w bazie danych.");
-                }
-                
             }
 
             // W PLANACH NA DALSZY ROZWÓJ Sprawdzenie czy w sklad_produkt znajduje się już taka para produkt-półprodukt. Jeśli tak, to dodaje ilość półproduktów do istniejącego rekordu w tabeli skład_produkt
@@ -134,7 +133,6 @@ namespace KWZP2022
             db.Sklad_produkt.Add(skladProdukt);
             db.SaveChanges();
 
-            
             MessageBox.Show("Poprawnie powiązano półprodukt '" + txtPolprodukt.Text + "' z produktem '"+ this.dgvProdukt.CurrentRow.Cells[1].Value.ToString() + "'.");
             refreshScreen();
         }
@@ -142,7 +140,11 @@ namespace KWZP2022
 
         private void btnUsun_Click(object sender, EventArgs e)
         {
-            if (txtPolprodukt.Enabled == false)
+            if (txtPolprodukt == null && txtNazwaProdukt == null && txtIlosc.Text == null)
+            {
+                MessageBox.Show("Nie wybrałeś obiektu do usunięcia");
+            }
+            else if (txtPolprodukt.Enabled == false)
             {
                 DialogResult polprodukDeleteResult = MessageBox.Show("Czy na pewno chcesz usunąć półprodukt '" + txtPolprodukt.Text + "'?", "Question", MessageBoxButtons.YesNo);
 
