@@ -157,6 +157,7 @@ namespace KWZP2022
         public virtual DbSet<v_Parametry_polprodukt> v_Parametry_polprodukt { get; set; }
         public virtual DbSet<v_Parametry_produkt> v_Parametry_produkt { get; set; }
         public virtual DbSet<v_Pracownik> v_Pracownik { get; set; }
+        public virtual DbSet<v_Pracownik_dzial> v_Pracownik_dzial { get; set; }
         public virtual DbSet<v_Proces_polprodukt_czynnosc> v_Proces_polprodukt_czynnosc { get; set; }
         public virtual DbSet<v_Proces_produkt_czynnosc> v_Proces_produkt_czynnosc { get; set; }
         public virtual DbSet<v_Proces_wytwarzanie_polprodukt> v_Proces_wytwarzanie_polprodukt { get; set; }
@@ -170,6 +171,7 @@ namespace KWZP2022
         public virtual DbSet<v_Sklad_stanowisko_produkcyjne_maszyna> v_Sklad_stanowisko_produkcyjne_maszyna { get; set; }
         public virtual DbSet<v_Sklad_stanowisko_produkcyjne_narzedzie> v_Sklad_stanowisko_produkcyjne_narzedzie { get; set; }
         public virtual DbSet<v_Slownik_stanowisko> v_Slownik_stanowisko { get; set; }
+        public virtual DbSet<v_Sprzedany_produkt> v_Sprzedany_produkt { get; set; }
         public virtual DbSet<v_Sprzedaz> v_Sprzedaz { get; set; }
         public virtual DbSet<v_Stanowiska_do_uzycia> v_Stanowiska_do_uzycia { get; set; }
         public virtual DbSet<v_Stanowiska_w_uzyciu> v_Stanowiska_w_uzyciu { get; set; }
@@ -194,5 +196,7 @@ namespace KWZP2022
         public virtual DbSet<v_Zamowienia_narzedzia_w_trakcie> v_Zamowienia_narzedzia_w_trakcie { get; set; }
         public virtual DbSet<v_Zamowienia_narzedzia_w_trakcie_bez_odebranych> v_Zamowienia_narzedzia_w_trakcie_bez_odebranych { get; set; }
         public virtual DbSet<v_Zamowienia_narzedzia_w_trakcie_wszystko> v_Zamowienia_narzedzia_w_trakcie_wszystko { get; set; }
+        public virtual DbSet<v_Zamowienie> v_Zamowienie { get; set; }
+        public virtual DbSet<v_Zamowienie_szczegol> v_Zamowienie_szczegol { get; set; }
     }
 }

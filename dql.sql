@@ -605,6 +605,7 @@ CREATE VIEW v_Reklamacja
 AS
 SELECT Reklamacja.ID_sprzedaz AS [Numer sprzedaży],
 Reklamacja.ID_reklamacja AS [Numer reklamacji],
+Produkt.ID_produkt AS [ID produkt],
 Reklamacja.Data_reklamacja AS [Data reklamacji],
 Reklamacja.Opis_reklamacja AS [Opis reklamacji],
 Produkt.Nazwa_produkt AS [Nazwa produktu],
@@ -636,6 +637,30 @@ CREATE VIEW v_Klient_telefon_Historia AS
 	INNER JOIN Nr_telefon_klient ON Klient.ID_klient = Nr_telefon_klient.ID_klient
 	ORDER BY Data_do DESC OFFSET 0 ROWS
 	GO
+
+	CREATE VIEW v_Sprzedany_produkt
+AS
+SELECT S.ID_sprzedaz, SS.ID_produkt, P.Nazwa_produkt FROM Szczegoly_sprzedaz AS SS
+INNER JOIN Sprzedaz AS S ON SS.ID_sprzedaz = S.ID_sprzedaz
+INNER JOIN Produkt AS P ON SS.ID_produkt = P.ID_produkt 
+GO
+
+CREATE VIEW v_Zamowienie_szczegol AS
+	SELECT Zamowienie.ID_zamowienie AS [Nr zamówienia], Produkt.Nazwa_produkt AS [Produkt], Zamowienie_szczegol.Ilosc AS [Ilość]
+	FROM Zamowienie_szczegol
+	INNER JOIN Produkt ON Produkt.ID_produkt = Zamowienie_szczegol.ID_produkt
+	INNER JOIN Zamowienie ON Zamowienie.ID_zamowienie = Zamowienie_szczegol.ID_zamowienie
+GO
+
+CREATE VIEW v_Zamowienie AS
+	SELECT Zamowienie.Data_zamowienie AS [Data przyjęcia], Zamowienie.ID_zamowienie AS [Nr zamówienia], Klient.Nazwisko AS [Nazwisko klienta], Klient.Imie AS [Imię klienta], Typ_zamowienie.Typ_zamowienie AS [Typ zamówienia],
+	Pracownik.Nazwisko AS [Nazwisko pracownika], Pracownik.Imie AS [Imię pracownika]
+	FROM Zamowienie
+	INNER JOIN Klient ON Klient.ID_klient = Zamowienie.ID_zamowienie
+	INNER JOIN Pracownik ON Pracownik.ID_pracownik = Zamowienie.ID_pracownik
+	INNER JOIN Typ_zamowienie ON Typ_zamowienie.ID_typ_zamowienie = Zamowienie.ID_typ_zamowienie
+	ORDER BY Data_zamowienie DESC OFFSET 0 ROWS 
+GO
 
 	--HR DEPARTMENT --
 CREATE VIEW v_Pracownik
@@ -729,5 +754,15 @@ AS
 SELECT ID_Pracownik, Miesiąc, SUM(Czas) AS [Łączny czas]
 FROM  dbo.v_Nadgodziny_miesiac
 GROUP BY ID_Pracownik, Miesiąc
+GO
+
+CREATE VIEW v_Pracownik_dzial
+AS
+SELECT P.ID_pracownik, Nazwisko, Imie, Nazwa_dzial FROM Pracownik AS P--Reklamacja
+INNER JOIN Umowa AS U ON P.ID_pracownik = U.ID_pracownik
+INNER JOIN Posada_pracownika AS PP ON U.ID_posada_pracownika = PP.ID_posada_pracownika
+INNER JOIN Etat AS E ON PP.ID_etat = E.ID_etat
+INNER JOIN Dzial AS D ON E.ID_dzial = D.ID_dzial
+WHERE Nazwa_dzial = 'Handlowy i marketingu'
 GO
 

@@ -29,6 +29,7 @@ namespace KWZP2022
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSalesDepartmentComplaint));
             this.btnAddReturn = new System.Windows.Forms.Button();
             this.dgvComplaint = new System.Windows.Forms.DataGridView();
             this.btnClose = new System.Windows.Forms.Button();
@@ -55,6 +56,7 @@ namespace KWZP2022
             this.btnAddReturn.TabIndex = 0;
             this.btnAddReturn.Text = "Dodaj Zwrot";
             this.btnAddReturn.UseVisualStyleBackColor = true;
+            this.btnAddReturn.Click += new System.EventHandler(this.btnAddReturn_Click);
             // 
             // dgvComplaint
             // 
@@ -86,20 +88,22 @@ namespace KWZP2022
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 10F);
             this.label1.Location = new System.Drawing.Point(12, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 16);
+            this.label1.Size = new System.Drawing.Size(119, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "Numer sprzedaży:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial", 10F);
             this.label2.Location = new System.Drawing.Point(12, 106);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 16);
+            this.label2.Size = new System.Drawing.Size(119, 16);
             this.label2.TabIndex = 6;
             this.label2.Text = "Numer reklamacji:";
             // 
@@ -133,14 +137,15 @@ namespace KWZP2022
             // cbAcceptComplaintYes
             // 
             this.cbAcceptComplaintYes.AutoSize = true;
+            this.cbAcceptComplaintYes.BackColor = System.Drawing.Color.Transparent;
             this.cbAcceptComplaintYes.Font = new System.Drawing.Font("Arial", 10F);
             this.cbAcceptComplaintYes.Location = new System.Drawing.Point(244, 128);
             this.cbAcceptComplaintYes.Name = "cbAcceptComplaintYes";
             this.cbAcceptComplaintYes.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cbAcceptComplaintYes.Size = new System.Drawing.Size(53, 20);
+            this.cbAcceptComplaintYes.Size = new System.Drawing.Size(52, 20);
             this.cbAcceptComplaintYes.TabIndex = 9;
             this.cbAcceptComplaintYes.Text = "TAK";
-            this.cbAcceptComplaintYes.UseVisualStyleBackColor = true;
+            this.cbAcceptComplaintYes.UseVisualStyleBackColor = false;
             // 
             // btnSearch
             // 
@@ -167,22 +172,24 @@ namespace KWZP2022
             // cbAcceptComplaintNO
             // 
             this.cbAcceptComplaintNO.AutoSize = true;
+            this.cbAcceptComplaintNO.BackColor = System.Drawing.Color.Transparent;
             this.cbAcceptComplaintNO.Font = new System.Drawing.Font("Arial", 10F);
             this.cbAcceptComplaintNO.Location = new System.Drawing.Point(333, 128);
             this.cbAcceptComplaintNO.Name = "cbAcceptComplaintNO";
             this.cbAcceptComplaintNO.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cbAcceptComplaintNO.Size = new System.Drawing.Size(48, 20);
+            this.cbAcceptComplaintNO.Size = new System.Drawing.Size(47, 20);
             this.cbAcceptComplaintNO.TabIndex = 12;
             this.cbAcceptComplaintNO.Text = "NIE";
-            this.cbAcceptComplaintNO.UseVisualStyleBackColor = true;
+            this.cbAcceptComplaintNO.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial", 10F);
             this.label3.Location = new System.Drawing.Point(241, 106);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 16);
+            this.label3.Size = new System.Drawing.Size(121, 16);
             this.label3.TabIndex = 13;
             this.label3.Text = "Czy akceptowano:";
             // 
@@ -190,6 +197,7 @@ namespace KWZP2022
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(794, 491);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbAcceptComplaintNO);

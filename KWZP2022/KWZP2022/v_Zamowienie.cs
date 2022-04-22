@@ -12,15 +12,14 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Reklamacja
+    public partial class v_Zamowienie
     {
-        public int Numer_sprzedaży { get; set; }
-        public int Numer_reklamacji { get; set; }
-        public int ID_produkt { get; set; }
-        public System.DateTime Data_reklamacji { get; set; }
-        public string Opis_reklamacji { get; set; }
-        public string Nazwa_produktu { get; set; }
-        public int Ilość { get; set; }
-        public bool Akceptacja { get; set; }
+        public System.DateTime Data_przyjęcia { get; set; }
+        public int Nr_zamówienia { get; set; }
+        public string Nazwisko_klienta { get; set; }
+        public string Imię_klienta { get; set; }
+        public string Typ_zamówienia { get; set; }
+        public string Nazwisko_pracownika { get; set; }
+        public string Imię_pracownika { get; set; }
     }
 }

@@ -106,6 +106,12 @@
     <Compile Include="FormSalesDepartmentComplaint.Designer.cs">
       <DependentUpon>FormSalesDepartmentComplaint.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSalesDepartmentComplaintAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesDepartmentComplaintAdd.Designer.cs">
+      <DependentUpon>FormSalesDepartmentComplaintAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gwarancja.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -513,6 +519,9 @@
     <Compile Include="v_Pracownik.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Pracownik_dzial.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Proces_polprodukt_czynnosc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -550,6 +559,9 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Slownik_stanowisko.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Sprzedany_produkt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Sprzedaz.cs">
@@ -624,6 +636,12 @@
     <Compile Include="v_Zamowienia_narzedzia_w_trakcie_wszystko.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Zamowienie.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Zamowienie_szczegol.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Wyksztalcenie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -680,6 +698,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSalesDepartmentComplaint.resx">
       <DependentUpon>FormSalesDepartmentComplaint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSalesDepartmentComplaintAdd.resx">
+      <DependentUpon>FormSalesDepartmentComplaintAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSalesDepartmentSales.resx">
       <DependentUpon>FormSalesDepartmentSales.cs</DependentUpon>
