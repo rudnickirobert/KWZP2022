@@ -47,7 +47,7 @@
             this.comboBoxNoSale = new System.Windows.Forms.ComboBox();
             this.comboBoxNoProduct = new System.Windows.Forms.ComboBox();
             this.comboBoxNoEmployee = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCheckComplaint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComplaint)).BeginInit();
             this.SuspendLayout();
             // 
@@ -234,15 +234,16 @@
             this.comboBoxNoEmployee.Size = new System.Drawing.Size(129, 24);
             this.comboBoxNoEmployee.TabIndex = 85;
             // 
-            // button1
+            // btnCheckComplaint
             // 
-            this.button1.Location = new System.Drawing.Point(513, 49);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 86;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCheckComplaint.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.btnCheckComplaint.Location = new System.Drawing.Point(218, 214);
+            this.btnCheckComplaint.Name = "btnCheckComplaint";
+            this.btnCheckComplaint.Size = new System.Drawing.Size(220, 28);
+            this.btnCheckComplaint.TabIndex = 86;
+            this.btnCheckComplaint.Text = "Sprawdź możliwość reklamacji";
+            this.btnCheckComplaint.UseVisualStyleBackColor = true;
+            this.btnCheckComplaint.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormSalesDepartmentComplaintAdd
             // 
@@ -250,7 +251,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(794, 491);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCheckComplaint);
             this.Controls.Add(this.comboBoxNoEmployee);
             this.Controls.Add(this.comboBoxNoProduct);
             this.Controls.Add(this.comboBoxNoSale);
@@ -296,6 +297,6 @@
         private System.Windows.Forms.ComboBox comboBoxNoSale;
         private System.Windows.Forms.ComboBox comboBoxNoProduct;
         private System.Windows.Forms.ComboBox comboBoxNoEmployee;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCheckComplaint;
     }
 }

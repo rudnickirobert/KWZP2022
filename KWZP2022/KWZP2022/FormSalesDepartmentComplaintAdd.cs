@@ -44,7 +44,7 @@ namespace KWZP2022
         }
         private void msgError()
         {
-            MessageBox.Show("Wprowadzono błędnie dane", "Błąd", MessageBoxButtons.OK);
+            MessageBox.Show("Błędnie wprowadzono dane", "Błąd", MessageBoxButtons.OK,MessageBoxIcon.Error);
         }
         private void comboBoxNoSaleData()
         {
@@ -104,7 +104,7 @@ namespace KWZP2022
                     }
                     else
                     {
-                        MessageBox.Show("Zwrócono więcej produktów niż zostało kupionych", "Uwaga", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        MessageBox.Show("Zwrócono więcej produktów niż zostało kupionych", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 Reklamacja newComplaint = new Reklamacja();
@@ -133,46 +133,52 @@ namespace KWZP2022
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int selectNoSale = int.Parse(comboBoxNoSale.SelectedValue.ToString());
-            int selectNoProduct = int.Parse(comboBoxNoProduct.SelectedValue.ToString());
-            Szczegoly_sprzedaz productCount = this.db.Szczegoly_sprzedaz.Single(a => a.ID_sprzedaz == selectNoSale && a.ID_produkt == selectNoProduct);
-            int selectNoSaleReturn = int.Parse(comboBoxNoSale.SelectedValue.ToString());
-            int selectNoProductReturn = int.Parse(comboBoxNoProduct.SelectedValue.ToString());
-            int productReturnCount = this.db.v_Reklamacja.Count(a => a.Numer_sprzedaży == selectNoSaleReturn && a.ID_produkt == selectNoProductReturn && a.Akceptacja == true);
-            if (productReturnCount != 0)
+            if (comboBoxNoProduct.SelectedValue != null && comboBoxNoSale.SelectedValue != null && textBoxAmount.Text.Length > 0)
             {
-                try
+                int selectNoSale = int.Parse(comboBoxNoSale.SelectedValue.ToString());
+                int selectNoProduct = int.Parse(comboBoxNoProduct.SelectedValue.ToString());
+                Szczegoly_sprzedaz productCount = this.db.Szczegoly_sprzedaz.Single(a => a.ID_sprzedaz == selectNoSale && a.ID_produkt == selectNoProduct);
+                int selectNoSaleReturn = int.Parse(comboBoxNoSale.SelectedValue.ToString());
+                int selectNoProductReturn = int.Parse(comboBoxNoProduct.SelectedValue.ToString());
+                int productReturnCount = this.db.v_Reklamacja.Count(a => a.Numer_sprzedaży == selectNoSaleReturn && a.ID_produkt == selectNoProductReturn && a.Akceptacja == true);
+                if (productReturnCount != 0)
+                {
+                    try
+                    {
+                        v_Reklamacja productReturnSingle = this.db.v_Reklamacja.Single(a => a.Numer_sprzedaży == selectNoSale && a.ID_produkt == selectNoProduct);
+                        int amountTotal = productCount.Ilosc - productReturnSingle.Ilość - int.Parse(textBoxAmount.Text);
+                        if (amountTotal >= 0)
+                        {
+                            MessageBox.Show("Można przyjąć reklamację", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Zwrócono więcej produktów niż zostało kupionych", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Błędnie wprowadzono dane.", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
                 {
                     v_Reklamacja productReturnSingle = this.db.v_Reklamacja.Single(a => a.Numer_sprzedaży == selectNoSale && a.ID_produkt == selectNoProduct);
-                    int amountTotal = productCount.Ilosc - productReturnSingle.Ilość - int.Parse(textBoxAmount.Text);
+                    int amountTotal = productCount.Ilosc - int.Parse(textBoxAmount.Text);
                     if (amountTotal >= 0)
                     {
-                        MessageBox.Show($"{amountTotal}", "sdas", MessageBoxButtons.OK);
+                        MessageBox.Show("Można przyjąć reklamację", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MessageBox.Show("Zwrócono więcej produktów niż zostało kupionych", "Uwaga", MessageBoxButtons.OK);
+                        MessageBox.Show("Zwrócono więcej produktów niż zostało kupionych", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Przedmiot oddano na reklamację już dwa razy.","Informacja",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 }
             }
             else
             {
-                v_Reklamacja productReturnSingle = this.db.v_Reklamacja.Single(a => a.Numer_sprzedaży == selectNoSale && a.ID_produkt == selectNoProduct);
-                int amountTotal = productCount.Ilosc - int.Parse(textBoxAmount.Text);
-                if (amountTotal >= 0)
-                {
-                    MessageBox.Show($"{amountTotal}", "sdas", MessageBoxButtons.OK);
-                }
-                else
-                {
-                    MessageBox.Show("Zwrócono więcej produktów niż zostało kupionych", "Uwaga", MessageBoxButtons.OK);
-                }
+                msgError();
             }
-
         }
     }
 }
