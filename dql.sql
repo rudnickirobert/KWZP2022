@@ -275,7 +275,15 @@ GO
 
 -----RESOURCE DEPARTMENT----
 
-CREATE VIEW v_Sklad_maszyna AS 
+CREATE VIEW v_Material 
+AS 
+SELECT ID_material AS [ID Materiału], Rodzaj_material.Nazwa_rodzaj_material AS [Rodzaj materiału], Nazwa_material AS [Nazwa materiału]
+FROM Material
+INNER JOIN Rodzaj_material ON Material.ID_rodzaj_material = Rodzaj_material.ID_rodzaj_material
+GO
+
+CREATE VIEW v_Sklad_maszyna 
+AS 
 SELECT Maszyna.Nazwa_maszyna AS [Nazwa maszyny], Czesc.Nazwa_czesc AS [Nazwa części], Sklad_maszyna.Liczba_czesci AS [Liczba czesci]
 FROM Sklad_maszyna 
 INNER JOIN Maszyna  
@@ -285,7 +293,8 @@ ON Sklad_maszyna.ID_czesc=Czesc.ID_czesc
 GROUP BY Maszyna.Nazwa_maszyna, Czesc.Nazwa_czesc, Sklad_maszyna.Liczba_czesci;
 GO
 
-CREATE VIEW v_Parametry_maszyna AS
+CREATE VIEW v_Parametry_maszyna 
+AS
 SELECT Maszyna.Nazwa_maszyna AS [Nazwa maszyny], Rodzaj_parametr.Nazwa_rodzaj_parametr AS [Parametr], Jednostka.Skrot AS [Jednostka], Zakres_dol AS [Zakres - granica dolna], Zakres_gora AS [Zakres - granica górna]
 FROM Parametr_maszyna
 INNER JOIN Maszyna
@@ -295,7 +304,8 @@ ON Parametr_maszyna.ID_rodzaj_parametr=Rodzaj_parametr.ID_rodzaj_parametr
 GROUP BY Maszyna.Nazwa_maszyna, Rodzaj_parametr.Nazwa_rodzaj_parametr, Jednostka.Skrot, Zakres_dol, Zakres_gora;
 GO
 
-CREATE VIEW v_Parametry_material AS
+CREATE VIEW v_Parametry_material 
+AS
 SELECT Material.Nazwa_material AS [Nazwa materiału], Rodzaj_parametr.Nazwa_rodzaj_parametr AS [Parametr], Jednostka.Skrot AS [Jednostka], Zakres_dol AS [Zakres - granica dolna], Zakres_gora AS [Zakres - granica górna]
 FROM Parametr_material
 INNER JOIN Material
@@ -305,7 +315,8 @@ ON Parametr_material.ID_rodzaj_parametr=Rodzaj_parametr.ID_rodzaj_parametr
 GROUP BY Material.Nazwa_material, Rodzaj_parametr.Nazwa_rodzaj_parametr, Jednostka.Skrot, Zakres_dol, Zakres_gora;
 GO
 
-CREATE VIEW v_Parametry_czesc AS
+CREATE VIEW v_Parametry_czesc 
+AS
 SELECT Czesc.Nazwa_czesc AS [Nazwa części], Rodzaj_parametr.Nazwa_rodzaj_parametr AS [Parametr], Jednostka.Skrot AS [Jednostka], Zakres_dol AS [Zakres - granica dolna], Zakres_gora AS [Zakres - granica górna]
 FROM Parametr_czesc
 INNER JOIN Czesc
@@ -315,7 +326,8 @@ ON Parametr_czesc.ID_rodzaj_parametr=Rodzaj_parametr.ID_rodzaj_parametr
 GROUP BY Czesc.Nazwa_czesc, Rodzaj_parametr.Nazwa_rodzaj_parametr, Jednostka.Skrot, Zakres_dol, Zakres_gora;
 GO
 
-CREATE VIEW v_Parametry_narzedzie AS
+CREATE VIEW v_Parametry_narzedzie 
+AS
 SELECT Narzedzie.Nazwa_narzedzie AS [Nazwa narzędzia], Rodzaj_parametr.Nazwa_rodzaj_parametr AS [Parametr], Jednostka.Skrot AS [Jednostka], Zakres_dol AS [Zakres - granica dolna], Zakres_gora AS [Zakres - granica górna]
 FROM Parametr_narzedzie
 INNER JOIN Narzedzie
