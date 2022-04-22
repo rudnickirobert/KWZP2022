@@ -259,11 +259,11 @@
     <Compile Include="SlownikStanowiskoForm.Designer.cs">
       <DependentUpon>SlownikStanowiskoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PolproduktForm.cs">
+    <Compile Include="PolproduktDodanieForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PolproduktForm.Designer.cs">
-      <DependentUpon>PolproduktForm.cs</DependentUpon>
+    <Compile Include="PolproduktDodanieForm.Designer.cs">
+      <DependentUpon>PolproduktDodanieForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProduktForm.cs">
       <SubType>Form</SubType>
@@ -447,9 +447,6 @@
     <Compile Include="v_Magazyn_maszyn_wszystko.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="v_Magazyn_material_wszystko.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="v_Magazyn_narzedzia_nieuzywane.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -460,6 +457,9 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Magazyn_narzedzia_wszystko.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Magazyn_Produkty_Wytworzone.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Nadgodziny.cs">
@@ -675,8 +675,8 @@
     <EmbeddedResource Include="FormSalesDepartmentSales.resx">
       <DependentUpon>FormSalesDepartmentSales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PolproduktForm.resx">
-      <DependentUpon>PolproduktForm.cs</DependentUpon>
+    <EmbeddedResource Include="PolproduktDodanieForm.resx">
+      <DependentUpon>PolproduktDodanieForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProdukcjaFrom.resx">
       <DependentUpon>ProdukcjaFrom.cs</DependentUpon>
