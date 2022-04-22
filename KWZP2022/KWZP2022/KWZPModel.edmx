@@ -1351,12 +1351,14 @@ warning 6002: The table/view 'KWZP.dbo.v_Parametry_narzedzie' does not have a pr
 warning 6002: The table/view 'KWZP.dbo.v_Parametry_polprodukt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Parametry_polprodukt">
           <Key>
+            <PropertyRef Name="ID_parametr_polprodukt" />
             <PropertyRef Name="Nazwa półproduktu" />
             <PropertyRef Name="Parametr" />
             <PropertyRef Name="Wymiar minimalny" />
             <PropertyRef Name="Wymiar maksymalny" />
             <PropertyRef Name="Jednostka" />
           </Key>
+          <Property Name="ID_parametr_polprodukt" Type="int" Nullable="false" />
           <Property Name="Nazwa półproduktu" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Parametr" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Wymiar minimalny" Type="decimal" Precision="15" Scale="2" Nullable="false" />
@@ -3915,6 +3917,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           </EntitySet>
           <EntitySet Name="v_Parametry_polprodukt" EntityType="Self.v_Parametry_polprodukt" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [v_Parametry_polprodukt].[ID_parametr_polprodukt] AS [ID_parametr_polprodukt], 
     [v_Parametry_polprodukt].[Nazwa półproduktu] AS [Nazwa półproduktu], 
     [v_Parametry_polprodukt].[Parametr] AS [Parametr], 
     [v_Parametry_polprodukt].[Wymiar minimalny] AS [Wymiar minimalny], 
@@ -6294,12 +6297,14 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
         </EntityType>
         <EntityType Name="v_Parametry_polprodukt">
           <Key>
+            <PropertyRef Name="ID_parametr_polprodukt" />
             <PropertyRef Name="Nazwa_półproduktu" />
             <PropertyRef Name="Parametr" />
             <PropertyRef Name="Wymiar_minimalny" />
             <PropertyRef Name="Wymiar_maksymalny" />
             <PropertyRef Name="Jednostka" />
           </Key>
+          <Property Name="ID_parametr_polprodukt" Type="Int32" Nullable="false" />
           <Property Name="Nazwa_półproduktu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Parametr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Wymiar_minimalny" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
@@ -10317,6 +10322,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <EntitySetMapping Name="v_Parametry_polprodukt">
             <EntityTypeMapping TypeName="KWZPModel.v_Parametry_polprodukt">
               <MappingFragment StoreEntitySet="v_Parametry_polprodukt">
+                <ScalarProperty Name="ID_parametr_polprodukt" ColumnName="ID_parametr_polprodukt" />
                 <ScalarProperty Name="Nazwa_półproduktu" ColumnName="Nazwa półproduktu" />
                 <ScalarProperty Name="Parametr" ColumnName="Parametr" />
                 <ScalarProperty Name="Wymiar_minimalny" ColumnName="Wymiar minimalny" />

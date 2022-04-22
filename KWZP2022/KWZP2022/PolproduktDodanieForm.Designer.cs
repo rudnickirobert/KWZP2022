@@ -42,6 +42,7 @@
             this.txtPolprodukt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtIlosc = new System.Windows.Forms.TextBox();
+            this.btnDodajParametrProdukt = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPolprodukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkladProdukt)).BeginInit();
@@ -179,12 +180,23 @@
             this.txtIlosc.Size = new System.Drawing.Size(255, 38);
             this.txtIlosc.TabIndex = 19;
             // 
+            // btnDodajParametrProdukt
+            // 
+            this.btnDodajParametrProdukt.Location = new System.Drawing.Point(403, 12);
+            this.btnDodajParametrProdukt.Name = "btnDodajParametrProdukt";
+            this.btnDodajParametrProdukt.Size = new System.Drawing.Size(118, 38);
+            this.btnDodajParametrProdukt.TabIndex = 20;
+            this.btnDodajParametrProdukt.Text = "Dodaj Parametr";
+            this.btnDodajParametrProdukt.UseVisualStyleBackColor = true;
+            this.btnDodajParametrProdukt.Click += new System.EventHandler(this.btnDodajParametrProdukt_Click);
+            // 
             // PolproduktDodanieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 711);
+            this.Controls.Add(this.btnDodajParametrProdukt);
             this.Controls.Add(this.txtIlosc);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtPolprodukt);
@@ -223,5 +235,6 @@
         private System.Windows.Forms.TextBox txtPolprodukt;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtIlosc;
+        private System.Windows.Forms.Button btnDodajParametrProdukt;
     }
 }

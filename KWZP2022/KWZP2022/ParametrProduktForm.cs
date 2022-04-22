@@ -127,8 +127,8 @@ namespace KWZP2022
         {
             txtProdukt.Text = this.dgvvParametrProdukt.CurrentRow.Cells[1].Value.ToString();
             txtParametrProdukt.Text = this.dgvvParametrProdukt.CurrentRow.Cells[2].Value.ToString();
-            txtZakresDolny.Text = this.dgvvParametrProdukt.CurrentRow.Cells[4].Value.ToString();
-            txtZakresGorny.Text = this.dgvvParametrProdukt.CurrentRow.Cells[5].Value.ToString();
+            txtZakresDolny.Text = this.dgvvParametrProdukt.CurrentRow.Cells[3].Value.ToString();
+            txtZakresGorny.Text = this.dgvvParametrProdukt.CurrentRow.Cells[4].Value.ToString();
         }
     }
 }

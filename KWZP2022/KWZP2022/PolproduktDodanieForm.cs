@@ -202,5 +202,11 @@ namespace KWZP2022
             txtPolprodukt.Text = this.dgvPolprodukt.CurrentRow.Cells[1].Value.ToString();
             txtPolprodukt.Enabled = false;
         }
+
+        private void btnDodajParametrProdukt_Click(object sender, EventArgs e)
+        {
+            ParametrPolproduktForm parametrpolproduktForm = new ParametrPolproduktForm(db);
+            parametrpolproduktForm.ShowDialog();
+        }
     }
 }
