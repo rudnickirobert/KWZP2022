@@ -31,7 +31,7 @@ namespace KWZP2022
         }
         private void messageBox()
         {
-            MessageBox.Show("Wyszukiwany numer sprzedaży nie widnieje w bazie danych.", "Błąd", MessageBoxButtons.OK);
+            MessageBox.Show("Wyszukiwany numer zamówienia nie widnieje w bazie danych.", "Błąd", MessageBoxButtons.OK);
         }
         private void msgClearShowData()
         {
