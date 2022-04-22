@@ -45,13 +45,21 @@ namespace KWZP2022
                 DialogResult result = MessageBox.Show("Czy chcesz usunąć zaznaczony rekord?", "Pytanie", MessageBoxButtons.YesNo);
                 if(result == DialogResult.Yes)
                 {
-                    this.db.Klient.Remove(danyKlient);
-                    this.db.Dane_adresowe_klient.Remove(daneKlientDaneAdresowe);
-                    this.db.Nr_telefon_klient.Remove(daneNrTelKlient);
-                    this.db.Email_klient.Remove(daneEmailKlient);
-                    this.db.SaveChanges();
-                    MessageBox.Show("Rekord został usunięty!", "Informacja", MessageBoxButtons.OK);
-                    showData();
+                    try
+                    {
+                        this.db.Klient.Remove(danyKlient);
+                        this.db.Dane_adresowe_klient.Remove(daneKlientDaneAdresowe);
+                        this.db.Nr_telefon_klient.Remove(daneNrTelKlient);
+                        this.db.Email_klient.Remove(daneEmailKlient);
+                        this.db.SaveChanges();
+                        MessageBox.Show("Rekord został usunięty!", "Informacja", MessageBoxButtons.OK);
+                        showData();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Klient widnieje w historii zamówień. Nie można usunąć tego klienta","Błąd",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    }
+                    
                 }
             }
         }

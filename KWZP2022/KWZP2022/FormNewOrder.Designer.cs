@@ -1,6 +1,6 @@
 ﻿namespace KWZP2022
 {
-    partial class FormNewOreder
+    partial class FormNewOrder
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewOreder));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewOrder));
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAddNewClient = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,6 +45,7 @@
             this.dgvOrders = new System.Windows.Forms.DataGridView();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnNewOrderDetails = new System.Windows.Forms.Button();
+            this.btnCommercialOffer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             this.SuspendLayout();
             // 
@@ -220,12 +221,24 @@
             this.btnNewOrderDetails.UseVisualStyleBackColor = true;
             this.btnNewOrderDetails.Click += new System.EventHandler(this.btnNewOrderDetails_Click);
             // 
+            // btnCommercialOffer
+            // 
+            this.btnCommercialOffer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCommercialOffer.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.btnCommercialOffer.Location = new System.Drawing.Point(588, 380);
+            this.btnCommercialOffer.Name = "btnCommercialOffer";
+            this.btnCommercialOffer.Size = new System.Drawing.Size(195, 28);
+            this.btnCommercialOffer.TabIndex = 20;
+            this.btnCommercialOffer.Text = "Przejdź do oferty >>";
+            this.btnCommercialOffer.UseVisualStyleBackColor = true;
+            this.btnCommercialOffer.Click += new System.EventHandler(this.btnCommercialOffer_Click);
+            // 
             // FormNewOreder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(794, 491);
+            this.Controls.Add(this.btnCommercialOffer);
             this.Controls.Add(this.btnNewOrderDetails);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.dgvOrders);
@@ -242,7 +255,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAddNewClient);
             this.Controls.Add(this.btnClose);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormNewOreder";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nowe zamówienie";
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.ResumeLayout(false);
@@ -268,5 +283,6 @@
         private System.Windows.Forms.DataGridView dgvOrders;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnNewOrderDetails;
+        private System.Windows.Forms.Button btnCommercialOffer;
     }
 }
