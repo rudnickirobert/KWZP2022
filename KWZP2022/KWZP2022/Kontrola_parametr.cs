@@ -16,9 +16,10 @@ namespace KWZP2022
     {
         public int ID_kontrola_parametr { get; set; }
         public int ID_kontrola_jakosci_produkt { get; set; }
-        public Nullable<int> ID_parametr_produkt { get; set; }
+        public int ID_parametr_produkt { get; set; }
         public decimal Wartosc { get; set; }
     
         public virtual Kontrola_jakosci_produkt Kontrola_jakosci_produkt { get; set; }
+        public virtual Parametr_produkt Parametr_produkt { get; set; }
     }
 }

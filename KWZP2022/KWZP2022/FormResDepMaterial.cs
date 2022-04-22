@@ -30,6 +30,7 @@ namespace KWZP2022
                 dgvMaterial.Columns[i].Visible = false;
             }
             dgvMaterial.Columns["ID_material"].Visible = true;
+            dgvMaterial.Columns[0].HeaderText = "ID";
             dgvMaterial.Columns["ID_rodzaj_material"].Visible = true;
             dgvMaterial.Columns["Nazwa_material"].Visible = true;
             dgvMaterial.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
@@ -37,27 +38,50 @@ namespace KWZP2022
         }
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            Material material = new Material();
-            material.Nazwa_material = txtNazwaMaterial.Text;
-            material.ID_rodzaj_material = (int)cmbRodzajMaterial.SelectedValue;
-            db.Material.Add(material);
-            db.SaveChanges();
-            initDataGridView();
-            MessageBox.Show("Poprawnie dodano " + material.Nazwa_material + " do bazy danych");
+            try
+            {
+                if (string.IsNullOrEmpty(txtNazwaMaterial.Text))
+                {
+                    MessageBox.Show("Wpisz nazwę materiału!");
+                }
+                else
+                {
+                    Material material = new Material();
+                    material.Nazwa_material = txtNazwaMaterial.Text;
+                    material.ID_rodzaj_material = (int)cmbRodzajMaterial.SelectedValue;
+                    db.Material.Add(material);
+                    db.SaveChanges();
+                    initDataGridView();
+                    MessageBox.Show("Poprawnie dodano " + material.Nazwa_material + " do bazy danych");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Nie można dodać materiału.");
+            }
         }
         private void btnUsun_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz usunąć material: " + this.dgvMaterial.CurrentRow.Cells[2].Value +"?","Question", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            try
             {
-                string current_material = this.dgvMaterial.CurrentRow.Cells[0].Value.ToString();
-                int daneINT = int.Parse(current_material);
-                Material danyMaterial = db.Material.Single(a => a.ID_material == daneINT);
-                this.db.Material.Remove(danyMaterial);
-                db.SaveChanges();
-                initDataGridView();
-                txtNazwaMaterial.Text = "";
+                DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz usunąć material: " + this.dgvMaterial.CurrentRow.Cells[2].Value + "?", "Question", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    string current_material = this.dgvMaterial.CurrentRow.Cells[0].Value.ToString();
+                    int daneINT = int.Parse(current_material);
+                    Material danyMaterial = db.Material.Single(a => a.ID_material == daneINT);
+                    this.db.Material.Remove(danyMaterial);
+                    db.SaveChanges();
+                    initDataGridView();
+                    txtNazwaMaterial.Text = "";
+                }
             }
+            catch 
+            {
+                MessageBox.Show("Nie można usunąć materiału, ponieważ jest obecnie wykorzystywany.");
+            }
+                
+    
         }
         private void btnOdswiez_Click(object sender, EventArgs e)
         {

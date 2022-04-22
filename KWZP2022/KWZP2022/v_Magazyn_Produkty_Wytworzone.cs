@@ -12,9 +12,9 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Magazyn_material_wszystko
+    public partial class v_Magazyn_Produkty_Wytworzone
     {
-        public string Nazwa_materiału { get; set; }
-        public int Waga__g_ { get; set; }
+        public string Nazwa_Produktu { get; set; }
+        public int Rezultat_kontroli { get; set; }
     }
 }
