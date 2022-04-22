@@ -4,7 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
+
       <Diagram DiagramId="f5a5c86a8e064853884ccd011c861962" Name="Diagram1">
+
         <EntityTypeShape EntityType="KWZPModel.Alert" Width="1.5" PointX="11.25" PointY="22.5" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.Czesc" Width="1.5" PointX="20.75" PointY="67.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.Czynnosc_produkcyjna" Width="1.5" PointX="16.5" PointY="61.875" IsExpanded="true" />
@@ -137,6 +139,7 @@
         <EntityTypeShape EntityType="KWZPModel.v_Parametry_polprodukt" Width="1.5" PointX="4.75" PointY="15.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.v_Parametry_produkt" Width="1.5" PointX="6.75" PointY="15.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.v_Pracownik" Width="1.5" PointX="8.75" PointY="15.75" IsExpanded="true" />
+
         <EntityTypeShape EntityType="KWZPModel.v_Pracownik_dzial" Width="1.5" PointX="10.75" PointY="15.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.v_Proces_polprodukt_czynnosc" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.v_Proces_produkt_czynnosc" Width="1.5" PointX="16.75" PointY="3.75" IsExpanded="true" />
@@ -178,6 +181,7 @@
         <EntityTypeShape EntityType="KWZPModel.v_Zamowienia_narzedzia_w_trakcie_wszystko" Width="1.5" PointX="26.75" PointY="16.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.v_Zamowienie" Width="1.5" PointX="26.75" PointY="20.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.v_Zamowienie_szczegol" Width="1.5" PointX="26.75" PointY="24.75" IsExpanded="true" />
+
         <AssociationConnector Association="KWZPModel.FK__Alert__ID_dzial__42ACE4D4" ManuallyRouted="false" />
         <AssociationConnector Association="KWZPModel.FK__Czesc__ID_rodzaj__7C4F7684" ManuallyRouted="false" />
         <AssociationConnector Association="KWZPModel.FK__Parametr___ID_cz__1E6F845E" ManuallyRouted="false" />

@@ -1354,6 +1354,11 @@ Values
 (2,'2022-04-07','1'),
 (2,'2022-04-09','2');
 
+INSERT INTO Czas_pracy (Data, Liczba_godzin)
+VALUES
+('2022-04-01', '154'),
+('2022-03-01', '180');
+
 INSERT INTO Kontrola_parametr (ID_kontrola_jakosci_produkt, ID_parametr_produkt, Wartosc)
 VALUES
 (2,3,300),
@@ -1380,3 +1385,4 @@ VALUES
 (14,14,4),
 (14,15,1500),
 (14,16,37);
+

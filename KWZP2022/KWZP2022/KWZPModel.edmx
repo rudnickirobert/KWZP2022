@@ -1527,10 +1527,12 @@ warning 6002: The table/view 'KWZP.dbo.v_Sklad_polprodukt' does not have a prima
 warning 6002: The table/view 'KWZP.dbo.v_Sklad_produkt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Sklad_produkt">
           <Key>
+            <PropertyRef Name="ID skład" />
             <PropertyRef Name="Produkt" />
             <PropertyRef Name="Półprodukt" />
             <PropertyRef Name="Liczba" />
           </Key>
+          <Property Name="ID skład" Type="int" Nullable="false" />
           <Property Name="Produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Półprodukt" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Liczba" Type="int" Nullable="false" />
@@ -1991,6 +1993,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <Property Name="Status" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="StatusID" Type="int" Nullable="false" />
         </EntityType>
+
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Zamowienie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Zamowienie">
@@ -2023,6 +2026,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           <Property Name="Produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Ilość" Type="int" Nullable="false" />
         </EntityType>
+
         <Association Name="FK__Alert__ID_dzial__42ACE4D4">
           <End Role="Dzial" Type="Self.Dzial" Multiplicity="1" />
           <End Role="Alert" Type="Self.Alert" Multiplicity="*" />
@@ -4048,6 +4052,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           </EntitySet>
           <EntitySet Name="v_Sklad_produkt" EntityType="Self.v_Sklad_produkt" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [v_Sklad_produkt].[ID skład] AS [ID skład], 
     [v_Sklad_produkt].[Produkt] AS [Produkt], 
     [v_Sklad_produkt].[Półprodukt] AS [Półprodukt], 
     [v_Sklad_produkt].[Liczba] AS [Liczba]
@@ -4312,6 +4317,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
     [v_Zamowienia_narzedzia_w_trakcie_wszystko].[StatusID] AS [StatusID]
     FROM [dbo].[v_Zamowienia_narzedzia_w_trakcie_wszystko] AS [v_Zamowienia_narzedzia_w_trakcie_wszystko]</DefiningQuery>
           </EntitySet>
+
           <EntitySet Name="v_Zamowienie" EntityType="Self.v_Zamowienie" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Zamowienie].[Data przyjęcia] AS [Data przyjęcia], 
@@ -4330,6 +4336,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
     [v_Zamowienie_szczegol].[Ilość] AS [Ilość]
     FROM [dbo].[v_Zamowienie_szczegol] AS [v_Zamowienie_szczegol]</DefiningQuery>
           </EntitySet>
+
           <AssociationSet Name="FK__Alert__ID_dzial__42ACE4D4" Association="Self.FK__Alert__ID_dzial__42ACE4D4">
             <End Role="Dzial" EntitySet="Dzial" />
             <End Role="Alert" EntitySet="Alert" />
@@ -6496,10 +6503,12 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
         </EntityType>
         <EntityType Name="v_Sklad_produkt">
           <Key>
+            <PropertyRef Name="ID_skład" />
             <PropertyRef Name="Produkt" />
             <PropertyRef Name="Półprodukt" />
             <PropertyRef Name="Liczba" />
           </Key>
+          <Property Name="ID_skład" Type="Int32" Nullable="false" />
           <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Półprodukt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Liczba" Type="Int32" Nullable="false" />
@@ -6904,6 +6913,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="StatusID" Type="Int32" Nullable="false" />
         </EntityType>
+
         <EntityType Name="v_Zamowienie">
           <Key>
             <PropertyRef Name="Data_przyjęcia" />
@@ -6932,6 +6942,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Ilość" Type="Int32" Nullable="false" />
         </EntityType>
+
         <Association Name="FK__Alert__ID_dzial__42ACE4D4">
           <End Role="Dzial" Type="Self.Dzial" Multiplicity="1" />
           <End Role="Alert" Type="Self.Alert" Multiplicity="*" />
@@ -8596,8 +8607,10 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           <EntitySet Name="v_Zamowienia_narzedzia_w_trakcie" EntityType="Self.v_Zamowienia_narzedzia_w_trakcie" />
           <EntitySet Name="v_Zamowienia_narzedzia_w_trakcie_bez_odebranych" EntityType="Self.v_Zamowienia_narzedzia_w_trakcie_bez_odebranych" />
           <EntitySet Name="v_Zamowienia_narzedzia_w_trakcie_wszystko" EntityType="Self.v_Zamowienia_narzedzia_w_trakcie_wszystko" />
+
           <EntitySet Name="v_Zamowienie" EntityType="Self.v_Zamowienie" />
           <EntitySet Name="v_Zamowienie_szczegol" EntityType="Self.v_Zamowienie_szczegol" />
+
           <AssociationSet Name="FK__Alert__ID_dzial__42ACE4D4" Association="Self.FK__Alert__ID_dzial__42ACE4D4">
             <End Role="Dzial" EntitySet="Dzial" />
             <End Role="Alert" EntitySet="Alert" />
@@ -10512,6 +10525,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           <EntitySetMapping Name="v_Sklad_produkt">
             <EntityTypeMapping TypeName="KWZPModel.v_Sklad_produkt">
               <MappingFragment StoreEntitySet="v_Sklad_produkt">
+                <ScalarProperty Name="ID_skład" ColumnName="ID skład" />
                 <ScalarProperty Name="Produkt" ColumnName="Produkt" />
                 <ScalarProperty Name="Półprodukt" ColumnName="Półprodukt" />
                 <ScalarProperty Name="Liczba" ColumnName="Liczba" />

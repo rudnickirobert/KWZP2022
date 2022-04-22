@@ -31,7 +31,7 @@ GO
 
 CREATE VIEW v_Sklad_produkt
 AS
-SELECT P.Nazwa_produkt AS [Produkt], SlwPP.Nazwa AS [Półprodukt], SP.Liczba
+SELECT SP.ID_sklad_produkt AS [ID skład], P.Nazwa_produkt AS [Produkt], SlwPP.Nazwa AS [Półprodukt], SP.Liczba
 FROM Sklad_produkt AS SP
 INNER JOIN Produkt AS P ON SP.ID_produkt = P.ID_produkt
 INNER JOIN Slownik_polprodukt AS SlwPP ON SP.ID_polprodukt = SlwPP.ID_polprodukt
@@ -766,3 +766,11 @@ INNER JOIN Dzial AS D ON E.ID_dzial = D.ID_dzial
 WHERE Nazwa_dzial = 'Handlowy i marketingu'
 GO
 
+CREATE VIEW v_Koszt_godziny_pracy
+AS
+SELECT dbo.Pracownik.ID_pracownik, dbo.Pracownik.Nazwisko, dbo.Pracownik.Imie, dbo.Umowa.Wynagrodzenie, dbo.Czas_pracy.Liczba_godzin, dbo.Umowa.Wynagrodzenie / dbo.Czas_pracy.Liczba_godzin AS [Koszt godziny pracy], 
+MONTH(dbo.Czas_pracy.Data) AS Miesiąc
+FROM     dbo.Umowa INNER JOIN
+dbo.Pracownik ON dbo.Umowa.ID_pracownik = dbo.Pracownik.ID_pracownik CROSS JOIN
+dbo.Czas_pracy
+GO
