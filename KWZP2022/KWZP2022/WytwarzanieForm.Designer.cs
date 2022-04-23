@@ -50,6 +50,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnSzukaj = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtSzukanyProduktID = new System.Windows.Forms.TextBox();
+            this.txtSzukanyProduktNazwa = new System.Windows.Forms.TextBox();
+            this.btnAkceptuj = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzaniePolprodukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzanieProdukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesProdukt)).BeginInit();
@@ -216,6 +221,7 @@
             this.dgvZamowienieSzczegol.Name = "dgvZamowienieSzczegol";
             this.dgvZamowienieSzczegol.Size = new System.Drawing.Size(447, 220);
             this.dgvZamowienieSzczegol.TabIndex = 30;
+            this.dgvZamowienieSzczegol.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvZamowienieSzczegol_CellContentClick);
             // 
             // cbZamowienie
             // 
@@ -252,11 +258,65 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1402, 402);
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label6.Location = new System.Drawing.Point(1319, 333);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.Size = new System.Drawing.Size(385, 25);
             this.label6.TabIndex = 34;
-            this.label6.Text = "label6";
+            this.label6.Text = "Przygotowanie procesu produkcyjnego dla:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label7.Location = new System.Drawing.Point(1319, 372);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(31, 25);
+            this.label7.TabIndex = 35;
+            this.label7.Text = "ID";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label8.Location = new System.Drawing.Point(1551, 372);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(153, 25);
+            this.label8.TabIndex = 36;
+            this.label8.Text = "Nazwa produktu";
+            // 
+            // txtSzukanyProduktID
+            // 
+            this.txtSzukanyProduktID.Enabled = false;
+            this.txtSzukanyProduktID.Font = new System.Drawing.Font("Arial", 15F);
+            this.txtSzukanyProduktID.Location = new System.Drawing.Point(1324, 411);
+            this.txtSzukanyProduktID.Name = "txtSzukanyProduktID";
+            this.txtSzukanyProduktID.Size = new System.Drawing.Size(46, 30);
+            this.txtSzukanyProduktID.TabIndex = 37;
+            // 
+            // txtSzukanyProduktNazwa
+            // 
+            this.txtSzukanyProduktNazwa.Enabled = false;
+            this.txtSzukanyProduktNazwa.Font = new System.Drawing.Font("Arial", 15F);
+            this.txtSzukanyProduktNazwa.Location = new System.Drawing.Point(1431, 411);
+            this.txtSzukanyProduktNazwa.Name = "txtSzukanyProduktNazwa";
+            this.txtSzukanyProduktNazwa.Size = new System.Drawing.Size(273, 30);
+            this.txtSzukanyProduktNazwa.TabIndex = 38;
+            // 
+            // btnAkceptuj
+            // 
+            this.btnAkceptuj.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnAkceptuj.Font = new System.Drawing.Font("Arial", 15F);
+            this.btnAkceptuj.Location = new System.Drawing.Point(1324, 462);
+            this.btnAkceptuj.Name = "btnAkceptuj";
+            this.btnAkceptuj.Size = new System.Drawing.Size(380, 37);
+            this.btnAkceptuj.TabIndex = 39;
+            this.btnAkceptuj.Text = "Akceptuj wybór";
+            this.btnAkceptuj.UseVisualStyleBackColor = false;
+            this.btnAkceptuj.Click += new System.EventHandler(this.btnAkceptuj_Click);
             // 
             // WytwarzanieForm
             // 
@@ -264,6 +324,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1735, 711);
+            this.Controls.Add(this.btnAkceptuj);
+            this.Controls.Add(this.txtSzukanyProduktNazwa);
+            this.Controls.Add(this.txtSzukanyProduktID);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnSzukaj);
             this.Controls.Add(this.label5);
@@ -320,5 +385,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnSzukaj;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtSzukanyProduktID;
+        private System.Windows.Forms.TextBox txtSzukanyProduktNazwa;
+        private System.Windows.Forms.Button btnAkceptuj;
     }
 }

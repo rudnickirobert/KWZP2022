@@ -2016,12 +2016,9 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_produkcja' does not have a p
         <EntityType Name="v_Zamowienie_produkcja">
           <Key>
             <PropertyRef Name="ID" />
-            <PropertyRef Name="Klient" />
-            <PropertyRef Name="Data przyjęcia" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="Klient" Type="nvarchar" MaxLength="101" Nullable="false" />
-          <Property Name="Data przyjęcia" Type="date" Nullable="false" />
+          <Property Name="Klient" Type="nvarchar" MaxLength="134" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -4337,8 +4334,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySet Name="v_Zamowienie_produkcja" EntityType="Self.v_Zamowienie_produkcja" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Zamowienie_produkcja].[ID] AS [ID], 
-    [v_Zamowienie_produkcja].[Klient] AS [Klient], 
-    [v_Zamowienie_produkcja].[Data przyjęcia] AS [Data przyjęcia]
+    [v_Zamowienie_produkcja].[Klient] AS [Klient]
     FROM [dbo].[v_Zamowienie_produkcja] AS [v_Zamowienie_produkcja]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Zamowienie_szczegol_produkcja" EntityType="Self.v_Zamowienie_szczegol_produkcja" store:Type="Views" store:Schema="dbo">
@@ -6946,12 +6942,9 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
         <EntityType Name="v_Zamowienie_produkcja">
           <Key>
             <PropertyRef Name="ID" />
-            <PropertyRef Name="Klient" />
-            <PropertyRef Name="Data_przyjęcia" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Klient" Type="String" MaxLength="101" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Data_przyjęcia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Klient" Type="String" MaxLength="134" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="v_Zamowienie_szczegol_produkcja">
           <Key>
@@ -10888,7 +10881,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
               <MappingFragment StoreEntitySet="v_Zamowienie_produkcja">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Klient" ColumnName="Klient" />
-                <ScalarProperty Name="Data_przyjęcia" ColumnName="Data przyjęcia" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

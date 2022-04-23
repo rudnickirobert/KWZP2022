@@ -16,6 +16,5 @@ namespace KWZP2022
     {
         public int ID { get; set; }
         public string Klient { get; set; }
-        public System.DateTime Data_przyjęcia { get; set; }
     }
 }

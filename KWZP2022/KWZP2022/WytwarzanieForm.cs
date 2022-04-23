@@ -28,14 +28,13 @@ namespace KWZP2022
             initDataGridViewWytwarzaniePolprodukt();
             initDataGridViewWytwarzanieProdukt();
             initDataGridViewProcesPolprodukt();
-            initDataGridViewProcesProdukt();
-            initDataGridViewZamowienieSzczegol();
         }
 
         private void initDataGridViewWytwarzaniePolprodukt()
         {
             dgvWytwarzaniePolprodukt.DataSource = db.v_Proces_wytwarzanie_polprodukt.ToList();
             dgvWytwarzaniePolprodukt.Columns["Czynność_produkcyjna"].Visible = false;
+            dgvWytwarzaniePolprodukt.Columns["Szacowany_czas__min_"].Visible = false;
             dgvWytwarzaniePolprodukt.Columns["ID_stanowisko_produkcyjne"].HeaderText = "Stanowisko";
             dgvWytwarzaniePolprodukt.Columns["Data_rozpoczęcia"].HeaderText = "Rozpoczęcie";
             dgvWytwarzaniePolprodukt.Columns["Data_zakończenia"].HeaderText = "Zakończenie";
@@ -55,7 +54,7 @@ namespace KWZP2022
 
         private void initDataGridViewZamowienieSzczegol()
         {
-            dgvZamowienieSzczegol.DataSource = db.v_Zamowienie_produkcja.ToList();
+            dgvZamowienieSzczegol.DataSource = db.v_Zamowienie_szczegol_produkcja.ToList();
  
             this.dgvWytwarzanieProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
@@ -92,15 +91,14 @@ namespace KWZP2022
         {
             cbZamowienie.DataSource = db.v_Zamowienie_produkcja.ToList();
             cbZamowienie.ValueMember = "ID";
-            cbZamowienie.DisplayMember = "ID";
+            cbZamowienie.DisplayMember = "Klient";
 
         }
 
         private void enterIdOrder()
         {
-            string zamowienie = cbZamowienie.SelectedItem.ToString();
-            label6.Text = zamowienie;
-            /*int zamowienieID = int.Parse(zamowienie);
+            string zamowienie = cbZamowienie.SelectedValue.ToString();
+            int zamowienieID = int.Parse(zamowienie);
             System.Linq.IQueryable vOrderId = db.v_Zamowienie_szczegol_produkcja.Where(a => a.ID == zamowienieID);
             int vOrderIdInt = vOrderId.Cast<v_Zamowienie_szczegol_produkcja>().Where(a => a.ID > 0).Count();
             if (vOrderIdInt > 0)
@@ -112,12 +110,38 @@ namespace KWZP2022
             else
             {
                 refreshScreen();
-            }*/
+            }
         }
 
         private void btnSzukaj_Click(object sender, EventArgs e)
         {
             enterIdOrder();
+        }
+
+
+        private void dgvZamowienieSzczegol_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtSzukanyProduktID.Text = dgvZamowienieSzczegol.CurrentRow.Cells[1].Value.ToString();
+            txtSzukanyProduktNazwa.Text = dgvZamowienieSzczegol.CurrentRow.Cells[2].Value.ToString();
+        }
+
+        private void btnAkceptuj_Click(object sender, EventArgs e)
+        {
+            string produktID = txtSzukanyProduktID.Text;
+            int produktIDint = int.Parse(produktID);
+
+            System.Linq.IQueryable vProdukt = db.v_Proces_produkt_czynnosc.Where(a => a.ID_Produktu == produktIDint);
+            int vOrderIdInt = vProdukt.Cast<v_Proces_produkt_czynnosc>().Where(a => a.ID_Produktu > 0).Count();
+            if (vOrderIdInt > 0)
+            {
+                dgvProcesProdukt.DataSource = vProdukt.Cast<v_Proces_produkt_czynnosc>().ToList();
+
+                refreshScreen();
+            }
+            else
+            {
+                refreshScreen();
+            }
         }
     }
 }

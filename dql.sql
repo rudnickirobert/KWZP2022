@@ -206,10 +206,10 @@ INNER JOIN Zamowienie AS Z ON Z.ID_zamowienie = ZC.ID_zamowienie
 GO
 
 CREATE VIEW v_Zamowienie_produkcja AS
-SELECT Zamowienie.ID_zamowienie AS [ID], K.Nazwisko + ' ' + K.Imie AS [Klient], Zamowienie.Data_zamowienie AS [Data przyjęcia]
-FROM Zamowienie
-INNER JOIN Klient AS K ON K.ID_klient = Zamowienie.ID_zamowienie
-INNER JOIN Pracownik AS P ON P.ID_pracownik = Zamowienie.ID_pracownik
+SELECT Z.ID_zamowienie AS [ID], K.Nazwisko + ' ' + K.Imie + ' - ' + Z.Data_zamowienie AS [Klient] 
+FROM Zamowienie AS Z
+INNER JOIN Klient AS K ON K.ID_klient = Z.ID_zamowienie
+INNER JOIN Pracownik AS P ON P.ID_pracownik = Z.ID_pracownik
 ORDER BY Data_zamowienie DESC OFFSET 0 ROWS 
 GO
 
