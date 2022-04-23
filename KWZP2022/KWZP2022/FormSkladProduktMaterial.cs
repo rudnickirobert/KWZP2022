@@ -120,7 +120,7 @@ namespace KWZP2022
             int currentID = int.Parse(dgvvSkladProdukt.CurrentRow.Cells[0].Value.ToString());
             int newValue = int.Parse(txtIlosc.Text);
 
-            var result = db.Sklad_produkt_material.SingleOrDefault(b => b.ID_sklad_produkt_material == currentID);
+            Sklad_produkt_material result = db.Sklad_produkt_material.SingleOrDefault(b => b.ID_sklad_produkt_material == currentID);
             if (result != null)
             {
                 result.Liczba = newValue;
