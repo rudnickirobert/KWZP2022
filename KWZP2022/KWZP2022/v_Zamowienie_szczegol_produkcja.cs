@@ -12,15 +12,11 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Proces_wytwarzanie_produkt
+    public partial class v_Zamowienie_szczegol_produkcja
     {
         public int ID { get; set; }
+        public int ID_produktu { get; set; }
         public string Produkt { get; set; }
-        public string Czynność_produkcyjna { get; set; }
-        public string Pracownik { get; set; }
-        public int ID_stanowisko_produkcyjne { get; set; }
-        public int Szacowany_czas__min_ { get; set; }
-        public System.DateTime Data_rozpoczęcia { get; set; }
-        public Nullable<System.DateTime> Data_zakończenia { get; set; }
+        public int Ilość { get; set; }
     }
 }

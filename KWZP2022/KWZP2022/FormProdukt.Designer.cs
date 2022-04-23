@@ -1,6 +1,6 @@
 ﻿namespace KWZP2022
 {
-    partial class ProduktForm
+    partial class FormProdukt
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProduktForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProdukt));
             this.dgvProdukt = new System.Windows.Forms.DataGridView();
             this.btnDodaj = new System.Windows.Forms.Button();
             this.txtNazwaProdukt = new System.Windows.Forms.TextBox();
