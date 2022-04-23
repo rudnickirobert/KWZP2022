@@ -237,7 +237,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background;
+            this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
             this.ClientSize = new System.Drawing.Size(1280, 706);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnOffers);
