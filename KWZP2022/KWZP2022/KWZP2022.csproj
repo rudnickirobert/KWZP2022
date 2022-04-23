@@ -876,11 +876,9 @@
     <EmbeddedResource Include="FormResDepMagazyny.resx">
       <DependentUpon>FormResDepMagazyny.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SlownikStanowiskoForm.resx">
-      <DependentUpon>SlownikStanowiskoForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormResDepZamowienia.resx">
       <DependentUpon>FormResDepZamowienia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSlownikStanowisko.resx">
       <DependentUpon>FormSlownikStanowisko.cs</DependentUpon>
     </EmbeddedResource>
