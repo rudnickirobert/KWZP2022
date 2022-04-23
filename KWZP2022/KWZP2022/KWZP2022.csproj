@@ -250,6 +250,12 @@
     <Compile Include="Rodzaj_umowy.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="SkladProduktMaterialForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SkladProduktMaterialForm.Designer.cs">
+      <DependentUpon>SkladProduktMaterialForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sklad_maszyna.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -555,6 +561,9 @@
     <Compile Include="v_Sklad_produkt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Sklad_produkt_material.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Sklad_stanowisko_produkcyjne_maszyna.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -718,6 +727,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SkladProduktMaterialForm.resx">
+      <DependentUpon>SkladProduktMaterialForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SlownikStanowiskoForm.resx">
       <DependentUpon>SlownikStanowiskoForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -747,6 +759,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\form_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\form_background_small.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="KWZPModel.Context.tt">

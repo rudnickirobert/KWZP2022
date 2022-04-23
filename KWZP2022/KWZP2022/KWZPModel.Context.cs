@@ -169,6 +169,7 @@ namespace KWZP2022
         public virtual DbSet<v_Sklad_maszyna> v_Sklad_maszyna { get; set; }
         public virtual DbSet<v_Sklad_polprodukt> v_Sklad_polprodukt { get; set; }
         public virtual DbSet<v_Sklad_produkt> v_Sklad_produkt { get; set; }
+        public virtual DbSet<v_Sklad_produkt_material> v_Sklad_produkt_material { get; set; }
         public virtual DbSet<v_Sklad_stanowisko_produkcyjne_maszyna> v_Sklad_stanowisko_produkcyjne_maszyna { get; set; }
         public virtual DbSet<v_Sklad_stanowisko_produkcyjne_narzedzie> v_Sklad_stanowisko_produkcyjne_narzedzie { get; set; }
         public virtual DbSet<v_Slownik_stanowisko> v_Slownik_stanowisko { get; set; }

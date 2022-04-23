@@ -1552,6 +1552,22 @@ warning 6002: The table/view 'KWZP.dbo.v_Sklad_produkt' does not have a primary 
           <Property Name="Liczba" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Sklad_produkt_material' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Sklad_produkt_material">
+          <Key>
+            <PropertyRef Name="ID_sklad_produkt_material" />
+            <PropertyRef Name="Produkt" />
+            <PropertyRef Name="Materiał" />
+            <PropertyRef Name="Rodzaj" />
+            <PropertyRef Name="Waga {g}" />
+          </Key>
+          <Property Name="ID_sklad_produkt_material" Type="int" Nullable="false" />
+          <Property Name="Produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Materiał" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Rodzaj" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Waga {g}" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Sklad_stanowisko_produkcyjne_maszyna' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Sklad_stanowisko_produkcyjne_maszyna">
           <Key>
@@ -4031,6 +4047,15 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
     [v_Sklad_produkt].[Liczba] AS [Liczba]
     FROM [dbo].[v_Sklad_produkt] AS [v_Sklad_produkt]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_Sklad_produkt_material" EntityType="Self.v_Sklad_produkt_material" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Sklad_produkt_material].[ID_sklad_produkt_material] AS [ID_sklad_produkt_material], 
+    [v_Sklad_produkt_material].[Produkt] AS [Produkt], 
+    [v_Sklad_produkt_material].[Materiał] AS [Materiał], 
+    [v_Sklad_produkt_material].[Rodzaj] AS [Rodzaj], 
+    [v_Sklad_produkt_material].[Waga {g}] AS [Waga {g}]
+    FROM [dbo].[v_Sklad_produkt_material] AS [v_Sklad_produkt_material]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_Sklad_stanowisko_produkcyjne_maszyna" EntityType="Self.v_Sklad_stanowisko_produkcyjne_maszyna" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Sklad_stanowisko_produkcyjne_maszyna].[ID stanowiska produkcyjnego] AS [ID stanowiska produkcyjnego], 
@@ -6473,6 +6498,20 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <Property Name="Półprodukt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Liczba" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="v_Sklad_produkt_material">
+          <Key>
+            <PropertyRef Name="ID_sklad_produkt_material" />
+            <PropertyRef Name="Produkt" />
+            <PropertyRef Name="Materiał" />
+            <PropertyRef Name="Rodzaj" />
+            <PropertyRef Name="Waga__g_" />
+          </Key>
+          <Property Name="ID_sklad_produkt_material" Type="Int32" Nullable="false" />
+          <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Materiał" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Rodzaj" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Waga__g_" Type="Int32" Nullable="false" />
+        </EntityType>
         <EntityType Name="v_Sklad_stanowisko_produkcyjne_maszyna">
           <Key>
             <PropertyRef Name="ID_stanowiska_produkcyjnego" />
@@ -8500,6 +8539,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <EntitySet Name="v_Sklad_maszyna" EntityType="Self.v_Sklad_maszyna" />
           <EntitySet Name="v_Sklad_polprodukt" EntityType="Self.v_Sklad_polprodukt" />
           <EntitySet Name="v_Sklad_produkt" EntityType="Self.v_Sklad_produkt" />
+          <EntitySet Name="v_Sklad_produkt_material" EntityType="Self.v_Sklad_produkt_material" />
           <EntitySet Name="v_Sklad_stanowisko_produkcyjne_maszyna" EntityType="Self.v_Sklad_stanowisko_produkcyjne_maszyna" />
           <EntitySet Name="v_Sklad_stanowisko_produkcyjne_narzedzie" EntityType="Self.v_Sklad_stanowisko_produkcyjne_narzedzie" />
           <EntitySet Name="v_Slownik_stanowisko" EntityType="Self.v_Slownik_stanowisko" />
@@ -10458,6 +10498,17 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
                 <ScalarProperty Name="Produkt" ColumnName="Produkt" />
                 <ScalarProperty Name="Półprodukt" ColumnName="Półprodukt" />
                 <ScalarProperty Name="Liczba" ColumnName="Liczba" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Sklad_produkt_material">
+            <EntityTypeMapping TypeName="KWZPModel.v_Sklad_produkt_material">
+              <MappingFragment StoreEntitySet="v_Sklad_produkt_material">
+                <ScalarProperty Name="ID_sklad_produkt_material" ColumnName="ID_sklad_produkt_material" />
+                <ScalarProperty Name="Produkt" ColumnName="Produkt" />
+                <ScalarProperty Name="Materiał" ColumnName="Materiał" />
+                <ScalarProperty Name="Rodzaj" ColumnName="Rodzaj" />
+                <ScalarProperty Name="Waga__g_" ColumnName="Waga {g}" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

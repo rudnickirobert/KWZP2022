@@ -89,5 +89,11 @@ namespace KWZP2022
             ParametrProduktForm parametrproduktForm = new ParametrProduktForm(db);
             parametrproduktForm.ShowDialog();
         }
+
+        private void btnDodajSkladProduktu_Click(object sender, EventArgs e)
+        {
+            SkladProduktMaterialForm skladproduktmaterialForm = new SkladProduktMaterialForm(db);
+            skladproduktmaterialForm.ShowDialog();
+        }
     }
 }

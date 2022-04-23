@@ -47,6 +47,16 @@ INNER JOIN Material AS M ON SP.ID_material = M.ID_material
 INNER JOIN Rodzaj_material AS RM ON M.ID_rodzaj_material = RM.ID_rodzaj_material
 GO
 
+CREATE VIEW v_Sklad_produkt_material
+AS
+SELECT ID_sklad_produkt_material, P.Nazwa_produkt AS [Produkt], M.Nazwa_material AS [Materiał], RM.Nazwa_rodzaj_material AS [Rodzaj],
+SPM.Liczba AS [Waga {g}]
+FROM Sklad_produkt_material AS SPM
+INNER JOIN Produkt AS P ON SPM.ID_produkt = P.ID_produkt
+INNER JOIN Material AS M ON SPM.ID_material = M.ID_material
+INNER JOIN Rodzaj_material AS RM ON M.ID_rodzaj_material = RM.ID_rodzaj_material
+GO
+
 CREATE VIEW v_Slownik_stanowisko
 AS
 SELECT ID_nazwa_stanowiska AS ID, Nazwa_stanowiska AS [Nazwa stanowiska] 
