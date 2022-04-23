@@ -58,6 +58,9 @@
     <Compile Include="Alert.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Czas_pracy.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Czesc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -117,6 +120,7 @@
     </Compile>
     <Compile Include="FormResDepZamowieniaMaszyny.Designer.cs">
       <DependentUpon>FormResDepZamowieniaMaszyny.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormResDepNarzedzie.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -476,6 +480,9 @@
     <Compile Include="v_Koszt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Koszt_godziny_pracy.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Koszt_procesow_polprodukt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -733,6 +740,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepZamowieniaMaszyny.resx">
       <DependentUpon>FormResDepZamowieniaMaszyny.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormResDepNarzedzie.resx">
       <DependentUpon>FormResDepNarzedzie.cs</DependentUpon>
     </EmbeddedResource>
@@ -831,6 +839,9 @@
     <None Include="Resources\unknown.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\form_background_small.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="KWZPModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>KWZPModel.edmx</DependentUpon>
@@ -841,7 +852,6 @@
       <DependentUpon>KWZPModel.edmx</DependentUpon>
       <LastGenOutput>KWZPModel.cs</LastGenOutput>
     </Content>
-    <None Include="Resources\form_background_small.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

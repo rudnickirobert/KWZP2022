@@ -61,6 +61,7 @@
             this.btnDodajZamowienie.TabIndex = 58;
             this.btnDodajZamowienie.Text = "Dodaj zamówienie";
             this.btnDodajZamowienie.UseVisualStyleBackColor = false;
+            this.btnDodajZamowienie.Click += new System.EventHandler(this.btnDodajZamowienie_Click);
             // 
             // btnDodajProducenta
             // 
@@ -89,6 +90,7 @@
             this.txtCena.Name = "txtCena";
             this.txtCena.Size = new System.Drawing.Size(161, 32);
             this.txtCena.TabIndex = 55;
+            this.txtCena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCena_KeyPress);
             // 
             // numSztuk
             // 

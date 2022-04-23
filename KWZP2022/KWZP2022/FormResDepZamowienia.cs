@@ -18,23 +18,25 @@ namespace KWZP2022
             InitializeComponent();
             this.db = db;
         }
-
         private void btnOrder_czesc_Click(object sender, EventArgs e)
         {
             FormResDepZamowienieCzesci zamowienieCzesc = new FormResDepZamowienieCzesci(db);
             zamowienieCzesc.ShowDialog();
         }
-
         private void btnOrder_material_Click(object sender, EventArgs e)
         {
             FormResDepZamowienieMaterial zamowieniaCzesci = new FormResDepZamowienieMaterial(db);
             zamowieniaCzesci.ShowDialog();
         }
-
         private void btnOrder_maszyna_Click(object sender, EventArgs e)
         {
             FormResDepZamowieniaMaszyny zamowieniaMaszyna = new FormResDepZamowieniaMaszyny(db);
             zamowieniaMaszyna.ShowDialog();
+        }
+        private void btnOrder_narzedzie_Click(object sender, EventArgs e)
+        {
+            FormResDepZamowienieNarzedzia zamowieniaNarzedzie = new FormResDepZamowienieNarzedzia(db);
+            zamowieniaNarzedzie.ShowDialog();
         }
     }
 }
