@@ -94,6 +94,12 @@
     <Compile Include="Forma_platnosc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FormResDepCzesc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepCzesc.Designer.cs">
+      <DependentUpon>FormResDepCzesc.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormResDepMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -693,6 +699,9 @@
     <Compile Include="Zwrot.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormResDepCzesc.resx">
+      <DependentUpon>FormResDepCzesc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormResDepMaterial.resx">
       <DependentUpon>FormResDepMaterial.cs</DependentUpon>
     </EmbeddedResource>

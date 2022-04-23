@@ -46,6 +46,7 @@
             this.btnDodajDostawca = new System.Windows.Forms.Button();
             this.btnDodajProducenta = new System.Windows.Forms.Button();
             this.btnDodajZamowienie = new System.Windows.Forms.Button();
+            this.lvlZamowienieMaterial = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienieMaterial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numWaga)).BeginInit();
             this.SuspendLayout();
@@ -184,6 +185,7 @@
             this.numWaga.Name = "numWaga";
             this.numWaga.Size = new System.Drawing.Size(161, 32);
             this.numWaga.TabIndex = 21;
+            this.numWaga.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtCena
             // 
@@ -192,6 +194,7 @@
             this.txtCena.Name = "txtCena";
             this.txtCena.Size = new System.Drawing.Size(161, 32);
             this.txtCena.TabIndex = 22;
+            this.txtCena.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCena_KeyPress);
             // 
             // btnDodajDostawca
@@ -218,19 +221,32 @@
             // 
             this.btnDodajZamowienie.BackColor = System.Drawing.Color.Yellow;
             this.btnDodajZamowienie.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDodajZamowienie.Location = new System.Drawing.Point(164, 464);
+            this.btnDodajZamowienie.Location = new System.Drawing.Point(377, 474);
             this.btnDodajZamowienie.Name = "btnDodajZamowienie";
             this.btnDodajZamowienie.Size = new System.Drawing.Size(216, 43);
             this.btnDodajZamowienie.TabIndex = 25;
-            this.btnDodajZamowienie.Text = "Dodaj Zamówienie";
+            this.btnDodajZamowienie.Text = "Dodaj zamówienie";
             this.btnDodajZamowienie.UseVisualStyleBackColor = false;
             this.btnDodajZamowienie.Click += new System.EventHandler(this.btnDodajZamowienie_Click);
+            // 
+            // lvlZamowienieMaterial
+            // 
+            this.lvlZamowienieMaterial.AutoSize = true;
+            this.lvlZamowienieMaterial.BackColor = System.Drawing.Color.Transparent;
+            this.lvlZamowienieMaterial.Font = new System.Drawing.Font("Arial", 20F);
+            this.lvlZamowienieMaterial.Location = new System.Drawing.Point(13, 9);
+            this.lvlZamowienieMaterial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lvlZamowienieMaterial.Name = "lvlZamowienieMaterial";
+            this.lvlZamowienieMaterial.Size = new System.Drawing.Size(278, 32);
+            this.lvlZamowienieMaterial.TabIndex = 26;
+            this.lvlZamowienieMaterial.Text = "Zamówienie materiału";
             // 
             // FormResDepZamowienieMaterial
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(956, 539);
+            this.Controls.Add(this.lvlZamowienieMaterial);
             this.Controls.Add(this.btnDodajZamowienie);
             this.Controls.Add(this.btnDodajProducenta);
             this.Controls.Add(this.btnDodajDostawca);
@@ -281,5 +297,6 @@
         private System.Windows.Forms.Button btnDodajDostawca;
         private System.Windows.Forms.Button btnDodajProducenta;
         private System.Windows.Forms.Button btnDodajZamowienie;
+        private System.Windows.Forms.Label lvlZamowienieMaterial;
     }
 }
