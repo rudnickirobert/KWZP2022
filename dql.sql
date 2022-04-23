@@ -35,16 +35,18 @@ SELECT SP.ID_sklad_produkt AS [ID skład], P.Nazwa_produkt AS [Produkt], SlwPP.N
 FROM Sklad_produkt AS SP
 INNER JOIN Produkt AS P ON SP.ID_produkt = P.ID_produkt
 INNER JOIN Slownik_polprodukt AS SlwPP ON SP.ID_polprodukt = SlwPP.ID_polprodukt
+ORDER BY P.Nazwa_produkt OFFSET 0 ROWS
 GO
 
 CREATE VIEW v_Sklad_polprodukt
 AS
-SELECT SlwPp.Nazwa AS [Półprodukt], M.Nazwa_material AS [Materiał], RM.Nazwa_rodzaj_material AS [Rodzaj],
+SELECT SP.ID_sklad_polprodukt AS [ID_skład], SlwPp.Nazwa AS [Półprodukt], M.Nazwa_material AS [Materiał], RM.Nazwa_rodzaj_material AS [Rodzaj],
 SP.Liczba AS [Waga {g}]
 FROM Sklad_polprodukt AS SP
 INNER JOIN Slownik_polprodukt AS SlwPp ON SP.ID_polprodukt = SlwPp.ID_polprodukt
 INNER JOIN Material AS M ON SP.ID_material = M.ID_material
 INNER JOIN Rodzaj_material AS RM ON M.ID_rodzaj_material = RM.ID_rodzaj_material
+ORDER BY SlwPp.Nazwa OFFSET 0 ROWS
 GO
 
 CREATE VIEW v_Slownik_stanowisko
@@ -188,12 +190,39 @@ GO
 
 CREATE VIEW v_Wytwarzanie
 AS
-SELECT W.ID_wytwarzanie AS [ID zabiegu produkcyjnego], W.Czas_od [Data rozpoczęcia], W.Czas_do AS [Data zakończenia],
-P.Nazwisko + ' ' + P.Imie AS [Pracownik]
+SELECT W.ID_wytwarzanie AS [ID], ZS.ID_zamowienie_szczegol AS [ID zamówienie], Pr.Nazwa_produkt AS [Produkt], P.Nazwisko + ' ' + P.Imie AS [Pracownik],
+W.Czas_od [Data rozpoczęcia], W.Czas_do AS [Data zakończenia]
 FROM Wytwarzanie AS W
 INNER JOIN Pracownik AS P ON W.ID_pracownik = P.ID_pracownik
 INNER JOIN Zamowienie_szczegol AS ZS ON W.ID_zamowienie_szczegol = ZS.ID_zamowienie_szczegol
-INNER JOIN Zamowienie AS Z ON ZS.ID_zamowienie = Z.ID_zamowienie
+INNER JOIN Produkt AS Pr ON ZS.ID_produkt = Pr.ID_produkt
+GO
+
+CREATE VIEW v_Zamowienie_szczegol_produkcja AS
+SELECT Z.ID_zamowienie AS [ID], P.ID_produkt AS [ID produktu], P.Nazwa_produkt AS [Produkt], ZC.Ilosc AS [Ilość]
+FROM Zamowienie_szczegol AS ZC
+INNER JOIN Produkt AS P ON P.ID_produkt = ZC.ID_produkt
+INNER JOIN Zamowienie AS Z ON Z.ID_zamowienie = ZC.ID_zamowienie
+GO
+
+CREATE VIEW v_Zamowienie_produkcja AS
+SELECT Z.ID_zamowienie AS [ID], K.Nazwisko + ' ' + K.Imie + ' - ' + CONVERT(NVARCHAR,Z.Data_zamowienie) AS [Klient] 
+FROM Zamowienie AS Z
+INNER JOIN Klient AS K ON K.ID_klient = Z.ID_zamowienie
+INNER JOIN Pracownik AS P ON P.ID_pracownik = Z.ID_pracownik
+ORDER BY Data_zamowienie DESC OFFSET 0 ROWS 
+GO
+
+CREATE VIEW v_Pracownik_produkcja
+AS
+SELECT P.ID_pracownik, P.Nazwisko + ' ' + P.Imie AS [Pracownik]
+FROM Posada_pracownika AS PP
+INNER JOIN Etat AS E ON PP.ID_etat = E.ID_etat
+INNER JOIN Stanowisko AS S ON E.ID_stanowisko = S.ID_stanowisko
+INNER JOIN Umowa AS U ON U.ID_posada_pracownika = PP.ID_posada_pracownika
+INNER JOIN Pracownik AS P ON U.ID_pracownik = P.ID_pracownik
+WHERE Nazwa_stanowiska IN ('Operator', 'Projektant', 'Brygadzista')
+ORDER BY [Pracownik] OFFSET 0 ROWS
 GO
 
 CREATE VIEW v_Tygodniowe_rozliczenie_pracy_produkcja
@@ -206,7 +235,7 @@ GO
 
 CREATE VIEW v_Proces_wytwarzanie_polprodukt
 AS
-SELECT P.Nazwa AS [Półprodukt], CP.Nazwa AS [Czynność produkcyjna], Pr.Nazwisko + ' ' + Pr.Imie AS [Pracownik],
+SELECT W.ID_wytwarzanie AS [ID], P.Nazwa AS [Półprodukt], CP.Nazwa AS [Czynność produkcyjna], Pr.Nazwisko + ' ' + Pr.Imie AS [Pracownik],
 SP.ID_stanowisko_produkcyjne, PPPC.Czas_trwania AS [Szacowany czas {min}],
 W.Czas_od AS [Data rozpoczęcia], W.Czas_do AS [Data zakończenia]
 FROM Proces_wytwarzanie_polprodukt AS PWPP
@@ -226,7 +255,7 @@ GO
 
 CREATE VIEW v_Proces_wytwarzanie_produkt
 AS
-SELECT P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynność produkcyjna], Pr.Nazwisko + ' ' + Pr.Imie AS [Pracownik],
+SELECT W.ID_wytwarzanie AS [ID], P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynność produkcyjna], Pr.Nazwisko + ' ' + Pr.Imie AS [Pracownik],
 SP.ID_stanowisko_produkcyjne, PPPC.Czas_trwania AS [Szacowany czas {min}],
 W.Czas_od AS [Data rozpoczęcia], W.Czas_do AS [Data zakończenia]
 FROM Proces_wytwarzanie_produkt AS PWP
