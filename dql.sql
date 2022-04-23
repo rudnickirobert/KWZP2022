@@ -736,3 +736,4 @@ FROM     dbo.Umowa INNER JOIN
 dbo.Pracownik ON dbo.Umowa.ID_pracownik = dbo.Pracownik.ID_pracownik CROSS JOIN
 dbo.Czas_pracy
 GO 
+

@@ -12,14 +12,10 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Umowa
+    public partial class Czas_pracy
     {
-        public int ID { get; set; }
-        public string Nazwisko { get; set; }
-        public string Imię { get; set; }
-        public string Wymiar_pracy { get; set; }
-        public string Nazwa_działu { get; set; }
-        public string Nazwa_stanowiska { get; set; }
-        public int Podstawa_wynagrodzenia { get; set; }
+        public int ID_czas_pracy { get; set; }
+        public System.DateTime Data { get; set; }
+        public int Liczba_godzin { get; set; }
     }
 }
