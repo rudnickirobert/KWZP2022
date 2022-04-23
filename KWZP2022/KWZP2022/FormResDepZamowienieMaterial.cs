@@ -96,7 +96,6 @@ namespace KWZP2022
                     MessageBox.Show("Poprawnie dodano zamówienie do bazy danych");
                 }
         }
-
         private void btnDodajDostawca_Click(object sender, EventArgs e)
         {
             FormResDepDostawca dostawcaForm = new FormResDepDostawca(db);

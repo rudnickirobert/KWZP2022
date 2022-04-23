@@ -1014,6 +1014,24 @@ warning 6002: The table/view 'KWZP.dbo.v_Koszt_godziny_pracy' does not have a pr
           <Property Name="Miesiąc" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Koszt_godziny_pracy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Koszt_godziny_pracy">
+          <Key>
+            <PropertyRef Name="ID_pracownik" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="Imie" />
+            <PropertyRef Name="Wynagrodzenie" />
+            <PropertyRef Name="Liczba_godzin" />
+          </Key>
+          <Property Name="ID_pracownik" Type="int" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Imie" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Wynagrodzenie" Type="int" Nullable="false" />
+          <Property Name="Liczba_godzin" Type="int" Nullable="false" />
+          <Property Name="Koszt godziny pracy" Type="int" />
+          <Property Name="Miesiąc" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Koszt_procesow_polprodukt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Koszt_procesow_polprodukt">
           <Key>
@@ -6118,6 +6136,22 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Liczba" Type="Int32" Nullable="false" />
           <Property Name="Koszt_półproduktów" Type="Decimal" Precision="38" Scale="6" />
+        </EntityType>
+        <EntityType Name="v_Koszt_godziny_pracy">
+          <Key>
+            <PropertyRef Name="ID_pracownik" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="Imie" />
+            <PropertyRef Name="Wynagrodzenie" />
+            <PropertyRef Name="Liczba_godzin" />
+          </Key>
+          <Property Name="ID_pracownik" Type="Int32" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Wynagrodzenie" Type="Int32" Nullable="false" />
+          <Property Name="Liczba_godzin" Type="Int32" Nullable="false" />
+          <Property Name="Koszt_godziny_pracy" Type="Int32" />
+          <Property Name="Miesiąc" Type="Int32" />
         </EntityType>
         <EntityType Name="v_Koszt_godziny_pracy">
           <Key>
