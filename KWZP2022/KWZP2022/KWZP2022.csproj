@@ -106,6 +106,18 @@
     <Compile Include="FormResDepMaterial.Designer.cs">
       <DependentUpon>FormResDepMaterial.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormResDepMaszyna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepMaszyna.Designer.cs">
+      <DependentUpon>FormResDepMaszyna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResDepZamowieniaMaszyny.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepZamowieniaMaszyny.Designer.cs">
+      <DependentUpon>FormResDepZamowieniaMaszyny.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormResDepZamowienieMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -705,6 +717,12 @@
     <EmbeddedResource Include="FormResDepMaterial.resx">
       <DependentUpon>FormResDepMaterial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepMaszyna.resx">
+      <DependentUpon>FormResDepMaszyna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepZamowieniaMaszyny.resx">
+      <DependentUpon>FormResDepZamowieniaMaszyny.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormResDepZamowienieMaterial.resx">
       <DependentUpon>FormResDepZamowienieMaterial.cs</DependentUpon>
     </EmbeddedResource>
@@ -807,6 +825,7 @@
       <DependentUpon>KWZPModel.edmx</DependentUpon>
       <LastGenOutput>KWZPModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\form_background_small.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

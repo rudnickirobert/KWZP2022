@@ -92,6 +92,7 @@
             this.btnOrder_maszyna.TabIndex = 9;
             this.btnOrder_maszyna.Text = "Zamówienie maszyny";
             this.btnOrder_maszyna.UseVisualStyleBackColor = false;
+            this.btnOrder_maszyna.Click += new System.EventHandler(this.btnOrder_maszyna_Click);
             // 
             // FormResDepZamowienia
             // 
