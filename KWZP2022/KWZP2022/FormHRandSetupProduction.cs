@@ -28,8 +28,8 @@ namespace KWZP2022
 
         private void btnSetupProduction_Click(object sender, EventArgs e)
         {
-            FormSetupProductionDepartment formSetupProductionDepartment = new FormSetupProductionDepartment(db);
-            formSetupProductionDepartment.ShowDialog();
+            FormSetupProduction formSetupProduction= new FormSetupProduction(db);
+            formSetupProduction.ShowDialog();
         }
     }
 }
