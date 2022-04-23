@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace KWZP2022
 {
-    public partial class FormResDepZamowieniaMaszyny : Form
+    public partial class FormResDepZamowienieMaszyny : Form
     {
         KWZPEntities db;
-        public FormResDepZamowieniaMaszyny(KWZPEntities db)
+        public FormResDepZamowienieMaszyny(KWZPEntities db)
         {
             InitializeComponent();
             this.db = db;
@@ -76,7 +76,6 @@ namespace KWZP2022
                 MessageBox.Show("Poprawnie dodano zamówienie do bazy danych");
             }
         }
-
         private void txtCena_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar))
@@ -97,6 +96,17 @@ namespace KWZP2022
                     txtCena.Text.Length == 0 ||
                     txtCena.SelectionStart + 2 < txtCena.Text.Length;
             }
+        }
+        private void btnDodajDostawca_Click(object sender, EventArgs e)
+        {
+            FormResDepDostawca dostawcaForm = new FormResDepDostawca(db);
+            dostawcaForm.ShowDialog();
+        }
+
+        private void btnDodajProducenta_Click(object sender, EventArgs e)
+        {
+            FormResDepProducent producentForm = new FormResDepProducent(db);
+            producentForm.ShowDialog();
         }
     }
 }

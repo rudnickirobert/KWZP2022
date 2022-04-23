@@ -285,6 +285,41 @@ ON Sklad_maszyna.ID_czesc=Czesc.ID_czesc
 GROUP BY Maszyna.Nazwa_maszyna, Czesc.Nazwa_czesc, Sklad_maszyna.Liczba_czesci;
 GO
 
+CREATE VIEW v_Material 
+AS 
+SELECT Material.ID_material, Rodzaj_material.ID_rodzaj_material, Rodzaj_material.Nazwa_rodzaj_material AS [Rodzaj materiału], Nazwa_material AS [Nazwa materiału]
+FROM Material
+INNER JOIN Rodzaj_material ON Material.ID_rodzaj_material = Rodzaj_material.ID_rodzaj_material
+GO
+
+CREATE VIEW v_Czesci
+AS 
+SELECT Czesc.ID_czesc, Rodzaj_czesc.ID_rodzaj_czesc, Rodzaj_czesc.Nazwa_rodzaj_czesc AS [Rodzaj części], Nazwa_czesc AS [Nazwa części]
+FROM Czesc
+INNER JOIN Rodzaj_czesc ON Czesc.ID_rodzaj_czesc = Rodzaj_czesc.ID_rodzaj_czesc
+GO
+
+CREATE VIEW v_Maszyna
+AS 
+SELECT Maszyna.ID_maszyna, Rodzaj_maszyna.ID_rodzaj_maszyna, Rodzaj_maszyna.Nazwa_rodzaj_maszyna AS [Rodzaj maszyny], Nazwa_maszyna AS [Nazwa maszyny], Koszt_RBG AS [Koszt roboczogodziny]
+FROM Maszyna
+INNER JOIN Rodzaj_maszyna ON Maszyna.ID_rodzaj_maszyna = Rodzaj_maszyna.ID_rodzaj_maszyna
+GO
+
+CREATE VIEW v_Dostawcy 
+AS
+SELECT Dostawca.ID_dostawca, Nazwa_dostawca AS [Nazwa], DAD.Miejscowosc AS [Miejscowość], DAD.Ulica, DAD.Nr_budynku AS [Nr budynku], DAD.Kod_pocztowy AS [Kod pocztowy]
+FROM Dostawca
+INNER JOIN Dane_adresowe_dostawca AS DAD ON Dostawca.ID_dostawca = DAD.ID_dostawca
+GO
+
+CREATE VIEW v_Producenci
+AS
+SELECT Producent.ID_producent, Nazwa_producenta AS [Nazwa], DAP.Miejscowosc AS [Miejscowość], DAP.Ulica, DAP.Nr_budynku AS [Nr budynku], DAP.Kod_pocztowy AS [Kod pocztowy]
+FROM Producent
+INNER JOIN Dane_adresowe_producent AS DAP ON Producent.ID_producent = DAP.ID_producent
+GO
+
 CREATE VIEW v_Parametry_maszyna AS
 SELECT Maszyna.Nazwa_maszyna AS [Nazwa maszyny], Rodzaj_parametr.Nazwa_rodzaj_parametr AS [Parametr], Jednostka.Skrot AS [Jednostka], Zakres_dol AS [Zakres - granica dolna], Zakres_gora AS [Zakres - granica górna]
 FROM Parametr_maszyna

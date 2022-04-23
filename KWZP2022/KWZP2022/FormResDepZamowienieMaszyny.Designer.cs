@@ -1,6 +1,6 @@
 ﻿namespace KWZP2022
 {
-    partial class FormResDepZamowieniaMaszyny
+    partial class FormResDepZamowienieMaszyny
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormResDepZamowieniaMaszyny));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormResDepZamowienieMaszyny));
             this.btnDodajZamowienie = new System.Windows.Forms.Button();
             this.btnDodajProducenta = new System.Windows.Forms.Button();
             this.btnDodajDostawca = new System.Windows.Forms.Button();
@@ -69,10 +69,11 @@
             this.btnDodajProducenta.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnDodajProducenta.Location = new System.Drawing.Point(359, 171);
             this.btnDodajProducenta.Name = "btnDodajProducenta";
-            this.btnDodajProducenta.Size = new System.Drawing.Size(142, 32);
+            this.btnDodajProducenta.Size = new System.Drawing.Size(148, 35);
             this.btnDodajProducenta.TabIndex = 57;
             this.btnDodajProducenta.Text = "Dodaj nowego producenta";
             this.btnDodajProducenta.UseVisualStyleBackColor = false;
+            this.btnDodajProducenta.Click += new System.EventHandler(this.btnDodajProducenta_Click);
             // 
             // btnDodajDostawca
             // 
@@ -80,10 +81,11 @@
             this.btnDodajDostawca.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnDodajDostawca.Location = new System.Drawing.Point(359, 94);
             this.btnDodajDostawca.Name = "btnDodajDostawca";
-            this.btnDodajDostawca.Size = new System.Drawing.Size(142, 32);
+            this.btnDodajDostawca.Size = new System.Drawing.Size(148, 32);
             this.btnDodajDostawca.TabIndex = 56;
             this.btnDodajDostawca.Text = "Dodaj nowego dostawcę";
             this.btnDodajDostawca.UseVisualStyleBackColor = false;
+            this.btnDodajDostawca.Click += new System.EventHandler(this.btnDodajDostawca_Click);
             // 
             // txtCena
             // 
@@ -217,9 +219,9 @@
             this.btnDodajMaszyna.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnDodajMaszyna.Location = new System.Drawing.Point(359, 132);
             this.btnDodajMaszyna.Name = "btnDodajMaszyna";
-            this.btnDodajMaszyna.Size = new System.Drawing.Size(142, 32);
+            this.btnDodajMaszyna.Size = new System.Drawing.Size(148, 32);
             this.btnDodajMaszyna.TabIndex = 43;
-            this.btnDodajMaszyna.Text = "Dodaj nową część";
+            this.btnDodajMaszyna.Text = "Dodaj nową maszynę";
             this.btnDodajMaszyna.UseVisualStyleBackColor = false;
             this.btnDodajMaszyna.Click += new System.EventHandler(this.btnDodajMaszyna_Click);
             // 
@@ -245,7 +247,7 @@
             this.dgvZamowienieMaszyna.Size = new System.Drawing.Size(772, 208);
             this.dgvZamowienieMaszyna.TabIndex = 41;
             // 
-            // FormResDepZamowieniaMaszyny
+            // FormResDepZamowienieMaszyny
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
@@ -268,10 +270,10 @@
             this.Controls.Add(this.btnDodajMaszyna);
             this.Controls.Add(this.lvlZamowienieMaszyna);
             this.Controls.Add(this.dgvZamowienieMaszyna);
-            this.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormResDepZamowieniaMaszyny";
+            this.Name = "FormResDepZamowienieMaszyny";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Zamówienia Maszyny";
             ((System.ComponentModel.ISupportInitialize)(this.numIlosc)).EndInit();
