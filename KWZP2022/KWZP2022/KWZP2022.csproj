@@ -109,6 +109,30 @@
     <Compile Include="FormResDepDostawca.Designer.cs">
       <DependentUpon>FormResDepDostawca.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormResDepMagazynCzesci.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepMagazynCzesci.Designer.cs">
+      <DependentUpon>FormResDepMagazynCzesci.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResDepMagazynMaszyn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepMagazynMaszyn.Designer.cs">
+      <DependentUpon>FormResDepMagazynMaszyn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResDepMagazynMaterialow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepMagazynMaterialow.Designer.cs">
+      <DependentUpon>FormResDepMagazynMaterialow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResDepMagazynNarzedzi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepMagazynNarzedzi.Designer.cs">
+      <DependentUpon>FormResDepMagazynNarzedzi.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormResDepMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -761,6 +785,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepDostawca.resx">
       <DependentUpon>FormResDepDostawca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepMagazynCzesci.resx">
+      <DependentUpon>FormResDepMagazynCzesci.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepMagazynMaszyn.resx">
+      <DependentUpon>FormResDepMagazynMaszyn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepMagazynMaterialow.resx">
+      <DependentUpon>FormResDepMagazynMaterialow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepMagazynNarzedzi.resx">
+      <DependentUpon>FormResDepMagazynNarzedzi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepMaterial.resx">
       <DependentUpon>FormResDepMaterial.cs</DependentUpon>
