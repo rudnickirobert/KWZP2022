@@ -23,7 +23,7 @@ namespace KWZP2022
         }
         private void showData()
         {
-            this.dgvOrders.DataSource = this.db.v_Zamowienie.ToList();
+            this.dgvOrders.DataSource = this.db.v_Zamowienie.OrderBy(a => a.Nr_zamówienia).ToList();
             this.dgvOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
         }
         private void showDataBox()

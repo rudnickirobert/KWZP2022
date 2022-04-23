@@ -64,7 +64,7 @@
             this.comboBoxEmployee.FormattingEnabled = true;
             this.comboBoxEmployee.Location = new System.Drawing.Point(24, 41);
             this.comboBoxEmployee.Name = "comboBoxEmployee";
-            this.comboBoxEmployee.Size = new System.Drawing.Size(404, 28);
+            this.comboBoxEmployee.Size = new System.Drawing.Size(430, 28);
             this.comboBoxEmployee.TabIndex = 7;
             // 
             // label1
@@ -84,7 +84,7 @@
             this.comboBoxNoOrder.FormattingEnabled = true;
             this.comboBoxNoOrder.Location = new System.Drawing.Point(24, 104);
             this.comboBoxNoOrder.Name = "comboBoxNoOrder";
-            this.comboBoxNoOrder.Size = new System.Drawing.Size(404, 28);
+            this.comboBoxNoOrder.Size = new System.Drawing.Size(430, 28);
             this.comboBoxNoOrder.TabIndex = 9;
             // 
             // label3
@@ -104,7 +104,7 @@
             this.comboBoxGuarantee.FormattingEnabled = true;
             this.comboBoxGuarantee.Location = new System.Drawing.Point(24, 166);
             this.comboBoxGuarantee.Name = "comboBoxGuarantee";
-            this.comboBoxGuarantee.Size = new System.Drawing.Size(404, 28);
+            this.comboBoxGuarantee.Size = new System.Drawing.Size(430, 28);
             this.comboBoxGuarantee.TabIndex = 11;
             // 
             // label4
@@ -124,7 +124,7 @@
             this.comboBoxOfferStatus.FormattingEnabled = true;
             this.comboBoxOfferStatus.Location = new System.Drawing.Point(24, 298);
             this.comboBoxOfferStatus.Name = "comboBoxOfferStatus";
-            this.comboBoxOfferStatus.Size = new System.Drawing.Size(404, 28);
+            this.comboBoxOfferStatus.Size = new System.Drawing.Size(430, 28);
             this.comboBoxOfferStatus.TabIndex = 13;
             // 
             // label5
@@ -143,7 +143,7 @@
             this.textBoxPrice.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.textBoxPrice.Location = new System.Drawing.Point(24, 365);
             this.textBoxPrice.Name = "textBoxPrice";
-            this.textBoxPrice.Size = new System.Drawing.Size(404, 26);
+            this.textBoxPrice.Size = new System.Drawing.Size(430, 26);
             this.textBoxPrice.TabIndex = 17;
             // 
             // btnAddNewOffer
@@ -152,7 +152,7 @@
             this.btnAddNewOffer.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.btnAddNewOffer.Location = new System.Drawing.Point(24, 426);
             this.btnAddNewOffer.Name = "btnAddNewOffer";
-            this.btnAddNewOffer.Size = new System.Drawing.Size(404, 28);
+            this.btnAddNewOffer.Size = new System.Drawing.Size(430, 28);
             this.btnAddNewOffer.TabIndex = 18;
             this.btnAddNewOffer.Text = "Stwórz nową ofertę handlową";
             this.btnAddNewOffer.UseVisualStyleBackColor = true;
@@ -184,15 +184,16 @@
             // dtpDateOfImplementation
             // 
             this.dtpDateOfImplementation.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.dtpDateOfImplementation.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDateOfImplementation.Location = new System.Drawing.Point(24, 231);
             this.dtpDateOfImplementation.Name = "dtpDateOfImplementation";
-            this.dtpDateOfImplementation.Size = new System.Drawing.Size(404, 26);
+            this.dtpDateOfImplementation.Size = new System.Drawing.Size(215, 26);
             this.dtpDateOfImplementation.TabIndex = 21;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(473, 130);
+            this.dataGridView1.Location = new System.Drawing.Point(519, 166);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(240, 150);
             this.dataGridView1.TabIndex = 22;
