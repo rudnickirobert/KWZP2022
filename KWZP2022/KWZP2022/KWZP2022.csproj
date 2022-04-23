@@ -408,30 +408,6 @@
     <Compile Include="Sklad_stanowisko_produkcyjne_narzedzie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="SlownikStanowiskoForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SlownikStanowiskoForm.Designer.cs">
-      <DependentUpon>SlownikStanowiskoForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PolproduktDodanieForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PolproduktDodanieForm.Designer.cs">
-      <DependentUpon>PolproduktDodanieForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ProduktForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProduktForm.Designer.cs">
-      <DependentUpon>ProduktForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ProdukcjaFrom.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProdukcjaFrom.Designer.cs">
-      <DependentUpon>ProdukcjaFrom.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormDepartments.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -902,11 +878,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSlownikStanowisko.resx">
       <DependentUpon>FormSlownikStanowisko.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormResDepMagazyny.resx">
       <DependentUpon>FormResDepMagazyny.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SlownikStanowiskoForm.resx">
-      <DependentUpon>SlownikStanowiskoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepZamowienia.resx">
       <DependentUpon>FormResDepZamowienia.cs</DependentUpon>
