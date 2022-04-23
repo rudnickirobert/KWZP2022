@@ -17,28 +17,107 @@ namespace KWZP2022
         {
             InitializeComponent();
             this.db = db;
+            initComboboxPracowicyProdukcji();
+            initComboboxStanowisko();
+            initComboboxZamowienie();
             refreshScreen();
         }
 
         private void refreshScreen()
         {
-            initDataGridViewWytwarzanie();
+            initDataGridViewWytwarzaniePolprodukt();
+            initDataGridViewWytwarzanieProdukt();
+            initDataGridViewProcesPolprodukt();
+            initDataGridViewProcesProdukt();
+            initDataGridViewZamowienieSzczegol();
         }
 
-        private void initDataGridViewWytwarzanie()
+        private void initDataGridViewWytwarzaniePolprodukt()
         {
-            dgvWytwarzanie.DataSource = db.v_Wytwarzanie.ToList();
-            this.dgvWytwarzanie.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-/*            dgvWytwarzanie.Columns["Parametr_polprodukt"].Visible = false;
-            dgvWytwarzanie.Columns["Proces_polprodukt_czynnosc"].Visible = false;
-            dgvWytwarzanie.Columns["Sklad_polprodukt"].Visible = false;
-            dgvWytwarzanie.Columns["Sklad_produkt"].Visible = false;*/
+            dgvWytwarzaniePolprodukt.DataSource = db.v_Proces_wytwarzanie_polprodukt.ToList();
+            dgvWytwarzaniePolprodukt.Columns["Czynność_produkcyjna"].Visible = false;
+            dgvWytwarzaniePolprodukt.Columns["ID_stanowisko_produkcyjne"].HeaderText = "Stanowisko";
+            dgvWytwarzaniePolprodukt.Columns["Data_rozpoczęcia"].HeaderText = "Rozpoczęcie";
+            dgvWytwarzaniePolprodukt.Columns["Data_zakończenia"].HeaderText = "Zakończenie";
+            this.dgvWytwarzaniePolprodukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 
-        private void initComboboxData()
+        private void initDataGridViewWytwarzanieProdukt()
         {
-            cbPracownik.DataSource = db.v_Pracownik.ToList();
+            dgvWytwarzanieProdukt.DataSource = db.v_Proces_wytwarzanie_produkt.ToList();
+            dgvWytwarzanieProdukt.Columns["Szacowany_czas__min_"].Visible = false;
+            dgvWytwarzanieProdukt.Columns["Czynność_produkcyjna"].Visible = false;
+            dgvWytwarzanieProdukt.Columns["ID_stanowisko_produkcyjne"].HeaderText = "Stanowisko";
+            dgvWytwarzanieProdukt.Columns["Data_rozpoczęcia"].HeaderText = "Rozpoczęcie";
+            dgvWytwarzanieProdukt.Columns["Data_zakończenia"].HeaderText = "Zakończenie";
+            this.dgvWytwarzanieProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 
+        private void initDataGridViewZamowienieSzczegol()
+        {
+            dgvZamowienieSzczegol.DataSource = db.v_Zamowienie_produkcja.ToList();
+ 
+            this.dgvWytwarzanieProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void initDataGridViewProcesPolprodukt()
+        {
+            dgvProcesPolprodukt.DataSource = db.v_Proces_polprodukt_czynnosc.ToList();
+            this.dgvProcesPolprodukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void initDataGridViewProcesProdukt()
+        {
+            dgvProcesProdukt.DataSource = db.v_Proces_produkt_czynnosc.ToList();
+            this.dgvProcesProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void initComboboxPracowicyProdukcji()
+        {
+            cbPracownik.DataSource = db.v_Pracownik_produkcja.ToList();
+            cbPracownik.ValueMember = "ID_pracownik";
+            cbPracownik.DisplayMember = "Pracownik";
+
+        }
+
+        private void initComboboxStanowisko()
+        {
+            cbStanowisko.DataSource = db.v_Stanowiska_do_uzycia.ToList();
+            cbStanowisko.ValueMember = "ID_stanowisko_produkcyjne";
+            cbStanowisko.DisplayMember = "Nazwa";
+            
+        }
+
+        private void initComboboxZamowienie()
+        {
+            cbZamowienie.DataSource = db.v_Zamowienie_produkcja.ToList();
+            cbZamowienie.ValueMember = "ID";
+            cbZamowienie.DisplayMember = "ID";
+
+        }
+
+        private void enterIdOrder()
+        {
+            string zamowienie = cbZamowienie.SelectedItem.ToString();
+            label6.Text = zamowienie;
+            /*int zamowienieID = int.Parse(zamowienie);
+            System.Linq.IQueryable vOrderId = db.v_Zamowienie_szczegol_produkcja.Where(a => a.ID == zamowienieID);
+            int vOrderIdInt = vOrderId.Cast<v_Zamowienie_szczegol_produkcja>().Where(a => a.ID > 0).Count();
+            if (vOrderIdInt > 0)
+            {
+                dgvZamowienieSzczegol.DataSource = vOrderId.Cast<v_Zamowienie_szczegol_produkcja>().ToList();
+
+                refreshScreen();
+            }
+            else
+            {
+                refreshScreen();
+            }*/
+        }
+
+        private void btnSzukaj_Click(object sender, EventArgs e)
+        {
+            enterIdOrder();
+        }
     }
 }

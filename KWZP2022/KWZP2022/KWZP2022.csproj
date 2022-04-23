@@ -100,12 +100,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="WytwarzanieForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WytwarzanieForm.Designer.cs">
-      <DependentUpon>WytwarzanieForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forma_platnosc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -244,12 +238,6 @@
     <Compile Include="Rodzaj_umowy.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="SkladPolproduktForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SkladPolproduktForm.Designer.cs">
-      <DependentUpon>SkladPolproduktForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Sklad_maszyna.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -268,74 +256,6 @@
     <Compile Include="Sklad_stanowisko_produkcyjne_narzedzie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="SlownikStanowiskoForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SlownikStanowiskoForm.Designer.cs">
-      <DependentUpon>SlownikStanowiskoForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SkladProduktForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SkladProduktForm.Designer.cs">
-      <DependentUpon>SkladProduktForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ProduktForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProduktForm.Designer.cs">
-      <DependentUpon>ProduktForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ProdukcjaFrom.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProdukcjaFrom.Designer.cs">
-      <DependentUpon>ProdukcjaFrom.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormDepartments.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormDepartments.Designer.cs">
-      <DependentUpon>FormDepartments.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSalesDepartment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSalesDepartment.Designer.cs">
-      <DependentUpon>FormSalesDepartment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSalesDepartmentClient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSalesDepartmentClient.Designer.cs">
-      <DependentUpon>FormSalesDepartmentClient.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSalesDepartmentClientModifyClient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSalesDepartmentClientModifyClient.Designer.cs">
-      <DependentUpon>FormSalesDepartmentClientModifyClient.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSalesDepartmentClientNewClient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSalesDepartmentClientNewClient.Designer.cs">
-      <DependentUpon>FormSalesDepartmentClientNewClient.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSalesDepartmentClientRemoveClient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSalesDepartmentClientRemoveClient.Designer.cs">
-      <DependentUpon>FormSalesDepartmentClientRemoveClient.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSalesDepartmentSales.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSalesDepartmentSales.Designer.cs">
-      <DependentUpon>FormSalesDepartmentSales.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Slownik_polprodukt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -525,6 +445,9 @@
     <Compile Include="v_Pracownik.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Pracownik_produkcja.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Proces_polprodukt_czynnosc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -636,6 +559,12 @@
     <Compile Include="v_Zamowienia_narzedzia_w_trakcie_wszystko.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Zamowienie_produkcja.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Zamowienie_szczegol_produkcja.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Wyksztalcenie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -648,6 +577,86 @@
     <Compile Include="Wytwarzanie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="WytwarzanieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WytwarzanieForm.Designer.cs">
+      <DependentUpon>WytwarzanieForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkladPolproduktForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SkladPolproduktForm.Designer.cs">
+      <DependentUpon>SkladPolproduktForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SlownikStanowiskoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SlownikStanowiskoForm.Designer.cs">
+      <DependentUpon>SlownikStanowiskoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SkladProduktForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SkladProduktForm.Designer.cs">
+      <DependentUpon>SkladProduktForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProduktForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProduktForm.Designer.cs">
+      <DependentUpon>ProduktForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProdukcjaFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProdukcjaFrom.Designer.cs">
+      <DependentUpon>ProdukcjaFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDepartments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDepartments.Designer.cs">
+      <DependentUpon>FormDepartments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSalesDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesDepartment.Designer.cs">
+      <DependentUpon>FormSalesDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSalesDepartmentClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesDepartmentClient.Designer.cs">
+      <DependentUpon>FormSalesDepartmentClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSalesDepartmentClientModifyClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesDepartmentClientModifyClient.Designer.cs">
+      <DependentUpon>FormSalesDepartmentClientModifyClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSalesDepartmentClientNewClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesDepartmentClientNewClient.Designer.cs">
+      <DependentUpon>FormSalesDepartmentClientNewClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSalesDepartmentClientRemoveClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesDepartmentClientRemoveClient.Designer.cs">
+      <DependentUpon>FormSalesDepartmentClientRemoveClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSalesDepartmentSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesDepartmentSales.Designer.cs">
+      <DependentUpon>FormSalesDepartmentSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Zamowienie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>

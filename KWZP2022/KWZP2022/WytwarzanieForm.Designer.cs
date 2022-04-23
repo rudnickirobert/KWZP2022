@@ -33,11 +33,28 @@
             this.btnUsun = new System.Windows.Forms.Button();
             this.btnOdswiez = new System.Windows.Forms.Button();
             this.btnDodaj = new System.Windows.Forms.Button();
-            this.dgvWytwarzanie = new System.Windows.Forms.DataGridView();
+            this.dgvWytwarzaniePolprodukt = new System.Windows.Forms.DataGridView();
             this.dtpDataOd = new System.Windows.Forms.DateTimePicker();
             this.dtpDataDo = new System.Windows.Forms.DateTimePicker();
             this.cbPracownik = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzanie)).BeginInit();
+            this.dgvWytwarzanieProdukt = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbStanowisko = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dgvProcesProdukt = new System.Windows.Forms.DataGridView();
+            this.dgvProcesPolprodukt = new System.Windows.Forms.DataGridView();
+            this.dgvZamowienieSzczegol = new System.Windows.Forms.DataGridView();
+            this.cbZamowienie = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnSzukaj = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzaniePolprodukt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzanieProdukt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProcesProdukt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProcesPolprodukt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienieSzczegol)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAktualizuj
@@ -45,7 +62,7 @@
             this.btnAktualizuj.BackColor = System.Drawing.Color.SkyBlue;
             this.btnAktualizuj.Enabled = false;
             this.btnAktualizuj.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnAktualizuj.Location = new System.Drawing.Point(45, 477);
+            this.btnAktualizuj.Location = new System.Drawing.Point(12, 480);
             this.btnAktualizuj.Name = "btnAktualizuj";
             this.btnAktualizuj.Size = new System.Drawing.Size(334, 37);
             this.btnAktualizuj.TabIndex = 16;
@@ -56,7 +73,7 @@
             // 
             this.btnUsun.BackColor = System.Drawing.Color.IndianRed;
             this.btnUsun.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnUsun.Location = new System.Drawing.Point(45, 546);
+            this.btnUsun.Location = new System.Drawing.Point(12, 549);
             this.btnUsun.Name = "btnUsun";
             this.btnUsun.Size = new System.Drawing.Size(334, 37);
             this.btnUsun.TabIndex = 15;
@@ -66,7 +83,7 @@
             // btnOdswiez
             // 
             this.btnOdswiez.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnOdswiez.Location = new System.Drawing.Point(45, 617);
+            this.btnOdswiez.Location = new System.Drawing.Point(12, 620);
             this.btnOdswiez.Name = "btnOdswiez";
             this.btnOdswiez.Size = new System.Drawing.Size(334, 37);
             this.btnOdswiez.TabIndex = 14;
@@ -77,61 +94,206 @@
             // 
             this.btnDodaj.BackColor = System.Drawing.Color.PaleGreen;
             this.btnDodaj.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnDodaj.Location = new System.Drawing.Point(45, 408);
+            this.btnDodaj.Location = new System.Drawing.Point(12, 411);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(334, 37);
             this.btnDodaj.TabIndex = 13;
             this.btnDodaj.Text = "Dodaj nowy";
             this.btnDodaj.UseVisualStyleBackColor = false;
             // 
-            // dgvWytwarzanie
+            // dgvWytwarzaniePolprodukt
             // 
-            this.dgvWytwarzanie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvWytwarzanie.Location = new System.Drawing.Point(467, 408);
-            this.dgvWytwarzanie.Name = "dgvWytwarzanie";
-            this.dgvWytwarzanie.Size = new System.Drawing.Size(759, 246);
-            this.dgvWytwarzanie.TabIndex = 17;
+            this.dgvWytwarzaniePolprodukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvWytwarzaniePolprodukt.Location = new System.Drawing.Point(378, 522);
+            this.dgvWytwarzaniePolprodukt.Name = "dgvWytwarzaniePolprodukt";
+            this.dgvWytwarzaniePolprodukt.Size = new System.Drawing.Size(874, 177);
+            this.dgvWytwarzaniePolprodukt.TabIndex = 17;
             // 
             // dtpDataOd
             // 
-            this.dtpDataOd.Location = new System.Drawing.Point(63, 247);
+            this.dtpDataOd.Location = new System.Drawing.Point(12, 236);
             this.dtpDataOd.Name = "dtpDataOd";
             this.dtpDataOd.Size = new System.Drawing.Size(200, 20);
             this.dtpDataOd.TabIndex = 18;
             // 
             // dtpDataDo
             // 
-            this.dtpDataDo.Location = new System.Drawing.Point(63, 333);
+            this.dtpDataDo.Location = new System.Drawing.Point(12, 323);
             this.dtpDataDo.Name = "dtpDataDo";
             this.dtpDataDo.Size = new System.Drawing.Size(200, 20);
             this.dtpDataDo.TabIndex = 19;
             // 
             // cbPracownik
             // 
+            this.cbPracownik.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cbPracownik.FormattingEnabled = true;
-            this.cbPracownik.Location = new System.Drawing.Point(63, 148);
+            this.cbPracownik.Location = new System.Drawing.Point(12, 54);
             this.cbPracownik.Name = "cbPracownik";
-            this.cbPracownik.Size = new System.Drawing.Size(121, 21);
+            this.cbPracownik.Size = new System.Drawing.Size(260, 28);
             this.cbPracownik.TabIndex = 20;
+            // 
+            // dgvWytwarzanieProdukt
+            // 
+            this.dgvWytwarzanieProdukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvWytwarzanieProdukt.Location = new System.Drawing.Point(378, 333);
+            this.dgvWytwarzanieProdukt.Name = "dgvWytwarzanieProdukt";
+            this.dgvWytwarzanieProdukt.Size = new System.Drawing.Size(874, 177);
+            this.dgvWytwarzanieProdukt.TabIndex = 22;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label1.Location = new System.Drawing.Point(7, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 25);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Pracownik:";
+            // 
+            // cbStanowisko
+            // 
+            this.cbStanowisko.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cbStanowisko.FormattingEnabled = true;
+            this.cbStanowisko.Location = new System.Drawing.Point(12, 123);
+            this.cbStanowisko.Name = "cbStanowisko";
+            this.cbStanowisko.Size = new System.Drawing.Size(260, 28);
+            this.cbStanowisko.TabIndex = 24;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label2.Location = new System.Drawing.Point(7, 95);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(119, 25);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Stanowisko:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label3.Location = new System.Drawing.Point(7, 195);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(169, 25);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Data rozpoczęcia:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label4.Location = new System.Drawing.Point(7, 283);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(174, 25);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "Data zakończenia:";
+            // 
+            // dgvProcesProdukt
+            // 
+            this.dgvProcesProdukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProcesProdukt.Location = new System.Drawing.Point(378, 49);
+            this.dgvProcesProdukt.Name = "dgvProcesProdukt";
+            this.dgvProcesProdukt.Size = new System.Drawing.Size(329, 259);
+            this.dgvProcesProdukt.TabIndex = 28;
+            // 
+            // dgvProcesPolprodukt
+            // 
+            this.dgvProcesPolprodukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProcesPolprodukt.Location = new System.Drawing.Point(731, 49);
+            this.dgvProcesPolprodukt.Name = "dgvProcesPolprodukt";
+            this.dgvProcesPolprodukt.Size = new System.Drawing.Size(521, 259);
+            this.dgvProcesPolprodukt.TabIndex = 29;
+            // 
+            // dgvZamowienieSzczegol
+            // 
+            this.dgvZamowienieSzczegol.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvZamowienieSzczegol.Location = new System.Drawing.Point(1286, 88);
+            this.dgvZamowienieSzczegol.Name = "dgvZamowienieSzczegol";
+            this.dgvZamowienieSzczegol.Size = new System.Drawing.Size(447, 220);
+            this.dgvZamowienieSzczegol.TabIndex = 30;
+            // 
+            // cbZamowienie
+            // 
+            this.cbZamowienie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cbZamowienie.FormattingEnabled = true;
+            this.cbZamowienie.Location = new System.Drawing.Point(1286, 54);
+            this.cbZamowienie.Name = "cbZamowienie";
+            this.cbZamowienie.Size = new System.Drawing.Size(447, 28);
+            this.cbZamowienie.TabIndex = 31;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label5.Location = new System.Drawing.Point(1281, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(123, 25);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "Zamówienie:";
+            // 
+            // btnSzukaj
+            // 
+            this.btnSzukaj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnSzukaj.Font = new System.Drawing.Font("Arial", 15F);
+            this.btnSzukaj.Location = new System.Drawing.Point(1516, 11);
+            this.btnSzukaj.Name = "btnSzukaj";
+            this.btnSzukaj.Size = new System.Drawing.Size(217, 37);
+            this.btnSzukaj.TabIndex = 33;
+            this.btnSzukaj.Text = "Szukaj";
+            this.btnSzukaj.UseVisualStyleBackColor = false;
+            this.btnSzukaj.Click += new System.EventHandler(this.btnSzukaj_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(1402, 402);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 34;
+            this.label6.Text = "label6";
             // 
             // WytwarzanieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1264, 711);
+            this.ClientSize = new System.Drawing.Size(1735, 711);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.btnSzukaj);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cbZamowienie);
+            this.Controls.Add(this.dgvZamowienieSzczegol);
+            this.Controls.Add(this.dgvProcesPolprodukt);
+            this.Controls.Add(this.dgvProcesProdukt);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cbStanowisko);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dgvWytwarzanieProdukt);
             this.Controls.Add(this.cbPracownik);
             this.Controls.Add(this.dtpDataDo);
             this.Controls.Add(this.dtpDataOd);
-            this.Controls.Add(this.dgvWytwarzanie);
+            this.Controls.Add(this.dgvWytwarzaniePolprodukt);
             this.Controls.Add(this.btnAktualizuj);
             this.Controls.Add(this.btnUsun);
             this.Controls.Add(this.btnOdswiez);
             this.Controls.Add(this.btnDodaj);
             this.Name = "WytwarzanieForm";
             this.Text = "Wytwarzanie";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzanie)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzaniePolprodukt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzanieProdukt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProcesProdukt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProcesPolprodukt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienieSzczegol)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -141,9 +303,22 @@
         private System.Windows.Forms.Button btnUsun;
         private System.Windows.Forms.Button btnOdswiez;
         private System.Windows.Forms.Button btnDodaj;
-        private System.Windows.Forms.DataGridView dgvWytwarzanie;
+        private System.Windows.Forms.DataGridView dgvWytwarzaniePolprodukt;
         private System.Windows.Forms.DateTimePicker dtpDataOd;
         private System.Windows.Forms.DateTimePicker dtpDataDo;
         private System.Windows.Forms.ComboBox cbPracownik;
+        private System.Windows.Forms.DataGridView dgvWytwarzanieProdukt;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbStanowisko;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridView dgvProcesProdukt;
+        private System.Windows.Forms.DataGridView dgvProcesPolprodukt;
+        private System.Windows.Forms.DataGridView dgvZamowienieSzczegol;
+        private System.Windows.Forms.ComboBox cbZamowienie;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnSzukaj;
+        private System.Windows.Forms.Label label6;
     }
 }
