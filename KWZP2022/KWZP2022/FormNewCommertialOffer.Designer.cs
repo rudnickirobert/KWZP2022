@@ -43,8 +43,6 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.dtpDateOfImplementation = new System.Windows.Forms.DateTimePicker();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -86,6 +84,7 @@
             this.comboBoxNoOrder.Name = "comboBoxNoOrder";
             this.comboBoxNoOrder.Size = new System.Drawing.Size(430, 28);
             this.comboBoxNoOrder.TabIndex = 9;
+            this.comboBoxNoOrder.SelectionChangeCommitted += new System.EventHandler(this.comboBoxNoOrder_SelectionChangeCommitted);
             // 
             // label3
             // 
@@ -190,20 +189,11 @@
             this.dtpDateOfImplementation.Size = new System.Drawing.Size(215, 26);
             this.dtpDateOfImplementation.TabIndex = 21;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(519, 166);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView1.TabIndex = 22;
-            // 
             // FormNewCommertialOffer
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(794, 491);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.dtpDateOfImplementation);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnClose);
@@ -222,7 +212,6 @@
             this.Name = "FormNewCommertialOffer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nowa oferta handlowa";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,6 +233,5 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtpDateOfImplementation;
-        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

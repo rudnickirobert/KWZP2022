@@ -50,22 +50,45 @@ namespace KWZP2022
         }
         private void comboBoxOfferStatusData()
         {
-            comboBoxOfferStatus.DataSource = this.db.Status_oferta.ToList();
-            comboBoxOfferStatus.ValueMember = "ID_status_oferta";
-            comboBoxOfferStatus.DisplayMember = "Nazwa_status_oferta";
+            int selectedNoOrder = int.Parse(comboBoxNoOrder.SelectedValue.ToString());
+            Zamowienie orderNotAccepted = this.db.Zamowienie.Single(a => a.ID_zamowienie == selectedNoOrder);
+            if(orderNotAccepted.ID_typ_zamowienie == 2)
+            {
+                comboBoxOfferStatus.DataSource = this.db.Status_oferta.Where(a => a.ID_status_oferta == 1).ToList();
+                comboBoxOfferStatus.ValueMember = "ID_status_oferta";
+                comboBoxOfferStatus.DisplayMember = "Nazwa_status_oferta";
+            }
+            else
+            {
+                comboBoxOfferStatus.DataSource = this.db.Status_oferta.Where(a => a.ID_status_oferta == 3 || a.ID_status_oferta == 1).ToList();
+                comboBoxOfferStatus.ValueMember = "ID_status_oferta";
+                comboBoxOfferStatus.DisplayMember = "Nazwa_status_oferta";
+            }
+            
         }
         private void btnAddNewOffer_Click(object sender, EventArgs e)
         {
-            //Oferta_handlowa newComertialOffer = new Oferta_handlowa();
-            //newComertialOffer.ID_pracownik = int.Parse(comboBoxEmployee.SelectedValue.ToString());
-            //newComertialOffer.ID_zamowienie = int.Parse(comboBoxNoOrder.SelectedValue.ToString());
-            //newComertialOffer.ID_gwarancja = int.Parse(comboBoxGuarantee.SelectedValue.ToString());
-            if (dtpDateOfImplementation.Value.Date < DateTime.Today)
+            if (dtpDateOfImplementation.Value.Date > (DateTime.Now.AddDays(14)))
             {
-                MessageBox.Show("Udało się ", "dsadas", MessageBoxButtons.OK);
+                Oferta_handlowa newComertialOffer = new Oferta_handlowa();
+                newComertialOffer.ID_pracownik = int.Parse(comboBoxEmployee.SelectedValue.ToString());
+                newComertialOffer.ID_zamowienie = int.Parse(comboBoxNoOrder.SelectedValue.ToString());
+                newComertialOffer.ID_gwarancja = int.Parse(comboBoxGuarantee.SelectedValue.ToString());
+                newComertialOffer.Termin_realizacja = dtpDateOfImplementation.Value.Date;
+                newComertialOffer.ID_status_oferta = int.Parse(comboBoxOfferStatus.SelectedValue.ToString());
+                newComertialOffer.Cena = int.Parse(textBoxPrice.Text);
+                this.db.Oferta_handlowa.Add(newComertialOffer);
+                this.db.SaveChanges();
+                MessageBox.Show("Dodano nową ofertę handlową", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
-            //newComertialOffer.Termin_realizacja = dtpDateOfImplementation.Value.Date;
+            else
+            {
+                MessageBox.Show("Źle wprowadzono dane", "Błąd", MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
+        private void comboBoxNoOrder_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            comboBoxOfferStatusData();
         }
     }
 }

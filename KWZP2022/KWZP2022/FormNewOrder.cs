@@ -113,10 +113,10 @@ namespace KWZP2022
                                     this.db.Zamowienie.Add(newZamowienie);
                                     this.db.SaveChanges();
                                     MessageBox.Show("Dodano zamówienie!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    int counterOrderDetailsBefore = this.db.Produkt.Count();
+                                    int counterOrderDetailsBefore = this.db.Zamowienie_szczegol.Count();
                                     FormNewOrderDetails formNewOrderDetails = new FormNewOrderDetails(db, newZamowienie);
                                     formNewOrderDetails.ShowDialog();
-                                    int counterOrderDetailsAfter = this.db.Produkt.Count();
+                                    int counterOrderDetailsAfter = this.db.Zamowienie_szczegol.Count();
                                     if(counterOrderDetailsAfter > counterOrderDetailsBefore)
                                     {
                                         MessageBox.Show("Poprawnie zrealizowano zamówienie", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);//-----------------------
@@ -138,11 +138,11 @@ namespace KWZP2022
                     {
                         this.db.Zamowienie.Add(newZamowienie);
                         this.db.SaveChanges();
-                        int counterOrderDetailsBeforeAgain = this.db.Produkt.Count();
+                        int counterOrderDetailsBeforeAgain = this.db.Zamowienie_szczegol.Count();
                         MessageBox.Show("Dodano zamówienie!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         FormNewOrderDetails formNewOrderDetails = new FormNewOrderDetails(db, newZamowienie);
                         formNewOrderDetails.ShowDialog();
-                        int counterOrderDetailsAfterAgain = this.db.Produkt.Count();
+                        int counterOrderDetailsAfterAgain = this.db.Zamowienie_szczegol.Count();
                         if (counterOrderDetailsAfterAgain > counterOrderDetailsBeforeAgain)
                         {
                             MessageBox.Show("Poprawnie zrealizowano zamówienie", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);//-----------------------
@@ -169,7 +169,7 @@ namespace KWZP2022
         {
             int orderNo = int.Parse(this.dgvOrders.CurrentRow.Cells[1].Value.ToString());
             DialogResult result = MessageBox.Show($"Czy na pewno chcesz usunąć zamówienie numer: {orderNo}", "Pytanie", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.OK)
+            if (result == DialogResult.Yes)
             {
                 Zamowienie selectZamowienie = this.db.Zamowienie.Single(a => a.ID_zamowienie == orderNo);
                 this.db.Zamowienie.Remove(selectZamowienie);
