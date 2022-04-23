@@ -1,0 +1,173 @@
+﻿namespace KWZP2022
+{
+    partial class FormResDepCzesc
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormResDepCzesc));
+            this.cmbRodzajCzesc = new System.Windows.Forms.ComboBox();
+            this.btnAktualizuj = new System.Windows.Forms.Button();
+            this.btnUsun = new System.Windows.Forms.Button();
+            this.btnDodaj = new System.Windows.Forms.Button();
+            this.btnOdswiez = new System.Windows.Forms.Button();
+            this.dgvCzesc = new System.Windows.Forms.DataGridView();
+            this.txtNazwaCzesc = new System.Windows.Forms.TextBox();
+            this.lblNazwaCzesc = new System.Windows.Forms.Label();
+            this.lblRodzajCzesc = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCzesc)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // cmbRodzajCzesc
+            // 
+            this.cmbRodzajCzesc.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cmbRodzajCzesc.FormattingEnabled = true;
+            this.cmbRodzajCzesc.Location = new System.Drawing.Point(262, 105);
+            this.cmbRodzajCzesc.Name = "cmbRodzajCzesc";
+            this.cmbRodzajCzesc.Size = new System.Drawing.Size(270, 40);
+            this.cmbRodzajCzesc.TabIndex = 19;
+            // 
+            // btnAktualizuj
+            // 
+            this.btnAktualizuj.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnAktualizuj.Font = new System.Drawing.Font("Arial", 15F);
+            this.btnAktualizuj.Location = new System.Drawing.Point(59, 307);
+            this.btnAktualizuj.Name = "btnAktualizuj";
+            this.btnAktualizuj.Size = new System.Drawing.Size(225, 37);
+            this.btnAktualizuj.TabIndex = 18;
+            this.btnAktualizuj.Text = "Aktualizacja";
+            this.btnAktualizuj.UseVisualStyleBackColor = false;
+            // 
+            // btnUsun
+            // 
+            this.btnUsun.BackColor = System.Drawing.Color.IndianRed;
+            this.btnUsun.Font = new System.Drawing.Font("Arial", 15F);
+            this.btnUsun.Location = new System.Drawing.Point(59, 375);
+            this.btnUsun.Name = "btnUsun";
+            this.btnUsun.Size = new System.Drawing.Size(225, 37);
+            this.btnUsun.TabIndex = 17;
+            this.btnUsun.Text = "Usuń";
+            this.btnUsun.UseVisualStyleBackColor = false;
+            // 
+            // btnDodaj
+            // 
+            this.btnDodaj.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnDodaj.Font = new System.Drawing.Font("Arial", 15F);
+            this.btnDodaj.Location = new System.Drawing.Point(59, 236);
+            this.btnDodaj.Name = "btnDodaj";
+            this.btnDodaj.Size = new System.Drawing.Size(225, 37);
+            this.btnDodaj.TabIndex = 16;
+            this.btnDodaj.Text = "Dodaj nowy";
+            this.btnDodaj.UseVisualStyleBackColor = false;
+            // 
+            // btnOdswiez
+            // 
+            this.btnOdswiez.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnOdswiez.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnOdswiez.Location = new System.Drawing.Point(613, 127);
+            this.btnOdswiez.Name = "btnOdswiez";
+            this.btnOdswiez.Size = new System.Drawing.Size(170, 42);
+            this.btnOdswiez.TabIndex = 15;
+            this.btnOdswiez.Text = "Odśwież";
+            this.btnOdswiez.UseVisualStyleBackColor = false;
+            // 
+            // dgvCzesc
+            // 
+            this.dgvCzesc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCzesc.Location = new System.Drawing.Point(327, 185);
+            this.dgvCzesc.Name = "dgvCzesc";
+            this.dgvCzesc.RowTemplate.Height = 24;
+            this.dgvCzesc.Size = new System.Drawing.Size(456, 280);
+            this.dgvCzesc.TabIndex = 14;
+            // 
+            // txtNazwaCzesc
+            // 
+            this.txtNazwaCzesc.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtNazwaCzesc.Location = new System.Drawing.Point(262, 29);
+            this.txtNazwaCzesc.Name = "txtNazwaCzesc";
+            this.txtNazwaCzesc.Size = new System.Drawing.Size(270, 39);
+            this.txtNazwaCzesc.TabIndex = 13;
+            // 
+            // lblNazwaCzesc
+            // 
+            this.lblNazwaCzesc.AutoSize = true;
+            this.lblNazwaCzesc.BackColor = System.Drawing.Color.Transparent;
+            this.lblNazwaCzesc.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblNazwaCzesc.Location = new System.Drawing.Point(39, 32);
+            this.lblNazwaCzesc.Name = "lblNazwaCzesc";
+            this.lblNazwaCzesc.Size = new System.Drawing.Size(179, 32);
+            this.lblNazwaCzesc.TabIndex = 12;
+            this.lblNazwaCzesc.Text = "Nazwa części";
+            // 
+            // lblRodzajCzesc
+            // 
+            this.lblRodzajCzesc.AutoSize = true;
+            this.lblRodzajCzesc.BackColor = System.Drawing.Color.Transparent;
+            this.lblRodzajCzesc.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblRodzajCzesc.Location = new System.Drawing.Point(39, 108);
+            this.lblRodzajCzesc.Name = "lblRodzajCzesc";
+            this.lblRodzajCzesc.Size = new System.Drawing.Size(182, 32);
+            this.lblRodzajCzesc.TabIndex = 11;
+            this.lblRodzajCzesc.Text = "Rodzaj części";
+            // 
+            // FormResDepCzesc
+            // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(800, 498);
+            this.Controls.Add(this.cmbRodzajCzesc);
+            this.Controls.Add(this.btnAktualizuj);
+            this.Controls.Add(this.btnUsun);
+            this.Controls.Add(this.btnDodaj);
+            this.Controls.Add(this.btnOdswiez);
+            this.Controls.Add(this.dgvCzesc);
+            this.Controls.Add(this.txtNazwaCzesc);
+            this.Controls.Add(this.lblNazwaCzesc);
+            this.Controls.Add(this.lblRodzajCzesc);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "FormResDepCzesc";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Dodaj część";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCzesc)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.ComboBox cmbRodzajCzesc;
+        private System.Windows.Forms.Button btnAktualizuj;
+        private System.Windows.Forms.Button btnUsun;
+        private System.Windows.Forms.Button btnDodaj;
+        private System.Windows.Forms.Button btnOdswiez;
+        private System.Windows.Forms.DataGridView dgvCzesc;
+        private System.Windows.Forms.TextBox txtNazwaCzesc;
+        private System.Windows.Forms.Label lblNazwaCzesc;
+        private System.Windows.Forms.Label lblRodzajCzesc;
+    }
+}

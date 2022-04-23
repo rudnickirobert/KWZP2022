@@ -96,7 +96,7 @@
             // 
             this.btnAktualizuj.BackColor = System.Drawing.Color.SkyBlue;
             this.btnAktualizuj.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnAktualizuj.Location = new System.Drawing.Point(46, 326);
+            this.btnAktualizuj.Location = new System.Drawing.Point(46, 323);
             this.btnAktualizuj.Name = "btnAktualizuj";
             this.btnAktualizuj.Size = new System.Drawing.Size(334, 37);
             this.btnAktualizuj.TabIndex = 9;
@@ -108,7 +108,7 @@
             // 
             this.btnUsun.BackColor = System.Drawing.Color.IndianRed;
             this.btnUsun.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnUsun.Location = new System.Drawing.Point(46, 435);
+            this.btnUsun.Location = new System.Drawing.Point(46, 404);
             this.btnUsun.Name = "btnUsun";
             this.btnUsun.Size = new System.Drawing.Size(334, 37);
             this.btnUsun.TabIndex = 8;
@@ -120,7 +120,7 @@
             // 
             this.btnDodaj.BackColor = System.Drawing.Color.PaleGreen;
             this.btnDodaj.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnDodaj.Location = new System.Drawing.Point(46, 216);
+            this.btnDodaj.Location = new System.Drawing.Point(46, 244);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(334, 37);
             this.btnDodaj.TabIndex = 7;
