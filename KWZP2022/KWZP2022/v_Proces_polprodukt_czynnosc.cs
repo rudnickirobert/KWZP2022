@@ -14,8 +14,8 @@ namespace KWZP2022
     
     public partial class v_Proces_polprodukt_czynnosc
     {
-        public int ID_Półproduktu { get; set; }
         public string Półprodukt { get; set; }
         public string Czynność { get; set; }
+        public int Czas_wytwarzania__h_ { get; set; }
     }
 }

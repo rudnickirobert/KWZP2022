@@ -22,66 +22,51 @@ namespace KWZP2022
         }
         private void showData()
         {
-            dtbDataStart.DataSource = db.v_Proces_wytwarzanie_produkt.ToList();
+            var datavProces = from v_Proces_polprodukt_czynnosc in db.v_Proces_polprodukt_czynnosc
+                              select new
+                              {
+                                  v_Proces_polprodukt_czynnosc.Półprodukt,
+                                  v_Proces_polprodukt_czynnosc.Czynność,
+                                  v_Proces_polprodukt_czynnosc.Czas_wytwarzania__h_
+                              };
+            dtbDataStart.DataSource = db.v_Proces_polprodukt_czynnosc.ToList();
             this.dtbDataStart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void ComboBox()
         {
-            cbPolprodukt.DataSource = this.db.Produkt.ToList();
-            cbPolprodukt.ValueMember = "Nazwa_produkt";
-            cbPolprodukt.DisplayMember = "Nazwa_produkt";
+            cbPolprodukt.DataSource = this.db.Slownik_polprodukt.ToList();
+            cbPolprodukt.ValueMember = "ID_polprodukt";
+            cbPolprodukt.DisplayMember = "Nazwa";
             cbCzynnoscProdukcyjna.DataSource = this.db.Czynnosc_produkcyjna.ToList();
-            cbCzynnoscProdukcyjna.ValueMember = "Nazwa";
+            cbCzynnoscProdukcyjna.ValueMember = "ID_czynnosc_produkcyjna";
             cbCzynnoscProdukcyjna.DisplayMember = "Nazwa";
-            cbPracownik.DataSource = this.db.Pracownik.ToList();
-            cbPracownik.ValueMember = "Nazwisko";
-            cbPracownik.DisplayMember = "Nazwisko";
-            cbStanowiskoProdukcyjne.DataSource = this.db.Slownik_stanowisko.ToList();
-            cbStanowiskoProdukcyjne.ValueMember = "Nazwa_stanowiska";
-            cbStanowiskoProdukcyjne.DisplayMember = "Nazwa_stanowiska";
-            cbSzacowanyCzas.DataSource = this.db.Proces_produkt_czynnosc.ToList();
-            cbSzacowanyCzas.ValueMember = "Czas_trwania";
+            cbSzacowanyCzas.DataSource = this.db.Proces_polprodukt_czynnosc.ToList();
+            cbSzacowanyCzas.ValueMember = "ID_proces_polprodukt";
             cbSzacowanyCzas.DisplayMember = "Czas_trwania";
         }
-        private void btnDodajPrcoes_Click(object sender, EventArgs e)
+
+        private void btnDodajProces_Click(object sender, EventArgs e)
         {
-            if (cbPolprodukt.Text.Length > 0 && cbCzynnoscProdukcyjna.Text.Length > 0 && cbPracownik.Text.Length > 0 && cbPracownik.Text.Length > 0 && cbStanowiskoProdukcyjne.Text.Length > 0 && cbSzacowanyCzas.Text.Length > 0 && dtbDataRozpoczecia.Text.Length > 0)
+            if (cbPolprodukt.Text.Length > 0 && cbCzynnoscProdukcyjna.Text.Length > 0 && cbSzacowanyCzas.Text.Length > 0)
             {
                 Produkt produkt = new Produkt();
                 produkt.Nazwa_produkt = cbPolprodukt.Text;
-
                 Czynnosc_produkcyjna czynnosc_produkcyjna = new Czynnosc_produkcyjna();
                 czynnosc_produkcyjna.Nazwa = cbCzynnoscProdukcyjna.Text;
-                Pracownik pracownik = new Pracownik();
-                pracownik.Nazwisko = cbPracownik.Text;
-                Slownik_stanowisko slownik_stanowisko = new Slownik_stanowisko();
-                slownik_stanowisko.Nazwa_stanowiska = cbStanowiskoProdukcyjne.Text;
                 Proces_produkt_czynnosc proces = new Proces_produkt_czynnosc();
                 proces.Czas_trwania = Int32.Parse(cbSzacowanyCzas.Text);
-                Wytwarzanie wytwarzanie = new Wytwarzanie();
-                wytwarzanie.Czas_od = dtbDataRozpoczecia.Value;
-                wytwarzanie.Czas_do = dtbDataEnd.Value;
-                if (dtbDataEnd.Checked)
-                {
-                    wytwarzanie.Czas_do = dtbDataEnd.Value;
-                }
                 db.Produkt.Add(produkt);
                 db.Czynnosc_produkcyjna.Add(czynnosc_produkcyjna);
-                db.Slownik_stanowisko.Add(slownik_stanowisko);
                 db.Proces_produkt_czynnosc.Add(proces);
-                db.Wytwarzanie.Add(wytwarzanie);
                 db.SaveChanges();
-                db.Pracownik.Add(pracownik);
-                MessageBox.Show("Dodano nowego klienta!", "Informacja", MessageBoxButtons.OK);
+                MessageBox.Show("Dodano nowy proces!","Informacja", MessageBoxButtons.OK);
             }
         }
 
-
-
-
-
-
-
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            showData();
+        }
     }
 }
