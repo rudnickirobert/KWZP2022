@@ -677,12 +677,12 @@ GO
 
 CREATE VIEW v_Umowa
 AS
-SELECT UM.ID_umowa AS [ID], P.Nazwisko AS [Nazwisko], P.Imie AS [Imię], WP.Nazwa AS [Wymiar pracy], ST.Nazwa_stanowiska AS [Nazwa stanowiska], UM.Wynagrodzenie AS [Podstawa wynagrodzenia]  
+SELECT UM.ID_umowa AS [ID], P.Nazwisko AS [Nazwisko], P.Imie AS [Imię], WP.Nazwa AS [Wymiar pracy], DZ.Nazwa_dzial AS [Nazwa działu], ST.Nazwa_stanowiska AS [Nazwa stanowiska], UM.Wynagrodzenie AS [Podstawa wynagrodzenia]  
 FROM Umowa AS UM
 INNER JOIN
 (Posada_pracownika AS PO INNER JOIN
 (Etat AS ET INNER JOIN Stanowisko AS ST ON ET.ID_stanowisko = ST.ID_stanowisko)
-ON ET.ID_etat = PO.ID_etat) ON UM.ID_posada_pracownika = PO.ID_posada_pracownika
+ON ET.ID_etat = PO.ID_etat  INNER JOIN Dzial AS DZ ON ET.ID_dzial = DZ.ID_dzial) ON UM.ID_posada_pracownika = PO.ID_posada_pracownika
 INNER JOIN Pracownik AS P ON UM.ID_pracownik = P.ID_pracownik
 INNER JOIN Wymiar_pracy AS WP ON UM.ID_wymiar_pracy = WP.ID_wymiar_pracy
 GO
@@ -728,3 +728,11 @@ FROM  dbo.v_Nadgodziny_miesiac
 GROUP BY ID_Pracownik, Miesiąc
 GO
 
+CREATE VIEW v_Koszt_godziny_pracy
+AS
+SELECT dbo.Pracownik.ID_pracownik, dbo.Pracownik.Nazwisko, dbo.Pracownik.Imie, dbo.Umowa.Wynagrodzenie, dbo.Czas_pracy.Liczba_godzin, dbo.Umowa.Wynagrodzenie / dbo.Czas_pracy.Liczba_godzin AS [Koszt godziny pracy], 
+MONTH(dbo.Czas_pracy.Data) AS Miesiąc
+FROM     dbo.Umowa INNER JOIN
+dbo.Pracownik ON dbo.Umowa.ID_pracownik = dbo.Pracownik.ID_pracownik CROSS JOIN
+dbo.Czas_pracy
+GO 
