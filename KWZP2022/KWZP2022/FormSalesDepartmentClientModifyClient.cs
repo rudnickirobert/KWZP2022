@@ -44,8 +44,8 @@ namespace KWZP2022
             textBoxCity.Clear();
             textBoxEmail.Clear();
             textBoxNIP.Clear();
-            textBoxNo1.Clear();
-            textBoxNo2.Clear();
+            textBoxBuildingNumber.Clear();
+            textBoxApartmentNumber.Clear();
             textBoxPostCode.Clear();
             textBoxStreet.Clear();
             textBoxTel.Clear();
@@ -62,8 +62,8 @@ namespace KWZP2022
             textBoxNIP.Text = daneKlientKlient.NIP;
             textBoxCity.Text = daneKlientDaneAdresowe.Miejscowosc;
             textBoxStreet.Text = daneKlientDaneAdresowe.Ulica;
-            textBoxNo1.Text = daneKlientDaneAdresowe.Nr_budynek.ToString();
-            textBoxNo2.Text = daneKlientDaneAdresowe.Nr_lokal.ToString();
+            textBoxBuildingNumber.Text = daneKlientDaneAdresowe.Nr_budynek.ToString();
+            textBoxApartmentNumber.Text = daneKlientDaneAdresowe.Nr_lokal.ToString();
             textBoxPostCode.Text = daneKlientDaneAdresowe.Kod_pocztowy;
             textBoxEmail.Text = daneKlientEmail.Email;
             dtpEmaiDate1.Value = daneKlientEmail.Data_od;
@@ -105,10 +105,10 @@ namespace KWZP2022
                     Dane_adresowe_klient daneKlientDaneAdresowe = this.db.Dane_adresowe_klient.Single(a => a.ID_klient == daneKlient);
                     daneKlientDaneAdresowe.Miejscowosc = textBoxCity.Text;
                     daneKlientDaneAdresowe.Ulica = textBoxStreet.Text;
-                    daneKlientDaneAdresowe.Nr_budynek = int.Parse(textBoxNo1.Text);
-                    if (textBoxNo2.Text != "")
+                    daneKlientDaneAdresowe.Nr_budynek = int.Parse(textBoxBuildingNumber.Text);
+                    if (textBoxApartmentNumber.Text != "")
                     {
-                        daneKlientDaneAdresowe.Nr_lokal = int.Parse(textBoxNo2.Text);
+                        daneKlientDaneAdresowe.Nr_lokal = int.Parse(textBoxApartmentNumber.Text);
                     }
                     else
                     {
