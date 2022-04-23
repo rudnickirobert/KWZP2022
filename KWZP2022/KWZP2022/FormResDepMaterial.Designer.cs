@@ -44,6 +44,7 @@
             // lblRodzajMaterial
             // 
             this.lblRodzajMaterial.AutoSize = true;
+            this.lblRodzajMaterial.BackColor = System.Drawing.Color.Transparent;
             this.lblRodzajMaterial.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblRodzajMaterial.Location = new System.Drawing.Point(40, 119);
             this.lblRodzajMaterial.Name = "lblRodzajMaterial";
@@ -54,6 +55,7 @@
             // lblNazwaMaterial
             // 
             this.lblNazwaMaterial.AutoSize = true;
+            this.lblNazwaMaterial.BackColor = System.Drawing.Color.Transparent;
             this.lblNazwaMaterial.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblNazwaMaterial.Location = new System.Drawing.Point(40, 43);
             this.lblNazwaMaterial.Name = "lblNazwaMaterial";
@@ -64,7 +66,7 @@
             // txtNazwaMaterial
             // 
             this.txtNazwaMaterial.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtNazwaMaterial.Location = new System.Drawing.Point(263, 36);
+            this.txtNazwaMaterial.Location = new System.Drawing.Point(263, 40);
             this.txtNazwaMaterial.Name = "txtNazwaMaterial";
             this.txtNazwaMaterial.Size = new System.Drawing.Size(270, 39);
             this.txtNazwaMaterial.TabIndex = 2;
@@ -81,18 +83,20 @@
             // 
             // btnOdswiez
             // 
+            this.btnOdswiez.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnOdswiez.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnOdswiez.Location = new System.Drawing.Point(702, 156);
             this.btnOdswiez.Name = "btnOdswiez";
             this.btnOdswiez.Size = new System.Drawing.Size(245, 42);
             this.btnOdswiez.TabIndex = 6;
             this.btnOdswiez.Text = "Odśwież";
-            this.btnOdswiez.UseVisualStyleBackColor = true;
+            this.btnOdswiez.UseVisualStyleBackColor = false;
             // 
             // btnAktualizuj
             // 
             this.btnAktualizuj.BackColor = System.Drawing.Color.SkyBlue;
             this.btnAktualizuj.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnAktualizuj.Location = new System.Drawing.Point(46, 275);
+            this.btnAktualizuj.Location = new System.Drawing.Point(46, 326);
             this.btnAktualizuj.Name = "btnAktualizuj";
             this.btnAktualizuj.Size = new System.Drawing.Size(334, 37);
             this.btnAktualizuj.TabIndex = 9;
@@ -104,7 +108,7 @@
             // 
             this.btnUsun.BackColor = System.Drawing.Color.IndianRed;
             this.btnUsun.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnUsun.Location = new System.Drawing.Point(46, 336);
+            this.btnUsun.Location = new System.Drawing.Point(46, 435);
             this.btnUsun.Name = "btnUsun";
             this.btnUsun.Size = new System.Drawing.Size(334, 37);
             this.btnUsun.TabIndex = 8;
@@ -128,7 +132,7 @@
             // 
             this.cmbRodzajMaterial.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbRodzajMaterial.FormattingEnabled = true;
-            this.cmbRodzajMaterial.Location = new System.Drawing.Point(263, 111);
+            this.cmbRodzajMaterial.Location = new System.Drawing.Point(263, 116);
             this.cmbRodzajMaterial.Name = "cmbRodzajMaterial";
             this.cmbRodzajMaterial.Size = new System.Drawing.Size(270, 40);
             this.cmbRodzajMaterial.TabIndex = 10;
@@ -151,9 +155,10 @@
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormResDepMaterial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FormResDepMaterial";
+            this.Text = "Dodaj materiał";
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

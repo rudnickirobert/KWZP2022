@@ -64,9 +64,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvZamowienieCzesci);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormResDepZamowienieCzesci";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FormResDepZamowienieCzesci";
+            this.Text = "Zamówienie części";
             ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienieCzesci)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
