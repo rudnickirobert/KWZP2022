@@ -206,7 +206,7 @@ INNER JOIN Zamowienie AS Z ON Z.ID_zamowienie = ZC.ID_zamowienie
 GO
 
 CREATE VIEW v_Zamowienie_produkcja AS
-SELECT Z.ID_zamowienie AS [ID], K.Nazwisko + ' ' + K.Imie + ' - ' + Z.Data_zamowienie AS [Klient] 
+SELECT Z.ID_zamowienie AS [ID], K.Nazwisko + ' ' + K.Imie + ' - ' + CONVERT(NVARCHAR,Z.Data_zamowienie) AS [Klient] 
 FROM Zamowienie AS Z
 INNER JOIN Klient AS K ON K.ID_klient = Z.ID_zamowienie
 INNER JOIN Pracownik AS P ON P.ID_pracownik = Z.ID_pracownik
