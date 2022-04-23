@@ -122,7 +122,7 @@ namespace KWZP2022
             int currentID = int.Parse(dgvSkladPolprodukt.CurrentRow.Cells[0].Value.ToString());
             int newValue = int.Parse(txtIlosc.Text);
         
-            var result = db.Sklad_polprodukt.SingleOrDefault(b => b.ID_sklad_polprodukt == currentID);
+            Sklad_polprodukt result = db.Sklad_polprodukt.SingleOrDefault(b => b.ID_sklad_polprodukt == currentID);
             if (result != null)
             {
                 result.Liczba = newValue;
