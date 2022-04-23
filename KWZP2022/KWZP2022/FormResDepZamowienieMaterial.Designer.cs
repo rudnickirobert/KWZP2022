@@ -251,9 +251,10 @@
             this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormResDepZamowienieMaterial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FormResDepZamowienieMaterial";
+            this.Text = "Zamówienie materiału";
             ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienieMaterial)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numWaga)).EndInit();
             this.ResumeLayout(false);

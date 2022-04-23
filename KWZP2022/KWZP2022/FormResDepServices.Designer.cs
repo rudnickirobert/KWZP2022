@@ -58,30 +58,32 @@
             // 
             // btnAddService
             // 
+            this.btnAddService.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnAddService.Font = new System.Drawing.Font("Arial", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnAddService.Location = new System.Drawing.Point(98, 100);
             this.btnAddService.Name = "btnAddService";
             this.btnAddService.Size = new System.Drawing.Size(443, 120);
             this.btnAddService.TabIndex = 2;
             this.btnAddService.Text = "Dodaj nową obsługę";
-            this.btnAddService.UseVisualStyleBackColor = true;
+            this.btnAddService.UseVisualStyleBackColor = false;
             // 
             // btnEditService
             // 
+            this.btnEditService.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnEditService.Font = new System.Drawing.Font("Arial", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnEditService.Location = new System.Drawing.Point(743, 100);
             this.btnEditService.Name = "btnEditService";
             this.btnEditService.Size = new System.Drawing.Size(443, 120);
             this.btnEditService.TabIndex = 3;
             this.btnEditService.Text = "Edytuj obsługę";
-            this.btnEditService.UseVisualStyleBackColor = true;
+            this.btnEditService.UseVisualStyleBackColor = false;
             // 
             // lblObslugi
             // 
             this.lblObslugi.AutoSize = true;
             this.lblObslugi.BackColor = System.Drawing.Color.Transparent;
             this.lblObslugi.Font = new System.Drawing.Font("Microsoft Sans Serif", 44.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblObslugi.Location = new System.Drawing.Point(12, 9);
+            this.lblObslugi.Location = new System.Drawing.Point(37, 9);
             this.lblObslugi.Name = "lblObslugi";
             this.lblObslugi.Size = new System.Drawing.Size(852, 67);
             this.lblObslugi.TabIndex = 4;
@@ -98,6 +100,7 @@
             this.Controls.Add(this.dgvOngoingServices);
             this.Controls.Add(this.dgvCompletedServices);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormResDepServices";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Obsługi";
