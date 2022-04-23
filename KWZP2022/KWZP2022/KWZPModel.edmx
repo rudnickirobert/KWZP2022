@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="KWZPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="KWZPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Alert">
           <Key>
             <PropertyRef Name="ID_alert" />
@@ -1282,6 +1282,24 @@ warning 6002: The table/view 'KWZP.dbo.v_Oferta_handlowa' does not have a primar
           <Property Name="Termin realizacji" Type="date" Nullable="false" />
           <Property Name="Nazwisko pracownika" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Imię pracownika" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Oferta_handlowa_do_rozpatrzenia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Oferta_handlowa_do_rozpatrzenia">
+          <Key>
+            <PropertyRef Name="Nr oferty" />
+            <PropertyRef Name="Nr zamówienia" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="Termin realizacji" />
+            <PropertyRef Name="Status oferty handlowej" />
+          </Key>
+          <Property Name="Nr oferty" Type="int" Nullable="false" />
+          <Property Name="Nr zamówienia" Type="int" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Termin realizacji" Type="date" Nullable="false" />
+          <Property Name="Opis gwarancji" Type="nvarchar" MaxLength="100" />
+          <Property Name="Status oferty handlowej" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Cena" Type="decimal" Precision="15" Scale="2" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Parametry_czesc' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -3965,6 +3983,17 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
     [v_Oferta_handlowa].[Imię pracownika] AS [Imię pracownika]
     FROM [dbo].[v_Oferta_handlowa] AS [v_Oferta_handlowa]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_Oferta_handlowa_do_rozpatrzenia" EntityType="Self.v_Oferta_handlowa_do_rozpatrzenia" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Oferta_handlowa_do_rozpatrzenia].[Nr oferty] AS [Nr oferty], 
+    [v_Oferta_handlowa_do_rozpatrzenia].[Nr zamówienia] AS [Nr zamówienia], 
+    [v_Oferta_handlowa_do_rozpatrzenia].[Nazwisko] AS [Nazwisko], 
+    [v_Oferta_handlowa_do_rozpatrzenia].[Termin realizacji] AS [Termin realizacji], 
+    [v_Oferta_handlowa_do_rozpatrzenia].[Opis gwarancji] AS [Opis gwarancji], 
+    [v_Oferta_handlowa_do_rozpatrzenia].[Status oferty handlowej] AS [Status oferty handlowej], 
+    [v_Oferta_handlowa_do_rozpatrzenia].[Cena] AS [Cena]
+    FROM [dbo].[v_Oferta_handlowa_do_rozpatrzenia] AS [v_Oferta_handlowa_do_rozpatrzenia]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_Parametry_czesc" EntityType="Self.v_Parametry_czesc" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Parametry_czesc].[Nazwa części] AS [Nazwa części], 
@@ -4923,8 +4952,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
             <End Role="Zwrot" EntitySet="Zwrot" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KWZPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -9242,7 +9270,24 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
             <End Role="Obsluga" EntitySet="Obsluga" />
             <End Role="Pracownik" EntitySet="Pracownik" />
           </AssociationSet>
+          <EntitySet Name="v_Oferta_handlowa_do_rozpatrzenia" EntityType="KWZPModel.v_Oferta_handlowa_do_rozpatrzenia" />
         </EntityContainer>
+        <EntityType Name="v_Oferta_handlowa_do_rozpatrzenia">
+          <Key>
+            <PropertyRef Name="Nr_oferty" />
+            <PropertyRef Name="Nr_zamówienia" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="Termin_realizacji" />
+            <PropertyRef Name="Status_oferty_handlowej" />
+          </Key>
+          <Property Name="Nr_oferty" Type="Int32" Nullable="false" />
+          <Property Name="Nr_zamówienia" Type="Int32" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Termin_realizacji" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Opis_gwarancji" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Status_oferty_handlowej" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Cena" Type="Decimal" Precision="15" Scale="2" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -11051,6 +11096,19 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
               <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="v_Oferta_handlowa_do_rozpatrzenia">
+            <EntityTypeMapping TypeName="KWZPModel.v_Oferta_handlowa_do_rozpatrzenia">
+              <MappingFragment StoreEntitySet="v_Oferta_handlowa_do_rozpatrzenia">
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+                <ScalarProperty Name="Status_oferty_handlowej" ColumnName="Status oferty handlowej" />
+                <ScalarProperty Name="Opis_gwarancji" ColumnName="Opis gwarancji" />
+                <ScalarProperty Name="Termin_realizacji" ColumnName="Termin realizacji" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Nr_zamówienia" ColumnName="Nr zamówienia" />
+                <ScalarProperty Name="Nr_oferty" ColumnName="Nr oferty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

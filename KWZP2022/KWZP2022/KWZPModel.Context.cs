@@ -202,5 +202,6 @@ namespace KWZP2022
         public virtual DbSet<v_Zamowienia_niesprzedane> v_Zamowienia_niesprzedane { get; set; }
         public virtual DbSet<v_Zamowienie> v_Zamowienie { get; set; }
         public virtual DbSet<v_Zamowienie_szczegol> v_Zamowienie_szczegol { get; set; }
+        public virtual DbSet<v_Oferta_handlowa_do_rozpatrzenia> v_Oferta_handlowa_do_rozpatrzenia { get; set; }
     }
 }

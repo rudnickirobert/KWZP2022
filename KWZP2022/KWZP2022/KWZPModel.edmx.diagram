@@ -307,6 +307,7 @@
         <AssociationConnector Association="KWZPModel.FK__Wytwarzan__ID_za__3493CFA7" ManuallyRouted="false" />
         <AssociationConnector Association="KWZPModel.FK__Zamowieni__ID_za__2645B050" ManuallyRouted="false" />
         <AssociationConnector Association="KWZPModel.Obsluga_pracownik" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="KWZPModel.v_Oferta_handlowa_do_rozpatrzenia" Width="1.5" PointX="27.375" PointY="28.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

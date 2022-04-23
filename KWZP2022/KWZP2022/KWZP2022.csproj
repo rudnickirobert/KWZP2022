@@ -199,6 +199,12 @@
     <Compile Include="FormSalesDepartmentComplaintAdd.Designer.cs">
       <DependentUpon>FormSalesDepartmentComplaintAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSalesDepartmentOffersForConsideration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesDepartmentOffersForConsideration.Designer.cs">
+      <DependentUpon>FormSalesDepartmentOffersForConsideration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gwarancja.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -594,6 +600,9 @@
     <Compile Include="v_Oferta_handlowa.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Oferta_handlowa_do_rozpatrzenia.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Parametry_czesc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -842,6 +851,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSalesDepartmentComplaintAdd.resx">
       <DependentUpon>FormSalesDepartmentComplaintAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSalesDepartmentOffersForConsideration.resx">
+      <DependentUpon>FormSalesDepartmentOffersForConsideration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSalesDepartmentSales.resx">
       <DependentUpon>FormSalesDepartmentSales.cs</DependentUpon>

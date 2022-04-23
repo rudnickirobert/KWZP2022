@@ -686,6 +686,16 @@ CREATE VIEW v_Zamowienia_niesprzedane AS
 	INNER JOIN Sprzedaz ON Sprzedaz.ID_umowa_sprzedaz = Umowa_sprzedaz.ID_umowa_sprzedaz
 GO
 
+CREATE VIEW v_Oferta_handlowa_do_rozpatrzenia AS
+	SELECT OH.ID_oferta_handlowa AS [Nr oferty], OH.ID_zamowienie AS [Nr zamówienia], P.Nazwisko, OH.Termin_realizacja AS [Termin realizacji], 
+	G.Opis_gwarancja AS [Opis gwarancji], ST.Nazwa_status_oferta AS [Status oferty handlowej], OH.Cena
+	FROM Oferta_handlowa AS OH
+	INNER JOIN Pracownik AS P ON OH.ID_pracownik = P.ID_pracownik
+	INNER JOIN Status_oferta AS ST ON ST.ID_status_oferta = OH.ID_status_oferta
+	INNER JOIN Gwarancja AS G ON G.ID_gwarancja = OH.ID_gwarancja
+	WHERE OH.ID_status_oferta = 3
+GO
+
 	--HR DEPARTMENT --
 CREATE VIEW v_Pracownik
 AS
