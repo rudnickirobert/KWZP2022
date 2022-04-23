@@ -117,12 +117,23 @@
     </Compile>
     <Compile Include="FormResDepZamowieniaMaszyny.Designer.cs">
       <DependentUpon>FormResDepZamowieniaMaszyny.cs</DependentUpon>
+    <Compile Include="FormResDepNarzedzie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepNarzedzie.Designer.cs">
+      <DependentUpon>FormResDepNarzedzie.cs</DependentUpon>
     </Compile>
     <Compile Include="FormResDepZamowienieMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormResDepZamowienieMaterial.Designer.cs">
       <DependentUpon>FormResDepZamowienieMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResDepZamowienieNarzedzia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepZamowienieNarzedzia.Designer.cs">
+      <DependentUpon>FormResDepZamowienieNarzedzia.cs</DependentUpon>
     </Compile>
     <Compile Include="FormResourceDepartment.cs">
       <SubType>Form</SubType>
@@ -722,9 +733,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepZamowieniaMaszyny.resx">
       <DependentUpon>FormResDepZamowieniaMaszyny.cs</DependentUpon>
+    <EmbeddedResource Include="FormResDepNarzedzie.resx">
+      <DependentUpon>FormResDepNarzedzie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepZamowienieMaterial.resx">
       <DependentUpon>FormResDepZamowienieMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepZamowienieNarzedzia.resx">
+      <DependentUpon>FormResDepZamowienieNarzedzia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormResourceDepartment.resx">
       <DependentUpon>FormResourceDepartment.cs</DependentUpon>
