@@ -17,9 +17,9 @@ namespace KWZP2022
         {
             InitializeComponent();
             this.db = db;
-            Data();
+            initDetails();
         }
-        private void Data()
+        private void initDetails()
         {
             this.dgvOffers.AutoGenerateColumns = true;
             this.dgvOffers.DataSource = db.v_Oferta_handlowa.ToList();
@@ -37,7 +37,7 @@ namespace KWZP2022
         {
             messageBox();
             clearTextBox();
-            Data();
+            initDetails();
         }
         private void enterIdOrder()
         {
@@ -71,7 +71,7 @@ namespace KWZP2022
         }
         private void btnRefresh_Click_1(object sender, EventArgs e)
         {
-            Data();
+            initDetails();
             clearTextBox();
         }
     }

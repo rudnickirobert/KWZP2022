@@ -599,8 +599,6 @@ INNER JOIN Sprzedaz ON Sprzedaz.ID_sprzedaz = Szczegoly_sprzedaz.ID_sprzedaz
 INNER JOIN Produkt ON Szczegoly_sprzedaz.ID_produkt = Produkt.ID_produkt
 GO
 
-
-
 CREATE VIEW v_Reklamacja
 AS
 SELECT Reklamacja.ID_sprzedaz AS [Numer sprzedaży],

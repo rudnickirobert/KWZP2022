@@ -21,11 +21,11 @@ namespace KWZP2022
         }
         private void clearTextBox()
         {
-            textBox1Name.Clear();
-            textBox2Name.Clear();
+            textBoxNameClient.Clear();
+            textBoxSurnameClient.Clear();
             textBoxTypeOrder.Clear();
-            textBox2NameE.Clear();
-            textBox1NameE.Clear();
+            textBoxSurnameEmployee.Clear();
+            textBoxNameEmployee.Clear();
             textBoxIdOrder.Clear();
         }
         private void messageBox()
@@ -47,7 +47,7 @@ namespace KWZP2022
         }
         private void enterSurname()
         {
-            System.Linq.IQueryable vClientSurname = db.v_Zamowienie.Where(a => a.Nazwisko_klienta == textBox2Name.Text);
+            System.Linq.IQueryable vClientSurname = db.v_Zamowienie.Where(a => a.Nazwisko_klienta == textBoxSurnameClient.Text);
             int vClientSurnameInt = vClientSurname.Cast<v_Zamowienie>().Count();
             if (vClientSurnameInt > 0)
             {
@@ -62,7 +62,7 @@ namespace KWZP2022
         }
         private void enterName()
         {
-            System.Linq.IQueryable vClientName = db.v_Zamowienie.Where(a => a.Imię_klienta == textBox1Name.Text);
+            System.Linq.IQueryable vClientName = db.v_Zamowienie.Where(a => a.Imię_klienta == textBoxNameClient.Text);
             int vClientNameInt = vClientName.Cast<v_Zamowienie>().Count();
             if (vClientNameInt > 0)
             {
@@ -100,7 +100,7 @@ namespace KWZP2022
         }
         private void enterSurnameE()
         {
-            System.Linq.IQueryable vSurnameE = db.v_Zamowienie.Where(a => a.Nazwisko_pracownika == textBox2NameE.Text);
+            System.Linq.IQueryable vSurnameE = db.v_Zamowienie.Where(a => a.Nazwisko_pracownika == textBoxSurnameEmployee.Text);
             int vSurnameEInt = vSurnameE.Cast<v_Zamowienie>().Count();
             if (vSurnameEInt > 0)
             {
@@ -115,7 +115,7 @@ namespace KWZP2022
         }
         private void enterNameE()
         {
-            System.Linq.IQueryable vNameE = db.v_Zamowienie.Where(a => a.Imię_pracownika == textBox1NameE.Text);
+            System.Linq.IQueryable vNameE = db.v_Zamowienie.Where(a => a.Imię_pracownika == textBoxNameEmployee.Text);
             int vNameEInt = vNameE.Cast<v_Zamowienie>().Count();
             if (vNameEInt > 0)
             {
@@ -151,15 +151,15 @@ namespace KWZP2022
         private void btnOrders_Click(object sender, EventArgs e)
         {
             string choose = "";
-            if (textBox2Name.Text.Length > 0)
+            if (textBoxSurnameClient.Text.Length > 0)
                 choose = "Surname";
-            if (textBox1Name.Text.Length > 0)
+            if (textBoxNameClient.Text.Length > 0)
                 choose = "Name";
             if (textBoxIdOrder.Text.Length > 0)
                 choose = "IdOrder";
-            if (textBox2NameE.Text.Length > 0)
+            if (textBoxSurnameEmployee.Text.Length > 0)
                 choose = "SurnameE";
-            if (textBox1NameE.Text.Length > 0)
+            if (textBoxNameEmployee.Text.Length > 0)
                 choose = "NameE";
             if (textBoxTypeOrder.Text.Length > 0)
                 choose = "TypeOrder";
@@ -191,15 +191,15 @@ namespace KWZP2022
         private void btnOrders_Click_1(object sender, EventArgs e)
         {
             string choose = "";
-            if (textBox2Name.Text.Length > 0)
+            if (textBoxSurnameClient.Text.Length > 0)
                 choose = "Surname";
-            if (textBox1Name.Text.Length > 0)
+            if (textBoxNameClient.Text.Length > 0)
                 choose = "Name";
             if (textBoxIdOrder.Text.Length > 0)
                 choose = "IdOrder";
-            if (textBox2NameE.Text.Length > 0)
+            if (textBoxSurnameEmployee.Text.Length > 0)
                 choose = "SurnameE";
-            if (textBox1NameE.Text.Length > 0)
+            if (textBoxNameEmployee.Text.Length > 0)
                 choose = "NameE";
             if (textBoxTypeOrder.Text.Length > 0)
                 choose = "TypeOrder";

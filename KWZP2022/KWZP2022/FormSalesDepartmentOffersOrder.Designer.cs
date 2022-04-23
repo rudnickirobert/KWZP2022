@@ -102,6 +102,7 @@
             this.Controls.Add(this.btnOffers);
             this.Controls.Add(this.dgvOffers);
             this.Name = "FormSalesDepartmentOffersOrder";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormSalesDepartmentOffers";
             ((System.ComponentModel.ISupportInitialize)(this.dgvOffers)).EndInit();
             this.ResumeLayout(false);

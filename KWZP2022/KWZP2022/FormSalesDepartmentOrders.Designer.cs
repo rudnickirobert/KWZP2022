@@ -34,13 +34,13 @@
             this.btnOrders = new System.Windows.Forms.Button();
             this.btnDetails = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2Name = new System.Windows.Forms.TextBox();
+            this.textBoxSurnameClient = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1Name = new System.Windows.Forms.TextBox();
+            this.textBoxNameClient = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1NameE = new System.Windows.Forms.TextBox();
+            this.textBoxNameEmployee = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox2NameE = new System.Windows.Forms.TextBox();
+            this.textBoxSurnameEmployee = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxTypeOrder = new System.Windows.Forms.TextBox();
             this.btnOffers = new System.Windows.Forms.Button();
@@ -116,14 +116,14 @@
             this.label2.TabIndex = 43;
             this.label2.Text = "Nazwisko klienta:";
             // 
-            // textBox2Name
+            // textBoxSurnameClient
             // 
-            this.textBox2Name.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox2Name.Location = new System.Drawing.Point(27, 33);
-            this.textBox2Name.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2Name.Name = "textBox2Name";
-            this.textBox2Name.Size = new System.Drawing.Size(201, 30);
-            this.textBox2Name.TabIndex = 42;
+            this.textBoxSurnameClient.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxSurnameClient.Location = new System.Drawing.Point(27, 33);
+            this.textBoxSurnameClient.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxSurnameClient.Name = "textBoxSurnameClient";
+            this.textBoxSurnameClient.Size = new System.Drawing.Size(201, 30);
+            this.textBoxSurnameClient.TabIndex = 42;
             // 
             // label3
             // 
@@ -137,14 +137,14 @@
             this.label3.TabIndex = 45;
             this.label3.Text = "Imię klienta:";
             // 
-            // textBox1Name
+            // textBoxNameClient
             // 
-            this.textBox1Name.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox1Name.Location = new System.Drawing.Point(27, 103);
-            this.textBox1Name.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1Name.Name = "textBox1Name";
-            this.textBox1Name.Size = new System.Drawing.Size(201, 30);
-            this.textBox1Name.TabIndex = 44;
+            this.textBoxNameClient.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxNameClient.Location = new System.Drawing.Point(27, 103);
+            this.textBoxNameClient.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxNameClient.Name = "textBoxNameClient";
+            this.textBoxNameClient.Size = new System.Drawing.Size(201, 30);
+            this.textBoxNameClient.TabIndex = 44;
             // 
             // label5
             // 
@@ -154,18 +154,18 @@
             this.label5.Location = new System.Drawing.Point(491, 76);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(172, 24);
+            this.label5.Size = new System.Drawing.Size(134, 24);
             this.label5.TabIndex = 49;
-            this.label5.Text = "Nazwisko pracownika:";
+            this.label5.Text = "Imię pracownika:";
             // 
-            // textBox1NameE
+            // textBoxNameEmployee
             // 
-            this.textBox1NameE.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox1NameE.Location = new System.Drawing.Point(495, 105);
-            this.textBox1NameE.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1NameE.Name = "textBox1NameE";
-            this.textBox1NameE.Size = new System.Drawing.Size(201, 30);
-            this.textBox1NameE.TabIndex = 48;
+            this.textBoxNameEmployee.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxNameEmployee.Location = new System.Drawing.Point(495, 105);
+            this.textBoxNameEmployee.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxNameEmployee.Name = "textBoxNameEmployee";
+            this.textBoxNameEmployee.Size = new System.Drawing.Size(201, 30);
+            this.textBoxNameEmployee.TabIndex = 48;
             // 
             // label6
             // 
@@ -179,14 +179,14 @@
             this.label6.TabIndex = 47;
             this.label6.Text = "Nazwisko pracownika:";
             // 
-            // textBox2NameE
+            // textBoxSurnameEmployee
             // 
-            this.textBox2NameE.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox2NameE.Location = new System.Drawing.Point(495, 35);
-            this.textBox2NameE.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2NameE.Name = "textBox2NameE";
-            this.textBox2NameE.Size = new System.Drawing.Size(201, 30);
-            this.textBox2NameE.TabIndex = 46;
+            this.textBoxSurnameEmployee.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxSurnameEmployee.Location = new System.Drawing.Point(495, 35);
+            this.textBoxSurnameEmployee.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxSurnameEmployee.Name = "textBoxSurnameEmployee";
+            this.textBoxSurnameEmployee.Size = new System.Drawing.Size(201, 30);
+            this.textBoxSurnameEmployee.TabIndex = 46;
             // 
             // label7
             // 
@@ -244,13 +244,13 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBoxTypeOrder);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox1NameE);
+            this.Controls.Add(this.textBoxNameEmployee);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox2NameE);
+            this.Controls.Add(this.textBoxSurnameEmployee);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1Name);
+            this.Controls.Add(this.textBoxNameClient);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2Name);
+            this.Controls.Add(this.textBoxSurnameClient);
             this.Controls.Add(this.btnDetails);
             this.Controls.Add(this.btnOrders);
             this.Controls.Add(this.dgvOrders);
@@ -258,6 +258,7 @@
             this.Controls.Add(this.textBoxIdOrder);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormSalesDepartmentOrders";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormSalesDepartmentOrders";
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.ResumeLayout(false);
@@ -272,13 +273,13 @@
         private System.Windows.Forms.Button btnOrders;
         private System.Windows.Forms.Button btnDetails;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2Name;
+        private System.Windows.Forms.TextBox textBoxSurnameClient;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1Name;
+        private System.Windows.Forms.TextBox textBoxNameClient;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1NameE;
+        private System.Windows.Forms.TextBox textBoxNameEmployee;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2NameE;
+        private System.Windows.Forms.TextBox textBoxSurnameEmployee;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBoxTypeOrder;
         private System.Windows.Forms.Button btnOffers;
