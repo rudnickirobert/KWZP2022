@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace KWZP2022
 {
-    public partial class SkladProduktMaterialForm : Form
+    public partial class FormSkladProduktMaterial : Form
     {
         KWZPEntities db;
-        public SkladProduktMaterialForm(KWZPEntities db)
+        public FormSkladProduktMaterial(KWZPEntities db)
         {
             InitializeComponent();
             this.db = db;

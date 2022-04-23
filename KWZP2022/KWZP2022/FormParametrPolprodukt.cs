@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace KWZP2022
 {
-    public partial class ParametrPolproduktForm : Form
+    public partial class FormParametrPolprodukt : Form
     {
         KWZPEntities db;
-        public ParametrPolproduktForm(KWZPEntities db)
+        public FormParametrPolprodukt(KWZPEntities db)
         {
             this.db = db;
             InitializeComponent();
@@ -29,11 +29,7 @@ namespace KWZP2022
             dgvPolprodukt.Columns["Parametr_polprodukt"].Visible = false;
             dgvPolprodukt.Columns["Proces_polprodukt_czynnosc"].Visible = false;
             dgvPolprodukt.Columns["Sklad_polprodukt"].Visible = false;
-            dgvPolprodukt.Columns["Sklad_produkt"].Visible = false;
-            //dgvPolprodukt.Columns["Sklad_produkt_material"].Visible = false;
-            //dgvPolprodukt.Columns["Szczegoly_sprzedaz"].Visible = false;
-            //dgvPolprodukt.Columns["Zamowienie_szczegol"].Visible = false;
-            //dgvPolprodukt.Columns["Zwrot"].Visible = false;
+            dgvPolprodukt.Columns["Sklad_produkt"].Visible = false;            
             dgvPolprodukt.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 

@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace KWZP2022
 {
-    public partial class PolproduktDodanieForm : Form
+    public partial class FormPolproduktDodanie : Form
     {
         KWZPEntities db;
-        public PolproduktDodanieForm(KWZPEntities db)
+        public FormPolproduktDodanie(KWZPEntities db)
         {
             InitializeComponent();
             this.db = db;
@@ -205,7 +205,7 @@ namespace KWZP2022
 
         private void btnDodajParametrProdukt_Click(object sender, EventArgs e)
         {
-            ParametrPolproduktForm parametrpolproduktForm = new ParametrPolproduktForm(db);
+            FormParametrPolprodukt parametrpolproduktForm = new FormParametrPolprodukt(db);
             parametrpolproduktForm.ShowDialog();
         }
     }

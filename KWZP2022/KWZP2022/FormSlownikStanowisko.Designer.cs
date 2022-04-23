@@ -1,6 +1,6 @@
 ﻿namespace KWZP2022
 {
-    partial class SlownikStanowiskoForm
+    partial class FormSlownikStanowisko
     {
         /// <summary>
         /// Required designer variable.

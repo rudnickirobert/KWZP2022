@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace KWZP2022
 {
-    public partial class ProduktForm : Form
+    public partial class FormProdukt : Form
     {
         KWZPEntities db;
-        public ProduktForm(KWZPEntities db)
+        public FormProdukt(KWZPEntities db)
         {
             InitializeComponent();
             this.db = db;
@@ -46,7 +46,7 @@ namespace KWZP2022
             DialogResult dialogResult = MessageBox.Show("Czy chcesz dodać parametr?", "Question", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                ParametrProduktForm parametrproduktForm = new ParametrProduktForm(db);
+                FormParametrProdukt parametrproduktForm = new FormParametrProdukt(db);
                 parametrproduktForm.ShowDialog();
             }
         }
@@ -86,13 +86,13 @@ namespace KWZP2022
 
         private void btnDodajParametrProdukt_Click(object sender, EventArgs e)
         {
-            ParametrProduktForm parametrproduktForm = new ParametrProduktForm(db);
+            FormParametrProdukt parametrproduktForm = new FormParametrProdukt(db);
             parametrproduktForm.ShowDialog();
         }
 
         private void btnDodajSkladProduktu_Click(object sender, EventArgs e)
         {
-            SkladProduktMaterialForm skladproduktmaterialForm = new SkladProduktMaterialForm(db);
+            FormSkladProduktMaterial skladproduktmaterialForm = new FormSkladProduktMaterial(db);
             skladproduktmaterialForm.ShowDialog();
         }
     }

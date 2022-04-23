@@ -1,6 +1,6 @@
 ﻿namespace KWZP2022
 {
-    partial class SkladProduktMaterialForm
+    partial class FormSkladProduktMaterial
     {
         /// <summary>
         /// Required designer variable.

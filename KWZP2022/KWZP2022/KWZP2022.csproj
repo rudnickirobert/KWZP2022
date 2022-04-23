@@ -166,17 +166,17 @@
     <Compile Include="Oferta_handlowa.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ParametrPolproduktForm.cs">
+    <Compile Include="FormParametrPolprodukt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ParametrPolproduktForm.Designer.cs">
-      <DependentUpon>ParametrPolproduktForm.cs</DependentUpon>
+    <Compile Include="FormParametrPolprodukt.Designer.cs">
+      <DependentUpon>FormParametrPolprodukt.cs</DependentUpon>
     </Compile>
-    <Compile Include="ParametrProduktForm.cs">
+    <Compile Include="FormParametrProdukt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ParametrProduktForm.Designer.cs">
-      <DependentUpon>ParametrProduktForm.cs</DependentUpon>
+    <Compile Include="FormParametrProdukt.Designer.cs">
+      <DependentUpon>FormParametrProdukt.cs</DependentUpon>
     </Compile>
     <Compile Include="Parametr_czesc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
@@ -250,11 +250,11 @@
     <Compile Include="Rodzaj_umowy.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="SkladProduktMaterialForm.cs">
+    <Compile Include="FormSkladProduktMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SkladProduktMaterialForm.Designer.cs">
-      <DependentUpon>SkladProduktMaterialForm.cs</DependentUpon>
+    <Compile Include="FormSkladProduktMaterial.Designer.cs">
+      <DependentUpon>FormSkladProduktMaterial.cs</DependentUpon>
     </Compile>
     <Compile Include="Sklad_maszyna.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
@@ -274,29 +274,29 @@
     <Compile Include="Sklad_stanowisko_produkcyjne_narzedzie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="SlownikStanowiskoForm.cs">
+    <Compile Include="FormSlownikStanowisko.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SlownikStanowiskoForm.Designer.cs">
-      <DependentUpon>SlownikStanowiskoForm.cs</DependentUpon>
+    <Compile Include="FormSlownikStanowisko.Designer.cs">
+      <DependentUpon>FormSlownikStanowisko.cs</DependentUpon>
     </Compile>
-    <Compile Include="PolproduktDodanieForm.cs">
+    <Compile Include="FormPolproduktDodanie.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PolproduktDodanieForm.Designer.cs">
-      <DependentUpon>PolproduktDodanieForm.cs</DependentUpon>
+    <Compile Include="FormPolproduktDodanie.Designer.cs">
+      <DependentUpon>FormPolproduktDodanie.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProduktForm.cs">
+    <Compile Include="FormProdukt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProduktForm.Designer.cs">
-      <DependentUpon>ProduktForm.cs</DependentUpon>
+    <Compile Include="FormProdukt.Designer.cs">
+      <DependentUpon>FormProdukt.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProdukcjaFrom.cs">
+    <Compile Include="FormProdukcja.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProdukcjaFrom.Designer.cs">
-      <DependentUpon>ProdukcjaFrom.cs</DependentUpon>
+    <Compile Include="FormProdukcja.Designer.cs">
+      <DependentUpon>FormProdukcja.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDepartments.cs">
       <SubType>Form</SubType>
@@ -702,20 +702,20 @@
     <EmbeddedResource Include="FormSalesDepartmentSales.resx">
       <DependentUpon>FormSalesDepartmentSales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ParametrPolproduktForm.resx">
-      <DependentUpon>ParametrPolproduktForm.cs</DependentUpon>
+    <EmbeddedResource Include="FormParametrPolprodukt.resx">
+      <DependentUpon>FormParametrPolprodukt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ParametrProduktForm.resx">
-      <DependentUpon>ParametrProduktForm.cs</DependentUpon>
+    <EmbeddedResource Include="FormParametrProdukt.resx">
+      <DependentUpon>FormParametrProdukt.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PolproduktDodanieForm.resx">
-      <DependentUpon>PolproduktDodanieForm.cs</DependentUpon>
+    <EmbeddedResource Include="FormPolproduktDodanie.resx">
+      <DependentUpon>FormPolproduktDodanie.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProdukcjaFrom.resx">
-      <DependentUpon>ProdukcjaFrom.cs</DependentUpon>
+    <EmbeddedResource Include="FormProdukcja.resx">
+      <DependentUpon>FormProdukcja.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProduktForm.resx">
-      <DependentUpon>ProduktForm.cs</DependentUpon>
+    <EmbeddedResource Include="FormProdukt.resx">
+      <DependentUpon>FormProdukt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -727,11 +727,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SkladProduktMaterialForm.resx">
-      <DependentUpon>SkladProduktMaterialForm.cs</DependentUpon>
+    <EmbeddedResource Include="FormSkladProduktMaterial.resx">
+      <DependentUpon>FormSkladProduktMaterial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SlownikStanowiskoForm.resx">
-      <DependentUpon>SlownikStanowiskoForm.cs</DependentUpon>
+    <EmbeddedResource Include="FormSlownikStanowisko.resx">
+      <DependentUpon>FormSlownikStanowisko.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="KWZPModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
