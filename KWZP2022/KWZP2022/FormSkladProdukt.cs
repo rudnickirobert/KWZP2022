@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace KWZP2022
 {
-    public partial class SkladProduktForm : Form
+    public partial class FormSkladProdukt : Form
     {
         KWZPEntities db;
-        public SkladProduktForm(KWZPEntities db)
+        public FormSkladProdukt(KWZPEntities db)
         {
             InitializeComponent();
             this.db = db;
@@ -105,21 +105,6 @@ namespace KWZP2022
                     MessageBox.Show("Poprawnie dodano półproduk '" + polprodukt.Nazwa + "' do słownika");
                     initDataGridViewPolprodukt();
                 }
-
-                // W PLANACH NA DALSZY ROZWÓJ Sprawdzenie czy w sklad_produkt znajduje się już taka para produkt-półprodukt. Jeśli tak, to dodaje ilość półproduktów do istniejącego rekordu w tabeli skład_produkt
-
-                /*bool isPairExisting = new bool();
-                for (int i = 0; i < dgvSkladProdukt.Rows.Count-1; i++)
-                {
-                    if (this.dgvSkladProdukt.Rows[i].Cells[1].Value.ToString() == txtNazwaProdukt.Text && this.dgvSkladProdukt.Rows[i].Cells[2].Value.ToString() == txtPolprodukt.Text)
-                    {
-                        isPairExisting = true;
-                    }
-                    else
-                    {
-                        isPairExisting = false;
-                    }
-                }*/
 
 
                 Sklad_produkt skladProdukt = new Sklad_produkt();
@@ -213,7 +198,7 @@ namespace KWZP2022
 
         private void btnSkladPolprodukt_Click(object sender, EventArgs e)
         {
-            SkladPolproduktForm skladPolproduktu = new SkladPolproduktForm(db);
+            FormSkladPolprodukt skladPolproduktu = new FormSkladPolprodukt(db);
             skladPolproduktu.ShowDialog();
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace KWZP2022
 {
-    partial class SkladProduktForm
+    partial class FormSkladProdukt
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SkladProduktForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSkladProdukt));
             this.label1 = new System.Windows.Forms.Label();
             this.btnAktualizuj = new System.Windows.Forms.Button();
             this.btnUsun = new System.Windows.Forms.Button();

@@ -1,6 +1,6 @@
 ﻿namespace KWZP2022
 {
-    partial class WytwarzanieForm
+    partial class FormWytwarzanie
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WytwarzanieForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormWytwarzanie));
             this.btnAktualizuj = new System.Windows.Forms.Button();
             this.btnUsun = new System.Windows.Forms.Button();
             this.btnOdswiez = new System.Windows.Forms.Button();

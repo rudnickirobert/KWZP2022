@@ -1,6 +1,6 @@
 ﻿namespace KWZP2022
 {
-    partial class ProdukcjaFrom
+    partial class FormProdukcja
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProdukcjaFrom));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProdukcja));
             this.btnProdukty = new System.Windows.Forms.Button();
             this.btnPolprodukty = new System.Windows.Forms.Button();
             this.btnStanowiska = new System.Windows.Forms.Button();

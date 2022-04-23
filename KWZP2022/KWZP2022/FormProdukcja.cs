@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace KWZP2022
 {
-    public partial class ProdukcjaFrom : Form
+    public partial class FormProdukcja : Form
     {
         KWZPEntities db;
-        public ProdukcjaFrom(KWZPEntities db)
+        public FormProdukcja(KWZPEntities db)
         {
             InitializeComponent();
             this.db = db;
@@ -21,26 +21,26 @@ namespace KWZP2022
 
         private void btnProdukty_Click(object sender, EventArgs e)
         {
-            ProduktForm produktFrom = new ProduktForm(db);
+            FormProdukt produktFrom = new FormProdukt(db);
             produktFrom.ShowDialog();
          
         }
 
         private void btnPolprodukty_Click(object sender, EventArgs e)
         {
-            SkladProduktForm polproduktForm = new SkladProduktForm(db);
+            FormSkladProdukt polproduktForm = new FormSkladProdukt(db);
             polproduktForm.ShowDialog();
         }
 
         private void btnStanowiska_Click(object sender, EventArgs e)
         {
-            SlownikStanowiskoForm slownikStanowiskoForm = new SlownikStanowiskoForm(db);
+            FormSlownikStanowisko slownikStanowiskoForm = new FormSlownikStanowisko(db);
             slownikStanowiskoForm.ShowDialog();
         }
 
         private void btnWytwarzanie_Click(object sender, EventArgs e)
         {
-            WytwarzanieForm wytwarzanieForm = new WytwarzanieForm(db);
+            FormWytwarzanie wytwarzanieForm = new FormWytwarzanie(db);
             wytwarzanieForm.ShowDialog();
         }
     }

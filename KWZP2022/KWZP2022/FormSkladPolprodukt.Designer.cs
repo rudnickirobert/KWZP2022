@@ -1,6 +1,6 @@
 ﻿namespace KWZP2022
 {
-    partial class SkladPolproduktForm
+    partial class FormSkladPolprodukt
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SkladPolproduktForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSkladPolprodukt));
             this.txtIlosc = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtMaterial = new System.Windows.Forms.TextBox();
