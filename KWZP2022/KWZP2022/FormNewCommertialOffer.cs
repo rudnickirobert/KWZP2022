@@ -17,8 +17,13 @@ namespace KWZP2022
         {
             InitializeComponent();
             this.db = db;
+            comboBoxData();
         }
-
+        private void comboBoxData()
+        {
+            comboBoxEmployeeData();
+            comboBoxNoOrderData();
+        }
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -31,13 +36,15 @@ namespace KWZP2022
         }
         private void comboBoxNoOrderData()
         {
-            
-            //comboBoxNoOrder.DataSource
+            comboBoxNoOrder.DataSource = this.db.v_Zamowienia_niesprzedane.ToList();
+            comboBoxNoOrder.ValueMember = "ID_zamowienie";
+            comboBoxNoOrder.DisplayMember = "ID_zamowienie";
         }
 
         private void btnAddNewOffer_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = this.db.Oferta_handlowa.Where(a => !(a.ID_status_oferta == 1 || a.ID_status_oferta != 3)).ToList();
+           // this.dataGridView1.DataSource = this.db.Oferta_handlowa.Single(a => a.ID_status_oferta == 1);
+           //this.dataGridView1.DataSource = this.db.
         }
     }
 }

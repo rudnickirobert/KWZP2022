@@ -1578,6 +1578,26 @@ warning 6002: The table/view 'KWZP.dbo.v_Slownik_stanowisko' does not have a pri
           <Property Name="Nazwa stanowiska" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Sprzedane_zamowienia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Sprzedane_zamowienia">
+          <Key>
+            <PropertyRef Name="Nr zamówienia" />
+            <PropertyRef Name="Nr sprzedaży" />
+            <PropertyRef Name="Nr umowy" />
+            <PropertyRef Name="Nr produkt" />
+            <PropertyRef Name="Produkt" />
+            <PropertyRef Name="Kwota_sprzedaz" />
+            <PropertyRef Name="Ilosc" />
+          </Key>
+          <Property Name="Nr zamówienia" Type="int" Nullable="false" />
+          <Property Name="Nr sprzedaży" Type="int" Nullable="false" />
+          <Property Name="Nr umowy" Type="int" Nullable="false" />
+          <Property Name="Nr produkt" Type="int" Nullable="false" />
+          <Property Name="Produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Kwota_sprzedaz" Type="money" Nullable="false" />
+          <Property Name="Ilosc" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Sprzedany_produkt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Sprzedany_produkt">
           <Key>
@@ -1992,6 +2012,14 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <Property Name="StatusID" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_niesprzedane' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Zamowienia_niesprzedane">
+          <Key>
+            <PropertyRef Name="ID_zamowienie" />
+          </Key>
+          <Property Name="ID_zamowienie" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Zamowienie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Zamowienie">
           <Key>
@@ -2015,10 +2043,12 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie' does not have a primary key
 warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Zamowienie_szczegol">
           <Key>
+            <PropertyRef Name="Nr szczegółu" />
             <PropertyRef Name="Nr zamówienia" />
             <PropertyRef Name="Produkt" />
             <PropertyRef Name="Ilość" />
           </Key>
+          <Property Name="Nr szczegółu" Type="int" Nullable="false" />
           <Property Name="Nr zamówienia" Type="int" Nullable="false" />
           <Property Name="Produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Ilość" Type="int" Nullable="false" />
@@ -4077,6 +4107,17 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
     [v_Slownik_stanowisko].[Nazwa stanowiska] AS [Nazwa stanowiska]
     FROM [dbo].[v_Slownik_stanowisko] AS [v_Slownik_stanowisko]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_Sprzedane_zamowienia" EntityType="Self.v_Sprzedane_zamowienia" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Sprzedane_zamowienia].[Nr zamówienia] AS [Nr zamówienia], 
+    [v_Sprzedane_zamowienia].[Nr sprzedaży] AS [Nr sprzedaży], 
+    [v_Sprzedane_zamowienia].[Nr umowy] AS [Nr umowy], 
+    [v_Sprzedane_zamowienia].[Nr produkt] AS [Nr produkt], 
+    [v_Sprzedane_zamowienia].[Produkt] AS [Produkt], 
+    [v_Sprzedane_zamowienia].[Kwota_sprzedaz] AS [Kwota_sprzedaz], 
+    [v_Sprzedane_zamowienia].[Ilosc] AS [Ilosc]
+    FROM [dbo].[v_Sprzedane_zamowienia] AS [v_Sprzedane_zamowienia]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_Sprzedany_produkt" EntityType="Self.v_Sprzedany_produkt" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Sprzedany_produkt].[ID_sprzedaz] AS [ID_sprzedaz], 
@@ -4312,6 +4353,11 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
     [v_Zamowienia_narzedzia_w_trakcie_wszystko].[StatusID] AS [StatusID]
     FROM [dbo].[v_Zamowienia_narzedzia_w_trakcie_wszystko] AS [v_Zamowienia_narzedzia_w_trakcie_wszystko]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_Zamowienia_niesprzedane" EntityType="Self.v_Zamowienia_niesprzedane" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Zamowienia_niesprzedane].[ID_zamowienie] AS [ID_zamowienie]
+    FROM [dbo].[v_Zamowienia_niesprzedane] AS [v_Zamowienia_niesprzedane]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_Zamowienie" EntityType="Self.v_Zamowienie" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Zamowienie].[Data przyjęcia] AS [Data przyjęcia], 
@@ -4325,6 +4371,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           </EntitySet>
           <EntitySet Name="v_Zamowienie_szczegol" EntityType="Self.v_Zamowienie_szczegol" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [v_Zamowienie_szczegol].[Nr szczegółu] AS [Nr szczegółu], 
     [v_Zamowienie_szczegol].[Nr zamówienia] AS [Nr zamówienia], 
     [v_Zamowienie_szczegol].[Produkt] AS [Produkt], 
     [v_Zamowienie_szczegol].[Ilość] AS [Ilość]
@@ -6540,6 +6587,24 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa_stanowiska" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
+        <EntityType Name="v_Sprzedane_zamowienia">
+          <Key>
+            <PropertyRef Name="Nr_zamówienia" />
+            <PropertyRef Name="Nr_sprzedaży" />
+            <PropertyRef Name="Nr_umowy" />
+            <PropertyRef Name="Nr_produkt" />
+            <PropertyRef Name="Produkt" />
+            <PropertyRef Name="Kwota_sprzedaz" />
+            <PropertyRef Name="Ilosc" />
+          </Key>
+          <Property Name="Nr_zamówienia" Type="Int32" Nullable="false" />
+          <Property Name="Nr_sprzedaży" Type="Int32" Nullable="false" />
+          <Property Name="Nr_umowy" Type="Int32" Nullable="false" />
+          <Property Name="Nr_produkt" Type="Int32" Nullable="false" />
+          <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Kwota_sprzedaz" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Ilosc" Type="Int32" Nullable="false" />
+        </EntityType>
         <EntityType Name="v_Sprzedany_produkt">
           <Key>
             <PropertyRef Name="ID_sprzedaz" />
@@ -6904,6 +6969,12 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="StatusID" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="v_Zamowienia_niesprzedane">
+          <Key>
+            <PropertyRef Name="ID_zamowienie" />
+          </Key>
+          <Property Name="ID_zamowienie" Type="Int32" Nullable="false" />
+        </EntityType>
         <EntityType Name="v_Zamowienie">
           <Key>
             <PropertyRef Name="Data_przyjęcia" />
@@ -6924,10 +6995,12 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
         </EntityType>
         <EntityType Name="v_Zamowienie_szczegol">
           <Key>
+            <PropertyRef Name="Nr_szczegółu" />
             <PropertyRef Name="Nr_zamówienia" />
             <PropertyRef Name="Produkt" />
             <PropertyRef Name="Ilość" />
           </Key>
+          <Property Name="Nr_szczegółu" Type="Int32" Nullable="false" />
           <Property Name="Nr_zamówienia" Type="Int32" Nullable="false" />
           <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Ilość" Type="Int32" Nullable="false" />
@@ -8571,6 +8644,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           <EntitySet Name="v_Sklad_stanowisko_produkcyjne_maszyna" EntityType="Self.v_Sklad_stanowisko_produkcyjne_maszyna" />
           <EntitySet Name="v_Sklad_stanowisko_produkcyjne_narzedzie" EntityType="Self.v_Sklad_stanowisko_produkcyjne_narzedzie" />
           <EntitySet Name="v_Slownik_stanowisko" EntityType="Self.v_Slownik_stanowisko" />
+          <EntitySet Name="v_Sprzedane_zamowienia" EntityType="Self.v_Sprzedane_zamowienia" />
           <EntitySet Name="v_Sprzedany_produkt" EntityType="Self.v_Sprzedany_produkt" />
           <EntitySet Name="v_Sprzedaz" EntityType="Self.v_Sprzedaz" />
           <EntitySet Name="v_Stanowiska_do_uzycia" EntityType="Self.v_Stanowiska_do_uzycia" />
@@ -8596,6 +8670,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           <EntitySet Name="v_Zamowienia_narzedzia_w_trakcie" EntityType="Self.v_Zamowienia_narzedzia_w_trakcie" />
           <EntitySet Name="v_Zamowienia_narzedzia_w_trakcie_bez_odebranych" EntityType="Self.v_Zamowienia_narzedzia_w_trakcie_bez_odebranych" />
           <EntitySet Name="v_Zamowienia_narzedzia_w_trakcie_wszystko" EntityType="Self.v_Zamowienia_narzedzia_w_trakcie_wszystko" />
+          <EntitySet Name="v_Zamowienia_niesprzedane" EntityType="Self.v_Zamowienia_niesprzedane" />
           <EntitySet Name="v_Zamowienie" EntityType="Self.v_Zamowienie" />
           <EntitySet Name="v_Zamowienie_szczegol" EntityType="Self.v_Zamowienie_szczegol" />
           <AssociationSet Name="FK__Alert__ID_dzial__42ACE4D4" Association="Self.FK__Alert__ID_dzial__42ACE4D4">
@@ -10548,6 +10623,19 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="v_Sprzedane_zamowienia">
+            <EntityTypeMapping TypeName="KWZPModel.v_Sprzedane_zamowienia">
+              <MappingFragment StoreEntitySet="v_Sprzedane_zamowienia">
+                <ScalarProperty Name="Nr_zamówienia" ColumnName="Nr zamówienia" />
+                <ScalarProperty Name="Nr_sprzedaży" ColumnName="Nr sprzedaży" />
+                <ScalarProperty Name="Nr_umowy" ColumnName="Nr umowy" />
+                <ScalarProperty Name="Nr_produkt" ColumnName="Nr produkt" />
+                <ScalarProperty Name="Produkt" ColumnName="Produkt" />
+                <ScalarProperty Name="Kwota_sprzedaz" ColumnName="Kwota_sprzedaz" />
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="v_Sprzedany_produkt">
             <EntityTypeMapping TypeName="KWZPModel.v_Sprzedany_produkt">
               <MappingFragment StoreEntitySet="v_Sprzedany_produkt">
@@ -10833,6 +10921,13 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="v_Zamowienia_niesprzedane">
+            <EntityTypeMapping TypeName="KWZPModel.v_Zamowienia_niesprzedane">
+              <MappingFragment StoreEntitySet="v_Zamowienia_niesprzedane">
+                <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="v_Zamowienie">
             <EntityTypeMapping TypeName="KWZPModel.v_Zamowienie">
               <MappingFragment StoreEntitySet="v_Zamowienie">
@@ -10849,6 +10944,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           <EntitySetMapping Name="v_Zamowienie_szczegol">
             <EntityTypeMapping TypeName="KWZPModel.v_Zamowienie_szczegol">
               <MappingFragment StoreEntitySet="v_Zamowienie_szczegol">
+                <ScalarProperty Name="Nr_szczegółu" ColumnName="Nr szczegółu" />
                 <ScalarProperty Name="Nr_zamówienia" ColumnName="Nr zamówienia" />
                 <ScalarProperty Name="Produkt" ColumnName="Produkt" />
                 <ScalarProperty Name="Ilość" ColumnName="Ilość" />

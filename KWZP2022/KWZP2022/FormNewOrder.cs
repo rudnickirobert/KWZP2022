@@ -17,7 +17,7 @@ namespace KWZP2022
         {
             this.db = db;
             InitializeComponent();
-            
+
             showDataBox();
             showData();
         }
@@ -67,7 +67,7 @@ namespace KWZP2022
 
         private void btnNewOrder_Click(object sender, EventArgs e)
         {
-            if(textBoxNoTelClient.Text.Length > 0)
+            if (textBoxNoTelClient.Text.Length > 0)
             {
                 int selectedTyp_ZamowienieInt = int.Parse(comboBoxOrderType.SelectedValue.ToString());
                 Typ_zamowienie selectedTyp_Zamowienie = this.db.Typ_zamowienie.Single(a => a.ID_typ_zamowienie == selectedTyp_ZamowienieInt);
@@ -97,6 +97,7 @@ namespace KWZP2022
                             FormNewOrderDetails formNewOrderDetails = new FormNewOrderDetails(db, newZamowienie);
                             formNewOrderDetails.ShowDialog();
                             showData();
+                            MessageBox.Show("Poprawnie zrealizowano zamówienie", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);//-----------------------
                         }
                         else
                         {
@@ -112,9 +113,19 @@ namespace KWZP2022
                                     this.db.Zamowienie.Add(newZamowienie);
                                     this.db.SaveChanges();
                                     MessageBox.Show("Dodano zamówienie!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    int counterOrderDetailsBefore = this.db.Produkt.Count();
                                     FormNewOrderDetails formNewOrderDetails = new FormNewOrderDetails(db, newZamowienie);
                                     formNewOrderDetails.ShowDialog();
-                                    showData();
+                                    int counterOrderDetailsAfter = this.db.Produkt.Count();
+                                    if(counterOrderDetailsAfter > counterOrderDetailsBefore)
+                                    {
+                                        MessageBox.Show("Poprawnie zrealizowano zamówienie", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);//-----------------------
+                                        showData();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Wprowadź szczegóły zamówienia", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }   
                                 }
                                 else
                                 {
@@ -127,31 +138,38 @@ namespace KWZP2022
                     {
                         this.db.Zamowienie.Add(newZamowienie);
                         this.db.SaveChanges();
+                        int counterOrderDetailsBeforeAgain = this.db.Produkt.Count();
                         MessageBox.Show("Dodano zamówienie!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         FormNewOrderDetails formNewOrderDetails = new FormNewOrderDetails(db, newZamowienie);
                         formNewOrderDetails.ShowDialog();
-                        showData();
+                        int counterOrderDetailsAfterAgain = this.db.Produkt.Count();
+                        if (counterOrderDetailsAfterAgain > counterOrderDetailsBeforeAgain)
+                        {
+                            MessageBox.Show("Poprawnie zrealizowano zamówienie", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);//-----------------------
+                            showData();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Wprowadź szczegóły zamówienia", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
                 else
                 {
-                    goto END;
+                    MessageBox.Show("Wprowadź dane nowego klienta do systemu", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
                 MessageBox.Show("Błędnie wprowadzono dane!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            MessageBox.Show("Poprawnie zrealizowano zamówienie","Informacja",MessageBoxButtons.OK,MessageBoxIcon.Information);
-            END:
-                MessageBox.Show("Wprowadź dane nowego klienta do systemu", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
             int orderNo = int.Parse(this.dgvOrders.CurrentRow.Cells[1].Value.ToString());
-            DialogResult result = MessageBox.Show($"Czy na pewno chcesz usunąć zamówienie numer: {orderNo}","Pytanie",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-            if(result == DialogResult.OK)
+            DialogResult result = MessageBox.Show($"Czy na pewno chcesz usunąć zamówienie numer: {orderNo}", "Pytanie", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
             {
                 Zamowienie selectZamowienie = this.db.Zamowienie.Single(a => a.ID_zamowienie == orderNo);
                 this.db.Zamowienie.Remove(selectZamowienie);
@@ -170,11 +188,20 @@ namespace KWZP2022
         }
         private void btnCommercialOffer_Click(object sender, EventArgs e)
         {
-            DialogResult commertialOfferResult = MessageBox.Show("Czy na pewno chcesz przejść do oferty handlowej?","Pytanie", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            DialogResult commertialOfferResult = MessageBox.Show("Czy na pewno chcesz przejść do oferty handlowej?", "Pytanie", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (commertialOfferResult == DialogResult.Yes)
             {
-                FormNewCommertialOffer formNewCommertialOffer = new FormNewCommertialOffer(db);
-                formNewCommertialOffer.ShowDialog();
+                int ordersAmount = this.db.Zamowienie.GroupBy(a => a.ID_zamowienie).Count();
+                int ordersDetailsAmount = this.db.Zamowienie_szczegol.GroupBy(a => a.ID_zamowienie).Count();
+                if (ordersAmount == ordersDetailsAmount)
+                {
+                    FormNewCommertialOffer formNewCommertialOffer = new FormNewCommertialOffer(db);
+                    formNewCommertialOffer.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Nie wprowadzono danych","Błąd",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
             }
         }
     }

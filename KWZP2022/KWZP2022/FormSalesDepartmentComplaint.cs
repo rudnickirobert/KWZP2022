@@ -28,7 +28,10 @@ namespace KWZP2022
         private void showData()
         {
             this.dgvComplaint.DataSource = this.db.v_Reklamacja.ToList();
-            this.dgvComplaint.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvComplaint.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvComplaint.Columns["ID_produkt"].Visible = false;
+            this.dgvComplaint.Columns["Numer_sprzedaży"].Visible = false;
+            this.dgvComplaint.Columns["Numer_reklamacji"].Visible = false;
         }
         private void cleanBox()
         {
@@ -69,7 +72,7 @@ namespace KWZP2022
                         int noSale = int.Parse(textBoxNoSale.Text);
                         System.Linq.IQueryable numberSale = this.db.v_Reklamacja.Where(a => a.Numer_sprzedaży == noSale);
                         this.dgvComplaint.DataSource = numberSale.Cast<v_Reklamacja>().ToList();
-                        this.dgvComplaint.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+                        this.dgvComplaint.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                         cleanBox();
                     }
                     catch (Exception)
@@ -81,12 +84,14 @@ namespace KWZP2022
                     int noComplaint = int.Parse(textBoxNoComplaint.Text);
                     System.Linq.IQueryable numberComplaint = this.db.v_Reklamacja.Where(a => a.Numer_reklamacji == noComplaint);
                     this.dgvComplaint.DataSource = numberComplaint.Cast<v_Reklamacja>().ToList();
+                    this.dgvComplaint.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                     this.dgvComplaint.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
                     cleanBox();
                     break;
                 case "DateComplaint":
                     System.Linq.IQueryable dateComplaint = this.db.v_Reklamacja.Where(a => DbFunctions.TruncateTime(a.Data_reklamacji) == dtpDateComplaint.Value.Date);
                     this.dgvComplaint.DataSource = dateComplaint.Cast<v_Reklamacja>().ToList();
+                    this.dgvComplaint.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                     this.dgvComplaint.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
                     cleanBox();
                     break;
@@ -94,6 +99,7 @@ namespace KWZP2022
                     bool acceptComplaintBOOL = true;
                     System.Linq.IQueryable complaintAccepted = this.db.v_Reklamacja.Where(a => a.Akceptacja == acceptComplaintBOOL);
                     this.dgvComplaint.DataSource = complaintAccepted.Cast<v_Reklamacja>().ToList();
+                    this.dgvComplaint.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                     this.dgvComplaint.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
                     cleanBox();
                     break;
@@ -101,6 +107,7 @@ namespace KWZP2022
                     bool notAcceptComplaintBOOL = false;
                     System.Linq.IQueryable complaintNotAccepted = this.db.v_Reklamacja.Where(a => a.Akceptacja == notAcceptComplaintBOOL);
                     this.dgvComplaint.DataSource = complaintNotAccepted.Cast<v_Reklamacja>().ToList();
+                    this.dgvComplaint.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                     this.dgvComplaint.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
                     cleanBox();
                     break;

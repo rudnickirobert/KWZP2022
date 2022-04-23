@@ -403,8 +403,7 @@
             // 
             // FormSalesDepartmentClientModifyClient
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(794, 491);
             this.Controls.Add(this.lblInstr);
@@ -441,7 +440,9 @@
             this.Controls.Add(this.textBox2Name);
             this.Controls.Add(this.lblNrSale);
             this.Controls.Add(this.textBoxCity);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormSalesDepartmentClientModifyClient";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormSalesDepartmentClientModifyClient";
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientID)).EndInit();
             this.ResumeLayout(false);

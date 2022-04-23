@@ -112,11 +112,11 @@
     <Compile Include="FormNewOrderDetails.Designer.cs">
       <DependentUpon>FormNewOrderDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormNewOreder.cs">
+    <Compile Include="FormNewOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormNewOreder.Designer.cs">
-      <DependentUpon>FormNewOreder.cs</DependentUpon>
+    <Compile Include="FormNewOrder.Designer.cs">
+      <DependentUpon>FormNewOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSalesDepartmentComplaint.cs">
       <SubType>Form</SubType>
@@ -579,6 +579,9 @@
     <Compile Include="v_Slownik_stanowisko.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Sprzedane_zamowienia.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Sprzedany_produkt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -654,6 +657,9 @@
     <Compile Include="v_Zamowienia_narzedzia_w_trakcie_wszystko.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Zamowienia_niesprzedane.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Zamowienie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -705,8 +711,8 @@
     <EmbeddedResource Include="FormNewOrderDetails.resx">
       <DependentUpon>FormNewOrderDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNewOreder.resx">
-      <DependentUpon>FormNewOreder.cs</DependentUpon>
+    <EmbeddedResource Include="FormNewOrder.resx">
+      <DependentUpon>FormNewOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSalesDepartment.resx">
       <DependentUpon>FormSalesDepartment.cs</DependentUpon>

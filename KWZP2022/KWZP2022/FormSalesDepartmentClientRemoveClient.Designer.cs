@@ -70,14 +70,15 @@
             // 
             // FormSalesDepartmentClientRemoveClient
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(794, 491);
             this.Controls.Add(this.lblInstr);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.dgvClientRemove);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormSalesDepartmentClientRemoveClient";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormSalesDepartmentClientRemoveClient";
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientRemove)).EndInit();
             this.ResumeLayout(false);

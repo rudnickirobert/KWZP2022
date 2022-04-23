@@ -379,8 +379,7 @@
             // 
             // FormSalesDepartmentClientNewClient
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.cbEmailDate2);
@@ -415,7 +414,9 @@
             this.Controls.Add(this.lblNrSale);
             this.Controls.Add(this.textBoxCity);
             this.Controls.Add(this.btnAddNewClient);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormSalesDepartmentClientNewClient";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dodawanie nowego klienta";
             this.ResumeLayout(false);
             this.PerformLayout();

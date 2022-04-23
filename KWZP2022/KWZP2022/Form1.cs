@@ -32,7 +32,7 @@ namespace KWZP2022
 
         private void btnNewOrder_Click(object sender, EventArgs e)
         {
-            FormNewOreder formNewOreder = new FormNewOreder(db);
+            FormNewOrder formNewOreder = new FormNewOrder(db);
             formNewOreder.ShowDialog();
         }
     }

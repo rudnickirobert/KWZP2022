@@ -84,15 +84,16 @@
             // 
             // FormSalesDepartment
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 711);
             this.Controls.Add(this.btnComplaint);
             this.Controls.Add(this.btnSale);
             this.Controls.Add(this.btnClient);
             this.Controls.Add(this.btnOrder);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormSalesDepartment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dział handlowy i marketingu";
             this.ResumeLayout(false);
 

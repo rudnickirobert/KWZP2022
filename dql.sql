@@ -662,6 +662,30 @@ CREATE VIEW v_Zamowienie AS
 	ORDER BY Data_zamowienie DESC OFFSET 0 ROWS 
 GO
 
+CREATE VIEW v_Sprzedane_zamowienia AS
+	SELECT Z.ID_zamowienie AS [Nr zamówienia], S.ID_sprzedaz AS [Nr sprzedaży], S.ID_umowa_sprzedaz AS [Nr umowy], 
+	SS.ID_produkt AS [Nr produkt], P.Nazwa_produkt AS [Produkt], SS.Kwota_sprzedaz, SS.Ilosc
+	FROM Sprzedaz AS S
+	INNER JOIN Szczegoly_sprzedaz AS SS ON S.ID_sprzedaz = SS.ID_sprzedaz
+	INNER JOIN Produkt AS P ON P.ID_produkt = SS.ID_produkt
+	INNER JOIN Umowa_sprzedaz AS US ON US.ID_umowa_sprzedaz = S.ID_umowa_sprzedaz
+	INNER JOIN Oferta_handlowa AS OH ON OH.ID_oferta_handlowa = US.ID_oferta_handlowa
+	INNER JOIN Zamowienie AS Z ON Z.ID_zamowienie = OH.ID_zamowienie
+GO
+
+CREATE VIEW v_Zamowienia_niesprzedane AS
+	SELECT Zamowienie.ID_zamowienie FROM Zamowienie
+	LEFT JOIN Oferta_handlowa ON Zamowienie.ID_zamowienie = Oferta_handlowa.ID_zamowienie
+	LEFT JOIN Umowa_sprzedaz ON Oferta_handlowa.ID_oferta_handlowa = Umowa_sprzedaz.ID_oferta_handlowa
+	LEFT JOIN Sprzedaz ON Sprzedaz.ID_umowa_sprzedaz = Umowa_sprzedaz.ID_umowa_sprzedaz
+	WHERE ID_status_oferta IS NULL OR (ID_status_oferta <>  1)
+	EXCEPT
+	SELECT Zamowienie.ID_zamowienie FROM Zamowienie
+	INNER JOIN Oferta_handlowa ON Zamowienie.ID_zamowienie = Oferta_handlowa.ID_zamowienie
+	INNER JOIN Umowa_sprzedaz ON Oferta_handlowa.ID_oferta_handlowa = Umowa_sprzedaz.ID_oferta_handlowa
+	INNER JOIN Sprzedaz ON Sprzedaz.ID_umowa_sprzedaz = Umowa_sprzedaz.ID_umowa_sprzedaz
+GO
+
 	--HR DEPARTMENT --
 CREATE VIEW v_Pracownik
 AS

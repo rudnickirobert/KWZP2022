@@ -12,11 +12,8 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Zamowienie_szczegol
+    public partial class v_Zamowienia_niesprzedane
     {
-        public int Nr_szczegółu { get; set; }
-        public int Nr_zamówienia { get; set; }
-        public string Produkt { get; set; }
-        public int Ilość { get; set; }
+        public int ID_zamowienie { get; set; }
     }
 }

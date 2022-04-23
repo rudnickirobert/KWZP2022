@@ -188,8 +188,7 @@
             // 
             // FormSalesDepartmentSales
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 711);
             this.Controls.Add(this.btnRefresh);
@@ -206,7 +205,9 @@
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.textBoxNrSale);
             this.Controls.Add(this.dgvSales);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormSalesDepartmentSales";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Sprzedaż";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).EndInit();
             this.ResumeLayout(false);

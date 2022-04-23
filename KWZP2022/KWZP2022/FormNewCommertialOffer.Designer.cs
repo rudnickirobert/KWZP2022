@@ -199,8 +199,7 @@
             // 
             // FormNewCommertialOffer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(794, 491);
             this.Controls.Add(this.dataGridView1);
@@ -218,7 +217,9 @@
             this.Controls.Add(this.comboBoxNoOrder);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxEmployee);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormNewCommertialOffer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nowa oferta handlowa";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

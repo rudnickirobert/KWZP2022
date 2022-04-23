@@ -200,8 +200,7 @@ namespace KWZP2022
             // 
             // FormSalesDepartmentComplaint
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(794, 491);
             this.Controls.Add(this.label3);
@@ -218,7 +217,9 @@ namespace KWZP2022
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.dgvComplaint);
             this.Controls.Add(this.btnAddReturn);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormSalesDepartmentComplaint";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Reklamacja";
             ((System.ComponentModel.ISupportInitialize)(this.dgvComplaint)).EndInit();
             this.ResumeLayout(false);

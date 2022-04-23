@@ -94,8 +94,7 @@ namespace KWZP2022
             // 
             // StartForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 711);
             this.Controls.Add(this.lblHello);
@@ -103,11 +102,13 @@ namespace KWZP2022
             this.Controls.Add(this.btnNewOrder);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblDate);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1280, 750);
             this.MinimumSize = new System.Drawing.Size(1280, 750);
             this.Name = "StartForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Drukarczyk";
             this.ResumeLayout(false);
             this.PerformLayout();
