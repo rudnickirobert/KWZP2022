@@ -60,6 +60,7 @@
             this.btnAktualizuj.TabIndex = 18;
             this.btnAktualizuj.Text = "Aktualizacja";
             this.btnAktualizuj.UseVisualStyleBackColor = false;
+            this.btnAktualizuj.Click += new System.EventHandler(this.btnAktualizuj_Click);
             // 
             // btnUsun
             // 
@@ -71,6 +72,7 @@
             this.btnUsun.TabIndex = 17;
             this.btnUsun.Text = "Usuń";
             this.btnUsun.UseVisualStyleBackColor = false;
+            this.btnUsun.Click += new System.EventHandler(this.btnUsun_Click);
             // 
             // btnDodaj
             // 
@@ -82,6 +84,7 @@
             this.btnDodaj.TabIndex = 16;
             this.btnDodaj.Text = "Dodaj nowy";
             this.btnDodaj.UseVisualStyleBackColor = false;
+            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
             // 
             // btnOdswiez
             // 
@@ -93,6 +96,7 @@
             this.btnOdswiez.TabIndex = 15;
             this.btnOdswiez.Text = "Odśwież";
             this.btnOdswiez.UseVisualStyleBackColor = false;
+            this.btnOdswiez.Click += new System.EventHandler(this.btnOdswiez_Click);
             // 
             // dgvCzesc
             // 
@@ -102,6 +106,7 @@
             this.dgvCzesc.RowTemplate.Height = 24;
             this.dgvCzesc.Size = new System.Drawing.Size(456, 280);
             this.dgvCzesc.TabIndex = 14;
+            this.dgvCzesc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCzesc_CellContentClick);
             // 
             // txtNazwaCzesc
             // 

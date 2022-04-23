@@ -33,8 +33,8 @@ namespace KWZP2022
         }
         private void btnDodajMaterial_Click(object sender, EventArgs e)
         {
-            FormResDepMaterial materialFrom = new FormResDepMaterial(db);
-            materialFrom.ShowDialog();
+            FormResDepMaterial materialForm = new FormResDepMaterial(db);
+            materialForm.ShowDialog();
         }
         private void initDataGridView()
         {
@@ -82,7 +82,7 @@ namespace KWZP2022
                     szZamowienieMat.ID_material = (int)cmbMaterial.SelectedValue;
                     szZamowienieMat.ID_producent = (int)cmbProducent.SelectedValue;
                     szZamowienieMat.Waga_g = (int)numWaga.Value;
-                    szZamowienieMat.Cena = Convert.ToDecimal(txtCena.Text);
+                szZamowienieMat.Cena = Convert.ToDecimal(txtCena.Text);
                     db.Szczegoly_zamowienie_material.Add(szZamowienieMat);
                     db.SaveChanges();
                     Stan_realizacji_zamowienie_material stRealizacjaMat = new Stan_realizacji_zamowienie_material();
