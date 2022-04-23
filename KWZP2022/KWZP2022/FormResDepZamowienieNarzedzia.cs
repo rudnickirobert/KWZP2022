@@ -62,5 +62,40 @@ namespace KWZP2022
             FormResDepNarzedzie narzedzieForm = new FormResDepNarzedzie(db);
             narzedzieForm.ShowDialog();
         }
+
+        private void btnDodajZamowienie_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtCena.Text) || numSztuk.Value <= 0)
+            {
+                MessageBox.Show("Wprowadź poprawne dane!");
+            }
+            else
+            {
+                Zamowienie_narzedzie zamowienieNarzedzie = new Zamowienie_narzedzie();
+                zamowienieNarzedzie.ID_pracownik = (int)cmbPracownik.SelectedValue;
+                zamowienieNarzedzie.Data_zamowienia = System.DateTime.Now;
+                zamowienieNarzedzie.ID_dostawca = (int)cmbDostawca.SelectedValue;
+                db.Zamowienie_narzedzie.Add(zamowienieNarzedzie);
+                db.SaveChanges();
+                int zamowienieID = zamowienieNarzedzie.ID_zamowienie_narzedzie;
+                Szczegoly_zamowienie_narzedzie szZamowienieNarzedzie = new Szczegoly_zamowienie_narzedzie();
+                szZamowienieNarzedzie.ID_zamowienie_narzedzie = zamowienieID;
+                szZamowienieNarzedzie.ID_narzedzie = (int)cmbNarzedzie.SelectedValue;
+                szZamowienieNarzedzie.ID_producent = (int)cmbProducent.SelectedValue;
+                szZamowienieNarzedzie.Sztuk = (int)numSztuk.Value;
+                szZamowienieNarzedzie.Cena = Convert.ToDecimal(txtCena.Text);
+                db.Szczegoly_zamowienie_narzedzie.Add(szZamowienieNarzedzie);
+                db.SaveChanges();
+                Stan_realizacji_zamowienie_narzedzie stRealizacjaNarzedzie = new Stan_realizacji_zamowienie_narzedzie();
+                stRealizacjaNarzedzie.ID_zamowienie_narzedzie = zamowienieID;
+                stRealizacjaNarzedzie.ID_status_zamowienie = 1;
+                stRealizacjaNarzedzie.Data_stan = System.DateTime.Now;
+                stRealizacjaNarzedzie.ID_pracownik = (int)cmbPracownik.SelectedValue;
+                db.Stan_realizacji_zamowienie_narzedzie.Add(stRealizacjaNarzedzie);
+                db.SaveChanges();
+                initDataGridView();
+                MessageBox.Show("Poprawnie dodano zamówienie do bazy danych");
+            }
+        }
     }
 }

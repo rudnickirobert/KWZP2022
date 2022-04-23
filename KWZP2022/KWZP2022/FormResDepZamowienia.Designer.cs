@@ -48,6 +48,7 @@
             this.btnOrder_narzedzie.TabIndex = 8;
             this.btnOrder_narzedzie.Text = "Zamówienie narzędzia";
             this.btnOrder_narzedzie.UseVisualStyleBackColor = false;
+            this.btnOrder_narzedzie.Click += new System.EventHandler(this.btnOrder_narzedzie_Click);
             // 
             // btnOrder_czesc
             // 
