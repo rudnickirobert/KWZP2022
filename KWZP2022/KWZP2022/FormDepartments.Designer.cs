@@ -67,9 +67,10 @@
             this.btnResourceDeparment.Name = "btnResourceDeparment";
             this.btnResourceDeparment.Size = new System.Drawing.Size(300, 100);
             this.btnResourceDeparment.TabIndex = 6;
-            this.btnResourceDeparment.Text = "Dział zasobów";
+            this.btnResourceDeparment.Text = "Dział zasobów i dostaw";
             this.btnResourceDeparment.UseVisualStyleBackColor = true;
-            // 
+            this.btnResourceDeparment.Click += new System.EventHandler(this.btnResourceDeparment_Click);
+            //
             // btnHumanRsDepartment
             // 
             this.btnHumanRsDepartment.Cursor = System.Windows.Forms.Cursors.Hand;

@@ -860,3 +860,9 @@ CREATE TABLE Nadgodziny
 	Data_nadgodziny DATE NOT NULL,
 	Czas INT NOT NULL
 );
+CREATE TABLE Czas_pracy
+(
+ID_czas_pracy  INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+Data DATE NOT NULL,
+Liczba_godzin INT NOT NULL
+);

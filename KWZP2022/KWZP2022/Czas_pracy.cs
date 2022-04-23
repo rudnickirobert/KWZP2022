@@ -12,11 +12,10 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Sklad_produkt
+    public partial class Czas_pracy
     {
-        public int ID_skład { get; set; }
-        public string Produkt { get; set; }
-        public string Półprodukt { get; set; }
-        public int Liczba { get; set; }
+        public int ID_czas_pracy { get; set; }
+        public System.DateTime Data { get; set; }
+        public int Liczba_godzin { get; set; }
     }
 }

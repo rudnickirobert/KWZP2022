@@ -44,6 +44,7 @@
             this.dgvProdukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProdukt.Location = new System.Drawing.Point(438, 73);
             this.dgvProdukt.Name = "dgvProdukt";
+            this.dgvProdukt.RowHeadersWidth = 51;
             this.dgvProdukt.Size = new System.Drawing.Size(334, 376);
             this.dgvProdukt.TabIndex = 0;
             this.dgvProdukt.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProdukt_CellContentClick);
@@ -65,7 +66,7 @@
             this.txtNazwaProdukt.Font = new System.Drawing.Font("Arial", 20F);
             this.txtNazwaProdukt.Location = new System.Drawing.Point(26, 59);
             this.txtNazwaProdukt.Name = "txtNazwaProdukt";
-            this.txtNazwaProdukt.Size = new System.Drawing.Size(334, 38);
+            this.txtNazwaProdukt.Size = new System.Drawing.Size(334, 46);
             this.txtNazwaProdukt.TabIndex = 2;
             // 
             // btnOdswiez
@@ -110,13 +111,13 @@
             this.label1.Font = new System.Drawing.Font("Arial", 20F);
             this.label1.Location = new System.Drawing.Point(20, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(217, 32);
+            this.label1.Size = new System.Drawing.Size(264, 39);
             this.label1.TabIndex = 6;
             this.label1.Text = "Nazwa produktu:";
             // 
             // ProduktForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(794, 461);
