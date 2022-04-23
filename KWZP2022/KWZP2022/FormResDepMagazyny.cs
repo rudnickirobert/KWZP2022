@@ -18,5 +18,25 @@ namespace KWZP2022
             InitializeComponent();
             this.db = db;
         }
+        private void btnMagazyn_czesc_Click(object sender, EventArgs e)
+        {
+            FormResDepMagazynCzesci magazynCzesci = new FormResDepMagazynCzesci(db);
+            magazynCzesci.ShowDialog();
+        }
+        private void btnMagazyn_material_Click(object sender, EventArgs e)
+        {
+            FormResDepMagazynMaterialow magazynMaterialow = new FormResDepMagazynMaterialow(db);
+            magazynMaterialow.ShowDialog();
+        }
+        private void btnMagazyn_narzedzie_Click(object sender, EventArgs e)
+        {
+            FormResDepMagazynNarzedzi magazynNarzedzi = new FormResDepMagazynNarzedzi(db);
+            magazynNarzedzi.ShowDialog();
+        }
+        private void btnMagazyn_maszyna_Click(object sender, EventArgs e)
+        {
+            FormResDepMagazynMaszyn magazynMaszyn = new FormResDepMagazynMaszyn(db);
+            magazynMaszyn.ShowDialog();
+        }
     }
 }
