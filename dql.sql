@@ -154,16 +154,17 @@ GO
 
 CREATE VIEW v_Proces_polprodukt_czynnosc
 AS
-SELECT PPPC.ID_polprodukt AS [ID Półproduktu], SP.Nazwa AS [Półprodukt], CP.Nazwa AS [Czynność]
+SELECT PPPC.ID_polprodukt AS [ID Półproduktu], SPP.Nazwa AS [Półprodukt], CP.Nazwa AS [Czynność], SP.ID_produkt AS [ID Produktu], PPPC.ID_proces_polprodukt
 FROM Proces_polprodukt_czynnosc AS PPPC
-INNER JOIN Slownik_polprodukt SP ON PPPC.ID_polprodukt = SP.ID_polprodukt
+INNER JOIN Slownik_polprodukt SPP ON PPPC.ID_polprodukt = SPP.ID_polprodukt
 INNER JOIN Czynnosc_produkcyjna CP ON PPPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
+INNER JOIN Sklad_produkt AS SP ON SPP.ID_polprodukt = SP.ID_polprodukt
 ORDER BY PPPC.ID_polprodukt DESC OFFSET 0 ROWS
 GO
 
 CREATE VIEW v_Proces_produkt_czynnosc
 AS
-SELECT PPC.ID_produkt AS [ID Produktu], P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynność] 
+SELECT PPC.ID_produkt AS [ID Produktu], P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynność] , PPC.ID_proces_produkt
 FROM Proces_produkt_czynnosc AS PPC
 INNER JOIN Produkt AS P ON PPC.ID_produkt = P.ID_produkt
 INNER JOIN Czynnosc_produkcyjna CP ON PPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
@@ -199,7 +200,7 @@ INNER JOIN Produkt AS Pr ON ZS.ID_produkt = Pr.ID_produkt
 GO
 
 CREATE VIEW v_Zamowienie_szczegol_produkcja AS
-SELECT Z.ID_zamowienie AS [ID], P.ID_produkt AS [ID produktu], P.Nazwa_produkt AS [Produkt], ZC.Ilosc AS [Ilość]
+SELECT Z.ID_zamowienie AS [ID], P.ID_produkt AS [ID produktu], P.Nazwa_produkt AS [Produkt], ZC.Ilosc AS [Ilość], ZC.ID_zamowienie_szczegol AS [ID_zamowienie_szczegol]
 FROM Zamowienie_szczegol AS ZC
 INNER JOIN Produkt AS P ON P.ID_produkt = ZC.ID_produkt
 INNER JOIN Zamowienie AS Z ON Z.ID_zamowienie = ZC.ID_zamowienie

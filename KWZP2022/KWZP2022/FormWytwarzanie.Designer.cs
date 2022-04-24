@@ -55,6 +55,12 @@
             this.txtSzukanyProduktID = new System.Windows.Forms.TextBox();
             this.txtSzukanyProduktNazwa = new System.Windows.Forms.TextBox();
             this.btnAkceptuj = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtWybranyID = new System.Windows.Forms.TextBox();
+            this.txtWybrany = new System.Windows.Forms.TextBox();
+            this.dtpCzasOd = new System.Windows.Forms.DateTimePicker();
+            this.dtpCzasDo = new System.Windows.Forms.DateTimePicker();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzaniePolprodukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzanieProdukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesProdukt)).BeginInit();
@@ -105,6 +111,7 @@
             this.btnDodaj.TabIndex = 13;
             this.btnDodaj.Text = "Dodaj nowy";
             this.btnDodaj.UseVisualStyleBackColor = false;
+            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
             // 
             // dgvWytwarzaniePolprodukt
             // 
@@ -116,16 +123,18 @@
             // 
             // dtpDataOd
             // 
+            this.dtpDataOd.Font = new System.Drawing.Font("Arial", 12F);
             this.dtpDataOd.Location = new System.Drawing.Point(12, 236);
             this.dtpDataOd.Name = "dtpDataOd";
-            this.dtpDataOd.Size = new System.Drawing.Size(200, 20);
+            this.dtpDataOd.Size = new System.Drawing.Size(200, 26);
             this.dtpDataOd.TabIndex = 18;
             // 
             // dtpDataDo
             // 
+            this.dtpDataDo.Font = new System.Drawing.Font("Arial", 12F);
             this.dtpDataDo.Location = new System.Drawing.Point(12, 323);
             this.dtpDataDo.Name = "dtpDataDo";
-            this.dtpDataDo.Size = new System.Drawing.Size(200, 20);
+            this.dtpDataDo.Size = new System.Drawing.Size(200, 26);
             this.dtpDataDo.TabIndex = 19;
             // 
             // cbPracownik
@@ -201,18 +210,20 @@
             // dgvProcesProdukt
             // 
             this.dgvProcesProdukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProcesProdukt.Location = new System.Drawing.Point(378, 49);
+            this.dgvProcesProdukt.Location = new System.Drawing.Point(378, 11);
             this.dgvProcesProdukt.Name = "dgvProcesProdukt";
             this.dgvProcesProdukt.Size = new System.Drawing.Size(329, 259);
             this.dgvProcesProdukt.TabIndex = 28;
+            this.dgvProcesProdukt.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProcesProdukt_CellContentClick);
             // 
             // dgvProcesPolprodukt
             // 
             this.dgvProcesPolprodukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProcesPolprodukt.Location = new System.Drawing.Point(731, 49);
+            this.dgvProcesPolprodukt.Location = new System.Drawing.Point(731, 12);
             this.dgvProcesPolprodukt.Name = "dgvProcesPolprodukt";
             this.dgvProcesPolprodukt.Size = new System.Drawing.Size(521, 259);
             this.dgvProcesPolprodukt.TabIndex = 29;
+            this.dgvProcesPolprodukt.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProcesPolprodukt_CellContentClick);
             // 
             // dgvZamowienieSzczegol
             // 
@@ -318,12 +329,74 @@
             this.btnAkceptuj.UseVisualStyleBackColor = false;
             this.btnAkceptuj.Click += new System.EventHandler(this.btnAkceptuj_Click);
             // 
-            // WytwarzanieForm
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label9.Location = new System.Drawing.Point(373, 293);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(351, 25);
+            this.label9.TabIndex = 40;
+            this.label9.Text = "Rozpoczynasz proces produkcyjny dla:";
+            // 
+            // txtWybranyID
+            // 
+            this.txtWybranyID.Enabled = false;
+            this.txtWybranyID.Font = new System.Drawing.Font("Arial", 15F);
+            this.txtWybranyID.Location = new System.Drawing.Point(731, 291);
+            this.txtWybranyID.Name = "txtWybranyID";
+            this.txtWybranyID.Size = new System.Drawing.Size(46, 30);
+            this.txtWybranyID.TabIndex = 41;
+            // 
+            // txtWybrany
+            // 
+            this.txtWybrany.Enabled = false;
+            this.txtWybrany.Font = new System.Drawing.Font("Arial", 15F);
+            this.txtWybrany.Location = new System.Drawing.Point(796, 291);
+            this.txtWybrany.Name = "txtWybrany";
+            this.txtWybrany.Size = new System.Drawing.Size(273, 30);
+            this.txtWybrany.TabIndex = 42;
+            // 
+            // dtpCzasOd
+            // 
+            this.dtpCzasOd.Font = new System.Drawing.Font("Arial", 12F);
+            this.dtpCzasOd.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpCzasOd.Location = new System.Drawing.Point(228, 236);
+            this.dtpCzasOd.Name = "dtpCzasOd";
+            this.dtpCzasOd.Size = new System.Drawing.Size(118, 26);
+            this.dtpCzasOd.TabIndex = 43;
+            // 
+            // dtpCzasDo
+            // 
+            this.dtpCzasDo.Font = new System.Drawing.Font("Arial", 12F);
+            this.dtpCzasDo.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpCzasDo.Location = new System.Drawing.Point(228, 323);
+            this.dtpCzasDo.Name = "dtpCzasDo";
+            this.dtpCzasDo.Size = new System.Drawing.Size(118, 26);
+            this.dtpCzasDo.TabIndex = 44;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(1169, 307);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 13);
+            this.label10.TabIndex = 45;
+            this.label10.Text = "label10";
+            // 
+            // FormWytwarzanie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1735, 711);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.dtpCzasDo);
+            this.Controls.Add(this.dtpCzasOd);
+            this.Controls.Add(this.txtWybrany);
+            this.Controls.Add(this.txtWybranyID);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.btnAkceptuj);
             this.Controls.Add(this.txtSzukanyProduktNazwa);
             this.Controls.Add(this.txtSzukanyProduktID);
@@ -350,7 +423,7 @@
             this.Controls.Add(this.btnUsun);
             this.Controls.Add(this.btnOdswiez);
             this.Controls.Add(this.btnDodaj);
-            this.Name = "WytwarzanieForm";
+            this.Name = "FormWytwarzanie";
             this.Text = "Wytwarzanie";
             ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzaniePolprodukt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzanieProdukt)).EndInit();
@@ -390,5 +463,11 @@
         private System.Windows.Forms.TextBox txtSzukanyProduktID;
         private System.Windows.Forms.TextBox txtSzukanyProduktNazwa;
         private System.Windows.Forms.Button btnAkceptuj;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtWybranyID;
+        private System.Windows.Forms.TextBox txtWybrany;
+        private System.Windows.Forms.DateTimePicker dtpCzasOd;
+        private System.Windows.Forms.DateTimePicker dtpCzasDo;
+        private System.Windows.Forms.Label label10;
     }
 }

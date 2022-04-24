@@ -18,5 +18,6 @@ namespace KWZP2022
         public int ID_produktu { get; set; }
         public string Produkt { get; set; }
         public int Ilość { get; set; }
+        public int ID_zamowienie_szczegol { get; set; }
     }
 }

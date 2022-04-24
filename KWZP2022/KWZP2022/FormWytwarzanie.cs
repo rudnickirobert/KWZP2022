@@ -27,7 +27,8 @@ namespace KWZP2022
         {
             initDataGridViewWytwarzaniePolprodukt();
             initDataGridViewWytwarzanieProdukt();
-            initDataGridViewProcesPolprodukt();
+            dtpCzasOd.ShowUpDown = true;
+            dtpCzasDo.ShowUpDown = true;
         }
 
         private void initDataGridViewWytwarzaniePolprodukt()
@@ -52,24 +53,6 @@ namespace KWZP2022
             this.dgvWytwarzanieProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 
-        private void initDataGridViewZamowienieSzczegol()
-        {
-            dgvZamowienieSzczegol.DataSource = db.v_Zamowienie_szczegol_produkcja.ToList();
- 
-            this.dgvWytwarzanieProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-        }
-
-        private void initDataGridViewProcesPolprodukt()
-        {
-            dgvProcesPolprodukt.DataSource = db.v_Proces_polprodukt_czynnosc.ToList();
-            this.dgvProcesPolprodukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-        }
-
-        private void initDataGridViewProcesProdukt()
-        {
-            dgvProcesProdukt.DataSource = db.v_Proces_produkt_czynnosc.ToList();
-            this.dgvProcesProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-        }
 
         private void initComboboxPracowicyProdukcji()
         {
@@ -131,10 +114,11 @@ namespace KWZP2022
             int produktIDint = int.Parse(produktID);
 
             System.Linq.IQueryable vProdukt = db.v_Proces_produkt_czynnosc.Where(a => a.ID_Produktu == produktIDint);
-            int vOrderIdInt = vProdukt.Cast<v_Proces_produkt_czynnosc>().Where(a => a.ID_Produktu > 0).Count();
-            if (vOrderIdInt > 0)
+            int vProduktIdInt = vProdukt.Cast<v_Proces_produkt_czynnosc>().Where(a => a.ID_Produktu > 0).Count();
+            if (vProduktIdInt > 0)
             {
                 dgvProcesProdukt.DataSource = vProdukt.Cast<v_Proces_produkt_czynnosc>().ToList();
+                this.dgvProcesProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 
                 refreshScreen();
             }
@@ -142,6 +126,89 @@ namespace KWZP2022
             {
                 refreshScreen();
             }
+
+            System.Linq.IQueryable vPolprodukt = db.v_Proces_polprodukt_czynnosc.Where(a => a.ID_Produktu == produktIDint);
+            int vPolproduktIdInt = vPolprodukt.Cast<v_Proces_polprodukt_czynnosc>().Where(a => a.ID_Produktu > 0).Count();
+            if (vProduktIdInt > 0)
+            {
+                dgvProcesPolprodukt.DataSource = vPolprodukt.Cast<v_Proces_polprodukt_czynnosc>().ToList();
+                dgvProcesPolprodukt.Columns["ID_produktu"].Visible = false;
+                this.dgvProcesPolprodukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+                refreshScreen();
+            }
+            else
+            {
+                refreshScreen();
+            }
+        }
+
+        private void dgvProcesProdukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtWybranyID.Text = dgvProcesProdukt.CurrentRow.Cells[0].Value.ToString();
+            txtWybrany.Text = dgvProcesProdukt.CurrentRow.Cells[1].Value.ToString();
+        }
+
+        private void dgvProcesPolprodukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtWybranyID.Text = dgvProcesPolprodukt.CurrentRow.Cells[0].Value.ToString();
+            txtWybrany.Text = dgvProcesPolprodukt.CurrentRow.Cells[1].Value.ToString();
+        }
+
+        private void btnDodaj_Click(object sender, EventArgs e)
+        {
+
+            Wytwarzanie wytwarzanie = new Wytwarzanie();
+            wytwarzanie.ID_pracownik = int.Parse(cbPracownik.SelectedValue.ToString());
+
+            if (dgvZamowienieSzczegol.Rows.Count == 0)
+            {
+                MessageBox.Show("Wybierz zamówienie dla którego chcesz opracować proces produkcyjny");
+            }
+            else
+            {
+                wytwarzanie.ID_zamowienie_szczegol = int.Parse(dgvZamowienieSzczegol.CurrentRow.Cells[4].Value.ToString());
+                wytwarzanie.Czas_od = dtpDataOd.Value.Date + dtpCzasOd.Value.TimeOfDay;
+                wytwarzanie.Czas_do = dtpDataDo.Value.Date + dtpCzasDo.Value.TimeOfDay;
+                db.Wytwarzanie.Add(wytwarzanie);
+                db.SaveChanges();
+
+                int wytID = (from n in db.Wytwarzanie orderby n.ID_wytwarzanie descending select n.ID_wytwarzanie).FirstOrDefault();
+                if (txtWybrany.Text == dgvProcesProdukt.CurrentRow.Cells[1].Value.ToString())
+                {
+                    Proces_wytwarzanie_produkt wytwarzanieProdukt = new Proces_wytwarzanie_produkt();
+                    wytwarzanieProdukt.ID_wytwarzanie = wytID;
+                    wytwarzanieProdukt.ID_proces_produkt = int.Parse(dgvProcesProdukt.CurrentRow.Cells[3].Value.ToString());
+                    wytwarzanieProdukt.ID_stanowisko_produkcyjne = int.Parse(cbStanowisko.SelectedValue.ToString());
+
+                    db.Proces_wytwarzanie_produkt.Add(wytwarzanieProdukt);
+                    db.SaveChanges();
+                    refreshScreen();
+                    MessageBox.Show("Poprawnie dodano Proces wytwarzania dla PRODUKTU.");
+
+                }
+                else if (txtWybrany.Text == dgvProcesPolprodukt.CurrentRow.Cells[1].Value.ToString())
+                {
+                    Proces_wytwarzanie_polprodukt wytwarzaniePolprodukt = new Proces_wytwarzanie_polprodukt();
+                    wytwarzaniePolprodukt.ID_wytwarzanie = wytID;
+                    wytwarzaniePolprodukt.ID_proces_polprodukt = int.Parse(dgvProcesPolprodukt.CurrentRow.Cells[4].Value.ToString());
+                    wytwarzaniePolprodukt.ID_stanowisko_produkcyjne = int.Parse(cbStanowisko.SelectedValue.ToString());
+
+                    db.Proces_wytwarzanie_polprodukt.Add(wytwarzaniePolprodukt);
+                    db.SaveChanges();
+                    refreshScreen();
+                    MessageBox.Show("Poprawnie dodano proces wytwarzania dla PÓŁPRODUKTU.");
+                }
+                else
+                {
+                    MessageBox.Show("Wybierz produkt lub półprodukt");
+                }
+            }
+
+            
+
+            
+
+
         }
     }
 }

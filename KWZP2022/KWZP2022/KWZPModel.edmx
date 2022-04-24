@@ -1418,10 +1418,14 @@ warning 6002: The table/view 'KWZP.dbo.v_Proces_polprodukt_czynnosc' does not ha
             <PropertyRef Name="ID Półproduktu" />
             <PropertyRef Name="Półprodukt" />
             <PropertyRef Name="Czynność" />
+            <PropertyRef Name="ID Produktu" />
+            <PropertyRef Name="ID_proces_polprodukt" />
           </Key>
           <Property Name="ID Półproduktu" Type="int" Nullable="false" />
           <Property Name="Półprodukt" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Czynność" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID Produktu" Type="int" Nullable="false" />
+          <Property Name="ID_proces_polprodukt" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Proces_produkt_czynnosc' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1430,10 +1434,12 @@ warning 6002: The table/view 'KWZP.dbo.v_Proces_produkt_czynnosc' does not have 
             <PropertyRef Name="ID Produktu" />
             <PropertyRef Name="Produkt" />
             <PropertyRef Name="Czynność" />
+            <PropertyRef Name="ID_proces_produkt" />
           </Key>
           <Property Name="ID Produktu" Type="int" Nullable="false" />
           <Property Name="Produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Czynność" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_proces_produkt" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Proces_wytwarzanie_polprodukt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -2028,11 +2034,13 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
             <PropertyRef Name="ID produktu" />
             <PropertyRef Name="Produkt" />
             <PropertyRef Name="Ilość" />
+            <PropertyRef Name="ID_zamowienie_szczegol" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="ID produktu" Type="int" Nullable="false" />
           <Property Name="Produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Ilość" Type="int" Nullable="false" />
+          <Property Name="ID_zamowienie_szczegol" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK__Alert__ID_dzial__42ACE4D4">
           <End Role="Dzial" Type="Self.Dzial" Multiplicity="1" />
@@ -3994,14 +4002,17 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
             <DefiningQuery>SELECT 
     [v_Proces_polprodukt_czynnosc].[ID Półproduktu] AS [ID Półproduktu], 
     [v_Proces_polprodukt_czynnosc].[Półprodukt] AS [Półprodukt], 
-    [v_Proces_polprodukt_czynnosc].[Czynność] AS [Czynność]
+    [v_Proces_polprodukt_czynnosc].[Czynność] AS [Czynność], 
+    [v_Proces_polprodukt_czynnosc].[ID Produktu] AS [ID Produktu], 
+    [v_Proces_polprodukt_czynnosc].[ID_proces_polprodukt] AS [ID_proces_polprodukt]
     FROM [dbo].[v_Proces_polprodukt_czynnosc] AS [v_Proces_polprodukt_czynnosc]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Proces_produkt_czynnosc" EntityType="Self.v_Proces_produkt_czynnosc" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Proces_produkt_czynnosc].[ID Produktu] AS [ID Produktu], 
     [v_Proces_produkt_czynnosc].[Produkt] AS [Produkt], 
-    [v_Proces_produkt_czynnosc].[Czynność] AS [Czynność]
+    [v_Proces_produkt_czynnosc].[Czynność] AS [Czynność], 
+    [v_Proces_produkt_czynnosc].[ID_proces_produkt] AS [ID_proces_produkt]
     FROM [dbo].[v_Proces_produkt_czynnosc] AS [v_Proces_produkt_czynnosc]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Proces_wytwarzanie_polprodukt" EntityType="Self.v_Proces_wytwarzanie_polprodukt" store:Type="Views" store:Schema="dbo">
@@ -4342,7 +4353,8 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
     [v_Zamowienie_szczegol_produkcja].[ID] AS [ID], 
     [v_Zamowienie_szczegol_produkcja].[ID produktu] AS [ID produktu], 
     [v_Zamowienie_szczegol_produkcja].[Produkt] AS [Produkt], 
-    [v_Zamowienie_szczegol_produkcja].[Ilość] AS [Ilość]
+    [v_Zamowienie_szczegol_produkcja].[Ilość] AS [Ilość], 
+    [v_Zamowienie_szczegol_produkcja].[ID_zamowienie_szczegol] AS [ID_zamowienie_szczegol]
     FROM [dbo].[v_Zamowienie_szczegol_produkcja] AS [v_Zamowienie_szczegol_produkcja]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__Alert__ID_dzial__42ACE4D4" Association="Self.FK__Alert__ID_dzial__42ACE4D4">
@@ -6418,20 +6430,26 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
             <PropertyRef Name="ID_Półproduktu" />
             <PropertyRef Name="Półprodukt" />
             <PropertyRef Name="Czynność" />
+            <PropertyRef Name="ID_Produktu" />
+            <PropertyRef Name="ID_proces_polprodukt" />
           </Key>
           <Property Name="ID_Półproduktu" Type="Int32" Nullable="false" />
           <Property Name="Półprodukt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Czynność" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_Produktu" Type="Int32" Nullable="false" />
+          <Property Name="ID_proces_polprodukt" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="v_Proces_produkt_czynnosc">
           <Key>
             <PropertyRef Name="ID_Produktu" />
             <PropertyRef Name="Produkt" />
             <PropertyRef Name="Czynność" />
+            <PropertyRef Name="ID_proces_produkt" />
           </Key>
           <Property Name="ID_Produktu" Type="Int32" Nullable="false" />
           <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Czynność" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_proces_produkt" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="v_Proces_wytwarzanie_polprodukt">
           <Key>
@@ -6952,11 +6970,13 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
             <PropertyRef Name="ID_produktu" />
             <PropertyRef Name="Produkt" />
             <PropertyRef Name="Ilość" />
+            <PropertyRef Name="ID_zamowienie_szczegol" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="ID_produktu" Type="Int32" Nullable="false" />
           <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Ilość" Type="Int32" Nullable="false" />
+          <Property Name="ID_zamowienie_szczegol" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="FK__Alert__ID_dzial__42ACE4D4">
           <End Role="Dzial" Type="Self.Dzial" Multiplicity="1" />
@@ -10467,6 +10487,8 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
                 <ScalarProperty Name="ID_Półproduktu" ColumnName="ID Półproduktu" />
                 <ScalarProperty Name="Półprodukt" ColumnName="Półprodukt" />
                 <ScalarProperty Name="Czynność" ColumnName="Czynność" />
+                <ScalarProperty Name="ID_Produktu" ColumnName="ID Produktu" />
+                <ScalarProperty Name="ID_proces_polprodukt" ColumnName="ID_proces_polprodukt" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -10476,6 +10498,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
                 <ScalarProperty Name="ID_Produktu" ColumnName="ID Produktu" />
                 <ScalarProperty Name="Produkt" ColumnName="Produkt" />
                 <ScalarProperty Name="Czynność" ColumnName="Czynność" />
+                <ScalarProperty Name="ID_proces_produkt" ColumnName="ID_proces_produkt" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -10891,6 +10914,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
                 <ScalarProperty Name="ID_produktu" ColumnName="ID produktu" />
                 <ScalarProperty Name="Produkt" ColumnName="Produkt" />
                 <ScalarProperty Name="Ilość" ColumnName="Ilość" />
+                <ScalarProperty Name="ID_zamowienie_szczegol" ColumnName="ID_zamowienie_szczegol" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
