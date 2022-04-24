@@ -18,7 +18,7 @@ namespace KWZP2022
         public int Numer_oferty_handlowej { get; set; }
         public string Produkt { get; set; }
         public int Ilość { get; set; }
-        public Nullable<decimal> Cena { get; set; }
+        public Nullable<int> Cena { get; set; }
         public string Numer_telefonu_klient { get; set; }
     }
 }

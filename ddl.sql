@@ -438,7 +438,7 @@ CREATE TABLE Oferta_handlowa
 		REFERENCES Gwarancja(ID_gwarancja) NOT NULL,
 	ID_status_oferta INT FOREIGN KEY 
 		REFERENCES Status_oferta(ID_status_oferta) NOT NULL,
-	Cena DECIMAL(15,2),
+	Cena INT,
 );
 
 CREATE TABLE Wytwarzanie
@@ -538,7 +538,7 @@ CREATE TABLE Szczegoly_sprzedaz
 	ID_sprzedaz INT FOREIGN KEY 
 		REFERENCES Sprzedaz(ID_sprzedaz) NOT NULL,
 	ID_produkt INT FOREIGN KEY REFERENCES Produkt(ID_Produkt) NOT NULL,
-	Kwota_sprzedaz MONEY NOT NULL,
+	Kwota_sprzedaz INT NOT NULL,
 	ID_podatek INT FOREIGN KEY 
 		REFERENCES Podatek(ID_Podatek) NOT NULL,
 		Ilosc INT NOT NULL

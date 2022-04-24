@@ -20,6 +20,6 @@ namespace KWZP2022
         public System.DateTime Termin_realizacji { get; set; }
         public string Opis_gwarancji { get; set; }
         public string Status_oferty_handlowej { get; set; }
-        public Nullable<decimal> Cena { get; set; }
+        public Nullable<int> Cena { get; set; }
     }
 }

@@ -19,7 +19,7 @@ namespace KWZP2022
         public int Nr_umowy { get; set; }
         public int Nr_produkt { get; set; }
         public string Produkt { get; set; }
-        public decimal Kwota_sprzedaz { get; set; }
+        public int Kwota_sprzedaz { get; set; }
         public int Ilosc { get; set; }
     }
 }

@@ -75,6 +75,7 @@ namespace KWZP2022
             this.db.Sprzedaz.Add(newSale);
             this.db.SaveChanges();
             MessageBox.Show("Dodano nową sprzedaż!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            showData();
         }
 
         private void button1_Click(object sender, EventArgs e)

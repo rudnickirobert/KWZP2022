@@ -77,18 +77,20 @@ namespace KWZP2022
             {
                 int selectedNoSale = int.Parse(comboBoxNoSale.SelectedValue.ToString());
                 string selectedProduct = comboBoxProduct.SelectedValue.ToString();
-                v_Dodaj_szczegol_sprzedaz selectedRow = this.db.v_Dodaj_szczegol_sprzedaz.Single(a => (a.Produkt == selectedProduct && a.Numer_sprzedaży == selectedNoSale));
-                if(selectedRow == null)
+                Produkt selectedProductFromTableProduct = this.db.Produkt.Single(a => a.Nazwa_produkt == selectedProduct);
+                List<Szczegoly_sprzedaz> selectedRow = this.db.Szczegoly_sprzedaz.Where(a => (a.ID_produkt == selectedProductFromTableProduct.ID_produkt && a.ID_sprzedaz == selectedNoSale)).ToList();
+                if(selectedRow.Count() < 1)
                 {
                     Szczegoly_sprzedaz newSaleDetails = new Szczegoly_sprzedaz();
                     newSaleDetails.ID_sprzedaz = int.Parse(comboBoxNoSale.SelectedValue.ToString());
-                    newSaleDetails.ID_produkt = int.Parse(comboBoxProduct.SelectedValue.ToString());
+                    newSaleDetails.ID_produkt = selectedProductFromTableProduct.ID_produkt;
                     newSaleDetails.Kwota_sprzedaz = int.Parse(textBoxPrice.Text);
                     newSaleDetails.ID_podatek = int.Parse(comboBoxTax.SelectedValue.ToString());
                     newSaleDetails.Ilosc = int.Parse(textBoxAmount.Text);
                     this.db.Szczegoly_sprzedaz.Add(newSaleDetails);
                     this.db.SaveChanges();
                     MessageBox.Show($"Dodano nowy szczegół do sprzedaży: {comboBoxNoSale.SelectedValue}.", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    showData();
                 }
                 else
                 {

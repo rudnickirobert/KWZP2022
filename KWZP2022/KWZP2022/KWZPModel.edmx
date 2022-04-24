@@ -288,7 +288,7 @@
           <Property Name="Termin_realizacja" Type="date" Nullable="false" />
           <Property Name="ID_gwarancja" Type="int" Nullable="false" />
           <Property Name="ID_status_oferta" Type="int" Nullable="false" />
-          <Property Name="Cena" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="Cena" Type="int" />
         </EntityType>
         <EntityType Name="Parametr_czesc">
           <Key>
@@ -654,7 +654,7 @@
           <Property Name="ID_szczegoly_sprzedaz" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_sprzedaz" Type="int" Nullable="false" />
           <Property Name="ID_produkt" Type="int" Nullable="false" />
-          <Property Name="Kwota_sprzedaz" Type="money" Nullable="false" />
+          <Property Name="Kwota_sprzedaz" Type="int" Nullable="false" />
           <Property Name="ID_podatek" Type="int" Nullable="false" />
           <Property Name="Ilosc" Type="int" Nullable="false" />
         </EntityType>
@@ -873,7 +873,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Dodaj_szczegol_sprzedaz' does not have 
           <Property Name="Numer oferty handlowej" Type="int" Nullable="false" />
           <Property Name="Produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Ilość" Type="int" Nullable="false" />
-          <Property Name="Cena" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="Cena" Type="int" />
           <Property Name="Numer telefonu klient" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -1311,7 +1311,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Oferta_handlowa' does not have a primar
           <Property Name="Status oferty" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Okres gwarancji" Type="int" Nullable="false" />
           <Property Name="Opis gwarancji" Type="nvarchar" MaxLength="100" />
-          <Property Name="Cena" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="Cena" Type="int" />
           <Property Name="Termin realizacji" Type="date" Nullable="false" />
           <Property Name="Nazwisko pracownika" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Imię pracownika" Type="varchar" MaxLength="50" Nullable="false" />
@@ -1332,7 +1332,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Oferta_handlowa_do_rozpatrzenia' does n
           <Property Name="Termin realizacji" Type="date" Nullable="false" />
           <Property Name="Opis gwarancji" Type="nvarchar" MaxLength="100" />
           <Property Name="Status oferty handlowej" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Cena" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="Cena" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Parametry_czesc' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1673,7 +1673,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Sprzedane_zamowienia' does not have a p
           <Property Name="Nr umowy" Type="int" Nullable="false" />
           <Property Name="Nr produkt" Type="int" Nullable="false" />
           <Property Name="Produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Kwota_sprzedaz" Type="money" Nullable="false" />
+          <Property Name="Kwota_sprzedaz" Type="int" Nullable="false" />
           <Property Name="Ilosc" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -1706,7 +1706,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Sprzedaz' does not have a primary key d
           <Property Name="Data początku sprzedaży" Type="date" Nullable="false" />
           <Property Name="Data końca sprzedaży" Type="date" Nullable="false" />
           <Property Name="Umowa" Type="int" Nullable="false" />
-          <Property Name="Koszt" Type="money" />
+          <Property Name="Koszt" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Stanowiska_do_uzycia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1798,7 +1798,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Szczegoly_sprzedaz' does not have a pri
           <Property Name="Numer sprzedaży" Type="int" Nullable="false" />
           <Property Name="Produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Ilość" Type="int" Nullable="false" />
-          <Property Name="Cena za sztukę" Type="money" Nullable="false" />
+          <Property Name="Cena za sztukę" Type="int" Nullable="false" />
           <Property Name="Podatek %" Type="int" Nullable="false" />
           <Property Name="Forma płatności" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
@@ -5364,7 +5364,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           <Property Name="Termin_realizacja" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="ID_gwarancja" Type="Int32" Nullable="false" />
           <Property Name="ID_status_oferta" Type="Int32" Nullable="false" />
-          <Property Name="Cena" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="Cena" Type="Int32" />
           <NavigationProperty Name="Gwarancja" Relationship="Self.FK__Oferta_ha__ID_gw__2FCF1A8A" FromRole="Oferta_handlowa" ToRole="Gwarancja" />
           <NavigationProperty Name="Pracownik" Relationship="Self.FK__Oferta_ha__ID_pr__2EDAF651" FromRole="Oferta_handlowa" ToRole="Pracownik" />
           <NavigationProperty Name="Status_oferta" Relationship="Self.FK__Oferta_ha__ID_st__30C33EC3" FromRole="Oferta_handlowa" ToRole="Status_oferta" />
@@ -5858,7 +5858,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           <Property Name="ID_szczegoly_sprzedaz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_sprzedaz" Type="Int32" Nullable="false" />
           <Property Name="ID_produkt" Type="Int32" Nullable="false" />
-          <Property Name="Kwota_sprzedaz" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Kwota_sprzedaz" Type="Int32" Nullable="false" />
           <Property Name="ID_podatek" Type="Int32" Nullable="false" />
           <Property Name="Ilosc" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Podatek" Relationship="Self.FK__Szczegoly__ID_po__55F4C372" FromRole="Szczegoly_sprzedaz" ToRole="Podatek" />
@@ -6129,7 +6129,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           <Property Name="Numer_oferty_handlowej" Type="Int32" Nullable="false" />
           <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Ilość" Type="Int32" Nullable="false" />
-          <Property Name="Cena" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="Cena" Type="Int32" />
           <Property Name="Numer_telefonu_klient" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="v_Email_pracownik">
@@ -6495,7 +6495,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           <Property Name="Status_oferty" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Okres_gwarancji" Type="Int32" Nullable="false" />
           <Property Name="Opis_gwarancji" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Cena" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="Cena" Type="Int32" />
           <Property Name="Termin_realizacji" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Nazwisko_pracownika" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Imię_pracownika" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -6514,7 +6514,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           <Property Name="Termin_realizacji" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Opis_gwarancji" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Status_oferty_handlowej" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Cena" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="Cena" Type="Int32" />
         </EntityType>
         <EntityType Name="v_Parametry_czesc">
           <Key>
@@ -6811,7 +6811,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           <Property Name="Nr_umowy" Type="Int32" Nullable="false" />
           <Property Name="Nr_produkt" Type="Int32" Nullable="false" />
           <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Kwota_sprzedaz" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Kwota_sprzedaz" Type="Int32" Nullable="false" />
           <Property Name="Ilosc" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="v_Sprzedany_produkt">
@@ -6840,7 +6840,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           <Property Name="Data_początku_sprzedaży" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Data_końca_sprzedaży" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Umowa" Type="Int32" Nullable="false" />
-          <Property Name="Koszt" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Koszt" Type="Int32" />
         </EntityType>
         <EntityType Name="v_Stanowiska_do_uzycia">
           <Key>
@@ -6916,7 +6916,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           <Property Name="Numer_sprzedaży" Type="Int32" Nullable="false" />
           <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Ilość" Type="Int32" Nullable="false" />
-          <Property Name="Cena_za_sztukę" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Cena_za_sztukę" Type="Int32" Nullable="false" />
           <Property Name="Podatek__" Type="Int32" Nullable="false" />
           <Property Name="Forma_płatności" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>

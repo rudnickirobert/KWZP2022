@@ -26,7 +26,7 @@ namespace KWZP2022
         public System.DateTime Termin_realizacja { get; set; }
         public int ID_gwarancja { get; set; }
         public int ID_status_oferta { get; set; }
-        public Nullable<decimal> Cena { get; set; }
+        public Nullable<int> Cena { get; set; }
     
         public virtual Gwarancja Gwarancja { get; set; }
         public virtual Pracownik Pracownik { get; set; }
