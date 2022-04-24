@@ -209,6 +209,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxEmployee);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormNewCommertialOffer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nowa oferta handlowa";

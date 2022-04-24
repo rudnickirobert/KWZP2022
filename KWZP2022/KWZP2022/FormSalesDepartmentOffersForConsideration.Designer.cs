@@ -103,6 +103,7 @@
             this.Controls.Add(this.comboBoxOffers);
             this.Controls.Add(this.dgvOffersForConsideration);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormSalesDepartmentOffersForConsideration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Rozpatrzenie ofert handlowych";

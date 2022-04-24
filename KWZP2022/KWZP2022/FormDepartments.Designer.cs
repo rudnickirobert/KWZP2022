@@ -70,7 +70,7 @@
             this.btnResourceDeparment.Text = "Dział zasobów i dostaw";
             this.btnResourceDeparment.UseVisualStyleBackColor = true;
             this.btnResourceDeparment.Click += new System.EventHandler(this.btnResourceDeparment_Click);
-            //
+            // 
             // btnHumanRsDepartment
             // 
             this.btnHumanRsDepartment.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -92,6 +92,7 @@
             this.Controls.Add(this.btnSalesDepartment);
             this.Controls.Add(this.btnProductionDepartment);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormDepartments";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Działy";

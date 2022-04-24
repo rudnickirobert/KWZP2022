@@ -476,6 +476,7 @@
             this.Controls.Add(this.lblNrSale);
             this.Controls.Add(this.textBoxCity);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormSalesDepartmentClientModifyClient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormSalesDepartmentClientModifyClient";

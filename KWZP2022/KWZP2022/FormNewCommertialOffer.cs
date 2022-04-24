@@ -52,7 +52,7 @@ namespace KWZP2022
         {
             int selectedNoOrder = int.Parse(comboBoxNoOrder.SelectedValue.ToString());
             Zamowienie orderNotAccepted = this.db.Zamowienie.Single(a => a.ID_zamowienie == selectedNoOrder);
-            if(orderNotAccepted.ID_typ_zamowienie == 2)
+            if (orderNotAccepted.ID_typ_zamowienie == 2)
             {
                 comboBoxOfferStatus.DataSource = this.db.Status_oferta.Where(a => a.ID_status_oferta == 1).ToList();
                 comboBoxOfferStatus.ValueMember = "ID_status_oferta";
@@ -64,7 +64,7 @@ namespace KWZP2022
                 comboBoxOfferStatus.ValueMember = "ID_status_oferta";
                 comboBoxOfferStatus.DisplayMember = "Nazwa_status_oferta";
             }
-            
+            //MessageBox.Show("Brakuje zamówień dla których można stworzyć ofertę!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         private void btnAddNewOffer_Click(object sender, EventArgs e)
         {
@@ -80,10 +80,19 @@ namespace KWZP2022
                 this.db.Oferta_handlowa.Add(newComertialOffer);
                 this.db.SaveChanges();
                 MessageBox.Show("Dodano nową ofertę handlową", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (comboBoxOfferStatus.SelectedValue.ToString() == "1")
+                {
+                    Umowa_sprzedaz newSaleArrangement = new Umowa_sprzedaz();
+                    Oferta_handlowa selectedOffer = this.db.Oferta_handlowa.AsEnumerable().Last();
+                    newSaleArrangement.ID_oferta_handlowa = selectedOffer.ID_oferta_handlowa;
+                    this.db.Umowa_sprzedaz.Add(newSaleArrangement);
+                    this.db.SaveChanges();
+                    MessageBox.Show("Można przejść do sprzedaży!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else
             {
-                MessageBox.Show("Źle wprowadzono dane", "Błąd", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Źle wprowadzono dane", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void comboBoxNoOrder_SelectionChangeCommitted(object sender, EventArgs e)

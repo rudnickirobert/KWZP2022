@@ -415,6 +415,7 @@
             this.Controls.Add(this.textBoxCity);
             this.Controls.Add(this.btnAddNewClient);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormSalesDepartmentClientNewClient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dodawanie nowego klienta";

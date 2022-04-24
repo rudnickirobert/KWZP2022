@@ -207,8 +207,7 @@ namespace KWZP2022
             // 
             // FormSalesDeprartmentOrders
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
             this.ClientSize = new System.Drawing.Size(794, 491);
             this.Controls.Add(this.textBoxNameEmployee);
@@ -228,8 +227,12 @@ namespace KWZP2022
             this.Controls.Add(this.btnDetails);
             this.Controls.Add(this.btnOrders);
             this.Controls.Add(this.btnRefresh);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormSalesDeprartmentOrders";
-            this.Text = "FormSalesDeprartmentOrders";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Zamówienia";
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

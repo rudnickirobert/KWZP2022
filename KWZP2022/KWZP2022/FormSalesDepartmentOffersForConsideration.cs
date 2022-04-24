@@ -66,6 +66,9 @@ namespace KWZP2022
             {
                 Oferta_handlowa selectedOffer = this.db.Oferta_handlowa.Single(a => a.ID_oferta_handlowa == selectOffer);
                 selectedOffer.ID_status_oferta = 1;
+                Umowa_sprzedaz newSaleArrangement = new Umowa_sprzedaz();
+                newSaleArrangement.ID_oferta_handlowa = selectOffer;
+                this.db.Umowa_sprzedaz.Add(newSaleArrangement);
                 this.db.SaveChanges();
                 showData();
                 comboBoxOffersData();

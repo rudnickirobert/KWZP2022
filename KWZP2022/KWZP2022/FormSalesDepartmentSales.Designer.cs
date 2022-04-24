@@ -43,6 +43,7 @@
             this.textBoxNIP = new System.Windows.Forms.TextBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnAddNewSale = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).BeginInit();
             this.SuspendLayout();
             // 
@@ -186,11 +187,24 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // btnAddNewSale
+            // 
+            this.btnAddNewSale.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddNewSale.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAddNewSale.Location = new System.Drawing.Point(500, 672);
+            this.btnAddNewSale.Name = "btnAddNewSale";
+            this.btnAddNewSale.Size = new System.Drawing.Size(300, 27);
+            this.btnAddNewSale.TabIndex = 14;
+            this.btnAddNewSale.Text = "Dodaj sprzedaż";
+            this.btnAddNewSale.UseVisualStyleBackColor = true;
+            this.btnAddNewSale.Click += new System.EventHandler(this.btnAddNewSale_Click);
+            // 
             // FormSalesDepartmentSales
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 711);
+            this.Controls.Add(this.btnAddNewSale);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label4);
@@ -206,6 +220,7 @@
             this.Controls.Add(this.textBoxNrSale);
             this.Controls.Add(this.dgvSales);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormSalesDepartmentSales";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Sprzedaż";
@@ -231,5 +246,6 @@
         private System.Windows.Forms.TextBox textBoxNIP;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnAddNewSale;
     }
 }

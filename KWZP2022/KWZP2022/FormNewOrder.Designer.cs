@@ -233,7 +233,7 @@
             this.btnCommercialOffer.UseVisualStyleBackColor = true;
             this.btnCommercialOffer.Click += new System.EventHandler(this.btnCommercialOffer_Click);
             // 
-            // FormNewOreder
+            // FormNewOrder
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
@@ -256,7 +256,8 @@
             this.Controls.Add(this.btnAddNewClient);
             this.Controls.Add(this.btnClose);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "FormNewOreder";
+            this.MaximizeBox = false;
+            this.Name = "FormNewOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nowe zamówienie";
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();

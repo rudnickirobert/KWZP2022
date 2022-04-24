@@ -203,6 +203,12 @@ namespace KWZP2022
             MessageBox.Show("Źle wprowadzono dane", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
             showData();
         }
+
+        private void btnAddNewSale_Click(object sender, EventArgs e)
+        {
+            FormSalesDepartmentAddSales formSalesDepartmentAddSales = new FormSalesDepartmentAddSales(db);
+            formSalesDepartmentAddSales.ShowDialog();
+        }
     }
 }
 

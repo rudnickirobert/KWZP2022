@@ -860,6 +860,23 @@ warning 6002: The table/view 'KWZP.dbo.v_Dane_adresowe_pracownik' does not have 
           <Property Name="Data do:" Type="date" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Dodaj_szczegol_sprzedaz' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Dodaj_szczegol_sprzedaz">
+          <Key>
+            <PropertyRef Name="Numer sprzedaży" />
+            <PropertyRef Name="Numer oferty handlowej" />
+            <PropertyRef Name="Produkt" />
+            <PropertyRef Name="Ilość" />
+            <PropertyRef Name="Numer telefonu klient" />
+          </Key>
+          <Property Name="Numer sprzedaży" Type="int" Nullable="false" />
+          <Property Name="Numer oferty handlowej" Type="int" Nullable="false" />
+          <Property Name="Produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ilość" Type="int" Nullable="false" />
+          <Property Name="Cena" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="Numer telefonu klient" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Email_pracownik' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Email_pracownik">
           <Key>
@@ -1215,6 +1232,22 @@ warning 6002: The table/view 'KWZP.dbo.v_Nieobecnosc' does not have a primary ke
           <Property Name="Rodzaj nieobecności" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="Data od:" Type="date" Nullable="false" />
           <Property Name="Data do:" Type="date" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Niesprzedane_zamowienia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Niesprzedane_zamowienia">
+          <Key>
+            <PropertyRef Name="Numer sprzedaży" />
+            <PropertyRef Name="Numer umowy" />
+            <PropertyRef Name="Data sprzedaży" />
+            <PropertyRef Name="Termin płatności" />
+            <PropertyRef Name="Forma płatności" />
+          </Key>
+          <Property Name="Numer sprzedaży" Type="int" Nullable="false" />
+          <Property Name="Numer umowy" Type="int" Nullable="false" />
+          <Property Name="Data sprzedaży" Type="date" Nullable="false" />
+          <Property Name="Termin płatności" Type="date" Nullable="false" />
+          <Property Name="Forma płatności" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Nr_telefon_pracownik' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1795,6 +1828,16 @@ warning 6002: The table/view 'KWZP.dbo.v_Umowa' does not have a primary key defi
           <Property Name="Wymiar pracy" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Nazwa stanowiska" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Podstawa wynagrodzenia" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Umowa_do_sprzedaz' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Umowa_do_sprzedaz">
+          <Key>
+            <PropertyRef Name="Nr umowy sprzedaży" />
+            <PropertyRef Name="Nr oferty handlowej" />
+          </Key>
+          <Property Name="Nr umowy sprzedaży" Type="int" Nullable="false" />
+          <Property Name="Nr oferty handlowej" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Wytwarzanie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -3721,6 +3764,16 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
     [v_Dane_adresowe_pracownik].[Data do:] AS [Data do:]
     FROM [dbo].[v_Dane_adresowe_pracownik] AS [v_Dane_adresowe_pracownik]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_Dodaj_szczegol_sprzedaz" EntityType="Self.v_Dodaj_szczegol_sprzedaz" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Dodaj_szczegol_sprzedaz].[Numer sprzedaży] AS [Numer sprzedaży], 
+    [v_Dodaj_szczegol_sprzedaz].[Numer oferty handlowej] AS [Numer oferty handlowej], 
+    [v_Dodaj_szczegol_sprzedaz].[Produkt] AS [Produkt], 
+    [v_Dodaj_szczegol_sprzedaz].[Ilość] AS [Ilość], 
+    [v_Dodaj_szczegol_sprzedaz].[Cena] AS [Cena], 
+    [v_Dodaj_szczegol_sprzedaz].[Numer telefonu klient] AS [Numer telefonu klient]
+    FROM [dbo].[v_Dodaj_szczegol_sprzedaz] AS [v_Dodaj_szczegol_sprzedaz]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_Email_pracownik" EntityType="Self.v_Email_pracownik" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Email_pracownik].[Nazwisko] AS [Nazwisko], 
@@ -3942,6 +3995,15 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
     [v_Nieobecnosc].[Data od:] AS [Data od:], 
     [v_Nieobecnosc].[Data do:] AS [Data do:]
     FROM [dbo].[v_Nieobecnosc] AS [v_Nieobecnosc]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Niesprzedane_zamowienia" EntityType="Self.v_Niesprzedane_zamowienia" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Niesprzedane_zamowienia].[Numer sprzedaży] AS [Numer sprzedaży], 
+    [v_Niesprzedane_zamowienia].[Numer umowy] AS [Numer umowy], 
+    [v_Niesprzedane_zamowienia].[Data sprzedaży] AS [Data sprzedaży], 
+    [v_Niesprzedane_zamowienia].[Termin płatności] AS [Termin płatności], 
+    [v_Niesprzedane_zamowienia].[Forma płatności] AS [Forma płatności]
+    FROM [dbo].[v_Niesprzedane_zamowienia] AS [v_Niesprzedane_zamowienia]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Nr_telefon_pracownik" EntityType="Self.v_Nr_telefon_pracownik" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -4278,6 +4340,12 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
     [v_Umowa].[Nazwa stanowiska] AS [Nazwa stanowiska], 
     [v_Umowa].[Podstawa wynagrodzenia] AS [Podstawa wynagrodzenia]
     FROM [dbo].[v_Umowa] AS [v_Umowa]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Umowa_do_sprzedaz" EntityType="Self.v_Umowa_do_sprzedaz" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Umowa_do_sprzedaz].[Nr umowy sprzedaży] AS [Nr umowy sprzedaży], 
+    [v_Umowa_do_sprzedaz].[Nr oferty handlowej] AS [Nr oferty handlowej]
+    FROM [dbo].[v_Umowa_do_sprzedaz] AS [v_Umowa_do_sprzedaz]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Wytwarzanie" EntityType="Self.v_Wytwarzanie" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -6049,6 +6117,21 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           <Property Name="Data_od_" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Data_do_" Type="DateTime" Precision="0" />
         </EntityType>
+        <EntityType Name="v_Dodaj_szczegol_sprzedaz">
+          <Key>
+            <PropertyRef Name="Numer_sprzedaży" />
+            <PropertyRef Name="Numer_oferty_handlowej" />
+            <PropertyRef Name="Produkt" />
+            <PropertyRef Name="Ilość" />
+            <PropertyRef Name="Numer_telefonu_klient" />
+          </Key>
+          <Property Name="Numer_sprzedaży" Type="Int32" Nullable="false" />
+          <Property Name="Numer_oferty_handlowej" Type="Int32" Nullable="false" />
+          <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ilość" Type="Int32" Nullable="false" />
+          <Property Name="Cena" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="Numer_telefonu_klient" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
         <EntityType Name="v_Email_pracownik">
           <Key>
             <PropertyRef Name="Nazwisko" />
@@ -6343,6 +6426,20 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           <Property Name="Rodzaj_nieobecności" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Data_od_" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Data_do_" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="v_Niesprzedane_zamowienia">
+          <Key>
+            <PropertyRef Name="Numer_sprzedaży" />
+            <PropertyRef Name="Numer_umowy" />
+            <PropertyRef Name="Data_sprzedaży" />
+            <PropertyRef Name="Termin_płatności" />
+            <PropertyRef Name="Forma_płatnoś_ci" />
+          </Key>
+          <Property Name="Numer_sprzedaży" Type="Int32" Nullable="false" />
+          <Property Name="Numer_umowy" Type="Int32" Nullable="false" />
+          <Property Name="Data_sprzedaży" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Termin_płatności" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Forma_płatnoś_ci" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="v_Nr_telefon_pracownik">
           <Key>
@@ -6845,6 +6942,14 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           <Property Name="Wymiar_pracy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Nazwa_stanowiska" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Podstawa_wynagrodzenia" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_Umowa_do_sprzedaz">
+          <Key>
+            <PropertyRef Name="Nr_umowy_sprzedaży" />
+            <PropertyRef Name="Nr_oferty_handlowej" />
+          </Key>
+          <Property Name="Nr_umowy_sprzedaży" Type="Int32" Nullable="false" />
+          <Property Name="Nr_oferty_handlowej" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="v_Wytwarzanie">
           <Key>
@@ -8702,6 +8807,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           <EntitySet Name="Zwrot" EntityType="Self.Zwrot" />
           <EntitySet Name="v_Czynnosc_produkcyjna" EntityType="Self.v_Czynnosc_produkcyjna" />
           <EntitySet Name="v_Dane_adresowe_pracownik" EntityType="Self.v_Dane_adresowe_pracownik" />
+          <EntitySet Name="v_Dodaj_szczegol_sprzedaz" EntityType="Self.v_Dodaj_szczegol_sprzedaz" />
           <EntitySet Name="v_Email_pracownik" EntityType="Self.v_Email_pracownik" />
           <EntitySet Name="v_Etat" EntityType="Self.v_Etat" />
           <EntitySet Name="v_Klient" EntityType="Self.v_Klient" />
@@ -8733,6 +8839,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           <EntitySet Name="v_Nadgodziny_miesiac" EntityType="Self.v_Nadgodziny_miesiac" />
           <EntitySet Name="v_Nadgodziny_suma_miesiac" EntityType="Self.v_Nadgodziny_suma_miesiac" />
           <EntitySet Name="v_Nieobecnosc" EntityType="Self.v_Nieobecnosc" />
+          <EntitySet Name="v_Niesprzedane_zamowienia" EntityType="Self.v_Niesprzedane_zamowienia" />
           <EntitySet Name="v_Nr_telefon_pracownik" EntityType="Self.v_Nr_telefon_pracownik" />
           <EntitySet Name="v_Oblugi_w_trakcie" EntityType="Self.v_Oblugi_w_trakcie" />
           <EntitySet Name="v_Oblugi_zakonczone" EntityType="Self.v_Oblugi_zakonczone" />
@@ -8772,6 +8879,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           <EntitySet Name="v_Szczegoly_sprzedaz" EntityType="Self.v_Szczegoly_sprzedaz" />
           <EntitySet Name="v_Tygodniowe_rozliczenie_pracy_produkcja" EntityType="Self.v_Tygodniowe_rozliczenie_pracy_produkcja" />
           <EntitySet Name="v_Umowa" EntityType="Self.v_Umowa" />
+          <EntitySet Name="v_Umowa_do_sprzedaz" EntityType="Self.v_Umowa_do_sprzedaz" />
           <EntitySet Name="v_Wytwarzanie" EntityType="Self.v_Wytwarzanie" />
           <EntitySet Name="v_Zamowienia_czesci_w_trakcie" EntityType="Self.v_Zamowienia_czesci_w_trakcie" />
           <EntitySet Name="v_Zamowienia_czesci_w_trakcie_bez_odebranych" EntityType="Self.v_Zamowienia_czesci_w_trakcie_bez_odebranych" />
@@ -10204,6 +10312,18 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="v_Dodaj_szczegol_sprzedaz">
+            <EntityTypeMapping TypeName="KWZPModel.v_Dodaj_szczegol_sprzedaz">
+              <MappingFragment StoreEntitySet="v_Dodaj_szczegol_sprzedaz">
+                <ScalarProperty Name="Numer_sprzedaży" ColumnName="Numer sprzedaży" />
+                <ScalarProperty Name="Numer_oferty_handlowej" ColumnName="Numer oferty handlowej" />
+                <ScalarProperty Name="Produkt" ColumnName="Produkt" />
+                <ScalarProperty Name="Ilość" ColumnName="Ilość" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+                <ScalarProperty Name="Numer_telefonu_klient" ColumnName="Numer telefonu klient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="v_Email_pracownik">
             <EntityTypeMapping TypeName="KWZPModel.v_Email_pracownik">
               <MappingFragment StoreEntitySet="v_Email_pracownik">
@@ -10485,6 +10605,17 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
                 <ScalarProperty Name="Rodzaj_nieobecności" ColumnName="Rodzaj nieobecności" />
                 <ScalarProperty Name="Data_od_" ColumnName="Data od:" />
                 <ScalarProperty Name="Data_do_" ColumnName="Data do:" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Niesprzedane_zamowienia">
+            <EntityTypeMapping TypeName="KWZPModel.v_Niesprzedane_zamowienia">
+              <MappingFragment StoreEntitySet="v_Niesprzedane_zamowienia">
+                <ScalarProperty Name="Numer_sprzedaży" ColumnName="Numer sprzedaży" />
+                <ScalarProperty Name="Numer_umowy" ColumnName="Numer umowy" />
+                <ScalarProperty Name="Data_sprzedaży" ColumnName="Data sprzedaży" />
+                <ScalarProperty Name="Termin_płatności" ColumnName="Termin płatności" />
+                <ScalarProperty Name="Forma_płatnoś_ci" ColumnName="Forma płatności" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -10899,6 +11030,14 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
                 <ScalarProperty Name="Wymiar_pracy" ColumnName="Wymiar pracy" />
                 <ScalarProperty Name="Nazwa_stanowiska" ColumnName="Nazwa stanowiska" />
                 <ScalarProperty Name="Podstawa_wynagrodzenia" ColumnName="Podstawa wynagrodzenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Umowa_do_sprzedaz">
+            <EntityTypeMapping TypeName="KWZPModel.v_Umowa_do_sprzedaz">
+              <MappingFragment StoreEntitySet="v_Umowa_do_sprzedaz">
+                <ScalarProperty Name="Nr_umowy_sprzedaży" ColumnName="Nr umowy sprzedaży" />
+                <ScalarProperty Name="Nr_oferty_handlowej" ColumnName="Nr oferty handlowej" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

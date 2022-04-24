@@ -107,6 +107,7 @@
             this.Controls.Add(this.btnClient);
             this.Controls.Add(this.btnOrder);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormSalesDepartment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dział handlowy i marketingu";

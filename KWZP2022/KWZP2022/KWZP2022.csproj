@@ -187,6 +187,18 @@
     <Compile Include="FormNewOrder.Designer.cs">
       <DependentUpon>FormNewOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSalesDepartmentAddSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesDepartmentAddSales.Designer.cs">
+      <DependentUpon>FormSalesDepartmentAddSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSalesDepartmentAddSalesDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesDepartmentAddSalesDetails.Designer.cs">
+      <DependentUpon>FormSalesDepartmentAddSalesDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSalesDepartmentComplaint.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -507,6 +519,9 @@
     <Compile Include="v_Dane_adresowe_pracownik.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Dodaj_szczegol_sprzedaz.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Email_pracownik.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -598,6 +613,9 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Nieobecnosc.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Niesprzedane_zamowienia.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Nr_telefon_pracownik.cs">
@@ -715,6 +733,9 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Umowa.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Umowa_do_sprzedaz.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Wytwarzanie.cs">
@@ -845,6 +866,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSalesDepartment.resx">
       <DependentUpon>FormSalesDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSalesDepartmentAddSales.resx">
+      <DependentUpon>FormSalesDepartmentAddSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSalesDepartmentAddSalesDetails.resx">
+      <DependentUpon>FormSalesDepartmentAddSalesDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSalesDepartmentClient.resx">
       <DependentUpon>FormSalesDepartmentClient.cs</DependentUpon>
