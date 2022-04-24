@@ -152,6 +152,7 @@ namespace KWZP2022
         public virtual DbSet<v_Oblugi_w_trakcie> v_Oblugi_w_trakcie { get; set; }
         public virtual DbSet<v_Oblugi_zakonczone> v_Oblugi_zakonczone { get; set; }
         public virtual DbSet<v_Oferta_handlowa> v_Oferta_handlowa { get; set; }
+        public virtual DbSet<v_Oferta_handlowa_do_rozpatrzenia> v_Oferta_handlowa_do_rozpatrzenia { get; set; }
         public virtual DbSet<v_Parametry_czesc> v_Parametry_czesc { get; set; }
         public virtual DbSet<v_Parametry_maszyna> v_Parametry_maszyna { get; set; }
         public virtual DbSet<v_Parametry_material> v_Parametry_material { get; set; }
@@ -202,6 +203,5 @@ namespace KWZP2022
         public virtual DbSet<v_Zamowienia_niesprzedane> v_Zamowienia_niesprzedane { get; set; }
         public virtual DbSet<v_Zamowienie> v_Zamowienie { get; set; }
         public virtual DbSet<v_Zamowienie_szczegol> v_Zamowienie_szczegol { get; set; }
-        public virtual DbSet<v_Oferta_handlowa_do_rozpatrzenia> v_Oferta_handlowa_do_rozpatrzenia { get; set; }
     }
 }

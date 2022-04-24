@@ -42,5 +42,11 @@ namespace KWZP2022
             FormSalesDepartmentOffersForConsideration formSalesDepartmentOffersForConsideration = new FormSalesDepartmentOffersForConsideration(db);
             formSalesDepartmentOffersForConsideration.ShowDialog();
         }
+
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            FormSalesDeprartmentOrders formSalesDeprartmentOrders = new FormSalesDeprartmentOrders(db);
+            formSalesDeprartmentOrders.ShowDialog();
+        }
     }
 }

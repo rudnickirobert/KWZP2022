@@ -19,7 +19,7 @@ namespace KWZP2022.Properties {
     // przez narzędzie, takie jak ResGen lub Visual Studio.
     // Aby dodać lub usunąć składową, edytuj plik ResX, a następnie ponownie uruchom narzędzie ResGen
     // z opcją /str lub ponownie utwórz projekt VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -57,6 +57,16 @@ namespace KWZP2022.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap form_background {
+            get {
+                object obj = ResourceManager.GetObject("form_background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
