@@ -33,6 +33,18 @@ namespace KWZP2022
 
         }
 
+        private void getHoursSum()
+        {
+            int polproduktSum = dgvWytwarzaniePolprodukt.Rows.Cast<DataGridViewRow>()
+                .Sum(t => Convert.ToInt32(t.Cells[9].Value));
+
+            int produktSum = dgvWytwarzanieProdukt.Rows.Cast<DataGridViewRow>()
+                .Sum(t => Convert.ToInt32(t.Cells[9].Value));
+
+            int finalSum = polproduktSum + produktSum;
+            lblSum.Text = finalSum.ToString() + ' ' + 'h';
+        }
+
         private void btnGeneruj_Click(object sender, EventArgs e)
         {
 
@@ -40,6 +52,7 @@ namespace KWZP2022
             var czasOd = dtpCzasOd.Value.Date;
             var czasDo = dtpCzasDo.Value.Date;
 
+            dgvWytwarzaniePolprodukt.DataSource = null;
             System.Linq.IQueryable vProcWytPolprodukt = db.v_Proces_wytwarzanie_polprodukt_ewidencja.Where(a => a.ID_pracownik == pracownikID && a.Data_rozpoczęcia >= czasOd && a.Data_zakończenia <= czasDo);
             int vPracownikIdIntPro = vProcWytPolprodukt.Cast<v_Proces_wytwarzanie_polprodukt_ewidencja>().Where(a => a.ID_pracownik > 0).Count();
             if (vPracownikIdIntPro > 0)
@@ -55,15 +68,15 @@ namespace KWZP2022
                 dgvWytwarzaniePolprodukt.Columns["Czas_pracy"].HeaderText = "Czas";
                 this.dgvWytwarzaniePolprodukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 
-                refreshScreen();
-
             }
             else
             {
+                dgvWytwarzanieProdukt.DataSource = null;
                 MessageBox.Show("Pracownik nie wykonywał procesu produkcyjnego na półprodukcie w tym okresie czasu.");
                 refreshScreen();
             }
-            
+
+            dgvWytwarzanieProdukt.DataSource = null;
             System.Linq.IQueryable vProcWytProdukt = db.v_Proces_wytwarzanie_produkt_ewidencja.Where(a => a.ID_pracownik == pracownikID && a.Data_rozpoczęcia >= czasOd && a.Data_zakończenia <= czasDo);
             int vPracownikIdIntPol = vProcWytProdukt.Cast<v_Proces_wytwarzanie_produkt_ewidencja>().Where(a => a.ID_pracownik > 0).Count();
             if (vPracownikIdIntPol > 0)
@@ -79,14 +92,16 @@ namespace KWZP2022
                 dgvWytwarzanieProdukt.Columns["Czas_pracy"].HeaderText = "Czas";
                 this.dgvWytwarzanieProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 
-                refreshScreen();
-
             }
             else
             {
-                MessageBox.Show("Pracownik nie wykonywał procesu produkcyjnego na produkcie w tym okresie czasu.");
+                dgvWytwarzanieProdukt.DataSource = null;
+                MessageBox.Show("Pracownik nie wykonywał procesu produkcyjnego na żadnym produkcie w tym okresie czasu.");
                 refreshScreen();
             }
+
+
+            getHoursSum();
 
 
         }

@@ -24,5 +24,11 @@ namespace KWZP2022
             FormCzasPracyProdukcja czasPracyProdukcjaForm = new FormCzasPracyProdukcja(db);
             czasPracyProdukcjaForm.ShowDialog();
         }
+
+        private void btnKoszt_Click(object sender, EventArgs e)
+        {
+            FormKosztProdukcja kosztProdukcjaForm = new FormKosztProdukcja(db);
+            kosztProdukcjaForm.ShowDialog();
+        }
     }
 }

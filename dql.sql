@@ -38,6 +38,15 @@ INNER JOIN Slownik_polprodukt AS SlwPP ON SP.ID_polprodukt = SlwPP.ID_polprodukt
 ORDER BY P.Nazwa_produkt OFFSET 0 ROWS
 GO
 
+CREATE VIEW v_Sklad_produkt_ewidencja
+AS
+SELECT SP.ID_sklad_produkt AS [ID skład], SP.ID_produkt, SP.ID_polprodukt, SlwPP.Nazwa AS [Półprodukt], SP.Liczba
+FROM Sklad_produkt AS SP
+INNER JOIN Produkt AS P ON SP.ID_produkt = P.ID_produkt
+INNER JOIN Slownik_polprodukt AS SlwPP ON SP.ID_polprodukt = SlwPP.ID_polprodukt
+ORDER BY P.Nazwa_produkt OFFSET 0 ROWS
+GO
+
 CREATE VIEW v_Sklad_polprodukt
 AS
 SELECT SP.ID_sklad_polprodukt AS [ID_skład], SlwPp.Nazwa AS [Półprodukt], M.Nazwa_material AS [Materiał], RM.Nazwa_rodzaj_material AS [Rodzaj],
@@ -230,7 +239,6 @@ CREATE VIEW v_Tygodniowe_rozliczenie_pracy_produkcja
 AS
 SELECT [Pracownik], SUM(DATEDIFF(HOUR, [Data rozpoczęcia],[Data zakończenia])) AS [Czas pracy]
 FROM v_Wytwarzanie
-
 GROUP BY [Pracownik]
 GO
 

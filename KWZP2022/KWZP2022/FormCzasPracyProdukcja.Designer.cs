@@ -40,7 +40,7 @@
             this.btnGeneruj = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblSum = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzaniePolprodukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzanieProdukt)).BeginInit();
             this.SuspendLayout();
@@ -156,14 +156,18 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "w wybranym okresie:";
             // 
-            // textBox1
+            // lblSum
             // 
-            this.textBox1.Font = new System.Drawing.Font("Arial", 15F);
-            this.textBox1.Location = new System.Drawing.Point(100, 533);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 30);
-            this.textBox1.TabIndex = 13;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lblSum.AutoSize = true;
+            this.lblSum.BackColor = System.Drawing.Color.Transparent;
+            this.lblSum.Font = new System.Drawing.Font("Arial", 20F);
+            this.lblSum.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblSum.Location = new System.Drawing.Point(120, 530);
+            this.lblSum.Name = "lblSum";
+            this.lblSum.Size = new System.Drawing.Size(52, 32);
+            this.lblSum.TabIndex = 13;
+            this.lblSum.Text = "0 h";
+            this.lblSum.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // FormCzasPracyProdukcja
             // 
@@ -171,7 +175,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 711);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lblSum);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnGeneruj);
@@ -185,7 +189,7 @@
             this.Controls.Add(this.cbPracownik);
             this.Font = new System.Drawing.Font("Arial", 8.25F);
             this.Name = "FormCzasPracyProdukcja";
-            this.Text = "FormCzasPracyProdukcja";
+            this.Text = "Czas pracy pracowników działu produkcji";
             ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzaniePolprodukt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzanieProdukt)).EndInit();
             this.ResumeLayout(false);
@@ -206,6 +210,6 @@
         private System.Windows.Forms.Button btnGeneruj;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lblSum;
     }
 }

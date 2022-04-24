@@ -103,6 +103,12 @@
     <Compile Include="FormCzasPracyProdukcja.Designer.cs">
       <DependentUpon>FormCzasPracyProdukcja.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormKosztProdukcja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormKosztProdukcja.Designer.cs">
+      <DependentUpon>FormKosztProdukcja.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormStatystykiProdukcja.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -692,6 +698,9 @@
     <Compile Include="v_Sklad_produkt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Sklad_produkt_ewidencja.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Sklad_stanowisko_produkcyjne_maszyna.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -817,6 +826,9 @@
     </Compile>
     <EmbeddedResource Include="FormCzasPracyProdukcja.resx">
       <DependentUpon>FormCzasPracyProdukcja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormKosztProdukcja.resx">
+      <DependentUpon>FormKosztProdukcja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormStatystykiProdukcja.resx">
       <DependentUpon>FormStatystykiProdukcja.cs</DependentUpon>
