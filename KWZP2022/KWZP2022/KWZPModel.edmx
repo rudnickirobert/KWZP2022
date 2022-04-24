@@ -1014,24 +1014,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Koszt_godziny_pracy' does not have a pr
           <Property Name="Miesiąc" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'KWZP.dbo.v_Koszt_godziny_pracy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="v_Koszt_godziny_pracy">
-          <Key>
-            <PropertyRef Name="ID_pracownik" />
-            <PropertyRef Name="Nazwisko" />
-            <PropertyRef Name="Imie" />
-            <PropertyRef Name="Wynagrodzenie" />
-            <PropertyRef Name="Liczba_godzin" />
-          </Key>
-          <Property Name="ID_pracownik" Type="int" Nullable="false" />
-          <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Imie" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Wynagrodzenie" Type="int" Nullable="false" />
-          <Property Name="Liczba_godzin" Type="int" Nullable="false" />
-          <Property Name="Koszt godziny pracy" Type="int" />
-          <Property Name="Miesiąc" Type="int" />
-        </EntityType>
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Koszt_procesow_polprodukt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Koszt_procesow_polprodukt">
           <Key>
@@ -1365,12 +1347,16 @@ warning 6002: The table/view 'KWZP.dbo.v_Oferta_handlowa' does not have a primar
 warning 6002: The table/view 'KWZP.dbo.v_Parametry_czesc' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Parametry_czesc">
           <Key>
+            <PropertyRef Name="ID_czesc" />
+            <PropertyRef Name="ID_rodzaj_parametr" />
             <PropertyRef Name="Nazwa części" />
             <PropertyRef Name="Parametr" />
             <PropertyRef Name="Jednostka" />
             <PropertyRef Name="Zakres - granica dolna" />
             <PropertyRef Name="Zakres - granica górna" />
           </Key>
+          <Property Name="ID_czesc" Type="int" Nullable="false" />
+          <Property Name="ID_rodzaj_parametr" Type="int" Nullable="false" />
           <Property Name="Nazwa części" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Parametr" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Jednostka" Type="nvarchar" MaxLength="10" Nullable="false" />
@@ -1381,12 +1367,16 @@ warning 6002: The table/view 'KWZP.dbo.v_Parametry_czesc' does not have a primar
 warning 6002: The table/view 'KWZP.dbo.v_Parametry_maszyna' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Parametry_maszyna">
           <Key>
+            <PropertyRef Name="ID_maszyna" />
+            <PropertyRef Name="ID_rodzaj_parametr" />
             <PropertyRef Name="Nazwa maszyny" />
             <PropertyRef Name="Parametr" />
             <PropertyRef Name="Jednostka" />
             <PropertyRef Name="Zakres - granica dolna" />
             <PropertyRef Name="Zakres - granica górna" />
           </Key>
+          <Property Name="ID_maszyna" Type="int" Nullable="false" />
+          <Property Name="ID_rodzaj_parametr" Type="int" Nullable="false" />
           <Property Name="Nazwa maszyny" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Parametr" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Jednostka" Type="nvarchar" MaxLength="10" Nullable="false" />
@@ -1397,12 +1387,16 @@ warning 6002: The table/view 'KWZP.dbo.v_Parametry_maszyna' does not have a prim
 warning 6002: The table/view 'KWZP.dbo.v_Parametry_material' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Parametry_material">
           <Key>
+            <PropertyRef Name="ID_material" />
+            <PropertyRef Name="ID_rodzaj_parametr" />
             <PropertyRef Name="Nazwa materiału" />
             <PropertyRef Name="Parametr" />
             <PropertyRef Name="Jednostka" />
             <PropertyRef Name="Zakres - granica dolna" />
             <PropertyRef Name="Zakres - granica górna" />
           </Key>
+          <Property Name="ID_material" Type="int" Nullable="false" />
+          <Property Name="ID_rodzaj_parametr" Type="int" Nullable="false" />
           <Property Name="Nazwa materiału" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Parametr" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Jednostka" Type="nvarchar" MaxLength="10" Nullable="false" />
@@ -1413,12 +1407,16 @@ warning 6002: The table/view 'KWZP.dbo.v_Parametry_material' does not have a pri
 warning 6002: The table/view 'KWZP.dbo.v_Parametry_narzedzie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Parametry_narzedzie">
           <Key>
+            <PropertyRef Name="ID_narzedzie" />
+            <PropertyRef Name="ID_rodzaj_parametr" />
             <PropertyRef Name="Nazwa narzędzia" />
             <PropertyRef Name="Parametr" />
             <PropertyRef Name="Jednostka" />
             <PropertyRef Name="Zakres - granica dolna" />
             <PropertyRef Name="Zakres - granica górna" />
           </Key>
+          <Property Name="ID_narzedzie" Type="int" Nullable="false" />
+          <Property Name="ID_rodzaj_parametr" Type="int" Nullable="false" />
           <Property Name="Nazwa narzędzia" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Parametr" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Jednostka" Type="nvarchar" MaxLength="10" Nullable="false" />
@@ -1601,6 +1599,16 @@ warning 6002: The table/view 'KWZP.dbo.v_Rodzaj_kontrola' does not have a primar
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Rodzaj kontroli" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Procedura kontrolna" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Rodzaj_parametr' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Rodzaj_parametr">
+          <Key>
+            <PropertyRef Name="ID_rodzaj_parametr" />
+            <PropertyRef Name="Parametr" />
+          </Key>
+          <Property Name="ID_rodzaj_parametr" Type="int" Nullable="false" />
+          <Property Name="Parametr" Type="nvarchar" MaxLength="61" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Sklad_maszyna' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -4007,6 +4015,8 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           </EntitySet>
           <EntitySet Name="v_Parametry_czesc" EntityType="Self.v_Parametry_czesc" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [v_Parametry_czesc].[ID_czesc] AS [ID_czesc], 
+    [v_Parametry_czesc].[ID_rodzaj_parametr] AS [ID_rodzaj_parametr], 
     [v_Parametry_czesc].[Nazwa części] AS [Nazwa części], 
     [v_Parametry_czesc].[Parametr] AS [Parametr], 
     [v_Parametry_czesc].[Jednostka] AS [Jednostka], 
@@ -4016,6 +4026,8 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           </EntitySet>
           <EntitySet Name="v_Parametry_maszyna" EntityType="Self.v_Parametry_maszyna" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [v_Parametry_maszyna].[ID_maszyna] AS [ID_maszyna], 
+    [v_Parametry_maszyna].[ID_rodzaj_parametr] AS [ID_rodzaj_parametr], 
     [v_Parametry_maszyna].[Nazwa maszyny] AS [Nazwa maszyny], 
     [v_Parametry_maszyna].[Parametr] AS [Parametr], 
     [v_Parametry_maszyna].[Jednostka] AS [Jednostka], 
@@ -4025,6 +4037,8 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           </EntitySet>
           <EntitySet Name="v_Parametry_material" EntityType="Self.v_Parametry_material" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [v_Parametry_material].[ID_material] AS [ID_material], 
+    [v_Parametry_material].[ID_rodzaj_parametr] AS [ID_rodzaj_parametr], 
     [v_Parametry_material].[Nazwa materiału] AS [Nazwa materiału], 
     [v_Parametry_material].[Parametr] AS [Parametr], 
     [v_Parametry_material].[Jednostka] AS [Jednostka], 
@@ -4034,6 +4048,8 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           </EntitySet>
           <EntitySet Name="v_Parametry_narzedzie" EntityType="Self.v_Parametry_narzedzie" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [v_Parametry_narzedzie].[ID_narzedzie] AS [ID_narzedzie], 
+    [v_Parametry_narzedzie].[ID_rodzaj_parametr] AS [ID_rodzaj_parametr], 
     [v_Parametry_narzedzie].[Nazwa narzędzia] AS [Nazwa narzędzia], 
     [v_Parametry_narzedzie].[Parametr] AS [Parametr], 
     [v_Parametry_narzedzie].[Jednostka] AS [Jednostka], 
@@ -4141,6 +4157,12 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
     [v_Rodzaj_kontrola].[Rodzaj kontroli] AS [Rodzaj kontroli], 
     [v_Rodzaj_kontrola].[Procedura kontrolna] AS [Procedura kontrolna]
     FROM [dbo].[v_Rodzaj_kontrola] AS [v_Rodzaj_kontrola]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Rodzaj_parametr" EntityType="Self.v_Rodzaj_parametr" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Rodzaj_parametr].[ID_rodzaj_parametr] AS [ID_rodzaj_parametr], 
+    [v_Rodzaj_parametr].[Parametr] AS [Parametr]
+    FROM [dbo].[v_Rodzaj_parametr] AS [v_Rodzaj_parametr]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Sklad_maszyna" EntityType="Self.v_Sklad_maszyna" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -6153,22 +6175,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <Property Name="Koszt_godziny_pracy" Type="Int32" />
           <Property Name="Miesiąc" Type="Int32" />
         </EntityType>
-        <EntityType Name="v_Koszt_godziny_pracy">
-          <Key>
-            <PropertyRef Name="ID_pracownik" />
-            <PropertyRef Name="Nazwisko" />
-            <PropertyRef Name="Imie" />
-            <PropertyRef Name="Wynagrodzenie" />
-            <PropertyRef Name="Liczba_godzin" />
-          </Key>
-          <Property Name="ID_pracownik" Type="Int32" Nullable="false" />
-          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Wynagrodzenie" Type="Int32" Nullable="false" />
-          <Property Name="Liczba_godzin" Type="Int32" Nullable="false" />
-          <Property Name="Koszt_godziny_pracy" Type="Int32" />
-          <Property Name="Miesiąc" Type="Int32" />
-        </EntityType>
         <EntityType Name="v_Koszt_procesow_polprodukt">
           <Key>
             <PropertyRef Name="ID" />
@@ -6443,12 +6449,16 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
         </EntityType>
         <EntityType Name="v_Parametry_czesc">
           <Key>
+            <PropertyRef Name="ID_czesc" />
+            <PropertyRef Name="ID_rodzaj_parametr" />
             <PropertyRef Name="Nazwa_części" />
             <PropertyRef Name="Parametr" />
             <PropertyRef Name="Jednostka" />
             <PropertyRef Name="Zakres___granica_dolna" />
             <PropertyRef Name="Zakres___granica_górna" />
           </Key>
+          <Property Name="ID_czesc" Type="Int32" Nullable="false" />
+          <Property Name="ID_rodzaj_parametr" Type="Int32" Nullable="false" />
           <Property Name="Nazwa_części" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Parametr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
@@ -6457,12 +6467,16 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
         </EntityType>
         <EntityType Name="v_Parametry_maszyna">
           <Key>
+            <PropertyRef Name="ID_maszyna" />
+            <PropertyRef Name="ID_rodzaj_parametr" />
             <PropertyRef Name="Nazwa_maszyny" />
             <PropertyRef Name="Parametr" />
             <PropertyRef Name="Jednostka" />
             <PropertyRef Name="Zakres___granica_dolna" />
             <PropertyRef Name="Zakres___granica_górna" />
           </Key>
+          <Property Name="ID_maszyna" Type="Int32" Nullable="false" />
+          <Property Name="ID_rodzaj_parametr" Type="Int32" Nullable="false" />
           <Property Name="Nazwa_maszyny" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Parametr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
@@ -6471,12 +6485,16 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
         </EntityType>
         <EntityType Name="v_Parametry_material">
           <Key>
+            <PropertyRef Name="ID_material" />
+            <PropertyRef Name="ID_rodzaj_parametr" />
             <PropertyRef Name="Nazwa_materiału" />
             <PropertyRef Name="Parametr" />
             <PropertyRef Name="Jednostka" />
             <PropertyRef Name="Zakres___granica_dolna" />
             <PropertyRef Name="Zakres___granica_górna" />
           </Key>
+          <Property Name="ID_material" Type="Int32" Nullable="false" />
+          <Property Name="ID_rodzaj_parametr" Type="Int32" Nullable="false" />
           <Property Name="Nazwa_materiału" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Parametr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
@@ -6485,12 +6503,16 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
         </EntityType>
         <EntityType Name="v_Parametry_narzedzie">
           <Key>
+            <PropertyRef Name="ID_narzedzie" />
+            <PropertyRef Name="ID_rodzaj_parametr" />
             <PropertyRef Name="Nazwa_narzędzia" />
             <PropertyRef Name="Parametr" />
             <PropertyRef Name="Jednostka" />
             <PropertyRef Name="Zakres___granica_dolna" />
             <PropertyRef Name="Zakres___granica_górna" />
           </Key>
+          <Property Name="ID_narzedzie" Type="Int32" Nullable="false" />
+          <Property Name="ID_rodzaj_parametr" Type="Int32" Nullable="false" />
           <Property Name="Nazwa_narzędzia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Parametr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
@@ -6651,6 +6673,14 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Rodzaj_kontroli" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Procedura_kontrolna" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_Rodzaj_parametr">
+          <Key>
+            <PropertyRef Name="ID_rodzaj_parametr" />
+            <PropertyRef Name="Parametr" />
+          </Key>
+          <Property Name="ID_rodzaj_parametr" Type="Int32" Nullable="false" />
+          <Property Name="Parametr" Type="String" MaxLength="61" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="v_Sklad_maszyna">
           <Key>
@@ -8715,6 +8745,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <EntitySet Name="v_Produkty_na_gwarancji" EntityType="Self.v_Produkty_na_gwarancji" />
           <EntitySet Name="v_Reklamacja" EntityType="Self.v_Reklamacja" />
           <EntitySet Name="v_Rodzaj_kontrola" EntityType="Self.v_Rodzaj_kontrola" />
+          <EntitySet Name="v_Rodzaj_parametr" EntityType="Self.v_Rodzaj_parametr" />
           <EntitySet Name="v_Sklad_maszyna" EntityType="Self.v_Sklad_maszyna" />
           <EntitySet Name="v_Sklad_polprodukt" EntityType="Self.v_Sklad_polprodukt" />
           <EntitySet Name="v_Sklad_produkt" EntityType="Self.v_Sklad_produkt" />
@@ -10538,6 +10569,8 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <EntitySetMapping Name="v_Parametry_czesc">
             <EntityTypeMapping TypeName="KWZPModel.v_Parametry_czesc">
               <MappingFragment StoreEntitySet="v_Parametry_czesc">
+                <ScalarProperty Name="ID_czesc" ColumnName="ID_czesc" />
+                <ScalarProperty Name="ID_rodzaj_parametr" ColumnName="ID_rodzaj_parametr" />
                 <ScalarProperty Name="Nazwa_części" ColumnName="Nazwa części" />
                 <ScalarProperty Name="Parametr" ColumnName="Parametr" />
                 <ScalarProperty Name="Jednostka" ColumnName="Jednostka" />
@@ -10549,6 +10582,8 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <EntitySetMapping Name="v_Parametry_maszyna">
             <EntityTypeMapping TypeName="KWZPModel.v_Parametry_maszyna">
               <MappingFragment StoreEntitySet="v_Parametry_maszyna">
+                <ScalarProperty Name="ID_maszyna" ColumnName="ID_maszyna" />
+                <ScalarProperty Name="ID_rodzaj_parametr" ColumnName="ID_rodzaj_parametr" />
                 <ScalarProperty Name="Nazwa_maszyny" ColumnName="Nazwa maszyny" />
                 <ScalarProperty Name="Parametr" ColumnName="Parametr" />
                 <ScalarProperty Name="Jednostka" ColumnName="Jednostka" />
@@ -10560,6 +10595,8 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <EntitySetMapping Name="v_Parametry_material">
             <EntityTypeMapping TypeName="KWZPModel.v_Parametry_material">
               <MappingFragment StoreEntitySet="v_Parametry_material">
+                <ScalarProperty Name="ID_material" ColumnName="ID_material" />
+                <ScalarProperty Name="ID_rodzaj_parametr" ColumnName="ID_rodzaj_parametr" />
                 <ScalarProperty Name="Nazwa_materiału" ColumnName="Nazwa materiału" />
                 <ScalarProperty Name="Parametr" ColumnName="Parametr" />
                 <ScalarProperty Name="Jednostka" ColumnName="Jednostka" />
@@ -10571,6 +10608,8 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <EntitySetMapping Name="v_Parametry_narzedzie">
             <EntityTypeMapping TypeName="KWZPModel.v_Parametry_narzedzie">
               <MappingFragment StoreEntitySet="v_Parametry_narzedzie">
+                <ScalarProperty Name="ID_narzedzie" ColumnName="ID_narzedzie" />
+                <ScalarProperty Name="ID_rodzaj_parametr" ColumnName="ID_rodzaj_parametr" />
                 <ScalarProperty Name="Nazwa_narzędzia" ColumnName="Nazwa narzędzia" />
                 <ScalarProperty Name="Parametr" ColumnName="Parametr" />
                 <ScalarProperty Name="Jednostka" ColumnName="Jednostka" />
@@ -10699,6 +10738,14 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Rodzaj_kontroli" ColumnName="Rodzaj kontroli" />
                 <ScalarProperty Name="Procedura_kontrolna" ColumnName="Procedura kontrolna" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Rodzaj_parametr">
+            <EntityTypeMapping TypeName="KWZPModel.v_Rodzaj_parametr">
+              <MappingFragment StoreEntitySet="v_Rodzaj_parametr">
+                <ScalarProperty Name="ID_rodzaj_parametr" ColumnName="ID_rodzaj_parametr" />
+                <ScalarProperty Name="Parametr" ColumnName="Parametr" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -171,6 +171,7 @@ namespace KWZP2022
         public virtual DbSet<v_Produkty_na_gwarancji> v_Produkty_na_gwarancji { get; set; }
         public virtual DbSet<v_Reklamacja> v_Reklamacja { get; set; }
         public virtual DbSet<v_Rodzaj_kontrola> v_Rodzaj_kontrola { get; set; }
+        public virtual DbSet<v_Rodzaj_parametr> v_Rodzaj_parametr { get; set; }
         public virtual DbSet<v_Sklad_maszyna> v_Sklad_maszyna { get; set; }
         public virtual DbSet<v_Sklad_polprodukt> v_Sklad_polprodukt { get; set; }
         public virtual DbSet<v_Sklad_produkt> v_Sklad_produkt { get; set; }

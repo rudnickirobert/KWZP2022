@@ -106,5 +106,11 @@ namespace KWZP2022
                 cmbRodzajMaterial.SelectedValue = row.Cells[1].Value;
             }
         }
+
+        private void btnDodajParametr_Click(object sender, EventArgs e)
+        {
+            FormResDepParametryMaterial parametrMaterial = new FormResDepParametryMaterial(db);
+            parametrMaterial.ShowDialog();  
+        }
     }
 }
