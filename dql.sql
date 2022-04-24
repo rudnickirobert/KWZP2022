@@ -70,9 +70,34 @@ INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stan
 ORDER BY SP.ID_stanowisko_produkcyjne ASC OFFSET 0 ROWS
 GO
 
+CREATE VIEW v_Sklad_stanowisko_produkcyjne_narzedzie_ID
+AS
+SELECT SSPN.ID_sklad_stanowisko_produkcyjne_narzedzie, SP.ID_stanowisko_produkcyjne AS [ID Stanowiska], SS.Nazwa_stanowiska, N.Nazwa_narzedzie AS [Narzędzie], Liczba 
+FROM Sklad_stanowisko_produkcyjne_narzedzie AS SSPN
+INNER JOIN Stanowisko_produkcyjne AS SP ON SSPN.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
+INNER JOIN Narzedzie AS N ON SSPN.ID_narzedzie = N.ID_narzedzie
+INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
+ORDER BY SP.ID_stanowisko_produkcyjne ASC OFFSET 0 ROWS
+GO
+
 CREATE VIEW v_Sklad_stanowisko_produkcyjne_maszyna
 AS
 SELECT SP.ID_stanowisko_produkcyjne AS [ID stanowiska produkcyjnego], SS.Nazwa_stanowiska AS [Nazwa Stanowiska], 
+NS.Nr_seryjny AS [Nr seryjny maszyny], M.Nazwa_maszyna AS [Maszyna], M.Koszt_RBG [Koszt roboczogodziny {PLN}],
+RM.Nazwa_rodzaj_maszyna AS [Rodzaj maszyny]
+FROM Sklad_stanowisko_produkcyjne_maszyna AS SSPM
+INNER JOIN Stanowisko_produkcyjne AS SP ON SSPM.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
+INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
+INNER JOIN Maszyna_nr_seryjny AS MS ON SSPM.ID_maszyna_nr = MS.ID_maszyna_nr
+INNER JOIN Maszyna AS M ON MS.ID_maszyna = M.ID_maszyna
+INNER JOIN Rodzaj_maszyna AS RM ON M.ID_rodzaj_maszyna = RM.ID_rodzaj_maszyna
+INNER JOIN Nr_seryjny AS NS ON MS.ID_maszyna_nr = NS.ID_nr_seryjny
+ORDER BY SP.ID_stanowisko_produkcyjne ASC OFFSET 0 ROWS
+GO
+
+CREATE VIEW v_Sklad_stanowisko_produkcyjne_maszyna_ID
+AS
+SELECT SSPM.ID_sklad_stanowisko_produkcyjne_maszyna, SP.ID_stanowisko_produkcyjne AS [ID stanowiska produkcyjnego], SS.Nazwa_stanowiska AS [Nazwa Stanowiska], 
 NS.Nr_seryjny AS [Nr seryjny maszyny], M.Nazwa_maszyna AS [Maszyna], M.Koszt_RBG [Koszt roboczogodziny {PLN}],
 RM.Nazwa_rodzaj_maszyna AS [Rodzaj maszyny]
 FROM Sklad_stanowisko_produkcyjne_maszyna AS SSPM
@@ -271,7 +296,15 @@ EXCEPT
 SELECT * FROM v_Stanowiska_w_uzyciu
 GO
 
-
+CREATE VIEW v_Nr_seryjny_maszyna
+AS
+SELECT MNS.ID_maszyna_nr AS [ID maszyny], M.Nazwa_maszyna AS [Nazwa maszyny], NS.Nr_seryjny AS [Numer seryjny] 
+FROM Maszyna_nr_seryjny AS MNS
+INNER JOIN Maszyna AS M ON MNS.ID_maszyna = M.ID_maszyna
+INNER JOIN Nr_seryjny AS NS ON MNS.ID_nr_seryjny = NS.ID_nr_seryjny
+WHERE NS.Nr_seryjny NOT IN 
+(SELECT [Nr seryjny maszyny] FROM v_Sklad_stanowisko_produkcyjne_maszyna);
+GO
 
 -----RESOURCE DEPARTMENT----
 
@@ -510,6 +543,12 @@ CREATE VIEW v_Magazyn_narzedzia_nieuzywane
 AS
 SELECT [Nazwa narzędzia], Sztuk-Używane AS [Ilość w magazynie]
 FROM v_Magazyn_narzedzia_stan
+GO
+
+CREATE VIEW v_Magazyn_narzedzia_nieuzywane_ID
+AS
+SELECT Narzedzie.ID_narzedzie, v_Magazyn_narzedzia_nieuzywane.[Nazwa narzędzia], v_Magazyn_narzedzia_nieuzywane.[Ilość w magazynie]
+FROM Narzedzie INNER JOIN v_Magazyn_narzedzia_nieuzywane ON Narzedzie.Nazwa_narzedzie = v_Magazyn_narzedzia_nieuzywane.[Nazwa narzędzia]
 GO
 
 CREATE VIEW v_Magazyn_czesci_wszystko
