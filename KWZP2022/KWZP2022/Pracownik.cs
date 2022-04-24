@@ -43,7 +43,7 @@ namespace KWZP2022
         public string Nazwisko { get; set; }
         public string Imie { get; set; }
         public string Nr_dowodu { get; set; }
-        public long Pesel { get; set; }
+        public string Pesel { get; set; }
         public int ID_wyksztalcenie { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

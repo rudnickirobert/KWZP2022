@@ -40,24 +40,25 @@ namespace KWZP2022
             this.cbCzynnoscProdukcyjna = new System.Windows.Forms.ComboBox();
             this.cbSzacowanyCzas = new System.Windows.Forms.ComboBox();
             this.btnReset = new System.Windows.Forms.Button();
+            this.btnAddActivity = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtbDataStart)).BeginInit();
             this.SuspendLayout();
             // 
             // dtbDataStart
             // 
             this.dtbDataStart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtbDataStart.Location = new System.Drawing.Point(11, 162);
+            this.dtbDataStart.Location = new System.Drawing.Point(11, 194);
             this.dtbDataStart.Margin = new System.Windows.Forms.Padding(2);
             this.dtbDataStart.Name = "dtbDataStart";
             this.dtbDataStart.RowTemplate.Height = 24;
-            this.dtbDataStart.Size = new System.Drawing.Size(1242, 538);
+            this.dtbDataStart.Size = new System.Drawing.Size(1242, 506);
             this.dtbDataStart.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(348, 17);
+            this.label1.Location = new System.Drawing.Point(86, 3);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 23);
@@ -68,7 +69,7 @@ namespace KWZP2022
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(518, 20);
+            this.label2.Location = new System.Drawing.Point(86, 64);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(205, 23);
@@ -79,7 +80,7 @@ namespace KWZP2022
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(772, 20);
+            this.label5.Location = new System.Drawing.Point(86, 125);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(156, 23);
@@ -90,7 +91,7 @@ namespace KWZP2022
             // 
             this.btnAktualizujProces.BackColor = System.Drawing.Color.SkyBlue;
             this.btnAktualizujProces.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnAktualizujProces.Location = new System.Drawing.Point(862, 109);
+            this.btnAktualizujProces.Location = new System.Drawing.Point(879, 132);
             this.btnAktualizujProces.Name = "btnAktualizujProces";
             this.btnAktualizujProces.Size = new System.Drawing.Size(334, 37);
             this.btnAktualizujProces.TabIndex = 22;
@@ -101,7 +102,7 @@ namespace KWZP2022
             // 
             this.btnDodajPrcoes.BackColor = System.Drawing.Color.PaleGreen;
             this.btnDodajPrcoes.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnDodajPrcoes.Location = new System.Drawing.Point(92, 109);
+            this.btnDodajPrcoes.Location = new System.Drawing.Point(477, 50);
             this.btnDodajPrcoes.Name = "btnDodajPrcoes";
             this.btnDodajPrcoes.Size = new System.Drawing.Size(334, 37);
             this.btnDodajPrcoes.TabIndex = 21;
@@ -112,7 +113,7 @@ namespace KWZP2022
             // cbProdukt
             // 
             this.cbProdukt.FormattingEnabled = true;
-            this.cbProdukt.Location = new System.Drawing.Point(309, 42);
+            this.cbProdukt.Location = new System.Drawing.Point(90, 28);
             this.cbProdukt.Margin = new System.Windows.Forms.Padding(2);
             this.cbProdukt.Name = "cbProdukt";
             this.cbProdukt.Size = new System.Drawing.Size(152, 21);
@@ -121,7 +122,7 @@ namespace KWZP2022
             // cbCzynnoscProdukcyjna
             // 
             this.cbCzynnoscProdukcyjna.FormattingEnabled = true;
-            this.cbCzynnoscProdukcyjna.Location = new System.Drawing.Point(542, 45);
+            this.cbCzynnoscProdukcyjna.Location = new System.Drawing.Point(90, 89);
             this.cbCzynnoscProdukcyjna.Margin = new System.Windows.Forms.Padding(2);
             this.cbCzynnoscProdukcyjna.Name = "cbCzynnoscProdukcyjna";
             this.cbCzynnoscProdukcyjna.Size = new System.Drawing.Size(152, 21);
@@ -130,7 +131,7 @@ namespace KWZP2022
             // cbSzacowanyCzas
             // 
             this.cbSzacowanyCzas.FormattingEnabled = true;
-            this.cbSzacowanyCzas.Location = new System.Drawing.Point(776, 45);
+            this.cbSzacowanyCzas.Location = new System.Drawing.Point(90, 150);
             this.cbSzacowanyCzas.Margin = new System.Windows.Forms.Padding(2);
             this.cbSzacowanyCzas.Name = "cbSzacowanyCzas";
             this.cbSzacowanyCzas.Size = new System.Drawing.Size(152, 21);
@@ -140,13 +141,25 @@ namespace KWZP2022
             // 
             this.btnReset.BackColor = System.Drawing.Color.PaleGreen;
             this.btnReset.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnReset.Location = new System.Drawing.Point(477, 109);
+            this.btnReset.Location = new System.Drawing.Point(477, 132);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(334, 37);
             this.btnReset.TabIndex = 28;
             this.btnReset.Text = "Odśwież";
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnAddActivity
+            // 
+            this.btnAddActivity.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnAddActivity.Font = new System.Drawing.Font("Arial", 15F);
+            this.btnAddActivity.Location = new System.Drawing.Point(879, 50);
+            this.btnAddActivity.Name = "btnAddActivity";
+            this.btnAddActivity.Size = new System.Drawing.Size(334, 37);
+            this.btnAddActivity.TabIndex = 49;
+            this.btnAddActivity.Text = "Dodaj czynność";
+            this.btnAddActivity.UseVisualStyleBackColor = false;
+            this.btnAddActivity.Click += new System.EventHandler(this.btnAddActivity_Click);
             // 
             // FormSetupProductionProduct
             // 
@@ -155,6 +168,7 @@ namespace KWZP2022
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1264, 711);
+            this.Controls.Add(this.btnAddActivity);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.cbSzacowanyCzas);
             this.Controls.Add(this.cbCzynnoscProdukcyjna);
@@ -186,5 +200,6 @@ namespace KWZP2022
         private System.Windows.Forms.ComboBox cbCzynnoscProdukcyjna;
         private System.Windows.Forms.ComboBox cbSzacowanyCzas;
         private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button btnAddActivity;
     }
 }

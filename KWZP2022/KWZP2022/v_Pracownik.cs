@@ -18,7 +18,7 @@ namespace KWZP2022
         public string Nazwisko { get; set; }
         public string Imię { get; set; }
         public string Nr_dowodu { get; set; }
-        public long Pesel { get; set; }
+        public string Pesel { get; set; }
         public string Wykształcenie { get; set; }
         public string Numer_telefonu { get; set; }
         public string Email { get; set; }

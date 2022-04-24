@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace KWZP2022
 {
-    public partial class FormHRDepartmentNewWorker : Form
+    public partial class FormSalesHRDepartmentNewWorker: Form
     {
         KWZPEntities db;
-        public FormHRDepartmentNewWorker(KWZPEntities db)
+        public FormSalesHRDepartmentNewWorker(KWZPEntities db)
         {
             InitializeComponent();
             this.db = db;
@@ -23,7 +23,7 @@ namespace KWZP2022
         private void showData()
         {
             this.dgvpracownik.DataSource = this.db.v_Pracownik.ToList();
-            this.dgvpracownik.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvpracownik.AutoSizeColumnsMode=System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -39,8 +39,8 @@ namespace KWZP2022
             tbUlica.Clear();
             tbBudynek.Clear();
             tblokal.Clear();
-            tbNumer.Clear();
-            tbEmail.Clear();
+            tbNumer.Clear();            
+            tbEmail.Clear();            
         }
 
         private void ComboBox()
@@ -51,20 +51,23 @@ namespace KWZP2022
         }
         private void btnAddnewworker_Click(object sender, EventArgs e)
         {
-            if (tbPracownikNazwisko.Text.Length > 0 && tbPracownikImie.Text.Length > 0 && tbNrdowodu.Text.Length > 0 && tbPesel.Text.Length > 0 && tbMiejscowosc.Text.Length > 0 && tbUlica.Text.Length > 0 && tbBudynek.Text.Length > 0 && tblokal.Text.Length > 0 && tbNumer.Text.Length > 0 && tbEmail.Text.Length > 0)
+            if (tbPracownikNazwisko.Text.Length > 0 && tbPracownikImie.Text.Length > 0 && tbNrdowodu.Text.Length > 0 && tbPesel.Text.Length > 0 && tbMiejscowosc.Text.Length > 0 && tbUlica.Text.Length > 0 && tbBudynek.Text.Length > 0 && tblokal.Text.ToString().Length > 0 && tbNumer.Text.Length > 0 && tbEmail.Text.Length > 0)
             {
                 Pracownik pracownik = new Pracownik();
                 pracownik.Nazwisko = tbPracownikNazwisko.Text;
                 pracownik.Imie = tbPracownikImie.Text;
-                pracownik.Nr_dowodu = tbNrdowodu.Text;
+                pracownik.Nr_dowodu= tbNrdowodu.Text;
                 pracownik.Pesel = tbPesel.Text;
                 int selectedwyksztalcenie = int.Parse(cbWyksztalcenie.SelectedValue.ToString());
                 pracownik.ID_wyksztalcenie = selectedwyksztalcenie;
                 Dane_adresowe_pracownik dane_adresowe_pracownik = new Dane_adresowe_pracownik();
                 dane_adresowe_pracownik.Miejscowosc = tbMiejscowosc.Text;
                 dane_adresowe_pracownik.Ulica = tbUlica.Text;
-                dane_adresowe_pracownik.Nr_budynku = tbBudynek.Text;               
-                dane_adresowe_pracownik.Nr_lokalu = tblokal.Text;                
+                dane_adresowe_pracownik.Nr_budynku = tbBudynek.Text;
+                if (tblokal.Text.Length > 0)
+                {
+                    dane_adresowe_pracownik.Nr_lokalu = tblokal.Text;
+                }
                 dane_adresowe_pracownik.Data_od = dpracownikod.Value;
                 if (checkBox1.Checked is true)
                 {
@@ -98,9 +101,9 @@ namespace KWZP2022
                 MessageBox.Show("Nie wprowadzono danych.", "Błąd", MessageBoxButtons.OK);
             }
         }
-        private void FormHRDepartmentNewWorker_Load(object sender, EventArgs e)
+        private void FormSalesHRDepartmentNewWorker_Load(object sender, EventArgs e)
         {
 
-        }
+        }        
     }
 }

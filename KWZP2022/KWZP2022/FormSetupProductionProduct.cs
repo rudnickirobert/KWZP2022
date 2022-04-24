@@ -67,5 +67,11 @@ namespace KWZP2022
         {
             showData();
         }
+
+        private void btnAddActivity_Click(object sender, EventArgs e)
+        {
+            FormSetupProductionActivity formSetupProductionActivity = new FormSetupProductionActivity(db);
+            formSetupProductionActivity.ShowDialog();
+        }
     }
 }

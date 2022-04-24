@@ -22,13 +22,6 @@ namespace KWZP2022
         }
         private void showData()
         {
-            var datavProces = from v_Proces_polprodukt_czynnosc in db.v_Proces_polprodukt_czynnosc
-                              select new
-                              {
-                                  v_Proces_polprodukt_czynnosc.Półprodukt,
-                                  v_Proces_polprodukt_czynnosc.Czynność,
-                                  v_Proces_polprodukt_czynnosc.Czas_wytwarzania__h_
-                              };
             dtbDataStart.DataSource = db.v_Proces_polprodukt_czynnosc.ToList();
             this.dtbDataStart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
@@ -50,15 +43,15 @@ namespace KWZP2022
         {
             if (cbPolprodukt.Text.Length > 0 && cbCzynnoscProdukcyjna.Text.Length > 0 && cbSzacowanyCzas.Text.Length > 0)
             {
-                Produkt produkt = new Produkt();
-                produkt.Nazwa_produkt = cbPolprodukt.Text;
+                Slownik_polprodukt polprodukt = new Slownik_polprodukt();
+                polprodukt.Nazwa = cbPolprodukt.Text;
                 Czynnosc_produkcyjna czynnosc_produkcyjna = new Czynnosc_produkcyjna();
                 czynnosc_produkcyjna.Nazwa = cbCzynnoscProdukcyjna.Text;
-                Proces_produkt_czynnosc proces = new Proces_produkt_czynnosc();
+                Proces_polprodukt_czynnosc proces = new Proces_polprodukt_czynnosc();
                 proces.Czas_trwania = Int32.Parse(cbSzacowanyCzas.Text);
-                db.Produkt.Add(produkt);
+                db.Slownik_polprodukt.Add(polprodukt);
                 db.Czynnosc_produkcyjna.Add(czynnosc_produkcyjna);
-                db.Proces_produkt_czynnosc.Add(proces);
+                db.Proces_polprodukt_czynnosc.Add(proces);
                 db.SaveChanges();
                 MessageBox.Show("Dodano nowy proces!","Informacja", MessageBoxButtons.OK);
             }
@@ -67,6 +60,12 @@ namespace KWZP2022
         private void btnReset_Click(object sender, EventArgs e)
         {
             showData();
+        }
+
+        private void btnAddActivity_Click(object sender, EventArgs e)
+        {
+            FormSetupProductionActivity formSetupProductionActivity = new FormSetupProductionActivity(db);
+            formSetupProductionActivity.ShowDialog();
         }
     }
 }

@@ -10,17 +10,29 @@ using System.Windows.Forms;
 
 namespace KWZP2022
 {
-    public partial class FormHRDepartment : Form
+    public partial class FormHRDepartmentWorker : Form
     {
         KWZPEntities db;
-        public FormHRDepartment(KWZPEntities db)
+        public FormHRDepartmentWorker(KWZPEntities db)
         {
             InitializeComponent();
-            this.db = db;
-            showData();
+            this.db = db;            
             cleanTextBox();
+            showData();
         }
-
+        private void showData()
+        {
+            var datavClient = from v_umowa in db.v_Umowa
+                              select new
+                              {
+                                  v_umowa.Nazwisko,
+                                  v_umowa.Imię,
+                                  v_umowa.Nazwa_działu,
+                                  v_umowa.Nazwa_stanowiska                                 
+                              };           
+            this.dgvWorker.DataSource = datavClient.ToList();
+            this.dgvWorker.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+        }
         private void cleanTextBox()
         {
             tbImie.Clear();
@@ -34,26 +46,12 @@ namespace KWZP2022
             showData();
         }
 
-        private void showData()
-        {
-            var datavWorker = from v_Umowa in db.v_Umowa
-                              select new
-                              {
-                                  v_Umowa.Nazwisko,
-                                  v_Umowa.Imię,
-                                  v_Umowa.Nazwa_działu,
-                                  v_Umowa.Nazwa_stanowiska
-                              };
-            this.dgvWorker.DataSource = datavWorker.ToList();
-            this.dgvWorker.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-        }
+        
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             showData();
             cleanTextBox();
-        }
-
-        
+        }        
         private void enterSurname()
         {
             System.Linq.IQueryable vWorkerName = db.v_Umowa.Where(a => a.Imię == tbImie.Text);
@@ -153,11 +151,21 @@ namespace KWZP2022
             FormHRDepartmentNewWorker formHRDepartmentNewWorker = new FormHRDepartmentNewWorker(db);
             formHRDepartmentNewWorker.ShowDialog();
         }
-
         private void btnContract_Click(object sender, EventArgs e)
         {
             FormHRDepartmentWorkerContract formHRDepartmentWorkerContract = new FormHRDepartmentWorkerContract(db);
             formHRDepartmentWorkerContract.ShowDialog();
         }
+        private void btnChangedata_Click(object sender, EventArgs e)
+        {
+            FormHRDepartmentWorkerModify formHRDepartmentWorkerModify = new FormHRDepartmentWorkerModify(db);
+            formHRDepartmentWorkerModify.ShowDialog();
+        }
+        private void FormHRDepartmentWorker_Load(object sender, EventArgs e)
+        {
+
+        }
+
+      
     }
 }

@@ -10,22 +10,26 @@ using System.Windows.Forms;
 
 namespace KWZP2022
 {
-    public partial class FormHRDepartment : Form
+    public partial class FormHRDepartmentWorkerContract : Form
     {
         KWZPEntities db;
-        public FormHRDepartment(KWZPEntities db)
+        public FormHRDepartmentWorkerContract(KWZPEntities db)
         {
             InitializeComponent();
             this.db = db;
-            showData();
             cleanTextBox();
+            showData();
         }
-
+        private void showData()
+        {      
+            this.dgvWorker.DataSource = db.v_Umowa.ToList();
+            this.dgvWorker.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+        }
         private void cleanTextBox()
         {
-            tbImie.Clear();
-            tbNazwisko.Clear();
-            tbStanowisko.Clear();
+            tbImieU.Clear();
+            tbNazwiskoU.Clear();
+            tbStanowiskoU.Clear();
         }
 
         private void msgCleanShowData()
@@ -34,29 +38,15 @@ namespace KWZP2022
             showData();
         }
 
-        private void showData()
-        {
-            var datavWorker = from v_Umowa in db.v_Umowa
-                              select new
-                              {
-                                  v_Umowa.Nazwisko,
-                                  v_Umowa.Imię,
-                                  v_Umowa.Nazwa_działu,
-                                  v_Umowa.Nazwa_stanowiska
-                              };
-            this.dgvWorker.DataSource = datavWorker.ToList();
-            this.dgvWorker.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-        }
+
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             showData();
             cleanTextBox();
         }
-
-        
         private void enterSurname()
         {
-            System.Linq.IQueryable vWorkerName = db.v_Umowa.Where(a => a.Imię == tbImie.Text);
+            System.Linq.IQueryable vWorkerName = db.v_Umowa.Where(a => a.Imię == tbImieU.Text);
             int vWorkerNameInt = vWorkerName.Cast<v_Umowa>().Count();
             if (vWorkerNameInt > 0)
             {
@@ -71,7 +61,7 @@ namespace KWZP2022
         }
         private void enterName()
         {
-            System.Linq.IQueryable vWorkerSurname = db.v_Umowa.Where(a => a.Nazwisko == tbNazwisko.Text);
+            System.Linq.IQueryable vWorkerSurname = db.v_Umowa.Where(a => a.Nazwisko == tbNazwiskoU.Text);
             int vWorkerSurnameInt = vWorkerSurname.Cast<v_Umowa>().Count();
             if (vWorkerSurnameInt > 0)
             {
@@ -86,7 +76,7 @@ namespace KWZP2022
         }
         private void enterPosition()
         {
-            System.Linq.IQueryable vWorkerPosition = db.v_Umowa.Where(a => a.Nazwa_stanowiska == tbStanowisko.Text);
+            System.Linq.IQueryable vWorkerPosition = db.v_Umowa.Where(a => a.Nazwa_stanowiska == tbStanowiskoU.Text);
             int vWorkerPositionInt = vWorkerPosition.Cast<v_Umowa>().Count();
             if (vWorkerPositionInt > 0)
             {
@@ -101,7 +91,7 @@ namespace KWZP2022
         }
         private void enterDepartment()
         {
-            System.Linq.IQueryable vWorkerDepartment = db.v_Umowa.Where(a => a.Nazwa_działu == tbDzial.Text);
+            System.Linq.IQueryable vWorkerDepartment = db.v_Umowa.Where(a => a.Nazwa_działu == tbDzialU.Text);
             int vWorkerDepartmentInt = vWorkerDepartment.Cast<v_Umowa>().Count();
             if (vWorkerDepartmentInt > 0)
             {
@@ -123,13 +113,13 @@ namespace KWZP2022
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string choose = "";
-            if (tbImie.Text.Length > 0)
+            if (tbImieU.Text.Length > 0)
                 choose = "Surname";
-            if (tbNazwisko.Text.Length > 0)
+            if (tbNazwiskoU.Text.Length > 0)
                 choose = "Name";
-            if (tbStanowisko.Text.Length > 0)
+            if (tbStanowiskoU.Text.Length > 0)
                 choose = "Position";
-            if (tbDzial.Text.Length > 0)
+            if (tbDzialU.Text.Length > 0)
                 choose = "Department";
             switch (choose)
             {
@@ -148,16 +138,16 @@ namespace KWZP2022
             }
         }
 
-        private void btnAddnew_Click(object sender, EventArgs e)
+         private void btnAddnew_Click(object sender, EventArgs e)
+         {
+             FormHRDepartmentWorkerContractNew formHRDepartmentWorkerContractNew = new FormHRDepartmentWorkerContractNew(db);
+             formHRDepartmentWorkerContractNew.ShowDialog();
+         }
+
+        private void FormHRDepartmentWorkerContract_Load(object sender, EventArgs e)
         {
-            FormHRDepartmentNewWorker formHRDepartmentNewWorker = new FormHRDepartmentNewWorker(db);
-            formHRDepartmentNewWorker.ShowDialog();
+
         }
 
-        private void btnContract_Click(object sender, EventArgs e)
-        {
-            FormHRDepartmentWorkerContract formHRDepartmentWorkerContract = new FormHRDepartmentWorkerContract(db);
-            formHRDepartmentWorkerContract.ShowDialog();
-        }
     }
 }
