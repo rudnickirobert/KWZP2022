@@ -219,6 +219,7 @@
             this.Controls.Add(this.dgvSalesDetails);
             this.Controls.Add(this.lblNrSale);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormSalesDepartmentAddSalesDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dodawanie szczegółów sprzedaży";
