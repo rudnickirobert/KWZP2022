@@ -67,7 +67,7 @@
             // 
             this.btnAddNewClient.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddNewClient.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAddNewClient.Location = new System.Drawing.Point(310, 421);
+            this.btnAddNewClient.Location = new System.Drawing.Point(310, 451);
             this.btnAddNewClient.Name = "btnAddNewClient";
             this.btnAddNewClient.Size = new System.Drawing.Size(152, 28);
             this.btnAddNewClient.TabIndex = 2;
@@ -313,7 +313,7 @@
             // 
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnClose.Location = new System.Drawing.Point(620, 421);
+            this.btnClose.Location = new System.Drawing.Point(620, 451);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(152, 28);
             this.btnClose.TabIndex = 61;
@@ -381,7 +381,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.ClientSize = new System.Drawing.Size(794, 491);
             this.Controls.Add(this.cbEmailDate2);
             this.Controls.Add(this.cbTelDate2);
             this.Controls.Add(this.dtpTelDate2);
@@ -414,7 +414,7 @@
             this.Controls.Add(this.lblNrSale);
             this.Controls.Add(this.textBoxCity);
             this.Controls.Add(this.btnAddNewClient);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormSalesDepartmentClientNewClient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dodawanie nowego klienta";

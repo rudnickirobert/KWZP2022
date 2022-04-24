@@ -22,7 +22,19 @@ namespace KWZP2022
 
         private void showData()
         {
-            this.dgvSales.DataSource = db.v_Sprzedaz.ToList();
+            var salesData = from sales in this.db.v_Sprzedaz
+                            select new
+                            {
+                                sales.Numer_sprzedaży,
+                                sales.Nazwisko_klienta,
+                                sales.Imię_klienta,
+                                sales.NIP,
+                                sales.Data_początku_sprzedaży,
+                                sales.Data_końca_sprzedaży,
+                                sales.Umowa,
+                                sales.Koszt
+                            };
+            this.dgvSales.DataSource = salesData.ToList();
             this.dgvSales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 
@@ -40,7 +52,7 @@ namespace KWZP2022
                 }
                 else
                 {
-                    messageBox();
+                    MessageBox.Show($"Klient z nazwiskiem: {textBox2Name.Text}, nie widnieje w bazie danych.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     cleanTextBox();
                     showData();
                 }
@@ -58,14 +70,14 @@ namespace KWZP2022
                 }
                 else
                 {
-                    messageBox();
+                    MessageBox.Show($"Klient o imieniu: {textBox1Name.Text}, nie widnieje w bazie danych.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     cleanTextBox();
                     showData();
                 }
             }
             else if(textBox2Name.Text.Length == 0 && textBox1Name.Text.Length == 0 && textBoxNIP.Text.Length > 0 && textBoxNrArrangement.Text.Length == 0 && textBoxNrSale.Text.Length == 0)
             {
-                var data = db.v_Sprzedaz.Where(a => a.NIP == textBox2Name.Text);
+                var data = db.v_Sprzedaz.Where(a => a.NIP == textBoxNIP.Text);
                 int nip = data.Count();
                 if(nip > 0)
                 {
@@ -75,7 +87,7 @@ namespace KWZP2022
                 }
                 else
                 {
-                    messageBox();
+                    MessageBox.Show($"Klient z NIP: {textBoxNIP.Text}, nie widnieje w bazie danych.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     cleanTextBox();
                     showData();
                 }
@@ -96,14 +108,14 @@ namespace KWZP2022
                     }
                     else
                     {
-                        messageBox();
+                        MessageBox.Show($"Nr umowy: {textBoxNrArrangement.Text}, nie widnieje w bazie danych.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         cleanTextBox();
                         showData();
                     }
                 }
                 catch (Exception)
                 {
-                    messageBox();
+                    MessageBox.Show($"Nr umowy: {textBoxNrArrangement.Text}, nie widnieje w bazie danych.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     showData();
                     cleanTextBox();
                 }
@@ -123,22 +135,22 @@ namespace KWZP2022
                     }
                     else
                     {
+                        MessageBox.Show($"Nr sprzedaży: {textBoxNrSale.Text}, nie widnieje w bazie danych.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         cleanTextBox();
                         showData();
-                        messageBox();
                         showData();
                     }
                 }
                 catch (Exception)
                 {
-                    messageBox();
+                    MessageBox.Show($"Nr sprzedaży: {textBoxNrSale.Text}, nie widnieje w bazie danych.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     showData();
                     cleanTextBox();
                 }
             }
             else
             {
-                MessageBox.Show("Źle wprowadzono dane", "Błąd", MessageBoxButtons.OK);
+                MessageBox.Show("Źle wprowadzono dane", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 showData();
             }
         }
@@ -162,7 +174,7 @@ namespace KWZP2022
         }
         private void messageBox()
         {
-            MessageBox.Show("Wyszukiwany numer sprzedaży nie widnieje w bazie danych.", "Błąd", MessageBoxButtons.OK);
+            MessageBox.Show("Wyszukiwany numer sprzedaży nie widnieje w bazie danych.", "Błąd", MessageBoxButtons.OK,MessageBoxIcon.Error);
         }
     }
 }

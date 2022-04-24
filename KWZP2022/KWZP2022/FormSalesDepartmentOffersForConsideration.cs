@@ -36,7 +36,6 @@ namespace KWZP2022
         }
         private void comboBoxOffersData()
         {
-            
             List<IGrouping<int,Oferta_handlowa>> orderList = this.db.Oferta_handlowa.Where(a => a.ID_status_oferta == 3).GroupBy(a => a.ID_zamowienie).ToList();
             comboBoxOffers.DataSource = orderList;
             comboBoxOffers.ValueMember = "Key";
@@ -46,7 +45,7 @@ namespace KWZP2022
         private void comboBoxOffers_SelectionChangeCommitted(object sender, EventArgs e)
         {
             int chooseNoSale = int.Parse(comboBoxOffers.SelectedValue.ToString());
-            this.dgvOffersForConsideration.DataSource = this.db.v_Oferta_handlowa_do_rozpatrzenia.Where(a => a.Nr_zamówienia == chooseNoSale).ToList();//offersForConsideration.GroupBy(a => a.Nr_zamówienia);
+            this.dgvOffersForConsideration.DataSource = this.db.v_Oferta_handlowa_do_rozpatrzenia.Where(a => a.Nr_zamówienia == chooseNoSale).ToList();
             this.dgvOffersForConsideration.Columns[0].HeaderText = "Nr oferty";
             this.dgvOffersForConsideration.Columns[1].HeaderText = "Nr zamówienia";
             this.dgvOffersForConsideration.Columns[3].HeaderText = "Termin realizacji";
