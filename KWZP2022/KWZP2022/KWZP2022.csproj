@@ -145,6 +145,12 @@
     <Compile Include="FormResDepMaszyna.Designer.cs">
       <DependentUpon>FormResDepMaszyna.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormResDepParametryMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepParametryMaterial.Designer.cs">
+      <DependentUpon>FormResDepParametryMaterial.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormResDepProducent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -657,6 +663,9 @@
     <Compile Include="v_Rodzaj_kontrola.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Rodzaj_parametr.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Sklad_maszyna.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -803,6 +812,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepMaszyna.resx">
       <DependentUpon>FormResDepMaszyna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepParametryMaterial.resx">
+      <DependentUpon>FormResDepParametryMaterial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepProducent.resx">
       <DependentUpon>FormResDepProducent.cs</DependentUpon>

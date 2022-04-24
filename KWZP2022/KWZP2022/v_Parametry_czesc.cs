@@ -14,6 +14,8 @@ namespace KWZP2022
     
     public partial class v_Parametry_czesc
     {
+        public int ID_czesc { get; set; }
+        public int ID_rodzaj_parametr { get; set; }
         public string Nazwa_części { get; set; }
         public string Parametr { get; set; }
         public string Jednostka { get; set; }
