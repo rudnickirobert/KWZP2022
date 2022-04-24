@@ -705,15 +705,15 @@ CREATE VIEW v_Umowa_do_sprzedaz AS
 	INNER JOIN Oferta_handlowa AS OH ON OH.ID_oferta_handlowa = US.ID_oferta_handlowa
 GO
 
-CREATE VIEW v_Niesprzedane_zamowienia AS
+CREATE VIEW v_Sprzedane_zamowienia_form AS
 	SELECT Sprzedaz.Nr_sprzedaz AS [Numer sprzedaży], 
 	Umowa_sprzedaz.ID_umowa_sprzedaz AS [Numer umowy],
 	Sprzedaz.Data_sprzedaz_koniec AS [Data sprzedaży], 
 	Sprzedaz.Termin_zaplata AS [Termin płatności],
 	Forma_platnosc.Forma_platnosc AS [Forma płatności]
 	FROM Sprzedaz
-	INNER JOIN Forma_platnosc ON Forma_platnosc.ID_Forma_platnosc = Sprzedaz.ID_sprzedaz
-	INNER JOIN Umowa_sprzedaz ON Umowa_sprzedaz.ID_umowa_sprzedaz = Sprzedaz.ID_sprzedaz
+	INNER JOIN Forma_platnosc ON Forma_platnosc.ID_Forma_platnosc = Sprzedaz.ID_Forma_platnosc
+	INNER JOIN Umowa_sprzedaz ON Umowa_sprzedaz.ID_umowa_sprzedaz = Sprzedaz.ID_umowa_sprzedaz
 GO
 
 CREATE VIEW v_Dodaj_szczegol_sprzedaz AS

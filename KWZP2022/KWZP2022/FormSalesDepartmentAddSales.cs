@@ -24,7 +24,7 @@ namespace KWZP2022
         }
         private void showData()
         {
-            var unSoldOrders = from unSoldOrdersView in db.v_Niesprzedane_zamowienia
+            var unSoldOrders = from unSoldOrdersView in db.v_Sprzedane_zamowienia_form
                                select new
                                {
                                    unSoldOrdersView.Numer_umowy,

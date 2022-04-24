@@ -149,7 +149,6 @@ namespace KWZP2022
         public virtual DbSet<v_Nadgodziny_miesiac> v_Nadgodziny_miesiac { get; set; }
         public virtual DbSet<v_Nadgodziny_suma_miesiac> v_Nadgodziny_suma_miesiac { get; set; }
         public virtual DbSet<v_Nieobecnosc> v_Nieobecnosc { get; set; }
-        public virtual DbSet<v_Niesprzedane_zamowienia> v_Niesprzedane_zamowienia { get; set; }
         public virtual DbSet<v_Nr_telefon_pracownik> v_Nr_telefon_pracownik { get; set; }
         public virtual DbSet<v_Oblugi_w_trakcie> v_Oblugi_w_trakcie { get; set; }
         public virtual DbSet<v_Oblugi_zakonczone> v_Oblugi_zakonczone { get; set; }
@@ -177,6 +176,7 @@ namespace KWZP2022
         public virtual DbSet<v_Sklad_stanowisko_produkcyjne_narzedzie> v_Sklad_stanowisko_produkcyjne_narzedzie { get; set; }
         public virtual DbSet<v_Slownik_stanowisko> v_Slownik_stanowisko { get; set; }
         public virtual DbSet<v_Sprzedane_zamowienia> v_Sprzedane_zamowienia { get; set; }
+        public virtual DbSet<v_Sprzedane_zamowienia_form> v_Sprzedane_zamowienia_form { get; set; }
         public virtual DbSet<v_Sprzedany_produkt> v_Sprzedany_produkt { get; set; }
         public virtual DbSet<v_Sprzedaz> v_Sprzedaz { get; set; }
         public virtual DbSet<v_Stanowiska_do_uzycia> v_Stanowiska_do_uzycia { get; set; }

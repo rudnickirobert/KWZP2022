@@ -615,9 +615,6 @@
     <Compile Include="v_Nieobecnosc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="v_Niesprzedane_zamowienia.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="v_Nr_telefon_pracownik.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -697,6 +694,9 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Sprzedane_zamowienia.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Sprzedane_zamowienia_form.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Sprzedany_produkt.cs">

@@ -12,7 +12,7 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Niesprzedane_zamowienia
+    public partial class v_Sprzedane_zamowienia_form
     {
         public int Numer_sprzedaży { get; set; }
         public int Numer_umowy { get; set; }
