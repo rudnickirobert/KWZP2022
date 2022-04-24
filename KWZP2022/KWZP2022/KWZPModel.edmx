@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="KWZPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="KWZPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Alert">
           <Key>
             <PropertyRef Name="ID_alert" />
@@ -4952,7 +4952,8 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
             <End Role="Zwrot" EntitySet="Zwrot" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KWZPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -6401,6 +6402,22 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           <Property Name="Termin_realizacji" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Nazwisko_pracownika" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Imię_pracownika" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_Oferta_handlowa_do_rozpatrzenia">
+          <Key>
+            <PropertyRef Name="Nr_oferty" />
+            <PropertyRef Name="Nr_zamówienia" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="Termin_realizacji" />
+            <PropertyRef Name="Status_oferty_handlowej" />
+          </Key>
+          <Property Name="Nr_oferty" Type="Int32" Nullable="false" />
+          <Property Name="Nr_zamówienia" Type="Int32" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Termin_realizacji" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Opis_gwarancji" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Status_oferty_handlowej" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cena" Type="Decimal" Precision="15" Scale="2" />
         </EntityType>
         <EntityType Name="v_Parametry_czesc">
           <Key>
@@ -8720,6 +8737,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
           <EntitySet Name="v_Oblugi_w_trakcie" EntityType="Self.v_Oblugi_w_trakcie" />
           <EntitySet Name="v_Oblugi_zakonczone" EntityType="Self.v_Oblugi_zakonczone" />
           <EntitySet Name="v_Oferta_handlowa" EntityType="Self.v_Oferta_handlowa" />
+          <EntitySet Name="v_Oferta_handlowa_do_rozpatrzenia" EntityType="Self.v_Oferta_handlowa_do_rozpatrzenia" />
           <EntitySet Name="v_Parametry_czesc" EntityType="Self.v_Parametry_czesc" />
           <EntitySet Name="v_Parametry_maszyna" EntityType="Self.v_Parametry_maszyna" />
           <EntitySet Name="v_Parametry_material" EntityType="Self.v_Parametry_material" />
@@ -9270,24 +9288,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
             <End Role="Obsluga" EntitySet="Obsluga" />
             <End Role="Pracownik" EntitySet="Pracownik" />
           </AssociationSet>
-          <EntitySet Name="v_Oferta_handlowa_do_rozpatrzenia" EntityType="KWZPModel.v_Oferta_handlowa_do_rozpatrzenia" />
         </EntityContainer>
-        <EntityType Name="v_Oferta_handlowa_do_rozpatrzenia">
-          <Key>
-            <PropertyRef Name="Nr_oferty" />
-            <PropertyRef Name="Nr_zamówienia" />
-            <PropertyRef Name="Nazwisko" />
-            <PropertyRef Name="Termin_realizacji" />
-            <PropertyRef Name="Status_oferty_handlowej" />
-          </Key>
-          <Property Name="Nr_oferty" Type="Int32" Nullable="false" />
-          <Property Name="Nr_zamówienia" Type="Int32" Nullable="false" />
-          <Property Name="Nazwisko" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Termin_realizacji" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Opis_gwarancji" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Status_oferty_handlowej" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Cena" Type="Decimal" Precision="15" Scale="2" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -10535,6 +10536,19 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="v_Oferta_handlowa_do_rozpatrzenia">
+            <EntityTypeMapping TypeName="KWZPModel.v_Oferta_handlowa_do_rozpatrzenia">
+              <MappingFragment StoreEntitySet="v_Oferta_handlowa_do_rozpatrzenia">
+                <ScalarProperty Name="Nr_oferty" ColumnName="Nr oferty" />
+                <ScalarProperty Name="Nr_zamówienia" ColumnName="Nr zamówienia" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Termin_realizacji" ColumnName="Termin realizacji" />
+                <ScalarProperty Name="Opis_gwarancji" ColumnName="Opis gwarancji" />
+                <ScalarProperty Name="Status_oferty_handlowej" ColumnName="Status oferty handlowej" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="v_Parametry_czesc">
             <EntityTypeMapping TypeName="KWZPModel.v_Parametry_czesc">
               <MappingFragment StoreEntitySet="v_Parametry_czesc">
@@ -11096,19 +11110,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a pr
               <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="v_Oferta_handlowa_do_rozpatrzenia">
-            <EntityTypeMapping TypeName="KWZPModel.v_Oferta_handlowa_do_rozpatrzenia">
-              <MappingFragment StoreEntitySet="v_Oferta_handlowa_do_rozpatrzenia">
-                <ScalarProperty Name="Cena" ColumnName="Cena" />
-                <ScalarProperty Name="Status_oferty_handlowej" ColumnName="Status oferty handlowej" />
-                <ScalarProperty Name="Opis_gwarancji" ColumnName="Opis gwarancji" />
-                <ScalarProperty Name="Termin_realizacji" ColumnName="Termin realizacji" />
-                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
-                <ScalarProperty Name="Nr_zamówienia" ColumnName="Nr zamówienia" />
-                <ScalarProperty Name="Nr_oferty" ColumnName="Nr oferty" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
