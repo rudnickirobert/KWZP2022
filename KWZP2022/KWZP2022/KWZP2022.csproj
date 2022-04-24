@@ -97,6 +97,18 @@
     <Compile Include="Forma_platnosc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FormCzasPracyProdukcja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCzasPracyProdukcja.Designer.cs">
+      <DependentUpon>FormCzasPracyProdukcja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStatystykiProdukcja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStatystykiProdukcja.Designer.cs">
+      <DependentUpon>FormStatystykiProdukcja.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormResDepCzesc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -653,7 +665,13 @@
     <Compile Include="v_Proces_wytwarzanie_polprodukt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Proces_wytwarzanie_polprodukt_ewidencja.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Proces_wytwarzanie_produkt.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Proces_wytwarzanie_produkt_ewidencja.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Produkty_na_gwarancji.cs">
@@ -717,6 +735,9 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Wytwarzanie.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Wytworzone_produkty.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Zamowienia_czesci_w_trakcie.cs">
@@ -794,6 +815,12 @@
     <Compile Include="Zwrot.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormCzasPracyProdukcja.resx">
+      <DependentUpon>FormCzasPracyProdukcja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStatystykiProdukcja.resx">
+      <DependentUpon>FormStatystykiProdukcja.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormResDepCzesc.resx">
       <DependentUpon>FormResDepCzesc.cs</DependentUpon>
     </EmbeddedResource>

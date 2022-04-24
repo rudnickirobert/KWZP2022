@@ -163,7 +163,9 @@ namespace KWZP2022
         public virtual DbSet<v_Proces_polprodukt_czynnosc> v_Proces_polprodukt_czynnosc { get; set; }
         public virtual DbSet<v_Proces_produkt_czynnosc> v_Proces_produkt_czynnosc { get; set; }
         public virtual DbSet<v_Proces_wytwarzanie_polprodukt> v_Proces_wytwarzanie_polprodukt { get; set; }
+        public virtual DbSet<v_Proces_wytwarzanie_polprodukt_ewidencja> v_Proces_wytwarzanie_polprodukt_ewidencja { get; set; }
         public virtual DbSet<v_Proces_wytwarzanie_produkt> v_Proces_wytwarzanie_produkt { get; set; }
+        public virtual DbSet<v_Proces_wytwarzanie_produkt_ewidencja> v_Proces_wytwarzanie_produkt_ewidencja { get; set; }
         public virtual DbSet<v_Produkty_na_gwarancji> v_Produkty_na_gwarancji { get; set; }
         public virtual DbSet<v_Reklamacja> v_Reklamacja { get; set; }
         public virtual DbSet<v_Rodzaj_kontrola> v_Rodzaj_kontrola { get; set; }
@@ -185,6 +187,7 @@ namespace KWZP2022
         public virtual DbSet<v_Tygodniowe_rozliczenie_pracy_produkcja> v_Tygodniowe_rozliczenie_pracy_produkcja { get; set; }
         public virtual DbSet<v_Umowa> v_Umowa { get; set; }
         public virtual DbSet<v_Wytwarzanie> v_Wytwarzanie { get; set; }
+        public virtual DbSet<v_Wytworzone_produkty> v_Wytworzone_produkty { get; set; }
         public virtual DbSet<v_Zamowienia_czesci_w_trakcie> v_Zamowienia_czesci_w_trakcie { get; set; }
         public virtual DbSet<v_Zamowienia_czesci_w_trakcie_bez_odebranych> v_Zamowienia_czesci_w_trakcie_bez_odebranych { get; set; }
         public virtual DbSet<v_Zamowienia_czesci_w_trakcie_wszystko> v_Zamowienia_czesci_w_trakcie_wszystko { get; set; }

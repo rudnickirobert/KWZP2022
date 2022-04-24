@@ -18,7 +18,7 @@ namespace KWZP2022
         public string Produkt { get; set; }
         public string Czynność_produkcyjna { get; set; }
         public string Pracownik { get; set; }
-        public int ID_stanowisko_produkcyjne { get; set; }
+        public string Stanowisko { get; set; }
         public int Szacowany_czas__min_ { get; set; }
         public System.DateTime Data_rozpoczęcia { get; set; }
         public Nullable<System.DateTime> Data_zakończenia { get; set; }

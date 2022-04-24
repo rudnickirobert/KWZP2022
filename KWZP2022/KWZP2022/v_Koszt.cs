@@ -15,9 +15,10 @@ namespace KWZP2022
     public partial class v_Koszt
     {
         public string Nazwa_produkt { get; set; }
-        public Nullable<decimal> Suma_kosztu_procesów { get; set; }
+        public decimal Koszt_produktów { get; set; }
         public string Nazwa { get; set; }
         public int Liczba { get; set; }
-        public Nullable<decimal> Koszt_półproduktów { get; set; }
+        public decimal Koszt_półproduktów { get; set; }
+        public Nullable<decimal> SUMA { get; set; }
     }
 }

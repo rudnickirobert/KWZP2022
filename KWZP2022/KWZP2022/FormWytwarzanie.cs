@@ -17,9 +17,7 @@ namespace KWZP2022
         {
             InitializeComponent();
             this.db = db;
-            initComboboxPracowicyProdukcji();
-            initComboboxStanowisko();
-            initComboboxZamowienie();
+            refreshComboboxes();
             refreshScreen();
         }
 
@@ -31,12 +29,19 @@ namespace KWZP2022
             dtpCzasDo.ShowUpDown = true;
         }
 
+        private void refreshComboboxes()
+        {
+            initComboboxPracowicyProdukcji();
+            initComboboxStanowisko();
+            initComboboxZamowienie();
+        }
+
         private void initDataGridViewWytwarzaniePolprodukt()
         {
             dgvWytwarzaniePolprodukt.DataSource = db.v_Proces_wytwarzanie_polprodukt.ToList();
             dgvWytwarzaniePolprodukt.Columns["Czynność_produkcyjna"].Visible = false;
             dgvWytwarzaniePolprodukt.Columns["Szacowany_czas__min_"].Visible = false;
-            dgvWytwarzaniePolprodukt.Columns["ID_stanowisko_produkcyjne"].HeaderText = "Stanowisko";
+            dgvWytwarzaniePolprodukt.Columns["Stanowisko"].HeaderText = "Stanowisko";
             dgvWytwarzaniePolprodukt.Columns["Data_rozpoczęcia"].HeaderText = "Rozpoczęcie";
             dgvWytwarzaniePolprodukt.Columns["Data_zakończenia"].HeaderText = "Zakończenie";
             this.dgvWytwarzaniePolprodukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -47,7 +52,7 @@ namespace KWZP2022
             dgvWytwarzanieProdukt.DataSource = db.v_Proces_wytwarzanie_produkt.ToList();
             dgvWytwarzanieProdukt.Columns["Szacowany_czas__min_"].Visible = false;
             dgvWytwarzanieProdukt.Columns["Czynność_produkcyjna"].Visible = false;
-            dgvWytwarzanieProdukt.Columns["ID_stanowisko_produkcyjne"].HeaderText = "Stanowisko";
+            dgvWytwarzanieProdukt.Columns["Stanowisko"].HeaderText = "Stanowisko";
             dgvWytwarzanieProdukt.Columns["Data_rozpoczęcia"].HeaderText = "Rozpoczęcie";
             dgvWytwarzanieProdukt.Columns["Data_zakończenia"].HeaderText = "Zakończenie";
             this.dgvWytwarzanieProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -121,6 +126,7 @@ namespace KWZP2022
                 this.dgvProcesProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 
                 refreshScreen();
+                
             }
             else
             {
@@ -140,6 +146,8 @@ namespace KWZP2022
             {
                 refreshScreen();
             }
+
+            refreshComboboxes();
         }
 
         private void dgvProcesProdukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -204,11 +212,19 @@ namespace KWZP2022
                 }
             }
 
-            
+            refreshComboboxes();
 
             
 
+            
 
+
+        }
+
+        private void btnOdswiez_Click(object sender, EventArgs e)
+        {
+            refreshScreen();
+            refreshComboboxes();
         }
     }
 }

@@ -60,7 +60,6 @@
             this.txtWybrany = new System.Windows.Forms.TextBox();
             this.dtpCzasOd = new System.Windows.Forms.DateTimePicker();
             this.dtpCzasDo = new System.Windows.Forms.DateTimePicker();
-            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzaniePolprodukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzanieProdukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesProdukt)).BeginInit();
@@ -100,6 +99,7 @@
             this.btnOdswiez.TabIndex = 14;
             this.btnOdswiez.Text = "Odśwież";
             this.btnOdswiez.UseVisualStyleBackColor = true;
+            this.btnOdswiez.Click += new System.EventHandler(this.btnOdswiez_Click);
             // 
             // btnDodaj
             // 
@@ -376,22 +376,12 @@
             this.dtpCzasDo.Size = new System.Drawing.Size(118, 26);
             this.dtpCzasDo.TabIndex = 44;
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(1169, 307);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 13);
-            this.label10.TabIndex = 45;
-            this.label10.Text = "label10";
-            // 
             // FormWytwarzanie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1735, 711);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.dtpCzasDo);
             this.Controls.Add(this.dtpCzasOd);
             this.Controls.Add(this.txtWybrany);
@@ -468,6 +458,5 @@
         private System.Windows.Forms.TextBox txtWybrany;
         private System.Windows.Forms.DateTimePicker dtpCzasOd;
         private System.Windows.Forms.DateTimePicker dtpCzasDo;
-        private System.Windows.Forms.Label label10;
     }
 }
