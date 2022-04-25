@@ -147,47 +147,6 @@ namespace KWZP2022
             MessageBox.Show("Źle wprowadzono dane", "Błąd", MessageBoxButtons.OK);
             showDgvOrders();
         }
-        private void btnOrders_Click(object sender, EventArgs e)
-        {
-            string choose = "";
-            if (textBoxSurnameClient.Text.Length > 0)
-                choose = "Surname";
-            if (textBoxNameClient.Text.Length > 0)
-                choose = "Name";
-            if (textBoxIdOrder.Text.Length > 0)
-                choose = "IdOrder";
-            if (textBoxSurnameEmployee.Text.Length > 0)
-                choose = "SurnameE";
-            if (textBoxNameEmployee.Text.Length > 0)
-                choose = "NameE";
-            if (textBoxTypeOrder.Text.Length > 0)
-                choose = "TypeOrder";
-            switch (choose)
-            {
-                case "Surname":
-                    enterSurname();
-                    break;
-                case "Name":
-                    enterName();
-                    break;
-                case "IdOrder":
-                    enterIdOrder();
-                    break;
-                case "SurnameE":
-                    enterSurnameE();
-                    break;
-                case "NameE":
-                    enterNameE();
-                    break;
-                case "TypeOrder":
-                    enterTypeOrder();
-                    break;
-                default:
-                    wrongData();
-                    break;
-            }
-        }
-
         private void btnOrders_Click_1(object sender, EventArgs e)
         {
             string choose = "";

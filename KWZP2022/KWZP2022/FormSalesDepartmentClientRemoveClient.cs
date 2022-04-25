@@ -34,25 +34,25 @@ namespace KWZP2022
         }
         private void dgvClientRemove_MouseClick(object sender, MouseEventArgs e)
         {
-            var dane = this.dgvClientRemove.CurrentRow.Cells[0].Value.ToString();
-            int daneINT = int.Parse(dane);
-            Klient danyKlient = db.Klient.Single(a => a.ID_klient == daneINT);
-            Dane_adresowe_klient daneKlientDaneAdresowe = db.Dane_adresowe_klient.Single(b => b.ID_klient == daneINT);
-            Email_klient daneEmailKlient = db.Email_klient.Single(c => c.ID_klient == daneINT);
-            Nr_telefon_klient daneNrTelKlient = db.Nr_telefon_klient.Single(d => d.ID_klient == daneINT);
-            if (dane != null)
+            string selectedRow = this.dgvClientRemove.CurrentRow.Cells[0].Value.ToString();
+            int selectedRowINT = int.Parse(selectedRow);
+            Klient selectedClient = db.Klient.Single(a => a.ID_klient == selectedRowINT);
+            Dane_adresowe_klient daneKlientDaneAdresowe = db.Dane_adresowe_klient.Single(b => b.ID_klient == selectedRowINT);
+            Email_klient daneEmailKlient = db.Email_klient.Single(c => c.ID_klient == selectedRowINT);
+            Nr_telefon_klient daneNrTelKlient = db.Nr_telefon_klient.Single(d => d.ID_klient == selectedRowINT);
+            if (selectedRow != null)
             {
-                DialogResult result = MessageBox.Show("Czy chcesz usunąć zaznaczony rekord?", "Pytanie", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show($"Czy chcesz usunąć klienta: {selectedClient.Nazwisko} {selectedClient.Imie}?", "Pytanie", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
                 if(result == DialogResult.Yes)
                 {
                     try
                     {
-                        this.db.Klient.Remove(danyKlient);
+                        this.db.Klient.Remove(selectedClient);
                         this.db.Dane_adresowe_klient.Remove(daneKlientDaneAdresowe);
                         this.db.Nr_telefon_klient.Remove(daneNrTelKlient);
                         this.db.Email_klient.Remove(daneEmailKlient);
                         this.db.SaveChanges();
-                        MessageBox.Show("Rekord został usunięty!", "Informacja", MessageBoxButtons.OK);
+                        MessageBox.Show("Klient został usunięty z bazy danych!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         showData();
                     }
                     catch (Exception)

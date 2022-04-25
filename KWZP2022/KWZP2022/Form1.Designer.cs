@@ -29,17 +29,20 @@ namespace KWZP2022
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartForm));
             this.lblDate = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.btnNewOrder = new System.Windows.Forms.Button();
             this.btnDepartments = new System.Windows.Forms.Button();
             this.lblHello = new System.Windows.Forms.Label();
+            this.timerTime = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // lblDate
             // 
             this.lblDate.AutoSize = true;
+            this.lblDate.BackColor = System.Drawing.Color.Transparent;
             this.lblDate.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblDate.Location = new System.Drawing.Point(58, 33);
             this.lblDate.Name = "lblDate";
@@ -50,6 +53,7 @@ namespace KWZP2022
             // lblTime
             // 
             this.lblTime.AutoSize = true;
+            this.lblTime.BackColor = System.Drawing.Color.Transparent;
             this.lblTime.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblTime.Location = new System.Drawing.Point(58, 75);
             this.lblTime.Name = "lblTime";
@@ -92,6 +96,10 @@ namespace KWZP2022
             this.lblHello.TabIndex = 4;
             this.lblHello.Text = "Witaj użytkowniku!";
             // 
+            // timerTime
+            // 
+            this.timerTime.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // StartForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -110,6 +118,7 @@ namespace KWZP2022
             this.Name = "StartForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Drukarczyk";
+            this.Load += new System.EventHandler(this.StartForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,6 +131,7 @@ namespace KWZP2022
         private System.Windows.Forms.Button btnNewOrder;
         private System.Windows.Forms.Button btnDepartments;
         private System.Windows.Forms.Label lblHello;
+        private System.Windows.Forms.Timer timerTime;
     }
 }
 

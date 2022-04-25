@@ -135,17 +135,17 @@ namespace KWZP2022
                         daneKlientEmail.Data_do = null;
                     }
                     this.db.SaveChanges();
-                    MessageBox.Show("Zapisano zmiany!", "Informacja", MessageBoxButtons.OK);
+                    MessageBox.Show("Zapisano zmiany!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Źle wprowadzono dane!", "Błąd", MessageBoxButtons.OK);
+                    MessageBox.Show("Źle wprowadzono dane!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
             {
-                MessageBox.Show("Nie zaznaczono klienta!", "Błąd", MessageBoxButtons.OK);
+                MessageBox.Show("Nie zaznaczono klienta!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

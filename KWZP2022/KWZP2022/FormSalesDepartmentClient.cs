@@ -33,7 +33,7 @@ namespace KWZP2022
         }
         private void messageBox()
         {
-            MessageBox.Show("Wyszukiwany numer sprzedaży nie widnieje w bazie danych.", "Błąd", MessageBoxButtons.OK);
+            MessageBox.Show("Wyszukiwany numer sprzedaży nie widnieje w bazie danych.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         private void msgCleanShowData()
         {
@@ -279,7 +279,7 @@ namespace KWZP2022
         }
         private void wrongData()
         {
-            MessageBox.Show("Źle wprowadzono dane", "Błąd", MessageBoxButtons.OK);
+            MessageBox.Show("Źle wprowadzono dane", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
             showData();
         }
     }

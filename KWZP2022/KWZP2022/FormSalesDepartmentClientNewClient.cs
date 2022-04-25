@@ -20,7 +20,7 @@ namespace KWZP2022
         }
         private void messageBox()
         {
-            MessageBox.Show("Nie wprowadzono danych.", "Błąd", MessageBoxButtons.OK);
+            MessageBox.Show("Nie wprowadzono danych.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         private void cleanTextBox()
         {
@@ -83,7 +83,7 @@ namespace KWZP2022
                     db.Email_klient.Add(email_Klient);
                     db.SaveChanges();
                     cleanTextBox();
-                    MessageBox.Show("Dodano noewgo klienta!", "Informacja", MessageBoxButtons.OK);
+                    MessageBox.Show("Dodano noewgo klienta!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else

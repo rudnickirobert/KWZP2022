@@ -86,11 +86,11 @@ namespace KWZP2022
                     int amountTotal = productCount.Ilosc - productReturnSingle.Ilość - int.Parse(textBoxAmount.Text);
                     if (amountTotal >= 0)
                     {
-                        MessageBox.Show($"{amountTotal}", "sdas", MessageBoxButtons.OK);
+                        MessageBox.Show($"Klientowi pozostało jeszcze: {amountTotal} produktów", "Informacja", MessageBoxButtons.OK,MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MessageBox.Show("Zwrócono więcej produktów niż zostało kupionych", "Uwaga", MessageBoxButtons.OK);
+                        MessageBox.Show("Zwrócono więcej produktów niż zostało kupionych", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else
@@ -99,11 +99,11 @@ namespace KWZP2022
                     int amountTotal = productCount.Ilosc - int.Parse(textBoxAmount.Text);
                     if (amountTotal >= 0)
                     {
-                        MessageBox.Show($"{amountTotal}", "sdas", MessageBoxButtons.OK);
+                        MessageBox.Show($"Klientowi pozostało jeszcze: {amountTotal} produktów", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MessageBox.Show("Zwrócono więcej produktów niż zostało kupionych", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Zwrócono więcej produktów niż zostało kupionych", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 Reklamacja newComplaint = new Reklamacja();
@@ -121,7 +121,7 @@ namespace KWZP2022
                 this.db.Zwrot.Add(newReturn);
                 this.db.SaveChanges();
                 clearData();
-                MessageBox.Show("Dodano nową reklamacje!", "Informacja", MessageBoxButtons.OK);
+                MessageBox.Show("Dodano nową reklamacje!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 showData();
             }
             else

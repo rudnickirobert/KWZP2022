@@ -97,7 +97,7 @@ namespace KWZP2022
                             FormNewOrderDetails formNewOrderDetails = new FormNewOrderDetails(db, newZamowienie);
                             formNewOrderDetails.ShowDialog();
                             showData();
-                            MessageBox.Show("Poprawnie zrealizowano zamówienie", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);//-----------------------
+                            MessageBox.Show("Poprawnie zrealizowano zamówienie", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
@@ -119,7 +119,7 @@ namespace KWZP2022
                                     int counterOrderDetailsAfter = this.db.Zamowienie_szczegol.Count();
                                     if(counterOrderDetailsAfter > counterOrderDetailsBefore)
                                     {
-                                        MessageBox.Show("Poprawnie zrealizowano zamówienie", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);//-----------------------
+                                        MessageBox.Show("Poprawnie zrealizowano zamówienie", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         showData();
                                     }
                                     else
@@ -145,7 +145,7 @@ namespace KWZP2022
                         int counterOrderDetailsAfterAgain = this.db.Zamowienie_szczegol.Count();
                         if (counterOrderDetailsAfterAgain > counterOrderDetailsBeforeAgain)
                         {
-                            MessageBox.Show("Poprawnie zrealizowano zamówienie", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);//-----------------------
+                            MessageBox.Show("Poprawnie zrealizowano zamówienie", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             showData();
                         }
                         else

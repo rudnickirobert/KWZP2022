@@ -17,11 +17,6 @@ namespace KWZP2022
         public StartForm()
         {
             InitializeComponent();
-
-            this.lblDate.Text = DateTime.Now.ToLongDateString();
-            this.lblTime.Text = DateTime.Now.ToShortTimeString();
-            this.lblDate.BackColor = Color.Transparent;
-            this.lblTime.BackColor = Color.Transparent;
         }
 
         private void btnDepartments_Click(object sender, EventArgs e)
@@ -34,6 +29,17 @@ namespace KWZP2022
         {
             FormNewOrder formNewOreder = new FormNewOrder(db);
             formNewOreder.ShowDialog();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            this.lblDate.Text = DateTime.Now.ToLongDateString();
+            this.lblTime.Text = DateTime.Now.ToLongTimeString();
+        }
+
+        private void StartForm_Load(object sender, EventArgs e)
+        {
+            timerTime.Start();
         }
     }
 }

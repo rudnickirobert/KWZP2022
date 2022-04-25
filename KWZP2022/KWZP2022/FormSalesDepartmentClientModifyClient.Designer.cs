@@ -479,7 +479,7 @@
             this.MaximizeBox = false;
             this.Name = "FormSalesDepartmentClientModifyClient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FormSalesDepartmentClientModifyClient";
+            this.Text = "Modyfikacja danych klienta";
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientID)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
