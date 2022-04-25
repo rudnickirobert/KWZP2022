@@ -17,6 +17,12 @@ namespace KWZP2022
         {
             InitializeComponent();
             this.db = db;
+            initDataGridViewKontrolaProdukt();
+
+        }
+
+        private void initDataGridViewKontrolaProdukt()
+        {
 
         }
     }

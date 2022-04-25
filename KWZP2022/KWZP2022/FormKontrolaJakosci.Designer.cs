@@ -34,8 +34,8 @@
             this.btnDodaj = new System.Windows.Forms.Button();
             this.txtProdukt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dgvKontrolaProdukt = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKontrolaProdukt)).BeginInit();
             this.SuspendLayout();
             // 
             // btnOdswiez
@@ -101,13 +101,13 @@
             this.label1.TabIndex = 34;
             this.label1.Text = "Produkt";
             // 
-            // dataGridView1
+            // dgvKontrolaProdukt
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(500, 58);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(308, 155);
-            this.dataGridView1.TabIndex = 40;
+            this.dgvKontrolaProdukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvKontrolaProdukt.Location = new System.Drawing.Point(500, 58);
+            this.dgvKontrolaProdukt.Name = "dgvKontrolaProdukt";
+            this.dgvKontrolaProdukt.Size = new System.Drawing.Size(308, 155);
+            this.dgvKontrolaProdukt.TabIndex = 40;
             // 
             // FormKontrolaJakosci
             // 
@@ -115,7 +115,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background;
             this.ClientSize = new System.Drawing.Size(1264, 711);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvKontrolaProdukt);
             this.Controls.Add(this.btnOdswiez);
             this.Controls.Add(this.btnAktualizuj);
             this.Controls.Add(this.btnUsun);
@@ -124,7 +124,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormKontrolaJakosci";
             this.Text = "FormKontrolaJakosci";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKontrolaProdukt)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,6 +138,6 @@
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.TextBox txtProdukt;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvKontrolaProdukt;
     }
 }
