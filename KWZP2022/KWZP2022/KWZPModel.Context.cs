@@ -148,6 +148,9 @@ namespace KWZP2022
         public virtual DbSet<v_Magazyn_narzedzia_wszystko> v_Magazyn_narzedzia_wszystko { get; set; }
         public virtual DbSet<v_Magazyn_Produkty_Wytworzone> v_Magazyn_Produkty_Wytworzone { get; set; }
         public virtual DbSet<v_Maszyna> v_Maszyna { get; set; }
+        public virtual DbSet<v_Maszyny_numery_nieprzypisane> v_Maszyny_numery_nieprzypisane { get; set; }
+        public virtual DbSet<v_Maszyny_numery_porownanie> v_Maszyny_numery_porownanie { get; set; }
+        public virtual DbSet<v_Maszyny_numery_przypisane> v_Maszyny_numery_przypisane { get; set; }
         public virtual DbSet<v_Material> v_Material { get; set; }
         public virtual DbSet<v_Nadgodziny> v_Nadgodziny { get; set; }
         public virtual DbSet<v_Nadgodziny_miesiac> v_Nadgodziny_miesiac { get; set; }
@@ -164,7 +167,9 @@ namespace KWZP2022
         public virtual DbSet<v_Parametry_polprodukt> v_Parametry_polprodukt { get; set; }
         public virtual DbSet<v_Parametry_produkt> v_Parametry_produkt { get; set; }
         public virtual DbSet<v_Pracownik> v_Pracownik { get; set; }
+        public virtual DbSet<v_Pracownik_obslugi> v_Pracownik_obslugi { get; set; }
         public virtual DbSet<v_Pracownik_produkcja> v_Pracownik_produkcja { get; set; }
+        public virtual DbSet<v_Pracownik_zasoby> v_Pracownik_zasoby { get; set; }
         public virtual DbSet<v_Proces_polprodukt_czynnosc> v_Proces_polprodukt_czynnosc { get; set; }
         public virtual DbSet<v_Proces_produkt_czynnosc> v_Proces_produkt_czynnosc { get; set; }
         public virtual DbSet<v_Proces_wytwarzanie_polprodukt> v_Proces_wytwarzanie_polprodukt { get; set; }

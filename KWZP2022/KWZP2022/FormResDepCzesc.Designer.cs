@@ -38,6 +38,7 @@
             this.txtNazwaCzesc = new System.Windows.Forms.TextBox();
             this.lblNazwaCzesc = new System.Windows.Forms.Label();
             this.lblRodzajCzesc = new System.Windows.Forms.Label();
+            this.btnDodajParametr = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCzesc)).BeginInit();
             this.SuspendLayout();
             // 
@@ -138,11 +139,24 @@
             this.lblRodzajCzesc.TabIndex = 11;
             this.lblRodzajCzesc.Text = "Rodzaj części";
             // 
+            // btnDodajParametr
+            // 
+            this.btnDodajParametr.BackColor = System.Drawing.Color.Orange;
+            this.btnDodajParametr.Font = new System.Drawing.Font("Arial", 16F);
+            this.btnDodajParametr.Location = new System.Drawing.Point(569, 79);
+            this.btnDodajParametr.Name = "btnDodajParametr";
+            this.btnDodajParametr.Size = new System.Drawing.Size(219, 42);
+            this.btnDodajParametr.TabIndex = 32;
+            this.btnDodajParametr.Text = "Przypisz parametry";
+            this.btnDodajParametr.UseVisualStyleBackColor = false;
+            this.btnDodajParametr.Click += new System.EventHandler(this.btnDodajParametr_Click);
+            // 
             // FormResDepCzesc
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 498);
+            this.Controls.Add(this.btnDodajParametr);
             this.Controls.Add(this.cmbRodzajCzesc);
             this.Controls.Add(this.btnAktualizuj);
             this.Controls.Add(this.btnUsun);
@@ -174,5 +188,6 @@
         private System.Windows.Forms.TextBox txtNazwaCzesc;
         private System.Windows.Forms.Label lblNazwaCzesc;
         private System.Windows.Forms.Label lblRodzajCzesc;
+        private System.Windows.Forms.Button btnDodajParametr;
     }
 }

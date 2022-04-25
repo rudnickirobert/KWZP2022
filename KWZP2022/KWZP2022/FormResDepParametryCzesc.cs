@@ -10,45 +10,46 @@ using System.Windows.Forms;
 
 namespace KWZP2022
 {
-    public partial class FormResDepParametryMaterial : Form
+    public partial class FormResDepParametryCzesc : Form
     {
         KWZPEntities db;
-        public FormResDepParametryMaterial(KWZPEntities db)
+        public FormResDepParametryCzesc(KWZPEntities db)
         {
             InitializeComponent();
             this.db = db;
             initDataGridView();
-            cmbMaterial.DataSource = db.Material.ToList();
-            cmbMaterial.DisplayMember = "Nazwa_material";
-            cmbMaterial.ValueMember = "ID_material";
+            cmbCzesc.DataSource = db.Czesc.ToList();
+            cmbCzesc.DisplayMember = "Nazwa_czesc";
+            cmbCzesc.ValueMember = "ID_czesc";
             cmbParametr.DataSource = db.v_Rodzaj_parametr.ToList();
             cmbParametr.DisplayMember = "Parametr";
             cmbParametr.ValueMember = "ID_rodzaj_parametr";
         }
         private void initDataGridView()
         {
-            dgvParametrMaterial.DataSource = db.v_Parametry_material.ToList();
-            dgvParametrMaterial.Columns[0].Visible = false;
-            dgvParametrMaterial.Columns[1].Visible = false;
-            dgvParametrMaterial.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-            this.dgvParametrMaterial.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dgvParametrCzesc.DataSource = db.v_Parametry_czesc.ToList();
+            dgvParametrCzesc.Columns[0].Visible = false;
+            dgvParametrCzesc.Columns[1].Visible = false;
+            dgvParametrCzesc.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            this.dgvParametrCzesc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
+
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             try
             {
                 if (txtZakresGora.Text == null || txtZakresDol.Text == null || Convert.ToDecimal(txtZakresGora.Text) < Convert.ToDecimal(txtZakresDol.Text))
-                    {
+                {
                     MessageBox.Show("Wpisz poprawny zakres", "Błąd", MessageBoxButtons.OK);
                 }
                 else
                 {
-                    Parametr_material parametrMaterial = new Parametr_material();
-                    parametrMaterial.ID_material = (int)cmbMaterial.SelectedValue;
-                    parametrMaterial.ID_rodzaj_parametr = (int)cmbParametr.SelectedValue;
-                    parametrMaterial.Zakres_gora = Convert.ToDecimal(txtZakresGora.Text);
-                    parametrMaterial.Zakres_dol = Convert.ToDecimal(txtZakresDol.Text);
-                    db.Parametr_material.Add(parametrMaterial);
+                    Parametr_czesc parametrCzesc = new Parametr_czesc();
+                    parametrCzesc.ID_czesc = (int)cmbCzesc.SelectedValue;
+                    parametrCzesc.ID_rodzaj_parametr = (int)cmbParametr.SelectedValue;
+                    parametrCzesc.Zakres_gora = Convert.ToDecimal(txtZakresGora.Text);
+                    parametrCzesc.Zakres_dol = Convert.ToDecimal(txtZakresDol.Text);
+                    db.Parametr_czesc.Add(parametrCzesc);
                     db.SaveChanges();
                     initDataGridView();
                 }
@@ -58,35 +59,38 @@ namespace KWZP2022
                 MessageBox.Show("Powtórzono parametr", "Błąd", MessageBoxButtons.OK);
             }
         }
-        private void btnWczytaj_Click(object sender, EventArgs e)
+
+        private void btnWczytajParametr_Click(object sender, EventArgs e)
         {
-            string material = cmbMaterial.SelectedValue.ToString();
-            int materialID = int.Parse(material);
-            System.Linq.IQueryable vParametrMaterial = db.v_Parametry_material.Where(x => x.ID_material == materialID);
-            int vParametrMaterialInt = vParametrMaterial.Cast<v_Parametry_material>().Where(x => x.ID_material > 0).Count();
-            if (vParametrMaterialInt > 0)
+            string czesc = cmbCzesc.SelectedValue.ToString();
+            int czescID = int.Parse(czesc);
+            System.Linq.IQueryable vParametrCzesc = db.v_Parametry_czesc.Where(x => x.ID_czesc == czescID);
+            int vParametrCzescInt = vParametrCzesc.Cast<v_Parametry_czesc>().Where(x => x.ID_czesc > 0).Count();
+            if (vParametrCzescInt > 0)
             {
-                dgvParametrMaterial.DataSource = vParametrMaterial.Cast<v_Parametry_material>().ToList();
+                dgvParametrCzesc.DataSource = vParametrCzesc.Cast<v_Parametry_czesc>().ToList();
             }
         }
+
         private void btnUsun_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz usunąć parametr: " + this.dgvParametrMaterial.CurrentRow.Cells[3].Value + "?", "Question", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz usunąć parametr: " + this.dgvParametrCzesc.CurrentRow.Cells[3].Value + "?", "Question", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                string current_parametr = this.dgvParametrMaterial.CurrentRow.Cells[1].Value.ToString();
+                string current_parametr = this.dgvParametrCzesc.CurrentRow.Cells[1].Value.ToString();
                 int daneINT = int.Parse(current_parametr);
-                Parametr_material parametrMaterial = db.Parametr_material.Single(a => a.ID_rodzaj_parametr == daneINT);
-                this.db.Parametr_material.Remove(parametrMaterial);
+                Parametr_czesc parametrCzesc = db.Parametr_czesc.Single(a => a.ID_rodzaj_parametr == daneINT);
+                this.db.Parametr_czesc.Remove(parametrCzesc);
                 db.SaveChanges();
                 initDataGridView();
             }
         }
+
         private void btnAktualizuj_Click(object sender, EventArgs e)
         {
             try
-            {
-                if (this.dgvParametrMaterial.CurrentRow.Cells[0].Value != null)
+            { 
+                if (this.dgvParametrCzesc.CurrentRow.Cells[0].Value != null)
                 {
                     if (txtZakresGora.Text == null || txtZakresDol.Text == null || Convert.ToDecimal(txtZakresGora.Text) < Convert.ToDecimal(txtZakresDol.Text))
                     {
@@ -94,12 +98,12 @@ namespace KWZP2022
                     }
                     else
                     {
-                        int daneParametrMaterial = int.Parse(this.dgvParametrMaterial.CurrentRow.Cells[1].Value.ToString());
-                        Parametr_material daneParametrMaterialID = this.db.Parametr_material.Single(a => a.ID_rodzaj_parametr == daneParametrMaterial);
-                        daneParametrMaterialID.ID_rodzaj_parametr = (int)cmbParametr.SelectedValue;
-                        daneParametrMaterialID.ID_material = (int)cmbMaterial.SelectedValue;
-                        daneParametrMaterialID.Zakres_gora = Convert.ToDecimal(txtZakresGora.Text);
-                        daneParametrMaterialID.Zakres_dol = Convert.ToDecimal(txtZakresDol.Text);
+                        int daneParametrCzesc = int.Parse(this.dgvParametrCzesc.CurrentRow.Cells[1].Value.ToString());
+                        Parametr_czesc daneParametrCzescID = this.db.Parametr_czesc.Single(a => a.ID_rodzaj_parametr == daneParametrCzesc);
+                        daneParametrCzescID.ID_rodzaj_parametr = (int)cmbParametr.SelectedValue;
+                        daneParametrCzescID.ID_czesc = (int)cmbCzesc.SelectedValue;
+                        daneParametrCzescID.Zakres_gora = Convert.ToDecimal(txtZakresGora.Text);
+                        daneParametrCzescID.Zakres_dol = Convert.ToDecimal(txtZakresDol.Text);
                         db.SaveChanges();
                         initDataGridView();
                         MessageBox.Show("Zapisano zmiany!", "Informacja", MessageBoxButtons.OK);
@@ -155,4 +159,3 @@ namespace KWZP2022
         }
     }
 }
-

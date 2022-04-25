@@ -109,6 +109,24 @@
     <Compile Include="FormKosztProdukcja.Designer.cs">
       <DependentUpon>FormKosztProdukcja.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormResDepParametryCzesc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepParametryCzesc.Designer.cs">
+      <DependentUpon>FormResDepParametryCzesc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResDepParametryMaszyna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepParametryMaszyna.Designer.cs">
+      <DependentUpon>FormResDepParametryMaszyna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResDepParametryNarzedzie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepParametryNarzedzie.Designer.cs">
+      <DependentUpon>FormResDepParametryNarzedzie.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSkladProdukt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -662,6 +680,15 @@
     <Compile Include="v_Maszyna.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Maszyny_numery_nieprzypisane.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Maszyny_numery_porownanie.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Maszyny_numery_przypisane.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Material.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -710,7 +737,13 @@
     <Compile Include="v_Pracownik.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Pracownik_obslugi.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Pracownik_produkcja.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Pracownik_zasoby.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Proces_polprodukt_czynnosc.cs">
@@ -890,6 +923,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormKosztProdukcja.resx">
       <DependentUpon>FormKosztProdukcja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepParametryCzesc.resx">
+      <DependentUpon>FormResDepParametryCzesc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepParametryMaszyna.resx">
+      <DependentUpon>FormResDepParametryMaszyna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepParametryNarzedzie.resx">
+      <DependentUpon>FormResDepParametryNarzedzie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSkladProdukt.resx">
       <DependentUpon>FormSkladProdukt.cs</DependentUpon>

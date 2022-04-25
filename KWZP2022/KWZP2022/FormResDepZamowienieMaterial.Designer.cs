@@ -110,7 +110,7 @@
             this.cmbPracownik.FormattingEnabled = true;
             this.cmbPracownik.Location = new System.Drawing.Point(136, 54);
             this.cmbPracownik.Name = "cmbPracownik";
-            this.cmbPracownik.Size = new System.Drawing.Size(312, 32);
+            this.cmbPracownik.Size = new System.Drawing.Size(485, 32);
             this.cmbPracownik.TabIndex = 11;
             // 
             // cmbDostawca

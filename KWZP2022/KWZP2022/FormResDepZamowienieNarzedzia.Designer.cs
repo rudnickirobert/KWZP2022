@@ -175,7 +175,7 @@
             this.cmbPracownik.FormattingEnabled = true;
             this.cmbPracownik.Location = new System.Drawing.Point(140, 56);
             this.cmbPracownik.Name = "cmbPracownik";
-            this.cmbPracownik.Size = new System.Drawing.Size(213, 32);
+            this.cmbPracownik.Size = new System.Drawing.Size(361, 32);
             this.cmbPracownik.TabIndex = 47;
             // 
             // lblNarzedzie

@@ -393,6 +393,30 @@ ON Sklad_maszyna.ID_czesc=Czesc.ID_czesc
 GROUP BY Maszyna.Nazwa_maszyna, Czesc.Nazwa_czesc, Sklad_maszyna.Liczba_czesci;
 GO
 
+CREATE VIEW v_Pracownik_zasoby
+AS
+SELECT P.ID_pracownik, P.Nazwisko + ' ' + P.Imie + ', ' + S.Nazwa_stanowiska AS [Pracownik]
+FROM Posada_pracownika AS PP
+INNER JOIN Etat AS E ON PP.ID_etat = E.ID_etat
+INNER JOIN Stanowisko AS S ON E.ID_stanowisko = S.ID_stanowisko
+INNER JOIN Dzial ON E.ID_dzial = Dzial.ID_dzial
+INNER JOIN Umowa AS U ON U.ID_posada_pracownika = PP.ID_posada_pracownika
+INNER JOIN Pracownik AS P ON U.ID_pracownik = P.ID_pracownik
+WHERE Dzial.ID_dzial = 4
+GO
+
+CREATE VIEW v_Pracownik_obslugi
+AS
+SELECT P.ID_pracownik, P.Nazwisko + ' ' + P.Imie + ', ' + S.Nazwa_stanowiska AS [Pracownik]
+FROM Posada_pracownika AS PP
+INNER JOIN Etat AS E ON PP.ID_etat = E.ID_etat
+INNER JOIN Stanowisko AS S ON E.ID_stanowisko = S.ID_stanowisko
+INNER JOIN Dzial ON E.ID_dzial = Dzial.ID_dzial
+INNER JOIN Umowa AS U ON U.ID_posada_pracownika = PP.ID_posada_pracownika
+INNER JOIN Pracownik AS P ON U.ID_pracownik = P.ID_pracownik
+WHERE Dzial.ID_dzial = 5
+GO
+
 CREATE VIEW v_Rodzaj_parametr
 AS
 SELECT RP.ID_rodzaj_parametr, RP.Nazwa_rodzaj_parametr + ' ' + Jednostka.Skrot AS [Parametr]
@@ -695,6 +719,28 @@ CREATE VIEW v_Magazyn_Produkty_Wytworzone
 AS
 SELECT KPP.Produkt AS [Nazwa Produktu], KPP.[Rezultat kontroli]
 FROM v_Kontrola_parametr_produkt AS KPP
+GO
+
+CREATE VIEW v_Maszyny_numery_przypisane
+AS
+SELECT Maszyna.Nazwa_maszyna AS [Nazwa maszyny], COUNT(Maszyna.Nazwa_maszyna) AS [Ile przypisano]
+FROM Maszyna_nr_seryjny AS MNS
+INNER JOIN Maszyna ON MNS.ID_maszyna = Maszyna.ID_maszyna
+INNER JOIN Nr_seryjny ON MNS.ID_nr_seryjny = Nr_seryjny.ID_nr_seryjny
+GROUP BY Maszyna.Nazwa_maszyna
+GO
+
+CREATE VIEW v_Maszyny_numery_porownanie
+AS
+SELECT MMW.[Nazwa maszyny], MMW.[Liczba sztuk], MNP.[Ile przypisano]
+FROM v_Magazyn_maszyn_wszystko AS MMW
+LEFT JOIN v_Maszyny_numery_przypisane AS MNP ON MMW.[Nazwa maszyny] = MNP.[Nazwa maszyny]
+GO
+
+CREATE VIEW v_Maszyny_numery_nieprzypisane
+AS
+SELECT [Nazwa maszyny], [Liczba sztuk]-[Ile przypisano] AS [Nieprzypisanych]
+FROM v_Maszyny_numery_porownanie
 GO
 
 

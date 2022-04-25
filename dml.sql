@@ -1163,7 +1163,7 @@ VALUES
 
 INSERT INTO Szczegoly_zamowienie_maszyna(ID_zamowienie_maszyna, ID_maszyna, ID_producent, Ilosc,Cena)
 VALUES
-(1,1,1,1,3500),
+(1,1,1,4,14000),
 (2,2,2,1,7000),
 (3,3,3,1,65000),
 (4,4,4,1,2700),
