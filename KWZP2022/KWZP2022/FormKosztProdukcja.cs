@@ -41,18 +41,5 @@ namespace KWZP2022
             }
         }
 
-/*        private void dgvSkladProdukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-            int polproduktID = int.Parse(dgvSkladProdukt.CurrentRow.Cells[2].Value.ToString());
-            dgvCzynnosciProdukcyjne.DataSource = null;
-            System.Linq.IQueryable vCzynnosci = db.v_Koszt_procesow_polprodukt.Where(a => a.ID == polproduktID);
-            int vCzynnosciInt = vCzynnosci.Cast< v_Koszt_procesow_polprodukt> ().Where(a => a.ID > 0).Count();
-            if (vCzynnosciInt > 0)
-            {
-                dgvCzynnosciProdukcyjne.DataSource = vCzynnosci.Cast< v_Koszt_procesow_polprodukt> ().ToList();
-                this.dgvCzynnosciProdukcyjne.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            }
-        }*/
     }
 }
