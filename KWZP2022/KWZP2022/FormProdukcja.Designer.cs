@@ -32,7 +32,8 @@
             this.btnProdukty = new System.Windows.Forms.Button();
             this.btnPolprodukty = new System.Windows.Forms.Button();
             this.btnStanowiska = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnWytwarzanie = new System.Windows.Forms.Button();
+            this.btnStaytystyki = new System.Windows.Forms.Button();
             this.btnKontrola = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -69,14 +70,27 @@
             this.btnStanowiska.UseVisualStyleBackColor = true;
             this.btnStanowiska.Click += new System.EventHandler(this.btnStanowiska_Click);
             // 
-            // button4
+            // btnWytwarzanie
             // 
-            this.button4.Location = new System.Drawing.Point(81, 508);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(337, 123);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnWytwarzanie.Font = new System.Drawing.Font("Arial", 20F);
+            this.btnWytwarzanie.Location = new System.Drawing.Point(81, 508);
+            this.btnWytwarzanie.Name = "btnWytwarzanie";
+            this.btnWytwarzanie.Size = new System.Drawing.Size(337, 123);
+            this.btnWytwarzanie.TabIndex = 3;
+            this.btnWytwarzanie.Text = "Wytwarzanie";
+            this.btnWytwarzanie.UseVisualStyleBackColor = true;
+            this.btnWytwarzanie.Click += new System.EventHandler(this.btnWytwarzanie_Click);
+            // 
+            // btnStaytystyki
+            // 
+            this.btnStaytystyki.Font = new System.Drawing.Font("Arial", 20F);
+            this.btnStaytystyki.Location = new System.Drawing.Point(545, 215);
+            this.btnStaytystyki.Name = "btnStaytystyki";
+            this.btnStaytystyki.Size = new System.Drawing.Size(337, 123);
+            this.btnStaytystyki.TabIndex = 5;
+            this.btnStaytystyki.Text = "Statystyki";
+            this.btnStaytystyki.UseVisualStyleBackColor = true;
+            this.btnStaytystyki.Click += new System.EventHandler(this.btnStaytystyki_Click);
             // 
             // btnKontrola
             // 
@@ -95,8 +109,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 711);
+            this.Controls.Add(this.btnStaytystyki);
+            this.Controls.Add(this.btnWytwarzanie);
             this.Controls.Add(this.btnKontrola);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.btnStanowiska);
             this.Controls.Add(this.btnPolprodukty);
             this.Controls.Add(this.btnProdukty);
@@ -112,7 +127,8 @@
         private System.Windows.Forms.Button btnProdukty;
         private System.Windows.Forms.Button btnPolprodukty;
         private System.Windows.Forms.Button btnStanowiska;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnWytwarzanie;
+        private System.Windows.Forms.Button btnStaytystyki;
         private System.Windows.Forms.Button btnKontrola;
     }
 }

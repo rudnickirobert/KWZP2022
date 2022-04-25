@@ -97,6 +97,30 @@
     <Compile Include="Forma_platnosc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FormCzasPracyProdukcja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCzasPracyProdukcja.Designer.cs">
+      <DependentUpon>FormCzasPracyProdukcja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormKosztProdukcja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormKosztProdukcja.Designer.cs">
+      <DependentUpon>FormKosztProdukcja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSkladProdukt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSkladProdukt.Designer.cs">
+      <DependentUpon>FormSkladProdukt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStatystykiProdukcja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStatystykiProdukcja.Designer.cs">
+      <DependentUpon>FormStatystykiProdukcja.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormKontrolaJakosci.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,48 +241,6 @@
     <Compile Include="FormResDepMagazyny.Designer.cs">
       <DependentUpon>FormResDepMagazyny.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormParametrPolprodukt.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormParametrPolprodukt.Designer.cs">
-      <DependentUpon>FormParametrPolprodukt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormParametrProdukt.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormParametrProdukt.Designer.cs">
-      <DependentUpon>FormParametrProdukt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSkladProduktMaterial.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSkladProduktMaterial.Designer.cs">
-      <DependentUpon>FormSkladProduktMaterial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSlownikStanowisko.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSlownikStanowisko.Designer.cs">
-      <DependentUpon>FormSlownikStanowisko.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormPolproduktDodanie.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormPolproduktDodanie.Designer.cs">
-      <DependentUpon>FormPolproduktDodanie.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormProdukt.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormProdukt.Designer.cs">
-      <DependentUpon>FormProdukt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormProdukcja.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormProdukcja.Designer.cs">
-      <DependentUpon>FormProdukcja.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormDepartments.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -300,6 +282,42 @@
     </Compile>
     <Compile Include="FormSalesDepartmentSales.Designer.cs">
       <DependentUpon>FormSalesDepartmentSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormParametrPolprodukt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormParametrPolprodukt.Designer.cs">
+      <DependentUpon>FormParametrPolprodukt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormParametrProdukt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormParametrProdukt.Designer.cs">
+      <DependentUpon>FormParametrProdukt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSkladProduktMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSkladProduktMaterial.Designer.cs">
+      <DependentUpon>FormSkladProduktMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSlownikStanowisko.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSlownikStanowisko.Designer.cs">
+      <DependentUpon>FormSlownikStanowisko.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProdukt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProdukt.Designer.cs">
+      <DependentUpon>FormProdukt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProdukcja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProdukcja.Designer.cs">
+      <DependentUpon>FormProdukcja.cs</DependentUpon>
     </Compile>
     <Compile Include="Gwarancja.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
@@ -411,11 +429,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="FormDepartments.cs">
+    <Compile Include="FormResDepZamowienia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDepartments.Designer.cs">
-      <DependentUpon>FormDepartments.cs</DependentUpon>
+    <Compile Include="FormResDepZamowienia.Designer.cs">
+      <DependentUpon>FormResDepZamowienia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormWytwarzanie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormWytwarzanie.Designer.cs">
+      <DependentUpon>FormWytwarzanie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSkladPolprodukt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSkladPolprodukt.Designer.cs">
+      <DependentUpon>FormSkladPolprodukt.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSalesDepartment.cs">
       <SubType>Form</SubType>
@@ -429,38 +459,8 @@
     <Compile Include="FormSalesDepartmentClient.Designer.cs">
       <DependentUpon>FormSalesDepartmentClient.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSalesDepartmentClientModifyClient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSalesDepartmentClientModifyClient.Designer.cs">
-      <DependentUpon>FormSalesDepartmentClientModifyClient.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSalesDepartmentClientNewClient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSalesDepartmentClientNewClient.Designer.cs">
-      <DependentUpon>FormSalesDepartmentClientNewClient.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSalesDepartmentClientRemoveClient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSalesDepartmentClientRemoveClient.Designer.cs">
-      <DependentUpon>FormSalesDepartmentClientRemoveClient.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSalesDepartmentSales.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSalesDepartmentSales.Designer.cs">
-      <DependentUpon>FormSalesDepartmentSales.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="FormResDepZamowienia.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormResDepZamowienia.Designer.cs">
-      <DependentUpon>FormResDepZamowienia.cs</DependentUpon>
-    </Compile>
     <Compile Include="Reklamacja.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -710,6 +710,9 @@
     <Compile Include="v_Pracownik.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Pracownik_produkcja.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Proces_polprodukt_czynnosc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -719,7 +722,13 @@
     <Compile Include="v_Proces_wytwarzanie_polprodukt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Proces_wytwarzanie_polprodukt_ewidencja.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Proces_wytwarzanie_produkt.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Proces_wytwarzanie_produkt_ewidencja.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Producenci.cs">
@@ -744,6 +753,9 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Sklad_produkt.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Sklad_produkt_ewidencja.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Sklad_produkt_material.cs">
@@ -833,6 +845,12 @@
     <Compile Include="v_Zamowienia_narzedzia_w_trakcie_wszystko.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Zamowienie_produkcja.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Zamowienie_szczegol_produkcja.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Wyksztalcenie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -866,6 +884,19 @@
     <Compile Include="Zwrot.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormCzasPracyProdukcja.resx">
+      <DependentUpon>FormCzasPracyProdukcja.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormKosztProdukcja.resx">
+      <DependentUpon>FormKosztProdukcja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSkladProdukt.resx">
+      <DependentUpon>FormSkladProdukt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStatystykiProdukcja.resx">
+      <DependentUpon>FormStatystykiProdukcja.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormKontrolaJakosci.resx">
       <DependentUpon>FormKontrolaJakosci.cs</DependentUpon>
     </EmbeddedResource>
@@ -917,6 +948,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormWytwarzanie.resx">
+      <DependentUpon>FormWytwarzanie.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDepartments.resx">
       <DependentUpon>FormDepartments.cs</DependentUpon>
     </EmbeddedResource>
@@ -944,14 +978,14 @@
     <EmbeddedResource Include="FormSalesDepartmentSales.resx">
       <DependentUpon>FormSalesDepartmentSales.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSkladPolprodukt.resx">
+      <DependentUpon>FormSkladPolprodukt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormParametrPolprodukt.resx">
       <DependentUpon>FormParametrPolprodukt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormParametrProdukt.resx">
       <DependentUpon>FormParametrProdukt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormPolproduktDodanie.resx">
-      <DependentUpon>FormPolproduktDodanie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormProdukcja.resx">
       <DependentUpon>FormProdukcja.cs</DependentUpon>

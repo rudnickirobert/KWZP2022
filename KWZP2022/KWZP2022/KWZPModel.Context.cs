@@ -164,10 +164,13 @@ namespace KWZP2022
         public virtual DbSet<v_Parametry_polprodukt> v_Parametry_polprodukt { get; set; }
         public virtual DbSet<v_Parametry_produkt> v_Parametry_produkt { get; set; }
         public virtual DbSet<v_Pracownik> v_Pracownik { get; set; }
+        public virtual DbSet<v_Pracownik_produkcja> v_Pracownik_produkcja { get; set; }
         public virtual DbSet<v_Proces_polprodukt_czynnosc> v_Proces_polprodukt_czynnosc { get; set; }
         public virtual DbSet<v_Proces_produkt_czynnosc> v_Proces_produkt_czynnosc { get; set; }
         public virtual DbSet<v_Proces_wytwarzanie_polprodukt> v_Proces_wytwarzanie_polprodukt { get; set; }
+        public virtual DbSet<v_Proces_wytwarzanie_polprodukt_ewidencja> v_Proces_wytwarzanie_polprodukt_ewidencja { get; set; }
         public virtual DbSet<v_Proces_wytwarzanie_produkt> v_Proces_wytwarzanie_produkt { get; set; }
+        public virtual DbSet<v_Proces_wytwarzanie_produkt_ewidencja> v_Proces_wytwarzanie_produkt_ewidencja { get; set; }
         public virtual DbSet<v_Producenci> v_Producenci { get; set; }
         public virtual DbSet<v_Produkty_na_gwarancji> v_Produkty_na_gwarancji { get; set; }
         public virtual DbSet<v_Reklamacja> v_Reklamacja { get; set; }
@@ -176,6 +179,7 @@ namespace KWZP2022
         public virtual DbSet<v_Sklad_maszyna> v_Sklad_maszyna { get; set; }
         public virtual DbSet<v_Sklad_polprodukt> v_Sklad_polprodukt { get; set; }
         public virtual DbSet<v_Sklad_produkt> v_Sklad_produkt { get; set; }
+        public virtual DbSet<v_Sklad_produkt_ewidencja> v_Sklad_produkt_ewidencja { get; set; }
         public virtual DbSet<v_Sklad_produkt_material> v_Sklad_produkt_material { get; set; }
         public virtual DbSet<v_Sklad_stanowisko_produkcyjne_maszyna> v_Sklad_stanowisko_produkcyjne_maszyna { get; set; }
         public virtual DbSet<v_Sklad_stanowisko_produkcyjne_narzedzie> v_Sklad_stanowisko_produkcyjne_narzedzie { get; set; }
@@ -205,5 +209,7 @@ namespace KWZP2022
         public virtual DbSet<v_Zamowienia_narzedzia_w_trakcie> v_Zamowienia_narzedzia_w_trakcie { get; set; }
         public virtual DbSet<v_Zamowienia_narzedzia_w_trakcie_bez_odebranych> v_Zamowienia_narzedzia_w_trakcie_bez_odebranych { get; set; }
         public virtual DbSet<v_Zamowienia_narzedzia_w_trakcie_wszystko> v_Zamowienia_narzedzia_w_trakcie_wszystko { get; set; }
+        public virtual DbSet<v_Zamowienie_produkcja> v_Zamowienie_produkcja { get; set; }
+        public virtual DbSet<v_Zamowienie_szczegol_produkcja> v_Zamowienie_szczegol_produkcja { get; set; }
     }
 }

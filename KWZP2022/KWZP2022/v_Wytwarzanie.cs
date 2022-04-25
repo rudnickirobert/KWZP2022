@@ -14,9 +14,11 @@ namespace KWZP2022
     
     public partial class v_Wytwarzanie
     {
-        public int ID_zabiegu_produkcyjnego { get; set; }
+        public int ID { get; set; }
+        public int ID_zamówienie { get; set; }
+        public string Produkt { get; set; }
+        public string Pracownik { get; set; }
         public System.DateTime Data_rozpoczęcia { get; set; }
         public Nullable<System.DateTime> Data_zakończenia { get; set; }
-        public string Pracownik { get; set; }
     }
 }

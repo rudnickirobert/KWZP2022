@@ -28,7 +28,7 @@ namespace KWZP2022
 
         private void btnPolprodukty_Click(object sender, EventArgs e)
         {
-            FormPolproduktDodanie polproduktForm = new FormPolproduktDodanie(db);
+            FormSkladProdukt polproduktForm = new FormSkladProdukt(db);
             polproduktForm.ShowDialog();
         }
 
@@ -36,6 +36,18 @@ namespace KWZP2022
         {
             FormSlownikStanowisko slownikStanowiskoForm = new FormSlownikStanowisko(db);
             slownikStanowiskoForm.ShowDialog();
+        }
+
+        private void btnWytwarzanie_Click(object sender, EventArgs e)
+        {
+            FormWytwarzanie wytwarzanieForm = new FormWytwarzanie(db);
+            wytwarzanieForm.ShowDialog();
+        }
+
+        private void btnStaytystyki_Click(object sender, EventArgs e)
+        {
+            FormStatystykiProdukcja statystykiProdukcjaForm = new FormStatystykiProdukcja(db);
+            statystykiProdukcjaForm.ShowDialog();
         }
 
         private void btnKontrola_Click(object sender, EventArgs e)

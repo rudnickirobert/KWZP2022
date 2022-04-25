@@ -14,7 +14,11 @@ namespace KWZP2022
     
     public partial class v_Koszt_procesow_produkt
     {
+        public int ID_produkt { get; set; }
         public string Produkt { get; set; }
+        public string Czynność { get; set; }
+        public int Czas_trwania { get; set; }
+        public Nullable<decimal> Koszt_roboczogodziny_stanowiska__PLN_ { get; set; }
         public Nullable<decimal> Suma_kosztu_procesów { get; set; }
     }
 }

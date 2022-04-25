@@ -12,13 +12,12 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Koszt_procesow_polprodukt
+    public partial class v_Zamowienie_szczegol_produkcja
     {
-        public int ID_produkt { get; set; }
         public int ID { get; set; }
-        public string Półprodukt { get; set; }
-        public int Czas_trwania { get; set; }
-        public string Czynność { get; set; }
-        public Nullable<decimal> Suma_kosztu_procesów { get; set; }
+        public int ID_produktu { get; set; }
+        public string Produkt { get; set; }
+        public int Ilość { get; set; }
+        public int ID_zamowienie_szczegol { get; set; }
     }
 }
