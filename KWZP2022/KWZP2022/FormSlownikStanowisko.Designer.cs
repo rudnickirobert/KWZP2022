@@ -35,6 +35,7 @@
             this.txtNazwaStanowisko = new System.Windows.Forms.TextBox();
             this.btnDodaj = new System.Windows.Forms.Button();
             this.dgvStanowisko = new System.Windows.Forms.DataGridView();
+            this.btnDodajStanowisko = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStanowisko)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,9 +44,10 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 20F);
-            this.label1.Location = new System.Drawing.Point(21, 10);
+            this.label1.Location = new System.Drawing.Point(28, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(246, 32);
+            this.label1.Size = new System.Drawing.Size(298, 39);
             this.label1.TabIndex = 13;
             this.label1.Text = "Nazwa stanowiska:";
             // 
@@ -53,9 +55,10 @@
             // 
             this.btnAktualizuj.BackColor = System.Drawing.Color.SkyBlue;
             this.btnAktualizuj.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnAktualizuj.Location = new System.Drawing.Point(27, 187);
+            this.btnAktualizuj.Location = new System.Drawing.Point(36, 230);
+            this.btnAktualizuj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAktualizuj.Name = "btnAktualizuj";
-            this.btnAktualizuj.Size = new System.Drawing.Size(334, 37);
+            this.btnAktualizuj.Size = new System.Drawing.Size(445, 46);
             this.btnAktualizuj.TabIndex = 12;
             this.btnAktualizuj.Text = "Aktualizacja";
             this.btnAktualizuj.UseVisualStyleBackColor = false;
@@ -65,9 +68,10 @@
             // 
             this.btnUsun.BackColor = System.Drawing.Color.IndianRed;
             this.btnUsun.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnUsun.Location = new System.Drawing.Point(27, 248);
+            this.btnUsun.Location = new System.Drawing.Point(36, 305);
+            this.btnUsun.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUsun.Name = "btnUsun";
-            this.btnUsun.Size = new System.Drawing.Size(334, 37);
+            this.btnUsun.Size = new System.Drawing.Size(445, 46);
             this.btnUsun.TabIndex = 11;
             this.btnUsun.Text = "Usuń";
             this.btnUsun.UseVisualStyleBackColor = false;
@@ -76,9 +80,10 @@
             // btnOdswiez
             // 
             this.btnOdswiez.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnOdswiez.Location = new System.Drawing.Point(27, 391);
+            this.btnOdswiez.Location = new System.Drawing.Point(36, 481);
+            this.btnOdswiez.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOdswiez.Name = "btnOdswiez";
-            this.btnOdswiez.Size = new System.Drawing.Size(334, 37);
+            this.btnOdswiez.Size = new System.Drawing.Size(445, 46);
             this.btnOdswiez.TabIndex = 10;
             this.btnOdswiez.Text = "Odśwież";
             this.btnOdswiez.UseVisualStyleBackColor = true;
@@ -87,18 +92,20 @@
             // txtNazwaStanowisko
             // 
             this.txtNazwaStanowisko.Font = new System.Drawing.Font("Arial", 20F);
-            this.txtNazwaStanowisko.Location = new System.Drawing.Point(27, 60);
+            this.txtNazwaStanowisko.Location = new System.Drawing.Point(36, 74);
+            this.txtNazwaStanowisko.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNazwaStanowisko.Name = "txtNazwaStanowisko";
-            this.txtNazwaStanowisko.Size = new System.Drawing.Size(334, 38);
+            this.txtNazwaStanowisko.Size = new System.Drawing.Size(444, 46);
             this.txtNazwaStanowisko.TabIndex = 9;
             // 
             // btnDodaj
             // 
             this.btnDodaj.BackColor = System.Drawing.Color.PaleGreen;
             this.btnDodaj.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnDodaj.Location = new System.Drawing.Point(27, 128);
+            this.btnDodaj.Location = new System.Drawing.Point(36, 158);
+            this.btnDodaj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(334, 37);
+            this.btnDodaj.Size = new System.Drawing.Size(445, 46);
             this.btnDodaj.TabIndex = 8;
             this.btnDodaj.Text = "Dodaj nowy";
             this.btnDodaj.UseVisualStyleBackColor = false;
@@ -107,17 +114,33 @@
             // dgvStanowisko
             // 
             this.dgvStanowisko.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStanowisko.Location = new System.Drawing.Point(412, 74);
+            this.dgvStanowisko.Location = new System.Drawing.Point(549, 91);
+            this.dgvStanowisko.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvStanowisko.Name = "dgvStanowisko";
-            this.dgvStanowisko.Size = new System.Drawing.Size(361, 376);
+            this.dgvStanowisko.RowHeadersWidth = 51;
+            this.dgvStanowisko.Size = new System.Drawing.Size(481, 463);
             this.dgvStanowisko.TabIndex = 7;
             this.dgvStanowisko.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStanowisko_CellContentClick);
             // 
-            // SlownikStanowiskoForm
+            // btnDodajStanowisko
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.btnDodajStanowisko.BackColor = System.Drawing.Color.Coral;
+            this.btnDodajStanowisko.Font = new System.Drawing.Font("Arial", 15F);
+            this.btnDodajStanowisko.Location = new System.Drawing.Point(36, 391);
+            this.btnDodajStanowisko.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDodajStanowisko.Name = "btnDodajStanowisko";
+            this.btnDodajStanowisko.Size = new System.Drawing.Size(445, 46);
+            this.btnDodajStanowisko.TabIndex = 14;
+            this.btnDodajStanowisko.Text = "Dodaj Stanowisko Produkcyjne";
+            this.btnDodajStanowisko.UseVisualStyleBackColor = false;
+            this.btnDodajStanowisko.Click += new System.EventHandler(this.btnDodajStanowisko_Click);
+            // 
+            // FormSlownikStanowisko
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(794, 461);
+            this.ClientSize = new System.Drawing.Size(1059, 567);
+            this.Controls.Add(this.btnDodajStanowisko);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAktualizuj);
             this.Controls.Add(this.btnUsun);
@@ -125,7 +148,8 @@
             this.Controls.Add(this.txtNazwaStanowisko);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.dgvStanowisko);
-            this.Name = "SlownikStanowiskoForm";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "FormSlownikStanowisko";
             this.Text = "Stanowiska produkcyjne";
             ((System.ComponentModel.ISupportInitialize)(this.dgvStanowisko)).EndInit();
             this.ResumeLayout(false);
@@ -142,5 +166,6 @@
         private System.Windows.Forms.TextBox txtNazwaStanowisko;
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.DataGridView dgvStanowisko;
+        private System.Windows.Forms.Button btnDodajStanowisko;
     }
 }
