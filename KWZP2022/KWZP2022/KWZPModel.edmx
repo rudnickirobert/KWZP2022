@@ -990,20 +990,33 @@ warning 6002: The table/view 'KWZP.dbo.v_Koszt_godziny_pracy' does not have a pr
 warning 6002: The table/view 'KWZP.dbo.v_Koszt_procesow_polprodukt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Koszt_procesow_polprodukt">
           <Key>
+            <PropertyRef Name="ID_produkt" />
             <PropertyRef Name="ID" />
             <PropertyRef Name="Półprodukt" />
+            <PropertyRef Name="Czas trwania" />
+            <PropertyRef Name="Czynność" />
           </Key>
+          <Property Name="ID_produkt" Type="int" Nullable="false" />
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Półprodukt" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Czas trwania" Type="int" Nullable="false" />
+          <Property Name="Czynność" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Suma kosztu procesów" Type="money" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Koszt_procesow_produkt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Koszt_procesow_produkt">
           <Key>
+            <PropertyRef Name="ID_produkt" />
             <PropertyRef Name="Produkt" />
+            <PropertyRef Name="Czynność" />
+            <PropertyRef Name="Czas trwania" />
           </Key>
+          <Property Name="ID_produkt" Type="int" Nullable="false" />
           <Property Name="Produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Czynność" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Czas trwania" Type="int" Nullable="false" />
+          <Property Name="Koszt roboczogodziny stanowiska {PLN}" Type="money" />
           <Property Name="Suma kosztu procesów" Type="money" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -3831,14 +3844,21 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           </EntitySet>
           <EntitySet Name="v_Koszt_procesow_polprodukt" EntityType="Self.v_Koszt_procesow_polprodukt" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [v_Koszt_procesow_polprodukt].[ID_produkt] AS [ID_produkt], 
     [v_Koszt_procesow_polprodukt].[ID] AS [ID], 
     [v_Koszt_procesow_polprodukt].[Półprodukt] AS [Półprodukt], 
+    [v_Koszt_procesow_polprodukt].[Czas trwania] AS [Czas trwania], 
+    [v_Koszt_procesow_polprodukt].[Czynność] AS [Czynność], 
     [v_Koszt_procesow_polprodukt].[Suma kosztu procesów] AS [Suma kosztu procesów]
     FROM [dbo].[v_Koszt_procesow_polprodukt] AS [v_Koszt_procesow_polprodukt]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Koszt_procesow_produkt" EntityType="Self.v_Koszt_procesow_produkt" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [v_Koszt_procesow_produkt].[ID_produkt] AS [ID_produkt], 
     [v_Koszt_procesow_produkt].[Produkt] AS [Produkt], 
+    [v_Koszt_procesow_produkt].[Czynność] AS [Czynność], 
+    [v_Koszt_procesow_produkt].[Czas trwania] AS [Czas trwania], 
+    [v_Koszt_procesow_produkt].[Koszt roboczogodziny stanowiska {PLN}] AS [Koszt roboczogodziny stanowiska {PLN}], 
     [v_Koszt_procesow_produkt].[Suma kosztu procesów] AS [Suma kosztu procesów]
     FROM [dbo].[v_Koszt_procesow_produkt] AS [v_Koszt_procesow_produkt]</DefiningQuery>
           </EntitySet>
@@ -6212,18 +6232,31 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
         </EntityType>
         <EntityType Name="v_Koszt_procesow_polprodukt">
           <Key>
+            <PropertyRef Name="ID_produkt" />
             <PropertyRef Name="ID" />
             <PropertyRef Name="Półprodukt" />
+            <PropertyRef Name="Czas_trwania" />
+            <PropertyRef Name="Czynność" />
           </Key>
+          <Property Name="ID_produkt" Type="Int32" Nullable="false" />
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Półprodukt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Czas_trwania" Type="Int32" Nullable="false" />
+          <Property Name="Czynność" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Suma_kosztu_procesów" Type="Decimal" Precision="19" Scale="4" />
         </EntityType>
         <EntityType Name="v_Koszt_procesow_produkt">
           <Key>
+            <PropertyRef Name="ID_produkt" />
             <PropertyRef Name="Produkt" />
+            <PropertyRef Name="Czynność" />
+            <PropertyRef Name="Czas_trwania" />
           </Key>
+          <Property Name="ID_produkt" Type="Int32" Nullable="false" />
           <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Czynność" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Czas_trwania" Type="Int32" Nullable="false" />
+          <Property Name="Koszt_roboczogodziny_stanowiska__PLN_" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="Suma_kosztu_procesów" Type="Decimal" Precision="19" Scale="4" />
         </EntityType>
         <EntityType Name="v_Koszt_produkcji">
@@ -10381,8 +10414,11 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySetMapping Name="v_Koszt_procesow_polprodukt">
             <EntityTypeMapping TypeName="KWZPModel.v_Koszt_procesow_polprodukt">
               <MappingFragment StoreEntitySet="v_Koszt_procesow_polprodukt">
+                <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Półprodukt" ColumnName="Półprodukt" />
+                <ScalarProperty Name="Czas_trwania" ColumnName="Czas trwania" />
+                <ScalarProperty Name="Czynność" ColumnName="Czynność" />
                 <ScalarProperty Name="Suma_kosztu_procesów" ColumnName="Suma kosztu procesów" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -10390,7 +10426,11 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySetMapping Name="v_Koszt_procesow_produkt">
             <EntityTypeMapping TypeName="KWZPModel.v_Koszt_procesow_produkt">
               <MappingFragment StoreEntitySet="v_Koszt_procesow_produkt">
+                <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
                 <ScalarProperty Name="Produkt" ColumnName="Produkt" />
+                <ScalarProperty Name="Czynność" ColumnName="Czynność" />
+                <ScalarProperty Name="Czas_trwania" ColumnName="Czas trwania" />
+                <ScalarProperty Name="Koszt_roboczogodziny_stanowiska__PLN_" ColumnName="Koszt roboczogodziny stanowiska {PLN}" />
                 <ScalarProperty Name="Suma_kosztu_procesów" ColumnName="Suma kosztu procesów" />
               </MappingFragment>
             </EntityTypeMapping>

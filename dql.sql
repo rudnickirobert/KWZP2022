@@ -105,22 +105,23 @@ GO
 
 CREATE VIEW v_Koszt_procesow_polprodukt
 AS
-SELECT P.ID_polprodukt AS ID, P.Nazwa AS [Półprodukt], SUM(vK.[Koszt roboczogodziny stanowiska {PLN}] * PPPC.Czas_trwania/60) AS [Suma kosztu procesów]
+SELECT SP.ID_produkt, P.ID_polprodukt AS ID, P.Nazwa AS [Półprodukt], PPPC.Czas_trwania AS [Czas trwania], CP.Nazwa AS [Czynność], vK.[Koszt roboczogodziny stanowiska {PLN}] * PPPC.Czas_trwania/60 AS [Suma kosztu procesów]
 FROM Proces_wytwarzanie_polprodukt AS PWPP
 INNER JOIN Proces_polprodukt_czynnosc AS PPPC ON PWPP.ID_proces_polprodukt = PPPC.ID_proces_polprodukt
+INNER JOIN Czynnosc_produkcyjna AS CP ON PPPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
 INNER JOIN v_Koszt_roboczogodziny_stanowiska AS vK ON PWPP.ID_stanowisko_produkcyjne = vK.[ID stanowiska produkcyjnego]
 INNER JOIN Slownik_polprodukt AS P ON PPPC.ID_polprodukt = P.ID_polprodukt
-GROUP BY P.ID_polprodukt, P.Nazwa
+INNER JOIN Sklad_produkt AS SP ON SP.ID_polprodukt = P.ID_polprodukt
 GO
 
 CREATE VIEW v_Koszt_procesow_produkt
 AS
-SELECT  P.Nazwa_produkt AS [Produkt], SUM(vK.[Koszt roboczogodziny stanowiska {PLN}] * PPPC.Czas_trwania/60) AS [Suma kosztu procesów]
+SELECT P.ID_produkt, P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynność], PPPC.Czas_trwania AS [Czas trwania], vK.[Koszt roboczogodziny stanowiska {PLN}], vK.[Koszt roboczogodziny stanowiska {PLN}] * PPPC.Czas_trwania/60 AS [Suma kosztu procesów]
 FROM Proces_wytwarzanie_polprodukt AS PWPP
 INNER JOIN Proces_produkt_czynnosc AS PPPC ON PWPP.ID_proces_polprodukt = PPPC.ID_proces_produkt
+INNER JOIN Czynnosc_produkcyjna AS CP ON PPPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
 INNER JOIN v_Koszt_roboczogodziny_stanowiska AS vK ON PWPP.ID_stanowisko_produkcyjne = vK.[ID stanowiska produkcyjnego]
 INNER JOIN Produkt AS P ON PPPC.ID_produkt = P.ID_produkt
-GROUP BY P.Nazwa_produkt
 GO
 
 CREATE VIEW v_Koszt_produkcji

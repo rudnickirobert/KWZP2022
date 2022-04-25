@@ -211,14 +211,7 @@ namespace KWZP2022
                     MessageBox.Show("Wybierz produkt lub półprodukt");
                 }
             }
-
             refreshComboboxes();
-
-            
-
-            
-
-
         }
 
         private void btnOdswiez_Click(object sender, EventArgs e)

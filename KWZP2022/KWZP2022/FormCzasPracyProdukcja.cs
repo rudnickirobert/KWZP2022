@@ -49,11 +49,9 @@ namespace KWZP2022
         {
 
             int pracownikID = int.Parse(cbPracownik.SelectedValue.ToString());
-            var czasOd = dtpCzasOd.Value.Date;
-            var czasDo = dtpCzasDo.Value.Date;
 
             dgvWytwarzaniePolprodukt.DataSource = null;
-            System.Linq.IQueryable vProcWytPolprodukt = db.v_Proces_wytwarzanie_polprodukt_ewidencja.Where(a => a.ID_pracownik == pracownikID && a.Data_rozpoczęcia >= czasOd && a.Data_zakończenia <= czasDo);
+            System.Linq.IQueryable vProcWytPolprodukt = db.v_Proces_wytwarzanie_polprodukt_ewidencja.Where(a => a.ID_pracownik == pracownikID && a.Data_rozpoczęcia >= dtpCzasOd.Value.Date && a.Data_zakończenia <= dtpCzasDo.Value.Date);
             int vPracownikIdIntPro = vProcWytPolprodukt.Cast<v_Proces_wytwarzanie_polprodukt_ewidencja>().Where(a => a.ID_pracownik > 0).Count();
             if (vPracownikIdIntPro > 0)
             {
@@ -77,7 +75,7 @@ namespace KWZP2022
             }
 
             dgvWytwarzanieProdukt.DataSource = null;
-            System.Linq.IQueryable vProcWytProdukt = db.v_Proces_wytwarzanie_produkt_ewidencja.Where(a => a.ID_pracownik == pracownikID && a.Data_rozpoczęcia >= czasOd && a.Data_zakończenia <= czasDo);
+            System.Linq.IQueryable vProcWytProdukt = db.v_Proces_wytwarzanie_produkt_ewidencja.Where(a => a.ID_pracownik == pracownikID && a.Data_rozpoczęcia >= dtpCzasOd.Value.Date && a.Data_zakończenia <= dtpCzasDo.Value.Date);
             int vPracownikIdIntPol = vProcWytProdukt.Cast<v_Proces_wytwarzanie_produkt_ewidencja>().Where(a => a.ID_pracownik > 0).Count();
             if (vPracownikIdIntPol > 0)
             {
@@ -99,7 +97,6 @@ namespace KWZP2022
                 MessageBox.Show("Pracownik nie wykonywał procesu produkcyjnego na żadnym produkcie w tym okresie czasu.");
                 refreshScreen();
             }
-
 
             getHoursSum();
 

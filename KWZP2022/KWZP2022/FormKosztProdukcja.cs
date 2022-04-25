@@ -35,8 +35,8 @@ namespace KWZP2022
 
             dgvSkladProdukt.DataSource = null;
             System.Linq.IQueryable vSkladProdukt = db.v_Sklad_produkt_ewidencja.Where(a => a.ID_produkt == produktID);
-            int vvSkladProduktInt = vSkladProdukt.Cast<v_Sklad_produkt_ewidencja>().Where(a => a.ID_produkt > 0).Count();
-            if (vvSkladProduktInt > 0)
+            int vSkladProduktInt = vSkladProdukt.Cast<v_Sklad_produkt_ewidencja>().Where(a => a.ID_produkt > 0).Count();
+            if (vSkladProduktInt > 0)
             {
                 dgvSkladProdukt.DataSource = vSkladProdukt.Cast<v_Sklad_produkt_ewidencja>().ToList();
                 this.dgvSkladProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -45,22 +45,21 @@ namespace KWZP2022
         }
 
 
-        /*IN PROGRESS
         private void dgvSkladProdukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
             int polproduktID = int.Parse(dgvSkladProdukt.CurrentRow.Cells[2].Value.ToString());
             dgvCzynnosciProdukcyjne.DataSource = null;
-            System.Linq.IQueryable vSkladProdukt = db.v_Sklad_produkt_ewidencja.Where(a => a.ID_produkt == produktID);
-            int vvSkladProduktInt = vSkladProdukt.Cast<v_Sklad_produkt_ewidencja>().Where(a => a.ID_produkt > 0).Count();
-            if (vvSkladProduktInt > 0)
+            System.Linq.IQueryable vCzynnosci = db.v_Koszt_procesow_polprodukt.Where(a => a.ID == polproduktID);
+            int vCzynnosciInt = vCzynnosci.Cast< v_Koszt_procesow_polprodukt> ().Where(a => a.ID > 0).Count();
+            if (vCzynnosciInt > 0)
             {
-                dgvSkladProdukt.DataSource = vSkladProdukt.Cast<v_Sklad_produkt_ewidencja>().ToList();
-                this.dgvSkladProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+                dgvCzynnosciProdukcyjne.DataSource = vCzynnosci.Cast< v_Koszt_procesow_polprodukt> ().ToList();
+                this.dgvCzynnosciProdukcyjne.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 
             }
 
 
-        }*/
+        }
     }
 }
