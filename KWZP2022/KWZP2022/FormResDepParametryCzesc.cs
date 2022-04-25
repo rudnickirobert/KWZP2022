@@ -77,9 +77,9 @@ namespace KWZP2022
             DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz usunąć parametr: " + this.dgvParametrCzesc.CurrentRow.Cells[3].Value + "?", "Question", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                string current_parametr = this.dgvParametrCzesc.CurrentRow.Cells[1].Value.ToString();
-                int daneINT = int.Parse(current_parametr);
-                Parametr_czesc parametrCzesc = db.Parametr_czesc.Single(a => a.ID_rodzaj_parametr == daneINT);
+                string currentParametr = this.dgvParametrCzesc.CurrentRow.Cells[1].Value.ToString();
+                int currentParametrINT = int.Parse(currentParametr);
+                Parametr_czesc parametrCzesc = db.Parametr_czesc.Single(a => a.ID_rodzaj_parametr == currentParametrINT);
                 this.db.Parametr_czesc.Remove(parametrCzesc);
                 db.SaveChanges();
                 initDataGridView();
@@ -98,12 +98,12 @@ namespace KWZP2022
                     }
                     else
                     {
-                        int daneParametrCzesc = int.Parse(this.dgvParametrCzesc.CurrentRow.Cells[1].Value.ToString());
-                        Parametr_czesc daneParametrCzescID = this.db.Parametr_czesc.Single(a => a.ID_rodzaj_parametr == daneParametrCzesc);
-                        daneParametrCzescID.ID_rodzaj_parametr = (int)cmbParametr.SelectedValue;
-                        daneParametrCzescID.ID_czesc = (int)cmbCzesc.SelectedValue;
-                        daneParametrCzescID.Zakres_gora = Convert.ToDecimal(txtZakresGora.Text);
-                        daneParametrCzescID.Zakres_dol = Convert.ToDecimal(txtZakresDol.Text);
+                        int parametrCzesc = int.Parse(this.dgvParametrCzesc.CurrentRow.Cells[1].Value.ToString());
+                        Parametr_czesc parametrCzescRP = this.db.Parametr_czesc.Single(a => a.ID_rodzaj_parametr == parametrCzesc);
+                        parametrCzescRP.ID_rodzaj_parametr = (int)cmbParametr.SelectedValue;
+                        parametrCzescRP.ID_czesc = (int)cmbCzesc.SelectedValue;
+                        parametrCzescRP.Zakres_gora = Convert.ToDecimal(txtZakresGora.Text);
+                        parametrCzescRP.Zakres_dol = Convert.ToDecimal(txtZakresDol.Text);
                         db.SaveChanges();
                         initDataGridView();
                         MessageBox.Show("Zapisano zmiany!", "Informacja", MessageBoxButtons.OK);

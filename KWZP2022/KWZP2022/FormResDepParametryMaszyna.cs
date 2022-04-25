@@ -77,9 +77,9 @@ namespace KWZP2022
             DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz usunąć parametr: " + this.dgvParametrMaszyna.CurrentRow.Cells[3].Value + "?", "Question", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                string current_parametr = this.dgvParametrMaszyna.CurrentRow.Cells[1].Value.ToString();
-                int daneINT = int.Parse(current_parametr);
-                Parametr_maszyna parametrMaszyna = db.Parametr_maszyna.Single(a => a.ID_rodzaj_parametr == daneINT);
+                string currentParametr = this.dgvParametrMaszyna.CurrentRow.Cells[1].Value.ToString();
+                int currentParametrINT = int.Parse(currentParametr);
+                Parametr_maszyna parametrMaszyna = db.Parametr_maszyna.Single(a => a.ID_rodzaj_parametr == currentParametrINT);
                 this.db.Parametr_maszyna.Remove(parametrMaszyna);
                 db.SaveChanges();
                 initDataGridView();
@@ -98,12 +98,12 @@ namespace KWZP2022
                     }
                     else
                     {
-                        int daneParametrMaszyna = int.Parse(this.dgvParametrMaszyna.CurrentRow.Cells[1].Value.ToString());
-                        Parametr_maszyna daneParametrMaszynaID = this.db.Parametr_maszyna.Single(a => a.ID_rodzaj_parametr == daneParametrMaszyna);
-                        daneParametrMaszynaID.ID_rodzaj_parametr = (int)cmbParametr.SelectedValue;
-                        daneParametrMaszynaID.ID_maszyna = (int)cmbMaszyna.SelectedValue;
-                        daneParametrMaszynaID.Zakres_gora = Convert.ToDecimal(txtZakresGora.Text);
-                        daneParametrMaszynaID.Zakres_dol = Convert.ToDecimal(txtZakresDol.Text);
+                        int parametrMaszyna = int.Parse(this.dgvParametrMaszyna.CurrentRow.Cells[1].Value.ToString());
+                        Parametr_maszyna parametrMaszynaRP = this.db.Parametr_maszyna.Single(a => a.ID_rodzaj_parametr == parametrMaszyna);
+                        parametrMaszynaRP.ID_rodzaj_parametr = (int)cmbParametr.SelectedValue;
+                        parametrMaszynaRP.ID_maszyna = (int)cmbMaszyna.SelectedValue;
+                        parametrMaszynaRP.Zakres_gora = Convert.ToDecimal(txtZakresGora.Text);
+                        parametrMaszynaRP.Zakres_dol = Convert.ToDecimal(txtZakresDol.Text);
                         db.SaveChanges();
                         initDataGridView();
                         MessageBox.Show("Zapisano zmiany!", "Informacja", MessageBoxButtons.OK);

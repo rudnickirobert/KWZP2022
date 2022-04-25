@@ -79,9 +79,9 @@ namespace KWZP2022
             DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz usunąć parametr: " + this.dgvParametrNarzedzie.CurrentRow.Cells[3].Value + "?", "Question", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                string current_parametr = this.dgvParametrNarzedzie.CurrentRow.Cells[1].Value.ToString();
-                int daneINT = int.Parse(current_parametr);
-                Parametr_narzedzie parametrNarzedzie = db.Parametr_narzedzie.Single(a => a.ID_rodzaj_parametr == daneINT);
+                string currentParametr = this.dgvParametrNarzedzie.CurrentRow.Cells[1].Value.ToString();
+                int currentParametrINT = int.Parse(currentParametr);
+                Parametr_narzedzie parametrNarzedzie = db.Parametr_narzedzie.Single(a => a.ID_rodzaj_parametr == currentParametrINT);
                 this.db.Parametr_narzedzie.Remove(parametrNarzedzie);
                 db.SaveChanges();
                 initDataGridView();
@@ -100,12 +100,12 @@ namespace KWZP2022
                     }
                     else
                     {
-                        int daneParametrNarzedzie = int.Parse(this.dgvParametrNarzedzie.CurrentRow.Cells[1].Value.ToString());
-                        Parametr_narzedzie daneParametrNarzedzieID = this.db.Parametr_narzedzie.Single(a => a.ID_rodzaj_parametr == daneParametrNarzedzie);
-                        daneParametrNarzedzieID.ID_rodzaj_parametr = (int)cmbParametr.SelectedValue;
-                        daneParametrNarzedzieID.ID_narzedzie = (int)cmbNarzedzie.SelectedValue;
-                        daneParametrNarzedzieID.Zakres_gora = Convert.ToDecimal(txtZakresGora.Text);
-                        daneParametrNarzedzieID.Zakres_dol = Convert.ToDecimal(txtZakresDol.Text);
+                        int parametrNarzedzie = int.Parse(this.dgvParametrNarzedzie.CurrentRow.Cells[1].Value.ToString());
+                        Parametr_narzedzie parametrNarzedzieRP = this.db.Parametr_narzedzie.Single(a => a.ID_rodzaj_parametr == parametrNarzedzie);
+                        parametrNarzedzieRP.ID_rodzaj_parametr = (int)cmbParametr.SelectedValue;
+                        parametrNarzedzieRP.ID_narzedzie = (int)cmbNarzedzie.SelectedValue;
+                        parametrNarzedzieRP.Zakres_gora = Convert.ToDecimal(txtZakresGora.Text);
+                        parametrNarzedzieRP.Zakres_dol = Convert.ToDecimal(txtZakresDol.Text);
                         db.SaveChanges();
                         initDataGridView();
                         MessageBox.Show("Zapisano zmiany!", "Informacja", MessageBoxButtons.OK);
