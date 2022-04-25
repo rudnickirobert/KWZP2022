@@ -1,6 +1,6 @@
 ﻿namespace KWZP2022
 {
-    partial class FormResDepZamowienieNarzedzia
+    partial class FormResDepZamowienieMaszyny
     {
         /// <summary>
         /// Required designer variable.
@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormResDepZamowienieNarzedzia));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormResDepZamowienieMaszyny));
             this.btnDodajZamowienie = new System.Windows.Forms.Button();
             this.btnDodajProducenta = new System.Windows.Forms.Button();
             this.btnDodajDostawca = new System.Windows.Forms.Button();
             this.txtCena = new System.Windows.Forms.TextBox();
-            this.numSztuk = new System.Windows.Forms.NumericUpDown();
+            this.numIlosc = new System.Windows.Forms.NumericUpDown();
             this.lblCena = new System.Windows.Forms.Label();
-            this.lblSztuk = new System.Windows.Forms.Label();
+            this.lblIlosc = new System.Windows.Forms.Label();
             this.cmbProducent = new System.Windows.Forms.ComboBox();
             this.lblProducent = new System.Windows.Forms.Label();
-            this.cmbNarzedzie = new System.Windows.Forms.ComboBox();
+            this.cmbMaszyna = new System.Windows.Forms.ComboBox();
             this.cmbDostawca = new System.Windows.Forms.ComboBox();
             this.cmbPracownik = new System.Windows.Forms.ComboBox();
-            this.lblNarzedzie = new System.Windows.Forms.Label();
+            this.lblMaszyna = new System.Windows.Forms.Label();
             this.lblDostawca = new System.Windows.Forms.Label();
             this.lblPracownik = new System.Windows.Forms.Label();
-            this.btnDodajNarzedzie = new System.Windows.Forms.Button();
-            this.lvlZamowienieNarzedzia = new System.Windows.Forms.Label();
-            this.dgvZamowienieNarzedzia = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.numSztuk)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienieNarzedzia)).BeginInit();
+            this.btnDodajMaszyna = new System.Windows.Forms.Button();
+            this.lvlZamowienieMaszyna = new System.Windows.Forms.Label();
+            this.dgvZamowienieMaszyna = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.numIlosc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienieMaszyna)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDodajZamowienie
@@ -66,9 +66,10 @@
             // btnDodajProducenta
             // 
             this.btnDodajProducenta.BackColor = System.Drawing.Color.GreenYellow;
+            this.btnDodajProducenta.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnDodajProducenta.Location = new System.Drawing.Point(359, 171);
             this.btnDodajProducenta.Name = "btnDodajProducenta";
-            this.btnDodajProducenta.Size = new System.Drawing.Size(142, 32);
+            this.btnDodajProducenta.Size = new System.Drawing.Size(148, 35);
             this.btnDodajProducenta.TabIndex = 57;
             this.btnDodajProducenta.Text = "Dodaj nowego producenta";
             this.btnDodajProducenta.UseVisualStyleBackColor = false;
@@ -77,9 +78,10 @@
             // btnDodajDostawca
             // 
             this.btnDodajDostawca.BackColor = System.Drawing.Color.GreenYellow;
+            this.btnDodajDostawca.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnDodajDostawca.Location = new System.Drawing.Point(359, 94);
             this.btnDodajDostawca.Name = "btnDodajDostawca";
-            this.btnDodajDostawca.Size = new System.Drawing.Size(142, 32);
+            this.btnDodajDostawca.Size = new System.Drawing.Size(148, 32);
             this.btnDodajDostawca.TabIndex = 56;
             this.btnDodajDostawca.Text = "Dodaj nowego dostawcę";
             this.btnDodajDostawca.UseVisualStyleBackColor = false;
@@ -94,20 +96,20 @@
             this.txtCena.TabIndex = 55;
             this.txtCena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCena_KeyPress);
             // 
-            // numSztuk
+            // numIlosc
             // 
-            this.numSztuk.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numSztuk.Location = new System.Drawing.Point(579, 132);
-            this.numSztuk.Maximum = new decimal(new int[] {
+            this.numIlosc.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numIlosc.Location = new System.Drawing.Point(579, 132);
+            this.numIlosc.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
-            this.numSztuk.Name = "numSztuk";
-            this.numSztuk.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.numSztuk.Size = new System.Drawing.Size(161, 32);
-            this.numSztuk.TabIndex = 54;
-            this.numSztuk.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numIlosc.Name = "numIlosc";
+            this.numIlosc.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.numIlosc.Size = new System.Drawing.Size(161, 32);
+            this.numIlosc.TabIndex = 54;
+            this.numIlosc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblCena
             // 
@@ -120,16 +122,16 @@
             this.lblCena.TabIndex = 53;
             this.lblCena.Text = "Cena";
             // 
-            // lblSztuk
+            // lblIlosc
             // 
-            this.lblSztuk.AutoSize = true;
-            this.lblSztuk.BackColor = System.Drawing.Color.Transparent;
-            this.lblSztuk.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblSztuk.Location = new System.Drawing.Point(513, 137);
-            this.lblSztuk.Name = "lblSztuk";
-            this.lblSztuk.Size = new System.Drawing.Size(60, 24);
-            this.lblSztuk.TabIndex = 52;
-            this.lblSztuk.Text = "Sztuk";
+            this.lblIlosc.AutoSize = true;
+            this.lblIlosc.BackColor = System.Drawing.Color.Transparent;
+            this.lblIlosc.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblIlosc.Location = new System.Drawing.Point(513, 137);
+            this.lblIlosc.Name = "lblIlosc";
+            this.lblIlosc.Size = new System.Drawing.Size(54, 24);
+            this.lblIlosc.TabIndex = 52;
+            this.lblIlosc.Text = "Ilość";
             // 
             // cmbProducent
             // 
@@ -151,14 +153,14 @@
             this.lblProducent.TabIndex = 50;
             this.lblProducent.Text = "Producent";
             // 
-            // cmbNarzedzie
+            // cmbMaszyna
             // 
-            this.cmbNarzedzie.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cmbNarzedzie.FormattingEnabled = true;
-            this.cmbNarzedzie.Location = new System.Drawing.Point(140, 132);
-            this.cmbNarzedzie.Name = "cmbNarzedzie";
-            this.cmbNarzedzie.Size = new System.Drawing.Size(213, 32);
-            this.cmbNarzedzie.TabIndex = 49;
+            this.cmbMaszyna.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cmbMaszyna.FormattingEnabled = true;
+            this.cmbMaszyna.Location = new System.Drawing.Point(140, 132);
+            this.cmbMaszyna.Name = "cmbMaszyna";
+            this.cmbMaszyna.Size = new System.Drawing.Size(213, 32);
+            this.cmbMaszyna.TabIndex = 49;
             // 
             // cmbDostawca
             // 
@@ -178,16 +180,16 @@
             this.cmbPracownik.Size = new System.Drawing.Size(213, 32);
             this.cmbPracownik.TabIndex = 47;
             // 
-            // lblNarzedzie
+            // lblMaszyna
             // 
-            this.lblNarzedzie.AutoSize = true;
-            this.lblNarzedzie.BackColor = System.Drawing.Color.Transparent;
-            this.lblNarzedzie.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblNarzedzie.Location = new System.Drawing.Point(27, 135);
-            this.lblNarzedzie.Name = "lblNarzedzie";
-            this.lblNarzedzie.Size = new System.Drawing.Size(101, 24);
-            this.lblNarzedzie.TabIndex = 46;
-            this.lblNarzedzie.Text = "Narzędzie";
+            this.lblMaszyna.AutoSize = true;
+            this.lblMaszyna.BackColor = System.Drawing.Color.Transparent;
+            this.lblMaszyna.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblMaszyna.Location = new System.Drawing.Point(27, 135);
+            this.lblMaszyna.Name = "lblMaszyna";
+            this.lblMaszyna.Size = new System.Drawing.Size(93, 24);
+            this.lblMaszyna.TabIndex = 46;
+            this.lblMaszyna.Text = "Maszyna";
             // 
             // lblDostawca
             // 
@@ -211,69 +213,71 @@
             this.lblPracownik.TabIndex = 44;
             this.lblPracownik.Text = "Pracownik";
             // 
-            // btnDodajNarzedzie
+            // btnDodajMaszyna
             // 
-            this.btnDodajNarzedzie.BackColor = System.Drawing.Color.GreenYellow;
-            this.btnDodajNarzedzie.Location = new System.Drawing.Point(359, 132);
-            this.btnDodajNarzedzie.Name = "btnDodajNarzedzie";
-            this.btnDodajNarzedzie.Size = new System.Drawing.Size(142, 32);
-            this.btnDodajNarzedzie.TabIndex = 43;
-            this.btnDodajNarzedzie.Text = "Dodaj nowe narzędzie";
-            this.btnDodajNarzedzie.UseVisualStyleBackColor = false;
-            this.btnDodajNarzedzie.Click += new System.EventHandler(this.btnDodajNarzedzie_Click);
+            this.btnDodajMaszyna.BackColor = System.Drawing.Color.GreenYellow;
+            this.btnDodajMaszyna.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnDodajMaszyna.Location = new System.Drawing.Point(359, 132);
+            this.btnDodajMaszyna.Name = "btnDodajMaszyna";
+            this.btnDodajMaszyna.Size = new System.Drawing.Size(148, 32);
+            this.btnDodajMaszyna.TabIndex = 43;
+            this.btnDodajMaszyna.Text = "Dodaj nową maszynę";
+            this.btnDodajMaszyna.UseVisualStyleBackColor = false;
+            this.btnDodajMaszyna.Click += new System.EventHandler(this.btnDodajMaszyna_Click);
             // 
-            // lvlZamowienieNarzedzia
+            // lvlZamowienieMaszyna
             // 
-            this.lvlZamowienieNarzedzia.AutoSize = true;
-            this.lvlZamowienieNarzedzia.BackColor = System.Drawing.Color.Transparent;
-            this.lvlZamowienieNarzedzia.Font = new System.Drawing.Font("Arial", 20F);
-            this.lvlZamowienieNarzedzia.Location = new System.Drawing.Point(14, 8);
-            this.lvlZamowienieNarzedzia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lvlZamowienieNarzedzia.Name = "lvlZamowienieNarzedzia";
-            this.lvlZamowienieNarzedzia.Size = new System.Drawing.Size(283, 32);
-            this.lvlZamowienieNarzedzia.TabIndex = 42;
-            this.lvlZamowienieNarzedzia.Text = "Zamówienie narzędzia";
+            this.lvlZamowienieMaszyna.AutoSize = true;
+            this.lvlZamowienieMaszyna.BackColor = System.Drawing.Color.Transparent;
+            this.lvlZamowienieMaszyna.Font = new System.Drawing.Font("Arial", 20F);
+            this.lvlZamowienieMaszyna.Location = new System.Drawing.Point(14, 8);
+            this.lvlZamowienieMaszyna.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lvlZamowienieMaszyna.Name = "lvlZamowienieMaszyna";
+            this.lvlZamowienieMaszyna.Size = new System.Drawing.Size(274, 32);
+            this.lvlZamowienieMaszyna.TabIndex = 42;
+            this.lvlZamowienieMaszyna.Text = "Zamówienie maszyny";
             // 
-            // dgvZamowienieNarzedzia
+            // dgvZamowienieMaszyna
             // 
-            this.dgvZamowienieNarzedzia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvZamowienieNarzedzia.Location = new System.Drawing.Point(14, 232);
-            this.dgvZamowienieNarzedzia.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvZamowienieNarzedzia.Name = "dgvZamowienieNarzedzia";
-            this.dgvZamowienieNarzedzia.RowHeadersWidth = 51;
-            this.dgvZamowienieNarzedzia.Size = new System.Drawing.Size(772, 208);
-            this.dgvZamowienieNarzedzia.TabIndex = 41;
+            this.dgvZamowienieMaszyna.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvZamowienieMaszyna.Location = new System.Drawing.Point(14, 232);
+            this.dgvZamowienieMaszyna.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvZamowienieMaszyna.Name = "dgvZamowienieMaszyna";
+            this.dgvZamowienieMaszyna.RowHeadersWidth = 51;
+            this.dgvZamowienieMaszyna.Size = new System.Drawing.Size(772, 208);
+            this.dgvZamowienieMaszyna.TabIndex = 41;
             // 
-            // FormResDepZamowienieNarzedzia
+            // FormResDepZamowienieMaszyny
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(801, 498);
+            this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
+            this.ClientSize = new System.Drawing.Size(800, 498);
             this.Controls.Add(this.btnDodajZamowienie);
             this.Controls.Add(this.btnDodajProducenta);
             this.Controls.Add(this.btnDodajDostawca);
             this.Controls.Add(this.txtCena);
-            this.Controls.Add(this.numSztuk);
+            this.Controls.Add(this.numIlosc);
             this.Controls.Add(this.lblCena);
-            this.Controls.Add(this.lblSztuk);
+            this.Controls.Add(this.lblIlosc);
             this.Controls.Add(this.cmbProducent);
             this.Controls.Add(this.lblProducent);
-            this.Controls.Add(this.cmbNarzedzie);
+            this.Controls.Add(this.cmbMaszyna);
             this.Controls.Add(this.cmbDostawca);
             this.Controls.Add(this.cmbPracownik);
-            this.Controls.Add(this.lblNarzedzie);
+            this.Controls.Add(this.lblMaszyna);
             this.Controls.Add(this.lblDostawca);
             this.Controls.Add(this.lblPracownik);
-            this.Controls.Add(this.btnDodajNarzedzie);
-            this.Controls.Add(this.lvlZamowienieNarzedzia);
-            this.Controls.Add(this.dgvZamowienieNarzedzia);
+            this.Controls.Add(this.btnDodajMaszyna);
+            this.Controls.Add(this.lvlZamowienieMaszyna);
+            this.Controls.Add(this.dgvZamowienieMaszyna);
+            this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormResDepZamowienieNarzedzia";
+            this.Name = "FormResDepZamowienieMaszyny";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Zamówienie narzędzia";
-            ((System.ComponentModel.ISupportInitialize)(this.numSztuk)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienieNarzedzia)).EndInit();
+            this.Text = "Zamówienia Maszyny";
+            ((System.ComponentModel.ISupportInitialize)(this.numIlosc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienieMaszyna)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -285,19 +289,19 @@
         private System.Windows.Forms.Button btnDodajProducenta;
         private System.Windows.Forms.Button btnDodajDostawca;
         private System.Windows.Forms.TextBox txtCena;
-        private System.Windows.Forms.NumericUpDown numSztuk;
+        private System.Windows.Forms.NumericUpDown numIlosc;
         private System.Windows.Forms.Label lblCena;
-        private System.Windows.Forms.Label lblSztuk;
+        private System.Windows.Forms.Label lblIlosc;
         private System.Windows.Forms.ComboBox cmbProducent;
         private System.Windows.Forms.Label lblProducent;
-        private System.Windows.Forms.ComboBox cmbNarzedzie;
+        private System.Windows.Forms.ComboBox cmbMaszyna;
         private System.Windows.Forms.ComboBox cmbDostawca;
         private System.Windows.Forms.ComboBox cmbPracownik;
-        private System.Windows.Forms.Label lblNarzedzie;
+        private System.Windows.Forms.Label lblMaszyna;
         private System.Windows.Forms.Label lblDostawca;
         private System.Windows.Forms.Label lblPracownik;
-        private System.Windows.Forms.Button btnDodajNarzedzie;
-        private System.Windows.Forms.Label lvlZamowienieNarzedzia;
-        private System.Windows.Forms.DataGridView dgvZamowienieNarzedzia;
+        private System.Windows.Forms.Button btnDodajMaszyna;
+        private System.Windows.Forms.Label lvlZamowienieMaszyna;
+        private System.Windows.Forms.DataGridView dgvZamowienieMaszyna;
     }
 }

@@ -30,7 +30,7 @@ namespace KWZP2022
         }
         private void btnOrder_maszyna_Click(object sender, EventArgs e)
         {
-            FormResDepZamowieniaMaszyny zamowieniaMaszyna = new FormResDepZamowieniaMaszyny(db);
+            FormResDepZamowienieMaszyny zamowieniaMaszyna = new FormResDepZamowienieMaszyny(db);
             zamowieniaMaszyna.ShowDialog();
         }
         private void btnOrder_narzedzie_Click(object sender, EventArgs e)

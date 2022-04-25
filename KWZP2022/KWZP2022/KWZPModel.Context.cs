@@ -115,8 +115,10 @@ namespace KWZP2022
         public virtual DbSet<Zamowienie_narzedzie> Zamowienie_narzedzie { get; set; }
         public virtual DbSet<Zamowienie_szczegol> Zamowienie_szczegol { get; set; }
         public virtual DbSet<Zwrot> Zwrot { get; set; }
+        public virtual DbSet<v_Czesci> v_Czesci { get; set; }
         public virtual DbSet<v_Czynnosc_produkcyjna> v_Czynnosc_produkcyjna { get; set; }
         public virtual DbSet<v_Dane_adresowe_pracownik> v_Dane_adresowe_pracownik { get; set; }
+        public virtual DbSet<v_Dostawcy> v_Dostawcy { get; set; }
         public virtual DbSet<v_Email_pracownik> v_Email_pracownik { get; set; }
         public virtual DbSet<v_Etat> v_Etat { get; set; }
         public virtual DbSet<v_Klient> v_Klient { get; set; }
@@ -145,6 +147,8 @@ namespace KWZP2022
         public virtual DbSet<v_Magazyn_narzedzia_uzywane> v_Magazyn_narzedzia_uzywane { get; set; }
         public virtual DbSet<v_Magazyn_narzedzia_wszystko> v_Magazyn_narzedzia_wszystko { get; set; }
         public virtual DbSet<v_Magazyn_Produkty_Wytworzone> v_Magazyn_Produkty_Wytworzone { get; set; }
+        public virtual DbSet<v_Maszyna> v_Maszyna { get; set; }
+        public virtual DbSet<v_Material> v_Material { get; set; }
         public virtual DbSet<v_Nadgodziny> v_Nadgodziny { get; set; }
         public virtual DbSet<v_Nadgodziny_miesiac> v_Nadgodziny_miesiac { get; set; }
         public virtual DbSet<v_Nadgodziny_suma_miesiac> v_Nadgodziny_suma_miesiac { get; set; }
@@ -164,9 +168,11 @@ namespace KWZP2022
         public virtual DbSet<v_Proces_produkt_czynnosc> v_Proces_produkt_czynnosc { get; set; }
         public virtual DbSet<v_Proces_wytwarzanie_polprodukt> v_Proces_wytwarzanie_polprodukt { get; set; }
         public virtual DbSet<v_Proces_wytwarzanie_produkt> v_Proces_wytwarzanie_produkt { get; set; }
+        public virtual DbSet<v_Producenci> v_Producenci { get; set; }
         public virtual DbSet<v_Produkty_na_gwarancji> v_Produkty_na_gwarancji { get; set; }
         public virtual DbSet<v_Reklamacja> v_Reklamacja { get; set; }
         public virtual DbSet<v_Rodzaj_kontrola> v_Rodzaj_kontrola { get; set; }
+        public virtual DbSet<v_Rodzaj_parametr> v_Rodzaj_parametr { get; set; }
         public virtual DbSet<v_Sklad_maszyna> v_Sklad_maszyna { get; set; }
         public virtual DbSet<v_Sklad_polprodukt> v_Sklad_polprodukt { get; set; }
         public virtual DbSet<v_Sklad_produkt> v_Sklad_produkt { get; set; }

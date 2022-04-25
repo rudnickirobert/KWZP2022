@@ -58,7 +58,6 @@ namespace KWZP2022
                     txtCena.SelectionStart + 2 < txtCena.Text.Length;
             }
         }
-
         private void btnDodajZamowienie_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtCena.Text) || numIlosc.Value <= 0)
@@ -94,11 +93,20 @@ namespace KWZP2022
             }
 
         }
-
         private void btnDodajCzesc_Click(object sender, EventArgs e)
         {
             FormResDepCzesc czescForm = new FormResDepCzesc(db);
             czescForm.ShowDialog();
+        }
+        private void btnDodajDostawca_Click(object sender, EventArgs e)
+        {
+            FormResDepDostawca dostawcaForm = new FormResDepDostawca(db);
+            dostawcaForm.ShowDialog();
+        }
+        private void btnDodajProducenta_Click(object sender, EventArgs e)
+        {
+            FormResDepProducent producentForm = new FormResDepProducent(db);
+            producentForm.ShowDialog();
         }
     }
 }

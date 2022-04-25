@@ -96,5 +96,16 @@ namespace KWZP2022
                     MessageBox.Show("Poprawnie dodano zamówienie do bazy danych");
                 }
         }
+        private void btnDodajDostawca_Click(object sender, EventArgs e)
+        {
+            FormResDepDostawca dostawcaForm = new FormResDepDostawca(db);
+            dostawcaForm.ShowDialog();
+        }
+
+        private void btnDodajProducenta_Click(object sender, EventArgs e)
+        {
+            FormResDepProducent producentForm = new FormResDepProducent(db);
+            producentForm.ShowDialog();
+        }
     }
 }

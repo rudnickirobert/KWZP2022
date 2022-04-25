@@ -24,16 +24,9 @@ namespace KWZP2022
         }
         private void initDataGridView()
         {
-            dgvMaszyna.DataSource = db.Maszyna.ToList();
-            for (int i = 0; i < dgvMaszyna.Columns.Count; i++)
-            {
-                dgvMaszyna.Columns[i].Visible = false;
-            }
-            dgvMaszyna.Columns["ID_maszyna"].Visible = true;
-            dgvMaszyna.Columns[0].HeaderText = "ID";
-            dgvMaszyna.Columns["Nazwa_maszyna"].Visible = true;
-            dgvMaszyna.Columns["ID_rodzaj_maszyna"].Visible = true;
-            dgvMaszyna.Columns["Koszt_RBG"].Visible = true;
+            dgvMaszyna.DataSource = db.v_Maszyna.ToList();
+            dgvMaszyna.Columns[0].Visible = false;
+            dgvMaszyna.Columns[1].Visible = false;
             dgvMaszyna.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             this.dgvMaszyna.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
@@ -58,7 +51,6 @@ namespace KWZP2022
                     txtKosztRBG.SelectionStart + 2 < txtKosztRBG.Text.Length;
             }
         }
-
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             try
@@ -81,23 +73,32 @@ namespace KWZP2022
             }
             catch
             {
-                MessageBox.Show("Nie można dodać materiału.");
+                MessageBox.Show("Nie można dodać maszyny.");
             }
         }
-
         private void btnAktualizuj_Click(object sender, EventArgs e)
         {
-            this.dgvMaszyna.CurrentRow.Cells[1].Value = txtNazwaMaszyna.Text;
-            this.dgvMaszyna.CurrentRow.Cells[2].Value = (int)cmbRodzajMaszyna.SelectedValue;
-            db.SaveChanges();
-            initDataGridView();
+            if (this.dgvMaszyna.CurrentRow.Cells[0].Value != null)
+            {
+                int daneMaszyna = int.Parse(this.dgvMaszyna.CurrentRow.Cells[0].Value.ToString());
+                Maszyna daneMaszynaID = this.db.Maszyna.Single(a => a.ID_maszyna == daneMaszyna);
+                daneMaszynaID.Nazwa_maszyna = txtNazwaMaszyna.Text;
+                daneMaszynaID.ID_rodzaj_maszyna = (int)cmbRodzajMaszyna.SelectedValue;
+                daneMaszynaID.Koszt_RBG = Convert.ToDecimal(txtKosztRBG.Text);
+                db.SaveChanges();
+                initDataGridView();
+                MessageBox.Show("Zapisano zmiany!", "Informacja", MessageBoxButtons.OK);
+            }
+            else
+            {
+                MessageBox.Show("Nie zaznaczono maszyny!", "Błąd", MessageBoxButtons.OK);
+            }
         }
-
         private void btnUsun_Click(object sender, EventArgs e)
         {
             try
             {
-                DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz usunąć maszynę: " + this.dgvMaszyna.CurrentRow.Cells[1].Value + "?", "Question", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz usunąć maszynę: " + this.dgvMaszyna.CurrentRow.Cells[3].Value + "?", "Question", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     string current_maszyna = this.dgvMaszyna.CurrentRow.Cells[0].Value.ToString();
@@ -114,21 +115,20 @@ namespace KWZP2022
                 MessageBox.Show("Nie można usunąć maszyny, ponieważ jest obecnie wykorzystywana.");
             }
         }
-
         private void btnOdswiez_Click(object sender, EventArgs e)
         {
             initDataGridView();
             txtNazwaMaszyna.Clear();
             txtKosztRBG.Clear();
         }
-
         private void dgvMaszyna_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = this.dgvMaszyna.Rows[e.RowIndex];
-                txtNazwaMaszyna.Text = row.Cells[1].Value.ToString();
-                cmbRodzajMaszyna.SelectedValue = row.Cells[2].Value;
+                txtNazwaMaszyna.Text = row.Cells[3].Value.ToString();
+                cmbRodzajMaszyna.SelectedValue = row.Cells[1].Value;
+                txtKosztRBG.Text = row.Cells[4].Value.ToString();
             }
         }
     }

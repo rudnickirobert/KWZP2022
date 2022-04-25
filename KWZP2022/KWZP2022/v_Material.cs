@@ -12,14 +12,11 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Parametry_material
+    public partial class v_Material
     {
         public int ID_material { get; set; }
-        public int ID_rodzaj_parametr { get; set; }
+        public int ID_rodzaj_material { get; set; }
+        public string Rodzaj_materiału { get; set; }
         public string Nazwa_materiału { get; set; }
-        public string Parametr { get; set; }
-        public string Jednostka { get; set; }
-        public decimal Zakres___granica_dolna { get; set; }
-        public decimal Zakres___granica_górna { get; set; }
     }
 }
