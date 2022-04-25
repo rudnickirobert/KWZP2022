@@ -21,7 +21,7 @@ namespace KWZP2022
         }
         private void showData()
         {
-            var dane = from klient in db.Klient
+            var dane = from klient in db.Klients
                        select new
                        {
                            klient.ID_klient,
@@ -40,7 +40,7 @@ namespace KWZP2022
         {
             var dane = this.dgvClientRemove.CurrentRow.Cells[0].Value.ToString();
             int daneINT = int.Parse(dane);
-            Klient danyKlient = db.Klient.Single(a => a.ID_klient == daneINT);
+            Klient danyKlient = db.Klients.Single(a => a.ID_klient == daneINT);
             Dane_adresowe_klient daneKlientDaneAdresowe = db.Dane_adresowe_klient.Single(b => b.ID_klient == daneINT);
             Email_klient daneEmailKlient = db.Email_klient.Single(c => c.ID_klient == daneINT);
             Nr_telefon_klient daneNrTelKlient = db.Nr_telefon_klient.Single(d => d.ID_klient == daneINT);
@@ -49,7 +49,7 @@ namespace KWZP2022
                 DialogResult result = MessageBox.Show("Czy chcesz usunąć zaznaczony rekord?", "Pytanie", MessageBoxButtons.YesNo);
                 if(result == DialogResult.Yes)
                 {
-                    this.db.Klient.Remove(danyKlient);
+                    this.db.Klients.Remove(danyKlient);
                     this.db.Dane_adresowe_klient.Remove(daneKlientDaneAdresowe);
                     this.db.Nr_telefon_klient.Remove(daneNrTelKlient);
                     this.db.Email_klient.Remove(daneEmailKlient);

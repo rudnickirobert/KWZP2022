@@ -45,7 +45,7 @@ namespace KWZP2022
 
         private void ComboBox()
         {
-            cbWyksztalcenie.DataSource = this.db.Wyksztalcenie.ToList();
+            cbWyksztalcenie.DataSource = this.db.Wyksztalcenies.ToList();
             cbWyksztalcenie.ValueMember = "ID_wyksztalcenie";
             cbWyksztalcenie.DisplayMember = "Nazwa";
         }
@@ -61,7 +61,7 @@ namespace KWZP2022
                 pracownik.Nazwisko = tbPracownikNazwisko.Text;
                 pracownik.Imie = tbPracownikImie.Text;
                 pracownik.Nr_dowodu = tbNrdowodu.Text;
-                pracownik.Pesel = tbPesel.Text;
+                pracownik.Pesel = int.Parse(tbPesel.Text);
                 int selectedwyksztalcenie = int.Parse(cbWyksztalcenie.SelectedValue.ToString());
                 pracownik.ID_wyksztalcenie = selectedwyksztalcenie;
                 Dane_adresowe_pracownik dane_adresowe_pracownik = new Dane_adresowe_pracownik();
@@ -91,7 +91,7 @@ namespace KWZP2022
                 {
                     email_pracownik.Data_do = demaildo.Value;
                 }
-                db.Pracownik.Add(pracownik);
+                db.Pracowniks.Add(pracownik);
                 db.Dane_adresowe_pracownik.Add(dane_adresowe_pracownik);
                 db.Nr_telefon_pracownik.Add(nr_telefon_pracownik);
                 db.Email_pracownik.Add(email_pracownik);

@@ -32,7 +32,7 @@ namespace KWZP2022
         {
             var dane = this.dgvWorkerRemowe.CurrentRow.Cells[0].Value.ToString();
             var daneINT = int.Parse(dane);
-            Pracownik danypracownik = db.Pracownik.Single(a => a.ID_pracownik == daneINT);
+            Pracownik danypracownik = db.Pracowniks.Single(a => a.ID_pracownik == daneINT);
             Dane_adresowe_pracownik danepracownikdaneadresowe = db.Dane_adresowe_pracownik.Single(b => b.ID_pracownik == daneINT);
             Email_pracownik daneemailpracownik = db.Email_pracownik.Single(c => c.ID_pracownik == daneINT);
             Nr_telefon_pracownik danenrtelpracownik = db.Nr_telefon_pracownik.Single(d => d.ID_pracownik == daneINT);
@@ -41,7 +41,7 @@ namespace KWZP2022
                 DialogResult result = MessageBox.Show("Czy chcesz usunąć zaznaczony rekord?", "Pytanie", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
-                    this.db.Pracownik.Remove(danypracownik);
+                    this.db.Pracowniks.Remove(danypracownik);
                     this.db.Dane_adresowe_pracownik.Remove(danepracownikdaneadresowe);
                     this.db.Nr_telefon_pracownik.Remove(danenrtelpracownik);
                     this.db.Email_pracownik.Remove(daneemailpracownik);

@@ -22,7 +22,7 @@ namespace KWZP2022
 
         private void initDataGridView()
         {
-            dgvProdukt.DataSource = db.Produkt.ToList();
+            dgvProdukt.DataSource = db.Produkts.ToList();
             dgvProdukt.Columns["Parametr_produkt"].Visible = false;
             dgvProdukt.Columns["Proces_produkt_czynnosc"].Visible = false;
             dgvProdukt.Columns["Sklad_produkt"].Visible = false;
@@ -39,7 +39,7 @@ namespace KWZP2022
         {
             Produkt produkt = new Produkt();
             produkt.Nazwa_produkt = txtNazwaProdukt.Text;
-            db.Produkt.Add(produkt);
+            db.Produkts.Add(produkt);
             db.SaveChanges();
             initDataGridView();
             MessageBox.Show("Poprawnie dodano " + produkt.Nazwa_produkt + " do bazy danych");
@@ -51,7 +51,7 @@ namespace KWZP2022
             if (dialogResult == DialogResult.Yes)
             {
                 string current_product = this.dgvProdukt.CurrentRow.Cells[1].Value.ToString();
-                db.Produkt.Remove(db.Produkt.Where(product => product.Nazwa_produkt == current_product).First());
+                db.Produkts.Remove(db.Produkts.Where(product => product.Nazwa_produkt == current_product).First());
                 db.SaveChanges();
                 initDataGridView();
                 txtNazwaProdukt.Text = "";

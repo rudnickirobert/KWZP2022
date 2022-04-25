@@ -17,7 +17,7 @@ namespace KWZP2022
         {
             InitializeComponent();
             this.db = db;            
-            cmbPracownik.DataSource = db.Pracownik.ToList();
+            cmbPracownik.DataSource = db.Pracowniks.ToList();
             cmbPracownik.DisplayMember = "Nazwisko";         
             cmbPracownik.ValueMember = "ID_pracownik";
             cmbNieobecnosc.DataSource = db.Rodzaj_nieobecnosci.ToList();
@@ -39,7 +39,7 @@ namespace KWZP2022
             nieobecnosc.ID_rodzaj_nieobecnosci = (int)cmbNieobecnosc.SelectedValue;
             nieobecnosc.Data_od = dtOD.Value;
             nieobecnosc.Data_do = dtDO.Value;
-            db.Nieobecnosc.Add(nieobecnosc);
+            db.Nieobecnoscs.Add(nieobecnosc);
             db.SaveChanges();            
             initDataGridView();
             MessageBox.Show("Poprawnie dodano nieobecność do bazy danych");

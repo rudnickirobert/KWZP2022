@@ -18,7 +18,7 @@ namespace KWZP2022
             InitializeComponent();
             this.db = db;
             Umowa umowa = new Umowa();
-            cbPracownik.DataSource = db.Pracownik.ToList();
+            cbPracownik.DataSource = db.Pracowniks.ToList();
             cbPracownik.DisplayMember = "Nazwisko";
             cbPracownik.ValueMember = "ID_pracownik";
             cbWymiarPracy.DataSource = db.Wymiar_pracy.ToList();
@@ -27,10 +27,10 @@ namespace KWZP2022
             cbRodzajUmowy.DataSource = db.Rodzaj_umowy.ToList();
             cbRodzajUmowy.DisplayMember = "Nazwa";
             cbRodzajUmowy.ValueMember = "ID_rodzaj_umowy";
-            cbDzial.DataSource = db.Dzial.ToList();
+            cbDzial.DataSource = db.Dzials.ToList();
             cbDzial.DisplayMember = "Nazwa_dzial";
             cbDzial.ValueMember = "ID_dzial";
-            cbStanowisko.DataSource = db.Stanowisko.ToList();
+            cbStanowisko.DataSource = db.Stanowiskoes.ToList();
             cbStanowisko.DisplayMember = "Nazwa_stanowiska";
             cbStanowisko.ValueMember = "ID_stanowisko";            
             showData();
@@ -67,9 +67,9 @@ namespace KWZP2022
                 {
                     posada_pracownika.Data_od = dpracownikdo.Value;
                 }                
-                db.Umowa.Add(umowa);
+                db.Umowas.Add(umowa);
                 db.Posada_pracownika.Add(posada_pracownika);
-                db.Etat.Add(etat);                
+                db.Etats.Add(etat);                
                 db.SaveChanges();
                 cleanTextBox();
                 showData();

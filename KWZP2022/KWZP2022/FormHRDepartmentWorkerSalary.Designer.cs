@@ -80,7 +80,6 @@
             this.Controls.Add(this.dgvsalary);
             this.Name = "FormHRDepartmentWorkerSalary";
             this.Text = "Wynagrodzenie";
-            this.Load += new System.EventHandler(this.FormHRDepartmentWorkerSalary_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvsalary)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

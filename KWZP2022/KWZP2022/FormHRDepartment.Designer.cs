@@ -44,6 +44,7 @@ namespace KWZP2022
             this.btnChangedata = new System.Windows.Forms.Button();
             this.btnContract = new System.Windows.Forms.Button();
             this.dgvWorker = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorker)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,7 +96,7 @@ namespace KWZP2022
             // 
             this.tbImie.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.tbImie.Location = new System.Drawing.Point(176, 58);
-            this.tbImie.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbImie.Margin = new System.Windows.Forms.Padding(2);
             this.tbImie.Name = "tbImie";
             this.tbImie.Size = new System.Drawing.Size(152, 26);
             this.tbImie.TabIndex = 11;
@@ -104,7 +105,7 @@ namespace KWZP2022
             // 
             this.tbNazwisko.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.tbNazwisko.Location = new System.Drawing.Point(176, 154);
-            this.tbNazwisko.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbNazwisko.Margin = new System.Windows.Forms.Padding(2);
             this.tbNazwisko.Name = "tbNazwisko";
             this.tbNazwisko.Size = new System.Drawing.Size(152, 26);
             this.tbNazwisko.TabIndex = 12;
@@ -113,7 +114,7 @@ namespace KWZP2022
             // 
             this.tbDzial.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.tbDzial.Location = new System.Drawing.Point(176, 246);
-            this.tbDzial.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbDzial.Margin = new System.Windows.Forms.Padding(2);
             this.tbDzial.Name = "tbDzial";
             this.tbDzial.Size = new System.Drawing.Size(152, 26);
             this.tbDzial.TabIndex = 13;
@@ -122,7 +123,7 @@ namespace KWZP2022
             // 
             this.tbStanowisko.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.tbStanowisko.Location = new System.Drawing.Point(176, 327);
-            this.tbStanowisko.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbStanowisko.Margin = new System.Windows.Forms.Padding(2);
             this.tbStanowisko.Name = "tbStanowisko";
             this.tbStanowisko.Size = new System.Drawing.Size(152, 26);
             this.tbStanowisko.TabIndex = 14;
@@ -131,7 +132,7 @@ namespace KWZP2022
             // 
             this.btnSearch.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.btnSearch.Location = new System.Drawing.Point(454, 59);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(151, 24);
             this.btnSearch.TabIndex = 15;
@@ -143,7 +144,7 @@ namespace KWZP2022
             // 
             this.btnRefresh.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.btnRefresh.Location = new System.Drawing.Point(454, 150);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(151, 24);
             this.btnRefresh.TabIndex = 16;
@@ -154,7 +155,7 @@ namespace KWZP2022
             // 
             this.btnAddnew.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.btnAddnew.Location = new System.Drawing.Point(697, 59);
-            this.btnAddnew.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddnew.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddnew.Name = "btnAddnew";
             this.btnAddnew.Size = new System.Drawing.Size(151, 24);
             this.btnAddnew.TabIndex = 17;
@@ -166,7 +167,7 @@ namespace KWZP2022
             // 
             this.btnChangedata.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.btnChangedata.Location = new System.Drawing.Point(697, 152);
-            this.btnChangedata.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnChangedata.Margin = new System.Windows.Forms.Padding(2);
             this.btnChangedata.Name = "btnChangedata";
             this.btnChangedata.Size = new System.Drawing.Size(151, 24);
             this.btnChangedata.TabIndex = 18;
@@ -177,7 +178,7 @@ namespace KWZP2022
             // 
             this.btnContract.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.btnContract.Location = new System.Drawing.Point(697, 245);
-            this.btnContract.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnContract.Margin = new System.Windows.Forms.Padding(2);
             this.btnContract.Name = "btnContract";
             this.btnContract.Size = new System.Drawing.Size(151, 24);
             this.btnContract.TabIndex = 19;
@@ -189,12 +190,22 @@ namespace KWZP2022
             // 
             this.dgvWorker.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvWorker.Location = new System.Drawing.Point(9, 282);
-            this.dgvWorker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvWorker.Margin = new System.Windows.Forms.Padding(2);
             this.dgvWorker.Name = "dgvWorker";
             this.dgvWorker.RowHeadersWidth = 51;
             this.dgvWorker.RowTemplate.Height = 24;
             this.dgvWorker.Size = new System.Drawing.Size(1246, 334);
             this.dgvWorker.TabIndex = 20;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1083, 95);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormHRDepartment
             // 
@@ -203,6 +214,7 @@ namespace KWZP2022
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1264, 711);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvWorker);
             this.Controls.Add(this.btnContract);
             this.Controls.Add(this.btnChangedata);
@@ -242,5 +254,6 @@ namespace KWZP2022
         private System.Windows.Forms.Button btnChangedata;
         private System.Windows.Forms.Button btnContract;
         private System.Windows.Forms.DataGridView dgvWorker;
+        private System.Windows.Forms.Button button1;
     }
 }

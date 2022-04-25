@@ -27,7 +27,7 @@ namespace KWZP2022
         }
         private void showData()
         {
-            var dane = from klient in db.Klient
+            var dane = from klient in db.Klients
                        select new
                        {
                            klient.ID_klient,
@@ -53,7 +53,7 @@ namespace KWZP2022
         private void dgvClientID_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             int daneKlient = int.Parse(this.dgvClientID.CurrentRow.Cells[0].Value.ToString());
-            Klient daneKlientKlient = this.db.Klient.Single(a => a.ID_klient == daneKlient);
+            Klient daneKlientKlient = this.db.Klients.Single(a => a.ID_klient == daneKlient);
             Dane_adresowe_klient daneKlientDaneAdresowe = this.db.Dane_adresowe_klient.Single(a => a.ID_klient == daneKlient);
             Nr_telefon_klient daneKlientNrTel = this.db.Nr_telefon_klient.Single(a => a.ID_klient == daneKlient);
             Email_klient daneKlientEmail = this.db.Email_klient.Single(a => a.ID_klient == daneKlient);
@@ -98,7 +98,7 @@ namespace KWZP2022
                 try
                 {
                     int daneKlient = int.Parse(this.dgvClientID.CurrentRow.Cells[0].Value.ToString());
-                    Klient daneKlientKlient = this.db.Klient.Single(a => a.ID_klient == daneKlient);
+                    Klient daneKlientKlient = this.db.Klients.Single(a => a.ID_klient == daneKlient);
                     daneKlientKlient.Nazwisko = textBox2Name.Text;
                     daneKlientKlient.Imie = textBox1Name.Text;
                     daneKlientKlient.NIP = textBoxNIP.Text;

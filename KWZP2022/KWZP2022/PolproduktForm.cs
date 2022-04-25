@@ -38,7 +38,7 @@ namespace KWZP2022
         private void initDataGridViewProdukt()
         {
             
-            dgvProdukt.DataSource = db.Produkt.ToList();
+            dgvProdukt.DataSource = db.Produkts.ToList();
             this.dgvProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dgvProdukt.Columns["Parametr_produkt"].Visible = false;
             dgvProdukt.Columns["Proces_produkt_czynnosc"].Visible = false;
@@ -95,7 +95,7 @@ namespace KWZP2022
             if (dialogResult == DialogResult.Yes)
             {
                 string current_polprodukt = this.dgvSkladProdukt.CurrentRow.Cells[1].Value.ToString();
-                db.Produkt.Remove(db.Produkt.Where(product => product.Nazwa_produkt == current_polprodukt).First());
+                db.Produkts.Remove(db.Produkts.Where(product => product.Nazwa_produkt == current_polprodukt).First());
                 db.SaveChanges();
 
                 initDataGridViewPolprodukt();

@@ -28,7 +28,7 @@ namespace KWZP2022
 
         private void ComboBox()
         {
-            cbProdukt.DataSource = this.db.Produkt.ToList();
+            cbProdukt.DataSource = this.db.Produkts.ToList();
             cbProdukt.ValueMember = "ID_produkt";
             cbProdukt.DisplayMember = "Nazwa_produkt";
             cbCzynnoscProdukcyjna.DataSource = this.db.Czynnosc_produkcyjna.ToList();
@@ -48,7 +48,7 @@ namespace KWZP2022
                 czynnosc_produkcyjna.Nazwa = cbCzynnoscProdukcyjna.Text;
                 Proces_produkt_czynnosc proces = new Proces_produkt_czynnosc();
                 proces.Czas_trwania = Int32.Parse(cbSzacowanyCzas.Text);
-                db.Produkt.Add(produkt);
+                db.Produkts.Add(produkt);
                 db.Czynnosc_produkcyjna.Add(czynnosc_produkcyjna);
                 db.Proces_produkt_czynnosc.Add(proces);
                 db.SaveChanges();

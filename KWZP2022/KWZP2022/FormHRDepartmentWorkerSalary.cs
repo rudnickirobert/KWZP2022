@@ -37,11 +37,6 @@ namespace KWZP2022
             this.dgvsalary.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 
-        private void FormHRDepartmentWorkerSalary_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string choose = "";
@@ -77,18 +72,18 @@ namespace KWZP2022
         }
         private void wprowadzrok()
         {
-            System.Linq.IQueryable rok = db.v_Koszt_godziny_pracy.Where(a => a.Rok.ToString() == tbyear.Text);
-            int rokInt = rok.Cast<v_Koszt_godziny_pracy>().Count();
-            if (rokInt > 0)
-            {
-                this.dgvsalary.DataSource = rok.Cast<v_Koszt_godziny_pracy>().ToList();
-                this.dgvsalary.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-                cleanTextBox();
-            }
-            else
-            {
-                msgCleanShowData();
-            }
+            //System.Linq.IQueryable rok = db.v_Koszt_godziny_pracy.Where(a => a.rok.ToString() == tbyear.Text);
+            //int rokInt = rok.Cast<v_Koszt_godziny_pracy>().Count();
+            //if (rokInt > 0)
+            //{
+            //    this.dgvsalary.DataSource = rok.Cast<v_Koszt_godziny_pracy>().ToList();
+            //    this.dgvsalary.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            //    cleanTextBox();
+            //}
+            //else
+            //{
+            //    msgCleanShowData();
+            //}
         }
     }
 }

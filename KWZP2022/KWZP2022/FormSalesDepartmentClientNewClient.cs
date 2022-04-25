@@ -70,7 +70,7 @@ namespace KWZP2022
                 {
                     email_Klient.Data_do = dtpTelDate2.Value;
                 }
-                db.Klient.Add(klient);
+                db.Klients.Add(klient);
                 db.Dane_adresowe_klient.Add(dane_Adresowe_Klient);
                 db.Nr_telefon_klient.Add(nr_Telefon_Klient);
                 db.Email_klient.Add(email_Klient);
