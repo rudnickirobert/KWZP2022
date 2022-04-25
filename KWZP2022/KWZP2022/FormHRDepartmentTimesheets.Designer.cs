@@ -153,7 +153,6 @@
             this.Controls.Add(this.label1);
             this.Name = "FormHRDepartmentTimesheets";
             this.Text = "Nieobecność";
-            this.Load += new System.EventHandler(this.FormHRDepartmentTimesheets_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNieobecnosc)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

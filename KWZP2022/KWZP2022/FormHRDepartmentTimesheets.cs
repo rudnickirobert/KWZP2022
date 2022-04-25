@@ -44,9 +44,5 @@ namespace KWZP2022
             initDataGridView();
             MessageBox.Show("Poprawnie dodano nieobecność do bazy danych");
         }
-        private void FormHRDepartmentTimesheets_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

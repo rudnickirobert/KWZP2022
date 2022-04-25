@@ -60,34 +60,34 @@ namespace KWZP2022
                 pracownik.Pesel = tbPesel.Text;
                 int selectedwyksztalcenie = int.Parse(cbWyksztalcenie.SelectedValue.ToString());
                 pracownik.ID_wyksztalcenie = selectedwyksztalcenie;
-                Dane_adresowe_pracownik dane_adresowe_pracownik = new Dane_adresowe_pracownik();
-                dane_adresowe_pracownik.Miejscowosc = tbMiejscowosc.Text;
-                dane_adresowe_pracownik.Ulica = tbUlica.Text;
-                dane_adresowe_pracownik.Nr_budynku = tbBudynek.Text;               
-                dane_adresowe_pracownik.Nr_lokalu = tblokal.Text;                
-                dane_adresowe_pracownik.Data_od = dpracownikod.Value;
-                if (checkBox1.Checked is true)
+                Dane_adresowe_pracownik daneAdresowePracownik = new Dane_adresowe_pracownik();
+                daneAdresowePracownik.Miejscowosc = tbMiejscowosc.Text;
+                daneAdresowePracownik.Ulica = tbUlica.Text;
+                daneAdresowePracownik.Nr_budynku = tbBudynek.Text;               
+                daneAdresowePracownik.Nr_lokalu = tblokal.Text;                
+                daneAdresowePracownik.Data_od = dpracownikod.Value;
+                if (cbDataDo.Checked is true)
                 {
-                    dane_adresowe_pracownik.Data_do = dpracownikdo.Value;
+                    daneAdresowePracownik.Data_do = dpracownikdo.Value;
                 }
-                Nr_telefon_pracownik nr_telefon_pracownik = new Nr_telefon_pracownik();
-                nr_telefon_pracownik.Numer = tbNumer.Text;
-                nr_telefon_pracownik.Data_od = dnrod.Value;
-                if (checkBox2.Checked is true)
+                Nr_telefon_pracownik nrTelefonPracownik = new Nr_telefon_pracownik();
+                nrTelefonPracownik.Numer = tbNumer.Text;
+                nrTelefonPracownik.Data_od = dnrod.Value;
+                if (cbNrTelefonuDataDo.Checked is true)
                 {
-                    nr_telefon_pracownik.Data_do = dnrdo.Value;
+                    nrTelefonPracownik.Data_do = dnrdo.Value;
                 }
-                Email_pracownik email_pracownik = new Email_pracownik();
-                email_pracownik.Email = tbNumer.Text;
-                email_pracownik.Data_od = demailod.Value;
-                if (checkBox3.Checked is true)
+                Email_pracownik emailPracownik = new Email_pracownik();
+                emailPracownik.Email = tbNumer.Text;
+                emailPracownik.Data_od = demailod.Value;
+                if (cbEmailDataDo.Checked is true)
                 {
-                    email_pracownik.Data_do = demaildo.Value;
+                    emailPracownik.Data_do = demaildo.Value;
                 }
                 db.Pracownik.Add(pracownik);
-                db.Dane_adresowe_pracownik.Add(dane_adresowe_pracownik);
-                db.Nr_telefon_pracownik.Add(nr_telefon_pracownik);
-                db.Email_pracownik.Add(email_pracownik);
+                db.Dane_adresowe_pracownik.Add(daneAdresowePracownik);
+                db.Nr_telefon_pracownik.Add(nrTelefonPracownik);
+                db.Email_pracownik.Add(emailPracownik);
                 db.SaveChanges();
                 cleanTextBox();
                 showData();

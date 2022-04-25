@@ -69,21 +69,21 @@ namespace KWZP2022
                     dane_adresowe_pracownik.Nr_lokalu = tblokal.Text;
                 }
                 dane_adresowe_pracownik.Data_od = dpracownikod.Value;
-                if (checkBox1.Checked is true)
+                if (cbDataDo.Checked is true)
                 {
                     dane_adresowe_pracownik.Data_do = dpracownikdo.Value;
                 }
                 Nr_telefon_pracownik nr_telefon_pracownik = new Nr_telefon_pracownik();
                 nr_telefon_pracownik.Numer = tbNumer.Text;
                 nr_telefon_pracownik.Data_od = dnrod.Value;
-                if (checkBox2.Checked is true)
+                if (cbNrTelefonuDataDo.Checked is true)
                 {
                     nr_telefon_pracownik.Data_do = dnrdo.Value;
                 }
                 Email_pracownik email_pracownik = new Email_pracownik();
                 email_pracownik.Email = tbNumer.Text;
                 email_pracownik.Data_od = demailod.Value;
-                if (checkBox3.Checked is true)
+                if (cbEmailDataDo.Checked is true)
                 {
                     email_pracownik.Data_do = demaildo.Value;
                 }

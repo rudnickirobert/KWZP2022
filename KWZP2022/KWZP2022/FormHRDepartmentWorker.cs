@@ -54,11 +54,11 @@ namespace KWZP2022
         }        
         private void enterSurname()
         {
-            System.Linq.IQueryable vWorkerName = db.v_Umowa.Where(a => a.Imię == tbImie.Text);
-            int vWorkerNameInt = vWorkerName.Cast<v_Umowa>().Count();
+            System.Linq.IQueryable vWorkerSurname = db.v_Umowa.Where(a => a.Imię == tbImie.Text);
+            int vWorkerNameInt = vWorkerSurname.Cast<v_Umowa>().Count();
             if (vWorkerNameInt > 0)
             {
-                this.dgvWorker.DataSource = vWorkerName.Cast<v_Umowa>().ToList();
+                this.dgvWorker.DataSource = vWorkerSurname.Cast<v_Umowa>().ToList();
                 this.dgvWorker.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                 cleanTextBox();
             }
@@ -69,11 +69,11 @@ namespace KWZP2022
         }
         private void enterName()
         {
-            System.Linq.IQueryable vWorkerSurname = db.v_Umowa.Where(a => a.Nazwisko == tbNazwisko.Text);
-            int vWorkerSurnameInt = vWorkerSurname.Cast<v_Umowa>().Count();
+            System.Linq.IQueryable vWorkerName = db.v_Umowa.Where(a => a.Nazwisko == tbNazwisko.Text);
+            int vWorkerSurnameInt = vWorkerName.Cast<v_Umowa>().Count();
             if (vWorkerSurnameInt > 0)
             {
-                this.dgvWorker.DataSource = vWorkerSurname.Cast<v_Umowa>().ToList();
+                this.dgvWorker.DataSource = vWorkerName.Cast<v_Umowa>().ToList();
                 this.dgvWorker.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                 cleanTextBox();
             }
