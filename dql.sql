@@ -545,14 +545,21 @@ GO
 
 CREATE VIEW v_Wymiana_czesc
 AS
-SELECT Obsluga.ID_obsluga, Maszyna_nr_seryjny.ID_maszyna_nr, Czesc.ID_czesc, Obsluga.Data_od, Maszyna.Nazwa_maszyna, Nr_seryjny.Nr_seryjny, Czesc.Nazwa_czesc
+SELECT Obsluga.ID_obsluga, Maszyna_nr_seryjny.ID_maszyna_nr, Czesc.ID_czesc, Obsluga.Data_od, Obsluga.Data_do, Maszyna.Nazwa_maszyna, Nr_seryjny.Nr_seryjny, Czesc.Nazwa_czesc
 FROM Wymiana_czesc
 INNER JOIN Obsluga ON Wymiana_czesc.ID_obsluga = Obsluga.ID_obsluga
 INNER JOIN Czesc ON Wymiana_czesc.ID_czesc = Czesc.ID_czesc
 INNER JOIN Maszyna_nr_seryjny ON Wymiana_czesc.ID_maszyna_nr = Maszyna_nr_seryjny.ID_maszyna_nr
 INNER JOIN Maszyna ON Maszyna_nr_seryjny.ID_maszyna = Maszyna.ID_maszyna
 INNER JOIN Nr_seryjny ON Maszyna_nr_seryjny.ID_nr_seryjny = Nr_seryjny.ID_nr_seryjny
-GROUP BY Obsluga.ID_obsluga, Maszyna_nr_seryjny.ID_maszyna_nr, Czesc.ID_czesc, Obsluga.Data_od, Maszyna.Nazwa_maszyna, Nr_seryjny.Nr_seryjny, Czesc.Nazwa_czesc
+GROUP BY Obsluga.ID_obsluga, Maszyna_nr_seryjny.ID_maszyna_nr, Czesc.ID_czesc, Obsluga.Data_od, Obsluga.Data_do, Maszyna.Nazwa_maszyna, Nr_seryjny.Nr_seryjny, Czesc.Nazwa_czesc
+GO
+
+CREATE VIEW v_Wymiana_czesc_w_trakcie
+AS
+SELECT *
+FROM v_Wymiana_czesc
+WHERE Data_do IS NULL
 GO
 
 CREATE VIEW v_Zamowienia_czesci_w_trakcie_wszystko 
