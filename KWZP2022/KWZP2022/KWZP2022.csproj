@@ -932,10 +932,10 @@
     <Compile Include="v_Zamowienie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="v_Zamowienie_szczegol.cs">
+    <Compile Include="v_Zamowienie_produkcja.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="v_Zamowienie_produkcja.cs">
+    <Compile Include="v_Zamowienie_szczegol.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Zamowienie_szczegol_produkcja.cs">

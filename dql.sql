@@ -250,7 +250,7 @@ GO
 CREATE VIEW v_Zamowienie_produkcja AS
 SELECT Z.ID_zamowienie AS [ID], K.Nazwisko + ' ' + K.Imie + ' - ' + CONVERT(NVARCHAR,Z.Data_zamowienie) AS [Klient]
 FROM Zamowienie AS Z
-INNER JOIN Klient AS K ON K.ID_klient = Z.ID_zamowienie
+INNER JOIN Klient AS K ON K.ID_klient = Z.ID_klient
 INNER JOIN Pracownik AS P ON P.ID_pracownik = Z.ID_pracownik
 ORDER BY Data_zamowienie DESC OFFSET 0 ROWS
 GO

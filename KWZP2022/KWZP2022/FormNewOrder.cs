@@ -56,7 +56,7 @@ namespace KWZP2022
 
         private void btnNewProduct_Click(object sender, EventArgs e)
         {
-            ProduktForm produktForm = new ProduktForm(db);
+            FormProdukt produktForm = new FormProdukt(db);
             produktForm.ShowDialog();
         }
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -86,7 +86,7 @@ namespace KWZP2022
                     {
                         MessageBox.Show("Wprowadź nowy produkt", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         int counterProdutsBefore = this.db.Produkt.Count();
-                        ProduktForm produktForm = new ProduktForm(db);
+                        FormProdukt produktForm = new FormProdukt(db);
                         produktForm.ShowDialog();
                         int counterProdutsAfter = this.db.Produkt.Count();
                         if (counterProdutsAfter > counterProdutsBefore)
@@ -105,7 +105,7 @@ namespace KWZP2022
                             if (resultNewProduct == DialogResult.Yes)
                             {
                                 int counterProdutsBeforeAgain = this.db.Produkt.Count();
-                                ProduktForm produktFormAgain = new ProduktForm(db);
+                                FormProdukt produktFormAgain = new FormProdukt(db);
                                 produktForm.ShowDialog();
                                 int counterProdutsAfterAgain = this.db.Produkt.Count();
                                 if (counterProdutsAfterAgain > counterProdutsBeforeAgain)
