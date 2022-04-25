@@ -12,7 +12,7 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Proces_wytwarzanie_produkt
+    public partial class v_Wytworzone_produkty
     {
         public int ID { get; set; }
         public string Produkt { get; set; }

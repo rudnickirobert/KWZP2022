@@ -11,7 +11,7 @@ GO
 
 CREATE VIEW v_Parametry_produkt
 AS
-SELECT P.Nazwa_produkt AS [Produkt], RP.Nazwa_rodzaj_parametr AS [Parametr],
+SELECT ID_parametr_produkt, P.Nazwa_produkt AS [Produkt], RP.Nazwa_rodzaj_parametr AS [Parametr],
 PP.Zakres_dol AS [Wymiar minimalny], PP.Zakres_gora AS [Wymiar maksymalny], J.Skrot AS [Jednostka]
 FROM Parametr_produkt AS PP
 INNER JOIN Produkt AS P ON PP.ID_produkt = P.ID_produkt
@@ -21,7 +21,7 @@ GO
 
 CREATE VIEW v_Parametry_polprodukt
 AS
-SELECT SP.Nazwa AS [Nazwa półproduktu], RP.Nazwa_rodzaj_parametr AS [Parametr],
+SELECT ID_parametr_polprodukt, SP.Nazwa AS [Nazwa półproduktu], RP.Nazwa_rodzaj_parametr AS [Parametr],
 PPp.Zakres_dol AS [Wymiar minimalny], PPp.Zakres_gora AS [Wymiar maksymalny], J.Skrot AS [Jednostka]
 FROM Parametr_polprodukt AS PPp
 INNER JOIN Slownik_polprodukt AS SP ON PPp.ID_polprodukt = SP.ID_polprodukt
@@ -44,6 +44,16 @@ SP.Liczba AS [Waga {g}]
 FROM Sklad_polprodukt AS SP
 INNER JOIN Slownik_polprodukt AS SlwPp ON SP.ID_polprodukt = SlwPp.ID_polprodukt
 INNER JOIN Material AS M ON SP.ID_material = M.ID_material
+INNER JOIN Rodzaj_material AS RM ON M.ID_rodzaj_material = RM.ID_rodzaj_material
+GO
+
+CREATE VIEW v_Sklad_produkt_material
+AS
+SELECT ID_sklad_produkt_material, P.Nazwa_produkt AS [Produkt], M.Nazwa_material AS [Materiał], RM.Nazwa_rodzaj_material AS [Rodzaj],
+SPM.Liczba AS [Waga {g}]
+FROM Sklad_produkt_material AS SPM
+INNER JOIN Produkt AS P ON SPM.ID_produkt = P.ID_produkt
+INNER JOIN Material AS M ON SPM.ID_material = M.ID_material
 INNER JOIN Rodzaj_material AS RM ON M.ID_rodzaj_material = RM.ID_rodzaj_material
 GO
 
@@ -144,6 +154,27 @@ INNER JOIN Produkt AS P ON PP.ID_produkt = P.ID_produkt
 INNER JOIN Rodzaj_parametr AS RP ON PP.ID_rodzaj_parametr = RP.ID_rodzaj_parametr
 GO
 
+CREATE VIEW v_Kontrola_jakosci_kolejka
+AS 
+SELECT W.ID_wytwarzanie, P.Nazwa_produkt
+FROM Wytwarzanie AS W
+LEFT JOIN Kontrola_jakosci_produkt AS KJP ON W.ID_wytwarzanie = KJP.ID_wytwarzanie
+INNER JOIN Proces_wytwarzanie_produkt AS PWP ON  W.ID_wytwarzanie = PWP.ID_wytwarzanie
+INNER JOIN Proces_produkt_czynnosc AS PPPC ON PWP.ID_proces_produkt = PPPC.ID_proces_produkt
+INNER JOIN Produkt AS P ON PPPC.ID_produkt = P.ID_produkt
+WHERE W.Czas_do IS NOT NULL
+
+EXCEPT
+
+SELECT W.ID_wytwarzanie, P.Nazwa_produkt
+FROM Wytwarzanie AS W
+INNER JOIN Kontrola_jakosci_produkt AS KJP ON W.ID_wytwarzanie = KJP.ID_wytwarzanie
+INNER JOIN Proces_wytwarzanie_produkt AS PWP ON  W.ID_wytwarzanie = PWP.ID_wytwarzanie
+INNER JOIN Proces_produkt_czynnosc AS PPPC ON PWP.ID_proces_produkt = PPPC.ID_proces_produkt
+INNER JOIN Produkt AS P ON PPPC.ID_produkt = P.ID_produkt
+WHERE W.Czas_do IS NOT NULL
+GO
+
 CREATE VIEW v_Rodzaj_kontrola
 AS
 SELECT ID_rodzaj_kontrola AS ID, Rodzaj_kontrola AS [Rodzaj kontroli], Procedura AS [Procedura kontrolna]
@@ -226,16 +257,23 @@ GO
 
 CREATE VIEW v_Proces_wytwarzanie_produkt
 AS
-SELECT P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynność produkcyjna], Pr.Nazwisko + ' ' + Pr.Imie AS [Pracownik],
-SP.ID_stanowisko_produkcyjne, PPPC.Czas_trwania AS [Szacowany czas {min}],
+SELECT W.ID_wytwarzanie AS [ID], P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynność produkcyjna], Pr.Nazwisko + ' ' + Pr.Imie AS [Pracownik],
+SST.Nazwa_stanowiska AS [Stanowisko], PPPC.Czas_trwania AS [Szacowany czas {min}],
 W.Czas_od AS [Data rozpoczęcia], W.Czas_do AS [Data zakończenia]
 FROM Proces_wytwarzanie_produkt AS PWP
 INNER JOIN Wytwarzanie AS W ON PWP.ID_wytwarzanie = W.ID_wytwarzanie
 INNER JOIN Proces_produkt_czynnosc AS PPPC ON PWP.ID_proces_produkt = PPPC.ID_proces_produkt
 INNER JOIN Stanowisko_produkcyjne AS SP ON PWP.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
+INNER JOIN Slownik_stanowisko AS SST ON SP.ID_nazwa_stanowiska = SST.ID_nazwa_stanowiska
 INNER JOIN Czynnosc_produkcyjna AS CP ON PPPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
 INNER JOIN Produkt AS P ON PPPC.ID_produkt = P.ID_produkt
 INNER JOIN Pracownik AS Pr ON W.ID_pracownik = Pr.ID_pracownik
+GO
+
+CREATE VIEW v_Wytworzone_produkty
+AS
+SELECT * FROM v_Proces_wytwarzanie_produkt
+WHERE [Data zakończenia] <= GETDATE()
 GO
 
 CREATE VIEW v_Szacowany_czas_wytwarzania_produkt

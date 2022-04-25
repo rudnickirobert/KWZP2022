@@ -14,6 +14,7 @@ namespace KWZP2022
     
     public partial class v_Parametry_polprodukt
     {
+        public int ID_parametr_polprodukt { get; set; }
         public string Nazwa_półproduktu { get; set; }
         public string Parametr { get; set; }
         public decimal Wymiar_minimalny { get; set; }

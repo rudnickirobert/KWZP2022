@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace KWZP2022
 {
-    public partial class ProduktForm : Form
+    public partial class FormProdukt : Form
     {
         KWZPEntities db;
-        public ProduktForm(KWZPEntities db)
+        public FormProdukt(KWZPEntities db)
         {
             InitializeComponent();
             this.db = db;
@@ -43,6 +43,12 @@ namespace KWZP2022
             db.SaveChanges();
             initDataGridView();
             MessageBox.Show("Poprawnie dodano " + produkt.Nazwa_produkt + " do bazy danych");
+            DialogResult dialogResult = MessageBox.Show("Czy chcesz dodać parametr?", "Question", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                FormParametrProdukt parametrproduktForm = new FormParametrProdukt(db);
+                parametrproduktForm.ShowDialog();
+            }
         }
 
         private void btnUsun_Click(object sender, EventArgs e)
@@ -76,6 +82,18 @@ namespace KWZP2022
         private void dgvProdukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             txtNazwaProdukt.Text = this.dgvProdukt.CurrentRow.Cells[1].Value.ToString();
+        }
+
+        private void btnDodajParametrProdukt_Click(object sender, EventArgs e)
+        {
+            FormParametrProdukt parametrproduktForm = new FormParametrProdukt(db);
+            parametrproduktForm.ShowDialog();
+        }
+
+        private void btnDodajSkladProduktu_Click(object sender, EventArgs e)
+        {
+            FormSkladProduktMaterial skladproduktmaterialForm = new FormSkladProduktMaterial(db);
+            skladproduktmaterialForm.ShowDialog();
         }
     }
 }

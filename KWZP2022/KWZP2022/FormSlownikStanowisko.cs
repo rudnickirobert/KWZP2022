@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace KWZP2022
 {
-    public partial class SlownikStanowiskoForm : Form
+    public partial class FormSlownikStanowisko : Form
     {
         KWZPEntities db;
-        public SlownikStanowiskoForm(KWZPEntities db)
+        public FormSlownikStanowisko(KWZPEntities db)
         {
             InitializeComponent();
             this.db = db;
