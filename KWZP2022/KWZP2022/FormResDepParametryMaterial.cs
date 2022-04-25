@@ -74,9 +74,9 @@ namespace KWZP2022
             DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz usunąć parametr: " + this.dgvParametrMaterial.CurrentRow.Cells[3].Value + "?", "Question", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                string current_parametr = this.dgvParametrMaterial.CurrentRow.Cells[1].Value.ToString();
-                int daneINT = int.Parse(current_parametr);
-                Parametr_material parametrMaterial = db.Parametr_material.Single(a => a.ID_rodzaj_parametr == daneINT);
+                string currentParametr = this.dgvParametrMaterial.CurrentRow.Cells[1].Value.ToString();
+                int currentParametrINT = int.Parse(currentParametr);
+                Parametr_material parametrMaterial = db.Parametr_material.Single(a => a.ID_rodzaj_parametr == currentParametrINT);
                 this.db.Parametr_material.Remove(parametrMaterial);
                 db.SaveChanges();
                 initDataGridView();
@@ -94,12 +94,12 @@ namespace KWZP2022
                     }
                     else
                     {
-                        int daneParametrMaterial = int.Parse(this.dgvParametrMaterial.CurrentRow.Cells[1].Value.ToString());
-                        Parametr_material daneParametrMaterialID = this.db.Parametr_material.Single(a => a.ID_rodzaj_parametr == daneParametrMaterial);
-                        daneParametrMaterialID.ID_rodzaj_parametr = (int)cmbParametr.SelectedValue;
-                        daneParametrMaterialID.ID_material = (int)cmbMaterial.SelectedValue;
-                        daneParametrMaterialID.Zakres_gora = Convert.ToDecimal(txtZakresGora.Text);
-                        daneParametrMaterialID.Zakres_dol = Convert.ToDecimal(txtZakresDol.Text);
+                        int parametrMaterial = int.Parse(this.dgvParametrMaterial.CurrentRow.Cells[1].Value.ToString());
+                        Parametr_material parametrMaterialRP = this.db.Parametr_material.Single(a => a.ID_rodzaj_parametr == parametrMaterial);
+                        parametrMaterialRP.ID_rodzaj_parametr = (int)cmbParametr.SelectedValue;
+                        parametrMaterialRP.ID_material = (int)cmbMaterial.SelectedValue;
+                        parametrMaterialRP.Zakres_gora = Convert.ToDecimal(txtZakresGora.Text);
+                        parametrMaterialRP.Zakres_dol = Convert.ToDecimal(txtZakresDol.Text);
                         db.SaveChanges();
                         initDataGridView();
                         MessageBox.Show("Zapisano zmiany!", "Informacja", MessageBoxButtons.OK);
