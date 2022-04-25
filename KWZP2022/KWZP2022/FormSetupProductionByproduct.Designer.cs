@@ -32,15 +32,14 @@
             this.cbSzacowanyCzas = new System.Windows.Forms.ComboBox();
             this.cbCzynnoscProdukcyjna = new System.Windows.Forms.ComboBox();
             this.cbPolprodukt = new System.Windows.Forms.ComboBox();
-            this.btnAktualizujProces = new System.Windows.Forms.Button();
             this.btnDodajProces = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dtbDataStart = new System.Windows.Forms.DataGridView();
+            this.dgvDataStart = new System.Windows.Forms.DataGridView();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnAddActivity = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dtbDataStart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataStart)).BeginInit();
             this.SuspendLayout();
             // 
             // cbSzacowanyCzas
@@ -69,17 +68,6 @@
             this.cbPolprodukt.Name = "cbPolprodukt";
             this.cbPolprodukt.Size = new System.Drawing.Size(152, 21);
             this.cbPolprodukt.TabIndex = 42;
-            // 
-            // btnAktualizujProces
-            // 
-            this.btnAktualizujProces.BackColor = System.Drawing.Color.SkyBlue;
-            this.btnAktualizujProces.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnAktualizujProces.Location = new System.Drawing.Point(919, 126);
-            this.btnAktualizujProces.Name = "btnAktualizujProces";
-            this.btnAktualizujProces.Size = new System.Drawing.Size(334, 37);
-            this.btnAktualizujProces.TabIndex = 41;
-            this.btnAktualizujProces.Text = "Aktualizacja";
-            this.btnAktualizujProces.UseVisualStyleBackColor = false;
             // 
             // btnDodajProces
             // 
@@ -126,21 +114,22 @@
             this.label1.TabIndex = 33;
             this.label1.Text = "Półprodukt";
             // 
-            // dtbDataStart
+            // dgvDataStart
             // 
-            this.dtbDataStart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtbDataStart.Location = new System.Drawing.Point(11, 198);
-            this.dtbDataStart.Margin = new System.Windows.Forms.Padding(2);
-            this.dtbDataStart.Name = "dtbDataStart";
-            this.dtbDataStart.RowTemplate.Height = 24;
-            this.dtbDataStart.Size = new System.Drawing.Size(1242, 502);
-            this.dtbDataStart.TabIndex = 32;
+            this.dgvDataStart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDataStart.Location = new System.Drawing.Point(11, 198);
+            this.dgvDataStart.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvDataStart.Name = "dgvDataStart";
+            this.dgvDataStart.RowTemplate.Height = 24;
+            this.dgvDataStart.Size = new System.Drawing.Size(1242, 502);
+            this.dgvDataStart.TabIndex = 32;
+            this.dgvDataStart.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataStart_CellClick);
             // 
             // btnReset
             // 
-            this.btnReset.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnReset.BackColor = System.Drawing.Color.SkyBlue;
             this.btnReset.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnReset.Location = new System.Drawing.Point(419, 126);
+            this.btnReset.Location = new System.Drawing.Point(651, 131);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(334, 37);
             this.btnReset.TabIndex = 47;
@@ -171,15 +160,14 @@
             this.Controls.Add(this.cbSzacowanyCzas);
             this.Controls.Add(this.cbCzynnoscProdukcyjna);
             this.Controls.Add(this.cbPolprodukt);
-            this.Controls.Add(this.btnAktualizujProces);
             this.Controls.Add(this.btnDodajProces);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dtbDataStart);
+            this.Controls.Add(this.dgvDataStart);
             this.Name = "FormSetupProductionByproduct";
             this.Text = "FormSetupProductionByproduct";
-            ((System.ComponentModel.ISupportInitialize)(this.dtbDataStart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataStart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,12 +177,11 @@
         private System.Windows.Forms.ComboBox cbSzacowanyCzas;
         private System.Windows.Forms.ComboBox cbCzynnoscProdukcyjna;
         private System.Windows.Forms.ComboBox cbPolprodukt;
-        private System.Windows.Forms.Button btnAktualizujProces;
         private System.Windows.Forms.Button btnDodajProces;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dtbDataStart;
+        private System.Windows.Forms.DataGridView dgvDataStart;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnAddActivity;
     }

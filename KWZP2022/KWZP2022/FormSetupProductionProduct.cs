@@ -22,13 +22,6 @@ namespace KWZP2022
         }
         private void showData()
         {
-            var datavProces = from v_Proces_wytwarzanie_produkt in db.v_Proces_wytwarzanie_produkt
-                              select new
-                              {
-                                  v_Proces_wytwarzanie_produkt.Produkt,
-                                  v_Proces_wytwarzanie_produkt.Czynność_produkcyjna,
-                                  v_Proces_wytwarzanie_produkt.Szacowany_czas__min_,
-                              };
             dtbDataStart.DataSource = db.v_Proces_wytwarzanie_produkt.ToList();
             this.dtbDataStart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
@@ -59,7 +52,7 @@ namespace KWZP2022
                 db.Czynnosc_produkcyjna.Add(czynnosc_produkcyjna);
                 db.Proces_produkt_czynnosc.Add(proces);
                 db.SaveChanges();
-                MessageBox.Show("Dodano nowego klienta!", "Informacja", MessageBoxButtons.OK);
+                MessageBox.Show("Dodano nowy proces!", "Informacja", MessageBoxButtons.OK);
             }
         }
 

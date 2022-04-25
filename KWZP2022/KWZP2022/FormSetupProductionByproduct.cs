@@ -22,8 +22,8 @@ namespace KWZP2022
         }
         private void showData()
         {
-            dtbDataStart.DataSource = db.v_Proces_polprodukt_czynnosc.ToList();
-            this.dtbDataStart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDataStart.DataSource = db.v_Proces_polprodukt_czynnosc.ToList();
+            this.dgvDataStart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void ComboBox()
@@ -66,6 +66,14 @@ namespace KWZP2022
         {
             FormSetupProductionActivity formSetupProductionActivity = new FormSetupProductionActivity(db);
             formSetupProductionActivity.ShowDialog();
+        }
+
+
+        private void dgvDataStart_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id_proces_polprodukt = int.Parse(this.dgvDataStart.CurrentRow.Cells[0].Value.ToString());
+            Proces_polprodukt_czynnosc edycjaProces = this.db.Proces_polprodukt_czynnosc.Single(a => a.ID_czynnosc_produkcyjna == id_proces_polprodukt);
+            cbPolprodukt.Text = edycjaProces.Slownik_polprodukt.ToString();
         }
     }
 }

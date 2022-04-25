@@ -34,7 +34,6 @@ namespace KWZP2022
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnAktualizujProces = new System.Windows.Forms.Button();
             this.btnDodajPrcoes = new System.Windows.Forms.Button();
             this.cbProdukt = new System.Windows.Forms.ComboBox();
             this.cbCzynnoscProdukcyjna = new System.Windows.Forms.ComboBox();
@@ -87,17 +86,6 @@ namespace KWZP2022
             this.label5.TabIndex = 10;
             this.label5.Text = "Szacowany czas";
             // 
-            // btnAktualizujProces
-            // 
-            this.btnAktualizujProces.BackColor = System.Drawing.Color.SkyBlue;
-            this.btnAktualizujProces.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnAktualizujProces.Location = new System.Drawing.Point(879, 132);
-            this.btnAktualizujProces.Name = "btnAktualizujProces";
-            this.btnAktualizujProces.Size = new System.Drawing.Size(334, 37);
-            this.btnAktualizujProces.TabIndex = 22;
-            this.btnAktualizujProces.Text = "Aktualizacja";
-            this.btnAktualizujProces.UseVisualStyleBackColor = false;
-            // 
             // btnDodajPrcoes
             // 
             this.btnDodajPrcoes.BackColor = System.Drawing.Color.PaleGreen;
@@ -139,9 +127,9 @@ namespace KWZP2022
             // 
             // btnReset
             // 
-            this.btnReset.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnReset.BackColor = System.Drawing.Color.SkyBlue;
             this.btnReset.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnReset.Location = new System.Drawing.Point(477, 132);
+            this.btnReset.Location = new System.Drawing.Point(664, 134);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(334, 37);
             this.btnReset.TabIndex = 28;
@@ -173,7 +161,6 @@ namespace KWZP2022
             this.Controls.Add(this.cbSzacowanyCzas);
             this.Controls.Add(this.cbCzynnoscProdukcyjna);
             this.Controls.Add(this.cbProdukt);
-            this.Controls.Add(this.btnAktualizujProces);
             this.Controls.Add(this.btnDodajPrcoes);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
@@ -194,7 +181,6 @@ namespace KWZP2022
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnAktualizujProces;
         private System.Windows.Forms.Button btnDodajPrcoes;
         private System.Windows.Forms.ComboBox cbProdukt;
         private System.Windows.Forms.ComboBox cbCzynnoscProdukcyjna;

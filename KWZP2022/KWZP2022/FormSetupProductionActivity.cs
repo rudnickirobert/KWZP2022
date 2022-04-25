@@ -27,9 +27,13 @@ namespace KWZP2022
 
         private void btnAddActivity_Click(object sender, EventArgs e)
         {
-
-                
-           }
+            Czynnosc_produkcyjna czynnoscnew = new Czynnosc_produkcyjna();
+            czynnoscnew.Nazwa = txtActivity.Text;
+            db.Czynnosc_produkcyjna.Add(czynnoscnew);
+            db.SaveChanges();
+            MessageBox.Show("Zapisano zmiany!", "Informacja", MessageBoxButtons.OK);
+            ShowData();
+        }
 
 
 
