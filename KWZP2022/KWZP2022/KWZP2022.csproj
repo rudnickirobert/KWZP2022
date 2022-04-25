@@ -103,6 +103,36 @@
     <Compile Include="FormResDepCzesc.Designer.cs">
       <DependentUpon>FormResDepCzesc.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormResDepDostawca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepDostawca.Designer.cs">
+      <DependentUpon>FormResDepDostawca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResDepMagazynCzesci.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepMagazynCzesci.Designer.cs">
+      <DependentUpon>FormResDepMagazynCzesci.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResDepMagazynMaszyn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepMagazynMaszyn.Designer.cs">
+      <DependentUpon>FormResDepMagazynMaszyn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResDepMagazynMaterialow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepMagazynMaterialow.Designer.cs">
+      <DependentUpon>FormResDepMagazynMaterialow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResDepMagazynNarzedzi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepMagazynNarzedzi.Designer.cs">
+      <DependentUpon>FormResDepMagazynNarzedzi.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormResDepMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,11 +145,23 @@
     <Compile Include="FormResDepMaszyna.Designer.cs">
       <DependentUpon>FormResDepMaszyna.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormResDepZamowieniaMaszyny.cs">
+    <Compile Include="FormResDepParametryMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormResDepZamowieniaMaszyny.Designer.cs">
-      <DependentUpon>FormResDepZamowieniaMaszyny.cs</DependentUpon>
+    <Compile Include="FormResDepParametryMaterial.Designer.cs">
+      <DependentUpon>FormResDepParametryMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResDepProducent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepProducent.Designer.cs">
+      <DependentUpon>FormResDepProducent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResDepZamowienieMaszyny.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepZamowienieMaszyny.Designer.cs">
+      <DependentUpon>FormResDepZamowienieMaszyny.cs</DependentUpon>
     </Compile>
     <Compile Include="FormResDepNarzedzie.cs">
       <SubType>Form</SubType>
@@ -453,10 +495,16 @@
     <Compile Include="Umowa_sprzedaz.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Czesci.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Czynnosc_produkcyjna.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Dane_adresowe_pracownik.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Dostawcy.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Email_pracownik.cs">
@@ -540,6 +588,12 @@
     <Compile Include="v_Magazyn_Produkty_Wytworzone.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Maszyna.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Material.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Nadgodziny.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -597,6 +651,9 @@
     <Compile Include="v_Proces_wytwarzanie_produkt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Producenci.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Produkty_na_gwarancji.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -604,6 +661,9 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Rodzaj_kontrola.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Rodzaj_parametr.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Sklad_maszyna.cs">
@@ -732,14 +792,35 @@
     <EmbeddedResource Include="FormResDepCzesc.resx">
       <DependentUpon>FormResDepCzesc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepDostawca.resx">
+      <DependentUpon>FormResDepDostawca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepMagazynCzesci.resx">
+      <DependentUpon>FormResDepMagazynCzesci.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepMagazynMaszyn.resx">
+      <DependentUpon>FormResDepMagazynMaszyn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepMagazynMaterialow.resx">
+      <DependentUpon>FormResDepMagazynMaterialow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepMagazynNarzedzi.resx">
+      <DependentUpon>FormResDepMagazynNarzedzi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormResDepMaterial.resx">
       <DependentUpon>FormResDepMaterial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepMaszyna.resx">
       <DependentUpon>FormResDepMaszyna.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormResDepZamowieniaMaszyny.resx">
-      <DependentUpon>FormResDepZamowieniaMaszyny.cs</DependentUpon>
+    <EmbeddedResource Include="FormResDepParametryMaterial.resx">
+      <DependentUpon>FormResDepParametryMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepProducent.resx">
+      <DependentUpon>FormResDepProducent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepZamowienieMaszyny.resx">
+      <DependentUpon>FormResDepZamowienieMaszyny.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepNarzedzie.resx">
       <DependentUpon>FormResDepNarzedzie.cs</DependentUpon>

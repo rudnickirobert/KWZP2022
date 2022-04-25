@@ -629,29 +629,29 @@ VALUES
 
 INSERT INTO Dane_adresowe_dostawca (ID_dostawca, Miejscowosc, Ulica, Nr_budynku, Kod_pocztowy)
 VALUES
-(1,'Warszawa','Dzwigowa',12,01-376),
-(2,'Warszawa','Swietlikow',5,01-358),
-(3,'Warszawa','Gorna',3,04-413),
-(4,'Skierniewice','Dluga',4,96-100),
-(5,'Nadarzyn','Blonska',1,05-830);
+(1,'Warszawa','Dzwigowa',12,'01-376'),
+(2,'Warszawa','Swietlikow',5,'01-358'),
+(3,'Warszawa','Gorna',3,'04-413'),
+(4,'Skierniewice','Dluga',4,'96-100'),
+(5,'Nadarzyn','Blonska',1,'05-830');
 
-INSERT INTO Producent (Nazwa_producenta, Opis)
+INSERT INTO Producent (Nazwa_producenta)
 VALUES
-('PRUSA',NULL),
-('Shining3D',NULL),
-('Sinterit',NULL),
-('Anycubic',NULL),
-('CREALITY ',NULL),
-('Apple',NULL),
-('Fiberfox',NULL);
+('PRUSA'),
+('Shining3D'),
+('Sinterit'),
+('Anycubic'),
+('CREALITY'),
+('Apple'),
+('Fiberfox');
 
 INSERT INTO Dane_adresowe_producent (ID_producent, Miejscowosc, Ulica, Nr_budynku, Kod_pocztowy)
 VALUES
 (1,'Praga','Partyzanska',7,NULL),
-(2,'Stuttgart','Breitwiesenstrasse',28,70565),
-(3,'Krakow','Nad Drwina',10,30-741),
+(2,'Stuttgart','Breitwiesenstrasse',28,'70565'),
+(3,'Krakow','Nad Drwina',10,'30-741'),
 (4,'Hongkong','Chatham Road South',45,NULL),
-(5,'Shenzhen','Meilong Blvd.', 18,518131),
+(5,'Shenzhen','Meilong Blvd.', 18,'518131'),
 (6,'Cupertino','Apple Park Way',1,NULL),
 (7,'Dae Jeon','Deogmyeong-dong',171,NULL);
 

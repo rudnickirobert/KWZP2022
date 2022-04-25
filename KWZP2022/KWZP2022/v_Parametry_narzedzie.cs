@@ -14,6 +14,8 @@ namespace KWZP2022
     
     public partial class v_Parametry_narzedzie
     {
+        public int ID_narzedzie { get; set; }
+        public int ID_rodzaj_parametr { get; set; }
         public string Nazwa_narzędzia { get; set; }
         public string Parametr { get; set; }
         public string Jednostka { get; set; }

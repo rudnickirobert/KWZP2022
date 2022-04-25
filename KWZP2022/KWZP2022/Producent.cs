@@ -26,7 +26,6 @@ namespace KWZP2022
     
         public int ID_producent { get; set; }
         public string Nazwa_producenta { get; set; }
-        public string Opis { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dane_adresowe_producent> Dane_adresowe_producent { get; set; }
