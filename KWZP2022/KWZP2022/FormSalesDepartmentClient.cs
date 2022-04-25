@@ -231,7 +231,7 @@ namespace KWZP2022
             {
                 string noApartment = textBoxNo2.Text;
                 int noApartmentInt = int.Parse(noApartment);
-                System.Linq.IQueryable vClientNoApartment = db.v_Klient.Where(a => a.Numer_lokalu == noApartmentInt);
+                List<v_Klient> vClientNoApartment = db.v_Klient.Where(a => a.Numer_lokalu == noApartmentInt).ToList();
                 int vClientNoApartmentInt = vClientNoApartment.Cast<v_Klient>().Where(a => a.Numer_lokalu > 0).Count();
                 if (vClientNoApartmentInt > 0)
                 {

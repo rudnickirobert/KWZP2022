@@ -43,7 +43,7 @@
             this.comboBoxSaleArrangement = new System.Windows.Forms.ComboBox();
             this.btnAddNewSale = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSalesDetails = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).BeginInit();
             this.SuspendLayout();
             // 
@@ -199,24 +199,24 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // button1
+            // btnSalesDetails
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.Location = new System.Drawing.Point(454, 400);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(328, 27);
-            this.button1.TabIndex = 83;
-            this.button1.Text = "Przejdź do szczegółów sprzedaży >>";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnSalesDetails.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalesDetails.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnSalesDetails.Location = new System.Drawing.Point(454, 400);
+            this.btnSalesDetails.Name = "btnSalesDetails";
+            this.btnSalesDetails.Size = new System.Drawing.Size(328, 27);
+            this.btnSalesDetails.TabIndex = 83;
+            this.btnSalesDetails.Text = "Przejdź do szczegółów sprzedaży >>";
+            this.btnSalesDetails.UseVisualStyleBackColor = true;
+            this.btnSalesDetails.Click += new System.EventHandler(this.btnSalesDetails_Click);
             // 
             // FormSalesDepartmentAddSales
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
             this.ClientSize = new System.Drawing.Size(794, 491);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSalesDetails);
             this.Controls.Add(this.btnAddNewSale);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label6);
@@ -259,6 +259,6 @@
         private System.Windows.Forms.ComboBox comboBoxSaleArrangement;
         private System.Windows.Forms.Button btnAddNewSale;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSalesDetails;
     }
 }

@@ -69,8 +69,8 @@ namespace KWZP2022
         {
             if (textBoxNoTelClient.Text.Length > 0)
             {
-                int selectedTyp_ZamowienieInt = int.Parse(comboBoxOrderType.SelectedValue.ToString());
-                Typ_zamowienie selectedTyp_Zamowienie = this.db.Typ_zamowienie.Single(a => a.ID_typ_zamowienie == selectedTyp_ZamowienieInt);
+                int selectedTypZamowienieInt = int.Parse(comboBoxOrderType.SelectedValue.ToString());
+                Typ_zamowienie selectedTyp_Zamowienie = this.db.Typ_zamowienie.Single(a => a.ID_typ_zamowienie == selectedTypZamowienieInt);
                 Nr_telefon_klient selectedClient = this.db.Nr_telefon_klient.SingleOrDefault(a => a.Numer == textBoxNoTelClient.Text);
                 if (selectedClient != null)
                 {

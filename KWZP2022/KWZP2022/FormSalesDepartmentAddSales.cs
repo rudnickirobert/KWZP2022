@@ -24,16 +24,7 @@ namespace KWZP2022
         }
         private void showData()
         {
-            var unSoldOrders = from unSoldOrdersView in db.v_Sprzedane_zamowienia_form
-                               select new
-                               {
-                                   unSoldOrdersView.Numer_umowy,
-                                   unSoldOrdersView.Numer_sprzedaży,
-                                   unSoldOrdersView.Data_sprzedaży,
-                                   unSoldOrdersView.Termin_płatności,
-                                   unSoldOrdersView.Forma_płatnoś_ci
-                               };
-            this.dgvSales.DataSource = unSoldOrders.ToList();
+            this.dgvSales.DataSource = this.db.v_Sprzedane_zamowienia_form.ToList();
             this.dgvSales.Columns[0].HeaderText = "Nr umowy";
             this.dgvSales.Columns[1].HeaderText = "Nr sprzedaży";
             this.dgvSales.Columns[2].HeaderText = "Data sprzedaży";
@@ -77,8 +68,7 @@ namespace KWZP2022
             MessageBox.Show("Dodano nową sprzedaż!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
             showData();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSalesDetails_Click(object sender, EventArgs e)
         {
             FormSalesDepartmentAddSalesDetails formSalesDepartmentAddSalesDetails = new FormSalesDepartmentAddSalesDetails(db);
             formSalesDepartmentAddSalesDetails.ShowDialog();

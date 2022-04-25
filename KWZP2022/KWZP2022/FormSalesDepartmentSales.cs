@@ -22,19 +22,7 @@ namespace KWZP2022
 
         private void showData()
         {
-            var salesData = from sales in this.db.v_Sprzedaz
-                            select new
-                            {
-                                sales.Numer_sprzedaży,
-                                sales.Nazwisko_klienta,
-                                sales.Imię_klienta,
-                                sales.NIP,
-                                sales.Data_początku_sprzedaży,
-                                sales.Data_końca_sprzedaży,
-                                sales.Umowa,
-                                sales.Koszt
-                            };
-            this.dgvSales.DataSource = salesData.ToList();
+            this.dgvSales.DataSource = this.db.v_Sprzedaz.ToList();
             this.dgvSales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 

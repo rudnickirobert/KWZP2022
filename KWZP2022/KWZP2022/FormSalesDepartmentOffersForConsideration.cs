@@ -61,7 +61,7 @@ namespace KWZP2022
         private void dgvOffersForConsideration_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             int selectOffer = int.Parse(this.dgvOffersForConsideration.CurrentRow.Cells[0].Value.ToString());
-            DialogResult acceptedOffer = MessageBox.Show($"Czy chcesz zaackeptować ofertę nr: {selectOffer}?","Pytanie",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            DialogResult acceptedOffer = MessageBox.Show($"Czy chcesz zaackeptować ofertę nr: {selectOffer}?\nTak - Akceptacja oferty\nNie - Odrzucenie oferty","Pytanie",MessageBoxButtons.YesNoCancel,MessageBoxIcon.Question);
             if(acceptedOffer == DialogResult.Yes)
             {
                 Oferta_handlowa selectedOffer = this.db.Oferta_handlowa.Single(a => a.ID_oferta_handlowa == selectOffer);
@@ -69,6 +69,14 @@ namespace KWZP2022
                 Umowa_sprzedaz newSaleArrangement = new Umowa_sprzedaz();
                 newSaleArrangement.ID_oferta_handlowa = selectOffer;
                 this.db.Umowa_sprzedaz.Add(newSaleArrangement);
+                this.db.SaveChanges();
+                showData();
+                comboBoxOffersData();
+            }
+            else if(acceptedOffer == DialogResult.No)
+            {
+                Oferta_handlowa selectedOffer = this.db.Oferta_handlowa.Single(a => a.ID_oferta_handlowa == selectOffer);
+                selectedOffer.ID_status_oferta = 2;
                 this.db.SaveChanges();
                 showData();
                 comboBoxOffersData();
