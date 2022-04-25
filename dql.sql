@@ -383,14 +383,27 @@ GO
 
 -----RESOURCE DEPARTMENT----
 
-CREATE VIEW v_Sklad_maszyna AS 
-SELECT Maszyna.Nazwa_maszyna AS [Nazwa maszyny], Czesc.Nazwa_czesc AS [Nazwa części], Sklad_maszyna.Liczba_czesci AS [Liczba czesci]
+
+CREATE VIEW v_Sklad_maszyna 
+AS 
+SELECT Maszyna.ID_maszyna, Czesc.ID_czesc, Maszyna.Nazwa_maszyna AS [Nazwa maszyny], Czesc.Nazwa_czesc AS [Nazwa części], Sklad_maszyna.Liczba_czesci AS [Liczba czesci]
 FROM Sklad_maszyna 
-INNER JOIN Maszyna  
+INNER JOIN Maszyna
 ON Sklad_maszyna.ID_maszyna=Maszyna.ID_maszyna
 INNER JOIN Czesc 
 ON Sklad_maszyna.ID_czesc=Czesc.ID_czesc
-GROUP BY Maszyna.Nazwa_maszyna, Czesc.Nazwa_czesc, Sklad_maszyna.Liczba_czesci;
+GROUP BY Maszyna.ID_maszyna, Czesc.ID_czesc, Maszyna.Nazwa_maszyna, Czesc.Nazwa_czesc, Sklad_maszyna.Liczba_czesci;
+GO
+
+CREATE VIEW v_Sklad_SP_maszyna
+AS
+SELECT SP.ID_stanowisko_produkcyjne AS [ID stanowiska produkcyjnego], MS.ID_maszyna_nr, M.ID_maszyna, 
+NS.Nr_seryjny AS [Nr seryjny maszyny], M.Nazwa_maszyna AS [Maszyna]
+FROM Sklad_stanowisko_produkcyjne_maszyna AS SSPM
+INNER JOIN Stanowisko_produkcyjne AS SP ON SSPM.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
+INNER JOIN Maszyna_nr_seryjny AS MS ON SSPM.ID_maszyna_nr = MS.ID_maszyna_nr
+INNER JOIN Maszyna AS M ON MS.ID_maszyna = M.ID_maszyna
+INNER JOIN Nr_seryjny AS NS ON MS.ID_maszyna_nr = NS.ID_nr_seryjny
 GO
 
 CREATE VIEW v_Pracownik_zasoby
@@ -499,7 +512,7 @@ ON Parametr_narzedzie.ID_rodzaj_parametr=Rodzaj_parametr.ID_rodzaj_parametr
 GROUP BY Narzedzie.ID_narzedzie, Rodzaj_parametr.ID_rodzaj_parametr, Narzedzie.Nazwa_narzedzie, Rodzaj_parametr.Nazwa_rodzaj_parametr, Jednostka.Skrot, Zakres_dol, Zakres_gora
 GO
 
-CREATE VIEW v_Oblugi_zakonczone
+CREATE VIEW v_Obslugi_zakonczone
 AS
 SELECT SP.ID_stanowisko_produkcyjne AS [Nr stanowiska], RO.Nazwa_rodzaj_obsluga AS [Obsługa], Data_od AS [Data rozpoczęcia], Data_do AS [Data zakończenia], P.Imie + ' ' + P.Nazwisko AS [Pracownik]
 FROM Obsluga_pracownik AS OP
@@ -510,7 +523,7 @@ INNER JOIN Stanowisko_produkcyjne AS SP ON O.ID_stanowisko_produkcyjne = SP.ID_s
 WHERE Data_do IS NOT NULL AND GETDATE() > Data_do
 GO
 
-CREATE VIEW v_Oblugi_w_trakcie
+CREATE VIEW v_Obslugi_w_trakcie
 AS
 SELECT ID_obsluga AS [ID], SP.ID_stanowisko_produkcyjne AS [Nr stanowiska], RO.Nazwa_rodzaj_obsluga AS [Obsługa], Data_od AS [Data rozpoczęcia], Data_do AS [Data zakończenia]
 FROM Obsluga AS O
@@ -519,10 +532,19 @@ INNER JOIN Stanowisko_produkcyjne AS SP ON O.ID_stanowisko_produkcyjne = SP.ID_s
 WHERE Data_do IS NULL
 GO
 
+CREATE VIEW v_Obslugi_w_trakcie_wymiana
+AS
+SELECT ID_obsluga AS [ID], SP.ID_stanowisko_produkcyjne AS [Nr stanowiska], RO.Nazwa_rodzaj_obsluga AS [Obsługa], Data_od AS [Data rozpoczęcia], Data_do AS [Data zakończenia]
+FROM Obsluga AS O
+INNER JOIN Rodzaj_obsluga AS RO ON O.ID_rodzaj_obsluga = RO.ID_rodzaj_obsluga
+INNER JOIN Stanowisko_produkcyjne AS SP ON O.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
+WHERE Data_do IS NULL AND RO.Nazwa_rodzaj_obsluga = 'Wymiana czesci'
+GO
+
 CREATE VIEW v_Obsluga_cmb
 AS
 SELECT [ID], CONVERT(nvarchar,[ID]) + ': ' + [Obsługa] + ' - ' + CONVERT(nvarchar,[Data rozpoczęcia]) AS [ComboObsluga]
-FROM v_Oblugi_w_trakcie
+FROM v_Obslugi_w_trakcie
 GO
 
 CREATE VIEW v_Obsluga_pracownik
@@ -764,24 +786,30 @@ GO
 
 CREATE VIEW v_Maszyny_numery_przypisane
 AS
-SELECT Maszyna.Nazwa_maszyna AS [Nazwa maszyny], COUNT(Maszyna.Nazwa_maszyna) AS [Ile przypisano]
+SELECT Maszyna.ID_maszyna AS [ID], Maszyna.Nazwa_maszyna AS [Nazwa maszyny], COUNT(Maszyna.Nazwa_maszyna) AS [Ile przypisano]
 FROM Maszyna_nr_seryjny AS MNS
 INNER JOIN Maszyna ON MNS.ID_maszyna = Maszyna.ID_maszyna
 INNER JOIN Nr_seryjny ON MNS.ID_nr_seryjny = Nr_seryjny.ID_nr_seryjny
-GROUP BY Maszyna.Nazwa_maszyna
+GROUP BY Maszyna.ID_maszyna, Maszyna.Nazwa_maszyna
 GO
 
 CREATE VIEW v_Maszyny_numery_porownanie
 AS
-SELECT MMW.[Nazwa maszyny], MMW.[Liczba sztuk], MNP.[Ile przypisano]
+SELECT [ID], MMW.[Nazwa maszyny], MMW.[Liczba sztuk], MNP.[Ile przypisano]
 FROM v_Magazyn_maszyn_wszystko AS MMW
 LEFT JOIN v_Maszyny_numery_przypisane AS MNP ON MMW.[Nazwa maszyny] = MNP.[Nazwa maszyny]
 GO
 
 CREATE VIEW v_Maszyny_numery_nieprzypisane
 AS
-SELECT [Nazwa maszyny], [Liczba sztuk]-[Ile przypisano] AS [Nieprzypisanych]
+SELECT [ID], [Nazwa maszyny], [Liczba sztuk]-[Ile przypisano] AS [Nieprzypisanych]
 FROM v_Maszyny_numery_porownanie
+GO
+
+CREATE VIEW v_Maszyny_numery_nieprzypisane_zero
+AS
+SELECT * FROM v_Maszyny_numery_nieprzypisane
+WHERE [Nieprzypisanych]>0
 GO
 
 

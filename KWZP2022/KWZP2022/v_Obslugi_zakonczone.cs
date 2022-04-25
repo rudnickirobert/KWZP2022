@@ -12,7 +12,7 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Oblugi_w_trakcie
+    public partial class v_Obslugi_zakonczone
     {
         public int Nr_stanowiska { get; set; }
         public string Obsługa { get; set; }
