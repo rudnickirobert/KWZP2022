@@ -179,7 +179,6 @@
             this.Controls.Add(this.lblImie);
             this.Name = "FormHRDepartmentWorkerContract";
             this.Text = "Umowa";
-            this.Load += new System.EventHandler(this.FormHRDepartmentWorkerContract_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorker)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

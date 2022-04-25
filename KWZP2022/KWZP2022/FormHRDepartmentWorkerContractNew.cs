@@ -79,11 +79,6 @@ namespace KWZP2022
             {
                 MessageBox.Show("Nie wprowadzono danych.", "Błąd", MessageBoxButtons.OK);
             }
-        }      
-
-        private void FormHRDepartmentWorkerContractNew_Load(object sender, EventArgs e)
-        {
-
-        }       
+        }            
     }
 }

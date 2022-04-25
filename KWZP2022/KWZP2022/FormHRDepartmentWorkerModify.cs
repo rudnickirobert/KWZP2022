@@ -167,10 +167,6 @@ namespace KWZP2022
             }
 
         }
-            private void FormHRDepartmentWorkerModify_Load(object sender, EventArgs e)
-            {
-
-            }
         }
     }
 

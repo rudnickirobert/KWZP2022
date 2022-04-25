@@ -63,7 +63,6 @@
             this.Controls.Add(this.dgvWorkerRemowe);
             this.Name = "FormHRDeprtmentRemoweWorker";
             this.Text = "FormHRDeprtmentRemoweWorker";
-            this.Load += new System.EventHandler(this.FormHRDeprtmentRemoweWorker_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorkerRemowe)).EndInit();
             this.ResumeLayout(false);
 

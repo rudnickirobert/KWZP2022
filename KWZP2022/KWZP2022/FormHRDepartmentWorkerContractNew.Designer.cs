@@ -232,7 +232,6 @@
             this.Controls.Add(this.btnAddnewcontract);
             this.Name = "FormHRDepartmentWorkerContractNew";
             this.Text = "Nowa umowa";
-            this.Load += new System.EventHandler(this.FormHRDepartmentWorkerContractNew_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvpracownik)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

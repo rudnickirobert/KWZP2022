@@ -448,7 +448,6 @@
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormHRDepartmentNewWorker";
             this.Text = "FormHRDepartmentNewWorker";
-            this.Load += new System.EventHandler(this.FormHRDepartmentNewWorker_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvpracownik)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

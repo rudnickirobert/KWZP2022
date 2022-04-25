@@ -161,11 +161,6 @@ namespace KWZP2022
             FormHRDepartmentWorkerModify formHRDepartmentWorkerModify = new FormHRDepartmentWorkerModify(db);
             formHRDepartmentWorkerModify.ShowDialog();
         }
-        private void FormHRDepartmentWorker_Load(object sender, EventArgs e)
-        {
-
-        }
-
       
     }
 }

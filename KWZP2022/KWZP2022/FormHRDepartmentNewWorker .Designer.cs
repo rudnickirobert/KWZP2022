@@ -410,7 +410,6 @@
             this.Name = "FormSalesHRDepartmentNewWorker";
             this.Text = "Dodawanie nowego pracownika";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.FormSalesHRDepartmentNewWorker_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvpracownik)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

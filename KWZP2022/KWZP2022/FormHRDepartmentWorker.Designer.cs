@@ -208,7 +208,7 @@ namespace KWZP2022
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormHRDepartmentWorker";
             this.Text = "Dział zasobów ludzkich";
-            this.Load += new System.EventHandler(this.FormHRDepartmentWorker_Load);
+
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorker)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

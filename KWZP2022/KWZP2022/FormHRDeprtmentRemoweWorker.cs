@@ -51,10 +51,5 @@ namespace KWZP2022
                 }
             }
         }
-
-        private void FormHRDeprtmentRemoweWorker_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

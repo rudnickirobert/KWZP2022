@@ -98,9 +98,5 @@ namespace KWZP2022
                 MessageBox.Show("Nie wprowadzono danych.", "Błąd", MessageBoxButtons.OK);
             }
         }
-        private void FormHRDepartmentNewWorker_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -411,7 +411,6 @@
             this.Controls.Add(this.tbPracownikNazwisko);
             this.Name = "FormHRDepartmentWorkerModify";
             this.Text = "FormHRDepartmentWorkerModify";
-            this.Load += new System.EventHandler(this.FormHRDepartmentWorkerModify_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvpracownik)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
