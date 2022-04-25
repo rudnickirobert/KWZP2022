@@ -180,11 +180,11 @@ namespace KWZP2022
                 db.Wytwarzanie.Add(wytwarzanie);
                 db.SaveChanges();
 
-                int wytID = (from n in db.Wytwarzanie orderby n.ID_wytwarzanie descending select n.ID_wytwarzanie).FirstOrDefault();
+                int wytwarzanieID = (from n in db.Wytwarzanie orderby n.ID_wytwarzanie descending select n.ID_wytwarzanie).FirstOrDefault();
                 if (txtWybrany.Text == dgvProcesProdukt.CurrentRow.Cells[1].Value.ToString())
                 {
                     Proces_wytwarzanie_produkt wytwarzanieProdukt = new Proces_wytwarzanie_produkt();
-                    wytwarzanieProdukt.ID_wytwarzanie = wytID;
+                    wytwarzanieProdukt.ID_wytwarzanie = wytwarzanieID;
                     wytwarzanieProdukt.ID_proces_produkt = int.Parse(dgvProcesProdukt.CurrentRow.Cells[3].Value.ToString());
                     wytwarzanieProdukt.ID_stanowisko_produkcyjne = int.Parse(cbStanowisko.SelectedValue.ToString());
 
@@ -197,7 +197,7 @@ namespace KWZP2022
                 else if (txtWybrany.Text == dgvProcesPolprodukt.CurrentRow.Cells[1].Value.ToString())
                 {
                     Proces_wytwarzanie_polprodukt wytwarzaniePolprodukt = new Proces_wytwarzanie_polprodukt();
-                    wytwarzaniePolprodukt.ID_wytwarzanie = wytID;
+                    wytwarzaniePolprodukt.ID_wytwarzanie = wytwarzanieID;
                     wytwarzaniePolprodukt.ID_proces_polprodukt = int.Parse(dgvProcesPolprodukt.CurrentRow.Cells[4].Value.ToString());
                     wytwarzaniePolprodukt.ID_stanowisko_produkcyjne = int.Parse(cbStanowisko.SelectedValue.ToString());
 

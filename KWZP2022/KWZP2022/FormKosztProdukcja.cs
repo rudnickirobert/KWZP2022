@@ -31,8 +31,6 @@ namespace KWZP2022
         private void btnGeneruj_Click(object sender, EventArgs e)
         {
             int produktID = int.Parse(cbProdukt.SelectedValue.ToString());
-
-
             dgvSkladProdukt.DataSource = null;
             System.Linq.IQueryable vSkladProdukt = db.v_Sklad_produkt_ewidencja.Where(a => a.ID_produkt == produktID);
             int vSkladProduktInt = vSkladProdukt.Cast<v_Sklad_produkt_ewidencja>().Where(a => a.ID_produkt > 0).Count();
@@ -40,12 +38,10 @@ namespace KWZP2022
             {
                 dgvSkladProdukt.DataSource = vSkladProdukt.Cast<v_Sklad_produkt_ewidencja>().ToList();
                 this.dgvSkladProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-
             }
         }
 
-
-        private void dgvSkladProdukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
+/*        private void dgvSkladProdukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
             int polproduktID = int.Parse(dgvSkladProdukt.CurrentRow.Cells[2].Value.ToString());
@@ -56,10 +52,7 @@ namespace KWZP2022
             {
                 dgvCzynnosciProdukcyjne.DataSource = vCzynnosci.Cast< v_Koszt_procesow_polprodukt> ().ToList();
                 this.dgvCzynnosciProdukcyjne.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-
             }
-
-
-        }
+        }*/
     }
 }
