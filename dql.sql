@@ -512,13 +512,47 @@ GO
 
 CREATE VIEW v_Oblugi_w_trakcie
 AS
-SELECT SP.ID_stanowisko_produkcyjne AS [Nr stanowiska], RO.Nazwa_rodzaj_obsluga AS [Obsługa], Data_od AS [Data rozpoczęcia], Data_do AS [Data zakończenia], P.Imie + ' ' + P.Nazwisko AS [Pracownik]
-FROM Obsluga_pracownik AS OP
-INNER JOIN Obsluga AS O ON OP.ID_obsluga = O.ID_obsluga
-INNER JOIN Pracownik AS P ON OP.ID_pracownik = P.ID_pracownik
+SELECT ID_obsluga AS [ID], SP.ID_stanowisko_produkcyjne AS [Nr stanowiska], RO.Nazwa_rodzaj_obsluga AS [Obsługa], Data_od AS [Data rozpoczęcia], Data_do AS [Data zakończenia]
+FROM Obsluga AS O
 INNER JOIN Rodzaj_obsluga AS RO ON O.ID_rodzaj_obsluga = RO.ID_rodzaj_obsluga
 INNER JOIN Stanowisko_produkcyjne AS SP ON O.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
 WHERE Data_do IS NULL
+GO
+
+CREATE VIEW v_Obsluga_cmb
+AS
+SELECT [ID], CONVERT(nvarchar,[ID]) + ': ' + [Obsługa] + ' - ' + CONVERT(nvarchar,[Data rozpoczęcia]) AS [ComboObsluga]
+FROM v_Oblugi_w_trakcie
+GO
+
+CREATE VIEW v_Obsluga_pracownik
+AS
+SELECT Obsluga.ID_obsluga, Rodzaj_obsluga.Nazwa_rodzaj_obsluga AS [Obsługa], Pracownik.Nazwisko + ' ' + Pracownik.Imie AS [Pracownik]
+FROM Obsluga_pracownik
+INNER JOIN Obsluga ON Obsluga_pracownik.ID_obsluga = Obsluga.ID_obsluga
+INNER JOIN Pracownik ON Obsluga_pracownik.ID_pracownik = Pracownik.ID_pracownik
+INNER JOIN Rodzaj_obsluga ON Obsluga.ID_rodzaj_obsluga = Rodzaj_obsluga.ID_rodzaj_obsluga
+GROUP BY Obsluga.ID_obsluga, Rodzaj_obsluga.Nazwa_rodzaj_obsluga, Pracownik.Nazwisko + ' ' + Pracownik.Imie
+GO
+
+CREATE VIEW v_Maszyna_nr_seryjny
+AS
+SELECT Maszyna_nr_seryjny.ID_maszyna_nr, Nazwa_maszyna + ' ' + Nr_seryjny.Nr_seryjny AS [Maszyna nr]
+FROM Maszyna
+INNER JOIN Maszyna_nr_seryjny ON Maszyna.ID_maszyna = Maszyna_nr_seryjny.ID_maszyna
+INNER JOIN Nr_seryjny ON Maszyna_nr_seryjny.ID_nr_seryjny = Nr_seryjny.ID_nr_seryjny
+GO
+
+CREATE VIEW v_Wymiana_czesc
+AS
+SELECT Obsluga.ID_obsluga, Maszyna_nr_seryjny.ID_maszyna_nr, Czesc.ID_czesc, Obsluga.Data_od, Maszyna.Nazwa_maszyna, Nr_seryjny.Nr_seryjny, Czesc.Nazwa_czesc
+FROM Wymiana_czesc
+INNER JOIN Obsluga ON Wymiana_czesc.ID_obsluga = Obsluga.ID_obsluga
+INNER JOIN Czesc ON Wymiana_czesc.ID_czesc = Czesc.ID_czesc
+INNER JOIN Maszyna_nr_seryjny ON Wymiana_czesc.ID_maszyna_nr = Maszyna_nr_seryjny.ID_maszyna_nr
+INNER JOIN Maszyna ON Maszyna_nr_seryjny.ID_maszyna = Maszyna.ID_maszyna
+INNER JOIN Nr_seryjny ON Maszyna_nr_seryjny.ID_nr_seryjny = Nr_seryjny.ID_nr_seryjny
+GROUP BY Obsluga.ID_obsluga, Maszyna_nr_seryjny.ID_maszyna_nr, Czesc.ID_czesc, Obsluga.Data_od, Maszyna.Nazwa_maszyna, Nr_seryjny.Nr_seryjny, Czesc.Nazwa_czesc
 GO
 
 CREATE VIEW v_Zamowienia_czesci_w_trakcie_wszystko 
