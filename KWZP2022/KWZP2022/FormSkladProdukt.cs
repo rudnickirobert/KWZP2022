@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace KWZP2022
 {
     public partial class FormSkladProdukt : Form
@@ -18,12 +17,10 @@ namespace KWZP2022
         {
             InitializeComponent();
             this.db = db;
-            
             initDataGridViewProdukt();
             initDataGridViewPolprodukt();
             initDataGridViewSkladProdukt();
         }
-
         private void initDataGridViewPolprodukt()
         {
             dgvPolprodukt.DataSource = db.Slownik_polprodukt.ToList();
@@ -36,7 +33,7 @@ namespace KWZP2022
 
         private void initDataGridViewProdukt()
         {
-            
+
             dgvProdukt.DataSource = db.Produkt.ToList();
             this.dgvProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dgvProdukt.Columns["Parametr_produkt"].Visible = false;
@@ -127,8 +124,6 @@ namespace KWZP2022
                 MessageBox.Show("Poprawnie powiązano półprodukt '" + txtPolprodukt.Text + "' z produktem '" + this.dgvProdukt.CurrentRow.Cells[1].Value.ToString() + "'.");
                 refreshScreen();
             }
-
-            
         }
 
         private void btnUsun_Click(object sender, EventArgs e)
@@ -149,14 +144,14 @@ namespace KWZP2022
                         db.Slownik_polprodukt.Remove(db.Slownik_polprodukt.Where(polprodukt => polprodukt.ID_polprodukt == currentPolproduktID).First());
                         db.SaveChanges();
                     }
-                    catch(Exception)
+                    catch (Exception)
                     {
                         MessageBox.Show("Nie możesz usunąć półproduktu powiązanego z produktem");
                     }
-                    
+
                 }
             }
-            else if(txtPolprodukt != null && txtNazwaProdukt != null && txtIlosc.Text != null)
+            else if (txtPolprodukt != null && txtNazwaProdukt != null && txtIlosc.Text != null)
             {
                 DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz usunąć powiązanie między produktem '" + this.dgvSkladProdukt.CurrentRow.Cells[1].Value + "', a półproduktem '" + this.dgvSkladProdukt.CurrentRow.Cells[2].Value + "'?", "Question", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
@@ -176,30 +171,28 @@ namespace KWZP2022
             refreshScreen();
         }
 
-
-        private void dgvProdukt_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private void btnSkladPolprodukt_Click(object sender, EventArgs e)
         {
-            txtNazwaProdukt.Text = this.dgvProdukt.CurrentRow.Cells[1].Value.ToString();
-
+            FormSkladPolprodukt skladPolproduktu = new FormSkladPolprodukt(db);
+            skladPolproduktu.ShowDialog();
         }
 
-        private void dgvSkladProdukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txtNazwaProdukt.Text = this.dgvSkladProdukt.CurrentRow.Cells[1].Value.ToString();
-            txtPolprodukt.Text = this.dgvSkladProdukt.CurrentRow.Cells[2].Value.ToString();
-            txtIlosc.Text = this.dgvSkladProdukt.CurrentRow.Cells[3].Value.ToString();
-        }
-
-        private void dgvPolprodukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvPolprodukt_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             txtPolprodukt.Text = this.dgvPolprodukt.CurrentRow.Cells[1].Value.ToString();
             txtPolprodukt.Enabled = false;
         }
 
-        private void btnSkladPolprodukt_Click(object sender, EventArgs e)
+        private void dgvProdukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            FormSkladPolprodukt skladPolproduktu = new FormSkladPolprodukt(db);
-            skladPolproduktu.ShowDialog();
+            txtNazwaProdukt.Text = this.dgvProdukt.CurrentRow.Cells[1].Value.ToString();
+        }
+
+        private void dgvSkladProdukt_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            txtNazwaProdukt.Text = this.dgvSkladProdukt.CurrentRow.Cells[1].Value.ToString();
+            txtPolprodukt.Text = this.dgvSkladProdukt.CurrentRow.Cells[2].Value.ToString();
+            txtIlosc.Text = this.dgvSkladProdukt.CurrentRow.Cells[3].Value.ToString();
         }
     }
 }

@@ -82,6 +82,7 @@
             this.btnDodajProducenta.TabIndex = 39;
             this.btnDodajProducenta.Text = "Dodaj nowego producenta";
             this.btnDodajProducenta.UseVisualStyleBackColor = false;
+            this.btnDodajProducenta.Click += new System.EventHandler(this.btnDodajProducenta_Click);
             // 
             // btnDodajDostawca
             // 
@@ -92,6 +93,7 @@
             this.btnDodajDostawca.TabIndex = 38;
             this.btnDodajDostawca.Text = "Dodaj nowego dostawcę";
             this.btnDodajDostawca.UseVisualStyleBackColor = false;
+            this.btnDodajDostawca.Click += new System.EventHandler(this.btnDodajDostawca_Click);
             // 
             // txtCena
             // 

@@ -34,6 +34,7 @@
             this.btnStanowiska = new System.Windows.Forms.Button();
             this.btnWytwarzanie = new System.Windows.Forms.Button();
             this.btnStaytystyki = new System.Windows.Forms.Button();
+            this.btnKontrola = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnProdukty
@@ -83,13 +84,24 @@
             // btnStaytystyki
             // 
             this.btnStaytystyki.Font = new System.Drawing.Font("Arial", 20F);
-            this.btnStaytystyki.Location = new System.Drawing.Point(589, 45);
+            this.btnStaytystyki.Location = new System.Drawing.Point(545, 215);
             this.btnStaytystyki.Name = "btnStaytystyki";
             this.btnStaytystyki.Size = new System.Drawing.Size(337, 123);
             this.btnStaytystyki.TabIndex = 5;
             this.btnStaytystyki.Text = "Statystyki";
             this.btnStaytystyki.UseVisualStyleBackColor = true;
             this.btnStaytystyki.Click += new System.EventHandler(this.btnStaytystyki_Click);
+            // 
+            // btnKontrola
+            // 
+            this.btnKontrola.Font = new System.Drawing.Font("Arial", 20F);
+            this.btnKontrola.Location = new System.Drawing.Point(545, 45);
+            this.btnKontrola.Name = "btnKontrola";
+            this.btnKontrola.Size = new System.Drawing.Size(337, 123);
+            this.btnKontrola.TabIndex = 4;
+            this.btnKontrola.Text = "Kontrola jakości";
+            this.btnKontrola.UseVisualStyleBackColor = true;
+            this.btnKontrola.Click += new System.EventHandler(this.btnKontrola_Click);
             // 
             // FormProdukcja
             // 
@@ -99,6 +111,7 @@
             this.ClientSize = new System.Drawing.Size(1264, 711);
             this.Controls.Add(this.btnStaytystyki);
             this.Controls.Add(this.btnWytwarzanie);
+            this.Controls.Add(this.btnKontrola);
             this.Controls.Add(this.btnStanowiska);
             this.Controls.Add(this.btnPolprodukty);
             this.Controls.Add(this.btnProdukty);
@@ -116,5 +129,6 @@
         private System.Windows.Forms.Button btnStanowiska;
         private System.Windows.Forms.Button btnWytwarzanie;
         private System.Windows.Forms.Button btnStaytystyki;
+        private System.Windows.Forms.Button btnKontrola;
     }
 }

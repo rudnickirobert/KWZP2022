@@ -49,5 +49,11 @@ namespace KWZP2022
             FormStatystykiProdukcja statystykiProdukcjaForm = new FormStatystykiProdukcja(db);
             statystykiProdukcjaForm.ShowDialog();
         }
+
+        private void btnKontrola_Click(object sender, EventArgs e)
+        {
+            FormKontrolaJakosci kontrolaJakosciForm = new FormKontrolaJakosci(db);
+            kontrolaJakosciForm.ShowDialog();
+        }
     }
 }

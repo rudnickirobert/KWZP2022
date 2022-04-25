@@ -176,7 +176,7 @@
             this.Controls.Add(this.txtNazwaMaszyna);
             this.Controls.Add(this.lblNazwaMaszyna);
             this.Controls.Add(this.lblRodzajMaszyna);
-            this.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormResDepMaszyna";

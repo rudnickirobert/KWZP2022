@@ -202,7 +202,7 @@ CREATE TABLE Maszyna
 	Nazwa_maszyna nvarchar(50) NOT NULL,
 	ID_rodzaj_maszyna int FOREIGN KEY 
 		REFERENCES Rodzaj_maszyna(ID_rodzaj_maszyna) NOT NULL,
-	Koszt_RBG SMALLMONEY NOT NULL
+	Koszt_RBG DECIMAL(15,2) NOT NULL
 );
 
 CREATE TABLE Maszyna_nr_seryjny
@@ -577,15 +577,13 @@ CREATE TABLE Rodzaj_obsluga
 CREATE TABLE Dostawca
 	(
 	ID_dostawca INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	Nazwa_dostawca NVARCHAR(25) NOT NULL
-
+	Nazwa_dostawca NVARCHAR(50) NOT NULL
 );
  
 CREATE TABLE Producent 
 	(
 	ID_producent INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	Nazwa_producenta NVARCHAR(50) NOT NULL,
-	Opis NVARCHAR(60)
+	Nazwa_producenta NVARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Status_zamowienie 

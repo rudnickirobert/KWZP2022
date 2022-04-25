@@ -14,6 +14,8 @@ namespace KWZP2022
     
     public partial class v_Parametry_material
     {
+        public int ID_material { get; set; }
+        public int ID_rodzaj_parametr { get; set; }
         public string Nazwa_materiału { get; set; }
         public string Parametr { get; set; }
         public string Jednostka { get; set; }
