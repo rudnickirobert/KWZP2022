@@ -14,6 +14,7 @@ namespace KWZP2022
     
     public partial class v_Sklad_polprodukt
     {
+        public int ID_skład { get; set; }
         public string Półprodukt { get; set; }
         public string Materiał { get; set; }
         public string Rodzaj { get; set; }

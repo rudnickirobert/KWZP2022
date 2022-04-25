@@ -15,6 +15,6 @@ namespace KWZP2022
     public partial class v_Tygodniowe_rozliczenie_pracy_produkcja
     {
         public string Pracownik { get; set; }
-        public Nullable<int> Czas_pracy__h_ { get; set; }
+        public Nullable<int> Czas_pracy { get; set; }
     }
 }

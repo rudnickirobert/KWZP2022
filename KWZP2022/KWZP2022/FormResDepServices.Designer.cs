@@ -32,7 +32,7 @@
             this.dgvCompletedServices = new System.Windows.Forms.DataGridView();
             this.dgvOngoingServices = new System.Windows.Forms.DataGridView();
             this.btnAddService = new System.Windows.Forms.Button();
-            this.btnEditService = new System.Windows.Forms.Button();
+            this.btnCloseService = new System.Windows.Forms.Button();
             this.lblObslugi = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompletedServices)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOngoingServices)).BeginInit();
@@ -66,17 +66,19 @@
             this.btnAddService.TabIndex = 2;
             this.btnAddService.Text = "Dodaj nową obsługę";
             this.btnAddService.UseVisualStyleBackColor = false;
+            this.btnAddService.Click += new System.EventHandler(this.btnAddService_Click);
             // 
-            // btnEditService
+            // btnCloseService
             // 
-            this.btnEditService.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnEditService.Font = new System.Drawing.Font("Arial", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnEditService.Location = new System.Drawing.Point(743, 100);
-            this.btnEditService.Name = "btnEditService";
-            this.btnEditService.Size = new System.Drawing.Size(443, 120);
-            this.btnEditService.TabIndex = 3;
-            this.btnEditService.Text = "Edytuj obsługę";
-            this.btnEditService.UseVisualStyleBackColor = false;
+            this.btnCloseService.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnCloseService.Font = new System.Drawing.Font("Arial", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnCloseService.Location = new System.Drawing.Point(743, 100);
+            this.btnCloseService.Name = "btnCloseService";
+            this.btnCloseService.Size = new System.Drawing.Size(443, 120);
+            this.btnCloseService.TabIndex = 3;
+            this.btnCloseService.Text = "Zakończ obsługę";
+            this.btnCloseService.UseVisualStyleBackColor = false;
+            this.btnCloseService.Click += new System.EventHandler(this.btnCloseService_Click);
             // 
             // lblObslugi
             // 
@@ -95,7 +97,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1274, 711);
             this.Controls.Add(this.lblObslugi);
-            this.Controls.Add(this.btnEditService);
+            this.Controls.Add(this.btnCloseService);
             this.Controls.Add(this.btnAddService);
             this.Controls.Add(this.dgvOngoingServices);
             this.Controls.Add(this.dgvCompletedServices);
@@ -116,7 +118,7 @@
         private System.Windows.Forms.DataGridView dgvCompletedServices;
         private System.Windows.Forms.DataGridView dgvOngoingServices;
         private System.Windows.Forms.Button btnAddService;
-        private System.Windows.Forms.Button btnEditService;
+        private System.Windows.Forms.Button btnCloseService;
         private System.Windows.Forms.Label lblObslugi;
     }
 }

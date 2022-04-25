@@ -12,12 +12,12 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Oblugi_w_trakcie
+    public partial class v_Sklad_produkt_ewidencja
     {
-        public int Nr_stanowiska { get; set; }
-        public string Obsługa { get; set; }
-        public System.DateTime Data_rozpoczęcia { get; set; }
-        public Nullable<System.DateTime> Data_zakończenia { get; set; }
-        public string Pracownik { get; set; }
+        public int ID_skład { get; set; }
+        public int ID_produkt { get; set; }
+        public int ID_polprodukt { get; set; }
+        public string Półprodukt { get; set; }
+        public int Liczba { get; set; }
     }
 }

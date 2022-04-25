@@ -12,12 +12,9 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Oblugi_zakonczone
+    public partial class v_Zamowienie_produkcja
     {
-        public int Nr_stanowiska { get; set; }
-        public string Obsługa { get; set; }
-        public System.DateTime Data_rozpoczęcia { get; set; }
-        public Nullable<System.DateTime> Data_zakończenia { get; set; }
-        public string Pracownik { get; set; }
+        public int ID { get; set; }
+        public string Klient { get; set; }
     }
 }

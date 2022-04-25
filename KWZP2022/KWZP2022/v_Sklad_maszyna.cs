@@ -14,6 +14,8 @@ namespace KWZP2022
     
     public partial class v_Sklad_maszyna
     {
+        public int ID_maszyna { get; set; }
+        public int ID_czesc { get; set; }
         public string Nazwa_maszyny { get; set; }
         public string Nazwa_części { get; set; }
         public int Liczba_czesci { get; set; }
