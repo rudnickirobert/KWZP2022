@@ -17,13 +17,13 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Rodzaj_czesc()
         {
-            this.Czesc = new HashSet<Czesc>();
+            this.Czescs = new HashSet<Czesc>();
         }
     
         public int ID_rodzaj_czesc { get; set; }
         public string Nazwa_rodzaj_czesc { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Czesc> Czesc { get; set; }
+        public virtual ICollection<Czesc> Czescs { get; set; }
     }
 }

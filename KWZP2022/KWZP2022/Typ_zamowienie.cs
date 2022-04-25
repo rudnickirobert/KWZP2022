@@ -17,13 +17,13 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Typ_zamowienie()
         {
-            this.Zamowienie = new HashSet<Zamowienie>();
+            this.Zamowienies = new HashSet<Zamowienie>();
         }
     
         public int ID_typ_zamowienie { get; set; }
         public string Typ_zamowienie1 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Zamowienie> Zamowienie { get; set; }
+        public virtual ICollection<Zamowienie> Zamowienies { get; set; }
     }
 }

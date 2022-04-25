@@ -23,7 +23,7 @@ namespace KWZP2022
             this.Sklad_produkt_material = new HashSet<Sklad_produkt_material>();
             this.Szczegoly_sprzedaz = new HashSet<Szczegoly_sprzedaz>();
             this.Zamowienie_szczegol = new HashSet<Zamowienie_szczegol>();
-            this.Zwrot = new HashSet<Zwrot>();
+            this.Zwrots = new HashSet<Zwrot>();
         }
     
         public int ID_produkt { get; set; }
@@ -42,6 +42,6 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zamowienie_szczegol> Zamowienie_szczegol { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Zwrot> Zwrot { get; set; }
+        public virtual ICollection<Zwrot> Zwrots { get; set; }
     }
 }

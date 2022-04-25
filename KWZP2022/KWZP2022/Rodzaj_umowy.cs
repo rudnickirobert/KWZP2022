@@ -17,7 +17,7 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Rodzaj_umowy()
         {
-            this.Umowa = new HashSet<Umowa>();
+            this.Umowas = new HashSet<Umowa>();
         }
     
         public int ID_rodzaj_umowy { get; set; }
@@ -25,6 +25,6 @@ namespace KWZP2022
         public int Urlop { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Umowa> Umowa { get; set; }
+        public virtual ICollection<Umowa> Umowas { get; set; }
     }
 }

@@ -17,7 +17,7 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Rodzaj_maszyna()
         {
-            this.Maszyna = new HashSet<Maszyna>();
+            this.Maszynas = new HashSet<Maszyna>();
         }
     
         public int ID_rodzaj_maszyna { get; set; }
@@ -25,6 +25,6 @@ namespace KWZP2022
         public string Opis { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Maszyna> Maszyna { get; set; }
+        public virtual ICollection<Maszyna> Maszynas { get; set; }
     }
 }

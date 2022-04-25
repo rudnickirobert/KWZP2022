@@ -17,7 +17,7 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Stanowisko_produkcyjne()
         {
-            this.Obsluga = new HashSet<Obsluga>();
+            this.Obslugas = new HashSet<Obsluga>();
             this.Proces_wytwarzanie_polprodukt = new HashSet<Proces_wytwarzanie_polprodukt>();
             this.Proces_wytwarzanie_produkt = new HashSet<Proces_wytwarzanie_produkt>();
             this.Sklad_stanowisko_produkcyjne_maszyna = new HashSet<Sklad_stanowisko_produkcyjne_maszyna>();
@@ -28,7 +28,7 @@ namespace KWZP2022
         public int ID_nazwa_stanowiska { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Obsluga> Obsluga { get; set; }
+        public virtual ICollection<Obsluga> Obslugas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Proces_wytwarzanie_polprodukt> Proces_wytwarzanie_polprodukt { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -25,35 +25,35 @@ namespace KWZP2022
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Alert> Alert { get; set; }
+        public virtual DbSet<Alert> Alerts { get; set; }
         public virtual DbSet<Czas_pracy> Czas_pracy { get; set; }
-        public virtual DbSet<Czesc> Czesc { get; set; }
+        public virtual DbSet<Czesc> Czescs { get; set; }
         public virtual DbSet<Czynnosc_produkcyjna> Czynnosc_produkcyjna { get; set; }
         public virtual DbSet<Dane_adresowe_dostawca> Dane_adresowe_dostawca { get; set; }
         public virtual DbSet<Dane_adresowe_klient> Dane_adresowe_klient { get; set; }
         public virtual DbSet<Dane_adresowe_pracownik> Dane_adresowe_pracownik { get; set; }
         public virtual DbSet<Dane_adresowe_producent> Dane_adresowe_producent { get; set; }
-        public virtual DbSet<Dostawca> Dostawca { get; set; }
-        public virtual DbSet<Dzial> Dzial { get; set; }
+        public virtual DbSet<Dostawca> Dostawcas { get; set; }
+        public virtual DbSet<Dzial> Dzials { get; set; }
         public virtual DbSet<Email_klient> Email_klient { get; set; }
         public virtual DbSet<Email_pracownik> Email_pracownik { get; set; }
-        public virtual DbSet<Etat> Etat { get; set; }
+        public virtual DbSet<Etat> Etats { get; set; }
         public virtual DbSet<Forma_platnosc> Forma_platnosc { get; set; }
-        public virtual DbSet<Gwarancja> Gwarancja { get; set; }
-        public virtual DbSet<Jednostka> Jednostka { get; set; }
-        public virtual DbSet<Klient> Klient { get; set; }
+        public virtual DbSet<Gwarancja> Gwarancjas { get; set; }
+        public virtual DbSet<Jednostka> Jednostkas { get; set; }
+        public virtual DbSet<Klient> Klients { get; set; }
         public virtual DbSet<Kontrola_jakosci_produkt> Kontrola_jakosci_produkt { get; set; }
         public virtual DbSet<Kontrola_parametr> Kontrola_parametr { get; set; }
-        public virtual DbSet<Maszyna> Maszyna { get; set; }
+        public virtual DbSet<Maszyna> Maszynas { get; set; }
         public virtual DbSet<Maszyna_nr_seryjny> Maszyna_nr_seryjny { get; set; }
-        public virtual DbSet<Material> Material { get; set; }
-        public virtual DbSet<Nadgodziny> Nadgodziny { get; set; }
-        public virtual DbSet<Narzedzie> Narzedzie { get; set; }
-        public virtual DbSet<Nieobecnosc> Nieobecnosc { get; set; }
+        public virtual DbSet<Material> Materials { get; set; }
+        public virtual DbSet<Nadgodziny> Nadgodzinies { get; set; }
+        public virtual DbSet<Narzedzie> Narzedzies { get; set; }
+        public virtual DbSet<Nieobecnosc> Nieobecnoscs { get; set; }
         public virtual DbSet<Nr_seryjny> Nr_seryjny { get; set; }
         public virtual DbSet<Nr_telefon_klient> Nr_telefon_klient { get; set; }
         public virtual DbSet<Nr_telefon_pracownik> Nr_telefon_pracownik { get; set; }
-        public virtual DbSet<Obsluga> Obsluga { get; set; }
+        public virtual DbSet<Obsluga> Obslugas { get; set; }
         public virtual DbSet<Oferta_handlowa> Oferta_handlowa { get; set; }
         public virtual DbSet<Parametr_czesc> Parametr_czesc { get; set; }
         public virtual DbSet<Parametr_maszyna> Parametr_maszyna { get; set; }
@@ -61,16 +61,16 @@ namespace KWZP2022
         public virtual DbSet<Parametr_narzedzie> Parametr_narzedzie { get; set; }
         public virtual DbSet<Parametr_polprodukt> Parametr_polprodukt { get; set; }
         public virtual DbSet<Parametr_produkt> Parametr_produkt { get; set; }
-        public virtual DbSet<Podatek> Podatek { get; set; }
+        public virtual DbSet<Podatek> Podateks { get; set; }
         public virtual DbSet<Posada_pracownika> Posada_pracownika { get; set; }
-        public virtual DbSet<Pracownik> Pracownik { get; set; }
+        public virtual DbSet<Pracownik> Pracowniks { get; set; }
         public virtual DbSet<Proces_polprodukt_czynnosc> Proces_polprodukt_czynnosc { get; set; }
         public virtual DbSet<Proces_produkt_czynnosc> Proces_produkt_czynnosc { get; set; }
         public virtual DbSet<Proces_wytwarzanie_polprodukt> Proces_wytwarzanie_polprodukt { get; set; }
         public virtual DbSet<Proces_wytwarzanie_produkt> Proces_wytwarzanie_produkt { get; set; }
-        public virtual DbSet<Producent> Producent { get; set; }
-        public virtual DbSet<Produkt> Produkt { get; set; }
-        public virtual DbSet<Reklamacja> Reklamacja { get; set; }
+        public virtual DbSet<Producent> Producents { get; set; }
+        public virtual DbSet<Produkt> Produkts { get; set; }
+        public virtual DbSet<Reklamacja> Reklamacjas { get; set; }
         public virtual DbSet<Rodzaj_czesc> Rodzaj_czesc { get; set; }
         public virtual DbSet<Rodzaj_kontrola> Rodzaj_kontrola { get; set; }
         public virtual DbSet<Rodzaj_maszyna> Rodzaj_maszyna { get; set; }
@@ -87,12 +87,12 @@ namespace KWZP2022
         public virtual DbSet<Sklad_stanowisko_produkcyjne_narzedzie> Sklad_stanowisko_produkcyjne_narzedzie { get; set; }
         public virtual DbSet<Slownik_polprodukt> Slownik_polprodukt { get; set; }
         public virtual DbSet<Slownik_stanowisko> Slownik_stanowisko { get; set; }
-        public virtual DbSet<Sprzedaz> Sprzedaz { get; set; }
+        public virtual DbSet<Sprzedaz> Sprzedazs { get; set; }
         public virtual DbSet<Stan_realizacji_zamowienie_czesc> Stan_realizacji_zamowienie_czesc { get; set; }
         public virtual DbSet<Stan_realizacji_zamowienie_maszyna> Stan_realizacji_zamowienie_maszyna { get; set; }
         public virtual DbSet<Stan_realizacji_zamowienie_material> Stan_realizacji_zamowienie_material { get; set; }
         public virtual DbSet<Stan_realizacji_zamowienie_narzedzie> Stan_realizacji_zamowienie_narzedzie { get; set; }
-        public virtual DbSet<Stanowisko> Stanowisko { get; set; }
+        public virtual DbSet<Stanowisko> Stanowiskoes { get; set; }
         public virtual DbSet<Stanowisko_produkcyjne> Stanowisko_produkcyjne { get; set; }
         public virtual DbSet<Status_oferta> Status_oferta { get; set; }
         public virtual DbSet<Status_zamowienie> Status_zamowienie { get; set; }
@@ -102,19 +102,19 @@ namespace KWZP2022
         public virtual DbSet<Szczegoly_zamowienie_material> Szczegoly_zamowienie_material { get; set; }
         public virtual DbSet<Szczegoly_zamowienie_narzedzie> Szczegoly_zamowienie_narzedzie { get; set; }
         public virtual DbSet<Typ_zamowienie> Typ_zamowienie { get; set; }
-        public virtual DbSet<Umowa> Umowa { get; set; }
+        public virtual DbSet<Umowa> Umowas { get; set; }
         public virtual DbSet<Umowa_sprzedaz> Umowa_sprzedaz { get; set; }
-        public virtual DbSet<Wyksztalcenie> Wyksztalcenie { get; set; }
+        public virtual DbSet<Wyksztalcenie> Wyksztalcenies { get; set; }
         public virtual DbSet<Wymiana_czesc> Wymiana_czesc { get; set; }
         public virtual DbSet<Wymiar_pracy> Wymiar_pracy { get; set; }
-        public virtual DbSet<Wytwarzanie> Wytwarzanie { get; set; }
-        public virtual DbSet<Zamowienie> Zamowienie { get; set; }
+        public virtual DbSet<Wytwarzanie> Wytwarzanies { get; set; }
+        public virtual DbSet<Zamowienie> Zamowienies { get; set; }
         public virtual DbSet<Zamowienie_czesc> Zamowienie_czesc { get; set; }
         public virtual DbSet<Zamowienie_maszyna> Zamowienie_maszyna { get; set; }
         public virtual DbSet<Zamowienie_material> Zamowienie_material { get; set; }
         public virtual DbSet<Zamowienie_narzedzie> Zamowienie_narzedzie { get; set; }
         public virtual DbSet<Zamowienie_szczegol> Zamowienie_szczegol { get; set; }
-        public virtual DbSet<Zwrot> Zwrot { get; set; }
+        public virtual DbSet<Zwrot> Zwrots { get; set; }
         public virtual DbSet<v_Czynnosc_produkcyjna> v_Czynnosc_produkcyjna { get; set; }
         public virtual DbSet<v_Dane_adresowe_pracownik> v_Dane_adresowe_pracownik { get; set; }
         public virtual DbSet<v_Email_pracownik> v_Email_pracownik { get; set; }

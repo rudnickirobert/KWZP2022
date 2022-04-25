@@ -374,7 +374,7 @@
           <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Imie" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Nr_dowodu" Type="varchar" MaxLength="9" Nullable="false" />
-          <Property Name="Pesel" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Pesel" Type="bigint" Nullable="false" />
           <Property Name="ID_wyksztalcenie" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Proces_polprodukt_czynnosc">
@@ -982,7 +982,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Koszt_godziny_pracy' does not have a pr
           <Property Name="Liczba_godzin" Type="int" Nullable="false" />
           <Property Name="Koszt godziny pracy" Type="int" />
           <Property Name="Miesiąc" Type="int" />
-          <Property Name="Rok" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Koszt_procesow_polprodukt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1397,34 +1396,11 @@ warning 6002: The table/view 'KWZP.dbo.v_Pracownik' does not have a primary key 
           <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Imię" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Nr dowodu" Type="varchar" MaxLength="9" Nullable="false" />
-          <Property Name="Pesel" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Pesel" Type="bigint" Nullable="false" />
           <Property Name="Wykształcenie" Type="varchar" MaxLength="35" Nullable="false" />
           <Property Name="Numer telefonu" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'KWZP.dbo.v_Pracownik_wszystkie_dane' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="v_Pracownik_wszystkie_dane">
-          <Property Name="ID" Type="int" />
-          <Property Name="Nazwisko" Type="varchar" MaxLength="50" />
-          <Property Name="Imię" Type="varchar" MaxLength="50" />
-          <Property Name="Nr dowodu" Type="varchar" MaxLength="9" />
-          <Property Name="Pesel" Type="varchar" MaxLength="20" />
-          <Property Name="Wykształcenie" Type="varchar" MaxLength="35" />
-          <Property Name="Miejscowość zamieszkania" Type="varchar" MaxLength="50" />
-          <Property Name="Ulica" Type="varchar" MaxLength="50" />
-          <Property Name="Nr budynku" Type="varchar" MaxLength="10" />
-          <Property Name="Nr_lokalu" Type="varchar" MaxLength="10" />
-          <Property Name="Kod pocztowy" Type="varchar" MaxLength="5" />
-          <Property Name="Data danych od:" Type="date" />
-          <Property Name="Data danych do:" Type="date" />
-          <Property Name="Numer telefonu" Type="varchar" MaxLength="20" />
-          <Property Name="Data nr od:" Type="date" />
-          <Property Name="Data nr do:" Type="date" />
-          <Property Name="Email" Type="varchar" MaxLength="100" />
-          <Property Name="Data email od:" Type="date" />
-          <Property Name="Data email do:" Type="date" />
-        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Proces_polprodukt_czynnosc' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Proces_polprodukt_czynnosc">
@@ -3696,8 +3672,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
     [v_Koszt_godziny_pracy].[Wynagrodzenie] AS [Wynagrodzenie], 
     [v_Koszt_godziny_pracy].[Liczba_godzin] AS [Liczba_godzin], 
     [v_Koszt_godziny_pracy].[Koszt godziny pracy] AS [Koszt godziny pracy], 
-    [v_Koszt_godziny_pracy].[Miesiąc] AS [Miesiąc], 
-    [v_Koszt_godziny_pracy].[Rok] AS [Rok]
+    [v_Koszt_godziny_pracy].[Miesiąc] AS [Miesiąc]
     FROM [dbo].[v_Koszt_godziny_pracy] AS [v_Koszt_godziny_pracy]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Koszt_procesow_polprodukt" EntityType="Self.v_Koszt_procesow_polprodukt" store:Type="Views" store:Schema="dbo">
@@ -4903,8 +4878,8 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           </Key>
           <Property Name="ID_dzial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa_dzial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Alert" Relationship="Self.FK__Alert__ID_dzial__2EA5EC27" FromRole="Dzial" ToRole="Alert" />
-          <NavigationProperty Name="Etat" Relationship="Self.FK__Etat__ID_dzial__6C190EBB" FromRole="Dzial" ToRole="Etat" />
+          <NavigationProperty Name="Alerts" Relationship="Self.FK__Alert__ID_dzial__2EA5EC27" FromRole="Dzial" ToRole="Alert" />
+          <NavigationProperty Name="Etats" Relationship="Self.FK__Etat__ID_dzial__6C190EBB" FromRole="Dzial" ToRole="Etat" />
         </EntityType>
         <EntityType Name="Email_klient">
           <Key>
@@ -4946,7 +4921,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           </Key>
           <Property Name="ID_forma_platnosc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Forma_platnosc1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Sprzedaz" Relationship="Self.FK__Sprzedaz__ID_for__3C34F16F" FromRole="Forma_platnosc" ToRole="Sprzedaz" />
+          <NavigationProperty Name="Sprzedazs" Relationship="Self.FK__Sprzedaz__ID_for__3C34F16F" FromRole="Forma_platnosc" ToRole="Sprzedaz" />
         </EntityType>
         <EntityType Name="Gwarancja">
           <Key>
@@ -4977,7 +4952,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <NavigationProperty Name="Dane_adresowe_klient" Relationship="Self.FK__Dane_adre__ID_kl__02FC7413" FromRole="Klient" ToRole="Dane_adresowe_klient" />
           <NavigationProperty Name="Email_klient" Relationship="Self.FK__Email_kli__ID_kl__08B54D69" FromRole="Klient" ToRole="Email_klient" />
           <NavigationProperty Name="Nr_telefon_klient" Relationship="Self.FK__Nr_telefo__ID_kl__05D8E0BE" FromRole="Klient" ToRole="Nr_telefon_klient" />
-          <NavigationProperty Name="Zamowienie" Relationship="Self.FK__Zamowieni__ID_kl__0D7A0286" FromRole="Klient" ToRole="Zamowienie" />
+          <NavigationProperty Name="Zamowienies" Relationship="Self.FK__Zamowieni__ID_kl__0D7A0286" FromRole="Klient" ToRole="Zamowienie" />
         </EntityType>
         <EntityType Name="Kontrola_jakosci_produkt">
           <Key>
@@ -5120,7 +5095,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <NavigationProperty Name="Rodzaj_obsluga" Relationship="Self.FK__Obsluga__ID_rodz__72910220" FromRole="Obsluga" ToRole="Rodzaj_obsluga" />
           <NavigationProperty Name="Stanowisko_produkcyjne" Relationship="Self.FK__Obsluga__ID_stan__73852659" FromRole="Obsluga" ToRole="Stanowisko_produkcyjne" />
           <NavigationProperty Name="Wymiana_czesc" Relationship="Self.FK__Wymiana_c__ID_ob__7A3223E8" FromRole="Obsluga" ToRole="Wymiana_czesc" />
-          <NavigationProperty Name="Pracownik" Relationship="Self.Obsluga_pracownik" FromRole="Obsluga" ToRole="Pracownik" />
+          <NavigationProperty Name="Pracowniks" Relationship="Self.Obsluga_pracownik" FromRole="Obsluga" ToRole="Pracownik" />
         </EntityType>
         <EntityType Name="Oferta_handlowa">
           <Key>
@@ -5229,7 +5204,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <Property Name="Data_od" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Data_do" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Etat" Relationship="Self.FK__Posada_pr__ID_et__6EF57B66" FromRole="Posada_pracownika" ToRole="Etat" />
-          <NavigationProperty Name="Umowa" Relationship="Self.FK__Umowa__ID_posada__7E37BEF6" FromRole="Posada_pracownika" ToRole="Umowa" />
+          <NavigationProperty Name="Umowas" Relationship="Self.FK__Umowa__ID_posada__7E37BEF6" FromRole="Posada_pracownika" ToRole="Umowa" />
         </EntityType>
         <EntityType Name="Pracownik">
           <Key>
@@ -5239,29 +5214,29 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Nr_dowodu" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Pesel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pesel" Type="Int64" Nullable="false" />
           <Property Name="ID_wyksztalcenie" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Dane_adresowe_pracownik" Relationship="Self.FK__Dane_adre__ID_pr__15502E78" FromRole="Pracownik" ToRole="Dane_adresowe_pracownik" />
           <NavigationProperty Name="Email_pracownik" Relationship="Self.FK__Email_pra__ID_pr__1B0907CE" FromRole="Pracownik" ToRole="Email_pracownik" />
           <NavigationProperty Name="Kontrola_jakosci_produkt" Relationship="Self.FK__Kontrola___ID_pr__2DE6D218" FromRole="Pracownik" ToRole="Kontrola_jakosci_produkt" />
-          <NavigationProperty Name="Nadgodziny" Relationship="Self.FK__Nadgodzin__ID_pr__318258D2" FromRole="Pracownik" ToRole="Nadgodziny" />
-          <NavigationProperty Name="Nieobecnosc" Relationship="Self.FK__Nieobecno__ID_pr__75A278F5" FromRole="Pracownik" ToRole="Nieobecnosc" />
+          <NavigationProperty Name="Nadgodzinies" Relationship="Self.FK__Nadgodzin__ID_pr__318258D2" FromRole="Pracownik" ToRole="Nadgodziny" />
+          <NavigationProperty Name="Nieobecnoscs" Relationship="Self.FK__Nieobecno__ID_pr__75A278F5" FromRole="Pracownik" ToRole="Nieobecnosc" />
           <NavigationProperty Name="Nr_telefon_pracownik" Relationship="Self.FK__Nr_telefo__ID_pr__182C9B23" FromRole="Pracownik" ToRole="Nr_telefon_pracownik" />
           <NavigationProperty Name="Oferta_handlowa" Relationship="Self.FK__Oferta_ha__ID_pr__1AD3FDA4" FromRole="Pracownik" ToRole="Oferta_handlowa" />
           <NavigationProperty Name="Wyksztalcenie" Relationship="Self.FK__Pracownik__ID_wy__1273C1CD" FromRole="Pracownik" ToRole="Wyksztalcenie" />
-          <NavigationProperty Name="Reklamacja" Relationship="Self.FK__Reklamacj__ID_pr__44CA3770" FromRole="Pracownik" ToRole="Reklamacja" />
+          <NavigationProperty Name="Reklamacjas" Relationship="Self.FK__Reklamacj__ID_pr__44CA3770" FromRole="Pracownik" ToRole="Reklamacja" />
           <NavigationProperty Name="Stan_realizacji_zamowienie_material" Relationship="Self.FK__Stan_real__ID_pr__19AACF41" FromRole="Pracownik" ToRole="Stan_realizacji_zamowienie_material" />
           <NavigationProperty Name="Stan_realizacji_zamowienie_czesc" Relationship="Self.FK__Stan_real__ID_pr__2704CA5F" FromRole="Pracownik" ToRole="Stan_realizacji_zamowienie_czesc" />
           <NavigationProperty Name="Stan_realizacji_zamowienie_maszyna" Relationship="Self.FK__Stan_real__ID_pr__59C55456" FromRole="Pracownik" ToRole="Stan_realizacji_zamowienie_maszyna" />
           <NavigationProperty Name="Stan_realizacji_zamowienie_narzedzie" Relationship="Self.FK__Stan_real__ID_pr__671F4F74" FromRole="Pracownik" ToRole="Stan_realizacji_zamowienie_narzedzie" />
-          <NavigationProperty Name="Umowa" Relationship="Self.FK__Umowa__ID_pracow__7D439ABD" FromRole="Pracownik" ToRole="Umowa" />
-          <NavigationProperty Name="Wytwarzanie" Relationship="Self.FK__Wytwarzan__ID_pr__1F98B2C1" FromRole="Pracownik" ToRole="Wytwarzanie" />
-          <NavigationProperty Name="Zamowienie" Relationship="Self.FK__Zamowieni__ID_pr__0E6E26BF" FromRole="Pracownik" ToRole="Zamowienie" />
+          <NavigationProperty Name="Umowas" Relationship="Self.FK__Umowa__ID_pracow__7D439ABD" FromRole="Pracownik" ToRole="Umowa" />
+          <NavigationProperty Name="Wytwarzanies" Relationship="Self.FK__Wytwarzan__ID_pr__1F98B2C1" FromRole="Pracownik" ToRole="Wytwarzanie" />
+          <NavigationProperty Name="Zamowienies" Relationship="Self.FK__Zamowieni__ID_pr__0E6E26BF" FromRole="Pracownik" ToRole="Zamowienie" />
           <NavigationProperty Name="Zamowienie_material" Relationship="Self.FK__Zamowieni__ID_pr__13F1F5EB" FromRole="Pracownik" ToRole="Zamowienie_material" />
           <NavigationProperty Name="Zamowienie_czesc" Relationship="Self.FK__Zamowieni__ID_pr__214BF109" FromRole="Pracownik" ToRole="Zamowienie_czesc" />
           <NavigationProperty Name="Zamowienie_maszyna" Relationship="Self.FK__Zamowieni__ID_pr__540C7B00" FromRole="Pracownik" ToRole="Zamowienie_maszyna" />
           <NavigationProperty Name="Zamowienie_narzedzie" Relationship="Self.FK__Zamowieni__ID_pr__6166761E" FromRole="Pracownik" ToRole="Zamowienie_narzedzie" />
-          <NavigationProperty Name="Obsluga" Relationship="Self.Obsluga_pracownik" FromRole="Pracownik" ToRole="Obsluga" />
+          <NavigationProperty Name="Obslugas" Relationship="Self.Obsluga_pracownik" FromRole="Pracownik" ToRole="Obsluga" />
         </EntityType>
         <EntityType Name="Proces_polprodukt_czynnosc">
           <Key>
@@ -5336,7 +5311,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <NavigationProperty Name="Sklad_produkt_material" Relationship="Self.FK__Sklad_pro__ID_pr__403A8C7D" FromRole="Produkt" ToRole="Sklad_produkt_material" />
           <NavigationProperty Name="Szczegoly_sprzedaz" Relationship="Self.FK__Szczegoly__ID_pr__40F9A68C" FromRole="Produkt" ToRole="Szczegoly_sprzedaz" />
           <NavigationProperty Name="Zamowienie_szczegol" Relationship="Self.FK__Zamowieni__ID_pr__1332DBDC" FromRole="Produkt" ToRole="Zamowienie_szczegol" />
-          <NavigationProperty Name="Zwrot" Relationship="Self.FK__Zwrot__ID_produk__498EEC8D" FromRole="Produkt" ToRole="Zwrot" />
+          <NavigationProperty Name="Zwrots" Relationship="Self.FK__Zwrot__ID_produk__498EEC8D" FromRole="Produkt" ToRole="Zwrot" />
         </EntityType>
         <EntityType Name="Reklamacja">
           <Key>
@@ -5349,7 +5324,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <Property Name="Opis_reklamacja" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Pracownik" Relationship="Self.FK__Reklamacj__ID_pr__44CA3770" FromRole="Reklamacja" ToRole="Pracownik" />
           <NavigationProperty Name="Sprzedaz" Relationship="Self.FK__Reklamacj__ID_sp__45BE5BA9" FromRole="Reklamacja" ToRole="Sprzedaz" />
-          <NavigationProperty Name="Zwrot" Relationship="Self.FK__Zwrot__ID_reklam__489AC854" FromRole="Reklamacja" ToRole="Zwrot" />
+          <NavigationProperty Name="Zwrots" Relationship="Self.FK__Zwrot__ID_reklam__489AC854" FromRole="Reklamacja" ToRole="Zwrot" />
         </EntityType>
         <EntityType Name="Rodzaj_czesc">
           <Key>
@@ -5357,7 +5332,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           </Key>
           <Property Name="ID_rodzaj_czesc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa_rodzaj_czesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Czesc" Relationship="Self.FK__Czesc__ID_rodzaj__68487DD7" FromRole="Rodzaj_czesc" ToRole="Czesc" />
+          <NavigationProperty Name="Czescs" Relationship="Self.FK__Czesc__ID_rodzaj__68487DD7" FromRole="Rodzaj_czesc" ToRole="Czesc" />
         </EntityType>
         <EntityType Name="Rodzaj_kontrola">
           <Key>
@@ -5375,7 +5350,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <Property Name="ID_rodzaj_maszyna" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa_rodzaj_maszyna" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Opis" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Maszyna" Relationship="Self.FK__Maszyna__ID_rodz__4BAC3F29" FromRole="Rodzaj_maszyna" ToRole="Maszyna" />
+          <NavigationProperty Name="Maszynas" Relationship="Self.FK__Maszyna__ID_rodz__4BAC3F29" FromRole="Rodzaj_maszyna" ToRole="Maszyna" />
         </EntityType>
         <EntityType Name="Rodzaj_material">
           <Key>
@@ -5383,7 +5358,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           </Key>
           <Property Name="ID_rodzaj_material" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa_rodzaj_material" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Material" Relationship="Self.FK__Material__ID_rod__31EC6D26" FromRole="Rodzaj_material" ToRole="Material" />
+          <NavigationProperty Name="Materials" Relationship="Self.FK__Material__ID_rod__31EC6D26" FromRole="Rodzaj_material" ToRole="Material" />
         </EntityType>
         <EntityType Name="Rodzaj_nieobecnosci">
           <Key>
@@ -5391,7 +5366,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           </Key>
           <Property Name="ID_rodzaj_nieobecnosci" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Symbol" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Nieobecnosc" Relationship="Self.FK__Nieobecno__ID_ro__76969D2E" FromRole="Rodzaj_nieobecnosci" ToRole="Nieobecnosc" />
+          <NavigationProperty Name="Nieobecnoscs" Relationship="Self.FK__Nieobecno__ID_ro__76969D2E" FromRole="Rodzaj_nieobecnosci" ToRole="Nieobecnosc" />
         </EntityType>
         <EntityType Name="Rodzaj_obsluga">
           <Key>
@@ -5399,7 +5374,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           </Key>
           <Property Name="ID_rodzaj_obsluga" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa_rodzaj_obsluga" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Obsluga" Relationship="Self.FK__Obsluga__ID_rodz__72910220" FromRole="Rodzaj_obsluga" ToRole="Obsluga" />
+          <NavigationProperty Name="Obslugas" Relationship="Self.FK__Obsluga__ID_rodz__72910220" FromRole="Rodzaj_obsluga" ToRole="Obsluga" />
         </EntityType>
         <EntityType Name="Rodzaj_parametr">
           <Key>
@@ -5423,7 +5398,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <Property Name="ID_rodzaj_umowy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Urlop" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Umowa" Relationship="Self.FK__Umowa__ID_rodzaj__7C4F7684" FromRole="Rodzaj_umowy" ToRole="Umowa" />
+          <NavigationProperty Name="Umowas" Relationship="Self.FK__Umowa__ID_rodzaj__7C4F7684" FromRole="Rodzaj_umowy" ToRole="Umowa" />
         </EntityType>
         <EntityType Name="Sklad_maszyna">
           <Key>
@@ -5521,7 +5496,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <Property Name="ID_forma_platnosc" Type="Int32" Nullable="false" />
           <Property Name="ID_umowa_sprzedaz" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Forma_platnosc" Relationship="Self.FK__Sprzedaz__ID_for__3C34F16F" FromRole="Sprzedaz" ToRole="Forma_platnosc" />
-          <NavigationProperty Name="Reklamacja" Relationship="Self.FK__Reklamacj__ID_sp__45BE5BA9" FromRole="Sprzedaz" ToRole="Reklamacja" />
+          <NavigationProperty Name="Reklamacjas" Relationship="Self.FK__Reklamacj__ID_sp__45BE5BA9" FromRole="Sprzedaz" ToRole="Reklamacja" />
           <NavigationProperty Name="Umowa_sprzedaz" Relationship="Self.FK__Sprzedaz__ID_umo__3D2915A8" FromRole="Sprzedaz" ToRole="Umowa_sprzedaz" />
           <NavigationProperty Name="Szczegoly_sprzedaz" Relationship="Self.FK__Szczegoly__ID_sp__40058253" FromRole="Sprzedaz" ToRole="Szczegoly_sprzedaz" />
         </EntityType>
@@ -5585,7 +5560,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           </Key>
           <Property Name="ID_stanowisko" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa_stanowiska" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Etat" Relationship="Self.FK__Etat__ID_stanowi__6B24EA82" FromRole="Stanowisko" ToRole="Etat" />
+          <NavigationProperty Name="Etats" Relationship="Self.FK__Etat__ID_stanowi__6B24EA82" FromRole="Stanowisko" ToRole="Etat" />
         </EntityType>
         <EntityType Name="Stanowisko_produkcyjne">
           <Key>
@@ -5593,7 +5568,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           </Key>
           <Property Name="ID_stanowisko_produkcyjne" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_nazwa_stanowiska" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Obsluga" Relationship="Self.FK__Obsluga__ID_stan__73852659" FromRole="Stanowisko_produkcyjne" ToRole="Obsluga" />
+          <NavigationProperty Name="Obslugas" Relationship="Self.FK__Obsluga__ID_stan__73852659" FromRole="Stanowisko_produkcyjne" ToRole="Obsluga" />
           <NavigationProperty Name="Proces_wytwarzanie_polprodukt" Relationship="Self.FK__Proces_wy__ID_st__2A164134" FromRole="Stanowisko_produkcyjne" ToRole="Proces_wytwarzanie_polprodukt" />
           <NavigationProperty Name="Proces_wytwarzanie_produkt" Relationship="Self.FK__Proces_wy__ID_st__25518C17" FromRole="Stanowisko_produkcyjne" ToRole="Proces_wytwarzanie_produkt" />
           <NavigationProperty Name="Sklad_stanowisko_produkcyjne_maszyna" Relationship="Self.FK__Sklad_sta__ID_st__5EBF139D" FromRole="Stanowisko_produkcyjne" ToRole="Sklad_stanowisko_produkcyjne_maszyna" />
@@ -5699,7 +5674,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           </Key>
           <Property Name="ID_typ_zamowienie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Typ_zamowienie1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Zamowienie" Relationship="Self.FK__Zamowieni__ID_ty__0F624AF8" FromRole="Typ_zamowienie" ToRole="Zamowienie" />
+          <NavigationProperty Name="Zamowienies" Relationship="Self.FK__Zamowieni__ID_ty__0F624AF8" FromRole="Typ_zamowienie" ToRole="Zamowienie" />
         </EntityType>
         <EntityType Name="Umowa">
           <Key>
@@ -5723,7 +5698,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <Property Name="ID_umowa_sprzedaz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_oferta_handlowa" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Oferta_handlowa" Relationship="Self.FK__Umowa_spr__ID_of__395884C4" FromRole="Umowa_sprzedaz" ToRole="Oferta_handlowa" />
-          <NavigationProperty Name="Sprzedaz" Relationship="Self.FK__Sprzedaz__ID_umo__3D2915A8" FromRole="Umowa_sprzedaz" ToRole="Sprzedaz" />
+          <NavigationProperty Name="Sprzedazs" Relationship="Self.FK__Sprzedaz__ID_umo__3D2915A8" FromRole="Umowa_sprzedaz" ToRole="Sprzedaz" />
         </EntityType>
         <EntityType Name="Wyksztalcenie">
           <Key>
@@ -5731,7 +5706,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           </Key>
           <Property Name="ID_wyksztalcenie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Pracownik" Relationship="Self.FK__Pracownik__ID_wy__1273C1CD" FromRole="Wyksztalcenie" ToRole="Pracownik" />
+          <NavigationProperty Name="Pracowniks" Relationship="Self.FK__Pracownik__ID_wy__1273C1CD" FromRole="Wyksztalcenie" ToRole="Pracownik" />
         </EntityType>
         <EntityType Name="Wymiana_czesc">
           <Key>
@@ -5752,7 +5727,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           </Key>
           <Property Name="ID_wymiar_pracy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Umowa" Relationship="Self.FK__Umowa__ID_wymiar__7B5B524B" FromRole="Wymiar_pracy" ToRole="Umowa" />
+          <NavigationProperty Name="Umowas" Relationship="Self.FK__Umowa__ID_wymiar__7B5B524B" FromRole="Wymiar_pracy" ToRole="Umowa" />
         </EntityType>
         <EntityType Name="Wytwarzanie">
           <Key>
@@ -5845,7 +5820,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <Property Name="ID_produkt" Type="Int32" Nullable="false" />
           <Property Name="Ilosc" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Produkt" Relationship="Self.FK__Zamowieni__ID_pr__1332DBDC" FromRole="Zamowienie_szczegol" ToRole="Produkt" />
-          <NavigationProperty Name="Wytwarzanie" Relationship="Self.FK__Wytwarzan__ID_za__208CD6FA" FromRole="Zamowienie_szczegol" ToRole="Wytwarzanie" />
+          <NavigationProperty Name="Wytwarzanies" Relationship="Self.FK__Wytwarzan__ID_za__208CD6FA" FromRole="Zamowienie_szczegol" ToRole="Wytwarzanie" />
           <NavigationProperty Name="Zamowienie" Relationship="Self.FK__Zamowieni__ID_za__123EB7A3" FromRole="Zamowienie_szczegol" ToRole="Zamowienie" />
         </EntityType>
         <EntityType Name="Zwrot">
@@ -5992,7 +5967,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <Property Name="Liczba_godzin" Type="Int32" Nullable="false" />
           <Property Name="Koszt_godziny_pracy" Type="Int32" />
           <Property Name="Miesiąc" Type="Int32" />
-          <Property Name="Rok" Type="Int32" />
         </EntityType>
         <EntityType Name="v_Koszt_procesow_polprodukt">
           <Key>
@@ -6339,7 +6313,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Imię" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Nr_dowodu" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Pesel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pesel" Type="Int64" Nullable="false" />
           <Property Name="Wykształcenie" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Numer_telefonu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
@@ -8341,35 +8315,35 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
         </Association>
         <EntityContainer Name="KWZPEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Alert" EntityType="Self.Alert" />
+          <EntitySet Name="Alerts" EntityType="Self.Alert" />
           <EntitySet Name="Czas_pracy" EntityType="Self.Czas_pracy" />
-          <EntitySet Name="Czesc" EntityType="Self.Czesc" />
+          <EntitySet Name="Czescs" EntityType="Self.Czesc" />
           <EntitySet Name="Czynnosc_produkcyjna" EntityType="Self.Czynnosc_produkcyjna" />
           <EntitySet Name="Dane_adresowe_dostawca" EntityType="Self.Dane_adresowe_dostawca" />
           <EntitySet Name="Dane_adresowe_klient" EntityType="Self.Dane_adresowe_klient" />
           <EntitySet Name="Dane_adresowe_pracownik" EntityType="Self.Dane_adresowe_pracownik" />
           <EntitySet Name="Dane_adresowe_producent" EntityType="Self.Dane_adresowe_producent" />
-          <EntitySet Name="Dostawca" EntityType="Self.Dostawca" />
-          <EntitySet Name="Dzial" EntityType="Self.Dzial" />
+          <EntitySet Name="Dostawcas" EntityType="Self.Dostawca" />
+          <EntitySet Name="Dzials" EntityType="Self.Dzial" />
           <EntitySet Name="Email_klient" EntityType="Self.Email_klient" />
           <EntitySet Name="Email_pracownik" EntityType="Self.Email_pracownik" />
-          <EntitySet Name="Etat" EntityType="Self.Etat" />
+          <EntitySet Name="Etats" EntityType="Self.Etat" />
           <EntitySet Name="Forma_platnosc" EntityType="Self.Forma_platnosc" />
-          <EntitySet Name="Gwarancja" EntityType="Self.Gwarancja" />
-          <EntitySet Name="Jednostka" EntityType="Self.Jednostka" />
-          <EntitySet Name="Klient" EntityType="Self.Klient" />
+          <EntitySet Name="Gwarancjas" EntityType="Self.Gwarancja" />
+          <EntitySet Name="Jednostkas" EntityType="Self.Jednostka" />
+          <EntitySet Name="Klients" EntityType="Self.Klient" />
           <EntitySet Name="Kontrola_jakosci_produkt" EntityType="Self.Kontrola_jakosci_produkt" />
           <EntitySet Name="Kontrola_parametr" EntityType="Self.Kontrola_parametr" />
-          <EntitySet Name="Maszyna" EntityType="Self.Maszyna" />
+          <EntitySet Name="Maszynas" EntityType="Self.Maszyna" />
           <EntitySet Name="Maszyna_nr_seryjny" EntityType="Self.Maszyna_nr_seryjny" />
-          <EntitySet Name="Material" EntityType="Self.Material" />
-          <EntitySet Name="Nadgodziny" EntityType="Self.Nadgodziny" />
-          <EntitySet Name="Narzedzie" EntityType="Self.Narzedzie" />
-          <EntitySet Name="Nieobecnosc" EntityType="Self.Nieobecnosc" />
+          <EntitySet Name="Materials" EntityType="Self.Material" />
+          <EntitySet Name="Nadgodzinies" EntityType="Self.Nadgodziny" />
+          <EntitySet Name="Narzedzies" EntityType="Self.Narzedzie" />
+          <EntitySet Name="Nieobecnoscs" EntityType="Self.Nieobecnosc" />
           <EntitySet Name="Nr_seryjny" EntityType="Self.Nr_seryjny" />
           <EntitySet Name="Nr_telefon_klient" EntityType="Self.Nr_telefon_klient" />
           <EntitySet Name="Nr_telefon_pracownik" EntityType="Self.Nr_telefon_pracownik" />
-          <EntitySet Name="Obsluga" EntityType="Self.Obsluga" />
+          <EntitySet Name="Obslugas" EntityType="Self.Obsluga" />
           <EntitySet Name="Oferta_handlowa" EntityType="Self.Oferta_handlowa" />
           <EntitySet Name="Parametr_czesc" EntityType="Self.Parametr_czesc" />
           <EntitySet Name="Parametr_maszyna" EntityType="Self.Parametr_maszyna" />
@@ -8377,16 +8351,16 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <EntitySet Name="Parametr_narzedzie" EntityType="Self.Parametr_narzedzie" />
           <EntitySet Name="Parametr_polprodukt" EntityType="Self.Parametr_polprodukt" />
           <EntitySet Name="Parametr_produkt" EntityType="Self.Parametr_produkt" />
-          <EntitySet Name="Podatek" EntityType="Self.Podatek" />
+          <EntitySet Name="Podateks" EntityType="Self.Podatek" />
           <EntitySet Name="Posada_pracownika" EntityType="Self.Posada_pracownika" />
-          <EntitySet Name="Pracownik" EntityType="Self.Pracownik" />
+          <EntitySet Name="Pracowniks" EntityType="Self.Pracownik" />
           <EntitySet Name="Proces_polprodukt_czynnosc" EntityType="Self.Proces_polprodukt_czynnosc" />
           <EntitySet Name="Proces_produkt_czynnosc" EntityType="Self.Proces_produkt_czynnosc" />
           <EntitySet Name="Proces_wytwarzanie_polprodukt" EntityType="Self.Proces_wytwarzanie_polprodukt" />
           <EntitySet Name="Proces_wytwarzanie_produkt" EntityType="Self.Proces_wytwarzanie_produkt" />
-          <EntitySet Name="Producent" EntityType="Self.Producent" />
-          <EntitySet Name="Produkt" EntityType="Self.Produkt" />
-          <EntitySet Name="Reklamacja" EntityType="Self.Reklamacja" />
+          <EntitySet Name="Producents" EntityType="Self.Producent" />
+          <EntitySet Name="Produkts" EntityType="Self.Produkt" />
+          <EntitySet Name="Reklamacjas" EntityType="Self.Reklamacja" />
           <EntitySet Name="Rodzaj_czesc" EntityType="Self.Rodzaj_czesc" />
           <EntitySet Name="Rodzaj_kontrola" EntityType="Self.Rodzaj_kontrola" />
           <EntitySet Name="Rodzaj_maszyna" EntityType="Self.Rodzaj_maszyna" />
@@ -8403,12 +8377,12 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <EntitySet Name="Sklad_stanowisko_produkcyjne_narzedzie" EntityType="Self.Sklad_stanowisko_produkcyjne_narzedzie" />
           <EntitySet Name="Slownik_polprodukt" EntityType="Self.Slownik_polprodukt" />
           <EntitySet Name="Slownik_stanowisko" EntityType="Self.Slownik_stanowisko" />
-          <EntitySet Name="Sprzedaz" EntityType="Self.Sprzedaz" />
+          <EntitySet Name="Sprzedazs" EntityType="Self.Sprzedaz" />
           <EntitySet Name="Stan_realizacji_zamowienie_czesc" EntityType="Self.Stan_realizacji_zamowienie_czesc" />
           <EntitySet Name="Stan_realizacji_zamowienie_maszyna" EntityType="Self.Stan_realizacji_zamowienie_maszyna" />
           <EntitySet Name="Stan_realizacji_zamowienie_material" EntityType="Self.Stan_realizacji_zamowienie_material" />
           <EntitySet Name="Stan_realizacji_zamowienie_narzedzie" EntityType="Self.Stan_realizacji_zamowienie_narzedzie" />
-          <EntitySet Name="Stanowisko" EntityType="Self.Stanowisko" />
+          <EntitySet Name="Stanowiskoes" EntityType="Self.Stanowisko" />
           <EntitySet Name="Stanowisko_produkcyjne" EntityType="Self.Stanowisko_produkcyjne" />
           <EntitySet Name="Status_oferta" EntityType="Self.Status_oferta" />
           <EntitySet Name="Status_zamowienie" EntityType="Self.Status_zamowienie" />
@@ -8418,19 +8392,19 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <EntitySet Name="Szczegoly_zamowienie_material" EntityType="Self.Szczegoly_zamowienie_material" />
           <EntitySet Name="Szczegoly_zamowienie_narzedzie" EntityType="Self.Szczegoly_zamowienie_narzedzie" />
           <EntitySet Name="Typ_zamowienie" EntityType="Self.Typ_zamowienie" />
-          <EntitySet Name="Umowa" EntityType="Self.Umowa" />
+          <EntitySet Name="Umowas" EntityType="Self.Umowa" />
           <EntitySet Name="Umowa_sprzedaz" EntityType="Self.Umowa_sprzedaz" />
-          <EntitySet Name="Wyksztalcenie" EntityType="Self.Wyksztalcenie" />
+          <EntitySet Name="Wyksztalcenies" EntityType="Self.Wyksztalcenie" />
           <EntitySet Name="Wymiana_czesc" EntityType="Self.Wymiana_czesc" />
           <EntitySet Name="Wymiar_pracy" EntityType="Self.Wymiar_pracy" />
-          <EntitySet Name="Wytwarzanie" EntityType="Self.Wytwarzanie" />
-          <EntitySet Name="Zamowienie" EntityType="Self.Zamowienie" />
+          <EntitySet Name="Wytwarzanies" EntityType="Self.Wytwarzanie" />
+          <EntitySet Name="Zamowienies" EntityType="Self.Zamowienie" />
           <EntitySet Name="Zamowienie_czesc" EntityType="Self.Zamowienie_czesc" />
           <EntitySet Name="Zamowienie_maszyna" EntityType="Self.Zamowienie_maszyna" />
           <EntitySet Name="Zamowienie_material" EntityType="Self.Zamowienie_material" />
           <EntitySet Name="Zamowienie_narzedzie" EntityType="Self.Zamowienie_narzedzie" />
           <EntitySet Name="Zamowienie_szczegol" EntityType="Self.Zamowienie_szczegol" />
-          <EntitySet Name="Zwrot" EntityType="Self.Zwrot" />
+          <EntitySet Name="Zwrots" EntityType="Self.Zwrot" />
           <EntitySet Name="v_Czynnosc_produkcyjna" EntityType="Self.v_Czynnosc_produkcyjna" />
           <EntitySet Name="v_Dane_adresowe_pracownik" EntityType="Self.v_Dane_adresowe_pracownik" />
           <EntitySet Name="v_Email_pracownik" EntityType="Self.v_Email_pracownik" />
@@ -8513,27 +8487,27 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           <EntitySet Name="v_Zamowienia_narzedzia_w_trakcie_bez_odebranych" EntityType="Self.v_Zamowienia_narzedzia_w_trakcie_bez_odebranych" />
           <EntitySet Name="v_Zamowienia_narzedzia_w_trakcie_wszystko" EntityType="Self.v_Zamowienia_narzedzia_w_trakcie_wszystko" />
           <AssociationSet Name="FK__Alert__ID_dzial__2EA5EC27" Association="Self.FK__Alert__ID_dzial__2EA5EC27">
-            <End Role="Dzial" EntitySet="Dzial" />
-            <End Role="Alert" EntitySet="Alert" />
+            <End Role="Dzial" EntitySet="Dzials" />
+            <End Role="Alert" EntitySet="Alerts" />
           </AssociationSet>
           <AssociationSet Name="FK__Czesc__ID_rodzaj__68487DD7" Association="Self.FK__Czesc__ID_rodzaj__68487DD7">
             <End Role="Rodzaj_czesc" EntitySet="Rodzaj_czesc" />
-            <End Role="Czesc" EntitySet="Czesc" />
+            <End Role="Czesc" EntitySet="Czescs" />
           </AssociationSet>
           <AssociationSet Name="FK__Parametr___ID_cz__0A688BB1" Association="Self.FK__Parametr___ID_cz__0A688BB1">
-            <End Role="Czesc" EntitySet="Czesc" />
+            <End Role="Czesc" EntitySet="Czescs" />
             <End Role="Parametr_czesc" EntitySet="Parametr_czesc" />
           </AssociationSet>
           <AssociationSet Name="FK__Sklad_mas__ID_cz__6FB49575" Association="Self.FK__Sklad_mas__ID_cz__6FB49575">
-            <End Role="Czesc" EntitySet="Czesc" />
+            <End Role="Czesc" EntitySet="Czescs" />
             <End Role="Sklad_maszyna" EntitySet="Sklad_maszyna" />
           </AssociationSet>
           <AssociationSet Name="FK__Szczegoly__ID_cz__2AD55B43" Association="Self.FK__Szczegoly__ID_cz__2AD55B43">
-            <End Role="Czesc" EntitySet="Czesc" />
+            <End Role="Czesc" EntitySet="Czescs" />
             <End Role="Szczegoly_zamowienie_czesc" EntitySet="Szczegoly_zamowienie_czesc" />
           </AssociationSet>
           <AssociationSet Name="FK__Wymiana_c__ID_cz__7C1A6C5A" Association="Self.FK__Wymiana_c__ID_cz__7C1A6C5A">
-            <End Role="Czesc" EntitySet="Czesc" />
+            <End Role="Czesc" EntitySet="Czescs" />
             <End Role="Wymiana_czesc" EntitySet="Wymiana_czesc" />
           </AssociationSet>
           <AssociationSet Name="FK__Proces_po__ID_cz__5629CD9C" Association="Self.FK__Proces_po__ID_cz__5629CD9C">
@@ -8545,83 +8519,83 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
             <End Role="Proces_produkt_czynnosc" EntitySet="Proces_produkt_czynnosc" />
           </AssociationSet>
           <AssociationSet Name="FK__Dane_adre__ID_do__11158940" Association="Self.FK__Dane_adre__ID_do__11158940">
-            <End Role="Dostawca" EntitySet="Dostawca" />
+            <End Role="Dostawca" EntitySet="Dostawcas" />
             <End Role="Dane_adresowe_dostawca" EntitySet="Dane_adresowe_dostawca" />
           </AssociationSet>
           <AssociationSet Name="FK__Dane_adre__ID_kl__02FC7413" Association="Self.FK__Dane_adre__ID_kl__02FC7413">
-            <End Role="Klient" EntitySet="Klient" />
+            <End Role="Klient" EntitySet="Klients" />
             <End Role="Dane_adresowe_klient" EntitySet="Dane_adresowe_klient" />
           </AssociationSet>
           <AssociationSet Name="FK__Dane_adre__ID_pr__15502E78" Association="Self.FK__Dane_adre__ID_pr__15502E78">
-            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Pracownik" EntitySet="Pracowniks" />
             <End Role="Dane_adresowe_pracownik" EntitySet="Dane_adresowe_pracownik" />
           </AssociationSet>
           <AssociationSet Name="FK__Dane_adre__ID_pr__0E391C95" Association="Self.FK__Dane_adre__ID_pr__0E391C95">
-            <End Role="Producent" EntitySet="Producent" />
+            <End Role="Producent" EntitySet="Producents" />
             <End Role="Dane_adresowe_producent" EntitySet="Dane_adresowe_producent" />
           </AssociationSet>
           <AssociationSet Name="FK__Zamowieni__ID_do__14E61A24" Association="Self.FK__Zamowieni__ID_do__14E61A24">
-            <End Role="Dostawca" EntitySet="Dostawca" />
+            <End Role="Dostawca" EntitySet="Dostawcas" />
             <End Role="Zamowienie_material" EntitySet="Zamowienie_material" />
           </AssociationSet>
           <AssociationSet Name="FK__Zamowieni__ID_do__22401542" Association="Self.FK__Zamowieni__ID_do__22401542">
-            <End Role="Dostawca" EntitySet="Dostawca" />
+            <End Role="Dostawca" EntitySet="Dostawcas" />
             <End Role="Zamowienie_czesc" EntitySet="Zamowienie_czesc" />
           </AssociationSet>
           <AssociationSet Name="FK__Zamowieni__ID_do__55009F39" Association="Self.FK__Zamowieni__ID_do__55009F39">
-            <End Role="Dostawca" EntitySet="Dostawca" />
+            <End Role="Dostawca" EntitySet="Dostawcas" />
             <End Role="Zamowienie_maszyna" EntitySet="Zamowienie_maszyna" />
           </AssociationSet>
           <AssociationSet Name="FK__Zamowieni__ID_do__625A9A57" Association="Self.FK__Zamowieni__ID_do__625A9A57">
-            <End Role="Dostawca" EntitySet="Dostawca" />
+            <End Role="Dostawca" EntitySet="Dostawcas" />
             <End Role="Zamowienie_narzedzie" EntitySet="Zamowienie_narzedzie" />
           </AssociationSet>
           <AssociationSet Name="FK__Etat__ID_dzial__6C190EBB" Association="Self.FK__Etat__ID_dzial__6C190EBB">
-            <End Role="Dzial" EntitySet="Dzial" />
-            <End Role="Etat" EntitySet="Etat" />
+            <End Role="Dzial" EntitySet="Dzials" />
+            <End Role="Etat" EntitySet="Etats" />
           </AssociationSet>
           <AssociationSet Name="FK__Email_kli__ID_kl__08B54D69" Association="Self.FK__Email_kli__ID_kl__08B54D69">
-            <End Role="Klient" EntitySet="Klient" />
+            <End Role="Klient" EntitySet="Klients" />
             <End Role="Email_klient" EntitySet="Email_klient" />
           </AssociationSet>
           <AssociationSet Name="FK__Email_pra__ID_pr__1B0907CE" Association="Self.FK__Email_pra__ID_pr__1B0907CE">
-            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Pracownik" EntitySet="Pracowniks" />
             <End Role="Email_pracownik" EntitySet="Email_pracownik" />
           </AssociationSet>
           <AssociationSet Name="FK__Etat__ID_stanowi__6B24EA82" Association="Self.FK__Etat__ID_stanowi__6B24EA82">
-            <End Role="Stanowisko" EntitySet="Stanowisko" />
-            <End Role="Etat" EntitySet="Etat" />
+            <End Role="Stanowisko" EntitySet="Stanowiskoes" />
+            <End Role="Etat" EntitySet="Etats" />
           </AssociationSet>
           <AssociationSet Name="FK__Posada_pr__ID_et__6EF57B66" Association="Self.FK__Posada_pr__ID_et__6EF57B66">
-            <End Role="Etat" EntitySet="Etat" />
+            <End Role="Etat" EntitySet="Etats" />
             <End Role="Posada_pracownika" EntitySet="Posada_pracownika" />
           </AssociationSet>
           <AssociationSet Name="FK__Sprzedaz__ID_for__3C34F16F" Association="Self.FK__Sprzedaz__ID_for__3C34F16F">
             <End Role="Forma_platnosc" EntitySet="Forma_platnosc" />
-            <End Role="Sprzedaz" EntitySet="Sprzedaz" />
+            <End Role="Sprzedaz" EntitySet="Sprzedazs" />
           </AssociationSet>
           <AssociationSet Name="FK__Oferta_ha__ID_gw__1BC821DD" Association="Self.FK__Oferta_ha__ID_gw__1BC821DD">
-            <End Role="Gwarancja" EntitySet="Gwarancja" />
+            <End Role="Gwarancja" EntitySet="Gwarancjas" />
             <End Role="Oferta_handlowa" EntitySet="Oferta_handlowa" />
           </AssociationSet>
           <AssociationSet Name="FK__Rodzaj_pa__ID_je__276EDEB3" Association="Self.FK__Rodzaj_pa__ID_je__276EDEB3">
-            <End Role="Jednostka" EntitySet="Jednostka" />
+            <End Role="Jednostka" EntitySet="Jednostkas" />
             <End Role="Rodzaj_parametr" EntitySet="Rodzaj_parametr" />
           </AssociationSet>
           <AssociationSet Name="FK__Nr_telefo__ID_kl__05D8E0BE" Association="Self.FK__Nr_telefo__ID_kl__05D8E0BE">
-            <End Role="Klient" EntitySet="Klient" />
+            <End Role="Klient" EntitySet="Klients" />
             <End Role="Nr_telefon_klient" EntitySet="Nr_telefon_klient" />
           </AssociationSet>
           <AssociationSet Name="FK__Zamowieni__ID_kl__0D7A0286" Association="Self.FK__Zamowieni__ID_kl__0D7A0286">
-            <End Role="Klient" EntitySet="Klient" />
-            <End Role="Zamowienie" EntitySet="Zamowienie" />
+            <End Role="Klient" EntitySet="Klients" />
+            <End Role="Zamowienie" EntitySet="Zamowienies" />
           </AssociationSet>
           <AssociationSet Name="FK__Kontrola___ID_ko__31B762FC" Association="Self.FK__Kontrola___ID_ko__31B762FC">
             <End Role="Kontrola_jakosci_produkt" EntitySet="Kontrola_jakosci_produkt" />
             <End Role="Kontrola_parametr" EntitySet="Kontrola_parametr" />
           </AssociationSet>
           <AssociationSet Name="FK__Kontrola___ID_pr__2DE6D218" Association="Self.FK__Kontrola___ID_pr__2DE6D218">
-            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Pracownik" EntitySet="Pracowniks" />
             <End Role="Kontrola_jakosci_produkt" EntitySet="Kontrola_jakosci_produkt" />
           </AssociationSet>
           <AssociationSet Name="FK__Kontrola___ID_ro__2EDAF651" Association="Self.FK__Kontrola___ID_ro__2EDAF651">
@@ -8629,7 +8603,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
             <End Role="Kontrola_jakosci_produkt" EntitySet="Kontrola_jakosci_produkt" />
           </AssociationSet>
           <AssociationSet Name="FK__Kontrola___ID_wy__2CF2ADDF" Association="Self.FK__Kontrola___ID_wy__2CF2ADDF">
-            <End Role="Wytwarzanie" EntitySet="Wytwarzanie" />
+            <End Role="Wytwarzanie" EntitySet="Wytwarzanies" />
             <End Role="Kontrola_jakosci_produkt" EntitySet="Kontrola_jakosci_produkt" />
           </AssociationSet>
           <AssociationSet Name="FK__Kontrola___ID_pa__32AB8735" Association="Self.FK__Kontrola___ID_pa__32AB8735">
@@ -8638,22 +8612,22 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           </AssociationSet>
           <AssociationSet Name="FK__Maszyna__ID_rodz__4BAC3F29" Association="Self.FK__Maszyna__ID_rodz__4BAC3F29">
             <End Role="Rodzaj_maszyna" EntitySet="Rodzaj_maszyna" />
-            <End Role="Maszyna" EntitySet="Maszyna" />
+            <End Role="Maszyna" EntitySet="Maszynas" />
           </AssociationSet>
           <AssociationSet Name="FK__Maszyna_n__ID_ma__4E88ABD4" Association="Self.FK__Maszyna_n__ID_ma__4E88ABD4">
-            <End Role="Maszyna" EntitySet="Maszyna" />
+            <End Role="Maszyna" EntitySet="Maszynas" />
             <End Role="Maszyna_nr_seryjny" EntitySet="Maszyna_nr_seryjny" />
           </AssociationSet>
           <AssociationSet Name="FK__Parametr___ID_ma__0697FACD" Association="Self.FK__Parametr___ID_ma__0697FACD">
-            <End Role="Maszyna" EntitySet="Maszyna" />
+            <End Role="Maszyna" EntitySet="Maszynas" />
             <End Role="Parametr_maszyna" EntitySet="Parametr_maszyna" />
           </AssociationSet>
           <AssociationSet Name="FK__Sklad_mas__ID_ma__6EC0713C" Association="Self.FK__Sklad_mas__ID_ma__6EC0713C">
-            <End Role="Maszyna" EntitySet="Maszyna" />
+            <End Role="Maszyna" EntitySet="Maszynas" />
             <End Role="Sklad_maszyna" EntitySet="Sklad_maszyna" />
           </AssociationSet>
           <AssociationSet Name="FK__Szczegoly__ID_ma__5D95E53A" Association="Self.FK__Szczegoly__ID_ma__5D95E53A">
-            <End Role="Maszyna" EntitySet="Maszyna" />
+            <End Role="Maszyna" EntitySet="Maszynas" />
             <End Role="Szczegoly_zamowienie_maszyna" EntitySet="Szczegoly_zamowienie_maszyna" />
           </AssociationSet>
           <AssociationSet Name="FK__Maszyna_n__ID_nr__4F7CD00D" Association="Self.FK__Maszyna_n__ID_nr__4F7CD00D">
@@ -8670,66 +8644,66 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           </AssociationSet>
           <AssociationSet Name="FK__Material__ID_rod__31EC6D26" Association="Self.FK__Material__ID_rod__31EC6D26">
             <End Role="Rodzaj_material" EntitySet="Rodzaj_material" />
-            <End Role="Material" EntitySet="Material" />
+            <End Role="Material" EntitySet="Materials" />
           </AssociationSet>
           <AssociationSet Name="FK__Parametr___ID_ma__7EF6D905" Association="Self.FK__Parametr___ID_ma__7EF6D905">
-            <End Role="Material" EntitySet="Material" />
+            <End Role="Material" EntitySet="Materials" />
             <End Role="Parametr_material" EntitySet="Parametr_material" />
           </AssociationSet>
           <AssociationSet Name="FK__Sklad_pol__ID_ma__35BCFE0A" Association="Self.FK__Sklad_pol__ID_ma__35BCFE0A">
-            <End Role="Material" EntitySet="Material" />
+            <End Role="Material" EntitySet="Materials" />
             <End Role="Sklad_polprodukt" EntitySet="Sklad_polprodukt" />
           </AssociationSet>
           <AssociationSet Name="FK__Sklad_pro__ID_ma__412EB0B6" Association="Self.FK__Sklad_pro__ID_ma__412EB0B6">
-            <End Role="Material" EntitySet="Material" />
+            <End Role="Material" EntitySet="Materials" />
             <End Role="Sklad_produkt_material" EntitySet="Sklad_produkt_material" />
           </AssociationSet>
           <AssociationSet Name="FK__Szczegoly__ID_ma__1D7B6025" Association="Self.FK__Szczegoly__ID_ma__1D7B6025">
-            <End Role="Material" EntitySet="Material" />
+            <End Role="Material" EntitySet="Materials" />
             <End Role="Szczegoly_zamowienie_material" EntitySet="Szczegoly_zamowienie_material" />
           </AssociationSet>
           <AssociationSet Name="FK__Nadgodzin__ID_pr__318258D2" Association="Self.FK__Nadgodzin__ID_pr__318258D2">
-            <End Role="Pracownik" EntitySet="Pracownik" />
-            <End Role="Nadgodziny" EntitySet="Nadgodziny" />
+            <End Role="Pracownik" EntitySet="Pracowniks" />
+            <End Role="Nadgodziny" EntitySet="Nadgodzinies" />
           </AssociationSet>
           <AssociationSet Name="FK__Parametr___ID_na__02C769E9" Association="Self.FK__Parametr___ID_na__02C769E9">
-            <End Role="Narzedzie" EntitySet="Narzedzie" />
+            <End Role="Narzedzie" EntitySet="Narzedzies" />
             <End Role="Parametr_narzedzie" EntitySet="Parametr_narzedzie" />
           </AssociationSet>
           <AssociationSet Name="FK__Sklad_sta__ID_na__6383C8BA" Association="Self.FK__Sklad_sta__ID_na__6383C8BA">
-            <End Role="Narzedzie" EntitySet="Narzedzie" />
+            <End Role="Narzedzie" EntitySet="Narzedzies" />
             <End Role="Sklad_stanowisko_produkcyjne_narzedzie" EntitySet="Sklad_stanowisko_produkcyjne_narzedzie" />
           </AssociationSet>
           <AssociationSet Name="FK__Szczegoly__ID_na__6AEFE058" Association="Self.FK__Szczegoly__ID_na__6AEFE058">
-            <End Role="Narzedzie" EntitySet="Narzedzie" />
+            <End Role="Narzedzie" EntitySet="Narzedzies" />
             <End Role="Szczegoly_zamowienie_narzedzie" EntitySet="Szczegoly_zamowienie_narzedzie" />
           </AssociationSet>
           <AssociationSet Name="FK__Nieobecno__ID_pr__75A278F5" Association="Self.FK__Nieobecno__ID_pr__75A278F5">
-            <End Role="Pracownik" EntitySet="Pracownik" />
-            <End Role="Nieobecnosc" EntitySet="Nieobecnosc" />
+            <End Role="Pracownik" EntitySet="Pracowniks" />
+            <End Role="Nieobecnosc" EntitySet="Nieobecnoscs" />
           </AssociationSet>
           <AssociationSet Name="FK__Nieobecno__ID_ro__76969D2E" Association="Self.FK__Nieobecno__ID_ro__76969D2E">
             <End Role="Rodzaj_nieobecnosci" EntitySet="Rodzaj_nieobecnosci" />
-            <End Role="Nieobecnosc" EntitySet="Nieobecnosc" />
+            <End Role="Nieobecnosc" EntitySet="Nieobecnoscs" />
           </AssociationSet>
           <AssociationSet Name="FK__Nr_telefo__ID_pr__182C9B23" Association="Self.FK__Nr_telefo__ID_pr__182C9B23">
-            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Pracownik" EntitySet="Pracowniks" />
             <End Role="Nr_telefon_pracownik" EntitySet="Nr_telefon_pracownik" />
           </AssociationSet>
           <AssociationSet Name="FK__Obsluga__ID_rodz__72910220" Association="Self.FK__Obsluga__ID_rodz__72910220">
             <End Role="Rodzaj_obsluga" EntitySet="Rodzaj_obsluga" />
-            <End Role="Obsluga" EntitySet="Obsluga" />
+            <End Role="Obsluga" EntitySet="Obslugas" />
           </AssociationSet>
           <AssociationSet Name="FK__Obsluga__ID_stan__73852659" Association="Self.FK__Obsluga__ID_stan__73852659">
             <End Role="Stanowisko_produkcyjne" EntitySet="Stanowisko_produkcyjne" />
-            <End Role="Obsluga" EntitySet="Obsluga" />
+            <End Role="Obsluga" EntitySet="Obslugas" />
           </AssociationSet>
           <AssociationSet Name="FK__Wymiana_c__ID_ob__7A3223E8" Association="Self.FK__Wymiana_c__ID_ob__7A3223E8">
-            <End Role="Obsluga" EntitySet="Obsluga" />
+            <End Role="Obsluga" EntitySet="Obslugas" />
             <End Role="Wymiana_czesc" EntitySet="Wymiana_czesc" />
           </AssociationSet>
           <AssociationSet Name="FK__Oferta_ha__ID_pr__1AD3FDA4" Association="Self.FK__Oferta_ha__ID_pr__1AD3FDA4">
-            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Pracownik" EntitySet="Pracowniks" />
             <End Role="Oferta_handlowa" EntitySet="Oferta_handlowa" />
           </AssociationSet>
           <AssociationSet Name="FK__Oferta_ha__ID_st__1CBC4616" Association="Self.FK__Oferta_ha__ID_st__1CBC4616">
@@ -8737,7 +8711,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
             <End Role="Oferta_handlowa" EntitySet="Oferta_handlowa" />
           </AssociationSet>
           <AssociationSet Name="FK__Oferta_ha__ID_za__19DFD96B" Association="Self.FK__Oferta_ha__ID_za__19DFD96B">
-            <End Role="Zamowienie" EntitySet="Zamowienie" />
+            <End Role="Zamowienie" EntitySet="Zamowienies" />
             <End Role="Oferta_handlowa" EntitySet="Oferta_handlowa" />
           </AssociationSet>
           <AssociationSet Name="FK__Umowa_spr__ID_of__395884C4" Association="Self.FK__Umowa_spr__ID_of__395884C4">
@@ -8769,7 +8743,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
             <End Role="Parametr_polprodukt" EntitySet="Parametr_polprodukt" />
           </AssociationSet>
           <AssociationSet Name="FK__Parametr___ID_pr__2A4B4B5E" Association="Self.FK__Parametr___ID_pr__2A4B4B5E">
-            <End Role="Produkt" EntitySet="Produkt" />
+            <End Role="Produkt" EntitySet="Produkts" />
             <End Role="Parametr_produkt" EntitySet="Parametr_produkt" />
           </AssociationSet>
           <AssociationSet Name="FK__Parametr___ID_ro__2B3F6F97" Association="Self.FK__Parametr___ID_ro__2B3F6F97">
@@ -8777,63 +8751,63 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
             <End Role="Parametr_produkt" EntitySet="Parametr_produkt" />
           </AssociationSet>
           <AssociationSet Name="FK__Szczegoly__ID_po__41EDCAC5" Association="Self.FK__Szczegoly__ID_po__41EDCAC5">
-            <End Role="Podatek" EntitySet="Podatek" />
+            <End Role="Podatek" EntitySet="Podateks" />
             <End Role="Szczegoly_sprzedaz" EntitySet="Szczegoly_sprzedaz" />
           </AssociationSet>
           <AssociationSet Name="FK__Umowa__ID_posada__7E37BEF6" Association="Self.FK__Umowa__ID_posada__7E37BEF6">
             <End Role="Posada_pracownika" EntitySet="Posada_pracownika" />
-            <End Role="Umowa" EntitySet="Umowa" />
+            <End Role="Umowa" EntitySet="Umowas" />
           </AssociationSet>
           <AssociationSet Name="FK__Pracownik__ID_wy__1273C1CD" Association="Self.FK__Pracownik__ID_wy__1273C1CD">
-            <End Role="Wyksztalcenie" EntitySet="Wyksztalcenie" />
-            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Wyksztalcenie" EntitySet="Wyksztalcenies" />
+            <End Role="Pracownik" EntitySet="Pracowniks" />
           </AssociationSet>
           <AssociationSet Name="FK__Reklamacj__ID_pr__44CA3770" Association="Self.FK__Reklamacj__ID_pr__44CA3770">
-            <End Role="Pracownik" EntitySet="Pracownik" />
-            <End Role="Reklamacja" EntitySet="Reklamacja" />
+            <End Role="Pracownik" EntitySet="Pracowniks" />
+            <End Role="Reklamacja" EntitySet="Reklamacjas" />
           </AssociationSet>
           <AssociationSet Name="FK__Stan_real__ID_pr__19AACF41" Association="Self.FK__Stan_real__ID_pr__19AACF41">
-            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Pracownik" EntitySet="Pracowniks" />
             <End Role="Stan_realizacji_zamowienie_material" EntitySet="Stan_realizacji_zamowienie_material" />
           </AssociationSet>
           <AssociationSet Name="FK__Stan_real__ID_pr__2704CA5F" Association="Self.FK__Stan_real__ID_pr__2704CA5F">
-            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Pracownik" EntitySet="Pracowniks" />
             <End Role="Stan_realizacji_zamowienie_czesc" EntitySet="Stan_realizacji_zamowienie_czesc" />
           </AssociationSet>
           <AssociationSet Name="FK__Stan_real__ID_pr__59C55456" Association="Self.FK__Stan_real__ID_pr__59C55456">
-            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Pracownik" EntitySet="Pracowniks" />
             <End Role="Stan_realizacji_zamowienie_maszyna" EntitySet="Stan_realizacji_zamowienie_maszyna" />
           </AssociationSet>
           <AssociationSet Name="FK__Stan_real__ID_pr__671F4F74" Association="Self.FK__Stan_real__ID_pr__671F4F74">
-            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Pracownik" EntitySet="Pracowniks" />
             <End Role="Stan_realizacji_zamowienie_narzedzie" EntitySet="Stan_realizacji_zamowienie_narzedzie" />
           </AssociationSet>
           <AssociationSet Name="FK__Umowa__ID_pracow__7D439ABD" Association="Self.FK__Umowa__ID_pracow__7D439ABD">
-            <End Role="Pracownik" EntitySet="Pracownik" />
-            <End Role="Umowa" EntitySet="Umowa" />
+            <End Role="Pracownik" EntitySet="Pracowniks" />
+            <End Role="Umowa" EntitySet="Umowas" />
           </AssociationSet>
           <AssociationSet Name="FK__Wytwarzan__ID_pr__1F98B2C1" Association="Self.FK__Wytwarzan__ID_pr__1F98B2C1">
-            <End Role="Pracownik" EntitySet="Pracownik" />
-            <End Role="Wytwarzanie" EntitySet="Wytwarzanie" />
+            <End Role="Pracownik" EntitySet="Pracowniks" />
+            <End Role="Wytwarzanie" EntitySet="Wytwarzanies" />
           </AssociationSet>
           <AssociationSet Name="FK__Zamowieni__ID_pr__0E6E26BF" Association="Self.FK__Zamowieni__ID_pr__0E6E26BF">
-            <End Role="Pracownik" EntitySet="Pracownik" />
-            <End Role="Zamowienie" EntitySet="Zamowienie" />
+            <End Role="Pracownik" EntitySet="Pracowniks" />
+            <End Role="Zamowienie" EntitySet="Zamowienies" />
           </AssociationSet>
           <AssociationSet Name="FK__Zamowieni__ID_pr__13F1F5EB" Association="Self.FK__Zamowieni__ID_pr__13F1F5EB">
-            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Pracownik" EntitySet="Pracowniks" />
             <End Role="Zamowienie_material" EntitySet="Zamowienie_material" />
           </AssociationSet>
           <AssociationSet Name="FK__Zamowieni__ID_pr__214BF109" Association="Self.FK__Zamowieni__ID_pr__214BF109">
-            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Pracownik" EntitySet="Pracowniks" />
             <End Role="Zamowienie_czesc" EntitySet="Zamowienie_czesc" />
           </AssociationSet>
           <AssociationSet Name="FK__Zamowieni__ID_pr__540C7B00" Association="Self.FK__Zamowieni__ID_pr__540C7B00">
-            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Pracownik" EntitySet="Pracowniks" />
             <End Role="Zamowienie_maszyna" EntitySet="Zamowienie_maszyna" />
           </AssociationSet>
           <AssociationSet Name="FK__Zamowieni__ID_pr__6166761E" Association="Self.FK__Zamowieni__ID_pr__6166761E">
-            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Pracownik" EntitySet="Pracowniks" />
             <End Role="Zamowienie_narzedzie" EntitySet="Zamowienie_narzedzie" />
           </AssociationSet>
           <AssociationSet Name="FK__Proces_po__ID_po__5535A963" Association="Self.FK__Proces_po__ID_po__5535A963">
@@ -8845,7 +8819,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
             <End Role="Proces_wytwarzanie_polprodukt" EntitySet="Proces_wytwarzanie_polprodukt" />
           </AssociationSet>
           <AssociationSet Name="FK__Proces_pr__ID_pr__59063A47" Association="Self.FK__Proces_pr__ID_pr__59063A47">
-            <End Role="Produkt" EntitySet="Produkt" />
+            <End Role="Produkt" EntitySet="Produkts" />
             <End Role="Proces_produkt_czynnosc" EntitySet="Proces_produkt_czynnosc" />
           </AssociationSet>
           <AssociationSet Name="FK__Proces_wy__ID_pr__245D67DE" Association="Self.FK__Proces_wy__ID_pr__245D67DE">
@@ -8857,7 +8831,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
             <End Role="Proces_wytwarzanie_polprodukt" EntitySet="Proces_wytwarzanie_polprodukt" />
           </AssociationSet>
           <AssociationSet Name="FK__Proces_wy__ID_wy__282DF8C2" Association="Self.FK__Proces_wy__ID_wy__282DF8C2">
-            <End Role="Wytwarzanie" EntitySet="Wytwarzanie" />
+            <End Role="Wytwarzanie" EntitySet="Wytwarzanies" />
             <End Role="Proces_wytwarzanie_polprodukt" EntitySet="Proces_wytwarzanie_polprodukt" />
           </AssociationSet>
           <AssociationSet Name="FK__Proces_wy__ID_st__25518C17" Association="Self.FK__Proces_wy__ID_st__25518C17">
@@ -8865,56 +8839,56 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
             <End Role="Proces_wytwarzanie_produkt" EntitySet="Proces_wytwarzanie_produkt" />
           </AssociationSet>
           <AssociationSet Name="FK__Proces_wy__ID_wy__236943A5" Association="Self.FK__Proces_wy__ID_wy__236943A5">
-            <End Role="Wytwarzanie" EntitySet="Wytwarzanie" />
+            <End Role="Wytwarzanie" EntitySet="Wytwarzanies" />
             <End Role="Proces_wytwarzanie_produkt" EntitySet="Proces_wytwarzanie_produkt" />
           </AssociationSet>
           <AssociationSet Name="FK__Szczegoly__ID_pr__1E6F845E" Association="Self.FK__Szczegoly__ID_pr__1E6F845E">
-            <End Role="Producent" EntitySet="Producent" />
+            <End Role="Producent" EntitySet="Producents" />
             <End Role="Szczegoly_zamowienie_material" EntitySet="Szczegoly_zamowienie_material" />
           </AssociationSet>
           <AssociationSet Name="FK__Szczegoly__ID_pr__2BC97F7C" Association="Self.FK__Szczegoly__ID_pr__2BC97F7C">
-            <End Role="Producent" EntitySet="Producent" />
+            <End Role="Producent" EntitySet="Producents" />
             <End Role="Szczegoly_zamowienie_czesc" EntitySet="Szczegoly_zamowienie_czesc" />
           </AssociationSet>
           <AssociationSet Name="FK__Szczegoly__ID_pr__5E8A0973" Association="Self.FK__Szczegoly__ID_pr__5E8A0973">
-            <End Role="Producent" EntitySet="Producent" />
+            <End Role="Producent" EntitySet="Producents" />
             <End Role="Szczegoly_zamowienie_maszyna" EntitySet="Szczegoly_zamowienie_maszyna" />
           </AssociationSet>
           <AssociationSet Name="FK__Szczegoly__ID_pr__6BE40491" Association="Self.FK__Szczegoly__ID_pr__6BE40491">
-            <End Role="Producent" EntitySet="Producent" />
+            <End Role="Producent" EntitySet="Producents" />
             <End Role="Szczegoly_zamowienie_narzedzie" EntitySet="Szczegoly_zamowienie_narzedzie" />
           </AssociationSet>
           <AssociationSet Name="FK__Sklad_pro__ID_pr__3C69FB99" Association="Self.FK__Sklad_pro__ID_pr__3C69FB99">
-            <End Role="Produkt" EntitySet="Produkt" />
+            <End Role="Produkt" EntitySet="Produkts" />
             <End Role="Sklad_produkt" EntitySet="Sklad_produkt" />
           </AssociationSet>
           <AssociationSet Name="FK__Sklad_pro__ID_pr__403A8C7D" Association="Self.FK__Sklad_pro__ID_pr__403A8C7D">
-            <End Role="Produkt" EntitySet="Produkt" />
+            <End Role="Produkt" EntitySet="Produkts" />
             <End Role="Sklad_produkt_material" EntitySet="Sklad_produkt_material" />
           </AssociationSet>
           <AssociationSet Name="FK__Szczegoly__ID_pr__40F9A68C" Association="Self.FK__Szczegoly__ID_pr__40F9A68C">
-            <End Role="Produkt" EntitySet="Produkt" />
+            <End Role="Produkt" EntitySet="Produkts" />
             <End Role="Szczegoly_sprzedaz" EntitySet="Szczegoly_sprzedaz" />
           </AssociationSet>
           <AssociationSet Name="FK__Zamowieni__ID_pr__1332DBDC" Association="Self.FK__Zamowieni__ID_pr__1332DBDC">
-            <End Role="Produkt" EntitySet="Produkt" />
+            <End Role="Produkt" EntitySet="Produkts" />
             <End Role="Zamowienie_szczegol" EntitySet="Zamowienie_szczegol" />
           </AssociationSet>
           <AssociationSet Name="FK__Zwrot__ID_produk__498EEC8D" Association="Self.FK__Zwrot__ID_produk__498EEC8D">
-            <End Role="Produkt" EntitySet="Produkt" />
-            <End Role="Zwrot" EntitySet="Zwrot" />
+            <End Role="Produkt" EntitySet="Produkts" />
+            <End Role="Zwrot" EntitySet="Zwrots" />
           </AssociationSet>
           <AssociationSet Name="FK__Reklamacj__ID_sp__45BE5BA9" Association="Self.FK__Reklamacj__ID_sp__45BE5BA9">
-            <End Role="Sprzedaz" EntitySet="Sprzedaz" />
-            <End Role="Reklamacja" EntitySet="Reklamacja" />
+            <End Role="Sprzedaz" EntitySet="Sprzedazs" />
+            <End Role="Reklamacja" EntitySet="Reklamacjas" />
           </AssociationSet>
           <AssociationSet Name="FK__Zwrot__ID_reklam__489AC854" Association="Self.FK__Zwrot__ID_reklam__489AC854">
-            <End Role="Reklamacja" EntitySet="Reklamacja" />
-            <End Role="Zwrot" EntitySet="Zwrot" />
+            <End Role="Reklamacja" EntitySet="Reklamacjas" />
+            <End Role="Zwrot" EntitySet="Zwrots" />
           </AssociationSet>
           <AssociationSet Name="FK__Umowa__ID_rodzaj__7C4F7684" Association="Self.FK__Umowa__ID_rodzaj__7C4F7684">
             <End Role="Rodzaj_umowy" EntitySet="Rodzaj_umowy" />
-            <End Role="Umowa" EntitySet="Umowa" />
+            <End Role="Umowa" EntitySet="Umowas" />
           </AssociationSet>
           <AssociationSet Name="FK__Sklad_pol__ID_po__34C8D9D1" Association="Self.FK__Sklad_pol__ID_po__34C8D9D1">
             <End Role="Slownik_polprodukt" EntitySet="Slownik_polprodukt" />
@@ -8938,10 +8912,10 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           </AssociationSet>
           <AssociationSet Name="FK__Sprzedaz__ID_umo__3D2915A8" Association="Self.FK__Sprzedaz__ID_umo__3D2915A8">
             <End Role="Umowa_sprzedaz" EntitySet="Umowa_sprzedaz" />
-            <End Role="Sprzedaz" EntitySet="Sprzedaz" />
+            <End Role="Sprzedaz" EntitySet="Sprzedazs" />
           </AssociationSet>
           <AssociationSet Name="FK__Szczegoly__ID_sp__40058253" Association="Self.FK__Szczegoly__ID_sp__40058253">
-            <End Role="Sprzedaz" EntitySet="Sprzedaz" />
+            <End Role="Sprzedaz" EntitySet="Sprzedazs" />
             <End Role="Szczegoly_sprzedaz" EntitySet="Szczegoly_sprzedaz" />
           </AssociationSet>
           <AssociationSet Name="FK__Stan_real__ID_st__2610A626" Association="Self.FK__Stan_real__ID_st__2610A626">
@@ -8994,23 +8968,23 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
           </AssociationSet>
           <AssociationSet Name="FK__Zamowieni__ID_ty__0F624AF8" Association="Self.FK__Zamowieni__ID_ty__0F624AF8">
             <End Role="Typ_zamowienie" EntitySet="Typ_zamowienie" />
-            <End Role="Zamowienie" EntitySet="Zamowienie" />
+            <End Role="Zamowienie" EntitySet="Zamowienies" />
           </AssociationSet>
           <AssociationSet Name="FK__Umowa__ID_wymiar__7B5B524B" Association="Self.FK__Umowa__ID_wymiar__7B5B524B">
             <End Role="Wymiar_pracy" EntitySet="Wymiar_pracy" />
-            <End Role="Umowa" EntitySet="Umowa" />
+            <End Role="Umowa" EntitySet="Umowas" />
           </AssociationSet>
           <AssociationSet Name="FK__Wytwarzan__ID_za__208CD6FA" Association="Self.FK__Wytwarzan__ID_za__208CD6FA">
             <End Role="Zamowienie_szczegol" EntitySet="Zamowienie_szczegol" />
-            <End Role="Wytwarzanie" EntitySet="Wytwarzanie" />
+            <End Role="Wytwarzanie" EntitySet="Wytwarzanies" />
           </AssociationSet>
           <AssociationSet Name="FK__Zamowieni__ID_za__123EB7A3" Association="Self.FK__Zamowieni__ID_za__123EB7A3">
-            <End Role="Zamowienie" EntitySet="Zamowienie" />
+            <End Role="Zamowienie" EntitySet="Zamowienies" />
             <End Role="Zamowienie_szczegol" EntitySet="Zamowienie_szczegol" />
           </AssociationSet>
           <AssociationSet Name="Obsluga_pracownik" Association="Self.Obsluga_pracownik">
-            <End Role="Obsluga" EntitySet="Obsluga" />
-            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Obsluga" EntitySet="Obslugas" />
+            <End Role="Pracownik" EntitySet="Pracowniks" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -9019,7 +8993,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="KWZPModelStoreContainer" CdmEntityContainer="KWZPEntities">
-          <EntitySetMapping Name="Alert">
+          <EntitySetMapping Name="Alerts">
             <EntityTypeMapping TypeName="KWZPModel.Alert">
               <MappingFragment StoreEntitySet="Alert">
                 <ScalarProperty Name="ID_alert" ColumnName="ID_alert" />
@@ -9038,7 +9012,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Czesc">
+          <EntitySetMapping Name="Czescs">
             <EntityTypeMapping TypeName="KWZPModel.Czesc">
               <MappingFragment StoreEntitySet="Czesc">
                 <ScalarProperty Name="ID_czesc" ColumnName="ID_czesc" />
@@ -9107,7 +9081,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Dostawca">
+          <EntitySetMapping Name="Dostawcas">
             <EntityTypeMapping TypeName="KWZPModel.Dostawca">
               <MappingFragment StoreEntitySet="Dostawca">
                 <ScalarProperty Name="ID_dostawca" ColumnName="ID_dostawca" />
@@ -9115,7 +9089,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Dzial">
+          <EntitySetMapping Name="Dzials">
             <EntityTypeMapping TypeName="KWZPModel.Dzial">
               <MappingFragment StoreEntitySet="Dzial">
                 <ScalarProperty Name="ID_dzial" ColumnName="ID_dzial" />
@@ -9145,7 +9119,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Etat">
+          <EntitySetMapping Name="Etats">
             <EntityTypeMapping TypeName="KWZPModel.Etat">
               <MappingFragment StoreEntitySet="Etat">
                 <ScalarProperty Name="ID_etat" ColumnName="ID_etat" />
@@ -9163,7 +9137,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Gwarancja">
+          <EntitySetMapping Name="Gwarancjas">
             <EntityTypeMapping TypeName="KWZPModel.Gwarancja">
               <MappingFragment StoreEntitySet="Gwarancja">
                 <ScalarProperty Name="ID_gwarancja" ColumnName="ID_gwarancja" />
@@ -9172,7 +9146,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Jednostka">
+          <EntitySetMapping Name="Jednostkas">
             <EntityTypeMapping TypeName="KWZPModel.Jednostka">
               <MappingFragment StoreEntitySet="Jednostka">
                 <ScalarProperty Name="ID_jednostka" ColumnName="ID_jednostka" />
@@ -9181,7 +9155,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Klient">
+          <EntitySetMapping Name="Klients">
             <EntityTypeMapping TypeName="KWZPModel.Klient">
               <MappingFragment StoreEntitySet="Klient">
                 <ScalarProperty Name="ID_klient" ColumnName="ID_klient" />
@@ -9214,7 +9188,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Maszyna">
+          <EntitySetMapping Name="Maszynas">
             <EntityTypeMapping TypeName="KWZPModel.Maszyna">
               <MappingFragment StoreEntitySet="Maszyna">
                 <ScalarProperty Name="ID_maszyna" ColumnName="ID_maszyna" />
@@ -9233,7 +9207,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Material">
+          <EntitySetMapping Name="Materials">
             <EntityTypeMapping TypeName="KWZPModel.Material">
               <MappingFragment StoreEntitySet="Material">
                 <ScalarProperty Name="ID_material" ColumnName="ID_material" />
@@ -9242,7 +9216,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Nadgodziny">
+          <EntitySetMapping Name="Nadgodzinies">
             <EntityTypeMapping TypeName="KWZPModel.Nadgodziny">
               <MappingFragment StoreEntitySet="Nadgodziny">
                 <ScalarProperty Name="ID_nadgodziny" ColumnName="ID_nadgodziny" />
@@ -9252,7 +9226,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Narzedzie">
+          <EntitySetMapping Name="Narzedzies">
             <EntityTypeMapping TypeName="KWZPModel.Narzedzie">
               <MappingFragment StoreEntitySet="Narzedzie">
                 <ScalarProperty Name="ID_narzedzie" ColumnName="ID_narzedzie" />
@@ -9260,7 +9234,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Nieobecnosc">
+          <EntitySetMapping Name="Nieobecnoscs">
             <EntityTypeMapping TypeName="KWZPModel.Nieobecnosc">
               <MappingFragment StoreEntitySet="Nieobecnosc">
                 <ScalarProperty Name="ID_nieobecnosc" ColumnName="ID_nieobecnosc" />
@@ -9301,7 +9275,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Obsluga">
+          <EntitySetMapping Name="Obslugas">
             <EntityTypeMapping TypeName="KWZPModel.Obsluga">
               <MappingFragment StoreEntitySet="Obsluga">
                 <ScalarProperty Name="ID_obsluga" ColumnName="ID_obsluga" />
@@ -9388,7 +9362,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Podatek">
+          <EntitySetMapping Name="Podateks">
             <EntityTypeMapping TypeName="KWZPModel.Podatek">
               <MappingFragment StoreEntitySet="Podatek">
                 <ScalarProperty Name="ID_podatek" ColumnName="ID_podatek" />
@@ -9406,7 +9380,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Pracownik">
+          <EntitySetMapping Name="Pracowniks">
             <EntityTypeMapping TypeName="KWZPModel.Pracownik">
               <MappingFragment StoreEntitySet="Pracownik">
                 <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
@@ -9458,7 +9432,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Producent">
+          <EntitySetMapping Name="Producents">
             <EntityTypeMapping TypeName="KWZPModel.Producent">
               <MappingFragment StoreEntitySet="Producent">
                 <ScalarProperty Name="ID_producent" ColumnName="ID_producent" />
@@ -9467,7 +9441,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Produkt">
+          <EntitySetMapping Name="Produkts">
             <EntityTypeMapping TypeName="KWZPModel.Produkt">
               <MappingFragment StoreEntitySet="Produkt">
                 <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
@@ -9475,7 +9449,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Reklamacja">
+          <EntitySetMapping Name="Reklamacjas">
             <EntityTypeMapping TypeName="KWZPModel.Reklamacja">
               <MappingFragment StoreEntitySet="Reklamacja">
                 <ScalarProperty Name="ID_reklamacja" ColumnName="ID_reklamacja" />
@@ -9629,7 +9603,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Sprzedaz">
+          <EntitySetMapping Name="Sprzedazs">
             <EntityTypeMapping TypeName="KWZPModel.Sprzedaz">
               <MappingFragment StoreEntitySet="Sprzedaz">
                 <ScalarProperty Name="ID_sprzedaz" ColumnName="ID_sprzedaz" />
@@ -9682,7 +9656,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Stanowisko">
+          <EntitySetMapping Name="Stanowiskoes">
             <EntityTypeMapping TypeName="KWZPModel.Stanowisko">
               <MappingFragment StoreEntitySet="Stanowisko">
                 <ScalarProperty Name="ID_stanowisko" ColumnName="ID_stanowisko" />
@@ -9778,7 +9752,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Umowa">
+          <EntitySetMapping Name="Umowas">
             <EntityTypeMapping TypeName="KWZPModel.Umowa">
               <MappingFragment StoreEntitySet="Umowa">
                 <ScalarProperty Name="ID_umowa" ColumnName="ID_umowa" />
@@ -9798,7 +9772,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Wyksztalcenie">
+          <EntitySetMapping Name="Wyksztalcenies">
             <EntityTypeMapping TypeName="KWZPModel.Wyksztalcenie">
               <MappingFragment StoreEntitySet="Wyksztalcenie">
                 <ScalarProperty Name="ID_wyksztalcenie" ColumnName="ID_wyksztalcenie" />
@@ -9823,7 +9797,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Wytwarzanie">
+          <EntitySetMapping Name="Wytwarzanies">
             <EntityTypeMapping TypeName="KWZPModel.Wytwarzanie">
               <MappingFragment StoreEntitySet="Wytwarzanie">
                 <ScalarProperty Name="ID_wytwarzanie" ColumnName="ID_wytwarzanie" />
@@ -9834,7 +9808,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Zamowienie">
+          <EntitySetMapping Name="Zamowienies">
             <EntityTypeMapping TypeName="KWZPModel.Zamowienie">
               <MappingFragment StoreEntitySet="Zamowienie">
                 <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
@@ -9895,7 +9869,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Zwrot">
+          <EntitySetMapping Name="Zwrots">
             <EntityTypeMapping TypeName="KWZPModel.Zwrot">
               <MappingFragment StoreEntitySet="Zwrot">
                 <ScalarProperty Name="ID_zwrot" ColumnName="ID_zwrot" />
@@ -10015,7 +9989,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
                 <ScalarProperty Name="Liczba_godzin" ColumnName="Liczba_godzin" />
                 <ScalarProperty Name="Koszt_godziny_pracy" ColumnName="Koszt godziny pracy" />
                 <ScalarProperty Name="Miesiąc" ColumnName="Miesiąc" />
-                <ScalarProperty Name="Rok" ColumnName="Rok" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -10766,7 +10739,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_w_trakcie_wszystko
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

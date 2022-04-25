@@ -17,7 +17,7 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Zamowienie_szczegol()
         {
-            this.Wytwarzanie = new HashSet<Wytwarzanie>();
+            this.Wytwarzanies = new HashSet<Wytwarzanie>();
         }
     
         public int ID_zamowienie_szczegol { get; set; }
@@ -27,7 +27,7 @@ namespace KWZP2022
     
         public virtual Produkt Produkt { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Wytwarzanie> Wytwarzanie { get; set; }
+        public virtual ICollection<Wytwarzanie> Wytwarzanies { get; set; }
         public virtual Zamowienie Zamowienie { get; set; }
     }
 }

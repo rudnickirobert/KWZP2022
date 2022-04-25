@@ -17,13 +17,13 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Rodzaj_nieobecnosci()
         {
-            this.Nieobecnosc = new HashSet<Nieobecnosc>();
+            this.Nieobecnoscs = new HashSet<Nieobecnosc>();
         }
     
         public int ID_rodzaj_nieobecnosci { get; set; }
         public string Symbol { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Nieobecnosc> Nieobecnosc { get; set; }
+        public virtual ICollection<Nieobecnosc> Nieobecnoscs { get; set; }
     }
 }

@@ -21,6 +21,5 @@ namespace KWZP2022
         public int Liczba_godzin { get; set; }
         public Nullable<int> Koszt_godziny_pracy { get; set; }
         public Nullable<int> Miesiąc { get; set; }
-        public Nullable<int> Rok { get; set; }
     }
 }

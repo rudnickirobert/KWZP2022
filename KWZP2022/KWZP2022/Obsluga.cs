@@ -18,7 +18,7 @@ namespace KWZP2022
         public Obsluga()
         {
             this.Wymiana_czesc = new HashSet<Wymiana_czesc>();
-            this.Pracownik = new HashSet<Pracownik>();
+            this.Pracowniks = new HashSet<Pracownik>();
         }
     
         public int ID_obsluga { get; set; }
@@ -33,6 +33,6 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Wymiana_czesc> Wymiana_czesc { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Pracownik> Pracownik { get; set; }
+        public virtual ICollection<Pracownik> Pracowniks { get; set; }
     }
 }

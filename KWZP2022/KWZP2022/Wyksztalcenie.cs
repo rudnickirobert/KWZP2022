@@ -17,13 +17,13 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Wyksztalcenie()
         {
-            this.Pracownik = new HashSet<Pracownik>();
+            this.Pracowniks = new HashSet<Pracownik>();
         }
     
         public int ID_wyksztalcenie { get; set; }
         public string Nazwa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Pracownik> Pracownik { get; set; }
+        public virtual ICollection<Pracownik> Pracowniks { get; set; }
     }
 }
