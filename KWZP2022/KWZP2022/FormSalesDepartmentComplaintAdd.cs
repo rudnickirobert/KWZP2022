@@ -44,7 +44,7 @@ namespace KWZP2022
         }
         private void msgError()
         {
-            MessageBox.Show("Błędnie wprowadzono dane", "Błąd", MessageBoxButtons.OK,MessageBoxIcon.Error);
+            MessageBox.Show("Błędnie wprowadzono dane", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         private void comboBoxNoSaleData()
         {
@@ -162,7 +162,6 @@ namespace KWZP2022
                 }
                 else
                 {
-                    v_Reklamacja productReturnSingle = this.db.v_Reklamacja.Single(a => a.Numer_sprzedaży == selectNoSale && a.ID_produkt == selectNoProduct);
                     int amountTotal = productCount.Ilosc - int.Parse(textBoxAmount.Text);
                     if (amountTotal >= 0)
                     {
