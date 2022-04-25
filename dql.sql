@@ -11,7 +11,7 @@ GO
 
 CREATE VIEW v_Parametry_produkt
 AS
-SELECT ID_parametr_produkt, P.Nazwa_produkt AS [Produkt], RP.Nazwa_rodzaj_parametr AS [Parametr],
+SELECT ID_parametr_produkt, P.ID_produkt, P.Nazwa_produkt AS [Produkt], RP.Nazwa_rodzaj_parametr AS [Parametr],
 PP.Zakres_dol AS [Wymiar minimalny], PP.Zakres_gora AS [Wymiar maksymalny], J.Skrot AS [Jednostka]
 FROM Parametr_produkt AS PP
 INNER JOIN Produkt AS P ON PP.ID_produkt = P.ID_produkt
@@ -157,7 +157,7 @@ GO
 
 CREATE VIEW v_Kontrola_parametr_produkt
 AS
-SELECT P.Nazwa_produkt AS [Produkt], RP.Nazwa_rodzaj_parametr AS [Parametr], KP.Wartosc AS [Wartość],
+SELECT P.ID_produkt, P.Nazwa_produkt AS [Produkt], RP.Nazwa_rodzaj_parametr AS [Parametr], KP.Wartosc AS [Wartość],
 PP.Zakres_dol AS [Zakres dolny], PP.Zakres_gora AS [Zakres górny], (CASE WHEN KP.Wartosc BETWEEN PP.Zakres_dol AND PP.Zakres_gora THEN 1 ELSE 0 END) AS [Rezultat kontroli]  
 FROM Kontrola_parametr AS KP
 INNER JOIN Kontrola_jakosci_produkt AS KJP ON KP.ID_kontrola_jakosci_produkt = KJP.ID_kontrola_jakosci_produkt
@@ -165,10 +165,17 @@ INNER JOIN Parametr_produkt AS PP ON KP.ID_parametr_produkt = PP.ID_parametr_pro
 INNER JOIN Produkt AS P ON PP.ID_produkt = P.ID_produkt
 INNER JOIN Rodzaj_parametr AS RP ON PP.ID_rodzaj_parametr = RP.ID_rodzaj_parametr
 GO
+CREATE VIEW v_Kontrola_jakosci_produkt
+AS
+SELECT KJP.ID_kontrola_jakosci_produkt, PR.Nazwisko + ' ' +PR.Imie AS [Pracownik], RK.Rodzaj_kontrola
+FROM Kontrola_jakosci_produkt AS KJP
+INNER JOIN Pracownik AS PR ON  KJP.ID_pracownik = PR.ID_pracownik
+INNER JOIN Rodzaj_kontrola AS RK ON KJP.ID_rodzaj_kontrola = RK.ID_rodzaj_kontrola
+GO
 
 CREATE VIEW v_Kontrola_jakosci_kolejka
 AS
-SELECT W.ID_wytwarzanie, P.Nazwa_produkt
+SELECT W.ID_wytwarzanie, P.ID_produkt, P.Nazwa_produkt
 FROM Wytwarzanie AS W
 LEFT JOIN Kontrola_jakosci_produkt AS KJP ON W.ID_wytwarzanie = KJP.ID_wytwarzanie
 INNER JOIN Proces_wytwarzanie_produkt AS PWP ON  W.ID_wytwarzanie = PWP.ID_wytwarzanie
@@ -178,7 +185,7 @@ WHERE W.Czas_do IS NOT NULL
 
 EXCEPT
 
-SELECT W.ID_wytwarzanie, P.Nazwa_produkt
+SELECT W.ID_wytwarzanie, P.ID_produkt, P.Nazwa_produkt
 FROM Wytwarzanie AS W
 INNER JOIN Kontrola_jakosci_produkt AS KJP ON W.ID_wytwarzanie = KJP.ID_wytwarzanie
 INNER JOIN Proces_wytwarzanie_produkt AS PWP ON  W.ID_wytwarzanie = PWP.ID_wytwarzanie
@@ -263,7 +270,7 @@ INNER JOIN Etat AS E ON PP.ID_etat = E.ID_etat
 INNER JOIN Stanowisko AS S ON E.ID_stanowisko = S.ID_stanowisko
 INNER JOIN Umowa AS U ON U.ID_posada_pracownika = PP.ID_posada_pracownika
 INNER JOIN Pracownik AS P ON U.ID_pracownik = P.ID_pracownik
-WHERE Nazwa_stanowiska IN ('Operator', 'Projektant', 'Brygadzista')
+WHERE Nazwa_stanowiska IN ('Operator', 'Projektant', 'Brygadzista', 'Kontroler jakości')
 ORDER BY [Pracownik] OFFSET 0 ROWS
 GO
 

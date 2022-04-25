@@ -126,6 +126,7 @@ namespace KWZP2022
         public virtual DbSet<v_Klient_telefon_aktualny> v_Klient_telefon_aktualny { get; set; }
         public virtual DbSet<v_Klient_telefon_Historia> v_Klient_telefon_Historia { get; set; }
         public virtual DbSet<v_Kontrola_jakosci_kolejka> v_Kontrola_jakosci_kolejka { get; set; }
+        public virtual DbSet<v_Kontrola_jakosci_produkt> v_Kontrola_jakosci_produkt { get; set; }
         public virtual DbSet<v_Kontrola_parametr_produkt> v_Kontrola_parametr_produkt { get; set; }
         public virtual DbSet<v_Koszt> v_Koszt { get; set; }
         public virtual DbSet<v_Koszt_godziny_pracy> v_Koszt_godziny_pracy { get; set; }
