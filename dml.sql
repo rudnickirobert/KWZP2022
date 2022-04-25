@@ -1196,7 +1196,7 @@ VALUES
 INSERT INTO Obsluga(ID_rodzaj_obsluga, ID_stanowisko_produkcyjne, Data_od, Data_do, Uwagi)
 VALUES
 (3,1,'2022-02-12','2022-02-14', 'Brak'),
-(1,2,'2022-01-15','2022-01-22', 'Brak'),
+(1,2,'2022-01-15',NULL, 'Brak'),
 (1,3,'2021-12-22','2021-12-31', 'Nowa czesc'),
 (2,5,'2022-03-02','2022-03-22', 'Gotowe do pracy'),
 (3,2,'2022-04-12','2022-04-14', 'Brak');
