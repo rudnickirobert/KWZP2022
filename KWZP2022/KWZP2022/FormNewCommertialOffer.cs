@@ -50,21 +50,27 @@ namespace KWZP2022
         }
         private void comboBoxOfferStatusData()
         {
-            int selectedNoOrder = int.Parse(comboBoxNoOrder.SelectedValue.ToString());
-            Zamowienie orderNotAccepted = this.db.Zamowienie.Single(a => a.ID_zamowienie == selectedNoOrder);
-            if (orderNotAccepted.ID_typ_zamowienie == 2)
+            if(comboBoxNoOrder.SelectedValue != null)
             {
-                comboBoxOfferStatus.DataSource = this.db.Status_oferta.Where(a => a.ID_status_oferta == 1).ToList();
-                comboBoxOfferStatus.ValueMember = "ID_status_oferta";
-                comboBoxOfferStatus.DisplayMember = "Nazwa_status_oferta";
+                int selectedNoOrder = int.Parse(comboBoxNoOrder.SelectedValue.ToString());
+                Zamowienie orderNotAccepted = this.db.Zamowienie.Single(a => a.ID_zamowienie == selectedNoOrder);
+                if (orderNotAccepted.ID_typ_zamowienie == 2)
+                {
+                    comboBoxOfferStatus.DataSource = this.db.Status_oferta.Where(a => a.ID_status_oferta == 1).ToList();
+                    comboBoxOfferStatus.ValueMember = "ID_status_oferta";
+                    comboBoxOfferStatus.DisplayMember = "Nazwa_status_oferta";
+                }
+                else
+                {
+                    comboBoxOfferStatus.DataSource = this.db.Status_oferta.Where(a => a.ID_status_oferta == 3 || a.ID_status_oferta == 1).ToList();
+                    comboBoxOfferStatus.ValueMember = "ID_status_oferta";
+                    comboBoxOfferStatus.DisplayMember = "Nazwa_status_oferta";
+                }
             }
             else
             {
-                comboBoxOfferStatus.DataSource = this.db.Status_oferta.Where(a => a.ID_status_oferta == 3 || a.ID_status_oferta == 1).ToList();
-                comboBoxOfferStatus.ValueMember = "ID_status_oferta";
-                comboBoxOfferStatus.DisplayMember = "Nazwa_status_oferta";
+                MessageBox.Show("Brakuje zamówień dla których można stworzyć ofertę!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //MessageBox.Show("Brakuje zamówień dla których można stworzyć ofertę!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         private void btnAddNewOffer_Click(object sender, EventArgs e)
         {
