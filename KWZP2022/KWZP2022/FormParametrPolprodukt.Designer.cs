@@ -201,11 +201,11 @@
             this.label1.TabIndex = 34;
             this.label1.Text = "Półprodukt";
             // 
-            // ParametrPolproduktForm
+            // FormParametrPolprodukt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            
+            this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background;
             this.ClientSize = new System.Drawing.Size(1264, 711);
             this.Controls.Add(this.btnOdswiez);
             this.Controls.Add(this.dgvvParametrPolprodukt);
@@ -222,7 +222,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtPolprodukt);
             this.Controls.Add(this.label1);
-            this.Name = "ParametrPolproduktForm";
+            this.Name = "FormParametrPolprodukt";
             this.Text = "ParametrPolproduktForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvvParametrPolprodukt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRodzajParametr)).EndInit();

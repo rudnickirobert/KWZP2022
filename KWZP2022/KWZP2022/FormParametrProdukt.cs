@@ -137,7 +137,7 @@ namespace KWZP2022
                 int currentID = int.Parse(dgvvParametrProdukt.CurrentRow.Cells[0].Value.ToString());
                 int newZD = (int)decimal.Parse(txtZakresDolny.Text);
                 int newZG = (int)decimal.Parse(txtZakresGorny.Text);
-                var result = db.Parametr_produkt.SingleOrDefault(b => b.ID_parametr_produkt == currentID);
+                Parametr_produkt result = db.Parametr_produkt.SingleOrDefault(b => b.ID_parametr_produkt == currentID);
                 if (result != null)
                 {
                     result.Zakres_dol = newZD;

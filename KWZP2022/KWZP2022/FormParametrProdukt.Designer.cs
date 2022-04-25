@@ -201,11 +201,11 @@
             this.btnOdswiez.UseVisualStyleBackColor = true;
             this.btnOdswiez.Click += new System.EventHandler(this.btnOdswiez_Click);
             // 
-            // ParametrProduktForm
+            // FormParametrProdukt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            
+            this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background;
             this.ClientSize = new System.Drawing.Size(1264, 711);
             this.Controls.Add(this.btnOdswiez);
             this.Controls.Add(this.dgvvParametrProdukt);
@@ -222,7 +222,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtProdukt);
             this.Controls.Add(this.label1);
-            this.Name = "ParametrProduktForm";
+            this.Name = "FormParametrProdukt";
             this.Text = "ParametrProduktForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvvParametrProdukt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRodzajParametr)).EndInit();

@@ -37,5 +37,11 @@ namespace KWZP2022
             FormSlownikStanowisko slownikStanowiskoForm = new FormSlownikStanowisko(db);
             slownikStanowiskoForm.ShowDialog();
         }
+
+        private void btnKontrola_Click(object sender, EventArgs e)
+        {
+            FormKontrolaJakosci kontrolaJakosciForm = new FormKontrolaJakosci(db);
+            kontrolaJakosciForm.ShowDialog();
+        }
     }
 }
