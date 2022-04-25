@@ -31,7 +31,7 @@ namespace KWZP2022
         private void btnGeneruj_Click(object sender, EventArgs e)
         {
             int produktID = int.Parse(cbProdukt.SelectedValue.ToString());
-            dgvSkladProdukt.DataSource = null;
+            dgvSkladProdukt.DataSource = 0;
             System.Linq.IQueryable vSkladProdukt = db.v_Sklad_produkt_ewidencja.Where(a => a.ID_produkt == produktID);
             int vSkladProduktInt = vSkladProdukt.Cast<v_Sklad_produkt_ewidencja>().Where(a => a.ID_produkt > 0).Count();
             if (vSkladProduktInt > 0)
