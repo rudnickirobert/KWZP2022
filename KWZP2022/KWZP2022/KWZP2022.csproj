@@ -109,6 +109,12 @@
     <Compile Include="FormKosztProdukcja.Designer.cs">
       <DependentUpon>FormKosztProdukcja.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormResDepNrSeryjny.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepNrSeryjny.Designer.cs">
+      <DependentUpon>FormResDepNrSeryjny.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormResDepParametryCzesc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -680,7 +686,13 @@
     <Compile Include="v_Maszyna.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Maszyna_nr_seryjny.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Maszyny_numery_nieprzypisane.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Maszyny_numery_nieprzypisane_zero.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Maszyny_numery_porownanie.cs">
@@ -707,10 +719,19 @@
     <Compile Include="v_Nr_telefon_pracownik.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="v_Oblugi_w_trakcie.cs">
+    <Compile Include="v_Obsluga_cmb.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="v_Oblugi_zakonczone.cs">
+    <Compile Include="v_Obsluga_pracownik.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Obslugi_w_trakcie.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Obslugi_w_trakcie_wymiana.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Obslugi_zakonczone.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Oferta_handlowa.cs">
@@ -794,6 +815,9 @@
     <Compile Include="v_Sklad_produkt_material.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Sklad_SP_maszyna.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Sklad_stanowisko_produkcyjne_maszyna.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -834,6 +858,12 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Umowa.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Wymiana_czesc.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Wymiana_czesc_w_trakcie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Wytwarzanie.cs">
@@ -923,6 +953,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormKosztProdukcja.resx">
       <DependentUpon>FormKosztProdukcja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepNrSeryjny.resx">
+      <DependentUpon>FormResDepNrSeryjny.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepParametryCzesc.resx">
       <DependentUpon>FormResDepParametryCzesc.cs</DependentUpon>

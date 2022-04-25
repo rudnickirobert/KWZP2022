@@ -47,6 +47,7 @@
             this.lblPracownik = new System.Windows.Forms.Label();
             this.btnDodajCzesc = new System.Windows.Forms.Button();
             this.btnDodajZamowienie = new System.Windows.Forms.Button();
+            this.btnAktualizujStatus = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienieCzesci)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIlosc)).BeginInit();
             this.SuspendLayout();
@@ -244,11 +245,23 @@
             this.btnDodajZamowienie.UseVisualStyleBackColor = false;
             this.btnDodajZamowienie.Click += new System.EventHandler(this.btnDodajZamowienie_Click);
             // 
+            // btnAktualizujStatus
+            // 
+            this.btnAktualizujStatus.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.btnAktualizujStatus.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAktualizujStatus.Location = new System.Drawing.Point(608, 451);
+            this.btnAktualizujStatus.Name = "btnAktualizujStatus";
+            this.btnAktualizujStatus.Size = new System.Drawing.Size(177, 36);
+            this.btnAktualizujStatus.TabIndex = 60;
+            this.btnAktualizujStatus.Text = "Aktualizuj status";
+            this.btnAktualizujStatus.UseVisualStyleBackColor = false;
+            // 
             // FormResDepZamowienieCzesci
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(798, 499);
+            this.Controls.Add(this.btnAktualizujStatus);
             this.Controls.Add(this.btnDodajZamowienie);
             this.Controls.Add(this.btnDodajProducenta);
             this.Controls.Add(this.btnDodajDostawca);
@@ -299,5 +312,6 @@
         private System.Windows.Forms.Label lblPracownik;
         private System.Windows.Forms.Button btnDodajCzesc;
         private System.Windows.Forms.Button btnDodajZamowienie;
+        private System.Windows.Forms.Button btnAktualizujStatus;
     }
 }
