@@ -24,15 +24,9 @@ namespace KWZP2022
         }
         private void initDataGridView()
         {
-            dgvMaterial.DataSource = db.Material.ToList();
-            for (int i = 0; i < dgvMaterial.Columns.Count; i++)
-            {
-                dgvMaterial.Columns[i].Visible = false;
-            }
-            dgvMaterial.Columns["ID_material"].Visible = true;
-            dgvMaterial.Columns[0].HeaderText = "ID";
-            dgvMaterial.Columns["ID_rodzaj_material"].Visible = true;
-            dgvMaterial.Columns["Nazwa_material"].Visible = true;
+            dgvMaterial.DataSource = db.v_Material.ToList();
+            dgvMaterial.Columns[0].Visible = false;
+            dgvMaterial.Columns[1].Visible = false;
             dgvMaterial.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             this.dgvMaterial.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
@@ -80,8 +74,6 @@ namespace KWZP2022
             {
                 MessageBox.Show("Nie można usunąć materiału, ponieważ jest obecnie wykorzystywany.");
             }
-                
-    
         }
         private void btnOdswiez_Click(object sender, EventArgs e)
         {
@@ -90,20 +82,35 @@ namespace KWZP2022
         }
         private void btnAktualizuj_Click(object sender, EventArgs e)
         {
-            this.dgvMaterial.CurrentRow.Cells[1].Value = (int)cmbRodzajMaterial.SelectedValue;
-            this.dgvMaterial.CurrentRow.Cells[2].Value = txtNazwaMaterial.Text;
-            db.SaveChanges();
-            initDataGridView();
+            if (this.dgvMaterial.CurrentRow.Cells[0].Value != null)
+            {
+                int daneMaterial = int.Parse(this.dgvMaterial.CurrentRow.Cells[0].Value.ToString());
+                Material daneMaterialID = this.db.Material.Single(a => a.ID_material == daneMaterial);
+                daneMaterialID.Nazwa_material = txtNazwaMaterial.Text;
+                daneMaterialID.ID_rodzaj_material = (int)cmbRodzajMaterial.SelectedValue;
+                db.SaveChanges();
+                initDataGridView();
+                MessageBox.Show("Zapisano zmiany!", "Informacja", MessageBoxButtons.OK);
+            }
+            else
+            {
+                MessageBox.Show("Nie zaznaczono materiału!", "Błąd", MessageBoxButtons.OK);
+            }
         }
-
         private void dgvMaterial_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if(e.RowIndex >=0)
             {
                 DataGridViewRow row = this.dgvMaterial.Rows[e.RowIndex];
-                txtNazwaMaterial.Text = row.Cells[2].Value.ToString();
+                txtNazwaMaterial.Text = row.Cells[3].Value.ToString();
                 cmbRodzajMaterial.SelectedValue = row.Cells[1].Value;
             }
+        }
+
+        private void btnDodajParametr_Click(object sender, EventArgs e)
+        {
+            FormResDepParametryMaterial parametrMaterial = new FormResDepParametryMaterial(db);
+            parametrMaterial.ShowDialog();  
         }
     }
 }

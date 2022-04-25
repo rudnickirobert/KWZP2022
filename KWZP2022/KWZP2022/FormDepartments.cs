@@ -27,7 +27,7 @@ namespace KWZP2022.Forms
 
         private void btnProductionDepartment_Click(object sender, EventArgs e)
         {
-            ProdukcjaFrom produkcjaFrom = new ProdukcjaFrom(db);
+            FormProdukcja produkcjaFrom = new FormProdukcja(db);
             produkcjaFrom.ShowDialog();
         }
 

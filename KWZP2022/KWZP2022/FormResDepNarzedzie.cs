@@ -26,7 +26,7 @@ namespace KWZP2022
             {
                 dgvNarzedzie.Columns[i].Visible = false;
             }
-            dgvNarzedzie.Columns["ID_czescl"].Visible = true;
+            dgvNarzedzie.Columns["ID_narzedzie"].Visible = true;
             dgvNarzedzie.Columns[0].HeaderText = "ID";
             dgvNarzedzie.Columns["Nazwa_narzedzie"].Visible = true;
             dgvNarzedzie.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
@@ -73,7 +73,7 @@ namespace KWZP2022
             }
             catch
             {
-                MessageBox.Show("Nie można usunąć materiału, ponieważ jest obecnie wykorzystywany.");
+                MessageBox.Show("Nie można usunąć narzędzia, ponieważ jest obecnie wykorzystywane.");
             }
         }
         private void btnOdswiez_Click(object sender, EventArgs e)

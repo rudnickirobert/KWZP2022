@@ -48,6 +48,7 @@
             this.btnMagazyn_maszyna.TabIndex = 13;
             this.btnMagazyn_maszyna.Text = "Magazyn maszyn";
             this.btnMagazyn_maszyna.UseVisualStyleBackColor = false;
+            this.btnMagazyn_maszyna.Click += new System.EventHandler(this.btnMagazyn_maszyna_Click);
             // 
             // btnMagazyn_narzedzie
             // 
@@ -62,6 +63,7 @@
             this.btnMagazyn_narzedzie.TabIndex = 12;
             this.btnMagazyn_narzedzie.Text = "Magazyn narzędzi";
             this.btnMagazyn_narzedzie.UseVisualStyleBackColor = false;
+            this.btnMagazyn_narzedzie.Click += new System.EventHandler(this.btnMagazyn_narzedzie_Click);
             // 
             // btnMagazyn_czesc
             // 
@@ -76,6 +78,7 @@
             this.btnMagazyn_czesc.TabIndex = 11;
             this.btnMagazyn_czesc.Text = "Magazyn części";
             this.btnMagazyn_czesc.UseVisualStyleBackColor = false;
+            this.btnMagazyn_czesc.Click += new System.EventHandler(this.btnMagazyn_czesc_Click);
             // 
             // btnMagazyn_material
             // 
@@ -90,6 +93,7 @@
             this.btnMagazyn_material.TabIndex = 10;
             this.btnMagazyn_material.Text = "Magazyn materiałów";
             this.btnMagazyn_material.UseVisualStyleBackColor = false;
+            this.btnMagazyn_material.Click += new System.EventHandler(this.btnMagazyn_material_Click);
             // 
             // FormResDepMagazyny
             // 

@@ -38,6 +38,7 @@
             this.btnUsun = new System.Windows.Forms.Button();
             this.btnDodaj = new System.Windows.Forms.Button();
             this.cmbRodzajMaterial = new System.Windows.Forms.ComboBox();
+            this.btnDodajParametr = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,9 +86,9 @@
             // 
             this.btnOdswiez.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnOdswiez.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnOdswiez.Location = new System.Drawing.Point(702, 156);
+            this.btnOdswiez.Location = new System.Drawing.Point(743, 156);
             this.btnOdswiez.Name = "btnOdswiez";
-            this.btnOdswiez.Size = new System.Drawing.Size(245, 42);
+            this.btnOdswiez.Size = new System.Drawing.Size(204, 42);
             this.btnOdswiez.TabIndex = 6;
             this.btnOdswiez.Text = "Odśwież";
             this.btnOdswiez.UseVisualStyleBackColor = false;
@@ -137,12 +138,25 @@
             this.cmbRodzajMaterial.Size = new System.Drawing.Size(270, 40);
             this.cmbRodzajMaterial.TabIndex = 10;
             // 
+            // btnDodajParametr
+            // 
+            this.btnDodajParametr.BackColor = System.Drawing.Color.Orange;
+            this.btnDodajParametr.Font = new System.Drawing.Font("Arial", 16F);
+            this.btnDodajParametr.Location = new System.Drawing.Point(705, 95);
+            this.btnDodajParametr.Name = "btnDodajParametr";
+            this.btnDodajParametr.Size = new System.Drawing.Size(242, 42);
+            this.btnDodajParametr.TabIndex = 11;
+            this.btnDodajParametr.Text = "Przypisz parametry";
+            this.btnDodajParametr.UseVisualStyleBackColor = false;
+            this.btnDodajParametr.Click += new System.EventHandler(this.btnDodajParametr_Click);
+            // 
             // FormResDepMaterial
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(959, 541);
+            this.Controls.Add(this.btnDodajParametr);
             this.Controls.Add(this.cmbRodzajMaterial);
             this.Controls.Add(this.btnAktualizuj);
             this.Controls.Add(this.btnUsun);
@@ -176,5 +190,6 @@
         private System.Windows.Forms.Button btnUsun;
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.ComboBox cmbRodzajMaterial;
+        private System.Windows.Forms.Button btnDodajParametr;
     }
 }
