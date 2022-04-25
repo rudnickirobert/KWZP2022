@@ -101,6 +101,14 @@ namespace KWZP2022
                     db.SaveChanges();
                     MessageBox.Show("Poprawnie dodano półproduk '" + polprodukt.Nazwa + "' do słownika");
                     initDataGridViewPolprodukt();
+
+                    DialogResult polproduktResult = MessageBox.Show("Czy chcesz dodać parametr półproduktu?", "Question", MessageBoxButtons.YesNo);
+                    if (polproduktResult == DialogResult.Yes)
+                    {                      
+                        FormParametrPolprodukt parametrPolprodukt = new FormParametrPolprodukt(db);
+                        parametrPolprodukt.ShowDialog();          
+                    }
+
                 }
 
 

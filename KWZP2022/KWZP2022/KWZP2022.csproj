@@ -656,6 +656,9 @@
     <Compile Include="v_Kontrola_jakosci_kolejka.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Kontrola_jakosci_produkt.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Kontrola_parametr_produkt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>

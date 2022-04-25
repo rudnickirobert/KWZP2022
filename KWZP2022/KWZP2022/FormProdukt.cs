@@ -93,8 +93,10 @@ namespace KWZP2022
 
         private void btnDodajSkladProduktu_Click(object sender, EventArgs e)
         {
-            FormSkladProduktMaterial skladproduktmaterialForm = new FormSkladProduktMaterial(db);
-            skladproduktmaterialForm.ShowDialog();
+            //FormSkladProduktMaterial skladproduktmaterialForm = new FormSkladProduktMaterial(db);
+            //skladproduktmaterialForm.ShowDialog();
+            FormSkladProdukt skladproduktForm = new FormSkladProdukt(db);
+            skladproduktForm.ShowDialog();
         }
     }
 }
