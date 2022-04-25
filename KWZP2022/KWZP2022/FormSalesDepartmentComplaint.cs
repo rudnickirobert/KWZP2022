@@ -30,7 +30,6 @@ namespace KWZP2022
             this.dgvComplaint.DataSource = this.db.v_Reklamacja.ToList();
             this.dgvComplaint.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvComplaint.Columns["ID_produkt"].Visible = false;
-            this.dgvComplaint.Columns["Numer_sprzedaży"].Visible = false;
             this.dgvComplaint.Columns["Numer_reklamacji"].Visible = false;
         }
         private void cleanBox()

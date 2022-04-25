@@ -17,7 +17,7 @@ namespace KWZP2022
         public int Numer_sprzedaży { get; set; }
         public string Produkt { get; set; }
         public int Ilość { get; set; }
-        public decimal Cena_za_sztukę { get; set; }
+        public int Cena_za_sztukę { get; set; }
         public int Podatek__ { get; set; }
         public string Forma_płatności { get; set; }
     }

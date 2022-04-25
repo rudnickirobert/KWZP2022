@@ -117,6 +117,7 @@ namespace KWZP2022
         public virtual DbSet<Zwrot> Zwrot { get; set; }
         public virtual DbSet<v_Czynnosc_produkcyjna> v_Czynnosc_produkcyjna { get; set; }
         public virtual DbSet<v_Dane_adresowe_pracownik> v_Dane_adresowe_pracownik { get; set; }
+        public virtual DbSet<v_Dodaj_szczegol_sprzedaz> v_Dodaj_szczegol_sprzedaz { get; set; }
         public virtual DbSet<v_Email_pracownik> v_Email_pracownik { get; set; }
         public virtual DbSet<v_Etat> v_Etat { get; set; }
         public virtual DbSet<v_Klient> v_Klient { get; set; }
@@ -152,6 +153,7 @@ namespace KWZP2022
         public virtual DbSet<v_Oblugi_w_trakcie> v_Oblugi_w_trakcie { get; set; }
         public virtual DbSet<v_Oblugi_zakonczone> v_Oblugi_zakonczone { get; set; }
         public virtual DbSet<v_Oferta_handlowa> v_Oferta_handlowa { get; set; }
+        public virtual DbSet<v_Oferta_handlowa_do_rozpatrzenia> v_Oferta_handlowa_do_rozpatrzenia { get; set; }
         public virtual DbSet<v_Parametry_czesc> v_Parametry_czesc { get; set; }
         public virtual DbSet<v_Parametry_maszyna> v_Parametry_maszyna { get; set; }
         public virtual DbSet<v_Parametry_material> v_Parametry_material { get; set; }
@@ -174,6 +176,7 @@ namespace KWZP2022
         public virtual DbSet<v_Sklad_stanowisko_produkcyjne_narzedzie> v_Sklad_stanowisko_produkcyjne_narzedzie { get; set; }
         public virtual DbSet<v_Slownik_stanowisko> v_Slownik_stanowisko { get; set; }
         public virtual DbSet<v_Sprzedane_zamowienia> v_Sprzedane_zamowienia { get; set; }
+        public virtual DbSet<v_Sprzedane_zamowienia_form> v_Sprzedane_zamowienia_form { get; set; }
         public virtual DbSet<v_Sprzedany_produkt> v_Sprzedany_produkt { get; set; }
         public virtual DbSet<v_Sprzedaz> v_Sprzedaz { get; set; }
         public virtual DbSet<v_Stanowiska_do_uzycia> v_Stanowiska_do_uzycia { get; set; }
@@ -186,6 +189,7 @@ namespace KWZP2022
         public virtual DbSet<v_Szczegoly_sprzedaz> v_Szczegoly_sprzedaz { get; set; }
         public virtual DbSet<v_Tygodniowe_rozliczenie_pracy_produkcja> v_Tygodniowe_rozliczenie_pracy_produkcja { get; set; }
         public virtual DbSet<v_Umowa> v_Umowa { get; set; }
+        public virtual DbSet<v_Umowa_do_sprzedaz> v_Umowa_do_sprzedaz { get; set; }
         public virtual DbSet<v_Wytwarzanie> v_Wytwarzanie { get; set; }
         public virtual DbSet<v_Zamowienia_czesci_w_trakcie> v_Zamowienia_czesci_w_trakcie { get; set; }
         public virtual DbSet<v_Zamowienia_czesci_w_trakcie_bez_odebranych> v_Zamowienia_czesci_w_trakcie_bez_odebranych { get; set; }

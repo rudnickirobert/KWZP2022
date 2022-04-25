@@ -187,6 +187,18 @@
     <Compile Include="FormNewOrder.Designer.cs">
       <DependentUpon>FormNewOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSalesDepartmentAddSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesDepartmentAddSales.Designer.cs">
+      <DependentUpon>FormSalesDepartmentAddSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSalesDepartmentAddSalesDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesDepartmentAddSalesDetails.Designer.cs">
+      <DependentUpon>FormSalesDepartmentAddSalesDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSalesDepartmentComplaint.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +210,24 @@
     </Compile>
     <Compile Include="FormSalesDepartmentComplaintAdd.Designer.cs">
       <DependentUpon>FormSalesDepartmentComplaintAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSalesDepartmentOffersForConsideration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesDepartmentOffersForConsideration.Designer.cs">
+      <DependentUpon>FormSalesDepartmentOffersForConsideration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSalesDepartmentOrderDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesDepartmentOrderDetails.Designer.cs">
+      <DependentUpon>FormSalesDepartmentOrderDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSalesDeprartmentOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesDeprartmentOrders.Designer.cs">
+      <DependentUpon>FormSalesDeprartmentOrders.cs</DependentUpon>
     </Compile>
     <Compile Include="Gwarancja.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
@@ -489,6 +519,9 @@
     <Compile Include="v_Dane_adresowe_pracownik.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Dodaj_szczegol_sprzedaz.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Email_pracownik.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -594,6 +627,9 @@
     <Compile Include="v_Oferta_handlowa.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Oferta_handlowa_do_rozpatrzenia.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Parametry_czesc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -660,6 +696,9 @@
     <Compile Include="v_Sprzedane_zamowienia.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Sprzedane_zamowienia_form.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Sprzedany_produkt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -694,6 +733,9 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Umowa.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Umowa_do_sprzedaz.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Wytwarzanie.cs">
@@ -825,6 +867,12 @@
     <EmbeddedResource Include="FormSalesDepartment.resx">
       <DependentUpon>FormSalesDepartment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSalesDepartmentAddSales.resx">
+      <DependentUpon>FormSalesDepartmentAddSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSalesDepartmentAddSalesDetails.resx">
+      <DependentUpon>FormSalesDepartmentAddSalesDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSalesDepartmentClient.resx">
       <DependentUpon>FormSalesDepartmentClient.cs</DependentUpon>
     </EmbeddedResource>
@@ -843,8 +891,17 @@
     <EmbeddedResource Include="FormSalesDepartmentComplaintAdd.resx">
       <DependentUpon>FormSalesDepartmentComplaintAdd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSalesDepartmentOffersForConsideration.resx">
+      <DependentUpon>FormSalesDepartmentOffersForConsideration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSalesDepartmentOrderDetails.resx">
+      <DependentUpon>FormSalesDepartmentOrderDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSalesDepartmentSales.resx">
       <DependentUpon>FormSalesDepartmentSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSalesDeprartmentOrders.resx">
+      <DependentUpon>FormSalesDeprartmentOrders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PolproduktDodanieForm.resx">
       <DependentUpon>PolproduktDodanieForm.cs</DependentUpon>

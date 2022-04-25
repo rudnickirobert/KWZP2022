@@ -686,6 +686,53 @@ CREATE VIEW v_Zamowienia_niesprzedane AS
 	INNER JOIN Sprzedaz ON Sprzedaz.ID_umowa_sprzedaz = Umowa_sprzedaz.ID_umowa_sprzedaz
 GO
 
+CREATE VIEW v_Oferta_handlowa_do_rozpatrzenia AS
+	SELECT OH.ID_oferta_handlowa AS [Nr oferty], OH.ID_zamowienie AS [Nr zamówienia], P.Nazwisko, OH.Termin_realizacja AS [Termin realizacji], 
+	G.Opis_gwarancja AS [Opis gwarancji], ST.Nazwa_status_oferta AS [Status oferty handlowej], OH.Cena
+	FROM Oferta_handlowa AS OH
+	INNER JOIN Pracownik AS P ON OH.ID_pracownik = P.ID_pracownik
+	INNER JOIN Status_oferta AS ST ON ST.ID_status_oferta = OH.ID_status_oferta
+	INNER JOIN Gwarancja AS G ON G.ID_gwarancja = OH.ID_gwarancja
+	WHERE OH.ID_status_oferta = 3
+GO
+
+CREATE VIEW v_Umowa_do_sprzedaz AS
+	SELECT US.ID_umowa_sprzedaz AS [Nr umowy sprzedaży], OH.ID_oferta_handlowa AS [Nr oferty handlowej] FROM Umowa_sprzedaz AS US
+	INNER JOIN Oferta_handlowa AS OH ON OH.ID_oferta_handlowa = US.ID_oferta_handlowa
+	EXCEPT
+	SELECT S.ID_umowa_sprzedaz AS [Nr umowy sprzedaży], OH.ID_oferta_handlowa AS [Nr oferty handlowej] FROM Sprzedaz AS S
+	INNER JOIN Umowa_sprzedaz AS US ON US.ID_umowa_sprzedaz = S.ID_umowa_sprzedaz
+	INNER JOIN Oferta_handlowa AS OH ON OH.ID_oferta_handlowa = US.ID_oferta_handlowa
+GO
+
+CREATE VIEW v_Sprzedane_zamowienia_form AS
+	SELECT Sprzedaz.Nr_sprzedaz AS [Numer sprzedaży], 
+	Umowa_sprzedaz.ID_umowa_sprzedaz AS [Numer umowy],
+	Sprzedaz.Data_sprzedaz_koniec AS [Data sprzedaży], 
+	Sprzedaz.Termin_zaplata AS [Termin płatności],
+	Forma_platnosc.Forma_platnosc AS [Forma płatności]
+	FROM Sprzedaz
+	INNER JOIN Forma_platnosc ON Forma_platnosc.ID_Forma_platnosc = Sprzedaz.ID_Forma_platnosc
+	INNER JOIN Umowa_sprzedaz ON Umowa_sprzedaz.ID_umowa_sprzedaz = Sprzedaz.ID_umowa_sprzedaz
+GO
+
+CREATE VIEW v_Dodaj_szczegol_sprzedaz AS
+	SELECT Sprzedaz.ID_sprzedaz AS [Numer sprzedaży],
+	Oferta_handlowa.ID_oferta_handlowa AS [Numer oferty handlowej],
+	Produkt.Nazwa_produkt AS [Produkt],
+	Zamowienie_szczegol.Ilosc AS [Ilość],
+	Oferta_handlowa.Cena AS [Cena],
+	Nr_telefon_klient.Numer AS [Numer telefonu klient]
+	FROM Sprzedaz
+	INNER JOIN Umowa_sprzedaz ON Umowa_sprzedaz.ID_umowa_sprzedaz = Sprzedaz.ID_umowa_sprzedaz
+	INNER JOIN Oferta_handlowa ON Oferta_handlowa.ID_oferta_handlowa = Umowa_sprzedaz.ID_oferta_handlowa
+	INNER JOIN Zamowienie ON Zamowienie.ID_zamowienie = Oferta_handlowa.ID_zamowienie
+	INNER JOIN Klient ON Klient.ID_klient = Zamowienie.ID_klient
+	INNER JOIN Nr_telefon_klient ON Nr_telefon_klient.ID_klient = Klient.ID_klient
+	INNER JOIN Zamowienie_szczegol ON Zamowienie_szczegol.ID_zamowienie = Zamowienie.ID_zamowienie
+	INNER JOIN Produkt ON Produkt.ID_produkt = Zamowienie_szczegol.ID_produkt
+GO
+
 	--HR DEPARTMENT --
 CREATE VIEW v_Pracownik
 AS

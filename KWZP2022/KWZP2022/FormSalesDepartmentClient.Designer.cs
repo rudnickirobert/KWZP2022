@@ -317,6 +317,7 @@
             this.Controls.Add(this.textBoxCity);
             this.Controls.Add(this.dgvClient);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormSalesDepartmentClient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Klient";

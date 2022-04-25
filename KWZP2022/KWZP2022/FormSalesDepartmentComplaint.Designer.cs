@@ -218,6 +218,7 @@ namespace KWZP2022
             this.Controls.Add(this.dgvComplaint);
             this.Controls.Add(this.btnAddReturn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormSalesDepartmentComplaint";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Reklamacja";

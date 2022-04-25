@@ -77,6 +77,7 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.dgvClientRemove);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormSalesDepartmentClientRemoveClient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormSalesDepartmentClientRemoveClient";

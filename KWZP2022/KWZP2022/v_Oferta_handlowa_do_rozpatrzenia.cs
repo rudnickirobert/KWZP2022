@@ -12,16 +12,14 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Oferta_handlowa
+    public partial class v_Oferta_handlowa_do_rozpatrzenia
     {
-        public int Numer_zamówienia { get; set; }
-        public int Numer_oferty { get; set; }
-        public string Status_oferty { get; set; }
-        public int Okres_gwarancji { get; set; }
-        public string Opis_gwarancji { get; set; }
-        public Nullable<int> Cena { get; set; }
+        public int Nr_oferty { get; set; }
+        public int Nr_zamówienia { get; set; }
+        public string Nazwisko { get; set; }
         public System.DateTime Termin_realizacji { get; set; }
-        public string Nazwisko_pracownika { get; set; }
-        public string Imię_pracownika { get; set; }
+        public string Opis_gwarancji { get; set; }
+        public string Status_oferty_handlowej { get; set; }
+        public Nullable<int> Cena { get; set; }
     }
 }
