@@ -42,6 +42,7 @@
             this.btnSPDByproduct.TabIndex = 9;
             this.btnSPDByproduct.Text = "Proces wykonania półproduktu";
             this.btnSPDByproduct.UseVisualStyleBackColor = true;
+            this.btnSPDByproduct.Click += new System.EventHandler(this.btnSPDByproduct_Click);
             // 
             // btnSPDProduct
             // 
@@ -53,6 +54,7 @@
             this.btnSPDProduct.TabIndex = 8;
             this.btnSPDProduct.Text = "Proces wykonania produktu";
             this.btnSPDProduct.UseVisualStyleBackColor = true;
+            this.btnSPDProduct.Click += new System.EventHandler(this.btnSPDProduct_Click);
             // 
             // FormSetupProduction
             // 
