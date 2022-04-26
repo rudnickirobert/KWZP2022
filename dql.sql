@@ -340,21 +340,6 @@ INNER JOIN Produkt AS P ON PPPC.ID_produkt = P.ID_produkt
 INNER JOIN Pracownik AS Pr ON W.ID_pracownik = Pr.ID_pracownik
 GO
 
-CREATE VIEW v_Proces_wytwarzanie_produkt_ewidencja
-AS
-SELECT W.ID_wytwarzanie AS [ID], P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynność produkcyjna],Pr.ID_pracownik, Pr.Nazwisko + ' ' + Pr.Imie AS [Pracownik],
-SST.Nazwa_stanowiska AS [Stanowisko], PPPC.Czas_trwania AS [Szacowany czas {min}],
-W.Czas_od AS [Data rozpoczęcia], W.Czas_do AS [Data zakończenia], ISNULL(DATEDIFF(HOUR, W.Czas_od,W.Czas_do),0) AS [Czas pracy]
-FROM Proces_wytwarzanie_produkt AS PWP
-INNER JOIN Wytwarzanie AS W ON PWP.ID_wytwarzanie = W.ID_wytwarzanie
-INNER JOIN Proces_produkt_czynnosc AS PPPC ON PWP.ID_proces_produkt = PPPC.ID_proces_produkt
-INNER JOIN Stanowisko_produkcyjne AS SP ON PWP.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
-INNER JOIN Slownik_stanowisko AS SST ON SP.ID_nazwa_stanowiska = SST.ID_nazwa_stanowiska
-INNER JOIN Czynnosc_produkcyjna AS CP ON PPPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
-INNER JOIN Produkt AS P ON PPPC.ID_produkt = P.ID_produkt
-INNER JOIN Pracownik AS Pr ON W.ID_pracownik = Pr.ID_pracownik
-GO
-
 CREATE VIEW v_Wytworzone_produkty
 AS
 SELECT * FROM v_Proces_wytwarzanie_produkt

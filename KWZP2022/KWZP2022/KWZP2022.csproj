@@ -222,6 +222,7 @@
     </Compile>
     <Compile Include="FormResDepServicesWorkers.Designer.cs">
       <DependentUpon>FormResDepServicesWorkers.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormResDepParametryMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
