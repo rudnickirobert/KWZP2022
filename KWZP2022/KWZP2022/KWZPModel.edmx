@@ -268,7 +268,6 @@
           <Property Name="ID_stanowisko_produkcyjne" Type="int" Nullable="false" />
           <Property Name="Data_od" Type="datetime" Nullable="false" />
           <Property Name="Data_do" Type="datetime" />
-          <Property Name="Uwagi" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Obsluga_pracownik">
           <Key>
@@ -1379,14 +1378,25 @@ warning 6002: The table/view 'KWZP.dbo.v_Obsluga_cmb' does not have a primary ke
           <Property Name="ComboObsluga" Type="nvarchar" MaxLength="115" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Obsluga_cmb_wymiana' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Obsluga_cmb_wymiana">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ComboObsluga" Type="nvarchar" MaxLength="115" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Obsluga_pracownik' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Obsluga_pracownik">
           <Key>
             <PropertyRef Name="ID_obsluga" />
+            <PropertyRef Name="ID_pracownik" />
             <PropertyRef Name="Obsługa" />
             <PropertyRef Name="Pracownik" />
           </Key>
           <Property Name="ID_obsluga" Type="int" Nullable="false" />
+          <Property Name="ID_pracownik" Type="int" Nullable="false" />
           <Property Name="Obsługa" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Pracownik" Type="varchar" MaxLength="101" Nullable="false" />
         </EntityType>
@@ -1427,13 +1437,11 @@ warning 6002: The table/view 'KWZP.dbo.v_Obslugi_zakonczone' does not have a pri
             <PropertyRef Name="Nr stanowiska" />
             <PropertyRef Name="Obsługa" />
             <PropertyRef Name="Data rozpoczęcia" />
-            <PropertyRef Name="Pracownik" />
           </Key>
           <Property Name="Nr stanowiska" Type="int" Nullable="false" />
           <Property Name="Obsługa" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Data rozpoczęcia" Type="datetime" Nullable="false" />
           <Property Name="Data zakończenia" Type="datetime" />
-          <Property Name="Pracownik" Type="varchar" MaxLength="101" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Oferta_handlowa' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -4391,9 +4399,16 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
     [v_Obsluga_cmb].[ComboObsluga] AS [ComboObsluga]
     FROM [dbo].[v_Obsluga_cmb] AS [v_Obsluga_cmb]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_Obsluga_cmb_wymiana" EntityType="Self.v_Obsluga_cmb_wymiana" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Obsluga_cmb_wymiana].[ID] AS [ID], 
+    [v_Obsluga_cmb_wymiana].[ComboObsluga] AS [ComboObsluga]
+    FROM [dbo].[v_Obsluga_cmb_wymiana] AS [v_Obsluga_cmb_wymiana]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_Obsluga_pracownik" EntityType="Self.v_Obsluga_pracownik" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Obsluga_pracownik].[ID_obsluga] AS [ID_obsluga], 
+    [v_Obsluga_pracownik].[ID_pracownik] AS [ID_pracownik], 
     [v_Obsluga_pracownik].[Obsługa] AS [Obsługa], 
     [v_Obsluga_pracownik].[Pracownik] AS [Pracownik]
     FROM [dbo].[v_Obsluga_pracownik] AS [v_Obsluga_pracownik]</DefiningQuery>
@@ -5833,7 +5848,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <Property Name="ID_stanowisko_produkcyjne" Type="Int32" Nullable="false" />
           <Property Name="Data_od" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Data_do" Type="DateTime" Precision="3" />
-          <Property Name="Uwagi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Rodzaj_obsluga" Relationship="Self.FK__Obsluga__ID_rodz__0697FACD" FromRole="Obsluga" ToRole="Rodzaj_obsluga" />
           <NavigationProperty Name="Stanowisko_produkcyjne" Relationship="Self.FK__Obsluga__ID_stan__078C1F06" FromRole="Obsluga" ToRole="Stanowisko_produkcyjne" />
           <NavigationProperty Name="Wymiana_czesc" Relationship="Self.FK__Wymiana_c__ID_ob__0E391C95" FromRole="Obsluga" ToRole="Wymiana_czesc" />
@@ -7035,17 +7049,39 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="ComboObsluga" Type="String" MaxLength="115" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="v_Obsluga_cmb_wymiana">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ComboObsluga" Type="String" MaxLength="115" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="v_Obsluga_pracownik">
           <Key>
             <PropertyRef Name="ID_obsluga" />
+            <PropertyRef Name="ID_pracownik" />
             <PropertyRef Name="Obsługa" />
             <PropertyRef Name="Pracownik" />
           </Key>
           <Property Name="ID_obsluga" Type="Int32" Nullable="false" />
+          <Property Name="ID_pracownik" Type="Int32" Nullable="false" />
           <Property Name="Obsługa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Pracownik" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="v_Obslugi_w_trakcie">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Nr_stanowiska" />
+            <PropertyRef Name="Obsługa" />
+            <PropertyRef Name="Data_rozpoczęcia" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Nr_stanowiska" Type="Int32" Nullable="false" />
+          <Property Name="Obsługa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Data_rozpoczęcia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Data_zakończenia" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="v_Obslugi_w_trakcie_wymiana">
           <Key>
             <PropertyRef Name="ID" />
             <PropertyRef Name="Nr_stanowiska" />
@@ -7076,13 +7112,11 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
             <PropertyRef Name="Nr_stanowiska" />
             <PropertyRef Name="Obsługa" />
             <PropertyRef Name="Data_rozpoczęcia" />
-            <PropertyRef Name="Pracownik" />
           </Key>
           <Property Name="Nr_stanowiska" Type="Int32" Nullable="false" />
           <Property Name="Obsługa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Data_rozpoczęcia" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Data_zakończenia" Type="DateTime" Precision="3" />
-          <Property Name="Pracownik" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="v_Oferta_handlowa">
           <Key>
@@ -7338,6 +7372,44 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <Property Name="Szacowany_czas__min_" Type="Int32" Nullable="false" />
           <Property Name="Data_rozpoczęcia" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Data_zakończenia" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="v_Proces_wytwarzanie_produkt_ewidencja">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Produkt" />
+            <PropertyRef Name="Czynność_produkcyjna" />
+            <PropertyRef Name="ID_pracownik" />
+            <PropertyRef Name="Pracownik" />
+            <PropertyRef Name="Stanowisko" />
+            <PropertyRef Name="Szacowany_czas__min_" />
+            <PropertyRef Name="Data_rozpoczęcia" />
+            <PropertyRef Name="Czas_pracy" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Czynność_produkcyjna" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_pracownik" Type="Int32" Nullable="false" />
+          <Property Name="Pracownik" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Stanowisko" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Szacowany_czas__min_" Type="Int32" Nullable="false" />
+          <Property Name="Data_rozpoczęcia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Data_zakończenia" Type="DateTime" Precision="3" />
+          <Property Name="Czas_pracy" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_Producenci">
+          <Key>
+            <PropertyRef Name="ID_producent" />
+            <PropertyRef Name="Nazwa" />
+            <PropertyRef Name="Miejscowość" />
+            <PropertyRef Name="Ulica" />
+            <PropertyRef Name="Nr_budynku" />
+          </Key>
+          <Property Name="ID_producent" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Miejscowość" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ulica" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nr_budynku" Type="Int32" Nullable="false" />
+          <Property Name="Kod_pocztowy" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="v_Proces_wytwarzanie_produkt_ewidencja">
           <Key>
@@ -9605,6 +9677,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySet Name="v_Nieobecnosc" EntityType="Self.v_Nieobecnosc" />
           <EntitySet Name="v_Nr_telefon_pracownik" EntityType="Self.v_Nr_telefon_pracownik" />
           <EntitySet Name="v_Obsluga_cmb" EntityType="Self.v_Obsluga_cmb" />
+          <EntitySet Name="v_Obsluga_cmb_wymiana" EntityType="Self.v_Obsluga_cmb_wymiana" />
           <EntitySet Name="v_Obsluga_pracownik" EntityType="Self.v_Obsluga_pracownik" />
           <EntitySet Name="v_Obslugi_w_trakcie" EntityType="Self.v_Obslugi_w_trakcie" />
           <EntitySet Name="v_Obslugi_w_trakcie_wymiana" EntityType="Self.v_Obslugi_w_trakcie_wymiana" />
@@ -10466,7 +10539,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
                 <ScalarProperty Name="ID_stanowisko_produkcyjne" ColumnName="ID_stanowisko_produkcyjne" />
                 <ScalarProperty Name="Data_od" ColumnName="Data_od" />
                 <ScalarProperty Name="Data_do" ColumnName="Data_do" />
-                <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -11491,10 +11563,19 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="v_Obsluga_cmb_wymiana">
+            <EntityTypeMapping TypeName="KWZPModel.v_Obsluga_cmb_wymiana">
+              <MappingFragment StoreEntitySet="v_Obsluga_cmb_wymiana">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ComboObsluga" ColumnName="ComboObsluga" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="v_Obsluga_pracownik">
             <EntityTypeMapping TypeName="KWZPModel.v_Obsluga_pracownik">
               <MappingFragment StoreEntitySet="v_Obsluga_pracownik">
                 <ScalarProperty Name="ID_obsluga" ColumnName="ID_obsluga" />
+                <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
                 <ScalarProperty Name="Obsługa" ColumnName="Obsługa" />
                 <ScalarProperty Name="Pracownik" ColumnName="Pracownik" />
               </MappingFragment>
@@ -11522,6 +11603,17 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="v_Obslugi_w_trakcie_wymiana">
+            <EntityTypeMapping TypeName="KWZPModel.v_Obslugi_w_trakcie_wymiana">
+              <MappingFragment StoreEntitySet="v_Obslugi_w_trakcie_wymiana">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nr_stanowiska" ColumnName="Nr stanowiska" />
+                <ScalarProperty Name="Obsługa" ColumnName="Obsługa" />
+                <ScalarProperty Name="Data_rozpoczęcia" ColumnName="Data rozpoczęcia" />
+                <ScalarProperty Name="Data_zakończenia" ColumnName="Data zakończenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="v_Obslugi_zakonczone">
             <EntityTypeMapping TypeName="KWZPModel.v_Obslugi_zakonczone">
               <MappingFragment StoreEntitySet="v_Obslugi_zakonczone">
@@ -11529,7 +11621,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
                 <ScalarProperty Name="Obsługa" ColumnName="Obsługa" />
                 <ScalarProperty Name="Data_rozpoczęcia" ColumnName="Data rozpoczęcia" />
                 <ScalarProperty Name="Data_zakończenia" ColumnName="Data zakończenia" />
-                <ScalarProperty Name="Pracownik" ColumnName="Pracownik" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

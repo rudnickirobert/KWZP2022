@@ -12,11 +12,9 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Obsluga_pracownik
+    public partial class v_Obsluga_cmb_wymiana
     {
-        public int ID_obsluga { get; set; }
-        public int ID_pracownik { get; set; }
-        public string Obsługa { get; set; }
-        public string Pracownik { get; set; }
+        public int ID { get; set; }
+        public string ComboObsluga { get; set; }
     }
 }

@@ -109,7 +109,6 @@ namespace KWZP2022
             FormResDepProducent producentForm = new FormResDepProducent(db);
             producentForm.ShowDialog();
         }
-
         private void btnAktualizujStatus_Click(object sender, EventArgs e)
         {
             Stan_realizacji_zamowienie_maszyna stRealizacjaMaszyna = new Stan_realizacji_zamowienie_maszyna();

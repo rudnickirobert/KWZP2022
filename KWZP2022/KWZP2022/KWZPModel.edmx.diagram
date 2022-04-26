@@ -33,7 +33,7 @@
         <EntityTypeShape EntityType="KWZPModel.Nr_seryjny" Width="1.5" PointX="3" PointY="44.25" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.Nr_telefon_klient" Width="1.5" PointX="18.75" PointY="9" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.Nr_telefon_pracownik" Width="1.5" PointX="12.75" PointY="51.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="KWZPModel.Obsluga" Width="1.5" PointX="5.25" PointY="39.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KWZPModel.Obsluga" Width="1.5" PointX="5.25" PointY="39.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.Oferta_handlowa" Width="1.5" PointX="15.75" PointY="43.375" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.Parametr_czesc" Width="1.5" PointX="31" PointY="44.875" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.Parametr_maszyna" Width="1.5" PointX="29" PointY="36" IsExpanded="true" />

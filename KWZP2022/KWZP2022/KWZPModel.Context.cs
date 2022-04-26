@@ -160,6 +160,7 @@ namespace KWZP2022
         public virtual DbSet<v_Nieobecnosc> v_Nieobecnosc { get; set; }
         public virtual DbSet<v_Nr_telefon_pracownik> v_Nr_telefon_pracownik { get; set; }
         public virtual DbSet<v_Obsluga_cmb> v_Obsluga_cmb { get; set; }
+        public virtual DbSet<v_Obsluga_cmb_wymiana> v_Obsluga_cmb_wymiana { get; set; }
         public virtual DbSet<v_Obsluga_pracownik> v_Obsluga_pracownik { get; set; }
         public virtual DbSet<v_Obslugi_w_trakcie> v_Obslugi_w_trakcie { get; set; }
         public virtual DbSet<v_Obslugi_w_trakcie_wymiana> v_Obslugi_w_trakcie_wymiana { get; set; }
