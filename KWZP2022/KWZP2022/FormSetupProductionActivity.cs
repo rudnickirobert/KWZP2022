@@ -26,9 +26,9 @@ namespace KWZP2022
         }
         private void btnAddActivity_Click(object sender, EventArgs e)
         {
-            Czynnosc_produkcyjna czynnoscnew = new Czynnosc_produkcyjna();
-            czynnoscnew.Nazwa = txtActivity.Text;
-            db.Czynnosc_produkcyjna.Add(czynnoscnew);
+            Czynnosc_produkcyjna czynnoscNowa = new Czynnosc_produkcyjna();
+            czynnoscNowa.Nazwa = txtActivity.Text;
+            db.Czynnosc_produkcyjna.Add(czynnoscNowa);
             db.SaveChanges();
             MessageBox.Show("Zapisano zmiany!", "Informacja", MessageBoxButtons.OK);
             ShowData();
@@ -36,18 +36,18 @@ namespace KWZP2022
 
         private void btnEditActivity_Click(object sender, EventArgs e)
         {
-            int id_czynnosc = int.Parse(this.dgvActivity.CurrentRow.Cells[0].Value.ToString());
-            Czynnosc_produkcyjna czynnosc = this.db.Czynnosc_produkcyjna.Single(a => a.ID_czynnosc_produkcyjna == id_czynnosc);
-            czynnosc.Nazwa = txtActivity.Text;
+            int idCzynnosc = int.Parse(this.dgvActivity.CurrentRow.Cells[0].Value.ToString());
+            Czynnosc_produkcyjna czynnoscEdytuj = this.db.Czynnosc_produkcyjna.Single(a => a.ID_czynnosc_produkcyjna == idCzynnosc);
+            czynnoscEdytuj.Nazwa = txtActivity.Text;
             this.db.SaveChanges();
             MessageBox.Show("Zapisano zmiany!", "Informacja", MessageBoxButtons.OK);
         }
 
         private void dgvActivity_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int id_czynnosc = int.Parse(this.dgvActivity.CurrentRow.Cells[0].Value.ToString());
-            Czynnosc_produkcyjna czynnosc = this.db.Czynnosc_produkcyjna.Single(a => a.ID_czynnosc_produkcyjna == id_czynnosc);
-            txtActivity.Text = czynnosc.Nazwa;
+            int idCzynnosc = int.Parse(this.dgvActivity.CurrentRow.Cells[0].Value.ToString());
+            Czynnosc_produkcyjna czynnoscWybrana = this.db.Czynnosc_produkcyjna.Single(a => a.ID_czynnosc_produkcyjna == idCzynnosc);
+            txtActivity.Text = czynnoscWybrana.Nazwa;
         }
     }
 }

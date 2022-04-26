@@ -17,7 +17,7 @@ namespace KWZP2022
         {
             InitializeComponent();
             this.db = db;
-            ComboBox();
+            comboBox();
             showData();
         }
         private void showData()
@@ -43,7 +43,7 @@ namespace KWZP2022
             tbEmail.Clear();
         }
 
-        private void ComboBox()
+        private void comboBox()
         {
             cbWyksztalcenie.DataSource = this.db.Wyksztalcenie.ToList();
             cbWyksztalcenie.ValueMember = "ID_wyksztalcenie";
@@ -70,12 +70,12 @@ namespace KWZP2022
             dpracownikod.Value = dane_adresowe_pracownik.Data_od;
             if (dane_adresowe_pracownik.Data_do != null)
             {
-                checkBox1.Checked = true;
+                cbDataDo.Checked = true;
                 dpracownikdo.Value = dane_adresowe_pracownik.Data_do.Value;
             }
             else
             {
-                checkBox1.Checked = false;
+                cbDataDo.Checked = false;
                 dpracownikdo.Value = DateTime.Now;
             }
             Nr_telefon_pracownik nr_telefon_pracownik = this.db.Nr_telefon_pracownik.Single(c => c.ID_pracownik == dane);
@@ -84,12 +84,12 @@ namespace KWZP2022
             dnrod.Value = nr_telefon_pracownik.Data_od;
             if (nr_telefon_pracownik.Data_do != null)
             {
-                checkBox2.Checked = true;
+                cbDataDoNrTelefonu.Checked = true;
                 dnrod.Value = nr_telefon_pracownik.Data_do.Value;
             }
             else
             {
-                checkBox2.Checked = false;
+                cbDataDoNrTelefonu.Checked = false;
                 dnrod.Value = DateTime.Now;
             }
             Email_pracownik email_pracownik = this.db.Email_pracownik.Single(d => d.ID_pracownik == dane);
@@ -97,12 +97,12 @@ namespace KWZP2022
             demailod.Value = email_pracownik.Data_od;
             if (email_pracownik.Data_do != null)
             {
-                checkBox3.Checked = true;
+                cbDataDoEmail.Checked = true;
                 demailod.Value = email_pracownik.Data_do.Value;
             }
             else
             {
-                checkBox3.Checked = false;
+                cbDataDoEmail.Checked = false;
                 demailod.Value = DateTime.Now;
             }
         }
@@ -128,7 +128,7 @@ namespace KWZP2022
                 dane_adresowe_pracownik.Nr_lokalu = tblokal.Text;
                 dane_adresowe_pracownik.Kod_pocztowy = tbKod.Text;
                 dane_adresowe_pracownik.Data_od = dpracownikod.Value;
-                if (checkBox1.Checked is true)
+                if (cbDataDo.Checked)
                 {
                     dane_adresowe_pracownik.Data_do = dpracownikdo.Value;
                 }
@@ -142,7 +142,7 @@ namespace KWZP2022
                 nrTelefonPracownik.ID_pracownik = pracownik.ID_pracownik;
                 nrTelefonPracownik.Numer = tbNumer.Text;
                 nrTelefonPracownik.Data_od = dnrod.Value;
-                if (checkBox2.Checked is true)
+                if (cbDataDoNrTelefonu.Checked)
                 {
                     nrTelefonPracownik.Data_do = dnrdo.Value;
                 }
@@ -156,7 +156,7 @@ namespace KWZP2022
                 emailPracownik.ID_pracownik = pracownik.ID_pracownik;
                 emailPracownik.Email = tbEmail.Text;
                 emailPracownik.Data_od = demailod.Value;
-                if (checkBox3.Checked is true)
+                if (cbDataDoEmail.Checked)
                 {
                     emailPracownik.Data_do = demaildo.Value;
                 }

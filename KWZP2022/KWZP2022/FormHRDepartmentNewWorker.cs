@@ -17,7 +17,7 @@ namespace KWZP2022
         {
             InitializeComponent();
             this.db = db;
-            ComboBox();
+            comboBox();
             showData();
         }
         private void showData()
@@ -40,7 +40,7 @@ namespace KWZP2022
             tbEmail.Clear();
         }
 
-        private void ComboBox()
+        private void comboBox()
         {
             cbWyksztalcenie.DataSource = this.db.Wyksztalcenie.ToList();
             cbWyksztalcenie.ValueMember = "ID_wyksztalcenie";
@@ -52,8 +52,8 @@ namespace KWZP2022
             this.Close();
         }
 
-        private void btnAddnewworker_Click(object sender, EventArgs e)
-        {
+        private void AddNewWorker()
+        { 
             if (tbPracownikNazwisko.Text.Length > 0 && tbPracownikImie.Text.Length > 0 && tbNrdowodu.Text.Length > 0 && tbPesel.Text.Length > 0 && tbNumer.Text.Length > 0 && tbEmail.Text.Length > 0)// && tbMiejscowosc.Text.Length > 0 && tbUlica.Text.Length > 0 && tbBudynek.Text.Length > 0 && tblokal.Text.Length > 0)
             {
                 Pracownik pracownik = new Pracownik();
@@ -73,7 +73,7 @@ namespace KWZP2022
                 daneAdresowePracownik.Nr_lokalu = tblokal.Text;
                 daneAdresowePracownik.Data_od = dpracownikod.Value;
                 daneAdresowePracownik.Kod_pocztowy = tbKod.Text;
-                if (cbDataDo.Checked is true)
+                if (cbDataDo.Checked)
                 {
                     daneAdresowePracownik.Data_do = dpracownikdo.Value;
                 }
@@ -83,7 +83,7 @@ namespace KWZP2022
                 nrTelefonPracownik.ID_pracownik = pracownik.ID_pracownik;
                 nrTelefonPracownik.Numer = tbNumer.Text;
                 nrTelefonPracownik.Data_od = dnrod.Value;
-                if (cbNrTelefonuDataDo.Checked is true)
+                if (cbNrTelefonuDataDo.Checked)
                 {
                     nrTelefonPracownik.Data_do = dnrdo.Value;
                 }
@@ -93,7 +93,7 @@ namespace KWZP2022
                 emailPracownik.ID_pracownik = pracownik.ID_pracownik;
                 emailPracownik.Email = tbEmail.Text;
                 emailPracownik.Data_od = demailod.Value;
-                if (cbEmailDataDo.Checked is true)
+                if (cbEmailDataDo.Checked)
                 {
                     emailPracownik.Data_do = demaildo.Value;
                 }
@@ -107,6 +107,10 @@ namespace KWZP2022
             {
                 MessageBox.Show("Nie wprowadzono danych.", "Błąd", MessageBoxButtons.OK);
             }
+        }
+        private void btnAddnewworker_Click(object sender, EventArgs e)
+        {
+            AddNewWorker();
         }
     }
 }

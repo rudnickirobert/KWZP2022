@@ -41,9 +41,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cbDataDoEmail = new System.Windows.Forms.CheckBox();
+            this.cbDataDoNrTelefonu = new System.Windows.Forms.CheckBox();
+            this.cbDataDo = new System.Windows.Forms.CheckBox();
             this.dpracownikdo = new System.Windows.Forms.DateTimePicker();
             this.dpracownikod = new System.Windows.Forms.DateTimePicker();
             this.demaildo = new System.Windows.Forms.DateTimePicker();
@@ -198,35 +198,35 @@
             this.label1.TabIndex = 173;
             this.label1.Text = "Nazwisko:";
             // 
-            // checkBox3
+            // cbDataDoEmail
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(878, 218);
-            this.checkBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(15, 14);
-            this.checkBox3.TabIndex = 172;
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.cbDataDoEmail.AutoSize = true;
+            this.cbDataDoEmail.Location = new System.Drawing.Point(878, 218);
+            this.cbDataDoEmail.Margin = new System.Windows.Forms.Padding(2);
+            this.cbDataDoEmail.Name = "cbDataDoEmail";
+            this.cbDataDoEmail.Size = new System.Drawing.Size(15, 14);
+            this.cbDataDoEmail.TabIndex = 172;
+            this.cbDataDoEmail.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // cbDataDoNrTelefonu
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(704, 218);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(15, 14);
-            this.checkBox2.TabIndex = 171;
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.cbDataDoNrTelefonu.AutoSize = true;
+            this.cbDataDoNrTelefonu.Location = new System.Drawing.Point(704, 218);
+            this.cbDataDoNrTelefonu.Margin = new System.Windows.Forms.Padding(2);
+            this.cbDataDoNrTelefonu.Name = "cbDataDoNrTelefonu";
+            this.cbDataDoNrTelefonu.Size = new System.Drawing.Size(15, 14);
+            this.cbDataDoNrTelefonu.TabIndex = 171;
+            this.cbDataDoNrTelefonu.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // cbDataDo
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(234, 345);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 170;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cbDataDo.AutoSize = true;
+            this.cbDataDo.Location = new System.Drawing.Point(234, 345);
+            this.cbDataDo.Margin = new System.Windows.Forms.Padding(2);
+            this.cbDataDo.Name = "cbDataDo";
+            this.cbDataDo.Size = new System.Drawing.Size(15, 14);
+            this.cbDataDo.TabIndex = 170;
+            this.cbDataDo.UseVisualStyleBackColor = true;
             // 
             // dpracownikdo
             // 
@@ -409,9 +409,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.cbDataDoEmail);
+            this.Controls.Add(this.cbDataDoNrTelefonu);
+            this.Controls.Add(this.cbDataDo);
             this.Controls.Add(this.dpracownikdo);
             this.Controls.Add(this.dpracownikod);
             this.Controls.Add(this.demaildo);
@@ -454,9 +454,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox cbDataDoEmail;
+        private System.Windows.Forms.CheckBox cbDataDoNrTelefonu;
+        private System.Windows.Forms.CheckBox cbDataDo;
         private System.Windows.Forms.DateTimePicker dpracownikdo;
         private System.Windows.Forms.DateTimePicker dpracownikod;
         private System.Windows.Forms.DateTimePicker demaildo;
