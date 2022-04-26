@@ -43,6 +43,7 @@
             this.lblUlica = new System.Windows.Forms.Label();
             this.lblMiejscowosc = new System.Windows.Forms.Label();
             this.lblNazwa = new System.Windows.Forms.Label();
+            this.lblPodpisWidoku = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numNrbudynku)).BeginInit();
             this.SuspendLayout();
@@ -86,9 +87,9 @@
             // dgvProducent
             // 
             this.dgvProducent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducent.Location = new System.Drawing.Point(45, 353);
+            this.dgvProducent.Location = new System.Drawing.Point(45, 390);
             this.dgvProducent.Name = "dgvProducent";
-            this.dgvProducent.Size = new System.Drawing.Size(1195, 309);
+            this.dgvProducent.Size = new System.Drawing.Size(1195, 272);
             this.dgvProducent.TabIndex = 24;
             this.dgvProducent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducent_CellClick);
             // 
@@ -202,11 +203,23 @@
             this.lblNazwa.TabIndex = 14;
             this.lblNazwa.Text = "Nazwa";
             // 
+            // lblPodpisWidoku
+            // 
+            this.lblPodpisWidoku.AutoSize = true;
+            this.lblPodpisWidoku.BackColor = System.Drawing.Color.Transparent;
+            this.lblPodpisWidoku.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblPodpisWidoku.Location = new System.Drawing.Point(41, 365);
+            this.lblPodpisWidoku.Name = "lblPodpisWidoku";
+            this.lblPodpisWidoku.Size = new System.Drawing.Size(106, 22);
+            this.lblPodpisWidoku.TabIndex = 57;
+            this.lblPodpisWidoku.Text = "Producenci";
+            // 
             // FormResDepProducent
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1278, 713);
+            this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnAktualizuj);
             this.Controls.Add(this.btnUsun);
             this.Controls.Add(this.btnDodaj);
@@ -249,5 +262,6 @@
         private System.Windows.Forms.Label lblUlica;
         private System.Windows.Forms.Label lblMiejscowosc;
         private System.Windows.Forms.Label lblNazwa;
+        private System.Windows.Forms.Label lblPodpisWidoku;
     }
 }

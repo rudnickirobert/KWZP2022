@@ -42,6 +42,7 @@
             this.cmbNarzedzie = new System.Windows.Forms.ComboBox();
             this.lblNazwa = new System.Windows.Forms.Label();
             this.dgvParametrNarzedzie = new System.Windows.Forms.DataGridView();
+            this.lblPodpisWidoku = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParametrNarzedzie)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +50,7 @@
             // 
             this.btnWczytajParametr.BackColor = System.Drawing.Color.Violet;
             this.btnWczytajParametr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.btnWczytajParametr.Location = new System.Drawing.Point(221, 36);
+            this.btnWczytajParametr.Location = new System.Drawing.Point(221, 21);
             this.btnWczytajParametr.Name = "btnWczytajParametr";
             this.btnWczytajParametr.Size = new System.Drawing.Size(181, 35);
             this.btnWczytajParametr.TabIndex = 35;
@@ -155,7 +156,7 @@
             // 
             this.cmbNarzedzie.Font = new System.Drawing.Font("Arial", 16.25F);
             this.cmbNarzedzie.FormattingEnabled = true;
-            this.cmbNarzedzie.Location = new System.Drawing.Point(34, 83);
+            this.cmbNarzedzie.Location = new System.Drawing.Point(34, 68);
             this.cmbNarzedzie.Name = "cmbNarzedzie";
             this.cmbNarzedzie.Size = new System.Drawing.Size(338, 33);
             this.cmbNarzedzie.TabIndex = 25;
@@ -165,7 +166,7 @@
             this.lblNazwa.AutoSize = true;
             this.lblNazwa.BackColor = System.Drawing.Color.Transparent;
             this.lblNazwa.Font = new System.Drawing.Font("Arial", 20.25F);
-            this.lblNazwa.Location = new System.Drawing.Point(28, 39);
+            this.lblNazwa.Location = new System.Drawing.Point(28, 24);
             this.lblNazwa.Name = "lblNazwa";
             this.lblNazwa.Size = new System.Drawing.Size(134, 32);
             this.lblNazwa.TabIndex = 24;
@@ -174,16 +175,28 @@
             // dgvParametrNarzedzie
             // 
             this.dgvParametrNarzedzie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvParametrNarzedzie.Location = new System.Drawing.Point(32, 128);
+            this.dgvParametrNarzedzie.Location = new System.Drawing.Point(34, 145);
             this.dgvParametrNarzedzie.Name = "dgvParametrNarzedzie";
-            this.dgvParametrNarzedzie.Size = new System.Drawing.Size(738, 161);
+            this.dgvParametrNarzedzie.Size = new System.Drawing.Size(736, 144);
             this.dgvParametrNarzedzie.TabIndex = 23;
+            // 
+            // lblPodpisWidoku
+            // 
+            this.lblPodpisWidoku.AutoSize = true;
+            this.lblPodpisWidoku.BackColor = System.Drawing.Color.Transparent;
+            this.lblPodpisWidoku.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblPodpisWidoku.Location = new System.Drawing.Point(30, 120);
+            this.lblPodpisWidoku.Name = "lblPodpisWidoku";
+            this.lblPodpisWidoku.Size = new System.Drawing.Size(181, 22);
+            this.lblPodpisWidoku.TabIndex = 57;
+            this.lblPodpisWidoku.Text = "Parametry narzędzia";
             // 
             // FormResDepParametryNarzedzie
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(799, 498);
+            this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnWczytajParametr);
             this.Controls.Add(this.btnAktualizuj);
             this.Controls.Add(this.btnUsun);
@@ -223,5 +236,6 @@
         private System.Windows.Forms.ComboBox cmbNarzedzie;
         private System.Windows.Forms.Label lblNazwa;
         private System.Windows.Forms.DataGridView dgvParametrNarzedzie;
+        private System.Windows.Forms.Label lblPodpisWidoku;
     }
 }
