@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSalesDepartmentClientNewClient));
             this.btnAddNewClient = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBoxNo2 = new System.Windows.Forms.TextBox();
+            this.textBoxApartmentNumber = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBoxNo1 = new System.Windows.Forms.TextBox();
+            this.textBoxBuildingNumber = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxPostCode = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,8 +42,8 @@
             this.textBoxStreet = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1Name = new System.Windows.Forms.TextBox();
-            this.textBox2Name = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.textBoxSurame = new System.Windows.Forms.TextBox();
             this.lblNrSale = new System.Windows.Forms.Label();
             this.textBoxCity = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -86,13 +86,13 @@
             this.label7.TabIndex = 48;
             this.label7.Text = "Nr lokalu:";
             // 
-            // textBoxNo2
+            // textBoxApartmentNumber
             // 
-            this.textBoxNo2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxNo2.Location = new System.Drawing.Point(225, 320);
-            this.textBoxNo2.Name = "textBoxNo2";
-            this.textBoxNo2.Size = new System.Drawing.Size(152, 26);
-            this.textBoxNo2.TabIndex = 47;
+            this.textBoxApartmentNumber.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxApartmentNumber.Location = new System.Drawing.Point(225, 320);
+            this.textBoxApartmentNumber.Name = "textBoxApartmentNumber";
+            this.textBoxApartmentNumber.Size = new System.Drawing.Size(152, 26);
+            this.textBoxApartmentNumber.TabIndex = 47;
             // 
             // label5
             // 
@@ -101,17 +101,17 @@
             this.label5.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label5.Location = new System.Drawing.Point(221, 243);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 20);
+            this.label5.Size = new System.Drawing.Size(86, 20);
             this.label5.TabIndex = 46;
-            this.label5.Text = "Nr budynku:";
+            this.label5.Text = "Nr budynku*:";
             // 
-            // textBoxNo1
+            // textBoxBuildingNumber
             // 
-            this.textBoxNo1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxNo1.Location = new System.Drawing.Point(225, 266);
-            this.textBoxNo1.Name = "textBoxNo1";
-            this.textBoxNo1.Size = new System.Drawing.Size(152, 26);
-            this.textBoxNo1.TabIndex = 45;
+            this.textBoxBuildingNumber.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxBuildingNumber.Location = new System.Drawing.Point(225, 266);
+            this.textBoxBuildingNumber.Name = "textBoxBuildingNumber";
+            this.textBoxBuildingNumber.Size = new System.Drawing.Size(152, 26);
+            this.textBoxBuildingNumber.TabIndex = 45;
             // 
             // label6
             // 
@@ -120,9 +120,9 @@
             this.label6.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label6.Location = new System.Drawing.Point(221, 124);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(99, 20);
+            this.label6.Size = new System.Drawing.Size(104, 20);
             this.label6.TabIndex = 44;
-            this.label6.Text = "Kod pocztowy:";
+            this.label6.Text = "Kod pocztowy*:";
             // 
             // textBoxPostCode
             // 
@@ -158,9 +158,9 @@
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.Location = new System.Drawing.Point(221, 182);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 20);
+            this.label3.Size = new System.Drawing.Size(47, 20);
             this.label3.TabIndex = 40;
-            this.label3.Text = "Ulica:";
+            this.label3.Text = "Ulica*:";
             // 
             // textBoxStreet
             // 
@@ -177,9 +177,9 @@
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.Location = new System.Drawing.Point(21, 124);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 20);
+            this.label2.Size = new System.Drawing.Size(124, 20);
             this.label2.TabIndex = 38;
-            this.label2.Text = "Podaj imię klienta:";
+            this.label2.Text = "Podaj imię klienta*:";
             // 
             // label8
             // 
@@ -188,25 +188,25 @@
             this.label8.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label8.Location = new System.Drawing.Point(21, 70);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(149, 20);
+            this.label8.Size = new System.Drawing.Size(154, 20);
             this.label8.TabIndex = 37;
-            this.label8.Text = "Podaj nazwisko klienta:";
+            this.label8.Text = "Podaj nazwisko klienta*:";
             // 
-            // textBox1Name
+            // textBoxName
             // 
-            this.textBox1Name.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox1Name.Location = new System.Drawing.Point(25, 147);
-            this.textBox1Name.Name = "textBox1Name";
-            this.textBox1Name.Size = new System.Drawing.Size(152, 26);
-            this.textBox1Name.TabIndex = 36;
+            this.textBoxName.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxName.Location = new System.Drawing.Point(25, 147);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(152, 26);
+            this.textBoxName.TabIndex = 36;
             // 
-            // textBox2Name
+            // textBoxSurame
             // 
-            this.textBox2Name.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox2Name.Location = new System.Drawing.Point(25, 93);
-            this.textBox2Name.Name = "textBox2Name";
-            this.textBox2Name.Size = new System.Drawing.Size(152, 26);
-            this.textBox2Name.TabIndex = 35;
+            this.textBoxSurame.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxSurame.Location = new System.Drawing.Point(25, 93);
+            this.textBoxSurame.Name = "textBoxSurame";
+            this.textBoxSurame.Size = new System.Drawing.Size(152, 26);
+            this.textBoxSurame.TabIndex = 35;
             // 
             // lblNrSale
             // 
@@ -215,9 +215,9 @@
             this.lblNrSale.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblNrSale.Location = new System.Drawing.Point(221, 70);
             this.lblNrSale.Name = "lblNrSale";
-            this.lblNrSale.Size = new System.Drawing.Size(91, 20);
+            this.lblNrSale.Size = new System.Drawing.Size(96, 20);
             this.lblNrSale.TabIndex = 34;
-            this.lblNrSale.Text = "Miejscowość:";
+            this.lblNrSale.Text = "Miejscowość*:";
             // 
             // textBoxCity
             // 
@@ -234,9 +234,9 @@
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.Location = new System.Drawing.Point(414, 70);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 20);
+            this.label1.Size = new System.Drawing.Size(93, 20);
             this.label1.TabIndex = 50;
-            this.label1.Text = "Email klienta:";
+            this.label1.Text = "Email klienta*:";
             // 
             // textBoxEmail
             // 
@@ -253,9 +253,9 @@
             this.label9.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label9.Location = new System.Drawing.Point(414, 124);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 20);
+            this.label9.Size = new System.Drawing.Size(64, 20);
             this.label9.TabIndex = 52;
-            this.label9.Text = "Data od:";
+            this.label9.Text = "Data od*:";
             // 
             // label10
             // 
@@ -286,9 +286,9 @@
             this.label12.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label12.Location = new System.Drawing.Point(616, 124);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(59, 20);
+            this.label12.Size = new System.Drawing.Size(64, 20);
             this.label12.TabIndex = 58;
-            this.label12.Text = "Data od:";
+            this.label12.Text = "Data od*:";
             // 
             // label13
             // 
@@ -297,9 +297,9 @@
             this.label13.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label13.Location = new System.Drawing.Point(616, 70);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(145, 20);
+            this.label13.Size = new System.Drawing.Size(150, 20);
             this.label13.TabIndex = 56;
-            this.label13.Text = "Numer telefonu klienta:";
+            this.label13.Text = "Numer telefonu klienta*:";
             // 
             // textBoxTel
             // 
@@ -398,9 +398,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBoxNo2);
+            this.Controls.Add(this.textBoxApartmentNumber);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBoxNo1);
+            this.Controls.Add(this.textBoxBuildingNumber);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBoxPostCode);
             this.Controls.Add(this.label4);
@@ -409,8 +409,8 @@
             this.Controls.Add(this.textBoxStreet);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox1Name);
-            this.Controls.Add(this.textBox2Name);
+            this.Controls.Add(this.textBoxName);
+            this.Controls.Add(this.textBoxSurame);
             this.Controls.Add(this.lblNrSale);
             this.Controls.Add(this.textBoxCity);
             this.Controls.Add(this.btnAddNewClient);
@@ -427,9 +427,9 @@
         #endregion
         private System.Windows.Forms.Button btnAddNewClient;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBoxNo2;
+        private System.Windows.Forms.TextBox textBoxApartmentNumber;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBoxNo1;
+        private System.Windows.Forms.TextBox textBoxBuildingNumber;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxPostCode;
         private System.Windows.Forms.Label label4;
@@ -438,8 +438,8 @@
         private System.Windows.Forms.TextBox textBoxStreet;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1Name;
-        private System.Windows.Forms.TextBox textBox2Name;
+        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.TextBox textBoxSurame;
         private System.Windows.Forms.Label lblNrSale;
         private System.Windows.Forms.TextBox textBoxCity;
         private System.Windows.Forms.Label label1;

@@ -24,13 +24,13 @@ namespace KWZP2022
         }
         private void cleanTextBox()
         {
-            textBox1Name.Clear();
-            textBox2Name.Clear();
+            textBoxName.Clear();
+            textBoxSurame.Clear();
             textBoxCity.Clear();
             textBoxEmail.Clear();
             textBoxNIP.Clear();
-            textBoxNo1.Clear();
-            textBoxNo2.Clear();
+            textBoxBuildingNumber.Clear();
+            textBoxApartmentNumber.Clear();
             textBoxPostCode.Clear();
             textBoxStreet.Clear();
             textBoxTel.Clear();
@@ -41,7 +41,9 @@ namespace KWZP2022
         }
         private void btnAddNewClient_Click(object sender, EventArgs e)
         {
-            if (textBox1Name.Text.Length > 0 && textBox2Name.Text.Length > 0 && textBoxCity.Text.Length > 0 && textBoxNo1.Text.Length > 0 && textBoxPostCode.Text.Length > 0 && textBoxStreet.Text.Length > 0 && textBoxEmail.Text.Length > 0 && dtpEmaiDate1.Value.ToString().Length > 0 && textBoxTel.Text.Length > 0 && dtpEmailDate2.Value.ToString().Length > 0)
+            if (textBoxName.Text.Length > 0 && textBoxSurame.Text.Length > 0 && textBoxCity.Text.Length > 0 && textBoxBuildingNumber.Text.Length > 0 
+                && textBoxPostCode.Text.Length > 0 && textBoxStreet.Text.Length > 0 && textBoxEmail.Text.Length > 0 
+                && dtpEmaiDate1.Value.ToString().Length > 0 && textBoxTel.Text.Length > 0 && dtpEmailDate2.Value.ToString().Length > 0)
             {
                 List<Nr_telefon_klient> noTelClient = this.db.Nr_telefon_klient.Where(a => a.Numer == textBoxTel.Text).ToList();
                 if(noTelClient.Count() > 0)
@@ -51,16 +53,16 @@ namespace KWZP2022
                 else
                 {
                     Klient klient = new Klient();
-                    klient.Nazwisko = textBox2Name.Text;
-                    klient.Imie = textBox1Name.Text;
+                    klient.Nazwisko = textBoxSurame.Text;
+                    klient.Imie = textBoxName.Text;
                     klient.NIP = textBoxNIP.Text;
                     Dane_adresowe_klient dane_Adresowe_Klient = new Dane_adresowe_klient();
                     dane_Adresowe_Klient.Miejscowosc = textBoxCity.Text;
                     dane_Adresowe_Klient.Ulica = textBoxStreet.Text;
-                    dane_Adresowe_Klient.Nr_budynek = int.Parse(textBoxNo1.Text);
-                    if (textBoxNo2.Text.Length > 0)
+                    dane_Adresowe_Klient.Nr_budynek = int.Parse(textBoxBuildingNumber.Text);
+                    if (textBoxApartmentNumber.Text.Length > 0)
                     {
-                        dane_Adresowe_Klient.Nr_lokal = int.Parse(textBoxNo2.Text);
+                        dane_Adresowe_Klient.Nr_lokal = int.Parse(textBoxApartmentNumber.Text);
                     }
                     dane_Adresowe_Klient.Kod_pocztowy = textBoxPostCode.Text;
                     Nr_telefon_klient nr_Telefon_Klient = new Nr_telefon_klient();

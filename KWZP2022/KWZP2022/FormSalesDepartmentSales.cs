@@ -92,8 +92,7 @@ namespace KWZP2022
         private void enterSurname()
         {
             List<v_Sprzedaz> clientSurname = db.v_Sprzedaz.Where(a => a.Nazwisko_klienta == textBoxSurame.Text).ToList();
-            int clientSurnameInt = clientSurname.Count();
-            if (clientSurnameInt > 0)
+            if (clientSurname.Count() > 0)
             {
                 this.dgvSales.DataSource = clientSurname.ToList();
                 this.dgvSales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -109,8 +108,7 @@ namespace KWZP2022
         private void enterFirstname()
         {
             List<v_Sprzedaz> clientName = db.v_Sprzedaz.Where(a => a.Imię_klienta == textBoxName.Text).ToList();
-            int clientNameInt = clientName.Count();
-            if (clientNameInt > 0)
+            if (clientName.Count() > 0)
             {
                 this.dgvSales.DataSource = clientName.ToList();
                 this.dgvSales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -126,8 +124,7 @@ namespace KWZP2022
         private void enterNIP()
         {
             List<v_Sprzedaz> dataNip = db.v_Sprzedaz.Where(a => a.NIP == textBoxNIP.Text).ToList();
-            int dataNipInt = dataNip.Count();
-            if (dataNipInt > 0)
+            if (dataNip.Count() > 0)
             {
                 this.dgvSales.DataSource = dataNip.ToList();
                 this.dgvSales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -145,10 +142,9 @@ namespace KWZP2022
             try
             {
                 string dataArrangement = textBoxNrArrangement.Text;
-                int dataArrangementINT = int.Parse(dataArrangement);
-                List<v_Sprzedaz> dataNoArrangement = db.v_Sprzedaz.Where(a => a.Umowa == dataArrangementINT).ToList();
-                int dataNoArrangementInt = dataNoArrangement.Count();
-                if (dataNoArrangementInt > 0)
+                int dataArrangementToINT = int.Parse(dataArrangement);
+                List<v_Sprzedaz> dataNoArrangement = db.v_Sprzedaz.Where(a => a.Umowa == dataArrangementToINT).ToList();
+                if (dataNoArrangement.Count() > 0)
                 {
                     this.dgvSales.DataSource = dataNoArrangement;
                     this.dgvSales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -172,11 +168,9 @@ namespace KWZP2022
         {
             try
             {
-                string text = textBoxNrSale.Text;
-                int textINT = int.Parse(text);
-                List<v_Sprzedaz> dataNoSale = db.v_Sprzedaz.Where(a => a.Numer_sprzedaży == textINT).ToList();
-                int dataNoSaleInt = dataNoSale.Where(a => a.Numer_sprzedaży > 0).Count();
-                if (dataNoSaleInt > 0)
+                int textINT = int.Parse(textBoxNrSale.Text);
+                List<v_Sprzedaz> dataNoSale = db.v_Sprzedaz.Where(a => a.Numer_sprzedaży == textINT).ToList().ToList();
+                if (dataNoSale.Count() > 0)
                 {
                     this.dgvSales.DataSource = dataNoSale;
                     cleanTextBox();
@@ -206,6 +200,11 @@ namespace KWZP2022
         {
             FormSalesDepartmentAddSales formSalesDepartmentAddSales = new FormSalesDepartmentAddSales(db);
             formSalesDepartmentAddSales.ShowDialog();
+        }
+
+        private void FormSalesDepartmentSales_Activated(object sender, EventArgs e)
+        {
+            showData();
         }
     }
 }

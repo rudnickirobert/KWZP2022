@@ -24,6 +24,7 @@ namespace KWZP2022
         }
         private void showData()
         {
+            this.db = new KWZPEntities();
             this.dgvOrderDetails.DataSource = this.db.v_Zamowienie_szczegol.ToList();
             this.dgvOrderDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }

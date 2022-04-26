@@ -34,13 +34,12 @@ namespace KWZP2022
         }
         private void dgvClientRemove_MouseClick(object sender, MouseEventArgs e)
         {
-            string selectedRow = this.dgvClientRemove.CurrentRow.Cells[0].Value.ToString();
-            int selectedRowINT = int.Parse(selectedRow);
+            int selectedRowINT = int.Parse(this.dgvClientRemove.CurrentRow.Cells[0].Value.ToString());
             Klient selectedClient = db.Klient.Single(a => a.ID_klient == selectedRowINT);
             Dane_adresowe_klient daneKlientDaneAdresowe = db.Dane_adresowe_klient.Single(b => b.ID_klient == selectedRowINT);
             Email_klient daneEmailKlient = db.Email_klient.Single(c => c.ID_klient == selectedRowINT);
             Nr_telefon_klient daneNrTelKlient = db.Nr_telefon_klient.Single(d => d.ID_klient == selectedRowINT);
-            if (selectedRow != null)
+            if (selectedRowINT != 0)
             {
                 DialogResult result = MessageBox.Show($"Czy chcesz usunąć klienta: {selectedClient.Nazwisko} {selectedClient.Imie}?", "Pytanie", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
                 if(result == DialogResult.Yes)

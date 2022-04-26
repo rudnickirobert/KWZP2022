@@ -224,6 +224,7 @@
             this.Name = "FormSalesDepartmentSales";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Sprzedaż";
+            this.Activated += new System.EventHandler(this.FormSalesDepartmentSales_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

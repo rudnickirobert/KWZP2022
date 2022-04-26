@@ -23,8 +23,16 @@ namespace KWZP2022
         }
         private void showData()
         {
+            this.db = new KWZPEntities();
             this.dgvOrders.DataSource = this.db.v_Zamowienie.OrderBy(a => a.Nr_zamówienia).ToList();
-            this.dgvOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvOrders.Columns[0].HeaderText = "Data przyjęcia zamówienia";
+            this.dgvOrders.Columns[1].HeaderText = "Nr zamówienia";
+            this.dgvOrders.Columns[2].HeaderText = "Nazwisko klienta";
+            this.dgvOrders.Columns[3].HeaderText = "Imię klienta";
+            this.dgvOrders.Columns[4].HeaderText = "Typ zamówienia";
+            this.dgvOrders.Columns[5].HeaderText = "Nazwisko pracownika";
+            this.dgvOrders.Columns[6].HeaderText = "Imię pracownika";
+            this.dgvOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
         private void showDataBox()
         {

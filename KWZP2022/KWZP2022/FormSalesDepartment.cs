@@ -48,5 +48,11 @@ namespace KWZP2022
             FormSalesDeprartmentOrders formSalesDeprartmentOrders = new FormSalesDeprartmentOrders(db);
             formSalesDeprartmentOrders.ShowDialog();
         }
+
+        private void btnStatistics_Click(object sender, EventArgs e)
+        {
+            FormSalesDepartmentSalesStatistics formSalesDepartmentSalesStatistics = new FormSalesDepartmentSalesStatistics(db);
+            formSalesDepartmentSalesStatistics.ShowDialog();
+        }
     }
 }
