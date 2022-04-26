@@ -48,6 +48,7 @@
             this.btnDodajZamowienie = new System.Windows.Forms.Button();
             this.lvlZamowienieMaterial = new System.Windows.Forms.Label();
             this.btnAktualizujStatus = new System.Windows.Forms.Button();
+            this.lblPodpisWidoku = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienieMaterial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numWaga)).BeginInit();
             this.SuspendLayout();
@@ -66,11 +67,11 @@
             // dgvZamowienieMaterial
             // 
             this.dgvZamowienieMaterial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvZamowienieMaterial.Location = new System.Drawing.Point(25, 218);
+            this.dgvZamowienieMaterial.Location = new System.Drawing.Point(19, 242);
             this.dgvZamowienieMaterial.Name = "dgvZamowienieMaterial";
             this.dgvZamowienieMaterial.RowHeadersWidth = 51;
             this.dgvZamowienieMaterial.RowTemplate.Height = 24;
-            this.dgvZamowienieMaterial.Size = new System.Drawing.Size(917, 240);
+            this.dgvZamowienieMaterial.Size = new System.Drawing.Size(923, 216);
             this.dgvZamowienieMaterial.TabIndex = 1;
             // 
             // LblPracownik
@@ -80,7 +81,7 @@
             this.LblPracownik.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.LblPracownik.Location = new System.Drawing.Point(23, 57);
             this.LblPracownik.Name = "LblPracownik";
-            this.LblPracownik.Size = new System.Drawing.Size(138, 32);
+            this.LblPracownik.Size = new System.Drawing.Size(107, 24);
             this.LblPracownik.TabIndex = 2;
             this.LblPracownik.Text = "Pracownik";
             // 
@@ -91,7 +92,7 @@
             this.lblDostawca.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblDostawca.Location = new System.Drawing.Point(22, 95);
             this.lblDostawca.Name = "lblDostawca";
-            this.lblDostawca.Size = new System.Drawing.Size(134, 32);
+            this.lblDostawca.Size = new System.Drawing.Size(104, 24);
             this.lblDostawca.TabIndex = 7;
             this.lblDostawca.Text = "Dostawca";
             // 
@@ -102,7 +103,7 @@
             this.lblMaterial.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblMaterial.Location = new System.Drawing.Point(23, 133);
             this.lblMaterial.Name = "lblMaterial";
-            this.lblMaterial.Size = new System.Drawing.Size(111, 32);
+            this.lblMaterial.Size = new System.Drawing.Size(85, 24);
             this.lblMaterial.TabIndex = 9;
             this.lblMaterial.Text = "Materiał";
             // 
@@ -112,7 +113,7 @@
             this.cmbPracownik.FormattingEnabled = true;
             this.cmbPracownik.Location = new System.Drawing.Point(136, 54);
             this.cmbPracownik.Name = "cmbPracownik";
-            this.cmbPracownik.Size = new System.Drawing.Size(485, 39);
+            this.cmbPracownik.Size = new System.Drawing.Size(485, 32);
             this.cmbPracownik.TabIndex = 11;
             // 
             // cmbDostawca
@@ -121,7 +122,7 @@
             this.cmbDostawca.FormattingEnabled = true;
             this.cmbDostawca.Location = new System.Drawing.Point(136, 92);
             this.cmbDostawca.Name = "cmbDostawca";
-            this.cmbDostawca.Size = new System.Drawing.Size(312, 39);
+            this.cmbDostawca.Size = new System.Drawing.Size(312, 32);
             this.cmbDostawca.TabIndex = 13;
             // 
             // cmbMaterial
@@ -130,7 +131,7 @@
             this.cmbMaterial.FormattingEnabled = true;
             this.cmbMaterial.Location = new System.Drawing.Point(136, 130);
             this.cmbMaterial.Name = "cmbMaterial";
-            this.cmbMaterial.Size = new System.Drawing.Size(312, 39);
+            this.cmbMaterial.Size = new System.Drawing.Size(312, 32);
             this.cmbMaterial.TabIndex = 14;
             // 
             // cmbProducent
@@ -139,7 +140,7 @@
             this.cmbProducent.FormattingEnabled = true;
             this.cmbProducent.Location = new System.Drawing.Point(136, 169);
             this.cmbProducent.Name = "cmbProducent";
-            this.cmbProducent.Size = new System.Drawing.Size(312, 39);
+            this.cmbProducent.Size = new System.Drawing.Size(312, 32);
             this.cmbProducent.TabIndex = 16;
             // 
             // lblProducent
@@ -149,7 +150,7 @@
             this.lblProducent.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblProducent.Location = new System.Drawing.Point(21, 172);
             this.lblProducent.Name = "lblProducent";
-            this.lblProducent.Size = new System.Drawing.Size(137, 32);
+            this.lblProducent.Size = new System.Drawing.Size(105, 24);
             this.lblProducent.TabIndex = 15;
             this.lblProducent.Text = "Producent";
             // 
@@ -160,7 +161,7 @@
             this.lblWaga.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblWaga.Location = new System.Drawing.Point(647, 133);
             this.lblWaga.Name = "lblWaga";
-            this.lblWaga.Size = new System.Drawing.Size(127, 32);
+            this.lblWaga.Size = new System.Drawing.Size(96, 24);
             this.lblWaga.TabIndex = 17;
             this.lblWaga.Text = "Waga (g)";
             // 
@@ -171,7 +172,7 @@
             this.lblCena.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblCena.Location = new System.Drawing.Point(647, 173);
             this.lblCena.Name = "lblCena";
-            this.lblCena.Size = new System.Drawing.Size(79, 32);
+            this.lblCena.Size = new System.Drawing.Size(60, 24);
             this.lblCena.TabIndex = 19;
             this.lblCena.Text = "Cena";
             // 
@@ -185,7 +186,7 @@
             0,
             0});
             this.numWaga.Name = "numWaga";
-            this.numWaga.Size = new System.Drawing.Size(161, 38);
+            this.numWaga.Size = new System.Drawing.Size(161, 32);
             this.numWaga.TabIndex = 21;
             this.numWaga.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -194,7 +195,7 @@
             this.txtCena.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtCena.Location = new System.Drawing.Point(749, 170);
             this.txtCena.Name = "txtCena";
-            this.txtCena.Size = new System.Drawing.Size(161, 38);
+            this.txtCena.Size = new System.Drawing.Size(161, 32);
             this.txtCena.TabIndex = 22;
             this.txtCena.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCena_KeyPress);
@@ -241,7 +242,7 @@
             this.lvlZamowienieMaterial.Location = new System.Drawing.Point(13, 9);
             this.lvlZamowienieMaterial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lvlZamowienieMaterial.Name = "lvlZamowienieMaterial";
-            this.lvlZamowienieMaterial.Size = new System.Drawing.Size(338, 39);
+            this.lvlZamowienieMaterial.Size = new System.Drawing.Size(278, 32);
             this.lvlZamowienieMaterial.TabIndex = 26;
             this.lvlZamowienieMaterial.Text = "Zamówienie materiału";
             // 
@@ -257,11 +258,23 @@
             this.btnAktualizujStatus.UseVisualStyleBackColor = false;
             this.btnAktualizujStatus.Click += new System.EventHandler(this.btnAktualizujStatus_Click);
             // 
+            // lblPodpisWidoku
+            // 
+            this.lblPodpisWidoku.AutoSize = true;
+            this.lblPodpisWidoku.BackColor = System.Drawing.Color.Transparent;
+            this.lblPodpisWidoku.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblPodpisWidoku.Location = new System.Drawing.Point(16, 221);
+            this.lblPodpisWidoku.Name = "lblPodpisWidoku";
+            this.lblPodpisWidoku.Size = new System.Drawing.Size(173, 18);
+            this.lblPodpisWidoku.TabIndex = 62;
+            this.lblPodpisWidoku.Text = "Zamówienia materiałów";
+            // 
             // FormResDepZamowienieMaterial
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(956, 539);
+            this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnAktualizujStatus);
             this.Controls.Add(this.lvlZamowienieMaterial);
             this.Controls.Add(this.btnDodajZamowienie);
@@ -316,5 +329,6 @@
         private System.Windows.Forms.Button btnDodajZamowienie;
         private System.Windows.Forms.Label lvlZamowienieMaterial;
         private System.Windows.Forms.Button btnAktualizujStatus;
+        private System.Windows.Forms.Label lblPodpisWidoku;
     }
 }

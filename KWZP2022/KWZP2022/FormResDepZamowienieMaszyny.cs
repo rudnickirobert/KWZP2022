@@ -118,8 +118,8 @@ namespace KWZP2022
             stRealizacjaMaszyna.ID_pracownik = (int)cmbPracownik.SelectedValue;
             db.Stan_realizacji_zamowienie_maszyna.Add(stRealizacjaMaszyna);
             db.SaveChanges();
-            initDataGridView();
             MessageBox.Show("Zmieniono status zamówienia dla: " + dgvZamowienieMaszyna.CurrentRow.Cells[1].Value.ToString());
+            initDataGridView();
             if (stRealizacjaMaszyna.ID_status_zamowienie == 4)
             {
                 MessageBox.Show("Dodaj numer seryjny");

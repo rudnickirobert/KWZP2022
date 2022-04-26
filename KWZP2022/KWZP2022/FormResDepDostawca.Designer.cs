@@ -43,6 +43,7 @@
             this.btnAktualizuj = new System.Windows.Forms.Button();
             this.btnUsun = new System.Windows.Forms.Button();
             this.btnDodaj = new System.Windows.Forms.Button();
+            this.lblPodpisWidoku = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numNrbudynku)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDostawca)).BeginInit();
             this.SuspendLayout();
@@ -160,9 +161,9 @@
             // dgvDostawca
             // 
             this.dgvDostawca.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDostawca.Location = new System.Drawing.Point(46, 356);
+            this.dgvDostawca.Location = new System.Drawing.Point(40, 396);
             this.dgvDostawca.Name = "dgvDostawca";
-            this.dgvDostawca.Size = new System.Drawing.Size(1195, 309);
+            this.dgvDostawca.Size = new System.Drawing.Size(1201, 269);
             this.dgvDostawca.TabIndex = 10;
             this.dgvDostawca.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDostawca_CellClick);
             // 
@@ -202,11 +203,23 @@
             this.btnDodaj.UseVisualStyleBackColor = false;
             this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
             // 
+            // lblPodpisWidoku
+            // 
+            this.lblPodpisWidoku.AutoSize = true;
+            this.lblPodpisWidoku.BackColor = System.Drawing.Color.Transparent;
+            this.lblPodpisWidoku.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblPodpisWidoku.Location = new System.Drawing.Point(36, 371);
+            this.lblPodpisWidoku.Name = "lblPodpisWidoku";
+            this.lblPodpisWidoku.Size = new System.Drawing.Size(92, 22);
+            this.lblPodpisWidoku.TabIndex = 34;
+            this.lblPodpisWidoku.Text = "Dostawcy";
+            // 
             // FormResDepDostawca
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1278, 713);
+            this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnAktualizuj);
             this.Controls.Add(this.btnUsun);
             this.Controls.Add(this.btnDodaj);
@@ -249,5 +262,6 @@
         private System.Windows.Forms.Button btnAktualizuj;
         private System.Windows.Forms.Button btnUsun;
         private System.Windows.Forms.Button btnDodaj;
+        private System.Windows.Forms.Label lblPodpisWidoku;
     }
 }

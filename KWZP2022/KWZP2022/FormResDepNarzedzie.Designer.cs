@@ -37,6 +37,7 @@
             this.txtNazwaNarzedzie = new System.Windows.Forms.TextBox();
             this.lblNazwaNarzedzie = new System.Windows.Forms.Label();
             this.btnDodajParametr = new System.Windows.Forms.Button();
+            this.lblPodpisWidoku = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNarzedzie)).BeginInit();
             this.SuspendLayout();
             // 
@@ -129,11 +130,23 @@
             this.btnDodajParametr.UseVisualStyleBackColor = false;
             this.btnDodajParametr.Click += new System.EventHandler(this.btnDodajParametr_Click);
             // 
+            // lblPodpisWidoku
+            // 
+            this.lblPodpisWidoku.AutoSize = true;
+            this.lblPodpisWidoku.BackColor = System.Drawing.Color.Transparent;
+            this.lblPodpisWidoku.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblPodpisWidoku.Location = new System.Drawing.Point(315, 151);
+            this.lblPodpisWidoku.Name = "lblPodpisWidoku";
+            this.lblPodpisWidoku.Size = new System.Drawing.Size(93, 22);
+            this.lblPodpisWidoku.TabIndex = 56;
+            this.lblPodpisWidoku.Text = "Narzędzia";
+            // 
             // FormResDepNarzedzie
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 499);
+            this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnDodajParametr);
             this.Controls.Add(this.btnAktualizuj);
             this.Controls.Add(this.btnUsun);
@@ -162,5 +175,6 @@
         private System.Windows.Forms.TextBox txtNazwaNarzedzie;
         private System.Windows.Forms.Label lblNazwaNarzedzie;
         private System.Windows.Forms.Button btnDodajParametr;
+        private System.Windows.Forms.Label lblPodpisWidoku;
     }
 }

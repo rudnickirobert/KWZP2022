@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnDodajMaszyna = new System.Windows.Forms.Button();
             this.dgvMagazynMaszyna = new System.Windows.Forms.DataGridView();
+            this.lblPodpisWidoku = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMagazynMaszyna)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,16 +75,28 @@
             // dgvMagazynMaszyna
             // 
             this.dgvMagazynMaszyna.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMagazynMaszyna.Location = new System.Drawing.Point(36, 192);
+            this.dgvMagazynMaszyna.Location = new System.Drawing.Point(36, 205);
             this.dgvMagazynMaszyna.Name = "dgvMagazynMaszyna";
-            this.dgvMagazynMaszyna.Size = new System.Drawing.Size(731, 264);
+            this.dgvMagazynMaszyna.Size = new System.Drawing.Size(731, 251);
             this.dgvMagazynMaszyna.TabIndex = 50;
+            // 
+            // lblPodpisWidoku
+            // 
+            this.lblPodpisWidoku.AutoSize = true;
+            this.lblPodpisWidoku.BackColor = System.Drawing.Color.Transparent;
+            this.lblPodpisWidoku.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblPodpisWidoku.Location = new System.Drawing.Point(32, 180);
+            this.lblPodpisWidoku.Name = "lblPodpisWidoku";
+            this.lblPodpisWidoku.Size = new System.Drawing.Size(153, 22);
+            this.lblPodpisWidoku.TabIndex = 54;
+            this.lblPodpisWidoku.Text = "Magazyn maszyn";
             // 
             // FormResDepMagazynMaszyn
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(796, 496);
+            this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnOdswiez);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDodajMaszyna);
@@ -106,5 +119,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnDodajMaszyna;
         private System.Windows.Forms.DataGridView dgvMagazynMaszyna;
+        private System.Windows.Forms.Label lblPodpisWidoku;
     }
 }

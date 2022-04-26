@@ -39,6 +39,7 @@
             this.btnDodaj = new System.Windows.Forms.Button();
             this.cmbRodzajMaterial = new System.Windows.Forms.ComboBox();
             this.btnDodajParametr = new System.Windows.Forms.Button();
+            this.lblPodpisWidoku = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,10 +76,10 @@
             // dgvMaterial
             // 
             this.dgvMaterial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMaterial.Location = new System.Drawing.Point(420, 216);
+            this.dgvMaterial.Location = new System.Drawing.Point(420, 224);
             this.dgvMaterial.Name = "dgvMaterial";
             this.dgvMaterial.RowTemplate.Height = 24;
-            this.dgvMaterial.Size = new System.Drawing.Size(527, 256);
+            this.dgvMaterial.Size = new System.Drawing.Size(527, 248);
             this.dgvMaterial.TabIndex = 5;
             this.dgvMaterial.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaterial_CellClick);
             // 
@@ -150,12 +151,24 @@
             this.btnDodajParametr.UseVisualStyleBackColor = false;
             this.btnDodajParametr.Click += new System.EventHandler(this.btnDodajParametr_Click);
             // 
+            // lblPodpisWidoku
+            // 
+            this.lblPodpisWidoku.AutoSize = true;
+            this.lblPodpisWidoku.BackColor = System.Drawing.Color.Transparent;
+            this.lblPodpisWidoku.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblPodpisWidoku.Location = new System.Drawing.Point(416, 199);
+            this.lblPodpisWidoku.Name = "lblPodpisWidoku";
+            this.lblPodpisWidoku.Size = new System.Drawing.Size(84, 22);
+            this.lblPodpisWidoku.TabIndex = 55;
+            this.lblPodpisWidoku.Text = "Materiały";
+            // 
             // FormResDepMaterial
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(959, 541);
+            this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnDodajParametr);
             this.Controls.Add(this.cmbRodzajMaterial);
             this.Controls.Add(this.btnAktualizuj);
@@ -191,5 +204,6 @@
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.ComboBox cmbRodzajMaterial;
         private System.Windows.Forms.Button btnDodajParametr;
+        private System.Windows.Forms.Label lblPodpisWidoku;
     }
 }

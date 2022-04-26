@@ -48,6 +48,7 @@
             this.lvlZamowienieMaszyna = new System.Windows.Forms.Label();
             this.dgvZamowienieMaszyna = new System.Windows.Forms.DataGridView();
             this.btnAktualizujStatus = new System.Windows.Forms.Button();
+            this.lblPodpisWidoku = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numIlosc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienieMaszyna)).BeginInit();
             this.SuspendLayout();
@@ -93,7 +94,7 @@
             this.txtCena.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtCena.Location = new System.Drawing.Point(579, 174);
             this.txtCena.Name = "txtCena";
-            this.txtCena.Size = new System.Drawing.Size(161, 38);
+            this.txtCena.Size = new System.Drawing.Size(161, 32);
             this.txtCena.TabIndex = 55;
             this.txtCena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCena_KeyPress);
             // 
@@ -108,7 +109,7 @@
             0});
             this.numIlosc.Name = "numIlosc";
             this.numIlosc.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.numIlosc.Size = new System.Drawing.Size(161, 38);
+            this.numIlosc.Size = new System.Drawing.Size(161, 32);
             this.numIlosc.TabIndex = 54;
             this.numIlosc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -119,7 +120,7 @@
             this.lblCena.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblCena.Location = new System.Drawing.Point(513, 177);
             this.lblCena.Name = "lblCena";
-            this.lblCena.Size = new System.Drawing.Size(79, 32);
+            this.lblCena.Size = new System.Drawing.Size(60, 24);
             this.lblCena.TabIndex = 53;
             this.lblCena.Text = "Cena";
             // 
@@ -130,7 +131,7 @@
             this.lblIlosc.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblIlosc.Location = new System.Drawing.Point(513, 137);
             this.lblIlosc.Name = "lblIlosc";
-            this.lblIlosc.Size = new System.Drawing.Size(71, 32);
+            this.lblIlosc.Size = new System.Drawing.Size(54, 24);
             this.lblIlosc.TabIndex = 52;
             this.lblIlosc.Text = "Ilość";
             // 
@@ -140,7 +141,7 @@
             this.cmbProducent.FormattingEnabled = true;
             this.cmbProducent.Location = new System.Drawing.Point(140, 171);
             this.cmbProducent.Name = "cmbProducent";
-            this.cmbProducent.Size = new System.Drawing.Size(213, 39);
+            this.cmbProducent.Size = new System.Drawing.Size(213, 32);
             this.cmbProducent.TabIndex = 51;
             // 
             // lblProducent
@@ -150,7 +151,7 @@
             this.lblProducent.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblProducent.Location = new System.Drawing.Point(25, 174);
             this.lblProducent.Name = "lblProducent";
-            this.lblProducent.Size = new System.Drawing.Size(137, 32);
+            this.lblProducent.Size = new System.Drawing.Size(105, 24);
             this.lblProducent.TabIndex = 50;
             this.lblProducent.Text = "Producent";
             // 
@@ -160,7 +161,7 @@
             this.cmbMaszyna.FormattingEnabled = true;
             this.cmbMaszyna.Location = new System.Drawing.Point(140, 132);
             this.cmbMaszyna.Name = "cmbMaszyna";
-            this.cmbMaszyna.Size = new System.Drawing.Size(213, 39);
+            this.cmbMaszyna.Size = new System.Drawing.Size(213, 32);
             this.cmbMaszyna.TabIndex = 49;
             // 
             // cmbDostawca
@@ -169,7 +170,7 @@
             this.cmbDostawca.FormattingEnabled = true;
             this.cmbDostawca.Location = new System.Drawing.Point(140, 94);
             this.cmbDostawca.Name = "cmbDostawca";
-            this.cmbDostawca.Size = new System.Drawing.Size(213, 39);
+            this.cmbDostawca.Size = new System.Drawing.Size(213, 32);
             this.cmbDostawca.TabIndex = 48;
             // 
             // cmbPracownik
@@ -178,7 +179,7 @@
             this.cmbPracownik.FormattingEnabled = true;
             this.cmbPracownik.Location = new System.Drawing.Point(140, 56);
             this.cmbPracownik.Name = "cmbPracownik";
-            this.cmbPracownik.Size = new System.Drawing.Size(367, 39);
+            this.cmbPracownik.Size = new System.Drawing.Size(367, 32);
             this.cmbPracownik.TabIndex = 47;
             // 
             // lblMaszyna
@@ -188,7 +189,7 @@
             this.lblMaszyna.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblMaszyna.Location = new System.Drawing.Point(27, 135);
             this.lblMaszyna.Name = "lblMaszyna";
-            this.lblMaszyna.Size = new System.Drawing.Size(123, 32);
+            this.lblMaszyna.Size = new System.Drawing.Size(93, 24);
             this.lblMaszyna.TabIndex = 46;
             this.lblMaszyna.Text = "Maszyna";
             // 
@@ -199,7 +200,7 @@
             this.lblDostawca.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblDostawca.Location = new System.Drawing.Point(26, 97);
             this.lblDostawca.Name = "lblDostawca";
-            this.lblDostawca.Size = new System.Drawing.Size(134, 32);
+            this.lblDostawca.Size = new System.Drawing.Size(104, 24);
             this.lblDostawca.TabIndex = 45;
             this.lblDostawca.Text = "Dostawca";
             // 
@@ -210,7 +211,7 @@
             this.lblPracownik.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblPracownik.Location = new System.Drawing.Point(27, 59);
             this.lblPracownik.Name = "lblPracownik";
-            this.lblPracownik.Size = new System.Drawing.Size(138, 32);
+            this.lblPracownik.Size = new System.Drawing.Size(107, 24);
             this.lblPracownik.TabIndex = 44;
             this.lblPracownik.Text = "Pracownik";
             // 
@@ -234,18 +235,18 @@
             this.lvlZamowienieMaszyna.Location = new System.Drawing.Point(14, 8);
             this.lvlZamowienieMaszyna.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lvlZamowienieMaszyna.Name = "lvlZamowienieMaszyna";
-            this.lvlZamowienieMaszyna.Size = new System.Drawing.Size(334, 39);
+            this.lvlZamowienieMaszyna.Size = new System.Drawing.Size(274, 32);
             this.lvlZamowienieMaszyna.TabIndex = 42;
             this.lvlZamowienieMaszyna.Text = "Zamówienie maszyny";
             // 
             // dgvZamowienieMaszyna
             // 
             this.dgvZamowienieMaszyna.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvZamowienieMaszyna.Location = new System.Drawing.Point(14, 232);
+            this.dgvZamowienieMaszyna.Location = new System.Drawing.Point(13, 240);
             this.dgvZamowienieMaszyna.Margin = new System.Windows.Forms.Padding(4);
             this.dgvZamowienieMaszyna.Name = "dgvZamowienieMaszyna";
             this.dgvZamowienieMaszyna.RowHeadersWidth = 51;
-            this.dgvZamowienieMaszyna.Size = new System.Drawing.Size(772, 208);
+            this.dgvZamowienieMaszyna.Size = new System.Drawing.Size(773, 200);
             this.dgvZamowienieMaszyna.TabIndex = 41;
             // 
             // btnAktualizujStatus
@@ -260,11 +261,23 @@
             this.btnAktualizujStatus.UseVisualStyleBackColor = false;
             this.btnAktualizujStatus.Click += new System.EventHandler(this.btnAktualizujStatus_Click);
             // 
+            // lblPodpisWidoku
+            // 
+            this.lblPodpisWidoku.AutoSize = true;
+            this.lblPodpisWidoku.BackColor = System.Drawing.Color.Transparent;
+            this.lblPodpisWidoku.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblPodpisWidoku.Location = new System.Drawing.Point(10, 218);
+            this.lblPodpisWidoku.Name = "lblPodpisWidoku";
+            this.lblPodpisWidoku.Size = new System.Drawing.Size(149, 18);
+            this.lblPodpisWidoku.TabIndex = 62;
+            this.lblPodpisWidoku.Text = "Zamówienia maszyn";
+            // 
             // FormResDepZamowienieMaszyny
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
             this.ClientSize = new System.Drawing.Size(800, 498);
+            this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnAktualizujStatus);
             this.Controls.Add(this.btnDodajZamowienie);
             this.Controls.Add(this.btnDodajProducenta);
@@ -318,5 +331,6 @@
         private System.Windows.Forms.Label lvlZamowienieMaszyna;
         private System.Windows.Forms.DataGridView dgvZamowienieMaszyna;
         private System.Windows.Forms.Button btnAktualizujStatus;
+        private System.Windows.Forms.Label lblPodpisWidoku;
     }
 }
