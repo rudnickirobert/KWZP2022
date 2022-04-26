@@ -64,11 +64,11 @@ namespace KWZP2022
         {
             string czesc = cmbCzesc.SelectedValue.ToString();
             int czescID = int.Parse(czesc);
-            System.Linq.IQueryable vParametrCzesc = db.v_Parametry_czesc.Where(x => x.ID_czesc == czescID);
-            int vParametrCzescInt = vParametrCzesc.Cast<v_Parametry_czesc>().Where(x => x.ID_czesc > 0).Count();
-            if (vParametrCzescInt > 0)
+            List<v_Parametry_czesc> parametryCzesc = db.v_Parametry_czesc.Where(a => a.ID_czesc == czescID).ToList();
+            if (parametryCzesc.Count() > 0)
             {
-                dgvParametrCzesc.DataSource = vParametrCzesc.Cast<v_Parametry_czesc>().ToList();
+                dgvParametrCzesc.DataSource = parametryCzesc;
+                dgvParametrCzesc.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             }
         }
 
