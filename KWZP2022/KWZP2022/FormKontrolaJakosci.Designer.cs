@@ -96,7 +96,7 @@
             // dgvvParametrProdukt
             // 
             this.dgvvParametrProdukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvvParametrProdukt.Location = new System.Drawing.Point(1044, 36);
+            this.dgvvParametrProdukt.Location = new System.Drawing.Point(737, 83);
             this.dgvvParametrProdukt.Name = "dgvvParametrProdukt";
             this.dgvvParametrProdukt.Size = new System.Drawing.Size(537, 259);
             this.dgvvParametrProdukt.TabIndex = 40;
@@ -156,10 +156,11 @@
             // dgvvKontrolaProdukt
             // 
             this.dgvvKontrolaProdukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvvKontrolaProdukt.Location = new System.Drawing.Point(1105, 379);
+            this.dgvvKontrolaProdukt.Location = new System.Drawing.Point(1608, 379);
             this.dgvvKontrolaProdukt.Name = "dgvvKontrolaProdukt";
-            this.dgvvKontrolaProdukt.Size = new System.Drawing.Size(528, 282);
+            this.dgvvKontrolaProdukt.Size = new System.Drawing.Size(25, 282);
             this.dgvvKontrolaProdukt.TabIndex = 47;
+            this.dgvvKontrolaProdukt.Visible = false;
             // 
             // cBPracownik
             // 
@@ -259,9 +260,9 @@
             // dgvvKontrolaJakosciKolejka
             // 
             this.dgvvKontrolaJakosciKolejka.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvvKontrolaJakosciKolejka.Location = new System.Drawing.Point(446, 36);
+            this.dgvvKontrolaJakosciKolejka.Location = new System.Drawing.Point(413, 83);
             this.dgvvKontrolaJakosciKolejka.Name = "dgvvKontrolaJakosciKolejka";
-            this.dgvvKontrolaJakosciKolejka.Size = new System.Drawing.Size(435, 237);
+            this.dgvvKontrolaJakosciKolejka.Size = new System.Drawing.Size(294, 259);
             this.dgvvKontrolaJakosciKolejka.TabIndex = 58;
             this.dgvvKontrolaJakosciKolejka.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvvKontrolaJakosciKolejka_CellContentClick);
             // 
@@ -293,20 +294,21 @@
             // dgvPozytywne
             // 
             this.dgvPozytywne.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPozytywne.Location = new System.Drawing.Point(446, 361);
+            this.dgvPozytywne.Location = new System.Drawing.Point(562, 387);
             this.dgvPozytywne.Name = "dgvPozytywne";
-            this.dgvPozytywne.Size = new System.Drawing.Size(528, 282);
+            this.dgvPozytywne.Size = new System.Drawing.Size(593, 254);
             this.dgvPozytywne.TabIndex = 62;
+            
             // 
             // btnGeneruj
             // 
             this.btnGeneruj.BackColor = System.Drawing.Color.Khaki;
             this.btnGeneruj.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnGeneruj.Location = new System.Drawing.Point(1105, 313);
+            this.btnGeneruj.Location = new System.Drawing.Point(26, 526);
             this.btnGeneruj.Name = "btnGeneruj";
             this.btnGeneruj.Size = new System.Drawing.Size(334, 37);
             this.btnGeneruj.TabIndex = 63;
-            this.btnGeneruj.Text = "Generuj Kontrole";
+            this.btnGeneruj.Text = "Pomiar Maszyna";
             this.btnGeneruj.UseVisualStyleBackColor = false;
             this.btnGeneruj.Click += new System.EventHandler(this.btnGeneruj_Click);
             // 
@@ -315,7 +317,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background;
-            this.ClientSize = new System.Drawing.Size(1645, 711);
+            this.ClientSize = new System.Drawing.Size(1276, 714);
             this.Controls.Add(this.btnGeneruj);
             this.Controls.Add(this.dgvPozytywne);
             this.Controls.Add(this.dTPCzasDo);

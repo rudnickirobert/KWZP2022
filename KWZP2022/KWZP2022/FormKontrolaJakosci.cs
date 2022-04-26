@@ -37,13 +37,14 @@ namespace KWZP2022
         {
             dgvvKontrolaJakosciKolejka.DataSource = db.v_Wytworzone_produkty.ToList();
             dgvvKontrolaJakosciKolejka.Columns["ID"].HeaderText = "ID_wytwarzanie";
-            dgvvKontrolaJakosciKolejka.Columns["Czynność_produkcyjna"].Visible = false;
+            dgvvKontrolaJakosciKolejka.Columns["ID_produkt"].Visible = false;
+            dgvvKontrolaJakosciKolejka.Columns["Czynność_produkcyjna"].Visible = false;            
             dgvvKontrolaJakosciKolejka.Columns["Pracownik"].Visible = false;
             dgvvKontrolaJakosciKolejka.Columns["Stanowisko"].Visible = false;
             dgvvKontrolaJakosciKolejka.Columns["Szacowany_czas__min_"].Visible = false;
             dgvvKontrolaJakosciKolejka.Columns["Data_rozpoczęcia"].Visible = false;
             dgvvKontrolaJakosciKolejka.Columns["Data_zakończenia"].Visible = false;
-            this.dgvvKontrolaJakosciKolejka.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvvKontrolaJakosciKolejka.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;           
             dgvvKontrolaJakosciKolejka.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }               
 
@@ -56,6 +57,8 @@ namespace KWZP2022
             if (parametrProduktList.Count() > 0)
             {
                 dgvvParametrProdukt.DataSource = parametrProduktList;
+                dgvvParametrProdukt.Columns["ID_parametr_produkt"].Visible=false;
+                dgvvParametrProdukt.Columns["ID_produkt"].Visible = false;
                 this.dgvvParametrProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             }
         }
@@ -87,8 +90,10 @@ namespace KWZP2022
         private void initDataGridViewKontrolaPozytywna()
         {
             dgvPozytywne.DataSource = db.v_Kontrola_pozytywna.ToList();
+            dgvPozytywne.Columns["Wynik_kontrola"].Visible = false;
             this.dgvPozytywne.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dgvPozytywne.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+          
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
@@ -163,8 +168,7 @@ namespace KWZP2022
                     
                 }
                 refreshScreen();
-            }
-            
-        }
+            }            
+        }        
     }
 }
