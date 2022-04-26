@@ -44,7 +44,6 @@ namespace KWZP2022
         {
             dgvNarzedzia.DataSource = db.v_Magazyn_narzedzia_nieuzywane_ID.ToList();
             dgvNarzedzia.Columns["ID_narzedzie"].Visible = false;
-            //dgvNarzedzia.Columns["Stanowisko_produkcyjne"].Visible = false;
             this.dgvStanowisko.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 
@@ -52,7 +51,6 @@ namespace KWZP2022
         {
             dgvMaszyny.DataSource = db.v_Nr_seryjny_maszyna.ToList();
             dgvMaszyny.Columns["ID_maszyny"].Visible = false;
-            //dgvNarzedzia.Columns["Stanowisko_produkcyjne"].Visible = false;
             this.dgvStanowisko.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 
@@ -60,7 +58,6 @@ namespace KWZP2022
         {
             dgvSkladNarzedzia.DataSource = db.v_Sklad_stanowisko_produkcyjne_narzedzie_ID.ToList();
             dgvSkladNarzedzia.Columns["ID_sklad_stanowisko_produkcyjne_narzedzie"].Visible = false;
-            //dgvNarzedzia.Columns["Stanowisko_produkcyjne"].Visible = false;
             this.dgvStanowisko.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 
@@ -68,7 +65,6 @@ namespace KWZP2022
         {
             dgvSkladMaszyny.DataSource = db.v_Sklad_stanowisko_produkcyjne_maszyna_ID.ToList();
             dgvSkladMaszyny.Columns["ID_sklad_stanowisko_produkcyjne_maszyna"].Visible = false;
-            //dgvNarzedzia.Columns["Stanowisko_produkcyjne"].Visible = false;
             this.dgvStanowisko.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 
@@ -120,9 +116,10 @@ namespace KWZP2022
                     db.Stanowisko_produkcyjne.Add(stanowisko);
                     db.Sklad_stanowisko_produkcyjne_narzedzie.Add(skladStanowisko);
                     db.Sklad_stanowisko_produkcyjne_maszyna.Add(skladMaszyna);
+                    refreshScreen();
                     db.SaveChanges();
                 }
-                refreshScreen();
+                
             }
         }
 

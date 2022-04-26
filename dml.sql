@@ -334,6 +334,16 @@ VALUES
 (4,3,200),
 (5,5,400);
 
+INSERT INTO Sklad_produkt_material (ID_produkt, ID_material, Liczba)
+VALUES
+(1,7,200),
+(2,7,250),
+(2,8,100),
+(3,8,150),
+(4,8,100),
+(5,7,120),
+(5,8,100);
+
 INSERT INTO Czesc (Nazwa_czesc, ID_rodzaj_czesc)
 VALUES
 ('Ekstruder Bondtech phi0.4',1),
