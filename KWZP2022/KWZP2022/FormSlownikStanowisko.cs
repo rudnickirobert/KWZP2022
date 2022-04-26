@@ -72,5 +72,11 @@ namespace KWZP2022
         {
             txtNazwaStanowisko.Text = this.dgvStanowisko.CurrentRow.Cells[1].Value.ToString();
         }
+
+        private void btnDodajStanowisko_Click(object sender, EventArgs e)
+        {
+            FormSkladStanowisko skladStanowisko = new FormSkladStanowisko(db);
+            skladStanowisko.ShowDialog();
+        }
     }
 }
