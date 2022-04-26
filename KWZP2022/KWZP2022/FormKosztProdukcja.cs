@@ -31,12 +31,12 @@ namespace KWZP2022
         private void btnGeneruj_Click(object sender, EventArgs e)
         {
             int produktID = int.Parse(cbProdukt.SelectedValue.ToString());
-            dgvSkladProdukt.DataSource = 0;
-            System.Linq.IQueryable vSkladProdukt = db.v_Sklad_produkt_ewidencja.Where(a => a.ID_produkt == produktID);
-            int vSkladProduktInt = vSkladProdukt.Cast<v_Sklad_produkt_ewidencja>().Where(a => a.ID_produkt > 0).Count();
-            if (vSkladProduktInt > 0)
+            dgvSkladProdukt.DataSource = 0;         
+            List<v_Sklad_produkt_ewidencja> skladProduktList = db.v_Sklad_produkt_ewidencja.Where(a => a.ID_produkt == produktID).ToList();
+
+            if (skladProduktList.Count() > 0)
             {
-                dgvSkladProdukt.DataSource = vSkladProdukt.Cast<v_Sklad_produkt_ewidencja>().ToList();
+                dgvSkladProdukt.DataSource = skladProduktList;
                 this.dgvSkladProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             }
         }

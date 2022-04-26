@@ -193,6 +193,7 @@ namespace KWZP2022
         public virtual DbSet<v_Sprzedany_produkt> v_Sprzedany_produkt { get; set; }
         public virtual DbSet<v_Sprzedaz> v_Sprzedaz { get; set; }
         public virtual DbSet<v_Stanowiska_do_uzycia> v_Stanowiska_do_uzycia { get; set; }
+        public virtual DbSet<v_Stanowiska_produkcyjne> v_Stanowiska_produkcyjne { get; set; }
         public virtual DbSet<v_Stanowiska_w_uzyciu> v_Stanowiska_w_uzyciu { get; set; }
         public virtual DbSet<v_Stanowisko_produkcyjne> v_Stanowisko_produkcyjne { get; set; }
         public virtual DbSet<v_Sz_czas_proces_polprodukt_czynnosc> v_Sz_czas_proces_polprodukt_czynnosc { get; set; }

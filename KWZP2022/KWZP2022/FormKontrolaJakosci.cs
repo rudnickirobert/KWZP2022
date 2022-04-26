@@ -40,15 +40,13 @@ namespace KWZP2022
 
         private void btnAkceptuj_Click(object sender, EventArgs e)
         {
-
-            string produktID = this.dgvvKontrolaJakosciKolejka.CurrentRow.Cells[1].Value.ToString();
-            int produktIDint = int.Parse(produktID);
-
-            System.Linq.IQueryable vProdukt = db.v_Parametry_produkt.Where(a => a.ID_produkt == produktIDint);
-            int vProduktIdInt = vProdukt.Cast<v_Parametry_produkt>().Where(a => a.ID_produkt > 0).Count();
-            if (vProduktIdInt > 0)
+            int produktID = int.Parse(txtNazwa.ToString());
+            dgvvParametrProdukt.DataSource = 0;
+            List<v_Parametry_produkt> parametrProduktList = db.v_Parametry_produkt.Where(a => a.Produkt == txtNazwa.Text).ToList();
+            
+            if (parametrProduktList.Count() > 0)
             {
-                dgvvParametrProdukt.DataSource = vProdukt.Cast<v_Parametry_produkt>().ToList();
+                dgvvParametrProdukt.DataSource = parametrProduktList;
                 this.dgvvParametrProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             }
         }
@@ -80,8 +78,7 @@ namespace KWZP2022
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             Kontrola_jakosci_produkt kontrolaProdukt = new Kontrola_jakosci_produkt();
-            kontrolaProdukt.ID_wytwarzanie = int.Parse(this.dgvvKontrolaJakosciKolejka.CurrentRow.Cells[0].Value.ToString());
-            //int numRows = dgvvKontrolaJakosciKolejka.Rows.Count;
+            kontrolaProdukt.ID_wytwarzanie = int.Parse(this.dgvvKontrolaJakosciKolejka.CurrentRow.Cells[0].Value.ToString());            
             kontrolaProdukt.ID_pracownik = int.Parse(cBPracownik.SelectedValue.ToString());
             kontrolaProdukt.ID_rodzaj_kontrola = int.Parse(cBRodzajKontrola.SelectedValue.ToString());
             kontrolaProdukt.Data_od = dTPDataOd.Value.Date + dTPCzasOd.Value.TimeOfDay;

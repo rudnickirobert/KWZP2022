@@ -857,6 +857,9 @@
     <Compile Include="v_Stanowiska_do_uzycia.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Stanowiska_produkcyjne.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Stanowiska_w_uzyciu.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>

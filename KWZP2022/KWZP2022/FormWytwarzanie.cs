@@ -69,10 +69,10 @@ namespace KWZP2022
 
         private void initComboboxStanowisko()
         {
-            cbStanowisko.DataSource = db.v_Stanowiska_do_uzycia.ToList();
+            cbStanowisko.DataSource = db.v_Stanowiska_produkcyjne.ToList();
             cbStanowisko.ValueMember = "ID_stanowisko_produkcyjne";
             cbStanowisko.DisplayMember = "Nazwa";
-            
+
         }
 
         private void initComboboxZamowienie()
@@ -126,7 +126,7 @@ namespace KWZP2022
                 this.dgvProcesProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 
                 refreshScreen();
-                
+
             }
             else
             {
@@ -219,5 +219,43 @@ namespace KWZP2022
             refreshScreen();
             refreshComboboxes();
         }
+
+        private void btnGenerujPolprodukt_Click(object sender, EventArgs e)
+        {
+            /*int iloscProduktZamowienie = int.Parse(dgvZamowienieSzczegol.CurrentRow.Cells[3].Value.ToString());*/
+            int iloscProduktZamowienie = 2;
+            int iloscWierszyDgvPolprodut = int.Parse(dgvProcesPolprodukt.RowCount.ToString());
+            int obecnyProdukt = int.Parse(txtSzukanyProduktID.Text);
+
+            for (int i = 0; i < iloscWierszyDgvPolprodut - 1; i++)
+            {
+                int obecnyPolprodukt = int.Parse(dgvProcesPolprodukt.Rows[i].Cells[0].Value.ToString());
+                List<v_Sklad_produkt> skladProdukt = db.v_Sklad_produkt.Where(a => a.ID_produkt == obecnyProdukt && a.ID_polprodukt == obecnyPolprodukt).ToList();
+                dgvCurrentPolprodukt.DataSource = skladProdukt;
+                int iloscPolproduktu = int.Parse(dgvCurrentPolprodukt.Rows[0].Cells[i].Value.ToString());
+
+                int liczbaIteracji = iloscProduktZamowienie * iloscWierszyDgvPolprodut;
+                for (int j = 0; j < liczbaIteracji; j++)
+                {
+                    Wytwarzanie wytwarzanie = new Wytwarzanie();
+                    wytwarzanie.ID_pracownik = int.Parse(cbPracownik.SelectedValue.ToString());
+                    wytwarzanie.ID_zamowienie_szczegol = int.Parse(dgvZamowienieSzczegol.CurrentRow.Cells[4].Value.ToString());
+                    wytwarzanie.Czas_od = dtpDataOd.Value.Date + dtpCzasOd.Value.TimeOfDay;
+                    wytwarzanie.Czas_do = dtpDataDo.Value.Date + dtpCzasDo.Value.TimeOfDay;
+                    db.Wytwarzanie.Add(wytwarzanie);
+                    db.SaveChanges();
+                    int wytwarzanieID = (from n in db.Wytwarzanie orderby n.ID_wytwarzanie descending select n.ID_wytwarzanie).FirstOrDefault();
+
+                    Proces_wytwarzanie_polprodukt wytwarzaniePolprodukt = new Proces_wytwarzanie_polprodukt();
+                    wytwarzaniePolprodukt.ID_wytwarzanie = wytwarzanieID;
+                    wytwarzaniePolprodukt.ID_proces_polprodukt = int.Parse(dgvProcesPolprodukt.CurrentRow.Cells[4].Value.ToString());
+                    wytwarzaniePolprodukt.ID_stanowisko_produkcyjne = int.Parse(cbStanowisko.SelectedValue.ToString());
+
+                    db.Proces_wytwarzanie_polprodukt.Add(wytwarzaniePolprodukt);
+                    db.SaveChanges();
+                }
+            }
+        }
     }
 }
+        

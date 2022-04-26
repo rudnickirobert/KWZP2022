@@ -31,7 +31,7 @@ GO
 
 CREATE VIEW v_Sklad_produkt
 AS
-SELECT SP.ID_sklad_produkt AS [ID skład], P.Nazwa_produkt AS [Produkt], SlwPP.Nazwa AS [Półprodukt], SP.Liczba
+SELECT P.ID_produkt, SlwPP.ID_polprodukt, SP.ID_sklad_produkt AS [ID skład], P.Nazwa_produkt AS [Produkt], SlwPP.Nazwa AS [Półprodukt], SP.Liczba
 FROM Sklad_produkt AS SP
 INNER JOIN Produkt AS P ON SP.ID_produkt = P.ID_produkt
 INNER JOIN Slownik_polprodukt AS SlwPP ON SP.ID_polprodukt = SlwPP.ID_polprodukt
@@ -216,7 +216,8 @@ SELECT PPC.ID_produkt AS [ID Produktu], P.Nazwa_produkt AS [Produkt], CP.Nazwa A
 FROM Proces_produkt_czynnosc AS PPC
 INNER JOIN Produkt AS P ON PPC.ID_produkt = P.ID_produkt
 INNER JOIN Czynnosc_produkcyjna CP ON PPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
-ORDER BY PPC.ID_produkt DESC OFFSET 0 ROWS
+
+ORDER BY PPC.ID_produkt DESC OFFSET 0 ROWS 
 GO
 
 CREATE VIEW v_Liczba_zabiegow_wytworczych_polprodukt
@@ -384,6 +385,13 @@ SELECT SP.ID_stanowisko_produkcyjne, SS.Nazwa_stanowiska AS Nazwa FROM Stanowisk
 INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
 EXCEPT
 SELECT * FROM v_Stanowiska_w_uzyciu
+GO
+
+CREATE VIEW v_Stanowiska_produkcyjne
+AS
+SELECT SP.ID_stanowisko_produkcyjne, SS.Nazwa_stanowiska AS Nazwa 
+FROM Stanowisko_produkcyjne AS SP 
+INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
 GO
 
 

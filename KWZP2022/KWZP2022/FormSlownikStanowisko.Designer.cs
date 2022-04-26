@@ -113,10 +113,11 @@
             this.dgvStanowisko.TabIndex = 7;
             this.dgvStanowisko.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStanowisko_CellContentClick);
             // 
-            // SlownikStanowiskoForm
+            // FormSlownikStanowisko
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
             this.ClientSize = new System.Drawing.Size(794, 461);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAktualizuj);
@@ -125,7 +126,7 @@
             this.Controls.Add(this.txtNazwaStanowisko);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.dgvStanowisko);
-            this.Name = "SlownikStanowiskoForm";
+            this.Name = "FormSlownikStanowisko";
             this.Text = "Stanowiska produkcyjne";
             ((System.ComponentModel.ISupportInitialize)(this.dgvStanowisko)).EndInit();
             this.ResumeLayout(false);

@@ -60,11 +60,16 @@
             this.txtWybrany = new System.Windows.Forms.TextBox();
             this.dtpCzasOd = new System.Windows.Forms.DateTimePicker();
             this.dtpCzasDo = new System.Windows.Forms.DateTimePicker();
+            this.btnGenerujPolprodukt = new System.Windows.Forms.Button();
+            this.btnGenerujProdukt = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dgvCurrentPolprodukt = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzaniePolprodukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzanieProdukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesProdukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesPolprodukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienieSzczegol)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCurrentPolprodukt)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAktualizuj
@@ -376,12 +381,56 @@
             this.dtpCzasDo.Size = new System.Drawing.Size(118, 26);
             this.dtpCzasDo.TabIndex = 44;
             // 
+            // btnGenerujPolprodukt
+            // 
+            this.btnGenerujPolprodukt.BackColor = System.Drawing.Color.Yellow;
+            this.btnGenerujPolprodukt.Font = new System.Drawing.Font("Arial", 15F);
+            this.btnGenerujPolprodukt.Location = new System.Drawing.Point(1324, 522);
+            this.btnGenerujPolprodukt.Name = "btnGenerujPolprodukt";
+            this.btnGenerujPolprodukt.Size = new System.Drawing.Size(380, 37);
+            this.btnGenerujPolprodukt.TabIndex = 45;
+            this.btnGenerujPolprodukt.Text = "Generuj Wytwarzanie Półproduktu";
+            this.btnGenerujPolprodukt.UseVisualStyleBackColor = false;
+            this.btnGenerujPolprodukt.Click += new System.EventHandler(this.btnGenerujPolprodukt_Click);
+            // 
+            // btnGenerujProdukt
+            // 
+            this.btnGenerujProdukt.BackColor = System.Drawing.Color.Yellow;
+            this.btnGenerujProdukt.Font = new System.Drawing.Font("Arial", 15F);
+            this.btnGenerujProdukt.Location = new System.Drawing.Point(1324, 590);
+            this.btnGenerujProdukt.Name = "btnGenerujProdukt";
+            this.btnGenerujProdukt.Size = new System.Drawing.Size(380, 37);
+            this.btnGenerujProdukt.TabIndex = 46;
+            this.btnGenerujProdukt.Text = "Generuj Wytwarzanie Produktu";
+            this.btnGenerujProdukt.UseVisualStyleBackColor = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(1401, 372);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 13);
+            this.label10.TabIndex = 47;
+            this.label10.Text = "label10";
+            // 
+            // dgvCurrentPolprodukt
+            // 
+            this.dgvCurrentPolprodukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCurrentPolprodukt.Location = new System.Drawing.Point(12, 648);
+            this.dgvCurrentPolprodukt.Name = "dgvCurrentPolprodukt";
+            this.dgvCurrentPolprodukt.Size = new System.Drawing.Size(325, 51);
+            this.dgvCurrentPolprodukt.TabIndex = 48;
+            // 
             // FormWytwarzanie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1735, 711);
+            this.Controls.Add(this.dgvCurrentPolprodukt);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.btnGenerujProdukt);
+            this.Controls.Add(this.btnGenerujPolprodukt);
             this.Controls.Add(this.dtpCzasDo);
             this.Controls.Add(this.dtpCzasOd);
             this.Controls.Add(this.txtWybrany);
@@ -420,6 +469,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesProdukt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesPolprodukt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienieSzczegol)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCurrentPolprodukt)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -458,5 +508,9 @@
         private System.Windows.Forms.TextBox txtWybrany;
         private System.Windows.Forms.DateTimePicker dtpCzasOd;
         private System.Windows.Forms.DateTimePicker dtpCzasDo;
+        private System.Windows.Forms.Button btnGenerujPolprodukt;
+        private System.Windows.Forms.Button btnGenerujProdukt;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridView dgvCurrentPolprodukt;
     }
 }
