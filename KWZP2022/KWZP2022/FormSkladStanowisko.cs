@@ -44,28 +44,28 @@ namespace KWZP2022
         {
             dgvNarzedzia.DataSource = db.v_Magazyn_narzedzia_nieuzywane_ID.ToList();
             dgvNarzedzia.Columns["ID_narzedzie"].Visible = false;
-            this.dgvStanowisko.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvNarzedzia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void initDataGridViewMaszyna()
         {
             dgvMaszyny.DataSource = db.v_Nr_seryjny_maszyna.ToList();
             dgvMaszyny.Columns["ID_maszyny"].Visible = false;
-            this.dgvStanowisko.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMaszyny.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void initDataGridViewSkladNarzedzie()
         {
             dgvSkladNarzedzia.DataSource = db.v_Sklad_stanowisko_produkcyjne_narzedzie_ID.ToList();
             dgvSkladNarzedzia.Columns["ID_sklad_stanowisko_produkcyjne_narzedzie"].Visible = false;
-            this.dgvStanowisko.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSkladNarzedzia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void initDataGridViewSkladMaszyna()
         {
             dgvSkladMaszyny.DataSource = db.v_Sklad_stanowisko_produkcyjne_maszyna_ID.ToList();
             dgvSkladMaszyny.Columns["ID_sklad_stanowisko_produkcyjne_maszyna"].Visible = false;
-            this.dgvStanowisko.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSkladMaszyny.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 
 
@@ -92,9 +92,9 @@ namespace KWZP2022
             }
             else
             {
-                int Ilosc = int.Parse(txtIlosc.Text);
-                int IloscNarzedzi = int.Parse(this.dgvNarzedzia.CurrentRow.Cells[2].Value.ToString());
-                if (IloscNarzedzi - Ilosc < 0)
+                int ilosc = int.Parse(txtIlosc.Text);
+                int iloscNarzedzi = int.Parse(this.dgvNarzedzia.CurrentRow.Cells[2].Value.ToString());
+                if (iloscNarzedzi - ilosc < 0)
                 {
                     MessageBox.Show("Niewystarczająca ilość narzędzi " + this.dgvNarzedzia.CurrentRow.Cells[1].Value.ToString() + " w magazynie");
 
@@ -116,10 +116,9 @@ namespace KWZP2022
                     db.Stanowisko_produkcyjne.Add(stanowisko);
                     db.Sklad_stanowisko_produkcyjne_narzedzie.Add(skladStanowisko);
                     db.Sklad_stanowisko_produkcyjne_maszyna.Add(skladMaszyna);
-                    refreshScreen();
                     db.SaveChanges();
+                    refreshScreen();
                 }
-                
             }
         }
 
