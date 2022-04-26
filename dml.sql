@@ -320,7 +320,7 @@ VALUES
 (2,'Filament Czerwony PLA Podraskov'),
 (2,'Filament Niebieski PLA POODZIAN'),
 (5,'Nylon PA12 Marka Jarka'),
-(6,'Ĺ»ywica Biala STRONG'),
+(6,'Zywica Biala STRONG'),
 (7,'Klej GIGADZIECIACZEK');
 
 INSERT INTO Sklad_polprodukt (ID_polprodukt, ID_material, Liczba)
@@ -882,7 +882,9 @@ VALUES
 (14,'2022-04-16',3),
 (14,'2022-04-16',4),
 (14,'2022-04-16',5),
-(14,'2022-04-19',1);
+(14,'2022-04-19',1),
+(14,'2022-04-20',4),
+(14,'2022-04-20',2);
 
 INSERT INTO Stan_realizacji_zamowienie_material(ID_zamowienie_material, ID_status_zamowienie, Data_stan, ID_pracownik)
 VALUES
@@ -907,7 +909,15 @@ VALUES
 (4,4,'2022-04-19 11:40:00',15),
 (5,4,'2022-04-19 12:10:00',19),
 (6,1,'2022-04-19 12:48:51',14),
-(6,2,'2022-04-19 14:21:21',14);
+(6,2,'2022-04-19 13:21:21',14),
+(6,3,'2022-04-19 14:21:21',19),
+(6,4,'2022-04-19 15:21:21',18),
+(7,1,'2022-04-20 08:48:51',14),
+(7,2,'2022-04-20 10:21:21',14),
+(7,3,'2022-04-20 11:21:21',19),
+(7,4,'2022-04-20 12:21:21',18),
+(8,1,'2022-04-21 09:48:51',14),
+(8,2,'2022-04-21 10:21:21',14);
 
 
 INSERT INTO Szczegoly_zamowienie_material(ID_zamowienie_material, ID_material, ID_producent, Waga_g, Cena)
@@ -917,7 +927,9 @@ VALUES
 (3,3,2,15000,20000),
 (4,4,5,25000,17000),
 (5,5,5,45000,15000),
-(6,3,1,16500,19000);
+(6,6,1,20500,12000),
+(7,7,2,36500,24000),
+(8,3,1,28000,22000);
 
 INSERT INTO Zamowienie_czesc(ID_pracownik, Data_zamowienia, ID_dostawca)
 VALUES
