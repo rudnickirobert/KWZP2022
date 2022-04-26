@@ -28,7 +28,7 @@ namespace KWZP2022
         {
             int wyborObslugi = wybranaObslugaDGV.ID_obsluga;
             List<v_Obsluga_pracownik> pracownikObsluga = db.v_Obsluga_pracownik.Where(a => a.ID_obsluga == wyborObslugi).ToList();
-            dgvObsluga.DataSource = pracownikObsluga.Cast<v_Obsluga_pracownik>().ToList();
+            dgvObsluga.DataSource = pracownikObsluga;
             dgvObsluga.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             this.dgvObsluga.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             //dgvObsluga.Columns[0].Visible = false;

@@ -29,8 +29,8 @@ namespace KWZP2022
         }
         private void btnAddService_Click(object sender, EventArgs e)
         {
-            FormResDepServicesAdd nowaoblsugaForm = new FormResDepServicesAdd(db);
-            nowaoblsugaForm.ShowDialog();
+            FormResDepServicesAdd nowaObslugaForm = new FormResDepServicesAdd(db);
+            nowaObslugaForm.ShowDialog();
         }
 
         private void btnCloseService_Click(object sender, EventArgs e)
