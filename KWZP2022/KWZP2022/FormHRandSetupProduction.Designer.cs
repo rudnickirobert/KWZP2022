@@ -42,6 +42,7 @@
             this.btnSetupProduction.TabIndex = 8;
             this.btnSetupProduction.Text = "Dział przygotowania produkcji";
             this.btnSetupProduction.UseVisualStyleBackColor = true;
+            this.btnSetupProduction.Click += new System.EventHandler(this.btnSetupProduction_Click);
             // 
             // btnHRDepartment
             // 
@@ -53,6 +54,7 @@
             this.btnHRDepartment.TabIndex = 7;
             this.btnHRDepartment.Text = "Dział zasobów ludzkich HR";
             this.btnHRDepartment.UseVisualStyleBackColor = true;
+            this.btnHRDepartment.Click += new System.EventHandler(this.btnHRDepartment_Click);
             // 
             // FormHRandSetupProduction
             // 
