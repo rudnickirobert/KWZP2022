@@ -46,7 +46,9 @@
             this.dpracownikdo = new System.Windows.Forms.DateTimePicker();
             this.dpracownikod = new System.Windows.Forms.DateTimePicker();
             this.btnAddnewcontract = new System.Windows.Forms.Button();
+            this.dgvEtat = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvpracownik)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEtat)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
@@ -125,12 +127,12 @@
             // dgvpracownik
             // 
             this.dgvpracownik.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvpracownik.Location = new System.Drawing.Point(90, 289);
+            this.dgvpracownik.Location = new System.Drawing.Point(11, 300);
             this.dgvpracownik.Margin = new System.Windows.Forms.Padding(2);
             this.dgvpracownik.Name = "dgvpracownik";
             this.dgvpracownik.RowHeadersWidth = 51;
             this.dgvpracownik.RowTemplate.Height = 24;
-            this.dgvpracownik.Size = new System.Drawing.Size(1033, 344);
+            this.dgvpracownik.Size = new System.Drawing.Size(659, 344);
             this.dgvpracownik.TabIndex = 151;
             // 
             // label5
@@ -176,7 +178,7 @@
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.Red;
-            this.btnClose.Location = new System.Drawing.Point(998, 52);
+            this.btnClose.Location = new System.Drawing.Point(1075, 11);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(125, 37);
@@ -224,12 +226,21 @@
             this.btnAddnewcontract.UseVisualStyleBackColor = true;
             this.btnAddnewcontract.Click += new System.EventHandler(this.btnAddnewcontract_Click);
             // 
+            // dgvEtat
+            // 
+            this.dgvEtat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEtat.Location = new System.Drawing.Point(806, 114);
+            this.dgvEtat.Name = "dgvEtat";
+            this.dgvEtat.Size = new System.Drawing.Size(434, 403);
+            this.dgvEtat.TabIndex = 160;
+            // 
             // FormHRDepartmentWorkerContractNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background;
             this.ClientSize = new System.Drawing.Size(1264, 711);
+            this.Controls.Add(this.dgvEtat);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbWynagrodzenie);
@@ -251,6 +262,7 @@
             this.Name = "FormHRDepartmentWorkerContractNew";
             this.Text = "FormHRDepartmentWorkerContractNew";
             ((System.ComponentModel.ISupportInitialize)(this.dgvpracownik)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEtat)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,5 +288,6 @@
         private System.Windows.Forms.DateTimePicker dpracownikdo;
         private System.Windows.Forms.DateTimePicker dpracownikod;
         private System.Windows.Forms.Button btnAddnewcontract;
+        private System.Windows.Forms.DataGridView dgvEtat;
     }
 }
