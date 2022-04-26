@@ -17,7 +17,7 @@ namespace KWZP2022
         {
             InitializeComponent();
             this.db = db;
-            //ShowData();
+            ShowData();
         }
         public void ShowData()
         {

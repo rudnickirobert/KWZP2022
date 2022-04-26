@@ -72,6 +72,7 @@
             this.btnReset.TabIndex = 71;
             this.btnReset.Text = "Odśwież";
             this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // cbSzacowanyCzas
             // 
@@ -110,6 +111,7 @@
             this.btnDodajPrcoes.TabIndex = 67;
             this.btnDodajPrcoes.Text = "Dodaj nowy proces";
             this.btnDodajPrcoes.UseVisualStyleBackColor = false;
+            this.btnDodajPrcoes.Click += new System.EventHandler(this.btnDodajPrcoes_Click);
             // 
             // label5
             // 

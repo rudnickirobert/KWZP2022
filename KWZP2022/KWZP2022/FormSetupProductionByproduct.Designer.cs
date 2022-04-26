@@ -71,6 +71,7 @@
             this.btnReset.TabIndex = 67;
             this.btnReset.Text = "Odśwież";
             this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // cbCzynnoscProdukcyjna
             // 
@@ -100,6 +101,7 @@
             this.btnDodajProces.TabIndex = 64;
             this.btnDodajProces.Text = "Dodaj nowy proces";
             this.btnDodajProces.UseVisualStyleBackColor = false;
+            this.btnDodajProces.Click += new System.EventHandler(this.btnDodajProces_Click);
             // 
             // label5
             // 
@@ -143,6 +145,7 @@
             this.dgvDataStart.RowTemplate.Height = 24;
             this.dgvDataStart.Size = new System.Drawing.Size(1242, 502);
             this.dgvDataStart.TabIndex = 60;
+            this.dgvDataStart.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataStart_CellClick);
             // 
             // FormSetupProductionByproduct
             // 
