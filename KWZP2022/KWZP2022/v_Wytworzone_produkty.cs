@@ -15,6 +15,7 @@ namespace KWZP2022
     public partial class v_Wytworzone_produkty
     {
         public int ID { get; set; }
+        public int ID_produkt { get; set; }
         public string Produkt { get; set; }
         public string Czynność_produkcyjna { get; set; }
         public string Pracownik { get; set; }

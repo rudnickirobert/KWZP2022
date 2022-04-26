@@ -12,13 +12,11 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Sklad_produkt
+    public partial class v_Kontrola_negatywna
     {
+        public int ID_wytwarzanie { get; set; }
         public int ID_produkt { get; set; }
-        public int ID_polprodukt { get; set; }
-        public int ID_skład { get; set; }
         public string Produkt { get; set; }
-        public string Półprodukt { get; set; }
-        public int Liczba { get; set; }
+        public Nullable<int> Wynik_kontrola { get; set; }
     }
 }

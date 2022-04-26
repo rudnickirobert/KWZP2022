@@ -78,7 +78,7 @@ namespace KWZP2022
                 List< v_Sklad_maszyna > skladMaszyna = db.v_Sklad_maszyna.Where(a => a.ID_maszyna == wyborMaszynyID).ToList();
                 if (skladMaszyna.Count() > 0)
                 {
-                    dgvCzesci.DataSource = skladMaszyna.Cast<v_Sklad_maszyna>().ToList();
+                    dgvCzesci.DataSource = skladMaszyna;
                     dgvCzesci.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                     this.dgvCzesci.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                     dgvCzesci.Columns[0].Visible = false;

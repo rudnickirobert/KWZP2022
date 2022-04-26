@@ -917,16 +917,16 @@ CREATE VIEW v_Magazyn_material_przejsciowy
 AS
 SELECT MMW.ID_material, MMW.[Nazwa materiału], MMW.[Waga (g)], ISNULL(WPM.[Zuzyty material (g)],0) AS [Waga material polprodukt (g)], ISNULL(WPMM.[Waga (g)],0) AS [Waga material produkt (g)] 
 FROM v_Magazyn_material_wszystko AS MMW
-FULL OUTER JOIN v_Wytworzone_polprodukty_material AS WPM ON MMW.ID_material=WPM.ID_material 
-FULL OUTER JOIN v_Wytworzony_produkt_material AS WPMM ON WPMM.ID_material=MMW.ID_material
+LEFT JOIN v_Wytworzone_polprodukty_material AS WPM ON MMW.ID_material=WPM.ID_material 
+LEFT JOIN v_Wytworzony_produkt_material AS WPMM ON WPMM.ID_material=MMW.ID_material
 GROUP BY MMW.ID_material, MMW.[Nazwa materiału], MMW.[Waga (g)], WPM.[Zuzyty material (g)], WPMM.[Waga (g)] 
 GO
 
-CREATE VIEW v_Magazyn_material_stan
+CREATE VIEW v_Magazyn_material_aktualny
 AS
-SELECT MMP.ID_material, MMP.[Nazwa materiału], MMP.[Waga (g)] - MMP.[Waga material polprodukt (g)] - MMP.[Waga material produkt (g)] AS [Stan w magazynie] 
+SELECT MMP.[Nazwa materiału], MMP.[Waga (g)] - MMP.[Waga material polprodukt (g)] - MMP.[Waga material produkt (g)] AS [Stan w magazynie g] 
 FROM v_Magazyn_material_przejsciowy AS MMP
-GROUP BY MMP.ID_material, MMP.[Nazwa materiału], MMP.[Waga (g)],MMP.[Waga material polprodukt (g)],MMP.[Waga material produkt (g)]
+GROUP BY MMP.[Nazwa materiału], MMP.[Waga (g)],MMP.[Waga material polprodukt (g)],MMP.[Waga material produkt (g)]
 GO
 
 --SALES AND MARKETING DEPARTMENT --

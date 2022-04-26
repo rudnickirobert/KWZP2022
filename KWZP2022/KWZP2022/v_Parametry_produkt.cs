@@ -15,6 +15,7 @@ namespace KWZP2022
     public partial class v_Parametry_produkt
     {
         public int ID_parametr_produkt { get; set; }
+        public int ID_produkt { get; set; }
         public string Produkt { get; set; }
         public string Parametr { get; set; }
         public decimal Wymiar_minimalny { get; set; }
