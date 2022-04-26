@@ -44,7 +44,10 @@ VALUES
 ('Gawron', 'Patrycja', 'LPG69699',82050008902,1),
 ('Pudzianowski', 'Mariusz', 'XD954821',74010508905,4),
 ('Mahyz', 'Ednan', 'SNG65602',88092408590,4),
-('Nierob', 'Janusz', 'M6565PO1',81123157832,3);
+('Nierob', 'Janusz', 'M6565PO1',81123157832,3),
+('Knob', 'Daniel', 'M5645P12', 87945645612,3),
+('Krolczyk', 'Ernest', 'K457P54', 8765941233,2),
+('Grubczyk', 'Marcel', 'S789D56', 8754123695,3);
 
 INSERT INTO Dane_adresowe_pracownik (ID_pracownik, Miejscowosc, Ulica, Nr_budynku, Nr_lokalu, Kod_pocztowy, Data_od)
 VALUES
@@ -69,7 +72,10 @@ VALUES
 (19, 'Warszawa', 'Ziemniaczana' ,'13', '13', '00251', '2022-01-12'),
 (20, 'Warszawa', 'Marchewkowa' ,'15', '12', '00957', '2021-01-11'),
 (21, 'Nadarzyn', 'Porowa' ,'1', '31', '05830', '2022-01-05'),
-(22, 'Marki', 'Cebulowa' ,'21', '3', '04543', '2020-01-03');
+(22, 'Marki', 'Cebulowa' ,'21', '3', '04543', '2020-01-03'),
+(23, 'Warszawa', 'Porowa', '21', '37', '04568', '2021-03-03'),
+(24, 'Wronki', 'Marcewkowa', '12', '73', '98765', '2020-04-04'),
+(25, 'Warszawa', 'Wrzecieniowa', '1', '1', '12321', '2020-09-09');
 
 INSERT INTO Nr_telefon_pracownik (ID_pracownik, Numer, Data_od)
 VALUES
@@ -375,7 +381,8 @@ VALUES
 (15,4,3),
 (16,5,1),
 (17,5,3),
-(18,7,1);
+(18,7,1),
+(19,3,3);
 
 INSERT INTO Posada_pracownika (ID_etat, Data_od)
 VALUES
@@ -401,7 +408,8 @@ VALUES
 (15,'2022-04-11'),
 (16,'2022-04-11'),
 (17,'2022-04-11'),
-(17,'2022-04-11');
+(18,'2022-04-11'),
+(19,'2022-04-11');
 
 INSERT INTO Rodzaj_umowy (Nazwa, Urlop)
 VALUES
@@ -451,7 +459,10 @@ VALUES
 (1,1,19,15,1200),
 (1,1,20,21,3600),
 (1,1,21,22,3400),
-(1,1,22,22,3350);
+(1,1,22,22,3350),
+(1,1,23,24,3800),
+(1,1,24,24,3800),
+(1,1,25,24,3800);
 
 INSERT INTO Maszyna (Nazwa_maszyna, ID_rodzaj_maszyna, Koszt_RBG)
 VALUES

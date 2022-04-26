@@ -17,18 +17,18 @@ namespace KWZP2022
         {
             InitializeComponent();
             this.db = db;
-           // cmbPracownik.DataSource = db.Pracownik.ToList();
+            cmbPracownik.DataSource = db.Pracownik.ToList();
             cmbPracownik.DisplayMember = "Nazwisko";
             cmbPracownik.ValueMember = "ID_pracownik";
-            //cmbNieobecnosc.DataSource = db.Rodzaj_nieobecnosci.ToList();
+            cmbNieobecnosc.DataSource = db.Rodzaj_nieobecnosci.ToList();
             cmbNieobecnosc.DisplayMember = "Symbol";
             cmbNieobecnosc.ValueMember = "ID_rodzaj_nieobecnosci";
             initDataGridView();
         }
         private void initDataGridView()
         {
-            //dgvNieobecnosc.DataSource = db.v_Nieobecnosc.ToList();
-            //dgvNieobecnosc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dgvNieobecnosc.DataSource = db.v_Nieobecnosc.ToList();
+            dgvNieobecnosc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 
         }
 

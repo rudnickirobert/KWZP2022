@@ -22,8 +22,8 @@ namespace KWZP2022
         }
         private void showData()
         {
-            //this.dgvpracownik.DataSource = this.db.v_Pracownik.ToList();
-           // this.dgvpracownik.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvpracownik.DataSource = this.db.v_Pracownik.ToList();
+            this.dgvpracownik.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void cleanTextBox()
@@ -42,7 +42,7 @@ namespace KWZP2022
 
         private void ComboBox()
         {
-            //cbWyksztalcenie.DataSource = this.db.Wyksztalcenie.ToList();
+            cbWyksztalcenie.DataSource = this.db.Wyksztalcenie.ToList();
             cbWyksztalcenie.ValueMember = "ID_wyksztalcenie";
             cbWyksztalcenie.DisplayMember = "Nazwa";
         }

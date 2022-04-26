@@ -36,11 +36,11 @@ namespace KWZP2022
 
         private void showData()
         {
-            //this.dgvWorker.DataSource = db.v_Umowa.ToList();
-            //dgvWorker.Columns["ID"].Visible = false;
-            //dgvWorker.Columns["Wymiar_pracy"].Visible = false;
-            //dgvWorker.Columns["Podstawa_wynagrodzenia"].Visible = false;
-            //this.dgvWorker.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvWorker.DataSource = db.v_Umowa.ToList();
+            dgvWorker.Columns["ID"].Visible = false;
+            dgvWorker.Columns["Wymiar_pracy"].Visible = false;
+            dgvWorker.Columns["Podstawa_wynagrodzenia"].Visible = false;
+            this.dgvWorker.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void wrongData()
