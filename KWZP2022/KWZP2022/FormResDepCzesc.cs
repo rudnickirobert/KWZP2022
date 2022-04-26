@@ -106,5 +106,11 @@ namespace KWZP2022
                 cmbRodzajCzesc.SelectedValue = row.Cells[1].Value;
             }
         }
+
+        private void btnDodajParametr_Click(object sender, EventArgs e)
+        {
+            FormResDepParametryCzesc parametrCzesc = new FormResDepParametryCzesc(db);
+            parametrCzesc.ShowDialog();        
+        }
     }
 }

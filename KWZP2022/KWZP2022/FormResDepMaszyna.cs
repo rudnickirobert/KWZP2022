@@ -131,5 +131,10 @@ namespace KWZP2022
                 txtKosztRBG.Text = row.Cells[4].Value.ToString();
             }
         }
+        private void btnDodajParametr_Click(object sender, EventArgs e)
+        {
+            FormResDepParametryMaszyna parametrMaszyna = new FormResDepParametryMaszyna(db);
+            parametrMaszyna.ShowDialog();        
+        }
     }
 }
