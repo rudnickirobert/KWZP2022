@@ -177,8 +177,8 @@ namespace KWZP2022
         public virtual DbSet<v_Parametry_polprodukt> v_Parametry_polprodukt { get; set; }
         public virtual DbSet<v_Parametry_produkt> v_Parametry_produkt { get; set; }
         public virtual DbSet<v_Pracownik> v_Pracownik { get; set; }
-        public virtual DbSet<v_Pracownik_obslugi> v_Pracownik_obslugi { get; set; }
         public virtual DbSet<v_Pracownik_dzial> v_Pracownik_dzial { get; set; }
+        public virtual DbSet<v_Pracownik_obslugi> v_Pracownik_obslugi { get; set; }
         public virtual DbSet<v_Pracownik_produkcja> v_Pracownik_produkcja { get; set; }
         public virtual DbSet<v_Pracownik_zasoby> v_Pracownik_zasoby { get; set; }
         public virtual DbSet<v_Proces_polprodukt_czynnosc> v_Proces_polprodukt_czynnosc { get; set; }
