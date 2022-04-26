@@ -47,6 +47,7 @@
             this.btnDodajProducenta = new System.Windows.Forms.Button();
             this.btnDodajZamowienie = new System.Windows.Forms.Button();
             this.lvlZamowienieMaterial = new System.Windows.Forms.Label();
+            this.btnAktualizujStatus = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienieMaterial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numWaga)).BeginInit();
             this.SuspendLayout();
@@ -110,7 +111,7 @@
             this.cmbPracownik.FormattingEnabled = true;
             this.cmbPracownik.Location = new System.Drawing.Point(136, 54);
             this.cmbPracownik.Name = "cmbPracownik";
-            this.cmbPracownik.Size = new System.Drawing.Size(312, 32);
+            this.cmbPracownik.Size = new System.Drawing.Size(485, 32);
             this.cmbPracownik.TabIndex = 11;
             // 
             // cmbDostawca
@@ -243,11 +244,23 @@
             this.lvlZamowienieMaterial.TabIndex = 26;
             this.lvlZamowienieMaterial.Text = "Zamówienie materiału";
             // 
+            // btnAktualizujStatus
+            // 
+            this.btnAktualizujStatus.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.btnAktualizujStatus.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAktualizujStatus.Location = new System.Drawing.Point(767, 477);
+            this.btnAktualizujStatus.Name = "btnAktualizujStatus";
+            this.btnAktualizujStatus.Size = new System.Drawing.Size(177, 36);
+            this.btnAktualizujStatus.TabIndex = 60;
+            this.btnAktualizujStatus.Text = "Aktualizuj status";
+            this.btnAktualizujStatus.UseVisualStyleBackColor = false;
+            // 
             // FormResDepZamowienieMaterial
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(956, 539);
+            this.Controls.Add(this.btnAktualizujStatus);
             this.Controls.Add(this.lvlZamowienieMaterial);
             this.Controls.Add(this.btnDodajZamowienie);
             this.Controls.Add(this.btnDodajProducenta);
@@ -300,5 +313,6 @@
         private System.Windows.Forms.Button btnDodajProducenta;
         private System.Windows.Forms.Button btnDodajZamowienie;
         private System.Windows.Forms.Label lvlZamowienieMaterial;
+        private System.Windows.Forms.Button btnAktualizujStatus;
     }
 }

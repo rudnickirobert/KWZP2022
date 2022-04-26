@@ -17,8 +17,8 @@ namespace KWZP2022
         {
             InitializeComponent();
             this.db = db;
-            cmbPracownik.DataSource = db.Pracownik.ToList();
-            cmbPracownik.DisplayMember = "Nazwisko";
+            cmbPracownik.DataSource = db.v_Pracownik_zasoby.ToList();
+            cmbPracownik.DisplayMember = "Pracownik";
             cmbPracownik.ValueMember = "ID_pracownik";
             cmbDostawca.DataSource = db.Dostawca.ToList();
             cmbDostawca.DisplayMember = "Nazwa_dostawca";
@@ -34,6 +34,7 @@ namespace KWZP2022
         private void initDataGridView()
         {
             dgvZamowienieNarzedzia.DataSource = db.v_Zamowienia_narzedzia_w_trakcie.ToList();
+            dgvZamowienieNarzedzia.Columns[6].Visible = false;
             dgvZamowienieNarzedzia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
         private void txtCena_KeyPress(object sender, KeyPressEventArgs e)

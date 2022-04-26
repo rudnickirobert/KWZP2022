@@ -334,6 +334,16 @@ VALUES
 (4,3,200),
 (5,5,400);
 
+INSERT INTO Sklad_produkt_material (ID_produkt, ID_material, Liczba)
+VALUES
+(1,7,200),
+(2,7,250),
+(2,8,100),
+(3,8,150),
+(4,8,100),
+(5,7,120),
+(5,8,100);
+
 INSERT INTO Czesc (Nazwa_czesc, ID_rodzaj_czesc)
 VALUES
 ('Ekstruder Bondtech phi0.4',1),
@@ -1165,7 +1175,7 @@ VALUES
 
 INSERT INTO Szczegoly_zamowienie_maszyna(ID_zamowienie_maszyna, ID_maszyna, ID_producent, Ilosc,Cena)
 VALUES
-(1,1,1,1,3500),
+(1,1,1,4,14000),
 (2,2,2,1,7000),
 (3,3,3,1,65000),
 (4,4,4,1,2700),
@@ -1198,7 +1208,7 @@ VALUES
 INSERT INTO Obsluga(ID_rodzaj_obsluga, ID_stanowisko_produkcyjne, Data_od, Data_do, Uwagi)
 VALUES
 (3,1,'2022-02-12','2022-02-14', 'Brak'),
-(1,2,'2022-01-15','2022-01-22', 'Brak'),
+(1,2,'2022-01-15',NULL, 'Brak'),
 (1,3,'2021-12-22','2021-12-31', 'Nowa czesc'),
 (2,5,'2022-03-02','2022-03-22', 'Gotowe do pracy'),
 (3,2,'2022-04-12','2022-04-14', 'Brak');

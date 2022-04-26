@@ -36,6 +36,7 @@
             this.dgvNarzedzie = new System.Windows.Forms.DataGridView();
             this.txtNazwaNarzedzie = new System.Windows.Forms.TextBox();
             this.lblNazwaNarzedzie = new System.Windows.Forms.Label();
+            this.btnDodajParametr = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNarzedzie)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,7 +80,7 @@
             // 
             this.btnOdswiez.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnOdswiez.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnOdswiez.Location = new System.Drawing.Point(602, 74);
+            this.btnOdswiez.Location = new System.Drawing.Point(602, 128);
             this.btnOdswiez.Name = "btnOdswiez";
             this.btnOdswiez.Size = new System.Drawing.Size(170, 42);
             this.btnOdswiez.TabIndex = 24;
@@ -90,10 +91,10 @@
             // dgvNarzedzie
             // 
             this.dgvNarzedzie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNarzedzie.Location = new System.Drawing.Point(316, 122);
+            this.dgvNarzedzie.Location = new System.Drawing.Point(319, 176);
             this.dgvNarzedzie.Name = "dgvNarzedzie";
             this.dgvNarzedzie.RowTemplate.Height = 24;
-            this.dgvNarzedzie.Size = new System.Drawing.Size(456, 350);
+            this.dgvNarzedzie.Size = new System.Drawing.Size(453, 296);
             this.dgvNarzedzie.TabIndex = 23;
             this.dgvNarzedzie.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNarzedzie_CellClick);
             // 
@@ -116,11 +117,24 @@
             this.lblNazwaNarzedzie.TabIndex = 21;
             this.lblNazwaNarzedzie.Text = "Nazwa narzędzia";
             // 
+            // btnDodajParametr
+            // 
+            this.btnDodajParametr.BackColor = System.Drawing.Color.Orange;
+            this.btnDodajParametr.Font = new System.Drawing.Font("Arial", 16F);
+            this.btnDodajParametr.Location = new System.Drawing.Point(530, 80);
+            this.btnDodajParametr.Name = "btnDodajParametr";
+            this.btnDodajParametr.Size = new System.Drawing.Size(242, 42);
+            this.btnDodajParametr.TabIndex = 28;
+            this.btnDodajParametr.Text = "Przypisz parametry";
+            this.btnDodajParametr.UseVisualStyleBackColor = false;
+            this.btnDodajParametr.Click += new System.EventHandler(this.btnDodajParametr_Click);
+            // 
             // FormResDepNarzedzie
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 499);
+            this.Controls.Add(this.btnDodajParametr);
             this.Controls.Add(this.btnAktualizuj);
             this.Controls.Add(this.btnUsun);
             this.Controls.Add(this.btnDodaj);
@@ -147,5 +161,6 @@
         private System.Windows.Forms.DataGridView dgvNarzedzie;
         private System.Windows.Forms.TextBox txtNazwaNarzedzie;
         private System.Windows.Forms.Label lblNazwaNarzedzie;
+        private System.Windows.Forms.Button btnDodajParametr;
     }
 }

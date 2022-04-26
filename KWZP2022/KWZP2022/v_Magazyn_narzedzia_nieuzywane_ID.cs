@@ -12,12 +12,10 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Oblugi_w_trakcie
+    public partial class v_Magazyn_narzedzia_nieuzywane_ID
     {
-        public int Nr_stanowiska { get; set; }
-        public string Obsługa { get; set; }
-        public System.DateTime Data_rozpoczęcia { get; set; }
-        public Nullable<System.DateTime> Data_zakończenia { get; set; }
-        public string Pracownik { get; set; }
+        public int ID_narzedzie { get; set; }
+        public string Nazwa_narzędzia { get; set; }
+        public Nullable<int> Ilość_w_magazynie { get; set; }
     }
 }
