@@ -22,41 +22,29 @@ namespace KWZP2022
         }
         private void cleanTextBox()
         {
-            textBox1Name.Clear();
-            textBox2Name.Clear();
+            textBoxName.Clear();
+            textBoxSurname.Clear();
             textBoxNIP.Clear();
             textBoxCity.Clear();
-            textBoxNo1.Clear();
-            textBoxNo2.Clear();
+            textBoxBuildingNumber.Clear();
+            textBoxApartmentNumber.Clear();
             textBoxPostCode.Clear();
             textBoxStreet.Clear();
         }
-        private void messageBox()
+        private void messageBox(string searchItem)
         {
-            MessageBox.Show("Wyszukiwany numer sprzedaży nie widnieje w bazie danych.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show($"{searchItem} nie widnieje w bazie danych.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        private void msgCleanShowData()
+        private void msgCleanShowData(string searchItem)
         {
-            messageBox();
+            messageBox(searchItem);
             cleanTextBox();
             showData();
         }
         private void showData()
         {
-            var datavClient = from v_klient in db.v_Klient
-                              select new
-                              {
-                                  v_klient.ID,
-                                  v_klient.Nazwisko,
-                                  v_klient.Imię,
-                                  v_klient.NIP,
-                                  v_klient.Miejscowość,
-                                  v_klient.Ulica,
-                                  v_klient.Numer_budynku,
-                                  v_klient.Numer_lokalu,
-                                  v_klient.Kod_pocztowy
-                              };
-            this.dgvClient.DataSource = datavClient.ToList();
+            this.db = new KWZPEntities();
+            this.dgvClient.DataSource = this.db.v_Klient.ToList();
             this.dgvClient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -67,17 +55,17 @@ namespace KWZP2022
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string choose = "";
-            if (textBox2Name.Text.Length > 0)
+            if (textBoxSurname.Text.Length > 0)
                 choose = "Surname";
-            if (textBox1Name.Text.Length > 0)
+            if (textBoxName.Text.Length > 0)
                 choose = "Name";
             if (textBoxNIP.Text.Length > 0)
                 choose = "NIP";
             if (textBoxCity.Text.Length > 0)
                 choose = "City";
-            if (textBoxNo1.Text.Length > 0)
+            if (textBoxBuildingNumber.Text.Length > 0)
                 choose = "NoBuilding";
-            if (textBoxNo2.Text.Length > 0)
+            if (textBoxApartmentNumber.Text.Length > 0)
                 choose = "NoApartment";
             if (textBoxPostCode.Text.Length > 0)
                 choose = "PostCode";
@@ -87,28 +75,28 @@ namespace KWZP2022
             switch (choose)
             {
                 case "Surname":
-                    enterSurname();
+                    searchSurname();
                     break;
                 case "Name":
-                    enterName();
+                    searchName();
                     break;
                 case "NIP":
-                    enterNip();
+                    searchNip();
                     break;
                 case "City":
-                    enterCity();
+                    searchCity();
                     break;
                 case "NoBuilding":
-                    enterNoBuilding();
+                    searchNoBuilding();
                     break;
                 case "NoApartment":
-                    enterNoApartment();
+                    searchNoApartment();
                     break;
                 case "PostCode":
-                    enterPostCode();
+                    searchPostCode();
                     break;
                 case "Street":
-                    enterStreet();
+                    searchStreet();
                     break;
                 default:
                     wrongData();
@@ -135,151 +123,147 @@ namespace KWZP2022
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            FormSalesDepartmentClientModifyClient formSalesDepartmentClientModifyClient = new FormSalesDepartmentClientModifyClient(db);
+            int clientFromDgv = int.Parse(this.dgvClient.CurrentRow.Cells[0].Value.ToString());
+            Klient selectedClientForModify = this.db.Klient.Single(a => a.ID_klient == clientFromDgv);
+            FormSalesDepartmentClientModifyClient formSalesDepartmentClientModifyClient = new FormSalesDepartmentClientModifyClient(db, selectedClientForModify);
             formSalesDepartmentClientModifyClient.ShowDialog();
         }
 
 
 
-        private void enterSurname()
+        private void searchSurname()
         {
-            System.Linq.IQueryable vClientSurname = db.v_Klient.Where(a => a.Nazwisko == textBox2Name.Text);
-            int vClientSurnameInt = vClientSurname.Cast<v_Klient>().Count();
-            if (vClientSurnameInt > 0)
+            List<v_Klient> searchClientSurnameList = db.v_Klient.Where(a => a.Nazwisko == textBoxSurname.Text).ToList();
+            if (searchClientSurnameList.Count() > 0)
             {
-                this.dgvClient.DataSource = vClientSurname.Cast<v_Klient>().ToList();
+                this.dgvClient.DataSource = searchClientSurnameList;
                 this.dgvClient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                 cleanTextBox();
             }
             else
             {
-                msgCleanShowData();
+                msgCleanShowData($"Wyszukiwane nazwisko: {textBoxSurname.Text}");
             }
         }
-        private void enterName()
+        private void searchName()
         {
-            System.Linq.IQueryable vClientName = db.v_Klient.Where(a => a.Imię == textBox1Name.Text);
-            int vClientNameInt = vClientName.Cast<v_Klient>().Count();
-            if (vClientNameInt > 0)
+            List<v_Klient> searchClientNameList = db.v_Klient.Where(a => a.Imię == textBoxName.Text).ToList();
+            if (searchClientNameList.Count() > 0)
             {
-                this.dgvClient.DataSource = vClientName.Cast<v_Klient>().ToList();
+                this.dgvClient.DataSource = searchClientNameList;
                 this.dgvClient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                 cleanTextBox();
             }
             else
             {
-                msgCleanShowData();
+                msgCleanShowData($"Wyszukiwane imię: {textBoxName.Text}");
             }
         }
-        private void enterNip()
+        private void searchNip()
         {
-            System.Linq.IQueryable vClientNip = db.v_Klient.Where(a => a.NIP == textBoxNIP.Text);
-            int vClientNipInt = vClientNip.Cast<v_Klient>().Count();
-            if (vClientNipInt > 0)
+            List<v_Klient> searchClientNIPList = db.v_Klient.Where(a => a.NIP == textBoxNIP.Text).ToList();
+            if (searchClientNIPList.Count() > 0)
             {
-                this.dgvClient.DataSource = vClientNip.Cast<v_Klient>().ToList();
+                this.dgvClient.DataSource = searchClientNIPList;
                 this.dgvClient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                 cleanTextBox();
             }
             else
             {
-                msgCleanShowData();
+                msgCleanShowData($"Wyszukiwany NIP: {textBoxNIP.Text}");
             }
         }
-        private void enterCity()
+        private void searchCity()
         {
-            string dataCity = textBoxCity.Text;
-            System.Linq.IQueryable vClientCity = db.v_Klient.Where(a => a.Miejscowość == dataCity);
-            int vClientCityInt = vClientCity.Cast<v_Klient>().Count();
-            if (vClientCityInt > 0)
+            List<v_Klient> searchClientCityList = db.v_Klient.Where(a => a.Miejscowość == textBoxCity.Text).ToList();
+            if (searchClientCityList.Count() > 0)
             {
-                this.dgvClient.DataSource = vClientCity.Cast<v_Klient>().ToList();
+                this.dgvClient.DataSource = searchClientCityList;
                 this.dgvClient.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                 cleanTextBox();
             }
             else
             {
-                msgCleanShowData();
+                msgCleanShowData($"Wyszukiwana miejscowość: {textBoxCity.Text}");
             }
         }
-        private void enterNoBuilding()
+        private void searchNoBuilding()
         {
             try
             {
-                string noBuilding = textBoxNo1.Text;
-                int noBuildingInt = int.Parse(noBuilding);
-                System.Linq.IQueryable vClientNoBuilding = db.v_Klient.Where(a => a.Numer_budynku == noBuildingInt);
-                int vClientNoBuildingInt = vClientNoBuilding.Cast<v_Klient>().Where(a => a.Numer_budynku > 0).Count();
-                if (vClientNoBuildingInt > 0)
+                int noBuildingToInt = int.Parse(textBoxBuildingNumber.Text);
+                List<v_Klient> searchClientNoBuildingList = db.v_Klient.Where(a => a.Numer_budynku == noBuildingToInt).ToList();
+                if (searchClientNoBuildingList.Count() > 0)
                 {
-                    this.dgvClient.DataSource = vClientNoBuilding.Cast<v_Klient>().ToList();
+                    this.dgvClient.DataSource = searchClientNoBuildingList;
                     cleanTextBox();
                 }
                 else
                 {
-                    msgCleanShowData();
+                    msgCleanShowData($"Wyszukiwany nr budynku: {textBoxBuildingNumber.Text}");
                 }
             }
             catch (Exception)
             {
-                msgCleanShowData();
+                cleanTextBox();
+                MessageBox.Show("Sprawdź czy nie wprowadziłeś liter do numeru budynku!","Błąd",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
-        private void enterNoApartment()
+        private void searchNoApartment()
         {
             try
             {
-                string noApartment = textBoxNo2.Text;
-                int noApartmentInt = int.Parse(noApartment);
-                List<v_Klient> vClientNoApartment = db.v_Klient.Where(a => a.Numer_lokalu == noApartmentInt).ToList();
-                int vClientNoApartmentInt = vClientNoApartment.Cast<v_Klient>().Where(a => a.Numer_lokalu > 0).Count();
-                if (vClientNoApartmentInt > 0)
+                int noApartmentToInt = int.Parse(textBoxApartmentNumber.Text);
+                List<v_Klient> searchClientNoApartmentList = db.v_Klient.Where(a => a.Numer_lokalu == noApartmentToInt).ToList();
+                if (searchClientNoApartmentList.Count() > 0)
                 {
-                    this.dgvClient.DataSource = vClientNoApartment.Cast<v_Klient>().ToList();
+                    this.dgvClient.DataSource = searchClientNoApartmentList;
                     cleanTextBox();
                 }
                 else
                 {
-                    msgCleanShowData();
+                    msgCleanShowData($"Wyszukiwany nr lokalu: {textBoxApartmentNumber.Text}");
                 }
             }
             catch (Exception)
             {
-                msgCleanShowData();
+                cleanTextBox();
+                MessageBox.Show("Sprawdź czy nie wprowadziłeś liter do numeru lokalu!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void enterPostCode()
+        private void searchPostCode()
         {
-            string postCode = textBoxPostCode.Text;
-            System.Linq.IQueryable vClientPostCode = db.v_Klient.Where(a => a.Kod_pocztowy == postCode);
-            int vClientPostCodeInt = vClientPostCode.Cast<v_Klient>().Count();
-            if (vClientPostCodeInt > 0)
+            List<v_Klient> searchClientPostCodeList = db.v_Klient.Where(a => a.Kod_pocztowy == textBoxPostCode.Text).ToList();
+            if (searchClientPostCodeList.Count() > 0)
             {
-                this.dgvClient.DataSource = vClientPostCode.Cast<v_Klient>().ToList();
+                this.dgvClient.DataSource = searchClientPostCodeList;
                 cleanTextBox();
             }
             else
             {
-                msgCleanShowData();
+                msgCleanShowData($"Wyszukiwany kod pocztowy: {textBoxPostCode.Text}");
             }
         }
-        private void enterStreet()
+        private void searchStreet()
         {
-            string street = textBoxStreet.Text;
-            System.Linq.IQueryable vClientStreet = db.v_Klient.Where(a => a.Ulica == street);
-            int vClientStreetInt = vClientStreet.Cast<v_Klient>().Count();
-            if (vClientStreetInt > 0)
+            List < v_Klient> searchClientStreet = db.v_Klient.Where(a => a.Ulica == textBoxStreet.Text).ToList();
+            if (searchClientStreet.Count() > 0)
             {
-                this.dgvClient.DataSource = vClientStreet.Cast<v_Klient>().ToList();
+                this.dgvClient.DataSource = searchClientStreet;
             }
             else
             {
-                msgCleanShowData();
+                msgCleanShowData($"Wyszukiwana ulica: {textBoxStreet.Text}");
             }
         }
         private void wrongData()
         {
             MessageBox.Show("Źle wprowadzono dane", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            showData();
+        }
+
+        private void FormSalesDepartmentClient_Activated(object sender, EventArgs e)
+        {
             showData();
         }
     }

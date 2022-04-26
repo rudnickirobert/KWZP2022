@@ -22,19 +22,8 @@ namespace KWZP2022
 
         private void showData()
         {
-            var dataSales = from salesView in this.db.v_Sprzedaz
-                            select new
-                            {
-                                salesView.Numer_sprzedaży,
-                                salesView.Nazwisko_klienta,
-                                salesView.Imię_klienta,
-                                salesView.NIP,
-                                salesView.Data_początku_sprzedaży,
-                                salesView.Data_końca_sprzedaży,
-                                salesView.Umowa,
-                                salesView.Koszt
-                            };
-            this.dgvSales.DataSource = dataSales.ToList();
+            this.db = new KWZPEntities();
+            this.dgvSales.DataSource = this.db.v_Sprzedaz.ToList();
             this.dgvSales.Columns[0].HeaderText = "Nr sprzedaży";
             this.dgvSales.Columns[1].HeaderText = "Nazwisko";
             this.dgvSales.Columns[2].HeaderText = "Imię";
@@ -90,6 +79,7 @@ namespace KWZP2022
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             showData();
+            cleanTextBox();
         }
         private void cleanTextBox()
         {
@@ -105,7 +95,7 @@ namespace KWZP2022
             int clientSurnameInt = clientSurname.Count();
             if (clientSurnameInt > 0)
             {
-                this.dgvSales.DataSource = clientSurnameInt;
+                this.dgvSales.DataSource = clientSurname.ToList();
                 this.dgvSales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                 cleanTextBox();
             }
@@ -139,7 +129,7 @@ namespace KWZP2022
             int dataNipInt = dataNip.Count();
             if (dataNipInt > 0)
             {
-                this.dgvSales.DataSource = dataNipInt;
+                this.dgvSales.DataSource = dataNip.ToList();
                 this.dgvSales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                 cleanTextBox();
             }

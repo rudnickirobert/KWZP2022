@@ -27,8 +27,8 @@ namespace KWZP2022
 
         private void btnNewOrder_Click(object sender, EventArgs e)
         {
-            FormNewOrder formNewOreder = new FormNewOrder(db);
-            formNewOreder.ShowDialog();
+            FormNewOrder formNewOrder = new FormNewOrder(db);
+            formNewOrder.ShowDialog();
         }
 
         private void timer1_Tick(object sender, EventArgs e)

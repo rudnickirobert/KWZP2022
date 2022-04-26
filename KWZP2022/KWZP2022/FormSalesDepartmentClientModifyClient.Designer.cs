@@ -55,15 +55,12 @@
             this.textBoxStreet = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1Name = new System.Windows.Forms.TextBox();
-            this.textBox2Name = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.textBoxSurname = new System.Windows.Forms.TextBox();
             this.lblNrSale = new System.Windows.Forms.Label();
             this.textBoxCity = new System.Windows.Forms.TextBox();
-            this.dgvClientID = new System.Windows.Forms.DataGridView();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.lblInstr = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientID)).BeginInit();
             this.SuspendLayout();
             // 
             // cbEmailDate2
@@ -347,23 +344,23 @@
             this.label8.TabIndex = 72;
             this.label8.Text = "Podaj nazwisko klienta:";
             // 
-            // textBox1Name
+            // textBoxName
             // 
-            this.textBox1Name.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox1Name.Location = new System.Drawing.Point(33, 149);
-            this.textBox1Name.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1Name.Name = "textBox1Name";
-            this.textBox1Name.Size = new System.Drawing.Size(152, 26);
-            this.textBox1Name.TabIndex = 71;
+            this.textBoxName.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxName.Location = new System.Drawing.Point(33, 149);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(152, 26);
+            this.textBoxName.TabIndex = 71;
             // 
-            // textBox2Name
+            // textBoxSurname
             // 
-            this.textBox2Name.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox2Name.Location = new System.Drawing.Point(33, 91);
-            this.textBox2Name.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2Name.Name = "textBox2Name";
-            this.textBox2Name.Size = new System.Drawing.Size(152, 26);
-            this.textBox2Name.TabIndex = 70;
+            this.textBoxSurname.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxSurname.Location = new System.Drawing.Point(33, 91);
+            this.textBoxSurname.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxSurname.Name = "textBoxSurname";
+            this.textBoxSurname.Size = new System.Drawing.Size(152, 26);
+            this.textBoxSurname.TabIndex = 70;
             // 
             // lblNrSale
             // 
@@ -385,18 +382,6 @@
             this.textBoxCity.Name = "textBoxCity";
             this.textBoxCity.Size = new System.Drawing.Size(152, 26);
             this.textBoxCity.TabIndex = 68;
-            // 
-            // dgvClientID
-            // 
-            this.dgvClientID.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientID.Location = new System.Drawing.Point(424, 276);
-            this.dgvClientID.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvClientID.Name = "dgvClientID";
-            this.dgvClientID.RowHeadersWidth = 51;
-            this.dgvClientID.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClientID.Size = new System.Drawing.Size(349, 166);
-            this.dgvClientID.TabIndex = 98;
-            this.dgvClientID.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvClientID_MouseDoubleClick);
             // 
             // btnClose
             // 
@@ -424,27 +409,13 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // lblInstr
-            // 
-            this.lblInstr.AutoSize = true;
-            this.lblInstr.BackColor = System.Drawing.Color.Transparent;
-            this.lblInstr.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.lblInstr.Location = new System.Drawing.Point(419, 248);
-            this.lblInstr.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblInstr.Name = "lblInstr";
-            this.lblInstr.Size = new System.Drawing.Size(324, 20);
-            this.lblInstr.TabIndex = 101;
-            this.lblInstr.Text = "Kliknij dwa razy na klienta z listy, aby uzupełnić dane";
-            // 
             // FormSalesDepartmentClientModifyClient
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(794, 491);
-            this.Controls.Add(this.lblInstr);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.dgvClientID);
             this.Controls.Add(this.cbEmailDate2);
             this.Controls.Add(this.cbTelDate2);
             this.Controls.Add(this.dtpTelDate2);
@@ -471,8 +442,8 @@
             this.Controls.Add(this.textBoxStreet);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox1Name);
-            this.Controls.Add(this.textBox2Name);
+            this.Controls.Add(this.textBoxName);
+            this.Controls.Add(this.textBoxSurname);
             this.Controls.Add(this.lblNrSale);
             this.Controls.Add(this.textBoxCity);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -480,7 +451,6 @@
             this.Name = "FormSalesDepartmentClientModifyClient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Modyfikacja danych klienta";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientID)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -514,13 +484,11 @@
         private System.Windows.Forms.TextBox textBoxStreet;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1Name;
-        private System.Windows.Forms.TextBox textBox2Name;
+        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.TextBox textBoxSurname;
         private System.Windows.Forms.Label lblNrSale;
         private System.Windows.Forms.TextBox textBoxCity;
-        private System.Windows.Forms.DataGridView dgvClientID;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Label lblInstr;
     }
 }
