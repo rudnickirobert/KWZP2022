@@ -11,7 +11,7 @@ GO
 
 CREATE VIEW v_Parametry_produkt
 AS
-SELECT ID_parametr_produkt, P.Nazwa_produkt AS [Produkt], RP.Nazwa_rodzaj_parametr AS [Parametr],
+SELECT ID_parametr_produkt, P.ID_produkt, P.Nazwa_produkt AS [Produkt], RP.Nazwa_rodzaj_parametr AS [Parametr],
 PP.Zakres_dol AS [Wymiar minimalny], PP.Zakres_gora AS [Wymiar maksymalny], J.Skrot AS [Jednostka]
 FROM Parametr_produkt AS PP
 INNER JOIN Produkt AS P ON PP.ID_produkt = P.ID_produkt
@@ -31,7 +31,7 @@ GO
 
 CREATE VIEW v_Sklad_produkt
 AS
-SELECT SP.ID_sklad_produkt AS [ID skład], P.Nazwa_produkt AS [Produkt], SlwPP.Nazwa AS [Półprodukt], SP.Liczba
+SELECT P.ID_produkt, SlwPP.ID_polprodukt, SP.ID_sklad_produkt AS [ID skład], P.Nazwa_produkt AS [Produkt], SlwPP.Nazwa AS [Półprodukt], SP.Liczba
 FROM Sklad_produkt AS SP
 INNER JOIN Produkt AS P ON SP.ID_produkt = P.ID_produkt
 INNER JOIN Slownik_polprodukt AS SlwPP ON SP.ID_polprodukt = SlwPP.ID_polprodukt
@@ -157,18 +157,47 @@ GO
 
 CREATE VIEW v_Kontrola_parametr_produkt
 AS
-SELECT P.Nazwa_produkt AS [Produkt], RP.Nazwa_rodzaj_parametr AS [Parametr], KP.Wartosc AS [Wartość],
+SELECT w.ID_wytwarzanie AS [ID_wytwarzanie], P.ID_produkt AS [ID_produkt], P.Nazwa_produkt AS [Produkt], RP.Nazwa_rodzaj_parametr AS [Parametr], KP.Wartosc AS [Wartość],
 PP.Zakres_dol AS [Zakres dolny], PP.Zakres_gora AS [Zakres górny], (CASE WHEN KP.Wartosc BETWEEN PP.Zakres_dol AND PP.Zakres_gora THEN 1 ELSE 0 END) AS [Rezultat kontroli]  
 FROM Kontrola_parametr AS KP
 INNER JOIN Kontrola_jakosci_produkt AS KJP ON KP.ID_kontrola_jakosci_produkt = KJP.ID_kontrola_jakosci_produkt
 INNER JOIN Parametr_produkt AS PP ON KP.ID_parametr_produkt = PP.ID_parametr_produkt
 INNER JOIN Produkt AS P ON PP.ID_produkt = P.ID_produkt
 INNER JOIN Rodzaj_parametr AS RP ON PP.ID_rodzaj_parametr = RP.ID_rodzaj_parametr
+INNER JOIN Wytwarzanie AS W ON KJP.ID_wytwarzanie = W.ID_wytwarzanie
+GO
+
+CREATE VIEW v_Wynik_kontroli
+AS
+SELECT ID_wytwarzanie, ID_produkt, AVG([Rezultat kontroli]) AS [Wynik_kontrola] FROM v_Kontrola_parametr_produkt
+GROUP BY ID_wytwarzanie, ID_produkt
+GO
+
+CREATE VIEW v_Kontrola_pozytywna
+AS
+SELECT ID_wytwarzanie, ID_produkt, [Produkt], AVG([Rezultat kontroli]) AS [Wynik_kontrola] FROM v_Kontrola_parametr_produkt
+GROUP BY ID_wytwarzanie, ID_produkt, [Produkt]
+HAVING AVG([Rezultat kontroli]) = 1
+GO
+
+CREATE VIEW v_Kontrola_negatywna
+AS
+SELECT ID_wytwarzanie, ID_produkt, [Produkt], AVG([Rezultat kontroli]) AS [Wynik_kontrola] FROM v_Kontrola_parametr_produkt
+GROUP BY ID_wytwarzanie, ID_produkt, [Produkt]
+HAVING AVG([Rezultat kontroli]) = 0
+GO
+
+CREATE VIEW v_Kontrola_jakosci_produkt
+AS
+SELECT KJP.ID_kontrola_jakosci_produkt, PR.Nazwisko + ' ' +PR.Imie AS [Pracownik], RK.Rodzaj_kontrola
+FROM Kontrola_jakosci_produkt AS KJP
+INNER JOIN Pracownik AS PR ON  KJP.ID_pracownik = PR.ID_pracownik
+INNER JOIN Rodzaj_kontrola AS RK ON KJP.ID_rodzaj_kontrola = RK.ID_rodzaj_kontrola
 GO
 
 CREATE VIEW v_Kontrola_jakosci_kolejka
 AS
-SELECT W.ID_wytwarzanie, P.Nazwa_produkt
+SELECT W.ID_wytwarzanie, P.ID_produkt, P.Nazwa_produkt
 FROM Wytwarzanie AS W
 LEFT JOIN Kontrola_jakosci_produkt AS KJP ON W.ID_wytwarzanie = KJP.ID_wytwarzanie
 INNER JOIN Proces_wytwarzanie_produkt AS PWP ON  W.ID_wytwarzanie = PWP.ID_wytwarzanie
@@ -178,7 +207,7 @@ WHERE W.Czas_do IS NOT NULL
 
 EXCEPT
 
-SELECT W.ID_wytwarzanie, P.Nazwa_produkt
+SELECT W.ID_wytwarzanie, P.ID_produkt, P.Nazwa_produkt
 FROM Wytwarzanie AS W
 INNER JOIN Kontrola_jakosci_produkt AS KJP ON W.ID_wytwarzanie = KJP.ID_wytwarzanie
 INNER JOIN Proces_wytwarzanie_produkt AS PWP ON  W.ID_wytwarzanie = PWP.ID_wytwarzanie
@@ -209,7 +238,7 @@ SELECT PPC.ID_produkt AS [ID Produktu], P.Nazwa_produkt AS [Produkt], CP.Nazwa A
 FROM Proces_produkt_czynnosc AS PPC
 INNER JOIN Produkt AS P ON PPC.ID_produkt = P.ID_produkt
 INNER JOIN Czynnosc_produkcyjna CP ON PPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
-ORDER BY PPC.ID_produkt DESC OFFSET 0 ROWS
+ORDER BY PPC.ID_produkt DESC OFFSET 0 ROWS 
 GO
 
 CREATE VIEW v_Liczba_zabiegow_wytworczych_polprodukt
@@ -250,7 +279,7 @@ GO
 CREATE VIEW v_Zamowienie_produkcja AS
 SELECT Z.ID_zamowienie AS [ID], K.Nazwisko + ' ' + K.Imie + ' - ' + CONVERT(NVARCHAR,Z.Data_zamowienie) AS [Klient]
 FROM Zamowienie AS Z
-INNER JOIN Klient AS K ON K.ID_klient = Z.ID_zamowienie
+INNER JOIN Klient AS K ON K.ID_klient = Z.ID_klient
 INNER JOIN Pracownik AS P ON P.ID_pracownik = Z.ID_pracownik
 ORDER BY Data_zamowienie DESC OFFSET 0 ROWS
 GO
@@ -263,7 +292,7 @@ INNER JOIN Etat AS E ON PP.ID_etat = E.ID_etat
 INNER JOIN Stanowisko AS S ON E.ID_stanowisko = S.ID_stanowisko
 INNER JOIN Umowa AS U ON U.ID_posada_pracownika = PP.ID_posada_pracownika
 INNER JOIN Pracownik AS P ON U.ID_pracownik = P.ID_pracownik
-WHERE Nazwa_stanowiska IN ('Operator', 'Projektant', 'Brygadzista')
+WHERE Nazwa_stanowiska IN ('Operator', 'Projektant', 'Brygadzista', 'Kontroler jakości')
 ORDER BY [Pracownik] OFFSET 0 ROWS
 GO
 
@@ -342,8 +371,18 @@ GO
 
 CREATE VIEW v_Wytworzone_produkty
 AS
-SELECT * FROM v_Proces_wytwarzanie_produkt
-WHERE [Data zakończenia] <= GETDATE()
+SELECT W.ID_wytwarzanie AS [ID], P.ID_produkt, P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynność produkcyjna], Pr.Nazwisko + ' ' + Pr.Imie AS [Pracownik],
+SST.Nazwa_stanowiska AS [Stanowisko], PPPC.Czas_trwania AS [Szacowany czas {min}],
+W.Czas_od AS [Data rozpoczęcia], W.Czas_do AS [Data zakończenia]
+FROM Proces_wytwarzanie_produkt AS PWP
+INNER JOIN Wytwarzanie AS W ON PWP.ID_wytwarzanie = W.ID_wytwarzanie
+INNER JOIN Proces_produkt_czynnosc AS PPPC ON PWP.ID_proces_produkt = PPPC.ID_proces_produkt
+INNER JOIN Stanowisko_produkcyjne AS SP ON PWP.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
+INNER JOIN Slownik_stanowisko AS SST ON SP.ID_nazwa_stanowiska = SST.ID_nazwa_stanowiska
+INNER JOIN Czynnosc_produkcyjna AS CP ON PPPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
+INNER JOIN Produkt AS P ON PPPC.ID_produkt = P.ID_produkt
+INNER JOIN Pracownik AS Pr ON W.ID_pracownik = Pr.ID_pracownik
+WHERE W.Czas_do <= GETDATE() AND CP.Nazwa = 'Montaż'
 GO
 
 CREATE VIEW v_Szacowany_czas_wytwarzania_produkt
@@ -379,7 +418,12 @@ EXCEPT
 SELECT * FROM v_Stanowiska_w_uzyciu
 GO
 
-
+CREATE VIEW v_Stanowiska_produkcyjne
+AS
+SELECT SP.ID_stanowisko_produkcyjne, SS.Nazwa_stanowiska AS Nazwa 
+FROM Stanowisko_produkcyjne AS SP 
+INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
+GO
 
 -----RESOURCE DEPARTMENT----
 
@@ -618,7 +662,7 @@ GO
 
 CREATE VIEW v_Zamowienia_materialy_w_trakcie_wszystko 
 AS 
-SELECT ZM.ID_zamowienie_material AS [Nr zamówienia], M.Nazwa_material AS [Nazwa materiału], SRZM.Data_stan [Data zmiany stanu], Waga_g AS [Waga (g)], Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID] 
+SELECT ZM.ID_zamowienie_material AS [Nr zamówienia], M.ID_material, M.Nazwa_material AS [Nazwa materiału], SRZM.Data_stan [Data zmiany stanu], Waga_g AS [Waga (g)], Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID] 
 FROM Szczegoly_zamowienie_material AS SZM 
 INNER JOIN Zamowienie_material AS ZM ON SZM.ID_zamowienie_material = ZM.ID_zamowienie_material 
 INNER JOIN Material AS M ON SZM.ID_material = M.ID_material 
@@ -817,6 +861,73 @@ SELECT * FROM v_Maszyny_numery_nieprzypisane
 WHERE [Nieprzypisanych]>0
 GO
 
+CREATE VIEW v_Magazyn_material_wszystko 
+AS
+SELECT ID_material, [Nazwa materiału], SUM([Waga (g)]) AS [Waga (g)]
+FROM v_Zamowienia_materialy_w_trakcie_wszystko 
+WHERE StatusID = 4
+GROUP BY ID_material, [Nazwa materiału]
+GO
+
+CREATE VIEW v_Polprodukt_material
+AS
+SELECT SP.ID_polprodukt, M.ID_material, SlwPp.Nazwa AS [Półprodukt], M.Nazwa_material AS [Materiał], RM.Nazwa_rodzaj_material AS [Rodzaj],
+SP.Liczba AS [Waga (g)]
+FROM Sklad_polprodukt AS SP
+INNER JOIN Slownik_polprodukt AS SlwPp ON SP.ID_polprodukt = SlwPp.ID_polprodukt
+INNER JOIN Material AS M ON SP.ID_material = M.ID_material
+INNER JOIN Rodzaj_material AS RM ON M.ID_rodzaj_material = RM.ID_rodzaj_material
+ORDER BY SlwPp.Nazwa OFFSET 0 ROWS
+GO
+
+CREATE VIEW v_Wytworzone_produkty_sklad
+AS
+SELECT WP.ID_produkt, SPE.ID_polprodukt, SPE.Liczba
+FROM v_Wytworzone_produkty AS WP
+INNER JOIN v_Sklad_produkt_ewidencja AS SPE ON WP.ID_produkt=SPE.ID_produkt
+GROUP BY WP.ID_produkt, SPE.ID_polprodukt, SPE.Liczba
+GO
+
+CREATE VIEW v_Wytworzone_polprodukty_material
+AS
+SELECT WPS.ID_produkt, WPS.ID_polprodukt, PPM.ID_material, PPM.Materiał, WPS.Liczba * PPM.[Waga (g)] AS [Zuzyty material (g)]
+FROM v_Wytworzone_produkty_sklad AS WPS
+INNER JOIN v_Polprodukt_material AS PPM ON WPS.ID_polprodukt =PPM.ID_polprodukt
+GROUP BY WPS.ID_produkt, WPS.ID_polprodukt, PPM.ID_material, PPM.Materiał, WPS.Liczba, PPM.[Waga (g)]
+GO
+
+CREATE VIEW v_Produkt_material
+AS
+SELECT P.ID_produkt, M.ID_material, P.Nazwa_produkt AS [Produkt], M.Nazwa_material AS [Materiał], RM.Nazwa_rodzaj_material AS [Rodzaj],
+SPM.Liczba AS [Waga (g)]
+FROM Sklad_produkt_material AS SPM
+INNER JOIN Produkt AS P ON SPM.ID_produkt = P.ID_produkt
+INNER JOIN Material AS M ON SPM.ID_material = M.ID_material
+INNER JOIN Rodzaj_material AS RM ON M.ID_rodzaj_material = RM.ID_rodzaj_material
+GO
+
+CREATE VIEW v_Wytworzony_produkt_material
+AS
+SELECT WPS.ID_produkt, PM.ID_material, PM.Materiał, PM.[Waga (g)] 
+FROM v_Wytworzone_produkty_sklad AS WPS
+INNER JOIN v_Produkt_material AS PM ON WPS.ID_produkt=PM.ID_produkt
+GO
+
+CREATE VIEW v_Magazyn_material_przejsciowy
+AS
+SELECT MMW.ID_material, MMW.[Nazwa materiału], MMW.[Waga (g)], ISNULL(WPM.[Zuzyty material (g)],0) AS [Waga material polprodukt (g)], ISNULL(WPMM.[Waga (g)],0) AS [Waga material produkt (g)] 
+FROM v_Magazyn_material_wszystko AS MMW
+FULL OUTER JOIN v_Wytworzone_polprodukty_material AS WPM ON MMW.ID_material=WPM.ID_material 
+FULL OUTER JOIN v_Wytworzony_produkt_material AS WPMM ON WPMM.ID_material=MMW.ID_material
+GROUP BY MMW.ID_material, MMW.[Nazwa materiału], MMW.[Waga (g)], WPM.[Zuzyty material (g)], WPMM.[Waga (g)] 
+GO
+
+CREATE VIEW v_Magazyn_material_stan
+AS
+SELECT MMP.ID_material, MMP.[Nazwa materiału], MMP.[Waga (g)] - MMP.[Waga material polprodukt (g)] - MMP.[Waga material produkt (g)] AS [Stan w magazynie] 
+FROM v_Magazyn_material_przejsciowy AS MMP
+GROUP BY MMP.ID_material, MMP.[Nazwa materiału], MMP.[Waga (g)],MMP.[Waga material polprodukt (g)],MMP.[Waga material produkt (g)]
+GO
 
 --SALES AND MARKETING DEPARTMENT --
 CREATE VIEW v_Szczegoly_sprzedaz AS
