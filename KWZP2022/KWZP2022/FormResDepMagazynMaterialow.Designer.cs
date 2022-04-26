@@ -88,7 +88,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDodajMaterial);
             this.Controls.Add(this.dgvMagazynMaterial);
-            this.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Font = new System.Drawing.Font("Arial", 9.75F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormResDepMagazynMaterialow";

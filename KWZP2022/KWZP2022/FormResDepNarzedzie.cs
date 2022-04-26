@@ -95,5 +95,11 @@ namespace KWZP2022
                 txtNazwaNarzedzie.Text = row.Cells[1].Value.ToString();
             }
         }
+
+        private void btnDodajParametr_Click(object sender, EventArgs e)
+        {
+            FormResDepParametryNarzedzie parametrNarzedzie = new FormResDepParametryNarzedzie(db);
+            parametrNarzedzie.ShowDialog();
+        }
     }
 }
