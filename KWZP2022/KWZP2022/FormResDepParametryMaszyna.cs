@@ -10,45 +10,46 @@ using System.Windows.Forms;
 
 namespace KWZP2022
 {
-    public partial class FormResDepParametryMaterial : Form
+    public partial class FormResDepParametryMaszyna : Form
     {
         KWZPEntities db;
-        public FormResDepParametryMaterial(KWZPEntities db)
+        public FormResDepParametryMaszyna(KWZPEntities db)
         {
             InitializeComponent();
             this.db = db;
             initDataGridView();
-            cmbMaterial.DataSource = db.Material.ToList();
-            cmbMaterial.DisplayMember = "Nazwa_material";
-            cmbMaterial.ValueMember = "ID_material";
+            cmbMaszyna.DataSource = db.Maszyna.ToList();
+            cmbMaszyna.DisplayMember = "Nazwa_maszyna";
+            cmbMaszyna.ValueMember = "ID_maszyna";
             cmbParametr.DataSource = db.v_Rodzaj_parametr.ToList();
             cmbParametr.DisplayMember = "Parametr";
             cmbParametr.ValueMember = "ID_rodzaj_parametr";
         }
         private void initDataGridView()
         {
-            dgvParametrMaterial.DataSource = db.v_Parametry_material.ToList();
-            dgvParametrMaterial.Columns[0].Visible = false;
-            dgvParametrMaterial.Columns[1].Visible = false;
-            dgvParametrMaterial.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-            this.dgvParametrMaterial.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dgvParametrMaszyna.DataSource = db.v_Parametry_maszyna.ToList();
+            dgvParametrMaszyna.Columns[0].Visible = false;
+            dgvParametrMaszyna.Columns[1].Visible = false;
+            dgvParametrMaszyna.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            this.dgvParametrMaszyna.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
+
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             try
             {
                 if (txtZakresGora.Text == null || txtZakresDol.Text == null || Convert.ToDecimal(txtZakresGora.Text) < Convert.ToDecimal(txtZakresDol.Text))
-                    {
+                {
                     MessageBox.Show("Wpisz poprawny zakres", "Błąd", MessageBoxButtons.OK);
                 }
                 else
                 {
-                    Parametr_material parametrMaterial = new Parametr_material();
-                    parametrMaterial.ID_material = (int)cmbMaterial.SelectedValue;
-                    parametrMaterial.ID_rodzaj_parametr = (int)cmbParametr.SelectedValue;
-                    parametrMaterial.Zakres_gora = Convert.ToDecimal(txtZakresGora.Text);
-                    parametrMaterial.Zakres_dol = Convert.ToDecimal(txtZakresDol.Text);
-                    db.Parametr_material.Add(parametrMaterial);
+                    Parametr_maszyna parametrMaszyna = new Parametr_maszyna();
+                    parametrMaszyna.ID_maszyna = (int)cmbMaszyna.SelectedValue;
+                    parametrMaszyna.ID_rodzaj_parametr = (int)cmbParametr.SelectedValue;
+                    parametrMaszyna.Zakres_gora = Convert.ToDecimal(txtZakresGora.Text);
+                    parametrMaszyna.Zakres_dol = Convert.ToDecimal(txtZakresDol.Text);
+                    db.Parametr_maszyna.Add(parametrMaszyna);
                     db.SaveChanges();
                     initDataGridView();
                 }
@@ -58,35 +59,38 @@ namespace KWZP2022
                 MessageBox.Show("Powtórzono parametr", "Błąd", MessageBoxButtons.OK);
             }
         }
-        private void btnWczytaj_Click(object sender, EventArgs e)
+
+        private void btnWczytajParametr_Click(object sender, EventArgs e)
         {
-            string material = cmbMaterial.SelectedValue.ToString();
-            int materialID = int.Parse(material);
-            System.Linq.IQueryable vParametrMaterial = db.v_Parametry_material.Where(x => x.ID_material == materialID);
-            int vParametrMaterialInt = vParametrMaterial.Cast<v_Parametry_material>().Where(x => x.ID_material > 0).Count();
-            if (vParametrMaterialInt > 0)
+            string maszyna = cmbMaszyna.SelectedValue.ToString();
+            int maszynaID = int.Parse(maszyna);
+            System.Linq.IQueryable vParametrMaszyna = db.v_Parametry_maszyna.Where(x => x.ID_maszyna == maszynaID);
+            int vParametrMaszynaInt = vParametrMaszyna.Cast<v_Parametry_maszyna>().Where(x => x.ID_maszyna > 0).Count();
+            if (vParametrMaszynaInt > 0)
             {
-                dgvParametrMaterial.DataSource = vParametrMaterial.Cast<v_Parametry_material>().ToList();
+                dgvParametrMaszyna.DataSource = vParametrMaszyna.Cast<v_Parametry_maszyna>().ToList();
             }
         }
+
         private void btnUsun_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz usunąć parametr: " + this.dgvParametrMaterial.CurrentRow.Cells[3].Value + "?", "Question", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz usunąć parametr: " + this.dgvParametrMaszyna.CurrentRow.Cells[3].Value + "?", "Question", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                string currentParametr = this.dgvParametrMaterial.CurrentRow.Cells[1].Value.ToString();
+                string currentParametr = this.dgvParametrMaszyna.CurrentRow.Cells[1].Value.ToString();
                 int currentParametrINT = int.Parse(currentParametr);
-                Parametr_material parametrMaterial = db.Parametr_material.Single(a => a.ID_rodzaj_parametr == currentParametrINT);
-                this.db.Parametr_material.Remove(parametrMaterial);
+                Parametr_maszyna parametrMaszyna = db.Parametr_maszyna.Single(a => a.ID_rodzaj_parametr == currentParametrINT);
+                this.db.Parametr_maszyna.Remove(parametrMaszyna);
                 db.SaveChanges();
                 initDataGridView();
             }
         }
+
         private void btnAktualizuj_Click(object sender, EventArgs e)
         {
             try
             {
-                if (this.dgvParametrMaterial.CurrentRow.Cells[0].Value != null)
+                if (this.dgvParametrMaszyna.CurrentRow.Cells[0].Value != null)
                 {
                     if (txtZakresGora.Text == null || txtZakresDol.Text == null || Convert.ToDecimal(txtZakresGora.Text) < Convert.ToDecimal(txtZakresDol.Text))
                     {
@@ -94,12 +98,12 @@ namespace KWZP2022
                     }
                     else
                     {
-                        int parametrMaterial = int.Parse(this.dgvParametrMaterial.CurrentRow.Cells[1].Value.ToString());
-                        Parametr_material parametrMaterialRP = this.db.Parametr_material.Single(a => a.ID_rodzaj_parametr == parametrMaterial);
-                        parametrMaterialRP.ID_rodzaj_parametr = (int)cmbParametr.SelectedValue;
-                        parametrMaterialRP.ID_material = (int)cmbMaterial.SelectedValue;
-                        parametrMaterialRP.Zakres_gora = Convert.ToDecimal(txtZakresGora.Text);
-                        parametrMaterialRP.Zakres_dol = Convert.ToDecimal(txtZakresDol.Text);
+                        int parametrMaszyna = int.Parse(this.dgvParametrMaszyna.CurrentRow.Cells[1].Value.ToString());
+                        Parametr_maszyna parametrMaszynaRP = this.db.Parametr_maszyna.Single(a => a.ID_rodzaj_parametr == parametrMaszyna);
+                        parametrMaszynaRP.ID_rodzaj_parametr = (int)cmbParametr.SelectedValue;
+                        parametrMaszynaRP.ID_maszyna = (int)cmbMaszyna.SelectedValue;
+                        parametrMaszynaRP.Zakres_gora = Convert.ToDecimal(txtZakresGora.Text);
+                        parametrMaszynaRP.Zakres_dol = Convert.ToDecimal(txtZakresDol.Text);
                         db.SaveChanges();
                         initDataGridView();
                         MessageBox.Show("Zapisano zmiany!", "Informacja", MessageBoxButtons.OK);
@@ -155,4 +159,3 @@ namespace KWZP2022
         }
     }
 }
-

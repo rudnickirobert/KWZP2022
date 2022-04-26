@@ -40,6 +40,7 @@
             this.lblRodzajMaszyna = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtKosztRBG = new System.Windows.Forms.TextBox();
+            this.btnDodajParametr = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaszyna)).BeginInit();
             this.SuspendLayout();
             // 
@@ -160,11 +161,24 @@
             this.txtKosztRBG.TabIndex = 30;
             this.txtKosztRBG.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKosztRBG_KeyPress);
             // 
+            // btnDodajParametr
+            // 
+            this.btnDodajParametr.BackColor = System.Drawing.Color.Orange;
+            this.btnDodajParametr.Font = new System.Drawing.Font("Arial", 16F);
+            this.btnDodajParametr.Location = new System.Drawing.Point(553, 81);
+            this.btnDodajParametr.Name = "btnDodajParametr";
+            this.btnDodajParametr.Size = new System.Drawing.Size(219, 42);
+            this.btnDodajParametr.TabIndex = 31;
+            this.btnDodajParametr.Text = "Przypisz parametry";
+            this.btnDodajParametr.UseVisualStyleBackColor = false;
+            this.btnDodajParametr.Click += new System.EventHandler(this.btnDodajParametr_Click);
+            // 
             // FormResDepMaszyna
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
             this.ClientSize = new System.Drawing.Size(800, 498);
+            this.Controls.Add(this.btnDodajParametr);
             this.Controls.Add(this.txtKosztRBG);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbRodzajMaszyna);
@@ -201,5 +215,6 @@
         private System.Windows.Forms.Label lblRodzajMaszyna;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtKosztRBG;
+        private System.Windows.Forms.Button btnDodajParametr;
     }
 }

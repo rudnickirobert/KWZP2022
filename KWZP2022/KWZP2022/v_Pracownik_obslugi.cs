@@ -12,12 +12,9 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Sklad_maszyna
+    public partial class v_Pracownik_obslugi
     {
-        public int ID_maszyna { get; set; }
-        public int ID_czesc { get; set; }
-        public string Nazwa_maszyny { get; set; }
-        public string Nazwa_części { get; set; }
-        public int Liczba_czesci { get; set; }
+        public int ID_pracownik { get; set; }
+        public string Pracownik { get; set; }
     }
 }

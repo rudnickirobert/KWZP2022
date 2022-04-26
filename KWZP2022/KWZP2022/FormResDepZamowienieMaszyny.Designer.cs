@@ -47,6 +47,7 @@
             this.btnDodajMaszyna = new System.Windows.Forms.Button();
             this.lvlZamowienieMaszyna = new System.Windows.Forms.Label();
             this.dgvZamowienieMaszyna = new System.Windows.Forms.DataGridView();
+            this.btnAktualizujStatus = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numIlosc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienieMaszyna)).BeginInit();
             this.SuspendLayout();
@@ -177,7 +178,7 @@
             this.cmbPracownik.FormattingEnabled = true;
             this.cmbPracownik.Location = new System.Drawing.Point(140, 56);
             this.cmbPracownik.Name = "cmbPracownik";
-            this.cmbPracownik.Size = new System.Drawing.Size(213, 32);
+            this.cmbPracownik.Size = new System.Drawing.Size(367, 32);
             this.cmbPracownik.TabIndex = 47;
             // 
             // lblMaszyna
@@ -247,11 +248,23 @@
             this.dgvZamowienieMaszyna.Size = new System.Drawing.Size(772, 208);
             this.dgvZamowienieMaszyna.TabIndex = 41;
             // 
+            // btnAktualizujStatus
+            // 
+            this.btnAktualizujStatus.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.btnAktualizujStatus.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAktualizujStatus.Location = new System.Drawing.Point(611, 450);
+            this.btnAktualizujStatus.Name = "btnAktualizujStatus";
+            this.btnAktualizujStatus.Size = new System.Drawing.Size(177, 36);
+            this.btnAktualizujStatus.TabIndex = 59;
+            this.btnAktualizujStatus.Text = "Aktualizuj status";
+            this.btnAktualizujStatus.UseVisualStyleBackColor = false;
+            // 
             // FormResDepZamowienieMaszyny
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
             this.ClientSize = new System.Drawing.Size(800, 498);
+            this.Controls.Add(this.btnAktualizujStatus);
             this.Controls.Add(this.btnDodajZamowienie);
             this.Controls.Add(this.btnDodajProducenta);
             this.Controls.Add(this.btnDodajDostawca);
@@ -303,5 +316,6 @@
         private System.Windows.Forms.Button btnDodajMaszyna;
         private System.Windows.Forms.Label lvlZamowienieMaszyna;
         private System.Windows.Forms.DataGridView dgvZamowienieMaszyna;
+        private System.Windows.Forms.Button btnAktualizujStatus;
     }
 }
