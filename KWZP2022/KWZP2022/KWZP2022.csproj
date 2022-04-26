@@ -851,10 +851,10 @@
     <Compile Include="v_Pracownik.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="v_Pracownik_obslugi.cs">
+    <Compile Include="v_Pracownik_dzial.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="v_Pracownik_dzial.cs">
+    <Compile Include="v_Pracownik_obslugi.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Pracownik_produkcja.cs">
@@ -977,13 +977,13 @@
     <Compile Include="v_Umowa_do_sprzedaz.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="v_Wynik_kontroli.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="v_Wymiana_czesc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Wymiana_czesc_w_trakcie.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Wynik_kontroli.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Wytwarzanie.cs">
