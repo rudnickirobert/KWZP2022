@@ -32,8 +32,8 @@ namespace KWZP2022
             dgvObsluga.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             this.dgvObsluga.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             //dgvObsluga.Columns[0].Visible = false;
-            //dgvObsluga.Columns[1].Visible = false;
-            //dgvObsluga.Columns[2].Visible = false;
+            dgvObsluga.Columns[1].Visible = false;
+            dgvObsluga.Columns[2].Visible = false;
         }
 
         private void btnDodajPracownika_Click(object sender, EventArgs e)

@@ -45,6 +45,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObslugiWymiana)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCzesci)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaszyny)).BeginInit();
@@ -122,7 +123,7 @@
             // 
             this.btnUsunWymiane.BackColor = System.Drawing.Color.Red;
             this.btnUsunWymiane.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnUsunWymiane.Location = new System.Drawing.Point(725, 537);
+            this.btnUsunWymiane.Location = new System.Drawing.Point(725, 488);
             this.btnUsunWymiane.Name = "btnUsunWymiane";
             this.btnUsunWymiane.Size = new System.Drawing.Size(134, 43);
             this.btnUsunWymiane.TabIndex = 105;
@@ -155,7 +156,7 @@
             // 
             this.btnWyborMaszyny.BackColor = System.Drawing.Color.Lime;
             this.btnWyborMaszyny.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnWyborMaszyny.Location = new System.Drawing.Point(455, 12);
+            this.btnWyborMaszyny.Location = new System.Drawing.Point(507, 12);
             this.btnWyborMaszyny.Name = "btnWyborMaszyny";
             this.btnWyborMaszyny.Size = new System.Drawing.Size(212, 43);
             this.btnWyborMaszyny.TabIndex = 108;
@@ -176,51 +177,64 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.Location = new System.Drawing.Point(10, 61);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(127, 18);
+            this.label3.Size = new System.Drawing.Size(135, 19);
             this.label3.TabIndex = 111;
-            this.label3.Text = "Wymiany Części:";
+            this.label3.Text = "Wymiany Części";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.Location = new System.Drawing.Point(394, 64);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(404, 18);
+            this.label2.Size = new System.Drawing.Size(452, 19);
             this.label2.TabIndex = 112;
-            this.label2.Text = "Maszyny wchodządze w skład stanowiska produkcyjnego:";
+            this.label2.Text = "Maszyny wchodządze w skład stanowiska produkcyjnego";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.label4.Location = new System.Drawing.Point(12, 393);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(336, 18);
+            this.label4.Size = new System.Drawing.Size(370, 19);
             this.label4.TabIndex = 113;
-            this.label4.Text = "Częsci wymienione w ramach wybranej obsługi:";
+            this.label4.Text = "Częsci wymienione w ramach wybranej obsługi";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.label5.Location = new System.Drawing.Point(863, 153);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(261, 18);
+            this.label5.Size = new System.Drawing.Size(288, 19);
             this.label5.TabIndex = 114;
-            this.label5.Text = "Części wchodzące w skład maszyny:";
+            this.label5.Text = "Części wchodzące w skład maszyny";
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.Aqua;
+            this.btnRefresh.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnRefresh.Location = new System.Drawing.Point(725, 537);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(134, 43);
+            this.btnRefresh.TabIndex = 115;
+            this.btnRefresh.Text = "Odśwież";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // FormResDepServicesExchanged
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background;
             this.ClientSize = new System.Drawing.Size(1280, 711);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -268,5 +282,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

@@ -18,7 +18,6 @@ namespace KWZP2022
             InitializeComponent();
             this.db = db;
             initDataGridViewObslugi();
-            initDataGridViewWymiana();
         }
         private void initDataGridViewObslugi()
         {
@@ -30,29 +29,37 @@ namespace KWZP2022
         }
         private void initDataGridViewWymiana()
         {
-            dgvHistoriaWymian.DataSource = db.v_Wymiana_czesc_w_trakcie.ToList();
-            dgvHistoriaWymian.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-            this.dgvHistoriaWymian.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dgvHistoriaWymian.Columns[0].Visible = false;
-            dgvHistoriaWymian.Columns[1].Visible = false;
-            dgvHistoriaWymian.Columns[2].Visible = false;
+            string obsluga = dgvObslugiWymiana.CurrentRow.Cells[0].Value.ToString();
+            int obslugaID = int.Parse(obsluga);
+            List<v_Wymiana_czesc_w_trakcie> wymiana = db.v_Wymiana_czesc_w_trakcie.Where(a => a.ID_obsluga == obslugaID).ToList();
+            if (wymiana.Count() >= 0)
+            {
+                dgvHistoriaWymian.DataSource = wymiana;
+                dgvHistoriaWymian.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                this.dgvHistoriaWymian.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+                dgvHistoriaWymian.Columns[0].Visible = false;
+                dgvHistoriaWymian.Columns[1].Visible = false;
+                dgvHistoriaWymian.Columns[2].Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("CO SIĘ ODPIERDALAAA");
+            }
         }
-
-
         private void btnWyborObslugi_Click(object sender, EventArgs e)
         {
-            string wyborObslugi = dgvObslugiWymiana.CurrentRow.Cells[1].Value.ToString();
-            int wyborObslugiID = int.Parse(wyborObslugi);
-            List<v_Sklad_SP_maszyna> skladObslugi = db.v_Sklad_SP_maszyna.Where(a => a.ID_stanowiska_produkcyjnego == wyborObslugiID).ToList();
-            if (skladObslugi.Count() > 0)
+            string wyborStanowiska = dgvObslugiWymiana.CurrentRow.Cells[1].Value.ToString();
+            int wyborStanowiskaID = int.Parse(wyborStanowiska);
+            List<v_Sklad_SP_maszyna> skladStanowiska = db.v_Sklad_SP_maszyna.Where(a => a.ID_stanowiska_produkcyjnego == wyborStanowiskaID).ToList();
+            if (skladStanowiska.Count() > 0)
             {
-                dgvMaszyny.DataSource = skladObslugi;
+                dgvMaszyny.DataSource = skladStanowiska;
                 dgvMaszyny.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                 this.dgvMaszyny.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                 dgvMaszyny.Columns[0].Visible = false;
                 dgvMaszyny.Columns[1].Visible = false;
                 dgvMaszyny.Columns[2].Visible = false;
-                txtWybranaObsluga.Text= dgvObslugiWymiana.CurrentRow.Cells[1].Value.ToString();
+                txtWybranaObsluga.Text= dgvObslugiWymiana.CurrentRow.Cells[0].Value.ToString();
                 btnWyborMaszyny.Visible = true;
                 initDataGridViewWymiana();
             }
@@ -80,7 +87,6 @@ namespace KWZP2022
                     txtMaszynaWybrana.Text = dgvMaszyny.CurrentRow.Cells[4].Value.ToString();
                     btnDodajWymiane.Visible = true;
                     btnUsunWymiane.Visible = true;
-                    initDataGridViewWymiana();
                 }
                 else
                 {
@@ -97,41 +103,54 @@ namespace KWZP2022
             try
             {
                 Wymiana_czesc wymiana = new Wymiana_czesc();
-                wymiana.ID_obsluga = (int)dgvObslugiWymiana.CurrentRow.Cells[1].Value;
+                wymiana.ID_obsluga = (int)dgvObslugiWymiana.CurrentRow.Cells[0].Value;
                 wymiana.ID_maszyna_nr = (int)dgvMaszyny.CurrentRow.Cells[1].Value;
                 wymiana.ID_czesc = (int)dgvCzesci.CurrentRow.Cells[1].Value;
                 db.Wymiana_czesc.Add(wymiana);
                 db.SaveChanges();
-                initDataGridViewObslugi();
                 initDataGridViewWymiana();
                 MessageBox.Show("Wymieniono!");
             }
             catch
             {
-                MessageBox.Show("Wybierz część!");
-                initDataGridViewWymiana();
+                MessageBox.Show("Wybierz poprawną część!");
             }
         }
         private void btnUsunWymiane_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz usunąć wymienianą część: " + this.dgvWymianaCzesc.CurrentRow.Cells[3].Value + "?", "Question", MessageBoxButtons.YesNo);
-            //    if (dialogResult == DialogResult.Yes)
-            //    {
-            //        string current_wymiana = this.dgvWymianaCzesc.CurrentRow.Cells[0].Value.ToString();
-            //        int daneINT = int.Parse(current_wymiana);
-            //        Wymiana_czesc danaWymiana = db.Wymiana_czesc.Single(a => a.ID_obsluga == daneINT);
-            //        this.db.Wymiana_czesc.Remove(danaWymiana);
-            //        db.SaveChanges();
-            //        initDataGridView();
-            //    }
-            //}
-            //catch
-            //{
-            //    MessageBox.Show("Nie można usunąć części");
-            //}
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz usunąć wymienianą część: " + this.dgvHistoriaWymian.CurrentRow.Cells[7].Value + "?", "Question", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    string wymianaObsluga = this.dgvHistoriaWymian.CurrentRow.Cells[0].Value.ToString();
+                    int wymianaObslugaID = int.Parse(wymianaObsluga);
+                    string wymianaMaszyna = this.dgvHistoriaWymian.CurrentRow.Cells[1].Value.ToString();
+                    int wymianaMaszynaID = int.Parse(wymianaMaszyna);
+                    string wymianaCzesc = this.dgvHistoriaWymian.CurrentRow.Cells[2].Value.ToString();
+                    int wymianaCzescID = int.Parse(wymianaCzesc);
+                    Wymiana_czesc danaWymiana = db.Wymiana_czesc.Single(a => a.ID_obsluga == wymianaObslugaID && a.ID_maszyna_nr==wymianaMaszynaID && a.ID_czesc==wymianaCzescID);
+                    db.Wymiana_czesc.Remove(danaWymiana);
+                    db.SaveChanges();
+                    initDataGridViewWymiana();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Nie można usunąć części");
+            }
+        }
 
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            dgvHistoriaWymian.DataSource = null;
+            dgvCzesci.DataSource = null;
+            dgvMaszyny.DataSource = null;
+            txtMaszynaWybrana.Clear();
+            txtWybranaObsluga.Clear();
+            btnWyborMaszyny.Visible = false;
+            btnUsunWymiane.Visible = false;
+            btnDodajWymiane.Visible = false;
         }
     }
 }
