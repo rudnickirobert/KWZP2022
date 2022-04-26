@@ -905,6 +905,9 @@
     <Compile Include="v_Wytworzone_produkty.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Wytworzone_produkty_zamowienie.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Zamowienia_czesci_w_trakcie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>

@@ -80,18 +80,17 @@ namespace KWZP2022
             cbZamowienie.DataSource = db.v_Zamowienie_produkcja.ToList();
             cbZamowienie.ValueMember = "ID";
             cbZamowienie.DisplayMember = "Klient";
-
         }
 
         private void enterIdOrder()
         {
             string zamowienie = cbZamowienie.SelectedValue.ToString();
             int zamowienieID = int.Parse(zamowienie);
-            System.Linq.IQueryable vOrderId = db.v_Zamowienie_szczegol_produkcja.Where(a => a.ID == zamowienieID);
-            int vOrderIdInt = vOrderId.Cast<v_Zamowienie_szczegol_produkcja>().Where(a => a.ID > 0).Count();
+            List<v_Zamowienie_szczegol_produkcja> vOrderId = db.v_Zamowienie_szczegol_produkcja.Where(a => a.ID == zamowienieID).ToList();
+            int vOrderIdInt = vOrderId.Count();
             if (vOrderIdInt > 0)
             {
-                dgvZamowienieSzczegol.DataSource = vOrderId.Cast<v_Zamowienie_szczegol_produkcja>().ToList();
+                dgvZamowienieSzczegol.DataSource = vOrderId;
 
                 refreshScreen();
             }
@@ -118,11 +117,11 @@ namespace KWZP2022
             string produktID = txtSzukanyProduktID.Text;
             int produktIDint = int.Parse(produktID);
 
-            System.Linq.IQueryable vProdukt = db.v_Proces_produkt_czynnosc.Where(a => a.ID_Produktu == produktIDint);
-            int vProduktIdInt = vProdukt.Cast<v_Proces_produkt_czynnosc>().Where(a => a.ID_Produktu > 0).Count();
+            List<v_Proces_produkt_czynnosc> vProdukt = db.v_Proces_produkt_czynnosc.Where(a => a.ID_Produktu == produktIDint).ToList();
+            int vProduktIdInt = vProdukt.Count();
             if (vProduktIdInt > 0)
             {
-                dgvProcesProdukt.DataSource = vProdukt.Cast<v_Proces_produkt_czynnosc>().ToList();
+                dgvProcesProdukt.DataSource = vProdukt;
                 this.dgvProcesProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 
                 refreshScreen();
@@ -133,11 +132,11 @@ namespace KWZP2022
                 refreshScreen();
             }
 
-            System.Linq.IQueryable vPolprodukt = db.v_Proces_polprodukt_czynnosc.Where(a => a.ID_Produktu == produktIDint);
-            int vPolproduktIdInt = vPolprodukt.Cast<v_Proces_polprodukt_czynnosc>().Where(a => a.ID_Produktu > 0).Count();
+            List<v_Proces_polprodukt_czynnosc> vPolprodukt = db.v_Proces_polprodukt_czynnosc.Where(a => a.ID_Produktu == produktIDint).ToList();
+            int vPolproduktIdInt = vPolprodukt.Count();
             if (vProduktIdInt > 0)
             {
-                dgvProcesPolprodukt.DataSource = vPolprodukt.Cast<v_Proces_polprodukt_czynnosc>().ToList();
+                dgvProcesPolprodukt.DataSource = vPolprodukt;
                 dgvProcesPolprodukt.Columns["ID_produktu"].Visible = false;
                 this.dgvProcesPolprodukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                 refreshScreen();

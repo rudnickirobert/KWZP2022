@@ -209,6 +209,7 @@ namespace KWZP2022
         public virtual DbSet<v_Wynik_kontroli> v_Wynik_kontroli { get; set; }
         public virtual DbSet<v_Wytwarzanie> v_Wytwarzanie { get; set; }
         public virtual DbSet<v_Wytworzone_produkty> v_Wytworzone_produkty { get; set; }
+        public virtual DbSet<v_Wytworzone_produkty_zamowienie> v_Wytworzone_produkty_zamowienie { get; set; }
         public virtual DbSet<v_Zamowienia_czesci_w_trakcie> v_Zamowienia_czesci_w_trakcie { get; set; }
         public virtual DbSet<v_Zamowienia_czesci_w_trakcie_bez_odebranych> v_Zamowienia_czesci_w_trakcie_bez_odebranych { get; set; }
         public virtual DbSet<v_Zamowienia_czesci_w_trakcie_wszystko> v_Zamowienia_czesci_w_trakcie_wszystko { get; set; }

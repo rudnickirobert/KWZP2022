@@ -22,6 +22,7 @@ namespace KWZP2022
             initComboboxRodzajKontrola();
             initDataGridViewKontrolaJakosciParametr();
             initDataGridViewKontrolaPozytywna();
+            initComboboxZamowienie();
         }
 
         private void refreshScreen()
@@ -35,7 +36,7 @@ namespace KWZP2022
 
         private void initDataGridViewNazwa()
         {
-            dgvvKontrolaJakosciKolejka.DataSource = db.v_Wytworzone_produkty.ToList();
+            dgvvKontrolaJakosciKolejka.DataSource = db.v_Wytworzone_produkty_zamowienie.ToList();
             dgvvKontrolaJakosciKolejka.Columns["ID"].HeaderText = "ID_wytwarzanie";
             dgvvKontrolaJakosciKolejka.Columns["ID_produkt"].Visible = false;
             dgvvKontrolaJakosciKolejka.Columns["Czynność_produkcyjna"].Visible = false;            
@@ -94,6 +95,13 @@ namespace KWZP2022
             this.dgvPozytywne.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dgvPozytywne.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
           
+        }
+
+        private void initComboboxZamowienie()
+        {
+            cbZamowienie.DataSource = db.v_Zamowienie_produkcja.ToList();
+            cbZamowienie.ValueMember = "ID";
+            cbZamowienie.DisplayMember = "Klient";
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
@@ -169,6 +177,11 @@ namespace KWZP2022
                 }
                 refreshScreen();
             }            
-        }        
+        }
+
+        private void btnWczytajZamowienie_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

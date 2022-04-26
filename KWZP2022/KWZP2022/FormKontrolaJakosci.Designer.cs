@@ -54,6 +54,8 @@
             this.dTPCzasOd = new System.Windows.Forms.DateTimePicker();
             this.dgvPozytywne = new System.Windows.Forms.DataGridView();
             this.btnGeneruj = new System.Windows.Forms.Button();
+            this.cbZamowienie = new System.Windows.Forms.ComboBox();
+            this.btnWczytajZamowienie = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvvParametrProdukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvvKontrolaProdukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvvKontrolaJakosciKolejka)).BeginInit();
@@ -63,7 +65,7 @@
             // btnOdswiez
             // 
             this.btnOdswiez.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnOdswiez.Location = new System.Drawing.Point(29, 624);
+            this.btnOdswiez.Location = new System.Drawing.Point(12, 605);
             this.btnOdswiez.Name = "btnOdswiez";
             this.btnOdswiez.Size = new System.Drawing.Size(334, 37);
             this.btnOdswiez.TabIndex = 39;
@@ -74,7 +76,7 @@
             // 
             this.btnDodaj.BackColor = System.Drawing.Color.PaleGreen;
             this.btnDodaj.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnDodaj.Location = new System.Drawing.Point(29, 581);
+            this.btnDodaj.Location = new System.Drawing.Point(12, 536);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(334, 37);
             this.btnDodaj.TabIndex = 36;
@@ -96,9 +98,9 @@
             // dgvvParametrProdukt
             // 
             this.dgvvParametrProdukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvvParametrProdukt.Location = new System.Drawing.Point(737, 83);
+            this.dgvvParametrProdukt.Location = new System.Drawing.Point(681, 83);
             this.dgvvParametrProdukt.Name = "dgvvParametrProdukt";
-            this.dgvvParametrProdukt.Size = new System.Drawing.Size(537, 259);
+            this.dgvvParametrProdukt.Size = new System.Drawing.Size(593, 290);
             this.dgvvParametrProdukt.TabIndex = 40;
             this.dgvvParametrProdukt.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvvParametrProdukt_CellContentClick);
             // 
@@ -260,7 +262,7 @@
             // dgvvKontrolaJakosciKolejka
             // 
             this.dgvvKontrolaJakosciKolejka.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvvKontrolaJakosciKolejka.Location = new System.Drawing.Point(413, 83);
+            this.dgvvKontrolaJakosciKolejka.Location = new System.Drawing.Point(356, 83);
             this.dgvvKontrolaJakosciKolejka.Name = "dgvvKontrolaJakosciKolejka";
             this.dgvvKontrolaJakosciKolejka.Size = new System.Drawing.Size(294, 259);
             this.dgvvKontrolaJakosciKolejka.TabIndex = 58;
@@ -294,23 +296,43 @@
             // dgvPozytywne
             // 
             this.dgvPozytywne.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPozytywne.Location = new System.Drawing.Point(562, 387);
+            this.dgvPozytywne.Location = new System.Drawing.Point(681, 387);
             this.dgvPozytywne.Name = "dgvPozytywne";
-            this.dgvPozytywne.Size = new System.Drawing.Size(593, 254);
+            this.dgvPozytywne.Size = new System.Drawing.Size(593, 290);
             this.dgvPozytywne.TabIndex = 62;
-            
             // 
             // btnGeneruj
             // 
             this.btnGeneruj.BackColor = System.Drawing.Color.Khaki;
             this.btnGeneruj.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnGeneruj.Location = new System.Drawing.Point(26, 526);
+            this.btnGeneruj.Location = new System.Drawing.Point(356, 458);
             this.btnGeneruj.Name = "btnGeneruj";
-            this.btnGeneruj.Size = new System.Drawing.Size(334, 37);
+            this.btnGeneruj.Size = new System.Drawing.Size(294, 37);
             this.btnGeneruj.TabIndex = 63;
             this.btnGeneruj.Text = "Pomiar Maszyna";
             this.btnGeneruj.UseVisualStyleBackColor = false;
             this.btnGeneruj.Click += new System.EventHandler(this.btnGeneruj_Click);
+            // 
+            // cbZamowienie
+            // 
+            this.cbZamowienie.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cbZamowienie.FormattingEnabled = true;
+            this.cbZamowienie.Location = new System.Drawing.Point(356, 358);
+            this.cbZamowienie.Name = "cbZamowienie";
+            this.cbZamowienie.Size = new System.Drawing.Size(294, 25);
+            this.cbZamowienie.TabIndex = 64;
+            // 
+            // btnWczytajZamowienie
+            // 
+            this.btnWczytajZamowienie.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.btnWczytajZamowienie.Font = new System.Drawing.Font("Arial", 15F);
+            this.btnWczytajZamowienie.Location = new System.Drawing.Point(356, 407);
+            this.btnWczytajZamowienie.Name = "btnWczytajZamowienie";
+            this.btnWczytajZamowienie.Size = new System.Drawing.Size(294, 37);
+            this.btnWczytajZamowienie.TabIndex = 65;
+            this.btnWczytajZamowienie.Text = "Wczytaj produkty";
+            this.btnWczytajZamowienie.UseVisualStyleBackColor = false;
+            this.btnWczytajZamowienie.Click += new System.EventHandler(this.btnWczytajZamowienie_Click);
             // 
             // FormKontrolaJakosci
             // 
@@ -318,6 +340,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background;
             this.ClientSize = new System.Drawing.Size(1276, 714);
+            this.Controls.Add(this.btnWczytajZamowienie);
+            this.Controls.Add(this.cbZamowienie);
             this.Controls.Add(this.btnGeneruj);
             this.Controls.Add(this.dgvPozytywne);
             this.Controls.Add(this.dTPCzasDo);
@@ -383,5 +407,7 @@
         private System.Windows.Forms.DateTimePicker dTPCzasOd;
         private System.Windows.Forms.DataGridView dgvPozytywne;
         private System.Windows.Forms.Button btnGeneruj;
+        private System.Windows.Forms.ComboBox cbZamowienie;
+        private System.Windows.Forms.Button btnWczytajZamowienie;
     }
 }
