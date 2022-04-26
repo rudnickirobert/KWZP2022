@@ -1193,13 +1193,13 @@ VALUES
 (28,7,7,1,2100),
 (29,6,6,2,10600);
 
-INSERT INTO Obsluga(ID_rodzaj_obsluga, ID_stanowisko_produkcyjne, Data_od, Data_do, Uwagi)
+INSERT INTO Obsluga(ID_rodzaj_obsluga, ID_stanowisko_produkcyjne, Data_od, Data_do)
 VALUES
-(3,1,'2022-02-12','2022-02-14', 'Brak'),
-(1,2,'2022-01-15',NULL, 'Brak'),
-(1,3,'2021-12-22','2021-12-31', 'Nowa czesc'),
-(2,5,'2022-03-02','2022-03-22', 'Gotowe do pracy'),
-(3,2,'2022-04-12','2022-04-14', 'Brak');
+(3,1,'2022-04-20','2022-04-21'),
+(1,2,'2022-04-20',NULL),
+(1,3,'2021-04-21','2021-04-21'),
+(2,5,'2021-04-22','2021-04-23'),
+(3,2,'2021-04-22','2021-04-24');
 
 INSERT Obsluga_pracownik (ID_obsluga, ID_pracownik)
 VALUES

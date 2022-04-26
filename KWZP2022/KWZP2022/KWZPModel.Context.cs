@@ -207,6 +207,7 @@ namespace KWZP2022
         public virtual DbSet<v_Tygodniowe_rozliczenie_pracy_produkcja> v_Tygodniowe_rozliczenie_pracy_produkcja { get; set; }
         public virtual DbSet<v_Umowa> v_Umowa { get; set; }
         public virtual DbSet<v_Wymiana_czesc> v_Wymiana_czesc { get; set; }
+        public virtual DbSet<v_Wymiana_czesc_w_trakcie> v_Wymiana_czesc_w_trakcie { get; set; }
         public virtual DbSet<v_Wytwarzanie> v_Wytwarzanie { get; set; }
         public virtual DbSet<v_Wytworzone_produkty> v_Wytworzone_produkty { get; set; }
         public virtual DbSet<v_Zamowienia_czesci_w_trakcie> v_Zamowienia_czesci_w_trakcie { get; set; }

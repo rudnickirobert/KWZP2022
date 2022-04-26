@@ -789,6 +789,9 @@
     <Compile Include="v_Wymiana_czesc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Wymiana_czesc_w_trakcie.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Wytwarzanie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>

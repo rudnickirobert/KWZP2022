@@ -41,6 +41,10 @@
             this.btnWyborObslugi = new System.Windows.Forms.Button();
             this.btnWyborMaszyny = new System.Windows.Forms.Button();
             this.dgvHistoriaWymian = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObslugiWymiana)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCzesci)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaszyny)).BeginInit();
@@ -51,7 +55,7 @@
             // 
             this.btnDodajWymiane.BackColor = System.Drawing.Color.Lime;
             this.btnDodajWymiane.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDodajWymiane.Location = new System.Drawing.Point(852, 164);
+            this.btnDodajWymiane.Location = new System.Drawing.Point(725, 439);
             this.btnDodajWymiane.Name = "btnDodajWymiane";
             this.btnDodajWymiane.Size = new System.Drawing.Size(134, 43);
             this.btnDodajWymiane.TabIndex = 91;
@@ -71,9 +75,9 @@
             // dgvCzesci
             // 
             this.dgvCzesci.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCzesci.Location = new System.Drawing.Point(852, 213);
+            this.dgvCzesci.Location = new System.Drawing.Point(865, 174);
             this.dgvCzesci.Name = "dgvCzesci";
-            this.dgvCzesci.Size = new System.Drawing.Size(414, 457);
+            this.dgvCzesci.Size = new System.Drawing.Size(414, 496);
             this.dgvCzesci.TabIndex = 98;
             // 
             // txtWybranaObsluga
@@ -118,7 +122,7 @@
             // 
             this.btnUsunWymiane.BackColor = System.Drawing.Color.Red;
             this.btnUsunWymiane.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnUsunWymiane.Location = new System.Drawing.Point(1132, 164);
+            this.btnUsunWymiane.Location = new System.Drawing.Point(725, 537);
             this.btnUsunWymiane.Name = "btnUsunWymiane";
             this.btnUsunWymiane.Size = new System.Drawing.Size(134, 43);
             this.btnUsunWymiane.TabIndex = 105;
@@ -132,14 +136,14 @@
             this.dgvMaszyny.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMaszyny.Location = new System.Drawing.Point(397, 85);
             this.dgvMaszyny.Name = "dgvMaszyny";
-            this.dgvMaszyny.Size = new System.Drawing.Size(351, 288);
+            this.dgvMaszyny.Size = new System.Drawing.Size(401, 288);
             this.dgvMaszyny.TabIndex = 106;
             // 
             // btnWyborObslugi
             // 
             this.btnWyborObslugi.BackColor = System.Drawing.Color.Lime;
             this.btnWyborObslugi.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnWyborObslugi.Location = new System.Drawing.Point(71, 36);
+            this.btnWyborObslugi.Location = new System.Drawing.Point(75, 12);
             this.btnWyborObslugi.Name = "btnWyborObslugi";
             this.btnWyborObslugi.Size = new System.Drawing.Size(212, 43);
             this.btnWyborObslugi.TabIndex = 107;
@@ -151,7 +155,7 @@
             // 
             this.btnWyborMaszyny.BackColor = System.Drawing.Color.Lime;
             this.btnWyborMaszyny.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnWyborMaszyny.Location = new System.Drawing.Point(460, 36);
+            this.btnWyborMaszyny.Location = new System.Drawing.Point(455, 12);
             this.btnWyborMaszyny.Name = "btnWyborMaszyny";
             this.btnWyborMaszyny.Size = new System.Drawing.Size(212, 43);
             this.btnWyborMaszyny.TabIndex = 108;
@@ -163,16 +167,64 @@
             // dgvHistoriaWymian
             // 
             this.dgvHistoriaWymian.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHistoriaWymian.Location = new System.Drawing.Point(13, 382);
+            this.dgvHistoriaWymian.Location = new System.Drawing.Point(13, 414);
             this.dgvHistoriaWymian.Name = "dgvHistoriaWymian";
-            this.dgvHistoriaWymian.Size = new System.Drawing.Size(735, 288);
+            this.dgvHistoriaWymian.Size = new System.Drawing.Size(706, 256);
             this.dgvHistoriaWymian.TabIndex = 109;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(10, 61);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(127, 18);
+            this.label3.TabIndex = 111;
+            this.label3.Text = "Wymiany Części:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(394, 64);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(404, 18);
+            this.label2.TabIndex = 112;
+            this.label2.Text = "Maszyny wchodządze w skład stanowiska produkcyjnego:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(12, 393);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(336, 18);
+            this.label4.TabIndex = 113;
+            this.label4.Text = "Częsci wymienione w ramach wybranej obsługi:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Location = new System.Drawing.Point(863, 153);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(261, 18);
+            this.label5.TabIndex = 114;
+            this.label5.Text = "Części wchodzące w skład maszyny:";
             // 
             // FormResDepServicesExchanged
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background;
             this.ClientSize = new System.Drawing.Size(1280, 711);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.dgvHistoriaWymian);
             this.Controls.Add(this.btnWyborMaszyny);
             this.Controls.Add(this.btnWyborObslugi);
@@ -212,5 +264,9 @@
         private System.Windows.Forms.Button btnWyborObslugi;
         private System.Windows.Forms.Button btnWyborMaszyny;
         private System.Windows.Forms.DataGridView dgvHistoriaWymian;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }

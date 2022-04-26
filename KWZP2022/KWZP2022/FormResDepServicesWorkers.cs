@@ -13,13 +13,12 @@ namespace KWZP2022
     public partial class FormResDepServicesWorkers : Form
     {
         KWZPEntities db;
-        public FormResDepServicesWorkers(KWZPEntities db)
+        Obsluga wybranaObslugaDGV;
+        public FormResDepServicesWorkers(KWZPEntities db, Obsluga wybranaObslugaDGV)
         {
             InitializeComponent();
             this.db = db;
-            cmbObsluga.DataSource = db.v_Obsluga_cmb.ToList();
-            cmbObsluga.DisplayMember = "ComboObsluga";
-            cmbObsluga.ValueMember = "ID";
+            this.wybranaObslugaDGV = wybranaObslugaDGV;
             cmbPracownik.DataSource = db.v_Pracownik_obslugi.ToList();
             cmbPracownik.DisplayMember = "Pracownik";
             cmbPracownik.ValueMember = "ID_pracownik";
@@ -27,29 +26,35 @@ namespace KWZP2022
         }
         private void initDataGridView()
         {
-            dgvObsluga.DataSource = db.v_Obsluga_pracownik.ToList();
-            dgvObsluga.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            int wyborObslugi = wybranaObslugaDGV.ID_obsluga;
+            List<v_Obsluga_pracownik> pracownikObsluga = db.v_Obsluga_pracownik.Where(a => a.ID_obsluga == wyborObslugi).ToList();
+            dgvObsluga.DataSource = pracownikObsluga.Cast<v_Obsluga_pracownik>().ToList();
+            dgvObsluga.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            this.dgvObsluga.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            //dgvObsluga.Columns[0].Visible = false;
+            //dgvObsluga.Columns[1].Visible = false;
+            //dgvObsluga.Columns[2].Visible = false;
         }
 
         private void btnDodajPracownika_Click(object sender, EventArgs e)
         {
-            //Sklad_obsluga obslugaPracownik = new Sklad_obsluga();
-            //obslugaPracownik.ID_obsluga = (int)cmbObsluga.SelectedValue;
-            //obslugaPracownik.ID_pracownik = (int)cmbPracownik.SelectedValue;
-            //db.Sklad_obsluga.Add(obslugaPracownik);
-            //db.SaveChanges();
-            //initDataGridView();
-            //MessageBox.Show("Poprawnie dodano pracownika do obsługi");
-        }
-
-        private void btnEdytujPracownika_Click(object sender, EventArgs e)
-        {
-
+            Obsluga obsluga = this.db.Obsluga.Single(service => service.ID_obsluga == wybranaObslugaDGV.ID_obsluga);
+            Pracownik pracownik = this.db.Pracownik.Single(employee => employee.ID_pracownik == (int)cmbPracownik.SelectedValue);
+            obsluga.Pracownik.Add(pracownik);
+            db.SaveChanges();
+            initDataGridView();
+            MessageBox.Show("Poprawnie dodano pracownika do obsługi");
         }
 
         private void btnUsunPracownika_Click(object sender, EventArgs e)
         {
-
+            Obsluga obsluga = this.db.Obsluga.Single(service => service.ID_obsluga == wybranaObslugaDGV.ID_obsluga);
+            int wybranyPracownik = int.Parse(dgvObsluga.CurrentRow.Cells[1].Value.ToString());
+            Pracownik pracownik = this.db.Pracownik.Single(employee => employee.ID_pracownik == wybranyPracownik);
+            obsluga.Pracownik.Remove(pracownik);
+            db.SaveChanges();
+            initDataGridView();
+            MessageBox.Show("Usunięto pracownika z obsługi");
         }
     }
 }

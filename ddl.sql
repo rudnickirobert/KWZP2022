@@ -680,8 +680,7 @@ CREATE TABLE Obsluga
 	ID_stanowisko_produkcyjne INT FOREIGN KEY
 		REFERENCES Stanowisko_produkcyjne(ID_stanowisko_produkcyjne) NOT NULL,
 	Data_od DATETIME NOT NULL,
-	Data_do DATETIME ,
-	Uwagi NVARCHAR(100) NOT NULL
+	Data_do DATETIME
 );
 
 CREATE TABLE Obsluga_pracownik
@@ -691,7 +690,6 @@ CREATE TABLE Obsluga_pracownik
 	ID_pracownik INT FOREIGN KEY 
 		REFERENCES Pracownik(ID_Pracownik) NOT NULL,
 	CONSTRAINT PK_ObsPrac PRIMARY KEY (ID_obsluga, ID_pracownik)
-
 );
 
 CREATE TABLE Wymiana_czesc

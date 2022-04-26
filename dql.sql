@@ -553,12 +553,12 @@ GO
 
 CREATE VIEW v_Obsluga_pracownik
 AS
-SELECT Obsluga.ID_obsluga, Rodzaj_obsluga.Nazwa_rodzaj_obsluga AS [Obsługa], Pracownik.Nazwisko + ' ' + Pracownik.Imie AS [Pracownik]
+SELECT Obsluga.ID_obsluga, Pracownik.ID_pracownik, Rodzaj_obsluga.Nazwa_rodzaj_obsluga AS [Obsługa], Pracownik.Nazwisko + ' ' + Pracownik.Imie AS [Pracownik]
 FROM Obsluga_pracownik
 INNER JOIN Obsluga ON Obsluga_pracownik.ID_obsluga = Obsluga.ID_obsluga
 INNER JOIN Pracownik ON Obsluga_pracownik.ID_pracownik = Pracownik.ID_pracownik
 INNER JOIN Rodzaj_obsluga ON Obsluga.ID_rodzaj_obsluga = Rodzaj_obsluga.ID_rodzaj_obsluga
-GROUP BY Obsluga.ID_obsluga, Rodzaj_obsluga.Nazwa_rodzaj_obsluga, Pracownik.Nazwisko + ' ' + Pracownik.Imie
+GROUP BY Obsluga.ID_obsluga, Pracownik.ID_pracownik, Rodzaj_obsluga.Nazwa_rodzaj_obsluga, Pracownik.Nazwisko + ' ' + Pracownik.Imie
 GO
 
 CREATE VIEW v_Maszyna_nr_seryjny
