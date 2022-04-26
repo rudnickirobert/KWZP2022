@@ -56,5 +56,16 @@ namespace KWZP2022
             FormResDepServicesWorkers formResDepServicesWorkers = new FormResDepServicesWorkers(db, wybranaObslugaDGV);
             formResDepServicesWorkers.ShowDialog();
         }
+
+        private void btnDodajWymiane_Click(object sender, EventArgs e)
+        {
+            FormResDepServicesExchanged wymianaForm = new FormResDepServicesExchanged(db);
+            wymianaForm.ShowDialog();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            initDataGridView();
+        }
     }
 }
