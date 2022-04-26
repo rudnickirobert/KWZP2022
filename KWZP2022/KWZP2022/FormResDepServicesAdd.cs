@@ -24,28 +24,8 @@ namespace KWZP2022
             cmbStanowisko.DisplayMember = "Nazwa_stanowiska";
             cmbStanowisko.ValueMember = "ID";
             btnDodajWymiana.Visible = true;
-            initDataGridView();
         }
-        private void initDataGridView()
-        {
-            dgvTrwajaceObslugi.DataSource = db.v_Obslugi_w_trakcie.ToList();
-            dgvTrwajaceObslugi.Columns[4].Visible = false;
-            dgvTrwajaceObslugi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 
-        }
-        private void btnPrzypiszPracownika_Click(object sender, EventArgs e)
-        {
-            Obsluga obsluga = new Obsluga();
-            obsluga.ID_rodzaj_obsluga = (int)cmbObsluga.SelectedValue;
-            obsluga.ID_stanowisko_produkcyjne = (int)cmbStanowisko.SelectedValue;
-            obsluga.Data_od = dtpDataOd.Value;
-            obsluga.Uwagi = txtUwagi.Text;
-            db.Obsluga.Add(obsluga);
-            db.SaveChanges();
-            FormResDepServicesWorkers pracownikForm = new FormResDepServicesWorkers(db);
-            pracownikForm.ShowDialog();
-            initDataGridView();
-        }
         private void cmbObsluga_SelectedValueChanged(object sender, EventArgs e)
         {
             if (cmbObsluga.Text != "Wymiana czesci")
@@ -61,6 +41,17 @@ namespace KWZP2022
         {
             FormResDepServicesExchanged wymianaForm = new FormResDepServicesExchanged(db);
             wymianaForm.ShowDialog();
+        }
+
+        private void btnDodajObsluge_Click(object sender, EventArgs e)
+        {
+            Obsluga nowaObsluga = new Obsluga();
+            nowaObsluga.ID_rodzaj_obsluga = (int)cmbObsluga.SelectedValue;
+            nowaObsluga.ID_stanowisko_produkcyjne = (int)cmbStanowisko.SelectedValue;
+            nowaObsluga.Data_od = dtpDataOd.Value;
+            db.Obsluga.Add(nowaObsluga);
+            db.SaveChanges();
+            MessageBox.Show("Dodano Obsługę!");
         }
     }
 }

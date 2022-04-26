@@ -268,7 +268,6 @@
           <Property Name="ID_stanowisko_produkcyjne" Type="int" Nullable="false" />
           <Property Name="Data_od" Type="datetime" Nullable="false" />
           <Property Name="Data_do" Type="datetime" />
-          <Property Name="Uwagi" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Obsluga_pracownik">
           <Key>
@@ -1378,10 +1377,12 @@ warning 6002: The table/view 'KWZP.dbo.v_Obsluga_pracownik' does not have a prim
         <EntityType Name="v_Obsluga_pracownik">
           <Key>
             <PropertyRef Name="ID_obsluga" />
+            <PropertyRef Name="ID_pracownik" />
             <PropertyRef Name="Obsługa" />
             <PropertyRef Name="Pracownik" />
           </Key>
           <Property Name="ID_obsluga" Type="int" Nullable="false" />
+          <Property Name="ID_pracownik" Type="int" Nullable="false" />
           <Property Name="Obsługa" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Pracownik" Type="varchar" MaxLength="101" Nullable="false" />
         </EntityType>
@@ -2091,6 +2092,27 @@ warning 6002: The table/view 'KWZP.dbo.v_Umowa' does not have a primary key defi
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Wymiana_czesc' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Wymiana_czesc">
+          <Key>
+            <PropertyRef Name="ID_obsluga" />
+            <PropertyRef Name="ID_maszyna_nr" />
+            <PropertyRef Name="ID_czesc" />
+            <PropertyRef Name="Data_od" />
+            <PropertyRef Name="Nazwa_maszyna" />
+            <PropertyRef Name="Nr_seryjny" />
+            <PropertyRef Name="Nazwa_czesc" />
+          </Key>
+          <Property Name="ID_obsluga" Type="int" Nullable="false" />
+          <Property Name="ID_maszyna_nr" Type="int" Nullable="false" />
+          <Property Name="ID_czesc" Type="int" Nullable="false" />
+          <Property Name="Data_od" Type="datetime" Nullable="false" />
+          <Property Name="Data_do" Type="datetime" />
+          <Property Name="Nazwa_maszyna" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nr_seryjny" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Nazwa_czesc" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Wymiana_czesc_w_trakcie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Wymiana_czesc_w_trakcie">
           <Key>
             <PropertyRef Name="ID_obsluga" />
             <PropertyRef Name="ID_maszyna_nr" />
@@ -4362,6 +4384,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySet Name="v_Obsluga_pracownik" EntityType="Self.v_Obsluga_pracownik" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Obsluga_pracownik].[ID_obsluga] AS [ID_obsluga], 
+    [v_Obsluga_pracownik].[ID_pracownik] AS [ID_pracownik], 
     [v_Obsluga_pracownik].[Obsługa] AS [Obsługa], 
     [v_Obsluga_pracownik].[Pracownik] AS [Pracownik]
     FROM [dbo].[v_Obsluga_pracownik] AS [v_Obsluga_pracownik]</DefiningQuery>
@@ -4781,6 +4804,18 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
     [v_Wymiana_czesc].[Nr_seryjny] AS [Nr_seryjny], 
     [v_Wymiana_czesc].[Nazwa_czesc] AS [Nazwa_czesc]
     FROM [dbo].[v_Wymiana_czesc] AS [v_Wymiana_czesc]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Wymiana_czesc_w_trakcie" EntityType="Self.v_Wymiana_czesc_w_trakcie" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Wymiana_czesc_w_trakcie].[ID_obsluga] AS [ID_obsluga], 
+    [v_Wymiana_czesc_w_trakcie].[ID_maszyna_nr] AS [ID_maszyna_nr], 
+    [v_Wymiana_czesc_w_trakcie].[ID_czesc] AS [ID_czesc], 
+    [v_Wymiana_czesc_w_trakcie].[Data_od] AS [Data_od], 
+    [v_Wymiana_czesc_w_trakcie].[Data_do] AS [Data_do], 
+    [v_Wymiana_czesc_w_trakcie].[Nazwa_maszyna] AS [Nazwa_maszyna], 
+    [v_Wymiana_czesc_w_trakcie].[Nr_seryjny] AS [Nr_seryjny], 
+    [v_Wymiana_czesc_w_trakcie].[Nazwa_czesc] AS [Nazwa_czesc]
+    FROM [dbo].[v_Wymiana_czesc_w_trakcie] AS [v_Wymiana_czesc_w_trakcie]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Wytwarzanie" EntityType="Self.v_Wytwarzanie" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -5788,7 +5823,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <Property Name="ID_stanowisko_produkcyjne" Type="Int32" Nullable="false" />
           <Property Name="Data_od" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Data_do" Type="DateTime" Precision="3" />
-          <Property Name="Uwagi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Rodzaj_obsluga" Relationship="Self.FK__Obsluga__ID_rodz__0697FACD" FromRole="Obsluga" ToRole="Rodzaj_obsluga" />
           <NavigationProperty Name="Stanowisko_produkcyjne" Relationship="Self.FK__Obsluga__ID_stan__078C1F06" FromRole="Obsluga" ToRole="Stanowisko_produkcyjne" />
           <NavigationProperty Name="Wymiana_czesc" Relationship="Self.FK__Wymiana_c__ID_ob__0E391C95" FromRole="Obsluga" ToRole="Wymiana_czesc" />
@@ -6988,10 +7022,12 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
         <EntityType Name="v_Obsluga_pracownik">
           <Key>
             <PropertyRef Name="ID_obsluga" />
+            <PropertyRef Name="ID_pracownik" />
             <PropertyRef Name="Obsługa" />
             <PropertyRef Name="Pracownik" />
           </Key>
           <Property Name="ID_obsluga" Type="Int32" Nullable="false" />
+          <Property Name="ID_pracownik" Type="Int32" Nullable="false" />
           <Property Name="Obsługa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Pracownik" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
@@ -7609,6 +7645,25 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <Property Name="Podstawa_wynagrodzenia" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="v_Wymiana_czesc">
+          <Key>
+            <PropertyRef Name="ID_obsluga" />
+            <PropertyRef Name="ID_maszyna_nr" />
+            <PropertyRef Name="ID_czesc" />
+            <PropertyRef Name="Data_od" />
+            <PropertyRef Name="Nazwa_maszyna" />
+            <PropertyRef Name="Nr_seryjny" />
+            <PropertyRef Name="Nazwa_czesc" />
+          </Key>
+          <Property Name="ID_obsluga" Type="Int32" Nullable="false" />
+          <Property Name="ID_maszyna_nr" Type="Int32" Nullable="false" />
+          <Property Name="ID_czesc" Type="Int32" Nullable="false" />
+          <Property Name="Data_od" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Data_do" Type="DateTime" Precision="3" />
+          <Property Name="Nazwa_maszyna" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nr_seryjny" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nazwa_czesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_Wymiana_czesc_w_trakcie">
           <Key>
             <PropertyRef Name="ID_obsluga" />
             <PropertyRef Name="ID_maszyna_nr" />
@@ -9581,6 +9636,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySet Name="v_Tygodniowe_rozliczenie_pracy_produkcja" EntityType="Self.v_Tygodniowe_rozliczenie_pracy_produkcja" />
           <EntitySet Name="v_Umowa" EntityType="Self.v_Umowa" />
           <EntitySet Name="v_Wymiana_czesc" EntityType="Self.v_Wymiana_czesc" />
+          <EntitySet Name="v_Wymiana_czesc_w_trakcie" EntityType="Self.v_Wymiana_czesc_w_trakcie" />
           <EntitySet Name="v_Wytwarzanie" EntityType="Self.v_Wytwarzanie" />
           <EntitySet Name="v_Wytworzone_produkty" EntityType="Self.v_Wytworzone_produkty" />
           <EntitySet Name="v_Zamowienia_czesci_w_trakcie" EntityType="Self.v_Zamowienia_czesci_w_trakcie" />
@@ -10394,7 +10450,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
                 <ScalarProperty Name="ID_stanowisko_produkcyjne" ColumnName="ID_stanowisko_produkcyjne" />
                 <ScalarProperty Name="Data_od" ColumnName="Data_od" />
                 <ScalarProperty Name="Data_do" ColumnName="Data_do" />
-                <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -11419,6 +11474,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
             <EntityTypeMapping TypeName="KWZPModel.v_Obsluga_pracownik">
               <MappingFragment StoreEntitySet="v_Obsluga_pracownik">
                 <ScalarProperty Name="ID_obsluga" ColumnName="ID_obsluga" />
+                <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
                 <ScalarProperty Name="Obsługa" ColumnName="Obsługa" />
                 <ScalarProperty Name="Pracownik" ColumnName="Pracownik" />
               </MappingFragment>
@@ -11921,6 +11977,20 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySetMapping Name="v_Wymiana_czesc">
             <EntityTypeMapping TypeName="KWZPModel.v_Wymiana_czesc">
               <MappingFragment StoreEntitySet="v_Wymiana_czesc">
+                <ScalarProperty Name="ID_obsluga" ColumnName="ID_obsluga" />
+                <ScalarProperty Name="ID_maszyna_nr" ColumnName="ID_maszyna_nr" />
+                <ScalarProperty Name="ID_czesc" ColumnName="ID_czesc" />
+                <ScalarProperty Name="Data_od" ColumnName="Data_od" />
+                <ScalarProperty Name="Data_do" ColumnName="Data_do" />
+                <ScalarProperty Name="Nazwa_maszyna" ColumnName="Nazwa_maszyna" />
+                <ScalarProperty Name="Nr_seryjny" ColumnName="Nr_seryjny" />
+                <ScalarProperty Name="Nazwa_czesc" ColumnName="Nazwa_czesc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Wymiana_czesc_w_trakcie">
+            <EntityTypeMapping TypeName="KWZPModel.v_Wymiana_czesc_w_trakcie">
+              <MappingFragment StoreEntitySet="v_Wymiana_czesc_w_trakcie">
                 <ScalarProperty Name="ID_obsluga" ColumnName="ID_obsluga" />
                 <ScalarProperty Name="ID_maszyna_nr" ColumnName="ID_maszyna_nr" />
                 <ScalarProperty Name="ID_czesc" ColumnName="ID_czesc" />

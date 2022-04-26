@@ -49,5 +49,12 @@ namespace KWZP2022
                 MessageBox.Show("Nie zaznaczono obslugi!", "Błąd", MessageBoxButtons.OK);
             }
         }
+        private void btnPrzypiszPracownika_Click(object sender, EventArgs e)
+        {
+            int wybranaObsluga = int.Parse(this.dgvOngoingServices.CurrentRow.Cells[0].Value.ToString());
+            Obsluga wybranaObslugaDGV = this.db.Obsluga.Single(a => a.ID_obsluga == wybranaObsluga);
+            FormResDepServicesWorkers formResDepServicesWorkers = new FormResDepServicesWorkers(db, wybranaObslugaDGV);
+            formResDepServicesWorkers.ShowDialog();
+        }
     }
 }
