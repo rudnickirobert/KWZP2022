@@ -115,6 +115,30 @@
     <Compile Include="FormHRDepartment.Designer.cs">
       <DependentUpon>FormHRDepartment.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormHRDepartmentNewWorker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHRDepartmentNewWorker.Designer.cs">
+      <DependentUpon>FormHRDepartmentNewWorker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHRDepartmentTimesheets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHRDepartmentTimesheets.Designer.cs">
+      <DependentUpon>FormHRDepartmentTimesheets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHRDepartmentWorkerContract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHRDepartmentWorkerContract.Designer.cs">
+      <DependentUpon>FormHRDepartmentWorkerContract.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHRDepartmentWorkerModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHRDepartmentWorkerModify.Designer.cs">
+      <DependentUpon>FormHRDepartmentWorkerModify.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormKosztProdukcja.cs">
       <SubType>Form</SubType>
     </Compile>
