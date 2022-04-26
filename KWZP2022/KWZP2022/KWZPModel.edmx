@@ -11551,6 +11551,17 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="v_Obslugi_w_trakcie_wymiana">
+            <EntityTypeMapping TypeName="KWZPModel.v_Obslugi_w_trakcie_wymiana">
+              <MappingFragment StoreEntitySet="v_Obslugi_w_trakcie_wymiana">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nr_stanowiska" ColumnName="Nr stanowiska" />
+                <ScalarProperty Name="Obsługa" ColumnName="Obsługa" />
+                <ScalarProperty Name="Data_rozpoczęcia" ColumnName="Data rozpoczęcia" />
+                <ScalarProperty Name="Data_zakończenia" ColumnName="Data zakończenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="v_Obslugi_zakonczone">
             <EntityTypeMapping TypeName="KWZPModel.v_Obslugi_zakonczone">
               <MappingFragment StoreEntitySet="v_Obslugi_zakonczone">
