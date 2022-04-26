@@ -26,7 +26,7 @@ namespace KWZP2022
         }
         private void initDataGridView()
         {
-            dgvMagazynMaterial.DataSource = db.v_Zamowienia_czesci_w_trakcie.ToList();
+            dgvMagazynMaterial.DataSource = db.v_Magazyn_material_stan.ToList();
             dgvMagazynMaterial.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
         private void btnOdswiez_Click(object sender, EventArgs e)
