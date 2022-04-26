@@ -109,5 +109,24 @@ namespace KWZP2022
             FormResDepProducent producentForm = new FormResDepProducent(db);
             producentForm.ShowDialog();
         }
+
+        private void btnAktualizujStatus_Click(object sender, EventArgs e)
+        {
+            Stan_realizacji_zamowienie_maszyna stRealizacjaMaszyna = new Stan_realizacji_zamowienie_maszyna();
+            stRealizacjaMaszyna.ID_zamowienie_maszyna = (int)dgvZamowienieMaszyna.CurrentRow.Cells[0].Value;
+            stRealizacjaMaszyna.ID_status_zamowienie = (int)dgvZamowienieMaszyna.CurrentRow.Cells[6].Value + 1;
+            stRealizacjaMaszyna.Data_stan = System.DateTime.Now;
+            stRealizacjaMaszyna.ID_pracownik = (int)cmbPracownik.SelectedValue;
+            db.Stan_realizacji_zamowienie_maszyna.Add(stRealizacjaMaszyna);
+            db.SaveChanges();
+            initDataGridView();
+            MessageBox.Show("Zmieniono status zamówienia dla: " + dgvZamowienieMaszyna.CurrentRow.Cells[1].Value.ToString());
+            if (stRealizacjaMaszyna.ID_status_zamowienie == 4)
+            {
+                MessageBox.Show("Dodaj numer seryjny");
+                FormResDepNrSeryjny formResDepNrSeryjny = new FormResDepNrSeryjny(db);
+                formResDepNrSeryjny.ShowDialog();
+            }
+        }
     }
 }

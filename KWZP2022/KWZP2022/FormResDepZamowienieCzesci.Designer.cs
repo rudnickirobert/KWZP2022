@@ -60,7 +60,7 @@
             this.lvlZamowienieCzesc.Location = new System.Drawing.Point(13, 9);
             this.lvlZamowienieCzesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lvlZamowienieCzesc.Name = "lvlZamowienieCzesc";
-            this.lvlZamowienieCzesc.Size = new System.Drawing.Size(243, 32);
+            this.lvlZamowienieCzesc.Size = new System.Drawing.Size(295, 39);
             this.lvlZamowienieCzesc.TabIndex = 20;
             this.lvlZamowienieCzesc.Text = "Zamówienie części";
             // 
@@ -101,7 +101,7 @@
             this.txtCena.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtCena.Location = new System.Drawing.Point(578, 175);
             this.txtCena.Name = "txtCena";
-            this.txtCena.Size = new System.Drawing.Size(161, 32);
+            this.txtCena.Size = new System.Drawing.Size(161, 38);
             this.txtCena.TabIndex = 37;
             this.txtCena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCena_KeyPress);
             // 
@@ -116,7 +116,7 @@
             0});
             this.numIlosc.Name = "numIlosc";
             this.numIlosc.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.numIlosc.Size = new System.Drawing.Size(161, 32);
+            this.numIlosc.Size = new System.Drawing.Size(161, 38);
             this.numIlosc.TabIndex = 36;
             this.numIlosc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -127,7 +127,7 @@
             this.lblCena.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblCena.Location = new System.Drawing.Point(512, 178);
             this.lblCena.Name = "lblCena";
-            this.lblCena.Size = new System.Drawing.Size(60, 24);
+            this.lblCena.Size = new System.Drawing.Size(79, 32);
             this.lblCena.TabIndex = 35;
             this.lblCena.Text = "Cena";
             // 
@@ -138,7 +138,7 @@
             this.lblIlosc.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblIlosc.Location = new System.Drawing.Point(512, 138);
             this.lblIlosc.Name = "lblIlosc";
-            this.lblIlosc.Size = new System.Drawing.Size(54, 24);
+            this.lblIlosc.Size = new System.Drawing.Size(71, 32);
             this.lblIlosc.TabIndex = 34;
             this.lblIlosc.Text = "Ilość";
             // 
@@ -148,7 +148,7 @@
             this.cmbProducent.FormattingEnabled = true;
             this.cmbProducent.Location = new System.Drawing.Point(139, 172);
             this.cmbProducent.Name = "cmbProducent";
-            this.cmbProducent.Size = new System.Drawing.Size(213, 32);
+            this.cmbProducent.Size = new System.Drawing.Size(213, 39);
             this.cmbProducent.TabIndex = 33;
             // 
             // lblProducent
@@ -158,7 +158,7 @@
             this.lblProducent.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblProducent.Location = new System.Drawing.Point(24, 175);
             this.lblProducent.Name = "lblProducent";
-            this.lblProducent.Size = new System.Drawing.Size(105, 24);
+            this.lblProducent.Size = new System.Drawing.Size(137, 32);
             this.lblProducent.TabIndex = 32;
             this.lblProducent.Text = "Producent";
             // 
@@ -168,7 +168,7 @@
             this.cmbCzesc.FormattingEnabled = true;
             this.cmbCzesc.Location = new System.Drawing.Point(139, 133);
             this.cmbCzesc.Name = "cmbCzesc";
-            this.cmbCzesc.Size = new System.Drawing.Size(213, 32);
+            this.cmbCzesc.Size = new System.Drawing.Size(213, 39);
             this.cmbCzesc.TabIndex = 31;
             // 
             // cmbDostawca
@@ -177,7 +177,7 @@
             this.cmbDostawca.FormattingEnabled = true;
             this.cmbDostawca.Location = new System.Drawing.Point(139, 95);
             this.cmbDostawca.Name = "cmbDostawca";
-            this.cmbDostawca.Size = new System.Drawing.Size(213, 32);
+            this.cmbDostawca.Size = new System.Drawing.Size(213, 39);
             this.cmbDostawca.TabIndex = 30;
             // 
             // cmbPracownik
@@ -186,7 +186,7 @@
             this.cmbPracownik.FormattingEnabled = true;
             this.cmbPracownik.Location = new System.Drawing.Point(139, 57);
             this.cmbPracownik.Name = "cmbPracownik";
-            this.cmbPracownik.Size = new System.Drawing.Size(361, 32);
+            this.cmbPracownik.Size = new System.Drawing.Size(361, 39);
             this.cmbPracownik.TabIndex = 29;
             // 
             // lblCzesc
@@ -196,7 +196,7 @@
             this.lblCzesc.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblCzesc.Location = new System.Drawing.Point(26, 136);
             this.lblCzesc.Name = "lblCzesc";
-            this.lblCzesc.Size = new System.Drawing.Size(68, 24);
+            this.lblCzesc.Size = new System.Drawing.Size(90, 32);
             this.lblCzesc.TabIndex = 28;
             this.lblCzesc.Text = "Część";
             // 
@@ -207,7 +207,7 @@
             this.lblDostawca.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblDostawca.Location = new System.Drawing.Point(25, 98);
             this.lblDostawca.Name = "lblDostawca";
-            this.lblDostawca.Size = new System.Drawing.Size(104, 24);
+            this.lblDostawca.Size = new System.Drawing.Size(134, 32);
             this.lblDostawca.TabIndex = 27;
             this.lblDostawca.Text = "Dostawca";
             // 
@@ -218,7 +218,7 @@
             this.lblPracownik.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblPracownik.Location = new System.Drawing.Point(26, 60);
             this.lblPracownik.Name = "lblPracownik";
-            this.lblPracownik.Size = new System.Drawing.Size(107, 24);
+            this.lblPracownik.Size = new System.Drawing.Size(138, 32);
             this.lblPracownik.TabIndex = 26;
             this.lblPracownik.Text = "Pracownik";
             // 
@@ -249,12 +249,13 @@
             // 
             this.btnAktualizujStatus.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.btnAktualizujStatus.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAktualizujStatus.Location = new System.Drawing.Point(608, 451);
+            this.btnAktualizujStatus.Location = new System.Drawing.Point(567, 451);
             this.btnAktualizujStatus.Name = "btnAktualizujStatus";
-            this.btnAktualizujStatus.Size = new System.Drawing.Size(177, 36);
+            this.btnAktualizujStatus.Size = new System.Drawing.Size(218, 36);
             this.btnAktualizujStatus.TabIndex = 60;
             this.btnAktualizujStatus.Text = "Aktualizuj status";
             this.btnAktualizujStatus.UseVisualStyleBackColor = false;
+            this.btnAktualizujStatus.Click += new System.EventHandler(this.btnAktualizujStatus_Click);
             // 
             // FormResDepZamowienieCzesci
             // 

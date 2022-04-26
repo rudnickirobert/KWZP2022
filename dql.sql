@@ -653,7 +653,7 @@ CREATE VIEW v_Zamowienia_narzedzia_w_trakcie_bez_odebranych
 AS 
 SELECT ZNWTW.[Nr zamówienia], ZNWTW.[Nazwa narzędzia], ZNWTW.[Data zmiany stanu], ZNWTW.Sztuk, ZNWTW.Cena, ZNWTW.[Status], ZNWTW.[StatusID] 
 FROM v_Zamowienia_narzedzia_w_trakcie_wszystko AS ZNWTW 
-LEFT JOIN v_Zamowienia_materialy_w_trakcie_wszystko AS ZNWTWA ON ZNWTW.[Nr zamówienia] = ZNWTWA.[Nr zamówienia] AND ZNWTWA.[Status] = 'Odebrano' 
+LEFT JOIN v_Zamowienia_narzedzia_w_trakcie_wszystko AS ZNWTWA ON ZNWTW.[Nr zamówienia] = ZNWTWA.[Nr zamówienia] AND ZNWTWA.[Status] = 'Odebrano'
 WHERE ZNWTWA.[Nr zamówienia] IS NULL 
 GO 
 
