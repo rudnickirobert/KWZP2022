@@ -119,12 +119,20 @@ namespace KWZP2022
             txtNazwa.Text = this.dgvvKontrolaJakosciKolejka.CurrentRow.Cells[2].Value.ToString();
         }
 
+        public double NextDouble(Random rand, double minValue, double maxValue)
+        {
+            return rand.NextDouble() * (maxValue - minValue) + minValue;
+        }
+
         private void btnGeneruj_Click(object sender, EventArgs e)
         {
             int iloscProduktowKolejka = int.Parse(dgvvKontrolaJakosciKolejka.RowCount.ToString());
 
             for (int i = 0; i <= iloscProduktowKolejka - 1; i++)
             {
+                int currentIdProdukt = int.Parse(dgvvKontrolaJakosciKolejka.Rows[i].Cells[1].Value.ToString());
+                List<v_Parametry_produkt> parametryProdukt = db.v_Parametry_produkt.Where(a => a.ID_produkt == currentIdProdukt).ToList();
+                dgvvParametrProdukt.DataSource = parametryProdukt;
                 int iloscParametrow = int.Parse(dgvvParametrProdukt.RowCount.ToString());
 
                 for (int j = 0; j <= iloscParametrow - 1; j++)
@@ -144,16 +152,19 @@ namespace KWZP2022
                     kontrolaParametr.ID_kontrola_jakosci_produkt = int.Parse(this.dgvvKontrolaProdukt.Rows[numRows - 1].Cells[0].Value.ToString());
                     kontrolaParametr.ID_parametr_produkt = int.Parse(this.dgvvParametrProdukt.Rows[j].Cells[0].Value.ToString());
 
+                    Random rand = new Random();
+                    double dolnyPrzedział = double.Parse(this.dgvvParametrProdukt.Rows[j].Cells[4].Value.ToString()) - (0.01 * double.Parse(this.dgvvParametrProdukt.Rows[j].Cells[4].Value.ToString()));
+                    double gornyPrzedzial = double.Parse(this.dgvvParametrProdukt.Rows[j].Cells[5].Value.ToString()) + (0.01 * double.Parse(this.dgvvParametrProdukt.Rows[j].Cells[4].Value.ToString()));
+                    decimal wartosc = Convert.ToDecimal(NextDouble(rand, dolnyPrzedział, gornyPrzedzial));
 
-                    decimal dolnyPrzedział = decimal.Parse(this.dgvvParametrProdukt.Rows[j].Cells[4].Value.ToString()) - 0.05m * decimal.Parse(this.dgvvParametrProdukt.Rows[j].Cells[4].Value.ToString());
-                    decimal gornyPrzedzial = decimal.Parse(this.dgvvParametrProdukt.Rows[j].Cells[5].Value.ToString()) + 0.05m * decimal.Parse(this.dgvvParametrProdukt.Rows[j].Cells[4].Value.ToString());
-
+                    kontrolaParametr.Wartosc = wartosc;
+                    db.Kontrola_parametr.Add(kontrolaParametr);
+                    db.SaveChanges();
+                    
                 }
-
-                
-
+                refreshScreen();
             }
-
+            
         }
     }
 }

@@ -155,7 +155,7 @@ LEFT JOIN v_Koszt_procesow_polprodukt AS KPP ON SlWPP.Nazwa = KPP.Półprodukt
 LEFT JOIN v_Koszt_procesow_produkt AS KP ON P.Nazwa_produkt = KP.Produkt
 GO
 
-drop view v_Kontrola_parametr_produkt
+
 CREATE VIEW v_Kontrola_parametr_produkt
 AS
 SELECT w.ID_wytwarzanie AS [ID_wytwarzanie], P.ID_produkt AS [ID_produkt], P.Nazwa_produkt AS [Produkt], RP.Nazwa_rodzaj_parametr AS [Parametr], KP.Wartosc AS [Wartość],
@@ -170,7 +170,7 @@ GO
 
 CREATE VIEW v_Wynik_kontroli
 AS
-SELECT ID_wytwarzanie, ID_produkt, AVG([Rezultat kontroli]) AS [Wynik_kontrola] FROM v_Kontrola_parametr_produkt
+SELECT ID_wytwarzanie, ID_produkt, SUM([Rezultat kontroli]) AS [Wynik_kontrola] FROM v_Kontrola_parametr_produkt
 GROUP BY ID_wytwarzanie, ID_produkt
 GO
 
