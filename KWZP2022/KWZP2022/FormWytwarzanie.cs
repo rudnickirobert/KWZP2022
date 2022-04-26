@@ -225,7 +225,6 @@ namespace KWZP2022
             int iloscProduktZamowienie = int.Parse(dgvZamowienieSzczegol.CurrentRow.Cells[3].Value.ToString());
             int iloscWierszyDgvPolprodut = int.Parse(dgvProcesPolprodukt.RowCount.ToString());
             int obecnyProdukt = int.Parse(txtSzukanyProduktID.Text);
-            
 
             for (int i = 0; i <= iloscWierszyDgvPolprodut - 1; i++)
             {
@@ -234,11 +233,9 @@ namespace KWZP2022
                 dgvCurrentPolprodukt.DataSource = skladProdukt;
                 int iloscPolproduktu = int.Parse(dgvCurrentPolprodukt.Rows[0].Cells[5].Value.ToString());
                 int liczbaIteracji = iloscProduktZamowienie * iloscPolproduktu;
-
                 for (int j = 0; j <   liczbaIteracji; j++)
                 {
                     Wytwarzanie wytwarzanie = new Wytwarzanie();
-                    List<v_Pracownik_produkcja> pracownicyProdukcjaList = db.v_Pracownik_produkcja.ToList();
                     wytwarzanie.ID_pracownik = int.Parse(cbPracownik.SelectedValue.ToString());
                     wytwarzanie.ID_zamowienie_szczegol = int.Parse(dgvZamowienieSzczegol.CurrentRow.Cells[4].Value.ToString());
                     wytwarzanie.Czas_od = dtpDataOd.Value.Date + dtpCzasOd.Value.TimeOfDay;
@@ -280,7 +277,6 @@ namespace KWZP2022
                     db.Proces_wytwarzanie_produkt.Add(wytwarzanieProdukt);
                     db.SaveChanges();
                 }
-                label10.Text = dgvProcesPolprodukt.Rows[6].Cells[0].Value.ToString();
                 dgvCurrentPolprodukt.DataSource = 0;
             }
             refreshScreen();

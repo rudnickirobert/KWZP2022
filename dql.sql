@@ -155,16 +155,39 @@ LEFT JOIN v_Koszt_procesow_polprodukt AS KPP ON SlWPP.Nazwa = KPP.Półprodukt
 LEFT JOIN v_Koszt_procesow_produkt AS KP ON P.Nazwa_produkt = KP.Produkt
 GO
 
+drop view v_Kontrola_parametr_produkt
 CREATE VIEW v_Kontrola_parametr_produkt
 AS
-SELECT P.ID_produkt, P.Nazwa_produkt AS [Produkt], RP.Nazwa_rodzaj_parametr AS [Parametr], KP.Wartosc AS [Wartość],
+SELECT w.ID_wytwarzanie AS [ID_wytwarzanie], P.ID_produkt AS [ID_produkt], P.Nazwa_produkt AS [Produkt], RP.Nazwa_rodzaj_parametr AS [Parametr], KP.Wartosc AS [Wartość],
 PP.Zakres_dol AS [Zakres dolny], PP.Zakres_gora AS [Zakres górny], (CASE WHEN KP.Wartosc BETWEEN PP.Zakres_dol AND PP.Zakres_gora THEN 1 ELSE 0 END) AS [Rezultat kontroli]  
 FROM Kontrola_parametr AS KP
 INNER JOIN Kontrola_jakosci_produkt AS KJP ON KP.ID_kontrola_jakosci_produkt = KJP.ID_kontrola_jakosci_produkt
 INNER JOIN Parametr_produkt AS PP ON KP.ID_parametr_produkt = PP.ID_parametr_produkt
 INNER JOIN Produkt AS P ON PP.ID_produkt = P.ID_produkt
 INNER JOIN Rodzaj_parametr AS RP ON PP.ID_rodzaj_parametr = RP.ID_rodzaj_parametr
+INNER JOIN Wytwarzanie AS W ON KJP.ID_wytwarzanie = W.ID_wytwarzanie
 GO
+
+CREATE VIEW v_Wynik_kontroli
+AS
+SELECT ID_wytwarzanie, ID_produkt, AVG([Rezultat kontroli]) AS [Wynik_kontrola] FROM v_Kontrola_parametr_produkt
+GROUP BY ID_wytwarzanie, ID_produkt
+GO
+
+CREATE VIEW v_Kontrola_pozytywna
+AS
+SELECT ID_wytwarzanie, ID_produkt, [Produkt], AVG([Rezultat kontroli]) AS [Wynik_kontrola] FROM v_Kontrola_parametr_produkt
+GROUP BY ID_wytwarzanie, ID_produkt, [Produkt]
+HAVING AVG([Rezultat kontroli]) = 1
+GO
+
+CREATE VIEW v_Kontrola_negatywna
+AS
+SELECT ID_wytwarzanie, ID_produkt, [Produkt], AVG([Rezultat kontroli]) AS [Wynik_kontrola] FROM v_Kontrola_parametr_produkt
+GROUP BY ID_wytwarzanie, ID_produkt, [Produkt]
+HAVING AVG([Rezultat kontroli]) = 0
+GO
+
 CREATE VIEW v_Kontrola_jakosci_produkt
 AS
 SELECT KJP.ID_kontrola_jakosci_produkt, PR.Nazwisko + ' ' +PR.Imie AS [Pracownik], RK.Rodzaj_kontrola
@@ -350,8 +373,18 @@ GO
 
 CREATE VIEW v_Wytworzone_produkty
 AS
-SELECT * FROM v_Proces_wytwarzanie_produkt
-WHERE [Data zakończenia] <= GETDATE()
+SELECT W.ID_wytwarzanie AS [ID], P.ID_produkt, P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynność produkcyjna], Pr.Nazwisko + ' ' + Pr.Imie AS [Pracownik],
+SST.Nazwa_stanowiska AS [Stanowisko], PPPC.Czas_trwania AS [Szacowany czas {min}],
+W.Czas_od AS [Data rozpoczęcia], W.Czas_do AS [Data zakończenia]
+FROM Proces_wytwarzanie_produkt AS PWP
+INNER JOIN Wytwarzanie AS W ON PWP.ID_wytwarzanie = W.ID_wytwarzanie
+INNER JOIN Proces_produkt_czynnosc AS PPPC ON PWP.ID_proces_produkt = PPPC.ID_proces_produkt
+INNER JOIN Stanowisko_produkcyjne AS SP ON PWP.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
+INNER JOIN Slownik_stanowisko AS SST ON SP.ID_nazwa_stanowiska = SST.ID_nazwa_stanowiska
+INNER JOIN Czynnosc_produkcyjna AS CP ON PPPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
+INNER JOIN Produkt AS P ON PPPC.ID_produkt = P.ID_produkt
+INNER JOIN Pracownik AS Pr ON W.ID_pracownik = Pr.ID_pracownik
+WHERE W.Czas_do <= GETDATE() AND CP.Nazwa = 'Montaz'
 GO
 
 CREATE VIEW v_Szacowany_czas_wytwarzania_produkt
