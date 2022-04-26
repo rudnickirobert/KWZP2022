@@ -14,6 +14,7 @@ namespace KWZP2022
     
     public partial class v_Maszyny_numery_nieprzypisane
     {
+        public Nullable<int> ID { get; set; }
         public string Nazwa_maszyny { get; set; }
         public Nullable<int> Nieprzypisanych { get; set; }
     }

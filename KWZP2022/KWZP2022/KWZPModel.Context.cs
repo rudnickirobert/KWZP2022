@@ -150,6 +150,7 @@ namespace KWZP2022
         public virtual DbSet<v_Maszyna> v_Maszyna { get; set; }
         public virtual DbSet<v_Maszyna_nr_seryjny> v_Maszyna_nr_seryjny { get; set; }
         public virtual DbSet<v_Maszyny_numery_nieprzypisane> v_Maszyny_numery_nieprzypisane { get; set; }
+        public virtual DbSet<v_Maszyny_numery_nieprzypisane_zero> v_Maszyny_numery_nieprzypisane_zero { get; set; }
         public virtual DbSet<v_Maszyny_numery_porownanie> v_Maszyny_numery_porownanie { get; set; }
         public virtual DbSet<v_Maszyny_numery_przypisane> v_Maszyny_numery_przypisane { get; set; }
         public virtual DbSet<v_Material> v_Material { get; set; }

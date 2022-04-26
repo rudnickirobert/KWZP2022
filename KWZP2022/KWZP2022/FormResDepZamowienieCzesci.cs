@@ -17,8 +17,8 @@ namespace KWZP2022
         {
             InitializeComponent();
             this.db = db;
-            cmbPracownik.DataSource = db.Pracownik.ToList();
-            cmbPracownik.DisplayMember = "Nazwisko";
+            cmbPracownik.DataSource = db.v_Pracownik_zasoby.ToList();
+            cmbPracownik.DisplayMember = "Pracownik";
             cmbPracownik.ValueMember = "ID_pracownik";
             cmbDostawca.DataSource = db.Dostawca.ToList();
             cmbDostawca.DisplayMember = "Nazwa_dostawca";
@@ -34,6 +34,7 @@ namespace KWZP2022
         private void initDataGridView()
         {
             dgvZamowienieCzesci.DataSource = db.v_Zamowienia_czesci_w_trakcie.ToList();
+            dgvZamowienieCzesci.Columns[6].Visible = false;
             dgvZamowienieCzesci.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 
         }
@@ -107,6 +108,19 @@ namespace KWZP2022
         {
             FormResDepProducent producentForm = new FormResDepProducent(db);
             producentForm.ShowDialog();
+        }
+
+        private void btnAktualizujStatus_Click(object sender, EventArgs e)
+        {
+            Stan_realizacji_zamowienie_czesc stRealizacjaCzesc = new Stan_realizacji_zamowienie_czesc();
+            stRealizacjaCzesc.ID_zamowienie_czesc = (int)dgvZamowienieCzesci.CurrentRow.Cells[0].Value;
+            stRealizacjaCzesc.ID_status_zamowienie = (int)dgvZamowienieCzesci.CurrentRow.Cells[6].Value + 1;
+            stRealizacjaCzesc.Data_stan = System.DateTime.Now;
+            stRealizacjaCzesc.ID_pracownik = (int)cmbPracownik.SelectedValue;
+            db.Stan_realizacji_zamowienie_czesc.Add(stRealizacjaCzesc);
+            db.SaveChanges();
+            MessageBox.Show("Zmieniono status zamówienia dla: " + dgvZamowienieCzesci.CurrentRow.Cells[1].Value.ToString());
+            initDataGridView();
         }
     }
 }

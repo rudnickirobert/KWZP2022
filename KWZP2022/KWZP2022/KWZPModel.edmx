@@ -1254,6 +1254,17 @@ warning 6002: The table/view 'KWZP.dbo.v_Maszyny_numery_nieprzypisane' does not 
           <Key>
             <PropertyRef Name="Nazwa maszyny" />
           </Key>
+          <Property Name="ID" Type="int" />
+          <Property Name="Nazwa maszyny" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nieprzypisanych" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Maszyny_numery_nieprzypisane_zero' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Maszyny_numery_nieprzypisane_zero">
+          <Key>
+            <PropertyRef Name="Nazwa maszyny" />
+          </Key>
+          <Property Name="ID" Type="int" />
           <Property Name="Nazwa maszyny" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Nieprzypisanych" Type="int" />
         </EntityType>
@@ -1263,6 +1274,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Maszyny_numery_porownanie' does not hav
           <Key>
             <PropertyRef Name="Nazwa maszyny" />
           </Key>
+          <Property Name="ID" Type="int" />
           <Property Name="Nazwa maszyny" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Liczba sztuk" Type="int" />
           <Property Name="Ile przypisano" Type="int" />
@@ -1271,8 +1283,10 @@ warning 6002: The table/view 'KWZP.dbo.v_Maszyny_numery_porownanie' does not hav
 warning 6002: The table/view 'KWZP.dbo.v_Maszyny_numery_przypisane' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Maszyny_numery_przypisane">
           <Key>
+            <PropertyRef Name="ID" />
             <PropertyRef Name="Nazwa maszyny" />
           </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Nazwa maszyny" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Ile przypisano" Type="int" />
         </EntityType>
@@ -4305,12 +4319,21 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           </EntitySet>
           <EntitySet Name="v_Maszyny_numery_nieprzypisane" EntityType="Self.v_Maszyny_numery_nieprzypisane" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [v_Maszyny_numery_nieprzypisane].[ID] AS [ID], 
     [v_Maszyny_numery_nieprzypisane].[Nazwa maszyny] AS [Nazwa maszyny], 
     [v_Maszyny_numery_nieprzypisane].[Nieprzypisanych] AS [Nieprzypisanych]
     FROM [dbo].[v_Maszyny_numery_nieprzypisane] AS [v_Maszyny_numery_nieprzypisane]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_Maszyny_numery_nieprzypisane_zero" EntityType="Self.v_Maszyny_numery_nieprzypisane_zero" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Maszyny_numery_nieprzypisane_zero].[ID] AS [ID], 
+    [v_Maszyny_numery_nieprzypisane_zero].[Nazwa maszyny] AS [Nazwa maszyny], 
+    [v_Maszyny_numery_nieprzypisane_zero].[Nieprzypisanych] AS [Nieprzypisanych]
+    FROM [dbo].[v_Maszyny_numery_nieprzypisane_zero] AS [v_Maszyny_numery_nieprzypisane_zero]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_Maszyny_numery_porownanie" EntityType="Self.v_Maszyny_numery_porownanie" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [v_Maszyny_numery_porownanie].[ID] AS [ID], 
     [v_Maszyny_numery_porownanie].[Nazwa maszyny] AS [Nazwa maszyny], 
     [v_Maszyny_numery_porownanie].[Liczba sztuk] AS [Liczba sztuk], 
     [v_Maszyny_numery_porownanie].[Ile przypisano] AS [Ile przypisano]
@@ -4318,6 +4341,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           </EntitySet>
           <EntitySet Name="v_Maszyny_numery_przypisane" EntityType="Self.v_Maszyny_numery_przypisane" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [v_Maszyny_numery_przypisane].[ID] AS [ID], 
     [v_Maszyny_numery_przypisane].[Nazwa maszyny] AS [Nazwa maszyny], 
     [v_Maszyny_numery_przypisane].[Ile przypisano] AS [Ile przypisano]
     FROM [dbo].[v_Maszyny_numery_przypisane] AS [v_Maszyny_numery_przypisane]</DefiningQuery>
@@ -4412,7 +4436,8 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
     [v_Obslugi_zakonczone].[Nr stanowiska] AS [Nr stanowiska], 
     [v_Obslugi_zakonczone].[Obsługa] AS [Obsługa], 
     [v_Obslugi_zakonczone].[Data rozpoczęcia] AS [Data rozpoczęcia], 
-    [v_Obslugi_zakonczone].[Data zakończenia] AS [Data zakończenia]
+    [v_Obslugi_zakonczone].[Data zakończenia] AS [Data zakończenia], 
+    [v_Obslugi_zakonczone].[Pracownik] AS [Pracownik]
     FROM [dbo].[v_Obslugi_zakonczone] AS [v_Obslugi_zakonczone]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Oferta_handlowa" EntityType="Self.v_Oferta_handlowa" store:Type="Views" store:Schema="dbo">
@@ -6921,6 +6946,15 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <Key>
             <PropertyRef Name="Nazwa_maszyny" />
           </Key>
+          <Property Name="ID" Type="Int32" />
+          <Property Name="Nazwa_maszyny" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nieprzypisanych" Type="Int32" />
+        </EntityType>
+        <EntityType Name="v_Maszyny_numery_nieprzypisane_zero">
+          <Key>
+            <PropertyRef Name="Nazwa_maszyny" />
+          </Key>
+          <Property Name="ID" Type="Int32" />
           <Property Name="Nazwa_maszyny" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Nieprzypisanych" Type="Int32" />
         </EntityType>
@@ -6928,14 +6962,17 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <Key>
             <PropertyRef Name="Nazwa_maszyny" />
           </Key>
+          <Property Name="ID" Type="Int32" />
           <Property Name="Nazwa_maszyny" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Liczba_sztuk" Type="Int32" />
           <Property Name="Ile_przypisano" Type="Int32" />
         </EntityType>
         <EntityType Name="v_Maszyny_numery_przypisane">
           <Key>
+            <PropertyRef Name="ID" />
             <PropertyRef Name="Nazwa_maszyny" />
           </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Nazwa_maszyny" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Ile_przypisano" Type="Int32" />
         </EntityType>
@@ -7032,6 +7069,19 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <Property Name="Pracownik" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="v_Obslugi_w_trakcie">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Nr_stanowiska" />
+            <PropertyRef Name="Obsługa" />
+            <PropertyRef Name="Data_rozpoczęcia" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Nr_stanowiska" Type="Int32" Nullable="false" />
+          <Property Name="Obsługa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Data_rozpoczęcia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Data_zakończenia" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="v_Obslugi_w_trakcie_wymiana">
           <Key>
             <PropertyRef Name="ID" />
             <PropertyRef Name="Nr_stanowiska" />
@@ -7322,6 +7372,44 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <Property Name="Szacowany_czas__min_" Type="Int32" Nullable="false" />
           <Property Name="Data_rozpoczęcia" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Data_zakończenia" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="v_Proces_wytwarzanie_produkt_ewidencja">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Produkt" />
+            <PropertyRef Name="Czynność_produkcyjna" />
+            <PropertyRef Name="ID_pracownik" />
+            <PropertyRef Name="Pracownik" />
+            <PropertyRef Name="Stanowisko" />
+            <PropertyRef Name="Szacowany_czas__min_" />
+            <PropertyRef Name="Data_rozpoczęcia" />
+            <PropertyRef Name="Czas_pracy" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Czynność_produkcyjna" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_pracownik" Type="Int32" Nullable="false" />
+          <Property Name="Pracownik" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Stanowisko" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Szacowany_czas__min_" Type="Int32" Nullable="false" />
+          <Property Name="Data_rozpoczęcia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Data_zakończenia" Type="DateTime" Precision="3" />
+          <Property Name="Czas_pracy" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_Producenci">
+          <Key>
+            <PropertyRef Name="ID_producent" />
+            <PropertyRef Name="Nazwa" />
+            <PropertyRef Name="Miejscowość" />
+            <PropertyRef Name="Ulica" />
+            <PropertyRef Name="Nr_budynku" />
+          </Key>
+          <Property Name="ID_producent" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Miejscowość" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ulica" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nr_budynku" Type="Int32" Nullable="false" />
+          <Property Name="Kod_pocztowy" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="v_Proces_wytwarzanie_produkt_ewidencja">
           <Key>
@@ -9579,6 +9667,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySet Name="v_Maszyna" EntityType="Self.v_Maszyna" />
           <EntitySet Name="v_Maszyna_nr_seryjny" EntityType="Self.v_Maszyna_nr_seryjny" />
           <EntitySet Name="v_Maszyny_numery_nieprzypisane" EntityType="Self.v_Maszyny_numery_nieprzypisane" />
+          <EntitySet Name="v_Maszyny_numery_nieprzypisane_zero" EntityType="Self.v_Maszyny_numery_nieprzypisane_zero" />
           <EntitySet Name="v_Maszyny_numery_porownanie" EntityType="Self.v_Maszyny_numery_porownanie" />
           <EntitySet Name="v_Maszyny_numery_przypisane" EntityType="Self.v_Maszyny_numery_przypisane" />
           <EntitySet Name="v_Material" EntityType="Self.v_Material" />
@@ -11373,6 +11462,16 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySetMapping Name="v_Maszyny_numery_nieprzypisane">
             <EntityTypeMapping TypeName="KWZPModel.v_Maszyny_numery_nieprzypisane">
               <MappingFragment StoreEntitySet="v_Maszyny_numery_nieprzypisane">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nazwa_maszyny" ColumnName="Nazwa maszyny" />
+                <ScalarProperty Name="Nieprzypisanych" ColumnName="Nieprzypisanych" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Maszyny_numery_nieprzypisane_zero">
+            <EntityTypeMapping TypeName="KWZPModel.v_Maszyny_numery_nieprzypisane_zero">
+              <MappingFragment StoreEntitySet="v_Maszyny_numery_nieprzypisane_zero">
+                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Nazwa_maszyny" ColumnName="Nazwa maszyny" />
                 <ScalarProperty Name="Nieprzypisanych" ColumnName="Nieprzypisanych" />
               </MappingFragment>
@@ -11381,6 +11480,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySetMapping Name="v_Maszyny_numery_porownanie">
             <EntityTypeMapping TypeName="KWZPModel.v_Maszyny_numery_porownanie">
               <MappingFragment StoreEntitySet="v_Maszyny_numery_porownanie">
+                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Nazwa_maszyny" ColumnName="Nazwa maszyny" />
                 <ScalarProperty Name="Liczba_sztuk" ColumnName="Liczba sztuk" />
                 <ScalarProperty Name="Ile_przypisano" ColumnName="Ile przypisano" />
@@ -11390,6 +11490,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySetMapping Name="v_Maszyny_numery_przypisane">
             <EntityTypeMapping TypeName="KWZPModel.v_Maszyny_numery_przypisane">
               <MappingFragment StoreEntitySet="v_Maszyny_numery_przypisane">
+                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Nazwa_maszyny" ColumnName="Nazwa maszyny" />
                 <ScalarProperty Name="Ile_przypisano" ColumnName="Ile przypisano" />
               </MappingFragment>
@@ -11483,6 +11584,17 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySetMapping Name="v_Obslugi_w_trakcie">
             <EntityTypeMapping TypeName="KWZPModel.v_Obslugi_w_trakcie">
               <MappingFragment StoreEntitySet="v_Obslugi_w_trakcie">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nr_stanowiska" ColumnName="Nr stanowiska" />
+                <ScalarProperty Name="Obsługa" ColumnName="Obsługa" />
+                <ScalarProperty Name="Data_rozpoczęcia" ColumnName="Data rozpoczęcia" />
+                <ScalarProperty Name="Data_zakończenia" ColumnName="Data zakończenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Obslugi_w_trakcie_wymiana">
+            <EntityTypeMapping TypeName="KWZPModel.v_Obslugi_w_trakcie_wymiana">
+              <MappingFragment StoreEntitySet="v_Obslugi_w_trakcie_wymiana">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Nr_stanowiska" ColumnName="Nr stanowiska" />
                 <ScalarProperty Name="Obsługa" ColumnName="Obsługa" />

@@ -17,8 +17,8 @@ namespace KWZP2022
         {
             InitializeComponent();
             this.db = db;
-            cmbPracownik.DataSource = db.Pracownik.ToList();
-            cmbPracownik.DisplayMember = "Nazwisko";
+            cmbPracownik.DataSource = db.v_Pracownik_zasoby.ToList();
+            cmbPracownik.DisplayMember = "Pracownik";
             cmbPracownik.ValueMember = "ID_pracownik";
             cmbDostawca.DataSource = db.Dostawca.ToList();
             cmbDostawca.DisplayMember = "Nazwa_dostawca";
@@ -33,7 +33,9 @@ namespace KWZP2022
         }
         private void initDataGridView()
         {
+            this.db = new KWZPEntities();
             dgvZamowienieNarzedzia.DataSource = db.v_Zamowienia_narzedzia_w_trakcie.ToList();
+            dgvZamowienieNarzedzia.Columns[6].Visible = false;
             dgvZamowienieNarzedzia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
         private void txtCena_KeyPress(object sender, KeyPressEventArgs e)
@@ -107,6 +109,18 @@ namespace KWZP2022
         {
             FormResDepProducent producentForm = new FormResDepProducent(db);
             producentForm.ShowDialog();
+        }
+        private void btnAktualizujStatus_Click(object sender, EventArgs e)
+        {
+            Stan_realizacji_zamowienie_narzedzie stRealizacjaNerzedzie = new Stan_realizacji_zamowienie_narzedzie();
+            stRealizacjaNerzedzie.ID_zamowienie_narzedzie = (int)dgvZamowienieNarzedzia.CurrentRow.Cells[0].Value;
+            stRealizacjaNerzedzie.ID_status_zamowienie = (int)dgvZamowienieNarzedzia.CurrentRow.Cells[6].Value + 1;
+            stRealizacjaNerzedzie.Data_stan = System.DateTime.Now;
+            stRealizacjaNerzedzie.ID_pracownik = (int)cmbPracownik.SelectedValue;
+            db.Stan_realizacji_zamowienie_narzedzie.Add(stRealizacjaNerzedzie);
+            db.SaveChanges();
+            MessageBox.Show("Zmieniono status zamówienia dla:" + dgvZamowienieNarzedzia.CurrentRow.Cells[1].Value.ToString());
+            initDataGridView();
         }
     }
 }

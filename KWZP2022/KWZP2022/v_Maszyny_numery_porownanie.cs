@@ -14,6 +14,7 @@ namespace KWZP2022
     
     public partial class v_Maszyny_numery_porownanie
     {
+        public Nullable<int> ID { get; set; }
         public string Nazwa_maszyny { get; set; }
         public Nullable<int> Liczba_sztuk { get; set; }
         public Nullable<int> Ile_przypisano { get; set; }

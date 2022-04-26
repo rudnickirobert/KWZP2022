@@ -88,6 +88,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDodajMaszyna);
             this.Controls.Add(this.dgvMagazynMaszyna);
+            this.Font = new System.Drawing.Font("Arial", 9.75F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormResDepMagazynMaszyn";

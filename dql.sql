@@ -340,6 +340,21 @@ INNER JOIN Produkt AS P ON PPPC.ID_produkt = P.ID_produkt
 INNER JOIN Pracownik AS Pr ON W.ID_pracownik = Pr.ID_pracownik
 GO
 
+CREATE VIEW v_Proces_wytwarzanie_produkt_ewidencja
+AS
+SELECT W.ID_wytwarzanie AS [ID], P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynność produkcyjna],Pr.ID_pracownik, Pr.Nazwisko + ' ' + Pr.Imie AS [Pracownik],
+SST.Nazwa_stanowiska AS [Stanowisko], PPPC.Czas_trwania AS [Szacowany czas {min}],
+W.Czas_od AS [Data rozpoczęcia], W.Czas_do AS [Data zakończenia], ISNULL(DATEDIFF(HOUR, W.Czas_od,W.Czas_do),0) AS [Czas pracy]
+FROM Proces_wytwarzanie_produkt AS PWP
+INNER JOIN Wytwarzanie AS W ON PWP.ID_wytwarzanie = W.ID_wytwarzanie
+INNER JOIN Proces_produkt_czynnosc AS PPPC ON PWP.ID_proces_produkt = PPPC.ID_proces_produkt
+INNER JOIN Stanowisko_produkcyjne AS SP ON PWP.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
+INNER JOIN Slownik_stanowisko AS SST ON SP.ID_nazwa_stanowiska = SST.ID_nazwa_stanowiska
+INNER JOIN Czynnosc_produkcyjna AS CP ON PPPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
+INNER JOIN Produkt AS P ON PPPC.ID_produkt = P.ID_produkt
+INNER JOIN Pracownik AS Pr ON W.ID_pracownik = Pr.ID_pracownik
+GO
+
 CREATE VIEW v_Wytworzone_produkty
 AS
 SELECT * FROM v_Proces_wytwarzanie_produkt
@@ -383,14 +398,15 @@ GO
 
 -----RESOURCE DEPARTMENT----
 
-CREATE VIEW v_Sklad_maszyna AS 
+CREATE VIEW v_Sklad_maszyna 
+AS 
 SELECT Maszyna.ID_maszyna, Czesc.ID_czesc, Maszyna.Nazwa_maszyna AS [Nazwa maszyny], Czesc.Nazwa_czesc AS [Nazwa części], Sklad_maszyna.Liczba_czesci AS [Liczba czesci]
 FROM Sklad_maszyna 
-INNER JOIN Maszyna  
+INNER JOIN Maszyna
 ON Sklad_maszyna.ID_maszyna=Maszyna.ID_maszyna
 INNER JOIN Czesc 
 ON Sklad_maszyna.ID_czesc=Czesc.ID_czesc
-GROUP BY  Maszyna.ID_maszyna, Czesc.ID_czesc, Maszyna.Nazwa_maszyna, Czesc.Nazwa_czesc, Sklad_maszyna.Liczba_czesci;
+GROUP BY Maszyna.ID_maszyna, Czesc.ID_czesc, Maszyna.Nazwa_maszyna, Czesc.Nazwa_czesc, Sklad_maszyna.Liczba_czesci;
 GO
 
 CREATE VIEW v_Sklad_SP_maszyna
@@ -657,7 +673,7 @@ CREATE VIEW v_Zamowienia_narzedzia_w_trakcie_bez_odebranych
 AS 
 SELECT ZNWTW.[Nr zamówienia], ZNWTW.[Nazwa narzędzia], ZNWTW.[Data zmiany stanu], ZNWTW.Sztuk, ZNWTW.Cena, ZNWTW.[Status], ZNWTW.[StatusID] 
 FROM v_Zamowienia_narzedzia_w_trakcie_wszystko AS ZNWTW 
-LEFT JOIN v_Zamowienia_materialy_w_trakcie_wszystko AS ZNWTWA ON ZNWTW.[Nr zamówienia] = ZNWTWA.[Nr zamówienia] AND ZNWTWA.[Status] = 'Odebrano' 
+LEFT JOIN v_Zamowienia_narzedzia_w_trakcie_wszystko AS ZNWTWA ON ZNWTW.[Nr zamówienia] = ZNWTWA.[Nr zamówienia] AND ZNWTWA.[Status] = 'Odebrano'
 WHERE ZNWTWA.[Nr zamówienia] IS NULL 
 GO 
 
@@ -790,24 +806,30 @@ GO
 
 CREATE VIEW v_Maszyny_numery_przypisane
 AS
-SELECT Maszyna.Nazwa_maszyna AS [Nazwa maszyny], COUNT(Maszyna.Nazwa_maszyna) AS [Ile przypisano]
+SELECT Maszyna.ID_maszyna AS [ID], Maszyna.Nazwa_maszyna AS [Nazwa maszyny], COUNT(Maszyna.Nazwa_maszyna) AS [Ile przypisano]
 FROM Maszyna_nr_seryjny AS MNS
 INNER JOIN Maszyna ON MNS.ID_maszyna = Maszyna.ID_maszyna
 INNER JOIN Nr_seryjny ON MNS.ID_nr_seryjny = Nr_seryjny.ID_nr_seryjny
-GROUP BY Maszyna.Nazwa_maszyna
+GROUP BY Maszyna.ID_maszyna, Maszyna.Nazwa_maszyna
 GO
 
 CREATE VIEW v_Maszyny_numery_porownanie
 AS
-SELECT MMW.[Nazwa maszyny], MMW.[Liczba sztuk], MNP.[Ile przypisano]
+SELECT [ID], MMW.[Nazwa maszyny], MMW.[Liczba sztuk], MNP.[Ile przypisano]
 FROM v_Magazyn_maszyn_wszystko AS MMW
 LEFT JOIN v_Maszyny_numery_przypisane AS MNP ON MMW.[Nazwa maszyny] = MNP.[Nazwa maszyny]
 GO
 
 CREATE VIEW v_Maszyny_numery_nieprzypisane
 AS
-SELECT [Nazwa maszyny], [Liczba sztuk]-[Ile przypisano] AS [Nieprzypisanych]
+SELECT [ID], [Nazwa maszyny], [Liczba sztuk]-[Ile przypisano] AS [Nieprzypisanych]
 FROM v_Maszyny_numery_porownanie
+GO
+
+CREATE VIEW v_Maszyny_numery_nieprzypisane_zero
+AS
+SELECT * FROM v_Maszyny_numery_nieprzypisane
+WHERE [Nieprzypisanych]>0
 GO
 
 

@@ -18,5 +18,6 @@ namespace KWZP2022
         public string Obsługa { get; set; }
         public System.DateTime Data_rozpoczęcia { get; set; }
         public Nullable<System.DateTime> Data_zakończenia { get; set; }
+        public string Pracownik { get; set; }
     }
 }
