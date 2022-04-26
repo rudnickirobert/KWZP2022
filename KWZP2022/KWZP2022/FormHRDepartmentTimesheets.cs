@@ -17,10 +17,10 @@ namespace KWZP2022
         {
             InitializeComponent();
             this.db = db;
-            cmbPracownik.DataSource = db.Pracownik.ToList();
+           // cmbPracownik.DataSource = db.Pracownik.ToList();
             cmbPracownik.DisplayMember = "Nazwisko";
             cmbPracownik.ValueMember = "ID_pracownik";
-            cmbNieobecnosc.DataSource = db.Rodzaj_nieobecnosci.ToList();
+            //cmbNieobecnosc.DataSource = db.Rodzaj_nieobecnosci.ToList();
             cmbNieobecnosc.DisplayMember = "Symbol";
             cmbNieobecnosc.ValueMember = "ID_rodzaj_nieobecnosci";
             initDataGridView();

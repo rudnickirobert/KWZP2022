@@ -45,7 +45,7 @@ namespace KWZP2022
 
         private void ComboBox()
         {
-            cbWyksztalcenie.DataSource = this.db.Wyksztalcenie.ToList();
+            //cbWyksztalcenie.DataSource = this.db.Wyksztalcenie.ToList();
             cbWyksztalcenie.ValueMember = "ID_wyksztalcenie";
             cbWyksztalcenie.DisplayMember = "Nazwa";
         }

@@ -133,6 +133,12 @@
     <Compile Include="FormHRDepartmentWorkerContract.Designer.cs">
       <DependentUpon>FormHRDepartmentWorkerContract.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormHRDepartmentWorkerContractNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHRDepartmentWorkerContractNew.Designer.cs">
+      <DependentUpon>FormHRDepartmentWorkerContractNew.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormHRDepartmentWorkerModify.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1016,6 +1022,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormHRDepartment.resx">
       <DependentUpon>FormHRDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHRDepartmentNewWorker.resx">
+      <DependentUpon>FormHRDepartmentNewWorker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHRDepartmentTimesheets.resx">
+      <DependentUpon>FormHRDepartmentTimesheets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHRDepartmentWorkerContract.resx">
+      <DependentUpon>FormHRDepartmentWorkerContract.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHRDepartmentWorkerContractNew.resx">
+      <DependentUpon>FormHRDepartmentWorkerContractNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHRDepartmentWorkerModify.resx">
+      <DependentUpon>FormHRDepartmentWorkerModify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormKosztProdukcja.resx">
       <DependentUpon>FormKosztProdukcja.cs</DependentUpon>

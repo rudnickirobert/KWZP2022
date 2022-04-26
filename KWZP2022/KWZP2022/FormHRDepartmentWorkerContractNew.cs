@@ -32,19 +32,19 @@ namespace KWZP2022
         }
         private void CheckBox()
         {
-            cbPracownik.DataSource = db.Pracownik.ToList();
+            //cbPracownik.DataSource = db.Pracownik.ToList();
             cbPracownik.DisplayMember = "Nazwisko";
             cbPracownik.ValueMember = "ID_pracownik";
-            cbWymiarPracy.DataSource = db.Wymiar_pracy.ToList();
+            //cbWymiarPracy.DataSource = db.Wymiar_pracy.ToList();
             cbWymiarPracy.DisplayMember = "Nazwa_dostawca";
             cbWymiarPracy.ValueMember = "ID_wymiar_pracy";
-            cbRodzajUmowy.DataSource = db.Rodzaj_umowy.ToList();
+            //cbRodzajUmowy.DataSource = db.Rodzaj_umowy.ToList();
             cbRodzajUmowy.DisplayMember = "Nazwa";
             cbRodzajUmowy.ValueMember = "ID_rodzaj_umowy";
-            cbDzial.DataSource = db.Dzial.ToList();
+            //cbDzial.DataSource = db.Dzial.ToList();
             cbDzial.DisplayMember = "Nazwa_dzial";
             cbDzial.ValueMember = "ID_dzial";
-            cbStanowisko.DataSource = db.Stanowisko.ToList();
+           // cbStanowisko.DataSource = db.Stanowisko.ToList();
             cbStanowisko.DisplayMember = "Nazwa_stanowiska";
             cbStanowisko.ValueMember = "ID_stanowisko";
         }
