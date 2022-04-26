@@ -143,6 +143,7 @@ namespace KWZP2022
         public virtual DbSet<v_Magazyn_maszyn_uzywane> v_Magazyn_maszyn_uzywane { get; set; }
         public virtual DbSet<v_Magazyn_maszyn_wszystko> v_Magazyn_maszyn_wszystko { get; set; }
         public virtual DbSet<v_Magazyn_narzedzia_nieuzywane> v_Magazyn_narzedzia_nieuzywane { get; set; }
+        public virtual DbSet<v_Magazyn_narzedzia_nieuzywane_ID> v_Magazyn_narzedzia_nieuzywane_ID { get; set; }
         public virtual DbSet<v_Magazyn_narzedzia_stan> v_Magazyn_narzedzia_stan { get; set; }
         public virtual DbSet<v_Magazyn_narzedzia_uzywane> v_Magazyn_narzedzia_uzywane { get; set; }
         public virtual DbSet<v_Magazyn_narzedzia_wszystko> v_Magazyn_narzedzia_wszystko { get; set; }
@@ -158,6 +159,7 @@ namespace KWZP2022
         public virtual DbSet<v_Nadgodziny_miesiac> v_Nadgodziny_miesiac { get; set; }
         public virtual DbSet<v_Nadgodziny_suma_miesiac> v_Nadgodziny_suma_miesiac { get; set; }
         public virtual DbSet<v_Nieobecnosc> v_Nieobecnosc { get; set; }
+        public virtual DbSet<v_Nr_seryjny_maszyna> v_Nr_seryjny_maszyna { get; set; }
         public virtual DbSet<v_Nr_telefon_pracownik> v_Nr_telefon_pracownik { get; set; }
         public virtual DbSet<v_Obsluga_cmb> v_Obsluga_cmb { get; set; }
         public virtual DbSet<v_Obsluga_cmb_wymiana> v_Obsluga_cmb_wymiana { get; set; }
@@ -194,7 +196,9 @@ namespace KWZP2022
         public virtual DbSet<v_Sklad_produkt_material> v_Sklad_produkt_material { get; set; }
         public virtual DbSet<v_Sklad_SP_maszyna> v_Sklad_SP_maszyna { get; set; }
         public virtual DbSet<v_Sklad_stanowisko_produkcyjne_maszyna> v_Sklad_stanowisko_produkcyjne_maszyna { get; set; }
+        public virtual DbSet<v_Sklad_stanowisko_produkcyjne_maszyna_ID> v_Sklad_stanowisko_produkcyjne_maszyna_ID { get; set; }
         public virtual DbSet<v_Sklad_stanowisko_produkcyjne_narzedzie> v_Sklad_stanowisko_produkcyjne_narzedzie { get; set; }
+        public virtual DbSet<v_Sklad_stanowisko_produkcyjne_narzedzie_ID> v_Sklad_stanowisko_produkcyjne_narzedzie_ID { get; set; }
         public virtual DbSet<v_Slownik_stanowisko> v_Slownik_stanowisko { get; set; }
         public virtual DbSet<v_Sprzedaz> v_Sprzedaz { get; set; }
         public virtual DbSet<v_Stanowiska_do_uzycia> v_Stanowiska_do_uzycia { get; set; }
