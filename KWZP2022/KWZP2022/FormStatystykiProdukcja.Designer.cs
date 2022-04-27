@@ -35,24 +35,26 @@
             // 
             // btnGodziny
             // 
+            this.btnGodziny.BackColor = System.Drawing.Color.PaleGreen;
             this.btnGodziny.Font = new System.Drawing.Font("Arial", 20F);
             this.btnGodziny.Location = new System.Drawing.Point(281, 144);
             this.btnGodziny.Name = "btnGodziny";
             this.btnGodziny.Size = new System.Drawing.Size(288, 147);
             this.btnGodziny.TabIndex = 0;
             this.btnGodziny.Text = "Ewidencja czasu pracy";
-            this.btnGodziny.UseVisualStyleBackColor = true;
+            this.btnGodziny.UseVisualStyleBackColor = false;
             this.btnGodziny.Click += new System.EventHandler(this.btnGodziny_Click);
             // 
             // btnKoszt
             // 
+            this.btnKoszt.BackColor = System.Drawing.Color.Aquamarine;
             this.btnKoszt.Font = new System.Drawing.Font("Arial", 20F);
             this.btnKoszt.Location = new System.Drawing.Point(707, 144);
             this.btnKoszt.Name = "btnKoszt";
             this.btnKoszt.Size = new System.Drawing.Size(288, 147);
             this.btnKoszt.TabIndex = 1;
             this.btnKoszt.Text = "Koszt produkcji";
-            this.btnKoszt.UseVisualStyleBackColor = true;
+            this.btnKoszt.UseVisualStyleBackColor = false;
             this.btnKoszt.Click += new System.EventHandler(this.btnKoszt_Click);
             // 
             // FormStatystykiProdukcja
@@ -65,6 +67,7 @@
             this.Controls.Add(this.btnGodziny);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Name = "FormStatystykiProdukcja";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Statystyki działu produkcji";
             this.ResumeLayout(false);
 

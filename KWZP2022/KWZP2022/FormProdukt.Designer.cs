@@ -68,7 +68,7 @@
             this.txtNazwaProdukt.Font = new System.Drawing.Font("Arial", 20F);
             this.txtNazwaProdukt.Location = new System.Drawing.Point(26, 59);
             this.txtNazwaProdukt.Name = "txtNazwaProdukt";
-            this.txtNazwaProdukt.Size = new System.Drawing.Size(334, 46);
+            this.txtNazwaProdukt.Size = new System.Drawing.Size(334, 38);
             this.txtNazwaProdukt.TabIndex = 2;
             // 
             // btnOdswiez
@@ -113,7 +113,7 @@
             this.label1.Font = new System.Drawing.Font("Arial", 20F);
             this.label1.Location = new System.Drawing.Point(20, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(264, 39);
+            this.label1.Size = new System.Drawing.Size(217, 32);
             this.label1.TabIndex = 6;
             this.label1.Text = "Nazwa produktu:";
             // 
@@ -137,9 +137,9 @@
             this.btnDodajSkladProduktu.UseVisualStyleBackColor = true;
             this.btnDodajSkladProduktu.Click += new System.EventHandler(this.btnDodajSkladProduktu_Click);
             // 
-            // ProduktForm
+            // FormProdukt
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(794, 461);
@@ -153,7 +153,8 @@
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.dgvProdukt);
             this.Font = new System.Drawing.Font("Arial", 8.25F);
-            this.Name = "ProduktForm";
+            this.Name = "FormProdukt";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Produkty";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdukt)).EndInit();
             this.ResumeLayout(false);

@@ -38,7 +38,7 @@
             // 
             this.dgvStanowisko.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStanowisko.Location = new System.Drawing.Point(98, 98);
-            this.dgvStanowisko.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvStanowisko.Margin = new System.Windows.Forms.Padding(2);
             this.dgvStanowisko.Name = "dgvStanowisko";
             this.dgvStanowisko.RowHeadersWidth = 51;
             this.dgvStanowisko.RowTemplate.Height = 24;
@@ -50,7 +50,7 @@
             this.btnUsun.BackColor = System.Drawing.Color.IndianRed;
             this.btnUsun.Font = new System.Drawing.Font("Arial Narrow", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnUsun.Location = new System.Drawing.Point(98, 54);
-            this.btnUsun.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUsun.Margin = new System.Windows.Forms.Padding(2);
             this.btnUsun.Name = "btnUsun";
             this.btnUsun.Size = new System.Drawing.Size(175, 39);
             this.btnUsun.TabIndex = 1;
@@ -66,8 +66,9 @@
             this.ClientSize = new System.Drawing.Size(799, 501);
             this.Controls.Add(this.btnUsun);
             this.Controls.Add(this.dgvStanowisko);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormUsunStanowisko";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Usuń stanowisko";
             ((System.ComponentModel.ISupportInitialize)(this.dgvStanowisko)).EndInit();
             this.ResumeLayout(false);
