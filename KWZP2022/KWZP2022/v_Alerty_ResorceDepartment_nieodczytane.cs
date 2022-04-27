@@ -12,10 +12,11 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Alerty_Resdep_nieodczytane
+    public partial class v_Alerty_ResorceDepartment_nieodczytane
     {
         public int ID_alert { get; set; }
         public int ID_dzial { get; set; }
+        public string Nazwa_dzial { get; set; }
         public string Tresc { get; set; }
         public bool Czy_odczytano { get; set; }
     }

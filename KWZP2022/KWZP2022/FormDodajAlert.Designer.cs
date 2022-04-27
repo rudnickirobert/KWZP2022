@@ -41,7 +41,7 @@ namespace KWZP2022
             // 
             this.btnDodajAlert.BackColor = System.Drawing.Color.LimeGreen;
             this.btnDodajAlert.Font = new System.Drawing.Font("Arial", 18F);
-            this.btnDodajAlert.Location = new System.Drawing.Point(203, 231);
+            this.btnDodajAlert.Location = new System.Drawing.Point(245, 254);
             this.btnDodajAlert.Name = "btnDodajAlert";
             this.btnDodajAlert.Size = new System.Drawing.Size(177, 63);
             this.btnDodajAlert.TabIndex = 0;
@@ -51,11 +51,11 @@ namespace KWZP2022
             // 
             // cmbDzial
             // 
-            this.cmbDzial.Font = new System.Drawing.Font("Arial", 18F);
+            this.cmbDzial.Font = new System.Drawing.Font("Arial", 14F);
             this.cmbDzial.FormattingEnabled = true;
-            this.cmbDzial.Location = new System.Drawing.Point(101, 17);
+            this.cmbDzial.Location = new System.Drawing.Point(133, 42);
             this.cmbDzial.Name = "cmbDzial";
-            this.cmbDzial.Size = new System.Drawing.Size(215, 35);
+            this.cmbDzial.Size = new System.Drawing.Size(375, 30);
             this.cmbDzial.TabIndex = 1;
             // 
             // label1
@@ -63,7 +63,7 @@ namespace KWZP2022
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(12, 20);
+            this.label1.Location = new System.Drawing.Point(44, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 27);
             this.label1.TabIndex = 2;
@@ -74,7 +74,7 @@ namespace KWZP2022
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial", 18F);
-            this.label2.Location = new System.Drawing.Point(12, 79);
+            this.label2.Location = new System.Drawing.Point(39, 102);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 27);
             this.label2.TabIndex = 3;
@@ -83,7 +83,7 @@ namespace KWZP2022
             // txtTresc
             // 
             this.txtTresc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtTresc.Location = new System.Drawing.Point(101, 79);
+            this.txtTresc.Location = new System.Drawing.Point(133, 102);
             this.txtTresc.Name = "txtTresc";
             this.txtTresc.Size = new System.Drawing.Size(375, 146);
             this.txtTresc.TabIndex = 4;
@@ -94,7 +94,7 @@ namespace KWZP2022
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(557, 306);
+            this.ClientSize = new System.Drawing.Size(629, 355);
             this.Controls.Add(this.txtTresc);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

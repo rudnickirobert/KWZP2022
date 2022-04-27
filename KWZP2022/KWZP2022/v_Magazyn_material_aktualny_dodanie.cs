@@ -12,11 +12,12 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Alerty_Resdep
+    public partial class v_Magazyn_material_aktualny_dodanie
     {
-        public int ID_alert { get; set; }
-        public int ID_dzial { get; set; }
-        public string Tresc { get; set; }
-        public bool Czy_odczytano { get; set; }
+        public int ID_material { get; set; }
+        public string Nazwa_materiału { get; set; }
+        public Nullable<int> Waga__g_ { get; set; }
+        public Nullable<int> Waga_material_polprodukt__g_ { get; set; }
+        public Nullable<int> Waga_material_produkt__g_ { get; set; }
     }
 }
