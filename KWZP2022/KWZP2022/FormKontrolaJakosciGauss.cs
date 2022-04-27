@@ -19,8 +19,7 @@ namespace KWZP2022
             this.db = db;
             ComboboxProdukt();
             ComboboxParametr();
-            this.db = new KWZPEntities();
-
+            this.db = new KWZPEntities();       
         }
 
         private void refreshComboboxes()
@@ -30,23 +29,20 @@ namespace KWZP2022
         }
 
         private void ComboboxProdukt()
-        {
-            
+        {            
             cbProdukt.DataSource = this.db.Produkt.ToList();
             cbProdukt.DisplayMember = "Nazwa_produkt";
-            cbProdukt.ValueMember = "ID_produkt";
-            
+            cbProdukt.ValueMember = "ID_produkt";            
         }
 
 
         private void ComboboxParametr()
-        {
-            
+        {           
             int produktID = int.Parse(cbProdukt.SelectedValue.ToString());
+           
             cbParametr.DataSource = this.db.v_Parametry_produkt.Where(a => a.ID_produkt == produktID).ToList();
             cbParametr.ValueMember = "ID_parametr_produkt";
-            cbParametr.DisplayMember = "Parametr";
-            
+            cbParametr.DisplayMember = "Parametr";           
 
         }
 
