@@ -829,30 +829,34 @@
           <Property Name="Akceptacja" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'KWZP.dbo.v_Alerty_Resdep' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="v_Alerty_Resdep">
+warning 6002: The table/view 'KWZP.dbo.v_Alerty_ResorceDepartment_nieodczytane' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Alerty_ResorceDepartment_nieodczytane">
           <Key>
             <PropertyRef Name="ID_alert" />
             <PropertyRef Name="ID_dzial" />
+            <PropertyRef Name="Nazwa_dzial" />
             <PropertyRef Name="Tresc" />
             <PropertyRef Name="Czy_odczytano" />
           </Key>
-          <Property Name="ID_alert" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_alert" Type="int" Nullable="false" />
           <Property Name="ID_dzial" Type="int" Nullable="false" />
+          <Property Name="Nazwa_dzial" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Tresc" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="Czy_odczytano" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'KWZP.dbo.v_Alerty_Resdep_nieodczytane' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="v_Alerty_Resdep_nieodczytane">
+warning 6002: The table/view 'KWZP.dbo.v_Alerty_ResourceDepartment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Alerty_ResourceDepartment">
           <Key>
             <PropertyRef Name="ID_alert" />
             <PropertyRef Name="ID_dzial" />
+            <PropertyRef Name="Nazwa_dzial" />
             <PropertyRef Name="Tresc" />
             <PropertyRef Name="Czy_odczytano" />
           </Key>
-          <Property Name="ID_alert" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_alert" Type="int" Nullable="false" />
           <Property Name="ID_dzial" Type="int" Nullable="false" />
+          <Property Name="Nazwa_dzial" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Tresc" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="Czy_odczytano" Type="bit" Nullable="false" />
         </EntityType>
@@ -1269,6 +1273,19 @@ warning 6002: The table/view 'KWZP.dbo.v_Magazyn_material_aktualny' does not hav
           </Key>
           <Property Name="Nazwa materiału" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Stan w magazynie g" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Magazyn_material_aktualny_dodanie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Magazyn_material_aktualny_dodanie">
+          <Key>
+            <PropertyRef Name="ID_material" />
+            <PropertyRef Name="Nazwa materiału" />
+          </Key>
+          <Property Name="ID_material" Type="int" Nullable="false" />
+          <Property Name="Nazwa materiału" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Waga (g)" Type="int" />
+          <Property Name="Waga material polprodukt (g)" Type="int" />
+          <Property Name="Waga material produkt (g)" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Magazyn_material_przejsciowy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -4596,21 +4613,23 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySet Name="Zamowienie_narzedzie" EntityType="Self.Zamowienie_narzedzie" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zamowienie_szczegol" EntityType="Self.Zamowienie_szczegol" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zwrot" EntityType="Self.Zwrot" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="v_Alerty_Resdep" EntityType="Self.v_Alerty_Resdep" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="v_Alerty_ResorceDepartment_nieodczytane" EntityType="Self.v_Alerty_ResorceDepartment_nieodczytane" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [v_Alerty_Resdep].[ID_alert] AS [ID_alert], 
-    [v_Alerty_Resdep].[ID_dzial] AS [ID_dzial], 
-    [v_Alerty_Resdep].[Tresc] AS [Tresc], 
-    [v_Alerty_Resdep].[Czy_odczytano] AS [Czy_odczytano]
-    FROM [dbo].[v_Alerty_Resdep] AS [v_Alerty_Resdep]</DefiningQuery>
+    [v_Alerty_ResorceDepartment_nieodczytane].[ID_alert] AS [ID_alert], 
+    [v_Alerty_ResorceDepartment_nieodczytane].[ID_dzial] AS [ID_dzial], 
+    [v_Alerty_ResorceDepartment_nieodczytane].[Nazwa_dzial] AS [Nazwa_dzial], 
+    [v_Alerty_ResorceDepartment_nieodczytane].[Tresc] AS [Tresc], 
+    [v_Alerty_ResorceDepartment_nieodczytane].[Czy_odczytano] AS [Czy_odczytano]
+    FROM [dbo].[v_Alerty_ResorceDepartment_nieodczytane] AS [v_Alerty_ResorceDepartment_nieodczytane]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="v_Alerty_Resdep_nieodczytane" EntityType="Self.v_Alerty_Resdep_nieodczytane" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="v_Alerty_ResourceDepartment" EntityType="Self.v_Alerty_ResourceDepartment" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [v_Alerty_Resdep_nieodczytane].[ID_alert] AS [ID_alert], 
-    [v_Alerty_Resdep_nieodczytane].[ID_dzial] AS [ID_dzial], 
-    [v_Alerty_Resdep_nieodczytane].[Tresc] AS [Tresc], 
-    [v_Alerty_Resdep_nieodczytane].[Czy_odczytano] AS [Czy_odczytano]
-    FROM [dbo].[v_Alerty_Resdep_nieodczytane] AS [v_Alerty_Resdep_nieodczytane]</DefiningQuery>
+    [v_Alerty_ResourceDepartment].[ID_alert] AS [ID_alert], 
+    [v_Alerty_ResourceDepartment].[ID_dzial] AS [ID_dzial], 
+    [v_Alerty_ResourceDepartment].[Nazwa_dzial] AS [Nazwa_dzial], 
+    [v_Alerty_ResourceDepartment].[Tresc] AS [Tresc], 
+    [v_Alerty_ResourceDepartment].[Czy_odczytano] AS [Czy_odczytano]
+    FROM [dbo].[v_Alerty_ResourceDepartment] AS [v_Alerty_ResourceDepartment]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Czesci" EntityType="Self.v_Czesci" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -4864,6 +4883,15 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
     [v_Magazyn_material_aktualny].[Nazwa materiału] AS [Nazwa materiału], 
     [v_Magazyn_material_aktualny].[Stan w magazynie g] AS [Stan w magazynie g]
     FROM [dbo].[v_Magazyn_material_aktualny] AS [v_Magazyn_material_aktualny]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Magazyn_material_aktualny_dodanie" EntityType="Self.v_Magazyn_material_aktualny_dodanie" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Magazyn_material_aktualny_dodanie].[ID_material] AS [ID_material], 
+    [v_Magazyn_material_aktualny_dodanie].[Nazwa materiału] AS [Nazwa materiału], 
+    [v_Magazyn_material_aktualny_dodanie].[Waga (g)] AS [Waga (g)], 
+    [v_Magazyn_material_aktualny_dodanie].[Waga material polprodukt (g)] AS [Waga material polprodukt (g)], 
+    [v_Magazyn_material_aktualny_dodanie].[Waga material produkt (g)] AS [Waga material produkt (g)]
+    FROM [dbo].[v_Magazyn_material_aktualny_dodanie] AS [v_Magazyn_material_aktualny_dodanie]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Magazyn_material_przejsciowy" EntityType="Self.v_Magazyn_material_przejsciowy" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -7426,27 +7454,31 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <NavigationProperty Name="Produkt" Relationship="Self.FK__Zwrot__ID_produk__5D95E53A" FromRole="Zwrot" ToRole="Produkt" />
           <NavigationProperty Name="Reklamacja" Relationship="Self.FK__Zwrot__ID_reklam__5CA1C101" FromRole="Zwrot" ToRole="Reklamacja" />
         </EntityType>
-        <EntityType Name="v_Alerty_Resdep">
+        <EntityType Name="v_Alerty_ResorceDepartment_nieodczytane">
           <Key>
             <PropertyRef Name="ID_alert" />
             <PropertyRef Name="ID_dzial" />
+            <PropertyRef Name="Nazwa_dzial" />
             <PropertyRef Name="Tresc" />
             <PropertyRef Name="Czy_odczytano" />
           </Key>
-          <Property Name="ID_alert" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_alert" Type="Int32" Nullable="false" />
           <Property Name="ID_dzial" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_dzial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Tresc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Czy_odczytano" Type="Boolean" Nullable="false" />
         </EntityType>
-        <EntityType Name="v_Alerty_Resdep_nieodczytane">
+        <EntityType Name="v_Alerty_ResourceDepartment">
           <Key>
             <PropertyRef Name="ID_alert" />
             <PropertyRef Name="ID_dzial" />
+            <PropertyRef Name="Nazwa_dzial" />
             <PropertyRef Name="Tresc" />
             <PropertyRef Name="Czy_odczytano" />
           </Key>
-          <Property Name="ID_alert" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_alert" Type="Int32" Nullable="false" />
           <Property Name="ID_dzial" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_dzial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Tresc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Czy_odczytano" Type="Boolean" Nullable="false" />
         </EntityType>
@@ -7799,6 +7831,17 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           </Key>
           <Property Name="Nazwa_materiału" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Stan_w_magazynie_g" Type="Int32" />
+        </EntityType>
+        <EntityType Name="v_Magazyn_material_aktualny_dodanie">
+          <Key>
+            <PropertyRef Name="ID_material" />
+            <PropertyRef Name="Nazwa_materiału" />
+          </Key>
+          <Property Name="ID_material" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_materiału" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Waga__g_" Type="Int32" />
+          <Property Name="Waga_material_polprodukt__g_" Type="Int32" />
+          <Property Name="Waga_material_produkt__g_" Type="Int32" />
         </EntityType>
         <EntityType Name="v_Magazyn_material_przejsciowy">
           <Key>
@@ -8985,28 +9028,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <Property Name="Data_rozpoczęcia" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Data_zakończenia" Type="DateTime" Precision="3" />
           <Property Name="ID_zamowienie" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="v_Wytworzony_produkt_material">
-          <Key>
-            <PropertyRef Name="ID_produkt" />
-            <PropertyRef Name="ID_material" />
-            <PropertyRef Name="Materiał" />
-            <PropertyRef Name="Waga__g_" />
-          </Key>
-          <Property Name="ID_produkt" Type="Int32" Nullable="false" />
-          <Property Name="ID_material" Type="Int32" Nullable="false" />
-          <Property Name="Materiał" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Waga__g_" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="v_Wytworzone_produkty_sklad">
-          <Key>
-            <PropertyRef Name="ID_produkt" />
-            <PropertyRef Name="ID_polprodukt" />
-            <PropertyRef Name="Liczba" />
-          </Key>
-          <Property Name="ID_produkt" Type="Int32" Nullable="false" />
-          <Property Name="ID_polprodukt" Type="Int32" Nullable="false" />
-          <Property Name="Liczba" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="v_Wytworzony_produkt_material">
           <Key>
@@ -10886,8 +10907,8 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySet Name="Zamowienie_narzedzie" EntityType="Self.Zamowienie_narzedzie" />
           <EntitySet Name="Zamowienie_szczegol" EntityType="Self.Zamowienie_szczegol" />
           <EntitySet Name="Zwrot" EntityType="Self.Zwrot" />
-          <EntitySet Name="v_Alerty_Resdep" EntityType="Self.v_Alerty_Resdep" />
-          <EntitySet Name="v_Alerty_Resdep_nieodczytane" EntityType="Self.v_Alerty_Resdep_nieodczytane" />
+          <EntitySet Name="v_Alerty_ResorceDepartment_nieodczytane" EntityType="Self.v_Alerty_ResorceDepartment_nieodczytane" />
+          <EntitySet Name="v_Alerty_ResourceDepartment" EntityType="Self.v_Alerty_ResourceDepartment" />
           <EntitySet Name="v_Czesci" EntityType="Self.v_Czesci" />
           <EntitySet Name="v_Czynnosc_produkcyjna" EntityType="Self.v_Czynnosc_produkcyjna" />
           <EntitySet Name="v_Dane_adresowe_pracownik" EntityType="Self.v_Dane_adresowe_pracownik" />
@@ -10920,6 +10941,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySet Name="v_Magazyn_maszyn_uzywane" EntityType="Self.v_Magazyn_maszyn_uzywane" />
           <EntitySet Name="v_Magazyn_maszyn_wszystko" EntityType="Self.v_Magazyn_maszyn_wszystko" />
           <EntitySet Name="v_Magazyn_material_aktualny" EntityType="Self.v_Magazyn_material_aktualny" />
+          <EntitySet Name="v_Magazyn_material_aktualny_dodanie" EntityType="Self.v_Magazyn_material_aktualny_dodanie" />
           <EntitySet Name="v_Magazyn_material_przejsciowy" EntityType="Self.v_Magazyn_material_przejsciowy" />
           <EntitySet Name="v_Magazyn_material_wszystko" EntityType="Self.v_Magazyn_material_wszystko" />
           <EntitySet Name="v_Magazyn_narzedzia_nieuzywane" EntityType="Self.v_Magazyn_narzedzia_nieuzywane" />
@@ -12423,21 +12445,23 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="v_Alerty_Resdep">
-            <EntityTypeMapping TypeName="KWZPModel.v_Alerty_Resdep">
-              <MappingFragment StoreEntitySet="v_Alerty_Resdep">
+          <EntitySetMapping Name="v_Alerty_ResorceDepartment_nieodczytane">
+            <EntityTypeMapping TypeName="KWZPModel.v_Alerty_ResorceDepartment_nieodczytane">
+              <MappingFragment StoreEntitySet="v_Alerty_ResorceDepartment_nieodczytane">
                 <ScalarProperty Name="ID_alert" ColumnName="ID_alert" />
                 <ScalarProperty Name="ID_dzial" ColumnName="ID_dzial" />
+                <ScalarProperty Name="Nazwa_dzial" ColumnName="Nazwa_dzial" />
                 <ScalarProperty Name="Tresc" ColumnName="Tresc" />
                 <ScalarProperty Name="Czy_odczytano" ColumnName="Czy_odczytano" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="v_Alerty_Resdep_nieodczytane">
-            <EntityTypeMapping TypeName="KWZPModel.v_Alerty_Resdep_nieodczytane">
-              <MappingFragment StoreEntitySet="v_Alerty_Resdep_nieodczytane">
+          <EntitySetMapping Name="v_Alerty_ResourceDepartment">
+            <EntityTypeMapping TypeName="KWZPModel.v_Alerty_ResourceDepartment">
+              <MappingFragment StoreEntitySet="v_Alerty_ResourceDepartment">
                 <ScalarProperty Name="ID_alert" ColumnName="ID_alert" />
                 <ScalarProperty Name="ID_dzial" ColumnName="ID_dzial" />
+                <ScalarProperty Name="Nazwa_dzial" ColumnName="Nazwa_dzial" />
                 <ScalarProperty Name="Tresc" ColumnName="Tresc" />
                 <ScalarProperty Name="Czy_odczytano" ColumnName="Czy_odczytano" />
               </MappingFragment>
@@ -12757,6 +12781,17 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
               <MappingFragment StoreEntitySet="v_Magazyn_material_aktualny">
                 <ScalarProperty Name="Nazwa_materiału" ColumnName="Nazwa materiału" />
                 <ScalarProperty Name="Stan_w_magazynie_g" ColumnName="Stan w magazynie g" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Magazyn_material_aktualny_dodanie">
+            <EntityTypeMapping TypeName="KWZPModel.v_Magazyn_material_aktualny_dodanie">
+              <MappingFragment StoreEntitySet="v_Magazyn_material_aktualny_dodanie">
+                <ScalarProperty Name="ID_material" ColumnName="ID_material" />
+                <ScalarProperty Name="Nazwa_materiału" ColumnName="Nazwa materiału" />
+                <ScalarProperty Name="Waga__g_" ColumnName="Waga (g)" />
+                <ScalarProperty Name="Waga_material_polprodukt__g_" ColumnName="Waga material polprodukt (g)" />
+                <ScalarProperty Name="Waga_material_produkt__g_" ColumnName="Waga material produkt (g)" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -13745,25 +13780,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
                 <ScalarProperty Name="Data_rozpoczęcia" ColumnName="Data rozpoczęcia" />
                 <ScalarProperty Name="Data_zakończenia" ColumnName="Data zakończenia" />
                 <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="v_Wytworzony_produkt_material">
-            <EntityTypeMapping TypeName="KWZPModel.v_Wytworzony_produkt_material">
-              <MappingFragment StoreEntitySet="v_Wytworzony_produkt_material">
-                <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
-                <ScalarProperty Name="ID_material" ColumnName="ID_material" />
-                <ScalarProperty Name="Materiał" ColumnName="Materiał" />
-                <ScalarProperty Name="Waga__g_" ColumnName="Waga (g)" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="v_Wytworzone_produkty_sklad">
-            <EntityTypeMapping TypeName="KWZPModel.v_Wytworzone_produkty_sklad">
-              <MappingFragment StoreEntitySet="v_Wytworzone_produkty_sklad">
-                <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
-                <ScalarProperty Name="ID_polprodukt" ColumnName="ID_polprodukt" />
-                <ScalarProperty Name="Liczba" ColumnName="Liczba" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -77,13 +77,13 @@ namespace KWZP2022
                 DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz usunąć " + this.dgvSklad.CurrentRow.Cells[2].Value + " ze składu " + this.dgvSklad.CurrentRow.Cells[2].Value + "?", "Question", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    string wybCzesc = this.dgvSklad.CurrentRow.Cells[1].Value.ToString();
-                    int wybCzescID = int.Parse(wybCzesc);
-                    string wybMaszyna = this.dgvSklad.CurrentRow.Cells[0].Value.ToString();
-                    int wybMaszynaID = int.Parse(wybMaszyna);
-                    string wybSklad = this.dgvSklad.CurrentRow.Cells[2].Value.ToString();
-                    int wybSkladID = int.Parse(wybSklad);
-                    Sklad_maszyna danySklad = db.Sklad_maszyna.Single(a => a.ID_czesc == wybCzescID && a.ID_maszyna == wybMaszynaID && a.ID_sklad_maszyna == wybSkladID);
+                    string wybranaCzesc = this.dgvSklad.CurrentRow.Cells[1].Value.ToString();
+                    int wybranaCzescID = int.Parse(wybranaCzesc);
+                    string wybranaMaszyna = this.dgvSklad.CurrentRow.Cells[0].Value.ToString();
+                    int wybranaMaszynaID = int.Parse(wybranaMaszyna);
+                    string wybranaSklad = this.dgvSklad.CurrentRow.Cells[2].Value.ToString();
+                    int wybranaSkladID = int.Parse(wybranaSklad);
+                    Sklad_maszyna danySklad = db.Sklad_maszyna.Single(a => a.ID_czesc == wybranaCzescID && a.ID_maszyna == wybranaMaszynaID && a.ID_sklad_maszyna == wybranaSkladID);
                     db.Sklad_maszyna.Remove(danySklad);
                     db.SaveChanges();
                     initDataGridViewCzesci();

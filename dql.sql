@@ -936,7 +936,7 @@ FROM Sklad_polprodukt AS SP
 INNER JOIN Slownik_polprodukt AS SlwPp ON SP.ID_polprodukt = SlwPp.ID_polprodukt
 INNER JOIN Material AS M ON SP.ID_material = M.ID_material
 INNER JOIN Rodzaj_material AS RM ON M.ID_rodzaj_material = RM.ID_rodzaj_material
-ORDER BY SlwPp.Nazwa OFFSET 0 ROWS
+ORDER BY SP.ID_polprodukt OFFSET 0 ROWS
 GO
 
 CREATE VIEW v_Wytworzone_produkty_sklad
@@ -981,26 +981,35 @@ LEFT JOIN v_Wytworzony_produkt_material AS WPMM ON WPMM.ID_material=MMW.ID_mater
 GROUP BY MMW.ID_material, MMW.[Nazwa materiału], MMW.[Waga (g)], WPM.[Zuzyty material (g)], WPMM.[Waga (g)] 
 GO
 
+CREATE VIEW v_Magazyn_material_aktualny_dodanie
+AS
+SELECT MMP.ID_material, MMP.[Nazwa materiału], MMP.[Waga (g)], SUM (MMP.[Waga material polprodukt (g)]) AS [Waga material polprodukt (g)], SUM (MMP.[Waga material produkt (g)])  AS [Waga material produkt (g)]  
+FROM v_Magazyn_material_przejsciowy AS MMP
+GROUP BY MMP.ID_material, MMP.[Nazwa materiału], MMP.[Waga (g)]	
+GO
+
 CREATE VIEW v_Magazyn_material_aktualny
 AS
-SELECT MMP.[Nazwa materiału], MMP.[Waga (g)] - MMP.[Waga material polprodukt (g)] - MMP.[Waga material produkt (g)] AS [Stan w magazynie g] 
-FROM v_Magazyn_material_przejsciowy AS MMP
+SELECT MMP.[Nazwa materiału], (MMP.[Waga (g)] - MMP.[Waga material polprodukt (g)] - MMP.[Waga material produkt (g)]) AS [Stan w magazynie g] 
+FROM v_Magazyn_material_aktualny_dodanie AS MMP
 GROUP BY MMP.[Nazwa materiału], MMP.[Waga (g)],MMP.[Waga material polprodukt (g)],MMP.[Waga material produkt (g)]
 GO
 
-CREATE VIEW v_Alerty_Resdep
+CREATE VIEW v_Alerty_ResourceDepartment
 AS
-SELECT * 
+SELECT Alert.ID_alert, Dzial.ID_dzial, Dzial.Nazwa_dzial, Alert.Tresc, Alert.Czy_odczytano 
 FROM Alert 
-WHERE ID_dzial = 4 OR ID_dzial = 5;
+INNER JOIN Dzial ON Alert.ID_dzial = Dzial.ID_dzial
+WHERE Alert.ID_dzial = 4 OR Alert.ID_dzial = 5;
 GO
 
-CREATE VIEW v_Alerty_Resdep_nieodczytane
+CREATE VIEW v_Alerty_ResorceDepartment_nieodczytane
 AS
 SELECT * 
-FROM v_Alerty_Resdep 
+FROM v_Alerty_ResourceDepartment 
 WHERE Czy_odczytano=0 ;
 GO
+
 
 --SALES AND MARKETING DEPARTMENT --
 CREATE VIEW v_Szczegoly_sprzedaz AS

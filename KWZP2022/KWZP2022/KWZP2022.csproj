@@ -115,7 +115,7 @@
     </Compile>
     <Compile Include="FormDodajAlert.Designer.cs">
       <DependentUpon>FormDodajAlert.cs</DependentUpon>
-   </Compile>
+    </Compile>
     <Compile Include="FormHRandSetupProduction.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,12 +164,6 @@
     <Compile Include="FormKosztProdukcja.Designer.cs">
       <DependentUpon>FormKosztProdukcja.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormResDepLiczbaCzesci.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormResDepLiczbaCzesci.Designer.cs">
-      <DependentUpon>FormResDepLiczbaCzesci.cs</DependentUpon>
-  </Compile>
     <Compile Include="FormSalesDepartmentSalesStatistics.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -780,10 +774,10 @@
     <Compile Include="Umowa_sprzedaz.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="v_Alerty_Resdep.cs">
+    <Compile Include="v_Alerty_ResorceDepartment_nieodczytane.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="v_Alerty_Resdep_nieodczytane.cs">
+    <Compile Include="v_Alerty_ResourceDepartment.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Czesci.cs">
@@ -880,6 +874,9 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Magazyn_material_aktualny.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Magazyn_material_aktualny_dodanie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Magazyn_material_przejsciowy.cs">
@@ -1281,9 +1278,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormKosztProdukcja.resx">
       <DependentUpon>FormKosztProdukcja.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormResDepLiczbaCzesci.resx">
-      <DependentUpon>FormResDepLiczbaCzesci.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSalesDepartmentSalesStatistics.resx">
       <DependentUpon>FormSalesDepartmentSalesStatistics.cs</DependentUpon>

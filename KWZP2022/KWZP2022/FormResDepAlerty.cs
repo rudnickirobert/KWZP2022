@@ -22,8 +22,9 @@ namespace KWZP2022
 
         private void initDataGridView()
         {
-            dgvAlerty.DataSource = db.v_Alerty_Resdep_nieodczytane.ToList();
-            dgvAlerty.Columns[3].Visible = false;
+            dgvAlerty.DataSource = db.v_Alerty_ResorceDepartment_nieodczytane.ToList();
+            dgvAlerty.Columns[1].Visible = false;
+            dgvAlerty.Columns[4].Visible = false;
             dgvAlerty.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 
