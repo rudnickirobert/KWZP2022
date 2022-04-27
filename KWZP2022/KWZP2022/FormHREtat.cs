@@ -12,9 +12,24 @@ namespace KWZP2022
 {
     public partial class FormHREtat : Form
     {
-        public FormHREtat()
+        KWZPEntities db;
+        public FormHREtat(KWZPEntities db)
         {
             InitializeComponent();
+            this.db = db;
+        }
+
+        private void btnPositions_Click(object sender, EventArgs e)
+        {
+            FormPosistionsAdd formPosistionsAdd = new FormPosistionsAdd(db);
+            formPosistionsAdd.ShowDialog();
+
+        }
+
+        private void btnDepartments_Click(object sender, EventArgs e)
+        {
+            FormDepartmentsAdd formDepartmentsAdd = new FormDepartmentsAdd(db);
+            formDepartmentsAdd.ShowDialog();
         }
     }
 }

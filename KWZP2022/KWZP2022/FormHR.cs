@@ -27,7 +27,7 @@ namespace KWZP2022
 
         private void btnEtat_Click(object sender, EventArgs e)
         {
-            FormHREtat formHRDEtat = new FormHREtat(db);
+            FormHREtat formHREtat = new FormHREtat(db);
             formHREtat.ShowDialog();
         }
     }
