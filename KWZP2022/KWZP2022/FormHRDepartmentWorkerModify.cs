@@ -59,46 +59,46 @@ namespace KWZP2022
             tbPracownikImie.Text = pracownik.Imie;
             tbNrdowodu.Text = pracownik.Nr_dowodu;
             tbPesel.Text = pracownik.Pesel.ToString();
-            int selectedwyksztalcenie = int.Parse(cbWyksztalcenie.SelectedValue.ToString());
-            pracownik.ID_wyksztalcenie = selectedwyksztalcenie;
-            Dane_adresowe_pracownik dane_adresowe_pracownik = this.db.Dane_adresowe_pracownik.Single(b => b.ID_pracownik == dane);
-            tbMiejscowosc.Text = dane_adresowe_pracownik.Miejscowosc;
-            tbUlica.Text = dane_adresowe_pracownik.Ulica;
-            tbBudynek.Text = dane_adresowe_pracownik.Nr_budynku;
-            tblokal.Text = dane_adresowe_pracownik.Nr_lokalu;
-            tbKod.Text = dane_adresowe_pracownik.Kod_pocztowy;
-            dpracownikod.Value = dane_adresowe_pracownik.Data_od;
-            if (dane_adresowe_pracownik.Data_do != null)
+            int selectedWyksztalcenie = int.Parse(cbWyksztalcenie.SelectedValue.ToString());
+            pracownik.ID_wyksztalcenie = selectedWyksztalcenie;
+            Dane_adresowe_pracownik daneAdresowePracownik = this.db.Dane_adresowe_pracownik.Single(b => b.ID_pracownik == dane);
+            tbMiejscowosc.Text = daneAdresowePracownik.Miejscowosc;
+            tbUlica.Text = daneAdresowePracownik.Ulica;
+            tbBudynek.Text = daneAdresowePracownik.Nr_budynku;
+            tblokal.Text = daneAdresowePracownik.Nr_lokalu;
+            tbKod.Text = daneAdresowePracownik.Kod_pocztowy;
+            dpracownikod.Value = daneAdresowePracownik.Data_od;
+            if (daneAdresowePracownik.Data_do != null)
             {
                 cbDataDo.Checked = true;
-                dpracownikdo.Value = dane_adresowe_pracownik.Data_do.Value;
+                dpracownikdo.Value = daneAdresowePracownik.Data_do.Value;
             }
             else
             {
                 cbDataDo.Checked = false;
                 dpracownikdo.Value = DateTime.Now;
             }
-            Nr_telefon_pracownik nr_telefon_pracownik = this.db.Nr_telefon_pracownik.Single(c => c.ID_pracownik == dane);
+            Nr_telefon_pracownik nrTelefonPracownik = this.db.Nr_telefon_pracownik.Single(c => c.ID_pracownik == dane);
 
-            tbNumer.Text = nr_telefon_pracownik.Numer;
-            dnrod.Value = nr_telefon_pracownik.Data_od;
-            if (nr_telefon_pracownik.Data_do != null)
+            tbNumer.Text = nrTelefonPracownik.Numer;
+            dnrod.Value = nrTelefonPracownik.Data_od;
+            if (nrTelefonPracownik.Data_do != null)
             {
                 cbDataDoNrTelefonu.Checked = true;
-                dnrod.Value = nr_telefon_pracownik.Data_do.Value;
+                dnrod.Value = nrTelefonPracownik.Data_do.Value;
             }
             else
             {
                 cbDataDoNrTelefonu.Checked = false;
                 dnrod.Value = DateTime.Now;
             }
-            Email_pracownik email_pracownik = this.db.Email_pracownik.Single(d => d.ID_pracownik == dane);
-            tbEmail.Text = email_pracownik.Email;
-            demailod.Value = email_pracownik.Data_od;
-            if (email_pracownik.Data_do != null)
+            Email_pracownik emailPracownik = this.db.Email_pracownik.Single(d => d.ID_pracownik == dane);
+            tbEmail.Text = emailPracownik.Email;
+            demailod.Value = emailPracownik.Data_od;
+            if (emailPracownik.Data_do != null)
             {
                 cbDataDoEmail.Checked = true;
-                demailod.Value = email_pracownik.Data_do.Value;
+                demailod.Value = emailPracownik.Data_do.Value;
             }
             else
             {
@@ -116,27 +116,27 @@ namespace KWZP2022
                 pracownik.Imie = tbPracownikImie.Text;
                 pracownik.Nr_dowodu = tbNrdowodu.Text;
                 pracownik.Pesel = int.Parse(tbPesel.Text);
-                int selectedwyksztalcenie = int.Parse(cbWyksztalcenie.SelectedValue.ToString());
-                pracownik.ID_wyksztalcenie = selectedwyksztalcenie;
+                int selectedWyksztalcenie = int.Parse(cbWyksztalcenie.SelectedValue.ToString());
+                pracownik.ID_wyksztalcenie = selectedWyksztalcenie;
                 db.Pracownik.Add(pracownik);
                 db.SaveChanges();
-                Dane_adresowe_pracownik dane_adresowe_pracownik = new Dane_adresowe_pracownik();
-                dane_adresowe_pracownik.ID_pracownik = pracownik.ID_pracownik;
-                dane_adresowe_pracownik.Miejscowosc = tbMiejscowosc.Text;
-                dane_adresowe_pracownik.Ulica = tbUlica.Text;
-                dane_adresowe_pracownik.Nr_budynku = tbBudynek.Text;
-                dane_adresowe_pracownik.Nr_lokalu = tblokal.Text;
-                dane_adresowe_pracownik.Kod_pocztowy = tbKod.Text;
-                dane_adresowe_pracownik.Data_od = dpracownikod.Value;
+                Dane_adresowe_pracownik daneAdresowePracownik = new Dane_adresowe_pracownik();
+                daneAdresowePracownik.ID_pracownik = pracownik.ID_pracownik;
+                daneAdresowePracownik.Miejscowosc = tbMiejscowosc.Text;
+                daneAdresowePracownik.Ulica = tbUlica.Text;
+                daneAdresowePracownik.Nr_budynku = tbBudynek.Text;
+                daneAdresowePracownik.Nr_lokalu = tblokal.Text;
+                daneAdresowePracownik.Kod_pocztowy = tbKod.Text;
+                daneAdresowePracownik.Data_od = dpracownikod.Value;
                 if (cbDataDo.Checked)
                 {
-                    dane_adresowe_pracownik.Data_do = dpracownikdo.Value;
+                    daneAdresowePracownik.Data_do = dpracownikdo.Value;
                 }
                 else
                 {
-                    dane_adresowe_pracownik.Data_do = null;
+                    daneAdresowePracownik.Data_do = null;
                 }
-                db.Dane_adresowe_pracownik.Add(dane_adresowe_pracownik);
+                db.Dane_adresowe_pracownik.Add(daneAdresowePracownik);
                 db.SaveChanges();
                 Nr_telefon_pracownik nrTelefonPracownik = new Nr_telefon_pracownik();
                 nrTelefonPracownik.ID_pracownik = pracownik.ID_pracownik;

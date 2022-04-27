@@ -22,7 +22,7 @@ namespace KWZP2022
         }
         private void showData()
         {
-            dgvDataStart.DataSource = db.v_Proces_polprodukt_czynnosc_projekt.ToList();
+            //dgvDataStart.DataSource = db.v_Proces_polprodukt_czynnosc_projekt.ToList();
             this.dgvDataStart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 

@@ -52,9 +52,20 @@ namespace KWZP2022
             this.Close();
         }
 
+        private bool checkIfTextBoxesNotEmpty()
+        {
+            if (tbPracownikNazwisko.Text.Length > 0 && tbPracownikImie.Text.Length > 0 && tbNrdowodu.Text.Length > 0 && tbPesel.Text.Length > 0 && tbNumer.Text.Length > 0 && tbEmail.Text.Length > 0)
+            {
+                return true;
+            }
+            else 
+            {
+                return false;
+            }
+        }
         private void AddNewWorker()
         { 
-            if (tbPracownikNazwisko.Text.Length > 0 && tbPracownikImie.Text.Length > 0 && tbNrdowodu.Text.Length > 0 && tbPesel.Text.Length > 0 && tbNumer.Text.Length > 0 && tbEmail.Text.Length > 0)// && tbMiejscowosc.Text.Length > 0 && tbUlica.Text.Length > 0 && tbBudynek.Text.Length > 0 && tblokal.Text.Length > 0)
+            if (checkIfTextBoxesNotEmpty())
             {
                 Pracownik pracownik = new Pracownik();
                 pracownik.Nazwisko = tbPracownikNazwisko.Text;

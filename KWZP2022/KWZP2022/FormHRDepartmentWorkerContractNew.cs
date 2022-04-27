@@ -69,14 +69,14 @@ namespace KWZP2022
                 Etat etat = new Etat();
                 etat.ID_dzial = (int)cbDzial.SelectedValue;
                 etat.ID_stanowisko = (int)cbStanowisko.SelectedValue;
-                Posada_pracownika posada_pracownika = new Posada_pracownika();
-                posada_pracownika.Data_od = dpracownikod.Value;
+                Posada_pracownika posadaPracownika = new Posada_pracownika();
+                posadaPracownika.Data_od = dpracownikod.Value;
                 if (checkBox1.Checked is true)
                 {
-                    posada_pracownika.Data_od = dpracownikdo.Value;
+                    posadaPracownika.Data_od = dpracownikdo.Value;
                 }
                 db.Umowa.Add(umowa);
-                db.Posada_pracownika.Add(posada_pracownika);
+                db.Posada_pracownika.Add(posadaPracownika);
                 db.Etat.Add(etat);
                 db.SaveChanges();
                 cleanTextBox();
