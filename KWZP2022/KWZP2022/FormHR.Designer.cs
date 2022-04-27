@@ -69,7 +69,7 @@
             this.Controls.Add(this.btnEtat);
             this.Controls.Add(this.btnHRWorkes);
             this.Name = "FormHR";
-            this.Text = "FormHR";
+            this.Text = "HR";
             this.ResumeLayout(false);
 
         }
