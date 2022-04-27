@@ -18,15 +18,15 @@ namespace KWZP2022
             InitializeComponent();
             this.db = db;
             showData();
-            ComboBox();
+            comboBoxAddValue();
         }
         private void showData()
         {
-            //dgvDataStart.DataSource = db.v_Proces_polprodukt_czynnosc_projekt.ToList();
+            dgvDataStart.DataSource = db.v_Proces_polprodukt_czynnosc_projekt.ToList();
             this.dgvDataStart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 
-        private void ComboBox()
+        private void comboBoxAddValue()
         {
             cbPolprodukt.DataSource = this.db.Slownik_polprodukt.ToList();
             cbPolprodukt.ValueMember = "ID_polprodukt";

@@ -18,7 +18,7 @@ namespace KWZP2022
             InitializeComponent();
             this.db = db;
             showData();
-            comboBox();
+            comboBoxAddValue();
         }
         private void showData()
         {
@@ -26,7 +26,7 @@ namespace KWZP2022
             this.dtbDataStart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 
-        private void comboBox()
+        private void comboBoxAddValue()
         {
             cbProdukt.DataSource = this.db.Produkt.ToList();
             cbProdukt.ValueMember = "ID_produkt";

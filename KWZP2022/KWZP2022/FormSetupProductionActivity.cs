@@ -17,9 +17,9 @@ namespace KWZP2022
         {
             InitializeComponent();
             this.db = db;
-            ShowData();
+            showData();
         }
-        public void ShowData()
+        public void showData()
         {
             dgvActivity.DataSource = db.v_Czynnosc_produkcyjna.ToList();
             this.dgvActivity.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -31,7 +31,7 @@ namespace KWZP2022
             db.Czynnosc_produkcyjna.Add(czynnoscNowa);
             db.SaveChanges();
             MessageBox.Show("Zapisano zmiany!", "Informacja", MessageBoxButtons.OK);
-            ShowData();
+            showData();
         }
 
         private void btnEditActivity_Click(object sender, EventArgs e)

@@ -17,7 +17,7 @@ namespace KWZP2022
         {
             InitializeComponent();
             this.db = db;
-            comboBox();
+            comboBoxAddValue();
             showData();
         }
         private void showData()
@@ -28,23 +28,23 @@ namespace KWZP2022
 
         private void cleanTextBox()
         {
-            tbPracownikNazwisko.Clear();
-            tbPracownikImie.Clear();
-            tbNrdowodu.Clear();
+            tbWorkerSurname.Clear();
+            tbWorkerName.Clear();
+            tbIdNumber.Clear();
             tbPesel.Clear();
-            tbMiejscowosc.Clear();
-            tbUlica.Clear();
-            tbBudynek.Clear();
-            tblokal.Clear();
-            tbNumer.Clear();
+            tbCity.Clear();
+            tbStreet.Clear();
+            tbBuildingNumber.Clear();
+            tbApartmentNumber.Clear();
+            tbNumber.Clear();
             tbEmail.Clear();
         }
 
-        private void comboBox()
+        private void comboBoxAddValue()
         {
-            cbWyksztalcenie.DataSource = this.db.Wyksztalcenie.ToList();
-            cbWyksztalcenie.ValueMember = "ID_wyksztalcenie";
-            cbWyksztalcenie.DisplayMember = "Nazwa";
+            cbEducation.DataSource = this.db.Wyksztalcenie.ToList();
+            cbEducation.ValueMember = "ID_wyksztalcenie";
+            cbEducation.DisplayMember = "Nazwa";
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -54,59 +54,52 @@ namespace KWZP2022
 
         private bool checkIfTextBoxesNotEmpty()
         {
-            if (tbPracownikNazwisko.Text.Length > 0 && tbPracownikImie.Text.Length > 0 && tbNrdowodu.Text.Length > 0 && tbPesel.Text.Length > 0 && tbNumer.Text.Length > 0 && tbEmail.Text.Length > 0)
-            {
-                return true;
-            }
-            else 
-            {
-                return false;
-            }
+            return tbWorkerSurname.Text.Length > 0 && tbWorkerName.Text.Length > 0 && tbIdNumber.Text.Length > 0 && tbPesel.Text.Length > 0 && tbNumber.Text.Length > 0 && tbEmail.Text.Length > 0;
         }
         private void AddNewWorker()
         { 
             if (checkIfTextBoxesNotEmpty())
             {
                 Pracownik pracownik = new Pracownik();
-                pracownik.Nazwisko = tbPracownikNazwisko.Text;
-                pracownik.Imie = tbPracownikImie.Text;
-                pracownik.Nr_dowodu = tbNrdowodu.Text;
+                pracownik.Nazwisko = tbWorkerSurname.Text;
+                pracownik.Imie = tbWorkerName.Text;
+                pracownik.Nr_dowodu = tbIdNumber.Text;
                 pracownik.Pesel = int.Parse(tbPesel.Text);
-                int selectedwyksztalcenie = int.Parse(cbWyksztalcenie.SelectedValue.ToString());
+                int selectedwyksztalcenie = int.Parse(cbEducation.SelectedValue.ToString());
                 pracownik.ID_wyksztalcenie = selectedwyksztalcenie;
                 db.Pracownik.Add(pracownik);
                 db.SaveChanges();
                 Dane_adresowe_pracownik daneAdresowePracownik = new Dane_adresowe_pracownik();
                 daneAdresowePracownik.ID_pracownik = pracownik.ID_pracownik;
-                daneAdresowePracownik.Miejscowosc = tbMiejscowosc.Text;
-                daneAdresowePracownik.Ulica = tbUlica.Text;
-                daneAdresowePracownik.Nr_budynku = tbBudynek.Text;
-                daneAdresowePracownik.Nr_lokalu = tblokal.Text;
-                daneAdresowePracownik.Data_od = dpracownikod.Value;
-                daneAdresowePracownik.Kod_pocztowy = tbKod.Text;
+                daneAdresowePracownik.Miejscowosc = tbCity.Text;
+                daneAdresowePracownik.Ulica = tbStreet.Text;
+                daneAdresowePracownik.Nr_budynku = tbBuildingNumber.Text;
+                daneAdresowePracownik.Nr_lokalu = tbApartmentNumber.Text;
+                daneAdresowePracownik.Data_od = dWorkerFrom.Value;
+                daneAdresowePracownik.Kod_pocztowy = tbZIPCode.Text;
                 if (cbDataDo.Checked)
                 {
-                    daneAdresowePracownik.Data_do = dpracownikdo.Value;
+                    daneAdresowePracownik.Data_do = dWorkerTo.Value;
                 }
                 db.Dane_adresowe_pracownik.Add(daneAdresowePracownik);
                 db.SaveChanges();
                 Nr_telefon_pracownik nrTelefonPracownik = new Nr_telefon_pracownik();
                 nrTelefonPracownik.ID_pracownik = pracownik.ID_pracownik;
-                nrTelefonPracownik.Numer = tbNumer.Text;
-                nrTelefonPracownik.Data_od = dnrod.Value;
+                nrTelefonPracownik.Numer = tbNumber.Text;
+                nrTelefonPracownik.Data_od = dNumberFrom.Value;
                 if (cbNrTelefonuDataDo.Checked)
                 {
-                    nrTelefonPracownik.Data_do = dnrdo.Value;
+                    nrTelefonPracownik.Data_do = dNumberTo.Value;
                 }
                 db.Nr_telefon_pracownik.Add(nrTelefonPracownik);
                 db.SaveChanges();
                 Email_pracownik emailPracownik = new Email_pracownik();
                 emailPracownik.ID_pracownik = pracownik.ID_pracownik;
                 emailPracownik.Email = tbEmail.Text;
-                emailPracownik.Data_od = demailod.Value;
+                emailPracownik.Data_od = dEmailFrom.Value;
                 if (cbEmailDataDo.Checked)
                 {
-                    emailPracownik.Data_do = demaildo.Value;
+                    emailPracownik.Data_do = dEmailTo.Value;
                 }
                 db.Email_pracownik.Add(emailPracownik);
                 db.SaveChanges();

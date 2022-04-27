@@ -18,7 +18,7 @@ namespace KWZP2022
             InitializeComponent();
             this.db = db;
             Umowa umowa = new Umowa();
-            CheckBox();
+            checkBoxAddValue();
             showData();
         }
         private void showData()
@@ -32,7 +32,7 @@ namespace KWZP2022
         {
             tbWynagrodzenie.Clear();
         }
-        private void CheckBox()
+        private void checkBoxAddValue()
         {
             cbPracownik.DataSource = db.Pracownik.ToList();
             cbPracownik.DisplayMember = "Nazwisko";
