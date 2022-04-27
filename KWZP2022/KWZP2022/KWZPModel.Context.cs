@@ -118,6 +118,7 @@ namespace KWZP2022
         public virtual DbSet<v_Czesci> v_Czesci { get; set; }
         public virtual DbSet<v_Czynnosc_produkcyjna> v_Czynnosc_produkcyjna { get; set; }
         public virtual DbSet<v_Dane_adresowe_pracownik> v_Dane_adresowe_pracownik { get; set; }
+        public virtual DbSet<v_Dodaj_szczegol_sprzedaz> v_Dodaj_szczegol_sprzedaz { get; set; }
         public virtual DbSet<v_Dostawcy> v_Dostawcy { get; set; }
         public virtual DbSet<v_Email_pracownik> v_Email_pracownik { get; set; }
         public virtual DbSet<v_Etat> v_Etat { get; set; }
@@ -145,6 +146,7 @@ namespace KWZP2022
         public virtual DbSet<v_Magazyn_maszyn_stan> v_Magazyn_maszyn_stan { get; set; }
         public virtual DbSet<v_Magazyn_maszyn_uzywane> v_Magazyn_maszyn_uzywane { get; set; }
         public virtual DbSet<v_Magazyn_maszyn_wszystko> v_Magazyn_maszyn_wszystko { get; set; }
+        public virtual DbSet<v_Magazyn_material_aktualny> v_Magazyn_material_aktualny { get; set; }
         public virtual DbSet<v_Magazyn_material_przejsciowy> v_Magazyn_material_przejsciowy { get; set; }
         public virtual DbSet<v_Magazyn_material_wszystko> v_Magazyn_material_wszystko { get; set; }
         public virtual DbSet<v_Magazyn_narzedzia_nieuzywane> v_Magazyn_narzedzia_nieuzywane { get; set; }
@@ -173,6 +175,7 @@ namespace KWZP2022
         public virtual DbSet<v_Obslugi_w_trakcie_wymiana> v_Obslugi_w_trakcie_wymiana { get; set; }
         public virtual DbSet<v_Obslugi_zakonczone> v_Obslugi_zakonczone { get; set; }
         public virtual DbSet<v_Oferta_handlowa> v_Oferta_handlowa { get; set; }
+        public virtual DbSet<v_Oferta_handlowa_do_rozpatrzenia> v_Oferta_handlowa_do_rozpatrzenia { get; set; }
         public virtual DbSet<v_Parametry_czesc> v_Parametry_czesc { get; set; }
         public virtual DbSet<v_Parametry_maszyna> v_Parametry_maszyna { get; set; }
         public virtual DbSet<v_Parametry_material> v_Parametry_material { get; set; }
@@ -181,11 +184,14 @@ namespace KWZP2022
         public virtual DbSet<v_Parametry_produkt> v_Parametry_produkt { get; set; }
         public virtual DbSet<v_Polprodukt_material> v_Polprodukt_material { get; set; }
         public virtual DbSet<v_Pracownik> v_Pracownik { get; set; }
+        public virtual DbSet<v_Pracownik_dzial> v_Pracownik_dzial { get; set; }
         public virtual DbSet<v_Pracownik_obslugi> v_Pracownik_obslugi { get; set; }
         public virtual DbSet<v_Pracownik_produkcja> v_Pracownik_produkcja { get; set; }
         public virtual DbSet<v_Pracownik_zasoby> v_Pracownik_zasoby { get; set; }
         public virtual DbSet<v_Proces_polprodukt_czynnosc> v_Proces_polprodukt_czynnosc { get; set; }
+        public virtual DbSet<v_Proces_polprodukt_czynnosc_projekt> v_Proces_polprodukt_czynnosc_projekt { get; set; }
         public virtual DbSet<v_Proces_produkt_czynnosc> v_Proces_produkt_czynnosc { get; set; }
+        public virtual DbSet<v_Proces_produkt_czynnosc_projekt> v_Proces_produkt_czynnosc_projekt { get; set; }
         public virtual DbSet<v_Proces_wytwarzanie_polprodukt> v_Proces_wytwarzanie_polprodukt { get; set; }
         public virtual DbSet<v_Proces_wytwarzanie_polprodukt_ewidencja> v_Proces_wytwarzanie_polprodukt_ewidencja { get; set; }
         public virtual DbSet<v_Proces_wytwarzanie_produkt> v_Proces_wytwarzanie_produkt { get; set; }
@@ -207,7 +213,13 @@ namespace KWZP2022
         public virtual DbSet<v_Sklad_stanowisko_produkcyjne_narzedzie> v_Sklad_stanowisko_produkcyjne_narzedzie { get; set; }
         public virtual DbSet<v_Sklad_stanowisko_produkcyjne_narzedzie_ID> v_Sklad_stanowisko_produkcyjne_narzedzie_ID { get; set; }
         public virtual DbSet<v_Slownik_stanowisko> v_Slownik_stanowisko { get; set; }
+        public virtual DbSet<v_Sprzedane_zamowienia> v_Sprzedane_zamowienia { get; set; }
+        public virtual DbSet<v_Sprzedane_zamowienia_form> v_Sprzedane_zamowienia_form { get; set; }
+        public virtual DbSet<v_Sprzedany_produkt> v_Sprzedany_produkt { get; set; }
         public virtual DbSet<v_Sprzedaz> v_Sprzedaz { get; set; }
+        public virtual DbSet<v_Sprzedaz_statystyki> v_Sprzedaz_statystyki { get; set; }
+        public virtual DbSet<v_Sprzedaz_statystyki_produkty> v_Sprzedaz_statystyki_produkty { get; set; }
+        public virtual DbSet<v_Sprzedaz_statystyki_zarobek_dnia> v_Sprzedaz_statystyki_zarobek_dnia { get; set; }
         public virtual DbSet<v_Stanowiska_do_uzycia> v_Stanowiska_do_uzycia { get; set; }
         public virtual DbSet<v_Stanowiska_produkcyjne> v_Stanowiska_produkcyjne { get; set; }
         public virtual DbSet<v_Stanowiska_w_uzyciu> v_Stanowiska_w_uzyciu { get; set; }
@@ -219,6 +231,7 @@ namespace KWZP2022
         public virtual DbSet<v_Szczegoly_sprzedaz> v_Szczegoly_sprzedaz { get; set; }
         public virtual DbSet<v_Tygodniowe_rozliczenie_pracy_produkcja> v_Tygodniowe_rozliczenie_pracy_produkcja { get; set; }
         public virtual DbSet<v_Umowa> v_Umowa { get; set; }
+        public virtual DbSet<v_Umowa_do_sprzedaz> v_Umowa_do_sprzedaz { get; set; }
         public virtual DbSet<v_Wymiana_czesc> v_Wymiana_czesc { get; set; }
         public virtual DbSet<v_Wymiana_czesc_w_trakcie> v_Wymiana_czesc_w_trakcie { get; set; }
         public virtual DbSet<v_Wynik_kontroli> v_Wynik_kontroli { get; set; }
@@ -226,6 +239,7 @@ namespace KWZP2022
         public virtual DbSet<v_Wytworzone_polprodukty_material> v_Wytworzone_polprodukty_material { get; set; }
         public virtual DbSet<v_Wytworzone_produkty> v_Wytworzone_produkty { get; set; }
         public virtual DbSet<v_Wytworzone_produkty_sklad> v_Wytworzone_produkty_sklad { get; set; }
+        public virtual DbSet<v_Wytworzone_produkty_zamowienie> v_Wytworzone_produkty_zamowienie { get; set; }
         public virtual DbSet<v_Wytworzony_produkt_material> v_Wytworzony_produkt_material { get; set; }
         public virtual DbSet<v_Zamowienia_czesci_w_trakcie> v_Zamowienia_czesci_w_trakcie { get; set; }
         public virtual DbSet<v_Zamowienia_czesci_w_trakcie_bez_odebranych> v_Zamowienia_czesci_w_trakcie_bez_odebranych { get; set; }
@@ -239,8 +253,10 @@ namespace KWZP2022
         public virtual DbSet<v_Zamowienia_narzedzia_w_trakcie> v_Zamowienia_narzedzia_w_trakcie { get; set; }
         public virtual DbSet<v_Zamowienia_narzedzia_w_trakcie_bez_odebranych> v_Zamowienia_narzedzia_w_trakcie_bez_odebranych { get; set; }
         public virtual DbSet<v_Zamowienia_narzedzia_w_trakcie_wszystko> v_Zamowienia_narzedzia_w_trakcie_wszystko { get; set; }
+        public virtual DbSet<v_Zamowienia_niesprzedane> v_Zamowienia_niesprzedane { get; set; }
+        public virtual DbSet<v_Zamowienie> v_Zamowienie { get; set; }
         public virtual DbSet<v_Zamowienie_produkcja> v_Zamowienie_produkcja { get; set; }
+        public virtual DbSet<v_Zamowienie_szczegol> v_Zamowienie_szczegol { get; set; }
         public virtual DbSet<v_Zamowienie_szczegol_produkcja> v_Zamowienie_szczegol_produkcja { get; set; }
-        public virtual DbSet<v_Magazyn_material_aktualny> v_Magazyn_material_aktualny { get; set; }
     }
 }

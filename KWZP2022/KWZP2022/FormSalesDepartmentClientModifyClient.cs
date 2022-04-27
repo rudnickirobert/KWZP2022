@@ -13,34 +13,23 @@ namespace KWZP2022
     public partial class FormSalesDepartmentClientModifyClient : Form
     {
         KWZPEntities db;
-        public FormSalesDepartmentClientModifyClient(KWZPEntities db)
+        Klient selectedClientForModify;
+        public FormSalesDepartmentClientModifyClient(KWZPEntities db, Klient selectedClientForModify)
         {
             InitializeComponent();
             this.db = db;
+            this.selectedClientForModify = selectedClientForModify;
             cleanTextBox();
-            showData();
+            showDataClient();
         }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        private void showData()
-        {
-            var dane = from klient in db.Klient
-                       select new
-                       {
-                           klient.ID_klient,
-                           klient.Nazwisko,
-                           klient.Imie,
-                           klient.NIP
-                       };
-            this.dgvClientID.DataSource = dane.ToList();
-        }
         private void cleanTextBox()
         {
-            textBox1Name.Clear();
-            textBox2Name.Clear();
+            textBoxName.Clear();
+            textBoxSurname.Clear();
             textBoxCity.Clear();
             textBoxEmail.Clear();
             textBoxNIP.Clear();
@@ -50,16 +39,14 @@ namespace KWZP2022
             textBoxStreet.Clear();
             textBoxTel.Clear();
         }
-        private void dgvClientID_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void showDataClient()
         {
-            int daneKlient = int.Parse(this.dgvClientID.CurrentRow.Cells[0].Value.ToString());
-            Klient daneKlientKlient = this.db.Klient.Single(a => a.ID_klient == daneKlient);
-            Dane_adresowe_klient daneKlientDaneAdresowe = this.db.Dane_adresowe_klient.Single(a => a.ID_klient == daneKlient);
-            Nr_telefon_klient daneKlientNrTel = this.db.Nr_telefon_klient.Single(a => a.ID_klient == daneKlient);
-            Email_klient daneKlientEmail = this.db.Email_klient.Single(a => a.ID_klient == daneKlient);
-            textBox2Name.Text = daneKlientKlient.Nazwisko;
-            textBox1Name.Text = daneKlientKlient.Imie;
-            textBoxNIP.Text = daneKlientKlient.NIP;
+            Dane_adresowe_klient daneKlientDaneAdresowe = this.db.Dane_adresowe_klient.Single(a => a.ID_klient == selectedClientForModify.ID_klient);
+            Nr_telefon_klient daneKlientNrTel = this.db.Nr_telefon_klient.Single(a => a.ID_klient == selectedClientForModify.ID_klient);
+            Email_klient daneKlientEmail = this.db.Email_klient.Single(a => a.ID_klient == selectedClientForModify.ID_klient);
+            textBoxSurname.Text = selectedClientForModify.Nazwisko;
+            textBoxName.Text = selectedClientForModify.Imie;
+            textBoxNIP.Text = selectedClientForModify.NIP;
             textBoxCity.Text = daneKlientDaneAdresowe.Miejscowosc;
             textBoxStreet.Text = daneKlientDaneAdresowe.Ulica;
             textBoxBuildingNumber.Text = daneKlientDaneAdresowe.Nr_budynek.ToString();
@@ -90,19 +77,14 @@ namespace KWZP2022
                 dtpTelDate2.Value = DateTime.Now;
             }
         }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (this.dgvClientID.CurrentRow.Cells[0].Value != null)
-            {
                 try
                 {
-                    int daneKlient = int.Parse(this.dgvClientID.CurrentRow.Cells[0].Value.ToString());
-                    Klient daneKlientKlient = this.db.Klient.Single(a => a.ID_klient == daneKlient);
-                    daneKlientKlient.Nazwisko = textBox2Name.Text;
-                    daneKlientKlient.Imie = textBox1Name.Text;
-                    daneKlientKlient.NIP = textBoxNIP.Text;
-                    Dane_adresowe_klient daneKlientDaneAdresowe = this.db.Dane_adresowe_klient.Single(a => a.ID_klient == daneKlient);
+                    selectedClientForModify.Nazwisko = textBoxSurname.Text;
+                    selectedClientForModify.Imie = textBoxName.Text;
+                    selectedClientForModify.NIP = textBoxNIP.Text;
+                    Dane_adresowe_klient daneKlientDaneAdresowe = this.db.Dane_adresowe_klient.Single(a => a.ID_klient == selectedClientForModify.ID_klient);
                     daneKlientDaneAdresowe.Miejscowosc = textBoxCity.Text;
                     daneKlientDaneAdresowe.Ulica = textBoxStreet.Text;
                     daneKlientDaneAdresowe.Nr_budynek = int.Parse(textBoxBuildingNumber.Text);
@@ -115,7 +97,7 @@ namespace KWZP2022
                         daneKlientDaneAdresowe.Nr_lokal = null;
                     }
                     daneKlientDaneAdresowe.Kod_pocztowy = textBoxPostCode.Text;
-                    Nr_telefon_klient daneKlientNrTel = this.db.Nr_telefon_klient.Single(a => a.ID_klient == daneKlient);
+                    Nr_telefon_klient daneKlientNrTel = this.db.Nr_telefon_klient.Single(a => a.ID_klient == selectedClientForModify.ID_klient);
                     daneKlientNrTel.Numer = textBoxTel.Text;
                     daneKlientNrTel.Data_od = dtpTelDate1.Value;
                     if (cbTelDate2.Checked is true)
@@ -126,7 +108,7 @@ namespace KWZP2022
                     {
                         daneKlientNrTel.Data_do = null;
                     }
-                    Email_klient daneKlientEmail = this.db.Email_klient.Single(a => a.ID_klient == daneKlient);
+                    Email_klient daneKlientEmail = this.db.Email_klient.Single(a => a.ID_klient == selectedClientForModify.ID_klient);
                     daneKlientEmail.Email = textBoxEmail.Text;
                     daneKlientEmail.Data_od = dtpEmaiDate1.Value;
                     if (cbEmailDate2.Checked is true)
@@ -138,18 +120,13 @@ namespace KWZP2022
                         daneKlientEmail.Data_do = null;
                     }
                     this.db.SaveChanges();
-                    MessageBox.Show("Zapisano zmiany!", "Informacja", MessageBoxButtons.OK);
+                    MessageBox.Show("Zapisano zmiany!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Źle wprowadzono dane!", "Błąd", MessageBoxButtons.OK);
+                    MessageBox.Show("Źle wprowadzono dane!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            else
-            {
-                MessageBox.Show("Nie zaznaczono klienta!", "Błąd", MessageBoxButtons.OK);
-            }
         }
     }
 }

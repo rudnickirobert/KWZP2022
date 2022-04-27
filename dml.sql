@@ -717,7 +717,7 @@ INSERT INTO Dane_adresowe_klient (ID_klient, Miejscowosc, Ulica, Nr_budynek, Nr_
 	(4, 'Żyrardów', '3 Maja', 3, 5, '32-654'),
 	(5, 'Warszawa', 'Warszawska', 53, 24, '12-345');
 
-INSERT INTO Typ_zamowienie (Typ_zamowienie)
+INSERT INTO Typ_zamowienie (Rodzaj_zamowienie)
 	VALUES
 	('Indywidualne'),
 	('Standardowe');
@@ -811,8 +811,10 @@ INSERT INTO Zwrot (ID_reklamacja, ID_produkt, Ilosc, Akceptacja)
 	(1,1,1,1),
 	(2,2,2,1),
 	(4,3,4,0),
-	(6,4,3,0),
-	(7,5,1,1);
+	(6,3,3,0),
+	(7,5,1,1),
+	(3,3,20,1),
+	(5,5,40,1);
 
 INSERT INTO Szczegoly_sprzedaz (ID_sprzedaz, ID_produkt, Kwota_sprzedaz, ID_podatek, Ilosc)
 	VALUES

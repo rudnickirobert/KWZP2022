@@ -180,11 +180,11 @@
             this.btnAktualizuj.UseVisualStyleBackColor = false;
             this.btnAktualizuj.Click += new System.EventHandler(this.btnAktualizuj_Click);
             // 
-            // SkladProduktMaterialForm
+            // FormSkladProduktMaterial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            
+            this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background;
             this.ClientSize = new System.Drawing.Size(1264, 711);
             this.Controls.Add(this.btnAktualizuj);
             this.Controls.Add(this.dgvvSkladProdukt);
@@ -199,7 +199,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtProdukt);
             this.Controls.Add(this.label1);
-            this.Name = "SkladProduktMaterialForm";
+            this.Name = "FormSkladProduktMaterial";
             this.Text = "SkladProduktMaterialForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdukt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).EndInit();

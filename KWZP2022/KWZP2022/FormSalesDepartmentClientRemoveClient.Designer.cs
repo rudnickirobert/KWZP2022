@@ -47,6 +47,7 @@
             // 
             // btnClose
             // 
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnClose.Location = new System.Drawing.Point(682, 452);
             this.btnClose.Name = "btnClose";
@@ -69,15 +70,17 @@
             // 
             // FormSalesDepartmentClientRemoveClient
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(794, 491);
             this.Controls.Add(this.lblInstr);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.dgvClientRemove);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormSalesDepartmentClientRemoveClient";
-            this.Text = "FormSalesDepartmentClientRemoveClient";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Usuwanie klienta z bazy danych";
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientRemove)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -49,13 +49,13 @@ namespace KWZP2022
         {
 
             int pracownikID = int.Parse(cbPracownik.SelectedValue.ToString());
-
             dgvWytwarzaniePolprodukt.DataSource = null;
-            System.Linq.IQueryable vProcWytPolprodukt = db.v_Proces_wytwarzanie_polprodukt_ewidencja.Where(a => a.ID_pracownik == pracownikID && a.Data_rozpoczęcia >= dtpCzasOd.Value.Date && a.Data_zakończenia <= dtpCzasDo.Value.Date);
-            int vPracownikIdIntPro = vProcWytPolprodukt.Cast<v_Proces_wytwarzanie_polprodukt_ewidencja>().Where(a => a.ID_pracownik > 0).Count();
+          
+            List<v_Proces_wytwarzanie_polprodukt_ewidencja> procWytPolproduktList = db.v_Proces_wytwarzanie_polprodukt_ewidencja.Where(a => a.ID_pracownik == pracownikID && a.Data_rozpoczęcia >= dtpCzasOd.Value.Date && a.Data_zakończenia <= dtpCzasDo.Value.Date).ToList();
+            int vPracownikIdIntPro = procWytPolproduktList.Where(a => a.ID_pracownik > 0).Count();
             if (vPracownikIdIntPro > 0)
             {
-                dgvWytwarzaniePolprodukt.DataSource = vProcWytPolprodukt.Cast<v_Proces_wytwarzanie_polprodukt_ewidencja>().ToList();
+                dgvWytwarzaniePolprodukt.DataSource = procWytPolproduktList;
                 dgvWytwarzaniePolprodukt.Columns["ID"].Visible = false;
                 dgvWytwarzaniePolprodukt.Columns["ID_pracownik"].Visible = false;
                 dgvWytwarzaniePolprodukt.Columns["Pracownik"].Visible = false;
@@ -75,11 +75,11 @@ namespace KWZP2022
             }
 
             dgvWytwarzanieProdukt.DataSource = null;
-            System.Linq.IQueryable vProcWytProdukt = db.v_Proces_wytwarzanie_produkt_ewidencja.Where(a => a.ID_pracownik == pracownikID && a.Data_rozpoczęcia >= dtpCzasOd.Value.Date && a.Data_zakończenia <= dtpCzasDo.Value.Date);
-            int vPracownikIdIntPol = vProcWytProdukt.Cast<v_Proces_wytwarzanie_produkt_ewidencja>().Where(a => a.ID_pracownik > 0).Count();
+            List<v_Proces_wytwarzanie_produkt_ewidencja> procWytProduktList = db.v_Proces_wytwarzanie_produkt_ewidencja.Where(a => a.ID_pracownik == pracownikID && a.Data_rozpoczęcia >= dtpCzasOd.Value.Date && a.Data_zakończenia <= dtpCzasDo.Value.Date).ToList();
+            int vPracownikIdIntPol = procWytProduktList.Where(a => a.ID_pracownik > 0).Count();
             if (vPracownikIdIntPol > 0)
             {
-                dgvWytwarzanieProdukt.DataSource = vProcWytProdukt.Cast<v_Proces_wytwarzanie_produkt_ewidencja>().ToList();
+                dgvWytwarzanieProdukt.DataSource = procWytProduktList;
                 dgvWytwarzanieProdukt.Columns["ID"].Visible = false;
                 dgvWytwarzanieProdukt.Columns["ID_pracownik"].Visible = false;
                 dgvWytwarzanieProdukt.Columns["Pracownik"].Visible = false;

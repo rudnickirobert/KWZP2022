@@ -82,7 +82,7 @@
             this.btnHumanRsDepartment.Text = "Dział kadr i przygotowania produkcji";
             this.btnHumanRsDepartment.UseVisualStyleBackColor = true;
             this.btnHumanRsDepartment.Click += new System.EventHandler(this.btnHumanRsDepartment_Click);
-            // 
+            //
             // FormDepartments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -93,6 +93,8 @@
             this.Controls.Add(this.btnResourceDeparment);
             this.Controls.Add(this.btnSalesDepartment);
             this.Controls.Add(this.btnProductionDepartment);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormDepartments";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Działy";

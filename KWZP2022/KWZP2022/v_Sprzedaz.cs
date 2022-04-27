@@ -21,6 +21,6 @@ namespace KWZP2022
         public System.DateTime Data_początku_sprzedaży { get; set; }
         public System.DateTime Data_końca_sprzedaży { get; set; }
         public int Umowa { get; set; }
-        public Nullable<decimal> Koszt { get; set; }
+        public Nullable<int> Koszt { get; set; }
     }
 }
