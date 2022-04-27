@@ -82,8 +82,8 @@ namespace KWZP2022
                 Nr_telefon_klient selectedClient = this.db.Nr_telefon_klient.SingleOrDefault(a => a.Numer == textBoxNoTelClient.Text);
                 if (selectedClient != null)
                 {
-                    int selectedEmpployeeInt = int.Parse(comboBoxEmployee.SelectedValue.ToString());
-                    Pracownik selectedEmpployee = this.db.Pracownik.Single(a => a.ID_pracownik == selectedEmpployeeInt);
+                    int selectedEmployeeInt = int.Parse(comboBoxEmployee.SelectedValue.ToString());
+                    Pracownik selectedEmpployee = this.db.Pracownik.Single(a => a.ID_pracownik == selectedEmployeeInt);
                     Zamowienie newZamowienie = new Zamowienie();
                     newZamowienie.ID_klient = selectedClient.ID_klient;
                     newZamowienie.ID_pracownik = selectedEmpployee.ID_pracownik;

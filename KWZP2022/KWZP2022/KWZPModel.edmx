@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="KWZPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="KWZPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Alert">
           <Key>
             <PropertyRef Name="ID_alert" />
@@ -2151,18 +2151,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Sprzedaz' does not have a primary key d
           <Property Name="Koszt" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'KWZP.dbo.v_Sprzedaz_miesiac' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="v_Sprzedaz_miesiac">
-          <Property Name="Miesiąc" Type="nvarchar" MaxLength="7" />
-          <Property Name="Zarobek z miesiąca" Type="int" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'KWZP.dbo.v_Sprzedaz_miesiac_statystyka' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="v_Sprzedaz_miesiac_statystyka">
-          <Property Name="Miesiąc" Type="varchar" MaxLength="7" />
-          <Property Name="Zarobek z miesiąca" Type="int" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Sprzedaz_statystyki' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Sprzedaz_statystyki">
           <Key>
@@ -2182,11 +2170,15 @@ warning 6002: The table/view 'KWZP.dbo.v_Sprzedaz_statystyki' does not have a pr
           <Property Name="Całkowity koszt" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'KWZP.dbo.v_Sprzedaz_statystyki_miesiac' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+warning 6002: The table/view 'KWZP.dbo.v_Sprzedaz_statystyki_miesiac' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Sprzedaz_statystyki_miesiac">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
           <Property Name="Miesiąc" Type="varchar" MaxLength="11" />
           <Property Name="Zarobek z miesiąca" Type="int" />
-        </EntityType>-->
+        </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Sprzedaz_statystyki_produkty' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Sprzedaz_statystyki_produkty">
@@ -5126,6 +5118,13 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
     [v_Sprzedaz_statystyki].[Całkowity koszt] AS [Całkowity koszt]
     FROM [dbo].[v_Sprzedaz_statystyki] AS [v_Sprzedaz_statystyki]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_Sprzedaz_statystyki_miesiac" EntityType="Self.v_Sprzedaz_statystyki_miesiac" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Sprzedaz_statystyki_miesiac].[ID] AS [ID], 
+    [v_Sprzedaz_statystyki_miesiac].[Miesiąc] AS [Miesiąc], 
+    [v_Sprzedaz_statystyki_miesiac].[Zarobek z miesiąca] AS [Zarobek z miesiąca]
+    FROM [dbo].[v_Sprzedaz_statystyki_miesiac] AS [v_Sprzedaz_statystyki_miesiac]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_Sprzedaz_statystyki_produkty" EntityType="Self.v_Sprzedaz_statystyki_produkty" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Sprzedaz_statystyki_produkty].[Nazwa_produkt] AS [Nazwa_produkt], 
@@ -5942,8 +5941,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
             <End Role="Zwrot" EntitySet="Zwrot" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KWZPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -10853,7 +10851,16 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
             <End Role="Obsluga" EntitySet="Obsluga" />
             <End Role="Pracownik" EntitySet="Pracownik" />
           </AssociationSet>
+          <EntitySet Name="v_Sprzedaz_statystyki_miesiac" EntityType="KWZPModel.v_Sprzedaz_statystyki_miesiac" />
         </EntityContainer>
+        <EntityType Name="v_Sprzedaz_statystyki_miesiac">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="Miesiąc" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Zarobek_z_miesiąca" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -13110,6 +13117,15 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
               <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="v_Sprzedaz_statystyki_miesiac">
+            <EntityTypeMapping TypeName="KWZPModel.v_Sprzedaz_statystyki_miesiac">
+              <MappingFragment StoreEntitySet="v_Sprzedaz_statystyki_miesiac">
+                <ScalarProperty Name="Zarobek_z_miesiąca" ColumnName="Zarobek z miesiąca" />
+                <ScalarProperty Name="Miesiąc" ColumnName="Miesiąc" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
