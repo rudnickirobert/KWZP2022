@@ -81,9 +81,9 @@ namespace KWZP2022
                     int wybranaCzescID = int.Parse(wybranaCzesc);
                     string wybranaMaszyna = this.dgvSklad.CurrentRow.Cells[0].Value.ToString();
                     int wybranaMaszynaID = int.Parse(wybranaMaszyna);
-                    string wybranaSklad = this.dgvSklad.CurrentRow.Cells[2].Value.ToString();
-                    int wybranaSkladID = int.Parse(wybranaSklad);
-                    Sklad_maszyna danySklad = db.Sklad_maszyna.Single(a => a.ID_czesc == wybranaCzescID && a.ID_maszyna == wybranaMaszynaID && a.ID_sklad_maszyna == wybranaSkladID);
+                    string wybranySklad = this.dgvSklad.CurrentRow.Cells[2].Value.ToString();
+                    int wybranySkladID = int.Parse(wybranySklad);
+                    Sklad_maszyna danySklad = db.Sklad_maszyna.Single(a => a.ID_czesc == wybranaCzescID && a.ID_maszyna == wybranaMaszynaID && a.ID_sklad_maszyna == wybranySkladID);
                     db.Sklad_maszyna.Remove(danySklad);
                     db.SaveChanges();
                     initDataGridViewCzesci();
