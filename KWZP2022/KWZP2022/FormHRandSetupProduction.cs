@@ -21,8 +21,8 @@ namespace KWZP2022
 
             private void btnHRDepartment_Click(object sender, EventArgs e)
             {
-                FormHRDepartment formHRDepartment = new FormHRDepartment(db);
-                formHRDepartment.ShowDialog();
+                FormHR formHR = new FormHR(db);
+                formHR.ShowDialog();
             }
 
             private void btnSetupProduction_Click(object sender, EventArgs e)

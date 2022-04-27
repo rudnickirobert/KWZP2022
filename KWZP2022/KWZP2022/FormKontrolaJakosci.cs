@@ -147,7 +147,6 @@ namespace KWZP2022
         private void dgvvKontrolaJakosciKolejka_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             txtNazwa.Text = this.dgvvKontrolaJakosciKolejka.CurrentRow.Cells[2].Value.ToString();
-
         }
 
         public double NextDouble(Random rand, double minValue, double maxValue)
@@ -193,10 +192,9 @@ namespace KWZP2022
                     db.SaveChanges();
                     
                 }
-                initDataGridViewKontrolaPozytywna();
                 refreshScreen();
             }
-            
+
             initDataGridViewRezultatKontroli();
             MessageBox.Show("Poprawnie wygenerowano kontrole");
 
@@ -205,6 +203,8 @@ namespace KWZP2022
 
         private void btnWczytajZamowienie_Click(object sender, EventArgs e)
         {
+            initDataGridViewWytworzoneProduktyZamowienie();
+        }
 
             initDataGridViewWytworzoneProduktyZamowienie();
         }
@@ -218,6 +218,9 @@ namespace KWZP2022
         {
             FormKontrolaJakosciGauss gauss = new FormKontrolaJakosciGauss(db);
             gauss.ShowDialog();
+        private void btnOdswiez_Click(object sender, EventArgs e)
+        {
+            clearDgvs();
         }
     }
 }
