@@ -63,6 +63,10 @@
             this.btnGenerujPolprodukt = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.dgvCurrentPolprodukt = new System.Windows.Forms.DataGridView();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzaniePolprodukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzanieProdukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesProdukt)).BeginInit();
@@ -120,7 +124,7 @@
             // dgvWytwarzaniePolprodukt
             // 
             this.dgvWytwarzaniePolprodukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvWytwarzaniePolprodukt.Location = new System.Drawing.Point(378, 522);
+            this.dgvWytwarzaniePolprodukt.Location = new System.Drawing.Point(379, 560);
             this.dgvWytwarzaniePolprodukt.Name = "dgvWytwarzaniePolprodukt";
             this.dgvWytwarzaniePolprodukt.Size = new System.Drawing.Size(874, 177);
             this.dgvWytwarzaniePolprodukt.TabIndex = 17;
@@ -153,7 +157,7 @@
             // dgvWytwarzanieProdukt
             // 
             this.dgvWytwarzanieProdukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvWytwarzanieProdukt.Location = new System.Drawing.Point(378, 333);
+            this.dgvWytwarzanieProdukt.Location = new System.Drawing.Point(379, 354);
             this.dgvWytwarzanieProdukt.Name = "dgvWytwarzanieProdukt";
             this.dgvWytwarzanieProdukt.Size = new System.Drawing.Size(874, 177);
             this.dgvWytwarzanieProdukt.TabIndex = 22;
@@ -214,7 +218,7 @@
             // dgvProcesProdukt
             // 
             this.dgvProcesProdukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProcesProdukt.Location = new System.Drawing.Point(378, 11);
+            this.dgvProcesProdukt.Location = new System.Drawing.Point(378, 31);
             this.dgvProcesProdukt.Name = "dgvProcesProdukt";
             this.dgvProcesProdukt.Size = new System.Drawing.Size(329, 259);
             this.dgvProcesProdukt.TabIndex = 28;
@@ -223,7 +227,7 @@
             // dgvProcesPolprodukt
             // 
             this.dgvProcesPolprodukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProcesPolprodukt.Location = new System.Drawing.Point(731, 12);
+            this.dgvProcesPolprodukt.Location = new System.Drawing.Point(722, 32);
             this.dgvProcesPolprodukt.Name = "dgvProcesPolprodukt";
             this.dgvProcesPolprodukt.Size = new System.Drawing.Size(521, 259);
             this.dgvProcesPolprodukt.TabIndex = 29;
@@ -297,7 +301,7 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label8.Location = new System.Drawing.Point(1551, 372);
+            this.label8.Location = new System.Drawing.Point(1426, 372);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(153, 25);
             this.label8.TabIndex = 36;
@@ -338,7 +342,7 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label9.Location = new System.Drawing.Point(373, 293);
+            this.label9.Location = new System.Drawing.Point(374, 296);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(351, 25);
             this.label9.TabIndex = 40;
@@ -348,7 +352,7 @@
             // 
             this.txtWybranyID.Enabled = false;
             this.txtWybranyID.Font = new System.Drawing.Font("Arial", 15F);
-            this.txtWybranyID.Location = new System.Drawing.Point(731, 291);
+            this.txtWybranyID.Location = new System.Drawing.Point(731, 297);
             this.txtWybranyID.Name = "txtWybranyID";
             this.txtWybranyID.Size = new System.Drawing.Size(46, 30);
             this.txtWybranyID.TabIndex = 41;
@@ -357,7 +361,7 @@
             // 
             this.txtWybrany.Enabled = false;
             this.txtWybrany.Font = new System.Drawing.Font("Arial", 15F);
-            this.txtWybrany.Location = new System.Drawing.Point(796, 291);
+            this.txtWybrany.Location = new System.Drawing.Point(783, 297);
             this.txtWybrany.Name = "txtWybrany";
             this.txtWybrany.Size = new System.Drawing.Size(273, 30);
             this.txtWybrany.TabIndex = 42;
@@ -412,12 +416,60 @@
             this.dgvCurrentPolprodukt.TabIndex = 48;
             this.dgvCurrentPolprodukt.Visible = false;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Arial", 14F);
+            this.label11.Location = new System.Drawing.Point(374, 6);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(276, 22);
+            this.label11.TabIndex = 49;
+            this.label11.Text = "Wybierz czynność dla produktu:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Arial", 14F);
+            this.label13.Location = new System.Drawing.Point(708, 6);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(291, 22);
+            this.label13.TabIndex = 51;
+            this.label13.Text = "Wybierz czynność dla półroduktu:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Arial", 14F);
+            this.label12.Location = new System.Drawing.Point(375, 329);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(191, 22);
+            this.label12.TabIndex = 52;
+            this.label12.Text = "Wytworzone produkty";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Arial", 14F);
+            this.label14.Location = new System.Drawing.Point(375, 534);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(217, 22);
+            this.label14.TabIndex = 53;
+            this.label14.Text = "Wytworzone półprodukty";
+            // 
             // FormWytwarzanie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1735, 711);
+            this.ClientSize = new System.Drawing.Size(1738, 738);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.dgvCurrentPolprodukt);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btnGenerujPolprodukt);
@@ -453,6 +505,7 @@
             this.Controls.Add(this.btnOdswiez);
             this.Controls.Add(this.btnDodaj);
             this.Name = "FormWytwarzanie";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Wytwarzanie";
             ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzaniePolprodukt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzanieProdukt)).EndInit();
@@ -501,5 +554,9 @@
         private System.Windows.Forms.Button btnGenerujPolprodukt;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridView dgvCurrentPolprodukt;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label14;
     }
 }

@@ -23,6 +23,7 @@ namespace KWZP2022
         private void showData()
         {
             dgvDataStart.DataSource = db.v_Proces_polprodukt_czynnosc_projekt.ToList();
+            dgvDataStart.Columns["ID_półproduktu"].Visible = false;
             this.dgvDataStart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 

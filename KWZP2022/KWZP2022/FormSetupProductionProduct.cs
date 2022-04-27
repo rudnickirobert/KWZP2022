@@ -22,7 +22,8 @@ namespace KWZP2022
         }
         private void showData()
         {
-            dtbDataStart.DataSource = db.v_Proces_produkt_czynnosc.ToList();
+            dtbDataStart.DataSource = db.v_Proces_produkt_czynnosc_projekt.ToList();
+            dtbDataStart.Columns["ID_Produktu"].Visible = false;
             this.dtbDataStart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 

@@ -116,7 +116,7 @@ namespace KWZP2022
             this.MaximumSize = new System.Drawing.Size(1280, 750);
             this.MinimumSize = new System.Drawing.Size(1280, 750);
             this.Name = "StartForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Drukarczyk";
             this.Load += new System.EventHandler(this.StartForm_Load);
             this.ResumeLayout(false);

@@ -43,6 +43,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtPolprodukt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvvParametrPolprodukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRodzajParametr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPolprodukt)).BeginInit();
@@ -62,28 +65,28 @@
             // dgvvParametrPolprodukt
             // 
             this.dgvvParametrPolprodukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvvParametrPolprodukt.Location = new System.Drawing.Point(446, 291);
+            this.dgvvParametrPolprodukt.Location = new System.Drawing.Point(454, 334);
             this.dgvvParametrPolprodukt.MultiSelect = false;
             this.dgvvParametrPolprodukt.Name = "dgvvParametrPolprodukt";
-            this.dgvvParametrPolprodukt.Size = new System.Drawing.Size(798, 404);
+            this.dgvvParametrPolprodukt.Size = new System.Drawing.Size(798, 374);
             this.dgvvParametrPolprodukt.TabIndex = 47;
             this.dgvvParametrPolprodukt.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvvParametrPolprodukt_CellContentClick);
             // 
             // dgvRodzajParametr
             // 
             this.dgvRodzajParametr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRodzajParametr.Location = new System.Drawing.Point(938, 62);
+            this.dgvRodzajParametr.Location = new System.Drawing.Point(978, 91);
             this.dgvRodzajParametr.Name = "dgvRodzajParametr";
-            this.dgvRodzajParametr.Size = new System.Drawing.Size(231, 223);
+            this.dgvRodzajParametr.Size = new System.Drawing.Size(258, 212);
             this.dgvRodzajParametr.TabIndex = 46;
             this.dgvRodzajParametr.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRodzajParametr_CellContentClick);
             // 
             // dgvPolprodukt
             // 
             this.dgvPolprodukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPolprodukt.Location = new System.Drawing.Point(446, 62);
+            this.dgvPolprodukt.Location = new System.Drawing.Point(454, 91);
             this.dgvPolprodukt.Name = "dgvPolprodukt";
-            this.dgvPolprodukt.Size = new System.Drawing.Size(472, 223);
+            this.dgvPolprodukt.Size = new System.Drawing.Size(472, 212);
             this.dgvPolprodukt.TabIndex = 45;
             this.dgvPolprodukt.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPolprodukt_CellContentClick);
             // 
@@ -201,12 +204,48 @@
             this.label1.TabIndex = 34;
             this.label1.Text = "Półprodukt";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Arial", 16F);
+            this.label5.Location = new System.Drawing.Point(449, 62);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(202, 25);
+            this.label5.TabIndex = 49;
+            this.label5.Text = "Wybierz półprodukt:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Arial", 16F);
+            this.label6.Location = new System.Drawing.Point(973, 62);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(189, 25);
+            this.label6.TabIndex = 50;
+            this.label6.Text = "Wybierz parametr:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Arial", 16F);
+            this.label7.Location = new System.Drawing.Point(449, 306);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(244, 25);
+            this.label7.TabIndex = 51;
+            this.label7.Text = "Parametry półproduktów";
+            // 
             // FormParametrPolprodukt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background;
             this.ClientSize = new System.Drawing.Size(1264, 711);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btnOdswiez);
             this.Controls.Add(this.dgvvParametrPolprodukt);
             this.Controls.Add(this.dgvRodzajParametr);
@@ -223,7 +262,8 @@
             this.Controls.Add(this.txtPolprodukt);
             this.Controls.Add(this.label1);
             this.Name = "FormParametrPolprodukt";
-            this.Text = "ParametrPolproduktForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Parametr";
             ((System.ComponentModel.ISupportInitialize)(this.dgvvParametrPolprodukt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRodzajParametr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPolprodukt)).EndInit();
@@ -249,5 +289,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPolprodukt;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

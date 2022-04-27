@@ -17,8 +17,9 @@ namespace KWZP2022
         {
             InitializeComponent();
             this.db = db;
+            FormResDepAlerty alertyForm = new FormResDepAlerty(db);
+            alertyForm.ShowDialog();
         }
-
         private void btnOrder_Click(object sender, EventArgs e)
         {
             FormResDepZamowienia zamowieniaFrom = new FormResDepZamowienia(db);
@@ -35,6 +36,12 @@ namespace KWZP2022
         {
             FormResDepServices obslugaForm = new FormResDepServices(db);
             obslugaForm.ShowDialog();
+        }
+
+        private void btnAlert_Click(object sender, EventArgs e)
+        {
+            FormResDepAlerty alertyForm = new FormResDepAlerty(db);
+            alertyForm.ShowDialog();
         }
     }
 }
