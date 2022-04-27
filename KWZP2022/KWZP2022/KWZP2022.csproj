@@ -795,16 +795,7 @@
     <Compile Include="v_Kontrola_negatywna.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="v_Kontrola_jakosci_produkt.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="v_Kontrola_negatywna.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="v_Kontrola_parametr_produkt.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="v_Kontrola_pozytywna.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Kontrola_pozytywna.cs">
@@ -987,7 +978,13 @@
     <Compile Include="v_Proces_polprodukt_czynnosc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Proces_polprodukt_czynnosc_projekt.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Proces_produkt_czynnosc.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Proces_produkt_czynnosc_projekt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Proces_wytwarzanie_polprodukt.cs">
@@ -1080,9 +1077,6 @@
     <Compile Include="v_Stanowiska_produkcyjne.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="v_Stanowiska_produkcyjne.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="v_Stanowiska_w_uzyciu.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -1122,9 +1116,6 @@
     <Compile Include="v_Wynik_kontroli.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="v_Wynik_kontroli.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="v_Wytwarzanie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -1134,10 +1125,10 @@
     <Compile Include="v_Wytworzone_produkty.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="v_Wytworzone_produkty_zamowienie.cs">
+    <Compile Include="v_Wytworzone_produkty_sklad.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="v_Wytworzone_produkty_sklad.cs">
+    <Compile Include="v_Wytworzone_produkty_zamowienie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Wytworzony_produkt_material.cs">
