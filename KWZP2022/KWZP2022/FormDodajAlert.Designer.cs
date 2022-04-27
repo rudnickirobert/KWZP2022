@@ -41,7 +41,7 @@ namespace KWZP2022
             // 
             this.btnDodajAlert.BackColor = System.Drawing.Color.LimeGreen;
             this.btnDodajAlert.Font = new System.Drawing.Font("Arial", 18F);
-            this.btnDodajAlert.Location = new System.Drawing.Point(178, 231);
+            this.btnDodajAlert.Location = new System.Drawing.Point(203, 231);
             this.btnDodajAlert.Name = "btnDodajAlert";
             this.btnDodajAlert.Size = new System.Drawing.Size(177, 63);
             this.btnDodajAlert.TabIndex = 0;
@@ -94,7 +94,7 @@ namespace KWZP2022
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(557, 296);
+            this.ClientSize = new System.Drawing.Size(557, 306);
             this.Controls.Add(this.txtTresc);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
