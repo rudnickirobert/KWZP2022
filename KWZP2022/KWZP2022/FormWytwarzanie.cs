@@ -115,38 +115,46 @@ namespace KWZP2022
         private void btnAkceptuj_Click(object sender, EventArgs e)
         {
             string produktID = txtSzukanyProduktID.Text;
-            int produktIDint = int.Parse(produktID);
-
-            List<v_Proces_produkt_czynnosc> vProdukt = db.v_Proces_produkt_czynnosc.Where(a => a.ID_Produktu == produktIDint).ToList();
-            int vProduktIdInt = vProdukt.Count();
-            if (vProduktIdInt > 0)
+            try
             {
-                dgvProcesProdukt.DataSource = vProdukt;
-                this.dgvProcesProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+                int produktIDint = int.Parse(produktID);
+                List<v_Proces_produkt_czynnosc> vProdukt = db.v_Proces_produkt_czynnosc.Where(a => a.ID_Produktu == produktIDint).ToList();
+                int vProduktIdInt = vProdukt.Count();
+                if (vProduktIdInt > 0)
+                {
+                    dgvProcesProdukt.DataSource = vProdukt;
+                    this.dgvProcesProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 
-                refreshScreen();
+                    refreshScreen();
 
+                }
+                else
+                {
+                    refreshScreen();
+                }
+
+                List<v_Proces_polprodukt_czynnosc> vPolprodukt = db.v_Proces_polprodukt_czynnosc.Where(a => a.ID_Produktu == produktIDint).ToList();
+                int vPolproduktIdInt = vPolprodukt.Count();
+                if (vProduktIdInt > 0)
+                {
+                    dgvProcesPolprodukt.DataSource = vPolprodukt;
+                    dgvProcesPolprodukt.Columns["ID_produktu"].Visible = false;
+                    this.dgvProcesPolprodukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+                    refreshScreen();
+                }
+                else
+                {
+                    refreshScreen();
+                }
+
+                refreshComboboxes();
             }
-            else
+            catch (Exception)
             {
-                refreshScreen();
+                MessageBox.Show("Wybierz produkt, który chcesz wytwarzać.");
             }
 
-            List<v_Proces_polprodukt_czynnosc> vPolprodukt = db.v_Proces_polprodukt_czynnosc.Where(a => a.ID_Produktu == produktIDint).ToList();
-            int vPolproduktIdInt = vPolprodukt.Count();
-            if (vProduktIdInt > 0)
-            {
-                dgvProcesPolprodukt.DataSource = vPolprodukt;
-                dgvProcesPolprodukt.Columns["ID_produktu"].Visible = false;
-                this.dgvProcesPolprodukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-                refreshScreen();
-            }
-            else
-            {
-                refreshScreen();
-            }
-
-            refreshComboboxes();
+           
         }
 
         private void dgvProcesProdukt_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -117,6 +117,8 @@ namespace KWZP2022
         public virtual DbSet<Zwrot> Zwrot { get; set; }
         public virtual DbSet<v_Alerty_ResorceDepartment_nieodczytane> v_Alerty_ResorceDepartment_nieodczytane { get; set; }
         public virtual DbSet<v_Alerty_ResourceDepartment> v_Alerty_ResourceDepartment { get; set; }
+        public virtual DbSet<v_Czas_wytwarzanie_polprodukt> v_Czas_wytwarzanie_polprodukt { get; set; }
+        public virtual DbSet<v_Czas_wytwarzanie_produkt> v_Czas_wytwarzanie_produkt { get; set; }
         public virtual DbSet<v_Czesci> v_Czesci { get; set; }
         public virtual DbSet<v_Czynnosc_produkcyjna> v_Czynnosc_produkcyjna { get; set; }
         public virtual DbSet<v_Dane_adresowe_pracownik> v_Dane_adresowe_pracownik { get; set; }
@@ -124,6 +126,7 @@ namespace KWZP2022
         public virtual DbSet<v_Dostawcy> v_Dostawcy { get; set; }
         public virtual DbSet<v_Email_pracownik> v_Email_pracownik { get; set; }
         public virtual DbSet<v_Etat> v_Etat { get; set; }
+        public virtual DbSet<v_Ilosc_kontrola_pozytywna> v_Ilosc_kontrola_pozytywna { get; set; }
         public virtual DbSet<v_Klient> v_Klient { get; set; }
         public virtual DbSet<v_Klient_telefon_aktualny> v_Klient_telefon_aktualny { get; set; }
         public virtual DbSet<v_Klient_telefon_Historia> v_Klient_telefon_Historia { get; set; }
@@ -132,6 +135,7 @@ namespace KWZP2022
         public virtual DbSet<v_Kontrola_negatywna> v_Kontrola_negatywna { get; set; }
         public virtual DbSet<v_Kontrola_parametr_produkt> v_Kontrola_parametr_produkt { get; set; }
         public virtual DbSet<v_Kontrola_pozytywna> v_Kontrola_pozytywna { get; set; }
+        public virtual DbSet<v_Kontrola_wszystkie> v_Kontrola_wszystkie { get; set; }
         public virtual DbSet<v_Koszt> v_Koszt { get; set; }
         public virtual DbSet<v_Koszt_godziny_pracy> v_Koszt_godziny_pracy { get; set; }
         public virtual DbSet<v_Koszt_procesow_polprodukt> v_Koszt_procesow_polprodukt { get; set; }
@@ -227,6 +231,7 @@ namespace KWZP2022
         public virtual DbSet<v_Stanowiska_produkcyjne> v_Stanowiska_produkcyjne { get; set; }
         public virtual DbSet<v_Stanowiska_w_uzyciu> v_Stanowiska_w_uzyciu { get; set; }
         public virtual DbSet<v_Stanowisko_produkcyjne> v_Stanowisko_produkcyjne { get; set; }
+        public virtual DbSet<v_Sumaryczny_czas_wytwarzania_produktu> v_Sumaryczny_czas_wytwarzania_produktu { get; set; }
         public virtual DbSet<v_Sz_czas_proces_polprodukt_czynnosc> v_Sz_czas_proces_polprodukt_czynnosc { get; set; }
         public virtual DbSet<v_Sz_czas_proces_produkt_czynnosc> v_Sz_czas_proces_produkt_czynnosc { get; set; }
         public virtual DbSet<v_Szacowany_czas_wytwarzania_polprodukt> v_Szacowany_czas_wytwarzania_polprodukt { get; set; }

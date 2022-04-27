@@ -27,17 +27,14 @@ namespace KWZP2022
         {
             initComboboxPracownik();
             initComboboxRodzajKontrola();
-            initDataGridViewKontrolaJakosciParametr();
-            initDataGridViewKontrolaPozytywna();
-
         }
 
         private void clearDgvs()
         {
             dgvPozytywne.DataSource = 0;
             dgvvKontrolaJakosciKolejka.DataSource = 0;
-            dgvvKontrolaProdukt.DataSource = 0;
             dgvvParametrProdukt.DataSource = 0;
+            dgvRezultatKontroli.DataSource = 0;
         }
 
         private void btnAkceptuj_Click(object sender, EventArgs e)
@@ -106,6 +103,16 @@ namespace KWZP2022
             dgvPozytywne.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
+        private void initDataGridViewRezultatKontroli()
+        {
+            int wybraneZamowienie = int.Parse(cbZamowienie.SelectedValue.ToString());
+            List<v_Ilosc_kontrola_pozytywna> RezultatKontroli = db.v_Ilosc_kontrola_pozytywna.Where(a => a.ID_zamowienie == wybraneZamowienie).ToList();
+            dgvRezultatKontroli.DataSource = RezultatKontroli;
+            dgvRezultatKontroli.Columns["ID_zamowienie"].Visible = false;
+            dgvRezultatKontroli.Columns["ID_produkt"].Visible = false;
+            this.dgvRezultatKontroli.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dgvRezultatKontroli.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+        }
 
         private void initComboboxZamowienie()
         {
@@ -188,17 +195,29 @@ namespace KWZP2022
                 }
                 initDataGridViewKontrolaPozytywna();
                 refreshScreen();
-            }            
+            }
+            
+            initDataGridViewRezultatKontroli();
+            MessageBox.Show("Poprawnie wygenerowano kontrole");
+
+
         }
 
         private void btnWczytajZamowienie_Click(object sender, EventArgs e)
         {
+
             initDataGridViewWytworzoneProduktyZamowienie();
         }
 
         private void btnOdswiez_Click(object sender, EventArgs e)
         {
             clearDgvs();
+        }
+
+        private void btnGauss_Click(object sender, EventArgs e)
+        {
+            FormKontrolaJakosciGauss gauss = new FormKontrolaJakosciGauss(db);
+            gauss.ShowDialog();
         }
     }
 }

@@ -98,6 +98,12 @@
     <Compile Include="Forma_platnosc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FormKontrolaJakosciGauss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormKontrolaJakosciGauss.Designer.cs">
+      <DependentUpon>FormKontrolaJakosciGauss.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormResDepAlerty.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -780,6 +786,12 @@
     <Compile Include="v_Alerty_ResourceDepartment.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Czas_wytwarzanie_polprodukt.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Czas_wytwarzanie_produkt.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Czesci.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -799,6 +811,9 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Etat.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Ilosc_kontrola_pozytywna.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Klient.cs">
@@ -823,6 +838,9 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Kontrola_pozytywna.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kontrola_wszystkie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Koszt.cs">
@@ -1110,6 +1128,9 @@
     <Compile Include="v_Stanowisko_produkcyjne.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Sumaryczny_czas_wytwarzania_produktu.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Szacowany_czas_wytwarzania_polprodukt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -1245,6 +1266,9 @@
     <Compile Include="Zwrot.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormKontrolaJakosciGauss.resx">
+      <DependentUpon>FormKontrolaJakosciGauss.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormResDepAlerty.resx">
       <DependentUpon>FormResDepAlerty.cs</DependentUpon>
     </EmbeddedResource>
