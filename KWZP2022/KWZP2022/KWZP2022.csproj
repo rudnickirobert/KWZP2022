@@ -98,6 +98,12 @@
     <Compile Include="Forma_platnosc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FormResDepAlerty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepAlerty.Designer.cs">
+      <DependentUpon>FormResDepAlerty.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCzasPracyProdukcja.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,12 @@
     </Compile>
     <Compile Include="FormHR.Designer.cs">
       <DependentUpon>FormHR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDodajAlert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDodajAlert.Designer.cs">
+      <DependentUpon>FormDodajAlert.cs</DependentUpon>
     </Compile>
     <Compile Include="FormHRandSetupProduction.cs">
       <SubType>Form</SubType>
@@ -205,6 +217,12 @@
     </Compile>
     <Compile Include="FormResDepParametryNarzedzie.Designer.cs">
       <DependentUpon>FormResDepParametryNarzedzie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResDepSkladMaszyna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepSkladMaszyna.Designer.cs">
+      <DependentUpon>FormResDepSkladMaszyna.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSetupProduction.cs">
       <SubType>Form</SubType>
@@ -780,6 +798,12 @@
     <Compile Include="Umowa_sprzedaz.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Alerty_ResorceDepartment_nieodczytane.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Alerty_ResourceDepartment.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Czesci.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -874,6 +898,9 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Magazyn_material_aktualny.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Magazyn_material_aktualny_dodanie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Magazyn_material_przejsciowy.cs">
@@ -1242,6 +1269,9 @@
     <Compile Include="Zwrot.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormResDepAlerty.resx">
+      <DependentUpon>FormResDepAlerty.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCzasPracyProdukcja.resx">
       <DependentUpon>FormCzasPracyProdukcja.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -1251,6 +1281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormHR.resx">
       <DependentUpon>FormHR.cs</DependentUpon>
+</EmbeddedResource>
+    <EmbeddedResource Include="FormDodajAlert.resx">
+      <DependentUpon>FormDodajAlert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormHRandSetupProduction.resx">
       <DependentUpon>FormHRandSetupProduction.cs</DependentUpon>
@@ -1296,6 +1329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepParametryNarzedzie.resx">
       <DependentUpon>FormResDepParametryNarzedzie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepSkladMaszyna.resx">
+      <DependentUpon>FormResDepSkladMaszyna.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSetupProduction.resx">
       <DependentUpon>FormSetupProduction.cs</DependentUpon>

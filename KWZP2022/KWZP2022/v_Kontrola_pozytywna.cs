@@ -18,5 +18,6 @@ namespace KWZP2022
         public int ID_produkt { get; set; }
         public string Produkt { get; set; }
         public Nullable<int> Wynik_kontrola { get; set; }
+        public int ID_zamowienie { get; set; }
     }
 }
