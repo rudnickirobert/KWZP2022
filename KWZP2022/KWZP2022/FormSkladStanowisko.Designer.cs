@@ -48,10 +48,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-
             ((System.ComponentModel.ISupportInitialize)(this.dgvStanowisko)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNarzedzia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaszyny)).BeginInit();
@@ -62,14 +60,12 @@
             // dgvStanowisko
             // 
             this.dgvStanowisko.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-
             this.dgvStanowisko.Location = new System.Drawing.Point(40, 98);
             this.dgvStanowisko.Margin = new System.Windows.Forms.Padding(2);
             this.dgvStanowisko.Name = "dgvStanowisko";
             this.dgvStanowisko.RowHeadersWidth = 51;
             this.dgvStanowisko.RowTemplate.Height = 24;
             this.dgvStanowisko.Size = new System.Drawing.Size(290, 176);
-
             this.dgvStanowisko.TabIndex = 0;
             this.dgvStanowisko.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStanowisko_CellContentClick);
             // 
@@ -82,7 +78,6 @@
             this.dgvNarzedzia.RowHeadersWidth = 51;
             this.dgvNarzedzia.RowTemplate.Height = 24;
             this.dgvNarzedzia.Size = new System.Drawing.Size(275, 176);
-
             this.dgvNarzedzia.TabIndex = 1;
             this.dgvNarzedzia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNarzedzia_CellContentClick);
             // 
@@ -331,6 +326,7 @@
             this.Controls.Add(this.dgvStanowisko);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormSkladStanowisko";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dodawanie stanowiska";
             ((System.ComponentModel.ISupportInitialize)(this.dgvStanowisko)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNarzedzia)).EndInit();
