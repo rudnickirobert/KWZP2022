@@ -1028,6 +1028,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Kontrola_parametr_produkt' does not hav
             <PropertyRef Name="Zakres dolny" />
             <PropertyRef Name="Zakres górny" />
             <PropertyRef Name="Rezultat kontroli" />
+            <PropertyRef Name="ID_zamowienie" />
           </Key>
           <Property Name="ID_wytwarzanie" Type="int" Nullable="false" />
           <Property Name="ID_produkt" Type="int" Nullable="false" />
@@ -1037,6 +1038,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Kontrola_parametr_produkt' does not hav
           <Property Name="Zakres dolny" Type="decimal" Precision="15" Scale="2" Nullable="false" />
           <Property Name="Zakres górny" Type="decimal" Precision="15" Scale="2" Nullable="false" />
           <Property Name="Rezultat kontroli" Type="int" Nullable="false" />
+          <Property Name="ID_zamowienie" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Kontrola_pozytywna' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1045,11 +1047,13 @@ warning 6002: The table/view 'KWZP.dbo.v_Kontrola_pozytywna' does not have a pri
             <PropertyRef Name="ID_wytwarzanie" />
             <PropertyRef Name="ID_produkt" />
             <PropertyRef Name="Produkt" />
+            <PropertyRef Name="ID_zamowienie" />
           </Key>
           <Property Name="ID_wytwarzanie" Type="int" Nullable="false" />
           <Property Name="ID_produkt" Type="int" Nullable="false" />
           <Property Name="Produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Wynik_kontrola" Type="int" />
+          <Property Name="ID_zamowienie" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Koszt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -4687,7 +4691,8 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
     [v_Kontrola_parametr_produkt].[Wartość] AS [Wartość], 
     [v_Kontrola_parametr_produkt].[Zakres dolny] AS [Zakres dolny], 
     [v_Kontrola_parametr_produkt].[Zakres górny] AS [Zakres górny], 
-    [v_Kontrola_parametr_produkt].[Rezultat kontroli] AS [Rezultat kontroli]
+    [v_Kontrola_parametr_produkt].[Rezultat kontroli] AS [Rezultat kontroli], 
+    [v_Kontrola_parametr_produkt].[ID_zamowienie] AS [ID_zamowienie]
     FROM [dbo].[v_Kontrola_parametr_produkt] AS [v_Kontrola_parametr_produkt]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Kontrola_pozytywna" EntityType="Self.v_Kontrola_pozytywna" store:Type="Views" store:Schema="dbo">
@@ -4695,7 +4700,8 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
     [v_Kontrola_pozytywna].[ID_wytwarzanie] AS [ID_wytwarzanie], 
     [v_Kontrola_pozytywna].[ID_produkt] AS [ID_produkt], 
     [v_Kontrola_pozytywna].[Produkt] AS [Produkt], 
-    [v_Kontrola_pozytywna].[Wynik_kontrola] AS [Wynik_kontrola]
+    [v_Kontrola_pozytywna].[Wynik_kontrola] AS [Wynik_kontrola], 
+    [v_Kontrola_pozytywna].[ID_zamowienie] AS [ID_zamowienie]
     FROM [dbo].[v_Kontrola_pozytywna] AS [v_Kontrola_pozytywna]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Koszt" EntityType="Self.v_Koszt" store:Type="Views" store:Schema="dbo">
@@ -7551,6 +7557,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
             <PropertyRef Name="Zakres_dolny" />
             <PropertyRef Name="Zakres_górny" />
             <PropertyRef Name="Rezultat_kontroli" />
+            <PropertyRef Name="ID_zamowienie" />
           </Key>
           <Property Name="ID_wytwarzanie" Type="Int32" Nullable="false" />
           <Property Name="ID_produkt" Type="Int32" Nullable="false" />
@@ -7560,17 +7567,20 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <Property Name="Zakres_dolny" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
           <Property Name="Zakres_górny" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
           <Property Name="Rezultat_kontroli" Type="Int32" Nullable="false" />
+          <Property Name="ID_zamowienie" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="v_Kontrola_pozytywna">
           <Key>
             <PropertyRef Name="ID_wytwarzanie" />
             <PropertyRef Name="ID_produkt" />
             <PropertyRef Name="Produkt" />
+            <PropertyRef Name="ID_zamowienie" />
           </Key>
           <Property Name="ID_wytwarzanie" Type="Int32" Nullable="false" />
           <Property Name="ID_produkt" Type="Int32" Nullable="false" />
           <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Wynik_kontrola" Type="Int32" />
+          <Property Name="ID_zamowienie" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="v_Koszt">
           <Key>
@@ -12475,6 +12485,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
                 <ScalarProperty Name="Zakres_dolny" ColumnName="Zakres dolny" />
                 <ScalarProperty Name="Zakres_górny" ColumnName="Zakres górny" />
                 <ScalarProperty Name="Rezultat_kontroli" ColumnName="Rezultat kontroli" />
+                <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -12485,6 +12496,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
                 <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
                 <ScalarProperty Name="Produkt" ColumnName="Produkt" />
                 <ScalarProperty Name="Wynik_kontrola" ColumnName="Wynik_kontrola" />
+                <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

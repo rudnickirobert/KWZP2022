@@ -180,29 +180,34 @@ LEFT JOIN v_Koszt_procesow_polprodukt AS KPP ON SlWPP.Nazwa = KPP.Półprodukt
 LEFT JOIN v_Koszt_procesow_produkt AS KP ON P.Nazwa_produkt = KP.Produkt
 GO
 
+
 CREATE VIEW v_Kontrola_parametr_produkt
 AS
 SELECT w.ID_wytwarzanie AS [ID_wytwarzanie], P.ID_produkt AS [ID_produkt], P.Nazwa_produkt AS [Produkt], RP.Nazwa_rodzaj_parametr AS [Parametr], KP.Wartosc AS [Wartość],
-PP.Zakres_dol AS [Zakres dolny], PP.Zakres_gora AS [Zakres górny], (CASE WHEN KP.Wartosc BETWEEN PP.Zakres_dol AND PP.Zakres_gora THEN 1 ELSE 0 END) AS [Rezultat kontroli]  
+PP.Zakres_dol AS [Zakres dolny], PP.Zakres_gora AS [Zakres górny], (CASE WHEN KP.Wartosc BETWEEN PP.Zakres_dol AND PP.Zakres_gora THEN 1 ELSE 0 END) AS [Rezultat kontroli], Z.ID_zamowienie AS ID_zamowienie
 FROM Kontrola_parametr AS KP
 INNER JOIN Kontrola_jakosci_produkt AS KJP ON KP.ID_kontrola_jakosci_produkt = KJP.ID_kontrola_jakosci_produkt
 INNER JOIN Parametr_produkt AS PP ON KP.ID_parametr_produkt = PP.ID_parametr_produkt
 INNER JOIN Produkt AS P ON PP.ID_produkt = P.ID_produkt
 INNER JOIN Rodzaj_parametr AS RP ON PP.ID_rodzaj_parametr = RP.ID_rodzaj_parametr
 INNER JOIN Wytwarzanie AS W ON KJP.ID_wytwarzanie = W.ID_wytwarzanie
+INNER JOIN Zamowienie_szczegol AS ZS ON W.ID_zamowienie_szczegol = ZS.ID_zamowienie_szczegol
+INNER JOIN Zamowienie AS Z ON ZS.ID_zamowienie = Z.ID_zamowienie
 GO
 
 CREATE VIEW v_Wynik_kontroli
 AS
-SELECT ID_wytwarzanie, ID_produkt, SUM([Rezultat kontroli]) AS [Wynik_kontrola] FROM v_Kontrola_parametr_produkt
+SELECT ID_wytwarzanie, ID_produkt, SUM([Rezultat kontroli]) AS [Wynik_kontrola] 
+FROM v_Kontrola_parametr_produkt
 GROUP BY ID_wytwarzanie, ID_produkt
 GO
 
 CREATE VIEW v_Kontrola_pozytywna
 AS
-SELECT ID_wytwarzanie, ID_produkt, [Produkt], AVG([Rezultat kontroli]) AS [Wynik_kontrola] FROM v_Kontrola_parametr_produkt
-GROUP BY ID_wytwarzanie, ID_produkt, [Produkt]
-HAVING AVG([Rezultat kontroli]) = 1
+SELECT ID_wytwarzanie, ID_produkt, [Produkt], AVG([Rezultat kontroli]) AS [Wynik_kontrola], [ID_zamowienie]  
+FROM v_Kontrola_parametr_produkt
+GROUP BY ID_wytwarzanie, ID_produkt, [Produkt], [ID_zamowienie] 
+HAVING AVG([Rezultat kontroli]) = 1 
 GO
 
 CREATE VIEW v_Kontrola_negatywna

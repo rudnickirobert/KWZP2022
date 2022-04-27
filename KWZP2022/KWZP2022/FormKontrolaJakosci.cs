@@ -17,37 +17,28 @@ namespace KWZP2022
         {
             InitializeComponent();
             this.db = db;
-            initDataGridViewNazwa();
             initComboboxPracownik();
             initComboboxRodzajKontrola();
             initDataGridViewKontrolaJakosciParametr();
-            initDataGridViewKontrolaPozytywna();
             initComboboxZamowienie();
         }
 
         private void refreshScreen()
         {
-            initDataGridViewNazwa();
             initComboboxPracownik();
             initComboboxRodzajKontrola();
             initDataGridViewKontrolaJakosciParametr();
             initDataGridViewKontrolaPozytywna();
+
         }
 
-        private void initDataGridViewNazwa()
+        private void clearDgvs()
         {
-            dgvvKontrolaJakosciKolejka.DataSource = db.v_Wytworzone_produkty_zamowienie.ToList();
-            dgvvKontrolaJakosciKolejka.Columns["ID"].HeaderText = "ID_wytwarzanie";
-            dgvvKontrolaJakosciKolejka.Columns["ID_produkt"].Visible = false;
-            dgvvKontrolaJakosciKolejka.Columns["Czynność_produkcyjna"].Visible = false;            
-            dgvvKontrolaJakosciKolejka.Columns["Pracownik"].Visible = false;
-            dgvvKontrolaJakosciKolejka.Columns["Stanowisko"].Visible = false;
-            dgvvKontrolaJakosciKolejka.Columns["Szacowany_czas__min_"].Visible = false;
-            dgvvKontrolaJakosciKolejka.Columns["Data_rozpoczęcia"].Visible = false;
-            dgvvKontrolaJakosciKolejka.Columns["Data_zakończenia"].Visible = false;
-            this.dgvvKontrolaJakosciKolejka.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;           
-            dgvvKontrolaJakosciKolejka.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-        }               
+            dgvPozytywne.DataSource = 0;
+            dgvvKontrolaJakosciKolejka.DataSource = 0;
+            dgvvKontrolaProdukt.DataSource = 0;
+            dgvvParametrProdukt.DataSource = 0;
+        }
 
         private void btnAkceptuj_Click(object sender, EventArgs e)
         {
@@ -88,14 +79,33 @@ namespace KWZP2022
             dgvvKontrolaProdukt.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
+        private void initDataGridViewWytworzoneProduktyZamowienie()
+        {
+            int wybraneZamowienie = int.Parse(cbZamowienie.SelectedValue.ToString());
+            List<v_Wytworzone_produkty_zamowienie> wytworzoneProduktyZamowienie = db.v_Wytworzone_produkty_zamowienie.Where(a => a.ID_zamowienie == wybraneZamowienie).ToList();
+            dgvvKontrolaJakosciKolejka.DataSource = wytworzoneProduktyZamowienie;
+            dgvvKontrolaJakosciKolejka.Columns["ID"].HeaderText = "ID_wytwarzanie";
+            dgvvKontrolaJakosciKolejka.Columns["ID_produkt"].Visible = false;
+            dgvvKontrolaJakosciKolejka.Columns["Czynność_produkcyjna"].Visible = false;
+            dgvvKontrolaJakosciKolejka.Columns["Pracownik"].Visible = false;
+            dgvvKontrolaJakosciKolejka.Columns["Stanowisko"].Visible = false;
+            dgvvKontrolaJakosciKolejka.Columns["Szacowany_czas__min_"].Visible = false;
+            dgvvKontrolaJakosciKolejka.Columns["Data_rozpoczęcia"].Visible = false;
+            dgvvKontrolaJakosciKolejka.Columns["Data_zakończenia"].Visible = false;
+            this.dgvvKontrolaJakosciKolejka.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dgvvKontrolaJakosciKolejka.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+        }
+
         private void initDataGridViewKontrolaPozytywna()
         {
-            dgvPozytywne.DataSource = db.v_Kontrola_pozytywna.ToList();
+            int wybraneZamowienie = int.Parse(cbZamowienie.SelectedValue.ToString());
+            List<v_Kontrola_pozytywna> pozytywnaKontrola = db.v_Kontrola_pozytywna.Where(a => a.ID_zamowienie == wybraneZamowienie).ToList();
+            dgvPozytywne.DataSource = pozytywnaKontrola;
             dgvPozytywne.Columns["Wynik_kontrola"].Visible = false;
             this.dgvPozytywne.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dgvPozytywne.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-          
         }
+
 
         private void initComboboxZamowienie()
         {
@@ -130,6 +140,7 @@ namespace KWZP2022
         private void dgvvKontrolaJakosciKolejka_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             txtNazwa.Text = this.dgvvKontrolaJakosciKolejka.CurrentRow.Cells[2].Value.ToString();
+
         }
 
         public double NextDouble(Random rand, double minValue, double maxValue)
@@ -175,13 +186,19 @@ namespace KWZP2022
                     db.SaveChanges();
                     
                 }
+                initDataGridViewKontrolaPozytywna();
                 refreshScreen();
             }            
         }
 
         private void btnWczytajZamowienie_Click(object sender, EventArgs e)
         {
+            initDataGridViewWytworzoneProduktyZamowienie();
+        }
 
+        private void btnOdswiez_Click(object sender, EventArgs e)
+        {
+            clearDgvs();
         }
     }
 }

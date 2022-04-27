@@ -22,5 +22,6 @@ namespace KWZP2022
         public decimal Zakres_dolny { get; set; }
         public decimal Zakres_górny { get; set; }
         public int Rezultat_kontroli { get; set; }
+        public int ID_zamowienie { get; set; }
     }
 }
