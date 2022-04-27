@@ -139,6 +139,7 @@
             // 
             this.comboBoxPaymentMethod.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.comboBoxPaymentMethod.FormattingEnabled = true;
+            this.comboBoxPaymentMethod.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.comboBoxPaymentMethod.Location = new System.Drawing.Point(630, 235);
             this.comboBoxPaymentMethod.Name = "comboBoxPaymentMethod";
             this.comboBoxPaymentMethod.Size = new System.Drawing.Size(152, 28);
