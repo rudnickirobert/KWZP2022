@@ -12,16 +12,10 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Kontrola_parametr_produkt
+    public partial class v_Czas_wytwarzanie_produkt
     {
-        public int ID_wytwarzanie { get; set; }
         public int ID_produkt { get; set; }
         public string Produkt { get; set; }
-        public string Parametr { get; set; }
-        public decimal Wartość { get; set; }
-        public decimal Zakres_dolny { get; set; }
-        public decimal Zakres_górny { get; set; }
-        public int Rezultat_kontroli { get; set; }
-        public int ID_zamowienie { get; set; }
+        public Nullable<int> Czas { get; set; }
     }
 }

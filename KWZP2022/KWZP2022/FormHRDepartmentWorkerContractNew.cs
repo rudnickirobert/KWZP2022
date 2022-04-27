@@ -30,25 +30,22 @@ namespace KWZP2022
         }
         private void cleanTextBox()
         {
-            tbWynagrodzenie.Clear();
+            tbSalary.Clear();
         }
         private void checkBoxAddValue()
         {
-            cbPracownik.DataSource = db.Pracownik.ToList();
-            cbPracownik.DisplayMember = "Nazwisko";
-            cbPracownik.ValueMember = "ID_pracownik";
-            cbWymiarPracy.DataSource = db.Wymiar_pracy.ToList();
-            cbWymiarPracy.DisplayMember = "Nazwa_dostawca";
-            cbWymiarPracy.ValueMember = "ID_wymiar_pracy";
-            cbRodzajUmowy.DataSource = db.Rodzaj_umowy.ToList();
-            cbRodzajUmowy.DisplayMember = "Nazwa";
-            cbRodzajUmowy.ValueMember = "ID_rodzaj_umowy";
-            cbDzial.DataSource = db.Dzial.ToList();
-            cbDzial.DisplayMember = "Nazwa_dzial";
-            cbDzial.ValueMember = "ID_dzial";
-            cbStanowisko.DataSource = db.Stanowisko.ToList();
-            cbStanowisko.DisplayMember = "Nazwa_stanowiska";
-            cbStanowisko.ValueMember = "ID_stanowisko";
+            cbWorker.DataSource = db.Pracownik.ToList();
+            cbWorker.DisplayMember = "Nazwisko";
+            cbWorker.ValueMember = "ID_pracownik";
+            cbWorkingTime.DataSource = db.Wymiar_pracy.ToList();
+            cbWorkingTime.DisplayMember = "Nazwa";
+            cbWorkingTime.ValueMember = "ID_wymiar_pracy";
+            cbRContractType.DataSource = db.Rodzaj_umowy.ToList();
+            cbRContractType.DisplayMember = "Nazwa";
+            cbRContractType.ValueMember = "ID_rodzaj_umowy";
+            cbEtat.DataSource = db.Stanowisko.ToList();
+            cbEtat.DisplayMember = "Nazwa_stanowiska";
+            cbEtat.ValueMember = "ID_stanowisko";
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -58,26 +55,24 @@ namespace KWZP2022
 
         private void btnAddnewcontract_Click(object sender, EventArgs e)
         {
-            if (tbWynagrodzenie.Text.Length > 0)
+            if (tbSalary.Text.Length > 0)
             {
-                Umowa umowa = new Umowa();
-                umowa.ID_pracownik = (int)cbPracownik.SelectedValue;
-                umowa.ID_wymiar_pracy = (int)cbWymiarPracy.SelectedValue;
-                umowa.ID_rodzaj_umowy = (int)cbRodzajUmowy.SelectedValue;
-                umowa.ID_posada_pracownika = (int)cbPracownik.SelectedValue;
-                umowa.Wynagrodzenie = Convert.ToInt32(tbWynagrodzenie.Text);
-                Etat etat = new Etat();
-                etat.ID_dzial = (int)cbDzial.SelectedValue;
-                etat.ID_stanowisko = (int)cbStanowisko.SelectedValue;
                 Posada_pracownika posadaPracownika = new Posada_pracownika();
-                posadaPracownika.Data_od = dpracownikod.Value;
-                if (checkBox1.Checked is true)
+                posadaPracownika.Data_od = dWorkerFrom.Value;
+                posadaPracownika.ID_etat = (int)cbEtat.SelectedValue;
+                if (cbDateTo.Checked)
                 {
-                    posadaPracownika.Data_od = dpracownikdo.Value;
+                    posadaPracownika.Data_od = dWorkerTo.Value;
                 }
-                db.Umowa.Add(umowa);
                 db.Posada_pracownika.Add(posadaPracownika);
-                db.Etat.Add(etat);
+                db.SaveChanges();
+                Umowa umowa = new Umowa();
+                umowa.ID_pracownik = (int)cbWorker.SelectedValue;
+                umowa.ID_wymiar_pracy = (int)cbWorkingTime.SelectedValue;
+                umowa.ID_rodzaj_umowy = (int)cbRContractType.SelectedValue;
+                umowa.ID_posada_pracownika = (int)cbEtat.SelectedValue;
+                umowa.Wynagrodzenie = Convert.ToInt32(tbSalary.Text);
+                db.Umowa.Add(umowa); 
                 db.SaveChanges();
                 cleanTextBox();
                 showData();
@@ -88,5 +83,6 @@ namespace KWZP2022
                 MessageBox.Show("Nie wprowadzono danych.", "Błąd", MessageBoxButtons.OK);
             }
         }
+
     }
 }

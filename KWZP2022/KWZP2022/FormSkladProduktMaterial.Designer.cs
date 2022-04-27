@@ -41,6 +41,9 @@
             this.dgvMaterial = new System.Windows.Forms.DataGridView();
             this.dgvvSkladProdukt = new System.Windows.Forms.DataGridView();
             this.btnAktualizuj = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvvSkladProdukt)).BeginInit();
@@ -49,7 +52,7 @@
             // dgvProdukt
             // 
             this.dgvProdukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProdukt.Location = new System.Drawing.Point(397, 93);
+            this.dgvProdukt.Location = new System.Drawing.Point(397, 83);
             this.dgvProdukt.Name = "dgvProdukt";
             this.dgvProdukt.Size = new System.Drawing.Size(419, 216);
             this.dgvProdukt.TabIndex = 37;
@@ -152,7 +155,7 @@
             // dgvMaterial
             // 
             this.dgvMaterial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMaterial.Location = new System.Drawing.Point(836, 93);
+            this.dgvMaterial.Location = new System.Drawing.Point(836, 83);
             this.dgvMaterial.Name = "dgvMaterial";
             this.dgvMaterial.Size = new System.Drawing.Size(378, 216);
             this.dgvMaterial.TabIndex = 42;
@@ -161,7 +164,7 @@
             // dgvvSkladProdukt
             // 
             this.dgvvSkladProdukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvvSkladProdukt.Location = new System.Drawing.Point(397, 315);
+            this.dgvvSkladProdukt.Location = new System.Drawing.Point(397, 341);
             this.dgvvSkladProdukt.MultiSelect = false;
             this.dgvvSkladProdukt.Name = "dgvvSkladProdukt";
             this.dgvvSkladProdukt.Size = new System.Drawing.Size(817, 358);
@@ -180,12 +183,48 @@
             this.btnAktualizuj.UseVisualStyleBackColor = false;
             this.btnAktualizuj.Click += new System.EventHandler(this.btnAktualizuj_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Arial", 16F);
+            this.label5.Location = new System.Drawing.Point(392, 52);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(174, 25);
+            this.label5.TabIndex = 45;
+            this.label5.Text = "Wybierz produkt:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Arial", 16F);
+            this.label4.Location = new System.Drawing.Point(831, 52);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(179, 25);
+            this.label4.TabIndex = 46;
+            this.label4.Text = "Wybierz materiał:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Arial", 16F);
+            this.label6.Location = new System.Drawing.Point(392, 313);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(169, 25);
+            this.label6.TabIndex = 47;
+            this.label6.Text = "Skład produktów";
+            // 
             // FormSkladProduktMaterial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background;
             this.ClientSize = new System.Drawing.Size(1264, 711);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btnAktualizuj);
             this.Controls.Add(this.dgvvSkladProdukt);
             this.Controls.Add(this.dgvMaterial);
@@ -200,7 +239,8 @@
             this.Controls.Add(this.txtProdukt);
             this.Controls.Add(this.label1);
             this.Name = "FormSkladProduktMaterial";
-            this.Text = "SkladProduktMaterialForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Skład Produktów (Materiał)";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdukt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvvSkladProdukt)).EndInit();
@@ -224,5 +264,8 @@
         private System.Windows.Forms.DataGridView dgvMaterial;
         private System.Windows.Forms.DataGridView dgvvSkladProdukt;
         private System.Windows.Forms.Button btnAktualizuj;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
     }
 }

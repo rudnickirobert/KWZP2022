@@ -19,13 +19,19 @@ namespace KWZP2022
             this.db = db;
             showData();
             cleanTextBox();
+            comboBoxAddValues();
         }
 
+        private void comboBoxAddValues()
+        { 
+            cbPosition.DataSource = db.Stanowisko.ToList();
+            cbPosition.DisplayMember = "Nazwa_stanowiska";
+            cbPosition.ValueMember = "ID_stanowisko";
+        }
         private void cleanTextBox()
         {
             tbImie.Clear();
             tbNazwisko.Clear();
-            tbStanowisko.Clear();
         }
 
         private void msgCleanShowData()
@@ -40,6 +46,7 @@ namespace KWZP2022
             dgvWorker.Columns["ID"].Visible = false;
             dgvWorker.Columns["Wymiar_pracy"].Visible = false;
             dgvWorker.Columns["Podstawa_wynagrodzenia"].Visible = false;
+            dgvWorker.Columns["Rodzaj_umowy"].Visible = false;
             this.dgvWorker.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 
@@ -50,7 +57,7 @@ namespace KWZP2022
         }
         private void enterName()
         {
-            List<v_Pracownik> workerList = db.v_Pracownik.Where(a => a.Imię == tbImie.Text).ToList();
+            List<v_Umowa> workerList = db.v_Umowa.Where(a => a.Imię == tbImie.Text).ToList();
             if (workerList.Count() > 0)
             {
                 this.dgvWorker.DataSource = workerList;
@@ -64,7 +71,7 @@ namespace KWZP2022
         }
         private void enterSurname()
         {
-            List<v_Pracownik> workerList = db.v_Pracownik.Where(a => a.Nazwisko == tbNazwisko.Text).ToList();
+            List<v_Umowa> workerList = db.v_Umowa.Where(a => a.Nazwisko == tbNazwisko.Text).ToList();
             if (workerList.Count() > 0)
             {
                 this.dgvWorker.DataSource = workerList;
@@ -78,7 +85,7 @@ namespace KWZP2022
         }
         private void enterPosition()
         {
-            List<v_Umowa> workerList = db.v_Umowa.Where(a => a.Nazwa_stanowiska == tbStanowisko.Text).ToList();
+            List<v_Umowa> workerList = db.v_Umowa.Where(a => a.Nazwa_stanowiska == cbPosition.Text).ToList();
             if (workerList.Count() > 0)
             {
                 this.dgvWorker.DataSource = workerList;
@@ -95,13 +102,11 @@ namespace KWZP2022
         {
             string choose = "";
             if (tbImie.Text.Length > 0)
-                choose = "Surname";
-            if (tbNazwisko.Text.Length > 0)
                 choose = "Name";
-            if (tbStanowisko.Text.Length > 0)
+            if (tbNazwisko.Text.Length > 0)
+                choose = "Surname";
+            if (cbPositionSelected.Checked)
                 choose = "Position";
-            if (tbDzial.Text.Length > 0)
-                choose = "Department";
             switch (choose)
             {
                 case "Name":
@@ -130,7 +135,7 @@ namespace KWZP2022
 
         private void btnChangedata_Click(object sender, EventArgs e)
         {
-            FormHRDepartmentWorkerModify formHRDepartmentWorkerModify = new FormHRDepartmentWorkerModify(db);
+            FormHRDepartmentWorkerModify2 formHRDepartmentWorkerModify = new FormHRDepartmentWorkerModify2(db);
             formHRDepartmentWorkerModify.ShowDialog();
         }
 
