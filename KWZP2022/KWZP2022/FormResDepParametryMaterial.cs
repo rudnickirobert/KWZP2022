@@ -62,11 +62,11 @@ namespace KWZP2022
         {
             string material = cmbMaterial.SelectedValue.ToString();
             int materialID = int.Parse(material);
-            System.Linq.IQueryable vParametrMaterial = db.v_Parametry_material.Where(x => x.ID_material == materialID);
-            int vParametrMaterialInt = vParametrMaterial.Cast<v_Parametry_material>().Where(x => x.ID_material > 0).Count();
-            if (vParametrMaterialInt > 0)
+            List<v_Parametry_material> parametryMaterial = db.v_Parametry_material.Where(a => a.ID_material == materialID).ToList();
+            if (parametryMaterial.Count() > 0)
             {
-                dgvParametrMaterial.DataSource = vParametrMaterial.Cast<v_Parametry_material>().ToList();
+                dgvParametrMaterial.DataSource = parametryMaterial;
+                dgvParametrMaterial.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             }
         }
         private void btnUsun_Click(object sender, EventArgs e)

@@ -212,6 +212,30 @@
     <Compile Include="FormResDepMaszyna.Designer.cs">
       <DependentUpon>FormResDepMaszyna.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormResDepServicesAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepServicesAdd.Designer.cs">
+      <DependentUpon>FormResDepServicesAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResDepServicesExchanged.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepServicesExchanged.Designer.cs">
+      <DependentUpon>FormResDepServicesExchanged.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResDepServicesReplacement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepServicesReplacement.Designer.cs">
+      <DependentUpon>FormResDepServicesReplacement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResDepServicesWorkers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepServicesWorkers.Designer.cs">
+      <DependentUpon>FormResDepServicesWorkers.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormResDepParametryMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -705,7 +729,16 @@
     <Compile Include="v_Kontrola_negatywna.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Kontrola_jakosci_produkt.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kontrola_negatywna.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Kontrola_parametr_produkt.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kontrola_pozytywna.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Kontrola_pozytywna.cs">
@@ -757,6 +790,15 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Magazyn_maszyn_wszystko.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Magazyn_material_aktualny.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Magazyn_material_przejsciowy.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Magazyn_material_wszystko.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Magazyn_narzedzia_nieuzywane.cs">
@@ -819,6 +861,9 @@
     <Compile Include="v_Obsluga_cmb.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Obsluga_cmb_wymiana.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Obsluga_pracownik.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -853,6 +898,9 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Parametry_produkt.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Polprodukt_material.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Pracownik.cs">
@@ -892,6 +940,9 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Produkty_na_gwarancji.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Produkt_material.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Reklamacja.cs">
@@ -963,6 +1014,9 @@
     <Compile Include="v_Stanowiska_produkcyjne.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Stanowiska_produkcyjne.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Stanowiska_w_uzyciu.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -1002,13 +1056,25 @@
     <Compile Include="v_Wynik_kontroli.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Wynik_kontroli.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Wytwarzanie.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Wytworzone_polprodukty_material.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Wytworzone_produkty.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Wytworzone_produkty_zamowienie.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Wytworzone_produkty_sklad.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Wytworzony_produkt_material.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Zamowienia_czesci_w_trakcie.cs">
@@ -1152,6 +1218,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepMaszyna.resx">
       <DependentUpon>FormResDepMaszyna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepServicesAdd.resx">
+      <DependentUpon>FormResDepServicesAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepServicesExchanged.resx">
+      <DependentUpon>FormResDepServicesExchanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepServicesReplacement.resx">
+      <DependentUpon>FormResDepServicesReplacement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepServicesWorkers.resx">
+      <DependentUpon>FormResDepServicesWorkers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepParametryMaterial.resx">
       <DependentUpon>FormResDepParametryMaterial.cs</DependentUpon>

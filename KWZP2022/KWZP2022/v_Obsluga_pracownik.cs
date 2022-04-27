@@ -15,6 +15,7 @@ namespace KWZP2022
     public partial class v_Obsluga_pracownik
     {
         public int ID_obsluga { get; set; }
+        public int ID_pracownik { get; set; }
         public string Obsługa { get; set; }
         public string Pracownik { get; set; }
     }

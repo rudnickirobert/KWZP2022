@@ -42,6 +42,7 @@
             this.cmbMaszyna = new System.Windows.Forms.ComboBox();
             this.lblNazwa = new System.Windows.Forms.Label();
             this.dgvParametrMaszyna = new System.Windows.Forms.DataGridView();
+            this.lblPodpisWidoku = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParametrMaszyna)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +50,7 @@
             // 
             this.btnWczytajParametr.BackColor = System.Drawing.Color.Violet;
             this.btnWczytajParametr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.btnWczytajParametr.Location = new System.Drawing.Point(221, 36);
+            this.btnWczytajParametr.Location = new System.Drawing.Point(212, 27);
             this.btnWczytajParametr.Name = "btnWczytajParametr";
             this.btnWczytajParametr.Size = new System.Drawing.Size(181, 35);
             this.btnWczytajParametr.TabIndex = 35;
@@ -155,7 +156,7 @@
             // 
             this.cmbMaszyna.Font = new System.Drawing.Font("Arial", 16.25F);
             this.cmbMaszyna.FormattingEnabled = true;
-            this.cmbMaszyna.Location = new System.Drawing.Point(34, 83);
+            this.cmbMaszyna.Location = new System.Drawing.Point(34, 68);
             this.cmbMaszyna.Name = "cmbMaszyna";
             this.cmbMaszyna.Size = new System.Drawing.Size(338, 33);
             this.cmbMaszyna.TabIndex = 25;
@@ -165,7 +166,7 @@
             this.lblNazwa.AutoSize = true;
             this.lblNazwa.BackColor = System.Drawing.Color.Transparent;
             this.lblNazwa.Font = new System.Drawing.Font("Arial", 20.25F);
-            this.lblNazwa.Location = new System.Drawing.Point(28, 39);
+            this.lblNazwa.Location = new System.Drawing.Point(28, 33);
             this.lblNazwa.Name = "lblNazwa";
             this.lblNazwa.Size = new System.Drawing.Size(123, 32);
             this.lblNazwa.TabIndex = 24;
@@ -174,16 +175,28 @@
             // dgvParametrMaszyna
             // 
             this.dgvParametrMaszyna.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvParametrMaszyna.Location = new System.Drawing.Point(32, 128);
+            this.dgvParametrMaszyna.Location = new System.Drawing.Point(34, 148);
             this.dgvParametrMaszyna.Name = "dgvParametrMaszyna";
-            this.dgvParametrMaszyna.Size = new System.Drawing.Size(738, 161);
+            this.dgvParametrMaszyna.Size = new System.Drawing.Size(736, 141);
             this.dgvParametrMaszyna.TabIndex = 23;
             // 
-            // FormRedDepParametryMaszyna
+            // lblPodpisWidoku
+            // 
+            this.lblPodpisWidoku.AutoSize = true;
+            this.lblPodpisWidoku.BackColor = System.Drawing.Color.Transparent;
+            this.lblPodpisWidoku.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblPodpisWidoku.Location = new System.Drawing.Point(30, 123);
+            this.lblPodpisWidoku.Name = "lblPodpisWidoku";
+            this.lblPodpisWidoku.Size = new System.Drawing.Size(165, 22);
+            this.lblPodpisWidoku.TabIndex = 57;
+            this.lblPodpisWidoku.Text = "Parametry maszyn";
+            // 
+            // FormResDepParametryMaszyna
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(798, 498);
+            this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnWczytajParametr);
             this.Controls.Add(this.btnAktualizuj);
             this.Controls.Add(this.btnUsun);
@@ -199,7 +212,7 @@
             this.Controls.Add(this.dgvParametrMaszyna);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormRedDepParametryMaszyna";
+            this.Name = "FormResDepParametryMaszyna";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Parametry maszyny";
             ((System.ComponentModel.ISupportInitialize)(this.dgvParametrMaszyna)).EndInit();
@@ -223,5 +236,6 @@
         private System.Windows.Forms.ComboBox cmbMaszyna;
         private System.Windows.Forms.Label lblNazwa;
         private System.Windows.Forms.DataGridView dgvParametrMaszyna;
+        private System.Windows.Forms.Label lblPodpisWidoku;
     }
 }

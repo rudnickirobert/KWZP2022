@@ -64,11 +64,11 @@ namespace KWZP2022
         {
             string maszyna = cmbMaszyna.SelectedValue.ToString();
             int maszynaID = int.Parse(maszyna);
-            System.Linq.IQueryable vParametrMaszyna = db.v_Parametry_maszyna.Where(x => x.ID_maszyna == maszynaID);
-            int vParametrMaszynaInt = vParametrMaszyna.Cast<v_Parametry_maszyna>().Where(x => x.ID_maszyna > 0).Count();
-            if (vParametrMaszynaInt > 0)
+            List<v_Parametry_maszyna> parametryMaszyna = db.v_Parametry_maszyna.Where(a => a.ID_maszyna == maszynaID).ToList();
+            if (parametryMaszyna.Count() > 0)
             {
-                dgvParametrMaszyna.DataSource = vParametrMaszyna.Cast<v_Parametry_maszyna>().ToList();
+                dgvParametrMaszyna.DataSource = parametryMaszyna;
+                dgvParametrMaszyna.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             }
         }
 
