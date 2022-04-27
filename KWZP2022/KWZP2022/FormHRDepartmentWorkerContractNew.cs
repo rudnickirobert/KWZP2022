@@ -60,7 +60,7 @@ namespace KWZP2022
                 Posada_pracownika posadaPracownika = new Posada_pracownika();
                 posadaPracownika.Data_od = dWorkerFrom.Value;
                 posadaPracownika.ID_etat = (int)cbEtat.SelectedValue;
-                if (cbDateTo.Checked is true)
+                if (cbDateTo.Checked)
                 {
                     posadaPracownika.Data_od = dWorkerTo.Value;
                 }

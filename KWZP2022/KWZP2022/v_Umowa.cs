@@ -18,6 +18,7 @@ namespace KWZP2022
         public string Nazwisko { get; set; }
         public string Imię { get; set; }
         public string Wymiar_pracy { get; set; }
+        public string Rodzaj_Umowy { get; set; }
         public string Nazwa_stanowiska { get; set; }
         public int Podstawa_wynagrodzenia { get; set; }
     }

@@ -2466,6 +2466,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Umowa' does not have a primary key defi
             <PropertyRef Name="Nazwisko" />
             <PropertyRef Name="Imię" />
             <PropertyRef Name="Wymiar pracy" />
+            <PropertyRef Name="Rodzaj Umowy" />
             <PropertyRef Name="Nazwa stanowiska" />
             <PropertyRef Name="Podstawa wynagrodzenia" />
           </Key>
@@ -2473,6 +2474,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Umowa' does not have a primary key defi
           <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Imię" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Wymiar pracy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rodzaj Umowy" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Nazwa stanowiska" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Podstawa wynagrodzenia" Type="int" Nullable="false" />
         </EntityType>
@@ -5526,6 +5528,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
     [v_Umowa].[Nazwisko] AS [Nazwisko], 
     [v_Umowa].[Imię] AS [Imię], 
     [v_Umowa].[Wymiar pracy] AS [Wymiar pracy], 
+    [v_Umowa].[Rodzaj Umowy] AS [Rodzaj Umowy], 
     [v_Umowa].[Nazwa stanowiska] AS [Nazwa stanowiska], 
     [v_Umowa].[Podstawa wynagrodzenia] AS [Podstawa wynagrodzenia]
     FROM [dbo].[v_Umowa] AS [v_Umowa]</DefiningQuery>
@@ -8766,6 +8769,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
             <PropertyRef Name="Nazwisko" />
             <PropertyRef Name="Imię" />
             <PropertyRef Name="Wymiar_pracy" />
+            <PropertyRef Name="Rodzaj_Umowy" />
             <PropertyRef Name="Nazwa_stanowiska" />
             <PropertyRef Name="Podstawa_wynagrodzenia" />
           </Key>
@@ -8773,6 +8777,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Imię" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Wymiar_pracy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Rodzaj_Umowy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Nazwa_stanowiska" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Podstawa_wynagrodzenia" Type="Int32" Nullable="false" />
         </EntityType>
@@ -13517,6 +13522,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
                 <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
                 <ScalarProperty Name="Imię" ColumnName="Imię" />
                 <ScalarProperty Name="Wymiar_pracy" ColumnName="Wymiar pracy" />
+                <ScalarProperty Name="Rodzaj_Umowy" ColumnName="Rodzaj Umowy" />
                 <ScalarProperty Name="Nazwa_stanowiska" ColumnName="Nazwa stanowiska" />
                 <ScalarProperty Name="Podstawa_wynagrodzenia" ColumnName="Podstawa wynagrodzenia" />
               </MappingFragment>
