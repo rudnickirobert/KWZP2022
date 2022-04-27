@@ -61,7 +61,7 @@ namespace KWZP2022
             tbNrdowodu.Text = pracownik.Nr_dowodu;
             tbPesel.Text = pracownik.Pesel.ToString();
             int selectedWyksztalcenie = int.Parse(cbWyksztalcenie.SelectedValue.ToString());
-            pracownik.ID_wyksztalcenie = selectedWyksztalcenie;
+            selectedWyksztalcenie = pracownik.ID_wyksztalcenie;
             Dane_adresowe_pracownik daneAdresowePracownik = this.db.Dane_adresowe_pracownik.Single(b => b.ID_pracownik == pracownik.ID_pracownik);
             tbMiejscowosc.Text = daneAdresowePracownik.Miejscowosc;
             tbUlica.Text = daneAdresowePracownik.Ulica;
