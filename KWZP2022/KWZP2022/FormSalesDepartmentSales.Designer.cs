@@ -33,8 +33,8 @@
             this.textBoxNrSale = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblNrSale = new System.Windows.Forms.Label();
-            this.textBox2Name = new System.Windows.Forms.TextBox();
-            this.textBox1Name = new System.Windows.Forms.TextBox();
+            this.textBoxSurame = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxNrArrangement = new System.Windows.Forms.TextBox();
@@ -43,6 +43,7 @@
             this.textBoxNIP = new System.Windows.Forms.TextBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnAddNewSale = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,6 +52,7 @@
             this.dgvSales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSales.Location = new System.Drawing.Point(12, 180);
             this.dgvSales.Name = "dgvSales";
+            this.dgvSales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSales.Size = new System.Drawing.Size(1240, 471);
             this.dgvSales.TabIndex = 0;
             // 
@@ -64,6 +66,7 @@
             // 
             // btnSearch
             // 
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearch.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnSearch.Location = new System.Drawing.Point(845, 123);
             this.btnSearch.Name = "btnSearch";
@@ -84,21 +87,21 @@
             this.lblNrSale.TabIndex = 3;
             this.lblNrSale.Text = "Podaj numer sprzedaży:";
             // 
-            // textBox2Name
+            // textBoxSurame
             // 
-            this.textBox2Name.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox2Name.Location = new System.Drawing.Point(357, 50);
-            this.textBox2Name.Name = "textBox2Name";
-            this.textBox2Name.Size = new System.Drawing.Size(152, 26);
-            this.textBox2Name.TabIndex = 4;
+            this.textBoxSurame.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxSurame.Location = new System.Drawing.Point(357, 50);
+            this.textBoxSurame.Name = "textBoxSurame";
+            this.textBoxSurame.Size = new System.Drawing.Size(152, 26);
+            this.textBoxSurame.TabIndex = 4;
             // 
-            // textBox1Name
+            // textBoxName
             // 
-            this.textBox1Name.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox1Name.Location = new System.Drawing.Point(357, 123);
-            this.textBox1Name.Name = "textBox1Name";
-            this.textBox1Name.Size = new System.Drawing.Size(152, 26);
-            this.textBox1Name.TabIndex = 5;
+            this.textBoxName.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxName.Location = new System.Drawing.Point(357, 123);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(152, 26);
+            this.textBoxName.TabIndex = 5;
             // 
             // label1
             // 
@@ -162,6 +165,7 @@
             // 
             // btnClose
             // 
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnClose.Location = new System.Drawing.Point(1100, 672);
             this.btnClose.Name = "btnClose";
@@ -173,6 +177,7 @@
             // 
             // btnRefresh
             // 
+            this.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRefresh.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnRefresh.Location = new System.Drawing.Point(1100, 122);
             this.btnRefresh.Name = "btnRefresh";
@@ -182,12 +187,24 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // btnAddNewSale
+            // 
+            this.btnAddNewSale.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddNewSale.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAddNewSale.Location = new System.Drawing.Point(500, 672);
+            this.btnAddNewSale.Name = "btnAddNewSale";
+            this.btnAddNewSale.Size = new System.Drawing.Size(300, 27);
+            this.btnAddNewSale.TabIndex = 14;
+            this.btnAddNewSale.Text = "Dodaj sprzedaż";
+            this.btnAddNewSale.UseVisualStyleBackColor = true;
+            this.btnAddNewSale.Click += new System.EventHandler(this.btnAddNewSale_Click);
+            // 
             // FormSalesDepartmentSales
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 711);
+            this.Controls.Add(this.btnAddNewSale);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label4);
@@ -196,14 +213,18 @@
             this.Controls.Add(this.textBoxNrArrangement);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1Name);
-            this.Controls.Add(this.textBox2Name);
+            this.Controls.Add(this.textBoxName);
+            this.Controls.Add(this.textBoxSurame);
             this.Controls.Add(this.lblNrSale);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.textBoxNrSale);
             this.Controls.Add(this.dgvSales);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormSalesDepartmentSales";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Sprzedaż";
+            this.Activated += new System.EventHandler(this.FormSalesDepartmentSales_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -216,8 +237,8 @@
         private System.Windows.Forms.TextBox textBoxNrSale;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label lblNrSale;
-        private System.Windows.Forms.TextBox textBox2Name;
-        private System.Windows.Forms.TextBox textBox1Name;
+        private System.Windows.Forms.TextBox textBoxSurame;
+        private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxNrArrangement;
@@ -226,5 +247,6 @@
         private System.Windows.Forms.TextBox textBoxNIP;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnAddNewSale;
     }
 }

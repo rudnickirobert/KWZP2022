@@ -123,7 +123,7 @@
             this.dgvStanowisko.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStanowisko_CellContentClick);
             // 
             // btnDodajStanowisko
-            // 
+            //
             this.btnDodajStanowisko.BackColor = System.Drawing.Color.Coral;
             this.btnDodajStanowisko.Font = new System.Drawing.Font("Arial", 15F);
             this.btnDodajStanowisko.Location = new System.Drawing.Point(36, 391);
@@ -136,11 +136,12 @@
             this.btnDodajStanowisko.Click += new System.EventHandler(this.btnDodajStanowisko_Click);
             // 
             // FormSlownikStanowisko
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1059, 567);
             this.Controls.Add(this.btnDodajStanowisko);
+            this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAktualizuj);
             this.Controls.Add(this.btnUsun);

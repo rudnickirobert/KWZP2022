@@ -39,10 +39,9 @@
             // 
             this.btnProductionDepartment.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProductionDepartment.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnProductionDepartment.Location = new System.Drawing.Point(527, 417);
-            this.btnProductionDepartment.Margin = new System.Windows.Forms.Padding(4);
+            this.btnProductionDepartment.Location = new System.Drawing.Point(395, 339);
             this.btnProductionDepartment.Name = "btnProductionDepartment";
-            this.btnProductionDepartment.Size = new System.Drawing.Size(400, 123);
+            this.btnProductionDepartment.Size = new System.Drawing.Size(300, 100);
             this.btnProductionDepartment.TabIndex = 4;
             this.btnProductionDepartment.Text = "Dział produkcji";
             this.btnProductionDepartment.UseVisualStyleBackColor = true;
@@ -52,10 +51,9 @@
             // 
             this.btnSalesDepartment.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalesDepartment.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnSalesDepartment.Location = new System.Drawing.Point(985, 417);
-            this.btnSalesDepartment.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSalesDepartment.Location = new System.Drawing.Point(739, 339);
             this.btnSalesDepartment.Name = "btnSalesDepartment";
-            this.btnSalesDepartment.Size = new System.Drawing.Size(400, 123);
+            this.btnSalesDepartment.Size = new System.Drawing.Size(300, 100);
             this.btnSalesDepartment.TabIndex = 5;
             this.btnSalesDepartment.Text = "Dział handlowy i marketingu";
             this.btnSalesDepartment.UseVisualStyleBackColor = true;
@@ -65,10 +63,9 @@
             // 
             this.btnResourceDeparment.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnResourceDeparment.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnResourceDeparment.Location = new System.Drawing.Point(527, 606);
-            this.btnResourceDeparment.Margin = new System.Windows.Forms.Padding(4);
+            this.btnResourceDeparment.Location = new System.Drawing.Point(395, 492);
             this.btnResourceDeparment.Name = "btnResourceDeparment";
-            this.btnResourceDeparment.Size = new System.Drawing.Size(400, 123);
+            this.btnResourceDeparment.Size = new System.Drawing.Size(300, 100);
             this.btnResourceDeparment.TabIndex = 6;
             this.btnResourceDeparment.Text = "Dział zasobów i dostaw";
             this.btnResourceDeparment.UseVisualStyleBackColor = true;
@@ -78,25 +75,25 @@
             // 
             this.btnHumanRsDepartment.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHumanRsDepartment.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnHumanRsDepartment.Location = new System.Drawing.Point(985, 606);
-            this.btnHumanRsDepartment.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHumanRsDepartment.Location = new System.Drawing.Point(739, 492);
             this.btnHumanRsDepartment.Name = "btnHumanRsDepartment";
-            this.btnHumanRsDepartment.Size = new System.Drawing.Size(400, 123);
+            this.btnHumanRsDepartment.Size = new System.Drawing.Size(300, 100);
             this.btnHumanRsDepartment.TabIndex = 7;
             this.btnHumanRsDepartment.Text = "Dział kadr i przygotowania produkcji";
             this.btnHumanRsDepartment.UseVisualStyleBackColor = true;
-            // 
+            this.btnHumanRsDepartment.Click += new System.EventHandler(this.btnHumanRsDepartment_Click);
+            //
             // FormDepartments
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1685, 875);
+            this.ClientSize = new System.Drawing.Size(1264, 711);
             this.Controls.Add(this.btnHumanRsDepartment);
             this.Controls.Add(this.btnResourceDeparment);
             this.Controls.Add(this.btnSalesDepartment);
             this.Controls.Add(this.btnProductionDepartment);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormDepartments";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Działy";

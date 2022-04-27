@@ -29,20 +29,22 @@ namespace KWZP2022
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartForm));
             this.lblDate = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.btnNewOrder = new System.Windows.Forms.Button();
             this.btnDepartments = new System.Windows.Forms.Button();
             this.lblHello = new System.Windows.Forms.Label();
+            this.timerTime = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // lblDate
             // 
             this.lblDate.AutoSize = true;
+            this.lblDate.BackColor = System.Drawing.Color.Transparent;
             this.lblDate.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblDate.Location = new System.Drawing.Point(77, 41);
-            this.lblDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDate.Location = new System.Drawing.Point(58, 33);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(65, 29);
             this.lblDate.TabIndex = 0;
@@ -51,9 +53,9 @@ namespace KWZP2022
             // lblTime
             // 
             this.lblTime.AutoSize = true;
+            this.lblTime.BackColor = System.Drawing.Color.Transparent;
             this.lblTime.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblTime.Location = new System.Drawing.Point(77, 92);
-            this.lblTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTime.Location = new System.Drawing.Point(58, 75);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(65, 29);
             this.lblTime.TabIndex = 1;
@@ -63,22 +65,21 @@ namespace KWZP2022
             // 
             this.btnNewOrder.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNewOrder.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnNewOrder.Location = new System.Drawing.Point(652, 425);
-            this.btnNewOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNewOrder.Location = new System.Drawing.Point(489, 345);
             this.btnNewOrder.Name = "btnNewOrder";
-            this.btnNewOrder.Size = new System.Drawing.Size(467, 123);
+            this.btnNewOrder.Size = new System.Drawing.Size(350, 100);
             this.btnNewOrder.TabIndex = 2;
             this.btnNewOrder.Text = "Nowe zamówienie";
             this.btnNewOrder.UseVisualStyleBackColor = true;
+            this.btnNewOrder.Click += new System.EventHandler(this.btnNewOrder_Click);
             // 
             // btnDepartments
             // 
             this.btnDepartments.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDepartments.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDepartments.Location = new System.Drawing.Point(652, 585);
-            this.btnDepartments.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDepartments.Location = new System.Drawing.Point(489, 475);
             this.btnDepartments.Name = "btnDepartments";
-            this.btnDepartments.Size = new System.Drawing.Size(467, 123);
+            this.btnDepartments.Size = new System.Drawing.Size(350, 100);
             this.btnDepartments.TabIndex = 3;
             this.btnDepartments.Text = "Zarządzanie działami";
             this.btnDepartments.UseVisualStyleBackColor = true;
@@ -89,31 +90,35 @@ namespace KWZP2022
             this.lblHello.AutoSize = true;
             this.lblHello.BackColor = System.Drawing.Color.Transparent;
             this.lblHello.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblHello.Location = new System.Drawing.Point(645, 342);
-            this.lblHello.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHello.Location = new System.Drawing.Point(484, 278);
             this.lblHello.Name = "lblHello";
             this.lblHello.Size = new System.Drawing.Size(173, 29);
             this.lblHello.TabIndex = 4;
             this.lblHello.Text = "Witaj użytkowniku!";
             // 
+            // timerTime
+            // 
+            this.timerTime.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // StartForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1685, 875);
+            this.ClientSize = new System.Drawing.Size(1264, 711);
             this.Controls.Add(this.lblHello);
             this.Controls.Add(this.btnDepartments);
             this.Controls.Add(this.btnNewOrder);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblDate);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1701, 914);
-            this.MinimumSize = new System.Drawing.Size(1701, 914);
+            this.MaximumSize = new System.Drawing.Size(1280, 750);
+            this.MinimumSize = new System.Drawing.Size(1280, 750);
             this.Name = "StartForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Drukarczyk";
+            this.Load += new System.EventHandler(this.StartForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,6 +131,7 @@ namespace KWZP2022
         private System.Windows.Forms.Button btnNewOrder;
         private System.Windows.Forms.Button btnDepartments;
         private System.Windows.Forms.Label lblHello;
+        private System.Windows.Forms.Timer timerTime;
     }
 }
 

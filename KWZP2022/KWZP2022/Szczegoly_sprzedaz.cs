@@ -17,7 +17,7 @@ namespace KWZP2022
         public int ID_szczegoly_sprzedaz { get; set; }
         public int ID_sprzedaz { get; set; }
         public int ID_produkt { get; set; }
-        public decimal Kwota_sprzedaz { get; set; }
+        public int Kwota_sprzedaz { get; set; }
         public int ID_podatek { get; set; }
         public int Ilosc { get; set; }
     

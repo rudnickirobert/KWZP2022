@@ -22,124 +22,52 @@ namespace KWZP2022
 
         private void showData()
         {
-            this.dgvSales.DataSource = db.v_Sprzedaz.ToList();
+            this.db = new KWZPEntities();
+            this.dgvSales.DataSource = this.db.v_Sprzedaz.ToList();
+            this.dgvSales.Columns[0].HeaderText = "Nr sprzedaży";
+            this.dgvSales.Columns[1].HeaderText = "Nazwisko";
+            this.dgvSales.Columns[2].HeaderText = "Imię";
+            this.dgvSales.Columns[3].HeaderText = "NIP";
+            this.dgvSales.Columns[4].HeaderText = "Data początku sprzedaży";
+            this.dgvSales.Columns[5].HeaderText = "Data końca sprzedaży";
+            this.dgvSales.Columns[6].HeaderText = "Nr umowy";
+            this.dgvSales.Columns[7].HeaderText = "Koszt";
             this.dgvSales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if(textBox2Name.Text.Length > 0 && textBox1Name.Text.Length == 0 && textBoxNIP.Text.Length == 0 && textBoxNrArrangement.Text.Length == 0 && textBoxNrSale.Text.Length == 0)
+            string choice = "";
+            if (textBoxSurame.Text.Length > 0)
+                choice = "Surname";
+            if (textBoxName.Text.Length > 0)
+                choice = "FirstName";
+            if (textBoxNIP.Text.Length > 0)
+                choice = "NIP";
+            if (textBoxNrArrangement.Text.Length > 0)
+                choice = "NrUmowy";
+            if (textBoxNrSale.Text.Length > 0)
+                choice = "NrSprzedazy";
+            switch (choice)
             {
-                var data = db.v_Sprzedaz.Where(a => a.Nazwisko_klienta == textBox2Name.Text);
-                int name2 = data.Count();
-                if (name2 > 0)
-                {
-                    this.dgvSales.DataSource = data.ToList();
-                    this.dgvSales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-                    cleanTextBox();
-                }
-                else
-                {
-                    messageBox();
-                    cleanTextBox();
-                    showData();
-                }
-                
-            }
-            else if(textBox2Name.Text.Length == 0 && textBox1Name.Text.Length > 0 && textBoxNIP.Text.Length == 0 && textBoxNrArrangement.Text.Length == 0 && textBoxNrSale.Text.Length == 0)
-            {
-                var data = db.v_Sprzedaz.Where(a => a.Imię_klienta == textBox1Name.Text);
-                int name1 = data.Count();
-                if (name1 > 0)
-                {
-                    this.dgvSales.DataSource = data.ToList();
-                    this.dgvSales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-                    cleanTextBox();
-                }
-                else
-                {
-                    messageBox();
-                    cleanTextBox();
-                    showData();
-                }
-            }
-            else if(textBox2Name.Text.Length == 0 && textBox1Name.Text.Length == 0 && textBoxNIP.Text.Length > 0 && textBoxNrArrangement.Text.Length == 0 && textBoxNrSale.Text.Length == 0)
-            {
-                var data = db.v_Sprzedaz.Where(a => a.NIP == textBox2Name.Text);
-                int nip = data.Count();
-                if(nip > 0)
-                {
-                    this.dgvSales.DataSource = data.ToList();
-                    this.dgvSales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-                    cleanTextBox();
-                }
-                else
-                {
-                    messageBox();
-                    cleanTextBox();
-                    showData();
-                }
-            }
-            else if(textBox2Name.Text.Length == 0 && textBox1Name.Text.Length == 0 && textBoxNIP.Text.Length == 0 && textBoxNrArrangement.Text.Length > 0 && textBoxNrSale.Text.Length == 0)
-            {
-                try
-                {
-                    string dataArrangement = textBoxNrArrangement.Text;
-                    int dataArrangementINT = int.Parse(dataArrangement);
-                    var data = db.v_Sprzedaz.Where(a => a.Umowa == dataArrangementINT).ToList();
-                    int umowa = data.Count();
-                    if (umowa > 0)
-                    {
-                        this.dgvSales.DataSource = data;
-                        this.dgvSales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-                        cleanTextBox();
-                    }
-                    else
-                    {
-                        messageBox();
-                        cleanTextBox();
-                        showData();
-                    }
-                }
-                catch (Exception)
-                {
-                    messageBox();
-                    showData();
-                    cleanTextBox();
-                }
-            }
-            else if(textBox2Name.Text.Length == 0 && textBox1Name.Text.Length == 0 && textBoxNIP.Text.Length == 0 && textBoxNrArrangement.Text.Length == 0 && textBoxNrSale.Text.Length > 0)
-            {
-                try
-                {
-                    string text = textBoxNrSale.Text;
-                    int textINT = int.Parse(text);
-                    var dataSearch = db.v_Sprzedaz.Where(a => a.Numer_sprzedaży == textINT).ToList();
-                    var data = dataSearch.Where(a => a.Numer_sprzedaży > 0).Count();
-                    if (data > 0)
-                    {
-                        this.dgvSales.DataSource = dataSearch;
-                        cleanTextBox();
-                    }
-                    else
-                    {
-                        cleanTextBox();
-                        showData();
-                        messageBox();
-                        showData();
-                    }
-                }
-                catch (Exception)
-                {
-                    messageBox();
-                    showData();
-                    cleanTextBox();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Źle wprowadzono dane", "Błąd", MessageBoxButtons.OK);
-                showData();
+                case "Surname":
+                    enterSurname();
+                    break;
+                case "FirstName":
+                    enterFirstname();
+                    break;
+                case "NIP":
+                    enterNIP();
+                    break;
+                case "NrUmowy":
+                    enterNoArrangement();
+                    break;
+                case "NrSprzedazy":
+                    enterNoSale();
+                    break;
+                default:
+                    errorData();
+                    break;
             }
         }
 
@@ -151,20 +79,132 @@ namespace KWZP2022
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             showData();
+            cleanTextBox();
         }
         private void cleanTextBox()
         {
-            textBox1Name.Clear();
-            textBox2Name.Clear();
+            textBoxName.Clear();
+            textBoxSurame.Clear();
             textBoxNIP.Clear();
             textBoxNrArrangement.Clear();
             textBoxNrSale.Clear();
         }
-        private void messageBox()
+        private void enterSurname()
         {
-            MessageBox.Show("Wyszukiwany numer sprzedaży nie widnieje w bazie danych.", "Błąd", MessageBoxButtons.OK);
+            List<v_Sprzedaz> clientSurname = db.v_Sprzedaz.Where(a => a.Nazwisko_klienta == textBoxSurame.Text).ToList();
+            if (clientSurname.Count() > 0)
+            {
+                this.dgvSales.DataSource = clientSurname.ToList();
+                this.dgvSales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+                cleanTextBox();
+            }
+            else
+            {
+                MessageBox.Show($"Klient z nazwiskiem: {textBoxSurame.Text}, nie widnieje w bazie danych.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cleanTextBox();
+                showData();
+            }
+        }
+        private void enterFirstname()
+        {
+            List<v_Sprzedaz> clientName = db.v_Sprzedaz.Where(a => a.Imię_klienta == textBoxName.Text).ToList();
+            if (clientName.Count() > 0)
+            {
+                this.dgvSales.DataSource = clientName.ToList();
+                this.dgvSales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+                cleanTextBox();
+            }
+            else
+            {
+                MessageBox.Show($"Klient o imieniu: {textBoxName.Text}, nie widnieje w bazie danych.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cleanTextBox();
+                showData();
+            }
+        }
+        private void enterNIP()
+        {
+            List<v_Sprzedaz> dataNip = db.v_Sprzedaz.Where(a => a.NIP == textBoxNIP.Text).ToList();
+            if (dataNip.Count() > 0)
+            {
+                this.dgvSales.DataSource = dataNip.ToList();
+                this.dgvSales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+                cleanTextBox();
+            }
+            else
+            {
+                MessageBox.Show($"Klient z NIP: {textBoxNIP.Text}, nie widnieje w bazie danych.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cleanTextBox();
+                showData();
+            }
+        }
+        private void enterNoArrangement()
+        {
+            try
+            {
+                string dataArrangement = textBoxNrArrangement.Text;
+                int dataArrangementToINT = int.Parse(dataArrangement);
+                List<v_Sprzedaz> dataNoArrangement = db.v_Sprzedaz.Where(a => a.Umowa == dataArrangementToINT).ToList();
+                if (dataNoArrangement.Count() > 0)
+                {
+                    this.dgvSales.DataSource = dataNoArrangement;
+                    this.dgvSales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+                    cleanTextBox();
+                }
+                else
+                {
+                    MessageBox.Show($"Nr umowy: {textBoxNrArrangement.Text}, nie widnieje w bazie danych.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cleanTextBox();
+                    showData();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show($"Nr umowy: {textBoxNrArrangement.Text}, nie widnieje w bazie danych.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                showData();
+                cleanTextBox();
+            }
+        }
+        private void enterNoSale()
+        {
+            try
+            {
+                int textINT = int.Parse(textBoxNrSale.Text);
+                List<v_Sprzedaz> dataNoSale = db.v_Sprzedaz.Where(a => a.Numer_sprzedaży == textINT).ToList().ToList();
+                if (dataNoSale.Count() > 0)
+                {
+                    this.dgvSales.DataSource = dataNoSale;
+                    cleanTextBox();
+                }
+                else
+                {
+                    MessageBox.Show($"Nr sprzedaży: {textBoxNrSale.Text}, nie widnieje w bazie danych.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cleanTextBox();
+                    showData();
+                    showData();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show($"Nr sprzedaży: {textBoxNrSale.Text}, nie widnieje w bazie danych.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                showData();
+                cleanTextBox();
+            }
+        }
+        private void errorData()
+        {
+            MessageBox.Show("Źle wprowadzono dane", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            showData();
+        }
+
+        private void btnAddNewSale_Click(object sender, EventArgs e)
+        {
+            FormSalesDepartmentAddSales formSalesDepartmentAddSales = new FormSalesDepartmentAddSales(db);
+            formSalesDepartmentAddSales.ShowDialog();
+        }
+
+        private void FormSalesDepartmentSales_Activated(object sender, EventArgs e)
+        {
+            showData();
         }
     }
 }
-
-

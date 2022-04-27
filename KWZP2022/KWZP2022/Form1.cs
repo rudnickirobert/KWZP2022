@@ -17,17 +17,29 @@ namespace KWZP2022
         public StartForm()
         {
             InitializeComponent();
-
-            this.lblDate.Text = DateTime.Now.ToLongDateString();
-            this.lblTime.Text = DateTime.Now.ToShortTimeString();
-            this.lblDate.BackColor = Color.Transparent;
-            this.lblTime.BackColor = Color.Transparent;
         }
 
         private void btnDepartments_Click(object sender, EventArgs e)
         {
             Forms.FormDepartments formDepartments = new Forms.FormDepartments(db);
             formDepartments.ShowDialog();
+        }
+
+        private void btnNewOrder_Click(object sender, EventArgs e)
+        {
+            FormNewOrder formNewOrder = new FormNewOrder(db);
+            formNewOrder.ShowDialog();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            this.lblDate.Text = DateTime.Now.ToLongDateString();
+            this.lblTime.Text = DateTime.Now.ToLongTimeString();
+        }
+
+        private void StartForm_Load(object sender, EventArgs e)
+        {
+            timerTime.Start();
         }
     }
 }

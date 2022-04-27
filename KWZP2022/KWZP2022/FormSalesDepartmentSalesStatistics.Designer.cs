@@ -1,0 +1,242 @@
+﻿namespace KWZP2022
+{
+    partial class FormSalesDepartmentSalesStatistics
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            this.chartAmountSoldProducts = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartProceeds = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartProceedsDate = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.dtpSTART = new System.Windows.Forms.DateTimePicker();
+            this.dtpSTOP = new System.Windows.Forms.DateTimePicker();
+            this.btnGenerateChart = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.chartAmountSoldProducts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartProceeds)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartProceedsDate)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // chartAmountSoldProducts
+            // 
+            this.chartAmountSoldProducts.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.Name = "ChartArea1";
+            this.chartAmountSoldProducts.ChartAreas.Add(chartArea1);
+            legend1.BackColor = System.Drawing.Color.Transparent;
+            legend1.Name = "Legend1";
+            legend1.TitleBackColor = System.Drawing.Color.Transparent;
+            this.chartAmountSoldProducts.Legends.Add(legend1);
+            this.chartAmountSoldProducts.Location = new System.Drawing.Point(12, 319);
+            this.chartAmountSoldProducts.Name = "chartAmountSoldProducts";
+            series1.ChartArea = "ChartArea1";
+            series1.Color = System.Drawing.Color.Goldenrod;
+            series1.Legend = "Legend1";
+            series1.Name = "SalesMonth";
+            this.chartAmountSoldProducts.Series.Add(series1);
+            this.chartAmountSoldProducts.Size = new System.Drawing.Size(787, 380);
+            this.chartAmountSoldProducts.TabIndex = 0;
+            this.chartAmountSoldProducts.Text = "chart1";
+            title1.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            title1.Name = "Title1";
+            title1.Text = "Liczba sprzedanych produktów";
+            this.chartAmountSoldProducts.Titles.Add(title1);
+            // 
+            // chartProceeds
+            // 
+            this.chartProceeds.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.Name = "ChartArea1";
+            this.chartProceeds.ChartAreas.Add(chartArea2);
+            legend2.BackColor = System.Drawing.Color.Transparent;
+            legend2.Name = "Legend1";
+            legend2.TitleBackColor = System.Drawing.Color.Transparent;
+            this.chartProceeds.Legends.Add(legend2);
+            this.chartProceeds.Location = new System.Drawing.Point(805, 305);
+            this.chartProceeds.Name = "chartProceeds";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            series2.LabelForeColor = System.Drawing.Color.Transparent;
+            series2.Legend = "Legend1";
+            series2.Name = "Proceeds";
+            series2.YValuesPerPoint = 4;
+            this.chartProceeds.Series.Add(series2);
+            this.chartProceeds.Size = new System.Drawing.Size(447, 394);
+            this.chartProceeds.TabIndex = 1;
+            this.chartProceeds.Text = "chart2";
+            title2.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            title2.Name = "Title1";
+            title2.Text = "Zarobek z produktu";
+            this.chartProceeds.Titles.Add(title2);
+            // 
+            // chartProceedsDate
+            // 
+            this.chartProceedsDate.BackColor = System.Drawing.Color.Transparent;
+            chartArea3.BackColor = System.Drawing.Color.Transparent;
+            chartArea3.Name = "ChartArea1";
+            this.chartProceedsDate.ChartAreas.Add(chartArea3);
+            legend3.BackColor = System.Drawing.Color.Transparent;
+            legend3.Enabled = false;
+            legend3.Name = "Legend1";
+            legend3.TitleBackColor = System.Drawing.Color.Transparent;
+            this.chartProceedsDate.Legends.Add(legend3);
+            this.chartProceedsDate.Location = new System.Drawing.Point(12, 38);
+            this.chartProceedsDate.Name = "chartProceedsDate";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
+            series3.Color = System.Drawing.Color.Goldenrod;
+            series3.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            series3.Legend = "Legend1";
+            series3.Name = "ProceedsDate";
+            this.chartProceedsDate.Series.Add(series3);
+            this.chartProceedsDate.Size = new System.Drawing.Size(1240, 275);
+            this.chartProceedsDate.TabIndex = 2;
+            this.chartProceedsDate.Text = "chart1";
+            title3.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            title3.Name = "Title1";
+            title3.Text = "Dochód";
+            this.chartProceedsDate.Titles.Add(title3);
+            // 
+            // dtpSTART
+            // 
+            this.dtpSTART.CalendarFont = new System.Drawing.Font("Arial Narrow", 12F);
+            this.dtpSTART.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.dtpSTART.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpSTART.Location = new System.Drawing.Point(77, 6);
+            this.dtpSTART.Name = "dtpSTART";
+            this.dtpSTART.Size = new System.Drawing.Size(104, 26);
+            this.dtpSTART.TabIndex = 3;
+            // 
+            // dtpSTOP
+            // 
+            this.dtpSTOP.CalendarFont = new System.Drawing.Font("Arial Narrow", 12F);
+            this.dtpSTOP.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.dtpSTOP.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpSTOP.Location = new System.Drawing.Point(277, 6);
+            this.dtpSTOP.Name = "dtpSTOP";
+            this.dtpSTOP.Size = new System.Drawing.Size(104, 26);
+            this.dtpSTOP.TabIndex = 4;
+            // 
+            // btnGenerateChart
+            // 
+            this.btnGenerateChart.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.btnGenerateChart.Location = new System.Drawing.Point(433, 4);
+            this.btnGenerateChart.Name = "btnGenerateChart";
+            this.btnGenerateChart.Size = new System.Drawing.Size(122, 30);
+            this.btnGenerateChart.TabIndex = 6;
+            this.btnGenerateChart.Text = "Generuj wykres";
+            this.btnGenerateChart.UseVisualStyleBackColor = true;
+            this.btnGenerateChart.Click += new System.EventHandler(this.btnGenerateChart_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 20);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Data od:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.label2.Location = new System.Drawing.Point(212, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 20);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Data do:";
+            // 
+            // button1
+            //
+            this.button1.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.button1.Location = new System.Drawing.Point(677, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(122, 30);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Generuj wykres";
+            this.button1.UseVisualStyleBackColor = true;
+            //
+            // FormSalesDepartmentSalesStatistics
+            // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background;
+            this.ClientSize = new System.Drawing.Size(1264, 711);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnGenerateChart);
+            this.Controls.Add(this.dtpSTOP);
+            this.Controls.Add(this.dtpSTART);
+            this.Controls.Add(this.chartProceedsDate);
+            this.Controls.Add(this.chartProceeds);
+            this.Controls.Add(this.chartAmountSoldProducts);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.Name = "FormSalesDepartmentSalesStatistics";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Statystyki sprzedaży";
+            ((System.ComponentModel.ISupportInitialize)(this.chartAmountSoldProducts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartProceeds)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartProceedsDate)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartAmountSoldProducts;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartProceeds;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartProceedsDate;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.DateTimePicker dtpSTART;
+        private System.Windows.Forms.DateTimePicker dtpSTOP;
+        private System.Windows.Forms.Button btnGenerateChart;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
+    }
+}

@@ -30,5 +30,29 @@ namespace KWZP2022
             FormSalesDepartmentClient formSalesDepartmentClient = new FormSalesDepartmentClient(db);
             formSalesDepartmentClient.ShowDialog(); 
         }
+
+        private void btnComplaint_Click(object sender, EventArgs e)
+        {
+            FormSalesDepartmentComplaint formSalesDepartmentComplaint = new FormSalesDepartmentComplaint(db);
+            formSalesDepartmentComplaint.ShowDialog();
+        }
+
+        private void btnOffertsForConsideration_Click(object sender, EventArgs e)
+        {
+            FormSalesDepartmentOffersForConsideration formSalesDepartmentOffersForConsideration = new FormSalesDepartmentOffersForConsideration(db);
+            formSalesDepartmentOffersForConsideration.ShowDialog();
+        }
+
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            FormSalesDeprartmentOrders formSalesDeprartmentOrders = new FormSalesDeprartmentOrders(db);
+            formSalesDeprartmentOrders.ShowDialog();
+        }
+
+        private void btnStatistics_Click(object sender, EventArgs e)
+        {
+            FormSalesDepartmentSalesStatistics formSalesDepartmentSalesStatistics = new FormSalesDepartmentSalesStatistics(db);
+            formSalesDepartmentSalesStatistics.ShowDialog();
+        }
     }
 }
