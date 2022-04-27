@@ -24,6 +24,7 @@ namespace KWZP2022
         }
         private void showData()
         {
+            this.db = new KWZPEntities();
             this.dgvSales.DataSource = this.db.v_Sprzedane_zamowienia_form.ToList();
             this.dgvSales.Columns[0].HeaderText = "Nr umowy";
             this.dgvSales.Columns[1].HeaderText = "Nr sprzedaży";
@@ -34,7 +35,7 @@ namespace KWZP2022
         }
         private void textBoxNrSaleData()
         {
-            textBoxNrSale.Text = (this.db.Sprzedaz.Count()+1).ToString();
+            textBoxNrSale.Text = (this.db.Sprzedaz.Count() + 1).ToString();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -62,11 +63,18 @@ namespace KWZP2022
             newSale.Data_sprzedaz_koniec = dtpSaleEnd.Value.Date;
             newSale.Termin_zaplata = dtpDateOfPayment.Value.Date;
             newSale.ID_forma_platnosc = int.Parse(comboBoxPaymentMethod.SelectedValue.ToString());
-            newSale.ID_umowa_sprzedaz = int.Parse(comboBoxSaleArrangement.SelectedValue.ToString());
-            this.db.Sprzedaz.Add(newSale);
-            this.db.SaveChanges();
-            MessageBox.Show("Dodano nową sprzedaż!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            showData();
+            if (comboBoxSaleArrangement.SelectedValue != null)
+            {
+                newSale.ID_umowa_sprzedaz = int.Parse(comboBoxSaleArrangement.SelectedValue.ToString());
+                this.db.Sprzedaz.Add(newSale);
+                this.db.SaveChanges();
+                MessageBox.Show("Dodano nową sprzedaż!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                showData();
+            }
+            else
+            {
+                MessageBox.Show("Nie podano nr umowy sprzedaży!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void btnSalesDetails_Click(object sender, EventArgs e)
         {

@@ -82,47 +82,76 @@ namespace KWZP2022
                 int productReturnCount = this.db.v_Reklamacja.Count(a => a.Numer_sprzedaży == selectNoSaleReturn && a.ID_produkt == selectNoProductReturn && a.Akceptacja == true);
                 if (productReturnCount != 0)
                 {
-                    v_Reklamacja productReturnSingle = this.db.v_Reklamacja.Single(a => a.Numer_sprzedaży == selectNoSale && a.ID_produkt == selectNoProduct);
-                    int amountTotal = productCount.Ilosc - productReturnSingle.Ilość - int.Parse(textBoxAmount.Text);
-                    if (amountTotal >= 0)
+                    try
                     {
-                        MessageBox.Show($"{amountTotal}", "sdas", MessageBoxButtons.OK);
+                        v_Reklamacja productReturnSingle = this.db.v_Reklamacja.Single(a => a.Numer_sprzedaży == selectNoSale && a.ID_produkt == selectNoProduct);
+                        int amountTotal = productCount.Ilosc - productReturnSingle.Ilość - int.Parse(textBoxAmount.Text);
+                        if (amountTotal >= 0)
+                        {
+                            MessageBox.Show($"Dodano nową reklamacje!\nKlientowi pozostało jeszcze: {amountTotal} produktów", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Reklamacja newComplaint = new Reklamacja();
+                            newComplaint.ID_sprzedaz = int.Parse(comboBoxNoSale.SelectedValue.ToString());
+                            newComplaint.ID_pracownik = int.Parse(comboBoxNoSale.SelectedValue.ToString());
+                            newComplaint.Opis_reklamacja = textBoxDesciption.Text;
+                            newComplaint.Data_reklamacja = dtpDateComplaint.Value.Date;
+                            this.db.Reklamacja.Add(newComplaint);
+                            this.db.SaveChanges();
+                            Zwrot newReturn = new Zwrot();
+                            newReturn.ID_reklamacja = this.db.Reklamacja.Count();
+                            newReturn.ID_produkt = int.Parse(comboBoxNoProduct.SelectedValue.ToString());
+                            newReturn.Ilosc = int.Parse(textBoxAmount.Text);
+                            newReturn.Akceptacja = cbAccept.Checked;
+                            this.db.Zwrot.Add(newReturn);
+                            this.db.SaveChanges();
+                            clearData();
+                            showData();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Zwrócono więcej produktów niż zostało kupionych", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
-                    else
+                    catch (Exception)
                     {
-                        MessageBox.Show("Zwrócono więcej produktów niż zostało kupionych", "Uwaga", MessageBoxButtons.OK);
+                        MessageBox.Show("Nie można oddać na reklamacje!", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else
                 {
-                    v_Reklamacja productReturnSingle = this.db.v_Reklamacja.Single(a => a.Numer_sprzedaży == selectNoSale && a.ID_produkt == selectNoProduct);
-                    int amountTotal = productCount.Ilosc - int.Parse(textBoxAmount.Text);
-                    if (amountTotal >= 0)
+                    try
                     {
-                        MessageBox.Show($"{amountTotal}", "sdas", MessageBoxButtons.OK);
+                        v_Reklamacja productReturnSingle = this.db.v_Reklamacja.Single(a => a.Numer_sprzedaży == selectNoSale && a.ID_produkt == selectNoProduct);
+                        int amountTotal = productCount.Ilosc - int.Parse(textBoxAmount.Text);
+                        if (amountTotal >= 0)
+                        {
+                            MessageBox.Show($"Dodano nową reklamacje!\nKlientowi pozostało jeszcze: {amountTotal} produktów", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Reklamacja newComplaint = new Reklamacja();
+                            newComplaint.ID_sprzedaz = int.Parse(comboBoxNoSale.SelectedValue.ToString());
+                            newComplaint.ID_pracownik = int.Parse(comboBoxNoSale.SelectedValue.ToString());
+                            newComplaint.Opis_reklamacja = textBoxDesciption.Text;
+                            newComplaint.Data_reklamacja = dtpDateComplaint.Value.Date;
+                            this.db.Reklamacja.Add(newComplaint);
+                            this.db.SaveChanges();
+                            Zwrot newReturn = new Zwrot();
+                            newReturn.ID_reklamacja = this.db.Reklamacja.Count();
+                            newReturn.ID_produkt = int.Parse(comboBoxNoProduct.SelectedValue.ToString());
+                            newReturn.Ilosc = int.Parse(textBoxAmount.Text);
+                            newReturn.Akceptacja = cbAccept.Checked;
+                            this.db.Zwrot.Add(newReturn);
+                            this.db.SaveChanges();
+                            clearData();
+                            showData();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Zwrócono więcej produktów niż zostało kupionych", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
-                    else
+                    catch (Exception)
                     {
-                        MessageBox.Show("Zwrócono więcej produktów niż zostało kupionych", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Nie można oddać na reklamacje!", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
-                Reklamacja newComplaint = new Reklamacja();
-                newComplaint.ID_sprzedaz = int.Parse(comboBoxNoSale.SelectedValue.ToString());
-                newComplaint.ID_pracownik = int.Parse(comboBoxNoSale.SelectedValue.ToString());
-                newComplaint.Opis_reklamacja = textBoxDesciption.Text;
-                newComplaint.Data_reklamacja = dtpDateComplaint.Value.Date;
-                this.db.Reklamacja.Add(newComplaint);
-                this.db.SaveChanges();
-                Zwrot newReturn = new Zwrot();
-                newReturn.ID_reklamacja = this.db.Reklamacja.Count();
-                newReturn.ID_produkt = int.Parse(comboBoxNoProduct.SelectedValue.ToString());
-                newReturn.Ilosc = int.Parse(textBoxAmount.Text);
-                newReturn.Akceptacja = cbAccept.Checked;
-                this.db.Zwrot.Add(newReturn);
-                this.db.SaveChanges();
-                clearData();
-                MessageBox.Show("Dodano nową reklamacje!", "Informacja", MessageBoxButtons.OK);
-                showData();
             }
             else
             {
@@ -130,7 +159,7 @@ namespace KWZP2022
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnCheckComplaint_Click(object sender, EventArgs e)
         {
             if (comboBoxNoProduct.SelectedValue != null && comboBoxNoSale.SelectedValue != null && textBoxAmount.Text.Length > 0)
             {
@@ -157,7 +186,7 @@ namespace KWZP2022
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Błędnie wprowadzono dane.", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Nie można oddać na reklamacje!", "Uwaga", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else

@@ -80,7 +80,7 @@
             this.MaximizeBox = false;
             this.Name = "FormSalesDepartmentClientRemoveClient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FormSalesDepartmentClientRemoveClient";
+            this.Text = "Usuwanie klienta z bazy danych";
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientRemove)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

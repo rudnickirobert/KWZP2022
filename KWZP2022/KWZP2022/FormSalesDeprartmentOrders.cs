@@ -41,16 +41,15 @@ namespace KWZP2022
         private void showDgvOrders()
         {
             this.dgvOrders.AutoGenerateColumns = true;
-            this.dgvOrders.DataSource = db.v_Oferta_handlowa.ToList();
+            this.dgvOrders.DataSource = this.db.v_Oferta_handlowa.ToList();
             this.dgvOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
-        private void enterSurname()
+        private void searchSurname()
         {
-            System.Linq.IQueryable vClientSurname = db.v_Zamowienie.Where(a => a.Nazwisko_klienta == textBoxSurnameClient.Text);
-            int vClientSurnameInt = vClientSurname.Cast<v_Zamowienie>().Count();
-            if (vClientSurnameInt > 0)
+            List<v_Zamowienie> clientSurname = this.db.v_Zamowienie.Where(a => a.Nazwisko_klienta == textBoxSurnameClient.Text).ToList();
+            if (clientSurname.Count() > 0)
             {
-                this.dgvOrders.DataSource = vClientSurname.Cast<v_Zamowienie>().ToList();
+                this.dgvOrders.DataSource = clientSurname;
                 this.dgvOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                 clearTextBox();
             }
@@ -59,13 +58,12 @@ namespace KWZP2022
                 msgClearShowData();
             }
         }
-        private void enterName()
+        private void searchName()
         {
-            System.Linq.IQueryable vClientName = db.v_Zamowienie.Where(a => a.Imię_klienta == textBoxNameClient.Text);
-            int vClientNameInt = vClientName.Cast<v_Zamowienie>().Count();
-            if (vClientNameInt > 0)
+            List<v_Zamowienie> clientName = this.db.v_Zamowienie.Where(a => a.Imię_klienta == textBoxNameClient.Text).ToList();
+            if (clientName.Count() > 0)
             {
-                this.dgvOrders.DataSource = vClientName.Cast<v_Zamowienie>().ToList();
+                this.dgvOrders.DataSource = clientName;
                 this.dgvOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                 clearTextBox();
             }
@@ -74,17 +72,15 @@ namespace KWZP2022
                 msgClearShowData();
             }
         }
-        private void enterIdOrder()
+        private void searchIdOrder()
         {
             try
             {
-                string idOrder = textBoxIdOrder.Text;
-                int idOrderInt = int.Parse(idOrder);
-                System.Linq.IQueryable vOrderId = db.v_Zamowienie.Where(a => a.Nr_zamówienia == idOrderInt);
-                int vOrderIdInt = vOrderId.Cast<v_Zamowienie>().Where(a => a.Nr_zamówienia > 0).Count();
-                if (vOrderIdInt > 0)
+                int idOrderInt = int.Parse(textBoxIdOrder.Text);
+                List<v_Zamowienie> orderNumber = this.db.v_Zamowienie.Where(a => a.Nr_zamówienia == idOrderInt).ToList();
+                if (orderNumber.Count() > 0)
                 {
-                    this.dgvOrders.DataSource = vOrderId.Cast<v_Zamowienie>().ToList();
+                    this.dgvOrders.DataSource = orderNumber;
                     clearTextBox();
                 }
                 else
@@ -97,13 +93,12 @@ namespace KWZP2022
                 msgClearShowData();
             }
         }
-        private void enterSurnameE()
+        private void searchEmployeeSurname()
         {
-            System.Linq.IQueryable vSurnameE = db.v_Zamowienie.Where(a => a.Nazwisko_pracownika == textBoxSurnameEmployee.Text);
-            int vSurnameEInt = vSurnameE.Cast<v_Zamowienie>().Count();
-            if (vSurnameEInt > 0)
+            List<v_Zamowienie> employeeSurname = this.db.v_Zamowienie.Where(a => a.Nazwisko_pracownika == textBoxSurnameEmployee.Text).ToList();
+            if (employeeSurname.Count() > 0)
             {
-                this.dgvOrders.DataSource = vSurnameE.Cast<v_Zamowienie>().ToList();
+                this.dgvOrders.DataSource = employeeSurname;
                 this.dgvOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                 clearTextBox();
             }
@@ -112,13 +107,12 @@ namespace KWZP2022
                 msgClearShowData();
             }
         }
-        private void enterNameE()
+        private void searchEmployeeName()
         {
-            System.Linq.IQueryable vNameE = db.v_Zamowienie.Where(a => a.Imię_pracownika == textBoxNameEmployee.Text);
-            int vNameEInt = vNameE.Cast<v_Zamowienie>().Count();
-            if (vNameEInt > 0)
+            List<v_Zamowienie> employeeName = this.db.v_Zamowienie.Where(a => a.Imię_pracownika == textBoxNameEmployee.Text).ToList();
+            if (employeeName.Count() > 0)
             {
-                this.dgvOrders.DataSource = vNameE.Cast<v_Zamowienie>().ToList();
+                this.dgvOrders.DataSource = employeeName;
                 this.dgvOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                 clearTextBox();
             }
@@ -127,13 +121,12 @@ namespace KWZP2022
                 msgClearShowData();
             }
         }
-        private void enterTypeOrder()
+        private void searchOrderType()
         {
-            System.Linq.IQueryable vTypeOrder = db.v_Zamowienie.Where(a => a.Typ_zamówienia == textBoxTypeOrder.Text);
-            int vTypeOrderInt = vTypeOrder.Cast<v_Zamowienie>().Count();
-            if (vTypeOrderInt > 0)
+            List<v_Zamowienie> orderType = this.db.v_Zamowienie.Where(a => a.Typ_zamówienia == textBoxTypeOrder.Text).ToList();
+            if (orderType.Count() > 0)
             {
-                this.dgvOrders.DataSource = vTypeOrder.Cast<v_Zamowienie>().ToList();
+                this.dgvOrders.DataSource = orderType;
                 this.dgvOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                 clearTextBox();
             }
@@ -147,47 +140,6 @@ namespace KWZP2022
             MessageBox.Show("Źle wprowadzono dane", "Błąd", MessageBoxButtons.OK);
             showDgvOrders();
         }
-        private void btnOrders_Click(object sender, EventArgs e)
-        {
-            string choose = "";
-            if (textBoxSurnameClient.Text.Length > 0)
-                choose = "Surname";
-            if (textBoxNameClient.Text.Length > 0)
-                choose = "Name";
-            if (textBoxIdOrder.Text.Length > 0)
-                choose = "IdOrder";
-            if (textBoxSurnameEmployee.Text.Length > 0)
-                choose = "SurnameE";
-            if (textBoxNameEmployee.Text.Length > 0)
-                choose = "NameE";
-            if (textBoxTypeOrder.Text.Length > 0)
-                choose = "TypeOrder";
-            switch (choose)
-            {
-                case "Surname":
-                    enterSurname();
-                    break;
-                case "Name":
-                    enterName();
-                    break;
-                case "IdOrder":
-                    enterIdOrder();
-                    break;
-                case "SurnameE":
-                    enterSurnameE();
-                    break;
-                case "NameE":
-                    enterNameE();
-                    break;
-                case "TypeOrder":
-                    enterTypeOrder();
-                    break;
-                default:
-                    wrongData();
-                    break;
-            }
-        }
-
         private void btnOrders_Click_1(object sender, EventArgs e)
         {
             string choose = "";
@@ -206,22 +158,22 @@ namespace KWZP2022
             switch (choose)
             {
                 case "Surname":
-                    enterSurname();
+                    searchSurname();
                     break;
                 case "Name":
-                    enterName();
+                    searchName();
                     break;
                 case "IdOrder":
-                    enterIdOrder();
+                    searchIdOrder();
                     break;
                 case "SurnameE":
-                    enterSurnameE();
+                    searchEmployeeSurname();
                     break;
                 case "NameE":
-                    enterNameE();
+                    searchEmployeeName();
                     break;
                 case "TypeOrder":
-                    enterTypeOrder();
+                    searchOrderType();
                     break;
                 default:
                     wrongData();

@@ -36,18 +36,18 @@
             this.textBoxStreet = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1Name = new System.Windows.Forms.TextBox();
-            this.textBox2Name = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.textBoxSurname = new System.Windows.Forms.TextBox();
             this.lblNrSale = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.textBoxCity = new System.Windows.Forms.TextBox();
             this.dgvClient = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBoxNo1 = new System.Windows.Forms.TextBox();
+            this.textBoxBuildingNumber = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxPostCode = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBoxNo2 = new System.Windows.Forms.TextBox();
+            this.textBoxApartmentNumber = new System.Windows.Forms.TextBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAddNewClient = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
@@ -127,21 +127,21 @@
             this.label1.TabIndex = 20;
             this.label1.Text = "Podaj nazwisko klienta:";
             // 
-            // textBox1Name
+            // textBoxName
             // 
-            this.textBox1Name.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox1Name.Location = new System.Drawing.Point(12, 88);
-            this.textBox1Name.Name = "textBox1Name";
-            this.textBox1Name.Size = new System.Drawing.Size(152, 26);
-            this.textBox1Name.TabIndex = 19;
+            this.textBoxName.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxName.Location = new System.Drawing.Point(12, 88);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(152, 26);
+            this.textBoxName.TabIndex = 19;
             // 
-            // textBox2Name
+            // textBoxSurname
             // 
-            this.textBox2Name.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox2Name.Location = new System.Drawing.Point(12, 34);
-            this.textBox2Name.Name = "textBox2Name";
-            this.textBox2Name.Size = new System.Drawing.Size(152, 26);
-            this.textBox2Name.TabIndex = 18;
+            this.textBoxSurname.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxSurname.Location = new System.Drawing.Point(12, 34);
+            this.textBoxSurname.Name = "textBoxSurname";
+            this.textBoxSurname.Size = new System.Drawing.Size(152, 26);
+            this.textBoxSurname.TabIndex = 18;
             // 
             // lblNrSale
             // 
@@ -194,13 +194,13 @@
             this.label5.TabIndex = 30;
             this.label5.Text = "Nr budynku:";
             // 
-            // textBoxNo1
+            // textBoxBuildingNumber
             // 
-            this.textBoxNo1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxNo1.Location = new System.Drawing.Point(472, 88);
-            this.textBoxNo1.Name = "textBoxNo1";
-            this.textBoxNo1.Size = new System.Drawing.Size(152, 26);
-            this.textBoxNo1.TabIndex = 29;
+            this.textBoxBuildingNumber.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxBuildingNumber.Location = new System.Drawing.Point(472, 88);
+            this.textBoxBuildingNumber.Name = "textBoxBuildingNumber";
+            this.textBoxBuildingNumber.Size = new System.Drawing.Size(152, 26);
+            this.textBoxBuildingNumber.TabIndex = 29;
             // 
             // label6
             // 
@@ -232,13 +232,13 @@
             this.label7.TabIndex = 32;
             this.label7.Text = "Nr lokalu:";
             // 
-            // textBoxNo2
+            // textBoxApartmentNumber
             // 
-            this.textBoxNo2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxNo2.Location = new System.Drawing.Point(472, 149);
-            this.textBoxNo2.Name = "textBoxNo2";
-            this.textBoxNo2.Size = new System.Drawing.Size(152, 26);
-            this.textBoxNo2.TabIndex = 31;
+            this.textBoxApartmentNumber.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxApartmentNumber.Location = new System.Drawing.Point(472, 149);
+            this.textBoxApartmentNumber.Name = "textBoxApartmentNumber";
+            this.textBoxApartmentNumber.Size = new System.Drawing.Size(152, 26);
+            this.textBoxApartmentNumber.TabIndex = 31;
             // 
             // btnClose
             // 
@@ -298,9 +298,9 @@
             this.Controls.Add(this.btnAddNewClient);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBoxNo2);
+            this.Controls.Add(this.textBoxApartmentNumber);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBoxNo1);
+            this.Controls.Add(this.textBoxBuildingNumber);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBoxPostCode);
             this.Controls.Add(this.btnRefresh);
@@ -310,8 +310,8 @@
             this.Controls.Add(this.textBoxStreet);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1Name);
-            this.Controls.Add(this.textBox2Name);
+            this.Controls.Add(this.textBoxName);
+            this.Controls.Add(this.textBoxSurname);
             this.Controls.Add(this.lblNrSale);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.textBoxCity);
@@ -321,6 +321,7 @@
             this.Name = "FormSalesDepartmentClient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Klient";
+            this.Activated += new System.EventHandler(this.FormSalesDepartmentClient_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -336,18 +337,18 @@
         private System.Windows.Forms.TextBox textBoxStreet;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1Name;
-        private System.Windows.Forms.TextBox textBox2Name;
+        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.TextBox textBoxSurname;
         private System.Windows.Forms.Label lblNrSale;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox textBoxCity;
         private System.Windows.Forms.DataGridView dgvClient;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBoxNo1;
+        private System.Windows.Forms.TextBox textBoxBuildingNumber;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxPostCode;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBoxNo2;
+        private System.Windows.Forms.TextBox textBoxApartmentNumber;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnAddNewClient;
         private System.Windows.Forms.Button btnRemove;

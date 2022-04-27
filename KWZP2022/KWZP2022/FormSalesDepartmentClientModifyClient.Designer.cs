@@ -55,15 +55,12 @@
             this.textBoxStreet = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1Name = new System.Windows.Forms.TextBox();
-            this.textBox2Name = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.textBoxSurname = new System.Windows.Forms.TextBox();
             this.lblNrSale = new System.Windows.Forms.Label();
             this.textBoxCity = new System.Windows.Forms.TextBox();
-            this.dgvClientID = new System.Windows.Forms.DataGridView();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.lblInstr = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientID)).BeginInit();
             this.SuspendLayout();
             // 
             // cbEmailDate2
@@ -148,9 +145,9 @@
             this.label12.Location = new System.Drawing.Point(616, 121);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(59, 20);
+            this.label12.Size = new System.Drawing.Size(64, 20);
             this.label12.TabIndex = 90;
-            this.label12.Text = "Data od:";
+            this.label12.Text = "Data od*:";
             // 
             // label13
             // 
@@ -160,9 +157,9 @@
             this.label13.Location = new System.Drawing.Point(616, 63);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(145, 20);
+            this.label13.Size = new System.Drawing.Size(150, 20);
             this.label13.TabIndex = 89;
-            this.label13.Text = "Numer telefonu klienta:";
+            this.label13.Text = "Numer telefonu klienta*:";
             // 
             // textBoxTel
             // 
@@ -193,9 +190,9 @@
             this.label9.Location = new System.Drawing.Point(420, 121);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 20);
+            this.label9.Size = new System.Drawing.Size(64, 20);
             this.label9.TabIndex = 86;
-            this.label9.Text = "Data od:";
+            this.label9.Text = "Data od*:";
             // 
             // label1
             // 
@@ -205,9 +202,9 @@
             this.label1.Location = new System.Drawing.Point(420, 63);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 20);
+            this.label1.Size = new System.Drawing.Size(93, 20);
             this.label1.TabIndex = 85;
-            this.label1.Text = "Email klienta:";
+            this.label1.Text = "Email klienta*:";
             // 
             // textBoxEmail
             // 
@@ -247,9 +244,9 @@
             this.label5.Location = new System.Drawing.Point(225, 248);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 20);
+            this.label5.Size = new System.Drawing.Size(86, 20);
             this.label5.TabIndex = 81;
-            this.label5.Text = "Nr budynku:";
+            this.label5.Text = "Nr budynku*:";
             // 
             // textBoxBuildingNumber
             // 
@@ -268,9 +265,9 @@
             this.label6.Location = new System.Drawing.Point(225, 121);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(99, 20);
+            this.label6.Size = new System.Drawing.Size(104, 20);
             this.label6.TabIndex = 79;
-            this.label6.Text = "Kod pocztowy:";
+            this.label6.Text = "Kod pocztowy*:";
             // 
             // textBoxPostCode
             // 
@@ -310,9 +307,9 @@
             this.label3.Location = new System.Drawing.Point(225, 184);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 20);
+            this.label3.Size = new System.Drawing.Size(47, 20);
             this.label3.TabIndex = 75;
-            this.label3.Text = "Ulica:";
+            this.label3.Text = "Ulica*:";
             // 
             // textBoxStreet
             // 
@@ -331,9 +328,9 @@
             this.label2.Location = new System.Drawing.Point(28, 121);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 20);
+            this.label2.Size = new System.Drawing.Size(124, 20);
             this.label2.TabIndex = 73;
-            this.label2.Text = "Podaj imię klienta:";
+            this.label2.Text = "Podaj imię klienta*:";
             // 
             // label8
             // 
@@ -343,27 +340,27 @@
             this.label8.Location = new System.Drawing.Point(28, 63);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(149, 20);
+            this.label8.Size = new System.Drawing.Size(154, 20);
             this.label8.TabIndex = 72;
-            this.label8.Text = "Podaj nazwisko klienta:";
+            this.label8.Text = "Podaj nazwisko klienta*:";
             // 
-            // textBox1Name
+            // textBoxName
             // 
-            this.textBox1Name.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox1Name.Location = new System.Drawing.Point(33, 149);
-            this.textBox1Name.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1Name.Name = "textBox1Name";
-            this.textBox1Name.Size = new System.Drawing.Size(152, 26);
-            this.textBox1Name.TabIndex = 71;
+            this.textBoxName.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxName.Location = new System.Drawing.Point(33, 149);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(152, 26);
+            this.textBoxName.TabIndex = 71;
             // 
-            // textBox2Name
+            // textBoxSurname
             // 
-            this.textBox2Name.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox2Name.Location = new System.Drawing.Point(33, 91);
-            this.textBox2Name.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2Name.Name = "textBox2Name";
-            this.textBox2Name.Size = new System.Drawing.Size(152, 26);
-            this.textBox2Name.TabIndex = 70;
+            this.textBoxSurname.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxSurname.Location = new System.Drawing.Point(33, 91);
+            this.textBoxSurname.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxSurname.Name = "textBoxSurname";
+            this.textBoxSurname.Size = new System.Drawing.Size(152, 26);
+            this.textBoxSurname.TabIndex = 70;
             // 
             // lblNrSale
             // 
@@ -373,9 +370,9 @@
             this.lblNrSale.Location = new System.Drawing.Point(225, 63);
             this.lblNrSale.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNrSale.Name = "lblNrSale";
-            this.lblNrSale.Size = new System.Drawing.Size(91, 20);
+            this.lblNrSale.Size = new System.Drawing.Size(96, 20);
             this.lblNrSale.TabIndex = 69;
-            this.lblNrSale.Text = "Miejscowość:";
+            this.lblNrSale.Text = "Miejscowość*:";
             // 
             // textBoxCity
             // 
@@ -385,18 +382,6 @@
             this.textBoxCity.Name = "textBoxCity";
             this.textBoxCity.Size = new System.Drawing.Size(152, 26);
             this.textBoxCity.TabIndex = 68;
-            // 
-            // dgvClientID
-            // 
-            this.dgvClientID.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientID.Location = new System.Drawing.Point(424, 276);
-            this.dgvClientID.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvClientID.Name = "dgvClientID";
-            this.dgvClientID.RowHeadersWidth = 51;
-            this.dgvClientID.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClientID.Size = new System.Drawing.Size(349, 166);
-            this.dgvClientID.TabIndex = 98;
-            this.dgvClientID.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvClientID_MouseDoubleClick);
             // 
             // btnClose
             // 
@@ -424,27 +409,13 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // lblInstr
-            // 
-            this.lblInstr.AutoSize = true;
-            this.lblInstr.BackColor = System.Drawing.Color.Transparent;
-            this.lblInstr.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.lblInstr.Location = new System.Drawing.Point(419, 248);
-            this.lblInstr.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblInstr.Name = "lblInstr";
-            this.lblInstr.Size = new System.Drawing.Size(324, 20);
-            this.lblInstr.TabIndex = 101;
-            this.lblInstr.Text = "Kliknij dwa razy na klienta z listy, aby uzupełnić dane";
-            // 
             // FormSalesDepartmentClientModifyClient
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(794, 491);
-            this.Controls.Add(this.lblInstr);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.dgvClientID);
             this.Controls.Add(this.cbEmailDate2);
             this.Controls.Add(this.cbTelDate2);
             this.Controls.Add(this.dtpTelDate2);
@@ -471,16 +442,15 @@
             this.Controls.Add(this.textBoxStreet);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox1Name);
-            this.Controls.Add(this.textBox2Name);
+            this.Controls.Add(this.textBoxName);
+            this.Controls.Add(this.textBoxSurname);
             this.Controls.Add(this.lblNrSale);
             this.Controls.Add(this.textBoxCity);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FormSalesDepartmentClientModifyClient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FormSalesDepartmentClientModifyClient";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientID)).EndInit();
+            this.Text = "Modyfikacja danych klienta";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -514,13 +484,11 @@
         private System.Windows.Forms.TextBox textBoxStreet;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1Name;
-        private System.Windows.Forms.TextBox textBox2Name;
+        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.TextBox textBoxSurname;
         private System.Windows.Forms.Label lblNrSale;
         private System.Windows.Forms.TextBox textBoxCity;
-        private System.Windows.Forms.DataGridView dgvClientID;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Label lblInstr;
     }
 }

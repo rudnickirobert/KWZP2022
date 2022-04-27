@@ -35,5 +35,16 @@ namespace KWZP2022
             FormNewOrder formNewOrder = new FormNewOrder(db);
             formNewOrder.ShowDialog();
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            this.lblDate.Text = DateTime.Now.ToLongDateString();
+            this.lblTime.Text = DateTime.Now.ToLongTimeString();
+        }
+
+        private void StartForm_Load(object sender, EventArgs e)
+        {
+            timerTime.Start();
+        }
     }
 }

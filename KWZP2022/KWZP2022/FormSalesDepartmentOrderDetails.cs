@@ -39,17 +39,15 @@ namespace KWZP2022
             clearTextBox();
             initDetails();
         }
-        private void enterIdOrder()
+        private void searchNoOrder()
         {
             try
             {
-                string idOrder = textBoxDetails.Text;
-                int idOrderInt = int.Parse(idOrder);
-                System.Linq.IQueryable vOrderId = db.v_Zamowienie_szczegol.Where(a => a.Nr_zamówienia == idOrderInt);
-                int vOrderIdInt = vOrderId.Cast<v_Zamowienie_szczegol>().Where(a => a.Nr_zamówienia > 0).Count();
-                if (vOrderIdInt > 0)
+                int noOrderToInt = int.Parse(textBoxDetails.Text);
+                List<v_Zamowienie_szczegol> noOrder = this.db.v_Zamowienie_szczegol.Where(a => a.Nr_zamówienia == noOrderToInt).ToList();
+                if (noOrder.Count() > 0)
                 {
-                    this.dgvDetails.DataSource = vOrderId.Cast<v_Zamowienie_szczegol>().ToList();
+                    this.dgvDetails.DataSource = noOrder;
 
                     clearTextBox();
                 }
@@ -68,7 +66,7 @@ namespace KWZP2022
         {
             if (textBoxDetails.Text.Length > 0)
             {
-                enterIdOrder();
+                searchNoOrder();
             }
         }
 

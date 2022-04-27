@@ -1103,6 +1103,96 @@ CREATE VIEW v_Dodaj_szczegol_sprzedaz AS
 	INNER JOIN Produkt ON Produkt.ID_produkt = Zamowienie_szczegol.ID_produkt
 GO
 
+CREATE VIEW v_Sprzedaz_statystyki AS
+	SELECT P.ID_produkt, P.Nazwa_produkt, S.Data_sprzedaz_koniec, K.Nazwisko, SS.Kwota_sprzedaz, SS.Ilosc, SS.Kwota_sprzedaz*SS.Ilosc AS 'Całkowity koszt'--, DATEADD(DAY,-CONVERT(INT,S.Data_sprzedaz_koniec),CONVERT(DATE,GETDATE())) AS 'CZAS'
+	FROM Sprzedaz AS S
+	INNER JOIN Szczegoly_sprzedaz AS SS ON S.ID_sprzedaz = SS.ID_sprzedaz
+	INNER JOIN Umowa_sprzedaz AS US ON S.ID_umowa_sprzedaz = US.ID_umowa_sprzedaz
+	INNER JOIN Oferta_handlowa AS OH ON US.ID_oferta_handlowa = OH.ID_oferta_handlowa
+	INNER JOIN Zamowienie AS Z ON OH.ID_zamowienie = Z.ID_zamowienie
+	INNER JOIN Klient AS K ON Z.ID_klient = K.ID_klient
+	INNER JOIN Zamowienie_szczegol AS ZS ON Z.ID_zamowienie = ZS.ID_zamowienie
+	INNER JOIN Produkt AS P ON ZS.ID_produkt = P.ID_produkt
+GO
+
+CREATE VIEW v_Sprzedaz_statystyki_produkty AS
+	SELECT P.Nazwa_produkt,SUM(SS.Kwota_sprzedaz*SS.Ilosc) AS 'Całkowity koszt'--, P.ID_produkt, 
+	FROM Sprzedaz AS S
+	INNER JOIN Szczegoly_sprzedaz AS SS ON S.ID_sprzedaz = SS.ID_sprzedaz
+	INNER JOIN Umowa_sprzedaz AS US ON S.ID_umowa_sprzedaz = US.ID_umowa_sprzedaz
+	INNER JOIN Oferta_handlowa AS OH ON US.ID_oferta_handlowa = OH.ID_oferta_handlowa
+	INNER JOIN Zamowienie AS Z ON OH.ID_zamowienie = Z.ID_zamowienie
+	INNER JOIN Klient AS K ON Z.ID_klient = K.ID_klient
+	INNER JOIN Zamowienie_szczegol AS ZS ON Z.ID_zamowienie = ZS.ID_zamowienie
+	INNER JOIN Produkt AS P ON ZS.ID_produkt = P.ID_produkt
+	GROUP BY P.Nazwa_produkt
+GO
+
+CREATE VIEW v_Sprzedaz_statystyki_zarobek_dnia AS
+	SELECT  S.Data_sprzedaz_koniec, SUM(SS.Kwota_sprzedaz*SS.Ilosc) AS 'Zarobek z dnia' --P.Nazwa_produkt,, SS.Kwota_sprzedaz*SS.Ilosc
+	FROM Sprzedaz AS S
+	INNER JOIN Szczegoly_sprzedaz AS SS ON S.ID_sprzedaz = SS.ID_sprzedaz
+	INNER JOIN Umowa_sprzedaz AS US ON S.ID_umowa_sprzedaz = US.ID_umowa_sprzedaz
+	INNER JOIN Oferta_handlowa AS OH ON US.ID_oferta_handlowa = OH.ID_oferta_handlowa
+	INNER JOIN Zamowienie AS Z ON OH.ID_zamowienie = Z.ID_zamowienie
+	INNER JOIN Klient AS K ON Z.ID_klient = K.ID_klient
+	INNER JOIN Zamowienie_szczegol AS ZS ON Z.ID_zamowienie = ZS.ID_zamowienie
+	INNER JOIN Produkt AS P ON ZS.ID_produkt = P.ID_produkt
+	GROUP BY S.Data_sprzedaz_koniec
+GO
+
+CREATE VIEW v_Sprzedaz_statystyki_miesiac AS
+SELECT CASE 
+			WHEN MONTH(S.Data_sprzedaz_koniec) = 1 THEN 'Styczeń'
+			WHEN MONTH(S.Data_sprzedaz_koniec) = 2 THEN 'Luty'
+			WHEN MONTH(S.Data_sprzedaz_koniec) = 3 THEN 'Marzec'
+			WHEN MONTH(S.Data_sprzedaz_koniec) = 4 THEN 'Kwiecień'
+			WHEN MONTH(S.Data_sprzedaz_koniec) = 5 THEN 'Maj'
+			WHEN MONTH(S.Data_sprzedaz_koniec) = 6 THEN 'Czerwiec'
+			WHEN MONTH(S.Data_sprzedaz_koniec) = 7 THEN 'Lipiec'
+			WHEN MONTH(S.Data_sprzedaz_koniec) = 8 THEN 'Sierpień'
+			WHEN MONTH(S.Data_sprzedaz_koniec) = 9 THEN 'Wrzesień'
+			WHEN MONTH(S.Data_sprzedaz_koniec) = 10 THEN 'Październik'
+			WHEN MONTH(S.Data_sprzedaz_koniec) = 11 THEN 'Listopad'
+			WHEN MONTH(S.Data_sprzedaz_koniec) = 12 THEN 'Grudzień'
+		END AS [Miesiąc], SUM(SS.Kwota_sprzedaz*SS.Ilosc) AS [Zarobek z miesiąca]
+FROM Sprzedaz AS S
+INNER JOIN Szczegoly_sprzedaz AS SS ON S.ID_sprzedaz = SS.ID_sprzedaz
+INNER JOIN Umowa_sprzedaz AS US ON S.ID_umowa_sprzedaz = US.ID_umowa_sprzedaz
+INNER JOIN Oferta_handlowa AS OH ON US.ID_oferta_handlowa = OH.ID_oferta_handlowa
+INNER JOIN Zamowienie AS Z ON OH.ID_zamowienie = Z.ID_zamowienie
+INNER JOIN Klient AS K ON Z.ID_klient = K.ID_klient
+INNER JOIN Zamowienie_szczegol AS ZS ON Z.ID_zamowienie = ZS.ID_zamowienie
+INNER JOIN Produkt AS P ON ZS.ID_produkt = P.ID_produkt
+GROUP BY MONTH(S.Data_sprzedaz_koniec)
+GO
+
+CREATE VIEW v_Sprzedaz_miesiac AS
+SELECT LEFT(CONVERT(nvarchar,S.Data_sprzedaz_koniec),7) AS [Miesiąc], SUM(SS.Kwota_sprzedaz*SS.Ilosc) AS [Zarobek z miesiąca]
+FROM Sprzedaz AS S
+INNER JOIN Szczegoly_sprzedaz AS SS ON S.ID_sprzedaz = SS.ID_sprzedaz
+INNER JOIN Umowa_sprzedaz AS US ON S.ID_umowa_sprzedaz = US.ID_umowa_sprzedaz
+INNER JOIN Oferta_handlowa AS OH ON US.ID_oferta_handlowa = OH.ID_oferta_handlowa
+INNER JOIN Zamowienie AS Z ON OH.ID_zamowienie = Z.ID_zamowienie
+INNER JOIN Klient AS K ON Z.ID_klient = K.ID_klient
+INNER JOIN Zamowienie_szczegol AS ZS ON Z.ID_zamowienie = ZS.ID_zamowienie
+INNER JOIN Produkt AS P ON ZS.ID_produkt = P.ID_produkt
+GROUP BY LEFT(CONVERT(nvarchar,S.Data_sprzedaz_koniec),7)
+GO
+
+CREATE VIEW v_Sprzedaz_miesiac_statystyka AS
+SELECT LEFT(S.Data_sprzedaz_koniec,7) AS [Miesiąc], SUM(SS.Kwota_sprzedaz*SS.Ilosc) AS [Zarobek z miesiąca]
+FROM Sprzedaz AS S
+INNER JOIN Szczegoly_sprzedaz AS SS ON S.ID_sprzedaz = SS.ID_sprzedaz
+INNER JOIN Umowa_sprzedaz AS US ON S.ID_umowa_sprzedaz = US.ID_umowa_sprzedaz
+INNER JOIN Oferta_handlowa AS OH ON US.ID_oferta_handlowa = OH.ID_oferta_handlowa
+INNER JOIN Zamowienie AS Z ON OH.ID_zamowienie = Z.ID_zamowienie
+INNER JOIN Klient AS K ON Z.ID_klient = K.ID_klient
+INNER JOIN Zamowienie_szczegol AS ZS ON Z.ID_zamowienie = ZS.ID_zamowienie
+INNER JOIN Produkt AS P ON ZS.ID_produkt = P.ID_produkt
+GROUP BY LEFT(S.Data_sprzedaz_koniec,7)
+GO
+
 	--HR DEPARTMENT --
 CREATE VIEW v_Pracownik
 AS

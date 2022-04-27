@@ -247,7 +247,7 @@
             this.btnCheckComplaint.TabIndex = 86;
             this.btnCheckComplaint.Text = "Sprawdź możliwość reklamacji";
             this.btnCheckComplaint.UseVisualStyleBackColor = true;
-            this.btnCheckComplaint.Click += new System.EventHandler(this.button1_Click);
+            this.btnCheckComplaint.Click += new System.EventHandler(this.btnCheckComplaint_Click);
             // 
             // FormSalesDepartmentComplaintAdd
             // 
