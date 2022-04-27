@@ -85,7 +85,6 @@
             this.cbProdukt.Name = "cbProdukt";
             this.cbProdukt.Size = new System.Drawing.Size(349, 26);
             this.cbProdukt.TabIndex = 72;
-            this.cbProdukt.SelectedIndexChanged += new System.EventHandler(this.cbProdukt_SelectedIndexChanged);
             // 
             // cbParametr
             // 
@@ -95,6 +94,7 @@
             this.cbParametr.Name = "cbParametr";
             this.cbParametr.Size = new System.Drawing.Size(349, 26);
             this.cbParametr.TabIndex = 73;
+            this.cbParametr.SelectionChangeCommitted += new System.EventHandler(this.cbProdukt_SelectionChangeCommited);
             // 
             // label3
             // 
