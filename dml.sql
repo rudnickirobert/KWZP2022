@@ -44,7 +44,10 @@ VALUES
 ('Gawron', 'Patrycja', 'LPG69699',82050008902,1),
 ('Pudzianowski', 'Mariusz', 'XD954821',74010508905,4),
 ('Mahyz', 'Ednan', 'SNG65602',88092408590,4),
-('Nierob', 'Janusz', 'M6565PO1',81123157832,3);
+('Nierob', 'Janusz', 'M6565PO1',81123157832,3),
+('Knob', 'Daniel', 'M5645P12', 87945645612,3),
+('Krolczyk', 'Ernest', 'K457P54', 8765941233,2),
+('Grubczyk', 'Marcel', 'S789D56', 8754123695,3);
 
 INSERT INTO Dane_adresowe_pracownik (ID_pracownik, Miejscowosc, Ulica, Nr_budynku, Nr_lokalu, Kod_pocztowy, Data_od)
 VALUES
@@ -69,7 +72,10 @@ VALUES
 (19, 'Warszawa', 'Ziemniaczana' ,'13', '13', '00251', '2022-01-12'),
 (20, 'Warszawa', 'Marchewkowa' ,'15', '12', '00957', '2021-01-11'),
 (21, 'Nadarzyn', 'Porowa' ,'1', '31', '05830', '2022-01-05'),
-(22, 'Marki', 'Cebulowa' ,'21', '3', '04543', '2020-01-03');
+(22, 'Marki', 'Cebulowa' ,'21', '3', '04543', '2020-01-03'),
+(23, 'Warszawa', 'Porowa', '21', '37', '04568', '2021-03-03'),
+(24, 'Wronki', 'Marcewkowa', '12', '73', '98765', '2020-04-04'),
+(25, 'Warszawa', 'Wrzecieniowa', '1', '1', '12321', '2020-09-09');
 
 INSERT INTO Nr_telefon_pracownik (ID_pracownik, Numer, Data_od)
 VALUES
@@ -320,7 +326,7 @@ VALUES
 (2,'Filament Czerwony PLA Podraskov'),
 (2,'Filament Niebieski PLA POODZIAN'),
 (5,'Nylon PA12 Marka Jarka'),
-(6,'Ĺ»ywica Biala STRONG'),
+(6,'Zywica Biala STRONG'),
 (7,'Klej GIGADZIECIACZEK');
 
 INSERT INTO Sklad_polprodukt (ID_polprodukt, ID_material, Liczba)
@@ -385,7 +391,8 @@ VALUES
 (15,4,3),
 (16,5,1),
 (17,5,3),
-(18,7,1);
+(18,7,1),
+(19,3,3);
 
 INSERT INTO Posada_pracownika (ID_etat, Data_od)
 VALUES
@@ -411,7 +418,8 @@ VALUES
 (15,'2022-04-11'),
 (16,'2022-04-11'),
 (17,'2022-04-11'),
-(17,'2022-04-11');
+(18,'2022-04-11'),
+(19,'2022-04-11');
 
 INSERT INTO Rodzaj_umowy (Nazwa, Urlop)
 VALUES
@@ -461,7 +469,10 @@ VALUES
 (1,1,19,15,1200),
 (1,1,20,21,3600),
 (1,1,21,22,3400),
-(1,1,22,22,3350);
+(1,1,22,22,3350),
+(1,1,23,24,3800),
+(1,1,24,24,3800),
+(1,1,25,24,3800);
 
 INSERT INTO Maszyna (Nazwa_maszyna, ID_rodzaj_maszyna, Koszt_RBG)
 VALUES
@@ -894,7 +905,9 @@ VALUES
 (14,'2022-04-16',3),
 (14,'2022-04-16',4),
 (14,'2022-04-16',5),
-(14,'2022-04-19',1);
+(14,'2022-04-19',1),
+(14,'2022-04-20',4),
+(14,'2022-04-20',2);
 
 INSERT INTO Stan_realizacji_zamowienie_material(ID_zamowienie_material, ID_status_zamowienie, Data_stan, ID_pracownik)
 VALUES
@@ -919,7 +932,15 @@ VALUES
 (4,4,'2022-04-19 11:40:00',15),
 (5,4,'2022-04-19 12:10:00',19),
 (6,1,'2022-04-19 12:48:51',14),
-(6,2,'2022-04-19 14:21:21',14);
+(6,2,'2022-04-19 13:21:21',14),
+(6,3,'2022-04-19 14:21:21',19),
+(6,4,'2022-04-19 15:21:21',18),
+(7,1,'2022-04-20 08:48:51',14),
+(7,2,'2022-04-20 10:21:21',14),
+(7,3,'2022-04-20 11:21:21',19),
+(7,4,'2022-04-20 12:21:21',18),
+(8,1,'2022-04-21 09:48:51',14),
+(8,2,'2022-04-21 10:21:21',14);
 
 
 INSERT INTO Szczegoly_zamowienie_material(ID_zamowienie_material, ID_material, ID_producent, Waga_g, Cena)
@@ -929,7 +950,9 @@ VALUES
 (3,3,2,15000,20000),
 (4,4,5,25000,17000),
 (5,5,5,45000,15000),
-(6,3,1,16500,19000);
+(6,6,1,20500,12000),
+(7,7,2,36500,24000),
+(8,3,1,28000,22000);
 
 INSERT INTO Zamowienie_czesc(ID_pracownik, Data_zamowienia, ID_dostawca)
 VALUES
@@ -1205,13 +1228,13 @@ VALUES
 (28,7,7,1,2100),
 (29,6,6,2,10600);
 
-INSERT INTO Obsluga(ID_rodzaj_obsluga, ID_stanowisko_produkcyjne, Data_od, Data_do, Uwagi)
+INSERT INTO Obsluga(ID_rodzaj_obsluga, ID_stanowisko_produkcyjne, Data_od, Data_do)
 VALUES
-(3,1,'2022-02-12','2022-02-14', 'Brak'),
-(1,2,'2022-01-15',NULL, 'Brak'),
-(1,3,'2021-12-22','2021-12-31', 'Nowa czesc'),
-(2,5,'2022-03-02','2022-03-22', 'Gotowe do pracy'),
-(3,2,'2022-04-12','2022-04-14', 'Brak');
+(3,1,'2022-04-20','2022-04-21'),
+(1,2,'2022-04-20',NULL),
+(1,3,'2021-04-21','2021-04-21'),
+(2,5,'2021-04-22','2021-04-23'),
+(3,2,'2021-04-22','2021-04-24');
 
 INSERT Obsluga_pracownik (ID_obsluga, ID_pracownik)
 VALUES

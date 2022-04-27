@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnDodajNarzedzie = new System.Windows.Forms.Button();
             this.dgvMagazynNarzedzie = new System.Windows.Forms.DataGridView();
+            this.lblPodpisWidoku = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMagazynNarzedzie)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,16 +75,28 @@
             // dgvMagazynNarzedzie
             // 
             this.dgvMagazynNarzedzie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMagazynNarzedzie.Location = new System.Drawing.Point(37, 191);
+            this.dgvMagazynNarzedzie.Location = new System.Drawing.Point(37, 214);
             this.dgvMagazynNarzedzie.Name = "dgvMagazynNarzedzie";
-            this.dgvMagazynNarzedzie.Size = new System.Drawing.Size(731, 264);
+            this.dgvMagazynNarzedzie.Size = new System.Drawing.Size(731, 241);
             this.dgvMagazynNarzedzie.TabIndex = 46;
+            // 
+            // lblPodpisWidoku
+            // 
+            this.lblPodpisWidoku.AutoSize = true;
+            this.lblPodpisWidoku.BackColor = System.Drawing.Color.Transparent;
+            this.lblPodpisWidoku.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblPodpisWidoku.Location = new System.Drawing.Point(33, 189);
+            this.lblPodpisWidoku.Name = "lblPodpisWidoku";
+            this.lblPodpisWidoku.Size = new System.Drawing.Size(159, 22);
+            this.lblPodpisWidoku.TabIndex = 55;
+            this.lblPodpisWidoku.Text = "Magazyn narzędzi";
             // 
             // FormResDepMagazynNarzedzi
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(798, 494);
+            this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnOdswiez);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDodajNarzedzie);
@@ -106,5 +119,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnDodajNarzedzie;
         private System.Windows.Forms.DataGridView dgvMagazynNarzedzie;
+        private System.Windows.Forms.Label lblPodpisWidoku;
     }
 }

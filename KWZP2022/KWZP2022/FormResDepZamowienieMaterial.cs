@@ -108,5 +108,18 @@ namespace KWZP2022
             FormResDepProducent producentForm = new FormResDepProducent(db);
             producentForm.ShowDialog();
         }
+
+        private void btnAktualizujStatus_Click(object sender, EventArgs e)
+        {
+            Stan_realizacji_zamowienie_material stRealizacjaMaterial = new Stan_realizacji_zamowienie_material();
+            stRealizacjaMaterial.ID_zamowienie_material = (int)dgvZamowienieMaterial.CurrentRow.Cells[0].Value;
+            stRealizacjaMaterial.ID_status_zamowienie = (int)dgvZamowienieMaterial.CurrentRow.Cells[6].Value + 1;
+            stRealizacjaMaterial.Data_stan = System.DateTime.Now;
+            stRealizacjaMaterial.ID_pracownik = (int)cmbPracownik.SelectedValue;
+            db.Stan_realizacji_zamowienie_material.Add(stRealizacjaMaterial);
+            db.SaveChanges();
+            MessageBox.Show("Zmieniono status zamówienia dla: " + dgvZamowienieMaterial.CurrentRow.Cells[1].Value.ToString());
+            initDataGridView();
+        }
     }
 }

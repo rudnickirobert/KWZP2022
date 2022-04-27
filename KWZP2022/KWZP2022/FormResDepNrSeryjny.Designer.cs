@@ -72,12 +72,12 @@
             // 
             this.lblNazwa.AutoSize = true;
             this.lblNazwa.BackColor = System.Drawing.Color.Transparent;
-            this.lblNazwa.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblNazwa.Location = new System.Drawing.Point(37, 25);
+            this.lblNazwa.Font = new System.Drawing.Font("Arial", 14F);
+            this.lblNazwa.Location = new System.Drawing.Point(33, 51);
             this.lblNazwa.Name = "lblNazwa";
-            this.lblNazwa.Size = new System.Drawing.Size(122, 32);
+            this.lblNazwa.Size = new System.Drawing.Size(429, 22);
             this.lblNazwa.TabIndex = 4;
-            this.lblNazwa.Text = "Maszyny";
+            this.lblNazwa.Text = "Lista maszyn bez przypisanego numeru seryjnego";
             // 
             // mtxtNumerSeryjny
             // 

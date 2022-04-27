@@ -21,6 +21,8 @@ namespace KWZP2022
             initComboboxPracownik();
             initComboboxRodzajKontrola();
             initDataGridViewKontrolaJakosciParametr();
+            initDataGridViewKontrolaPozytywna();
+            initComboboxZamowienie();
         }
 
         private void refreshScreen()
@@ -29,26 +31,35 @@ namespace KWZP2022
             initComboboxPracownik();
             initComboboxRodzajKontrola();
             initDataGridViewKontrolaJakosciParametr();
+            initDataGridViewKontrolaPozytywna();
         }
 
         private void initDataGridViewNazwa()
         {
-            dgvvKontrolaJakosciKolejka.DataSource = db.v_Kontrola_jakosci_kolejka.ToList();
-            this.dgvvKontrolaJakosciKolejka.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dgvvKontrolaJakosciKolejka.DataSource = db.v_Wytworzone_produkty_zamowienie.ToList();
+            dgvvKontrolaJakosciKolejka.Columns["ID"].HeaderText = "ID_wytwarzanie";
+            dgvvKontrolaJakosciKolejka.Columns["ID_produkt"].Visible = false;
+            dgvvKontrolaJakosciKolejka.Columns["Czynność_produkcyjna"].Visible = false;            
+            dgvvKontrolaJakosciKolejka.Columns["Pracownik"].Visible = false;
+            dgvvKontrolaJakosciKolejka.Columns["Stanowisko"].Visible = false;
+            dgvvKontrolaJakosciKolejka.Columns["Szacowany_czas__min_"].Visible = false;
+            dgvvKontrolaJakosciKolejka.Columns["Data_rozpoczęcia"].Visible = false;
+            dgvvKontrolaJakosciKolejka.Columns["Data_zakończenia"].Visible = false;
+            this.dgvvKontrolaJakosciKolejka.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;           
             dgvvKontrolaJakosciKolejka.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }               
 
         private void btnAkceptuj_Click(object sender, EventArgs e)
         {
-
-            string produktID = this.dgvvKontrolaJakosciKolejka.CurrentRow.Cells[1].Value.ToString();
-            int produktIDint = int.Parse(produktID);
-
-            System.Linq.IQueryable vProdukt = db.v_Parametry_produkt.Where(a => a.ID_produkt == produktIDint);
-            int vProduktIdInt = vProdukt.Cast<v_Parametry_produkt>().Where(a => a.ID_produkt > 0).Count();
-            if (vProduktIdInt > 0)
+            int produktID = int.Parse(dgvvKontrolaJakosciKolejka.CurrentRow.Cells[1].Value.ToString());
+            dgvvParametrProdukt.DataSource = 0;
+            List<v_Parametry_produkt> parametrProduktList = db.v_Parametry_produkt.Where(a => a.ID_produkt == produktID).ToList();
+            
+            if (parametrProduktList.Count() > 0)
             {
-                dgvvParametrProdukt.DataSource = vProdukt.Cast<v_Parametry_produkt>().ToList();
+                dgvvParametrProdukt.DataSource = parametrProduktList;
+                dgvvParametrProdukt.Columns["ID_parametr_produkt"].Visible=false;
+                dgvvParametrProdukt.Columns["ID_produkt"].Visible = false;
                 this.dgvvParametrProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             }
         }
@@ -77,11 +88,26 @@ namespace KWZP2022
             dgvvKontrolaProdukt.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
+        private void initDataGridViewKontrolaPozytywna()
+        {
+            dgvPozytywne.DataSource = db.v_Kontrola_pozytywna.ToList();
+            dgvPozytywne.Columns["Wynik_kontrola"].Visible = false;
+            this.dgvPozytywne.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPozytywne.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+          
+        }
+
+        private void initComboboxZamowienie()
+        {
+            cbZamowienie.DataSource = db.v_Zamowienie_produkcja.ToList();
+            cbZamowienie.ValueMember = "ID";
+            cbZamowienie.DisplayMember = "Klient";
+        }
+
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             Kontrola_jakosci_produkt kontrolaProdukt = new Kontrola_jakosci_produkt();
-            kontrolaProdukt.ID_wytwarzanie = int.Parse(this.dgvvKontrolaJakosciKolejka.CurrentRow.Cells[0].Value.ToString());
-            //int numRows = dgvvKontrolaJakosciKolejka.Rows.Count;
+            kontrolaProdukt.ID_wytwarzanie = int.Parse(this.dgvvKontrolaJakosciKolejka.CurrentRow.Cells[0].Value.ToString());            
             kontrolaProdukt.ID_pracownik = int.Parse(cBPracownik.SelectedValue.ToString());
             kontrolaProdukt.ID_rodzaj_kontrola = int.Parse(cBRodzajKontrola.SelectedValue.ToString());
             kontrolaProdukt.Data_od = dTPDataOd.Value.Date + dTPCzasOd.Value.TimeOfDay;
@@ -104,6 +130,58 @@ namespace KWZP2022
         private void dgvvKontrolaJakosciKolejka_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             txtNazwa.Text = this.dgvvKontrolaJakosciKolejka.CurrentRow.Cells[2].Value.ToString();
+        }
+
+        public double NextDouble(Random rand, double minValue, double maxValue)
+        {
+            return rand.NextDouble() * (maxValue - minValue) + minValue;
+        }
+
+        private void btnGeneruj_Click(object sender, EventArgs e)
+        {
+            int iloscProduktowKolejka = int.Parse(dgvvKontrolaJakosciKolejka.RowCount.ToString());
+
+            for (int i = 0; i <= iloscProduktowKolejka - 1; i++)
+            {
+                int currentIdProdukt = int.Parse(dgvvKontrolaJakosciKolejka.Rows[i].Cells[1].Value.ToString());
+                List<v_Parametry_produkt> parametryProdukt = db.v_Parametry_produkt.Where(a => a.ID_produkt == currentIdProdukt).ToList();
+                dgvvParametrProdukt.DataSource = parametryProdukt;
+                int iloscParametrow = int.Parse(dgvvParametrProdukt.RowCount.ToString());
+
+                for (int j = 0; j <= iloscParametrow - 1; j++)
+                {
+                    Kontrola_jakosci_produkt kontrolaProdukt = new Kontrola_jakosci_produkt();
+                    kontrolaProdukt.ID_wytwarzanie = int.Parse(this.dgvvKontrolaJakosciKolejka.Rows[i].Cells[0].Value.ToString());
+                    kontrolaProdukt.ID_pracownik = int.Parse(cBPracownik.SelectedValue.ToString());
+                    kontrolaProdukt.ID_rodzaj_kontrola = int.Parse(cBRodzajKontrola.SelectedValue.ToString());
+                    kontrolaProdukt.Data_od = dTPDataOd.Value.Date + dTPCzasOd.Value.TimeOfDay;
+                    kontrolaProdukt.Data_do = dTPDataDo.Value.Date + dTPCzasDo.Value.TimeOfDay;
+                    kontrolaProdukt.Uwagi = txtUwagi.Text;
+                    db.Kontrola_jakosci_produkt.Add(kontrolaProdukt);
+                    db.SaveChanges();
+
+                    Kontrola_parametr kontrolaParametr = new Kontrola_parametr();
+                    int numRows = dgvvKontrolaProdukt.Rows.Count;
+                    kontrolaParametr.ID_kontrola_jakosci_produkt = int.Parse(this.dgvvKontrolaProdukt.Rows[numRows - 1].Cells[0].Value.ToString());
+                    kontrolaParametr.ID_parametr_produkt = int.Parse(this.dgvvParametrProdukt.Rows[j].Cells[0].Value.ToString());
+
+                    Random rand = new Random();
+                    double dolnyPrzedział = double.Parse(this.dgvvParametrProdukt.Rows[j].Cells[4].Value.ToString()) - (0.01 * double.Parse(this.dgvvParametrProdukt.Rows[j].Cells[4].Value.ToString()));
+                    double gornyPrzedzial = double.Parse(this.dgvvParametrProdukt.Rows[j].Cells[5].Value.ToString()) + (0.01 * double.Parse(this.dgvvParametrProdukt.Rows[j].Cells[4].Value.ToString()));
+                    decimal wartosc = Convert.ToDecimal(NextDouble(rand, dolnyPrzedział, gornyPrzedzial));
+
+                    kontrolaParametr.Wartosc = wartosc;
+                    db.Kontrola_parametr.Add(kontrolaParametr);
+                    db.SaveChanges();
+                    
+                }
+                refreshScreen();
+            }            
+        }
+
+        private void btnWczytajZamowienie_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

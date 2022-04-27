@@ -48,6 +48,7 @@
             this.lvlZamowienieNarzedzia = new System.Windows.Forms.Label();
             this.dgvZamowienieNarzedzia = new System.Windows.Forms.DataGridView();
             this.btnAktualizujStatus = new System.Windows.Forms.Button();
+            this.lblPodpisWidoku = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numSztuk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienieNarzedzia)).BeginInit();
             this.SuspendLayout();
@@ -238,29 +239,42 @@
             // dgvZamowienieNarzedzia
             // 
             this.dgvZamowienieNarzedzia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvZamowienieNarzedzia.Location = new System.Drawing.Point(14, 232);
+            this.dgvZamowienieNarzedzia.Location = new System.Drawing.Point(13, 239);
             this.dgvZamowienieNarzedzia.Margin = new System.Windows.Forms.Padding(4);
             this.dgvZamowienieNarzedzia.Name = "dgvZamowienieNarzedzia";
             this.dgvZamowienieNarzedzia.RowHeadersWidth = 51;
-            this.dgvZamowienieNarzedzia.Size = new System.Drawing.Size(772, 208);
+            this.dgvZamowienieNarzedzia.Size = new System.Drawing.Size(773, 201);
             this.dgvZamowienieNarzedzia.TabIndex = 41;
             // 
             // btnAktualizujStatus
             // 
             this.btnAktualizujStatus.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.btnAktualizujStatus.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAktualizujStatus.Location = new System.Drawing.Point(609, 454);
+            this.btnAktualizujStatus.Location = new System.Drawing.Point(566, 454);
             this.btnAktualizujStatus.Name = "btnAktualizujStatus";
-            this.btnAktualizujStatus.Size = new System.Drawing.Size(177, 36);
+            this.btnAktualizujStatus.Size = new System.Drawing.Size(220, 36);
             this.btnAktualizujStatus.TabIndex = 60;
             this.btnAktualizujStatus.Text = "Aktualizuj status";
             this.btnAktualizujStatus.UseVisualStyleBackColor = false;
+            this.btnAktualizujStatus.Click += new System.EventHandler(this.btnAktualizujStatus_Click);
+            // 
+            // lblPodpisWidoku
+            // 
+            this.lblPodpisWidoku.AutoSize = true;
+            this.lblPodpisWidoku.BackColor = System.Drawing.Color.Transparent;
+            this.lblPodpisWidoku.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblPodpisWidoku.Location = new System.Drawing.Point(10, 217);
+            this.lblPodpisWidoku.Name = "lblPodpisWidoku";
+            this.lblPodpisWidoku.Size = new System.Drawing.Size(155, 18);
+            this.lblPodpisWidoku.TabIndex = 62;
+            this.lblPodpisWidoku.Text = "Zamówienia narzędzi";
             // 
             // FormResDepZamowienieNarzedzia
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(801, 498);
+            this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnAktualizujStatus);
             this.Controls.Add(this.btnDodajZamowienie);
             this.Controls.Add(this.btnDodajProducenta);
@@ -313,5 +327,6 @@
         private System.Windows.Forms.Label lvlZamowienieNarzedzia;
         private System.Windows.Forms.DataGridView dgvZamowienieNarzedzia;
         private System.Windows.Forms.Button btnAktualizujStatus;
+        private System.Windows.Forms.Label lblPodpisWidoku;
     }
 }

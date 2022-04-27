@@ -81,7 +81,8 @@
             this.btnHumanRsDepartment.TabIndex = 7;
             this.btnHumanRsDepartment.Text = "Dział kadr i przygotowania produkcji";
             this.btnHumanRsDepartment.UseVisualStyleBackColor = true;
-            // 
+            this.btnHumanRsDepartment.Click += new System.EventHandler(this.btnHumanRsDepartment_Click);
+            //
             // FormDepartments
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;

@@ -42,6 +42,7 @@
             this.cmbCzesc = new System.Windows.Forms.ComboBox();
             this.lblNazwa = new System.Windows.Forms.Label();
             this.dgvParametrCzesc = new System.Windows.Forms.DataGridView();
+            this.lblPodpisWidoku = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParametrCzesc)).BeginInit();
             this.SuspendLayout();
             // 
@@ -174,16 +175,28 @@
             // dgvParametrCzesc
             // 
             this.dgvParametrCzesc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvParametrCzesc.Location = new System.Drawing.Point(32, 125);
+            this.dgvParametrCzesc.Location = new System.Drawing.Point(34, 156);
             this.dgvParametrCzesc.Name = "dgvParametrCzesc";
-            this.dgvParametrCzesc.Size = new System.Drawing.Size(738, 161);
+            this.dgvParametrCzesc.Size = new System.Drawing.Size(738, 147);
             this.dgvParametrCzesc.TabIndex = 36;
+            // 
+            // lblPodpisWidoku
+            // 
+            this.lblPodpisWidoku.AutoSize = true;
+            this.lblPodpisWidoku.BackColor = System.Drawing.Color.Transparent;
+            this.lblPodpisWidoku.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblPodpisWidoku.Location = new System.Drawing.Point(30, 131);
+            this.lblPodpisWidoku.Name = "lblPodpisWidoku";
+            this.lblPodpisWidoku.Size = new System.Drawing.Size(155, 22);
+            this.lblPodpisWidoku.TabIndex = 56;
+            this.lblPodpisWidoku.Text = "Parametry części";
             // 
             // FormResDepParametryCzesc
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(799, 492);
+            this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnWczytajParametr);
             this.Controls.Add(this.btnAktualizuj);
             this.Controls.Add(this.btnUsun);
@@ -223,5 +236,6 @@
         private System.Windows.Forms.ComboBox cmbCzesc;
         private System.Windows.Forms.Label lblNazwa;
         private System.Windows.Forms.DataGridView dgvParametrCzesc;
+        private System.Windows.Forms.Label lblPodpisWidoku;
     }
 }

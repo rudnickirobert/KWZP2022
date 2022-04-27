@@ -36,5 +36,11 @@ namespace KWZP2022.Forms
             FormResourceDepartment produkcjaFrom = new FormResourceDepartment(db);
             produkcjaFrom.ShowDialog();
         }
+
+        private void btnHumanRsDepartment_Click(object sender, EventArgs e)
+        {
+            FormHRandSetupProduction formHRandSetupProduction = new FormHRandSetupProduction(db);
+            formHRandSetupProduction.ShowDialog();
+        }
     }
 }

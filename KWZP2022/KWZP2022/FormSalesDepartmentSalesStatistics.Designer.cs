@@ -190,7 +190,7 @@
             this.label2.Text = "Data do:";
             // 
             // button1
-            // 
+            //
             this.button1.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.button1.Location = new System.Drawing.Point(677, 4);
             this.button1.Name = "button1";
@@ -198,7 +198,7 @@
             this.button1.TabIndex = 9;
             this.button1.Text = "Generuj wykres";
             this.button1.UseVisualStyleBackColor = true;
-            // 
+            //
             // FormSalesDepartmentSalesStatistics
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;

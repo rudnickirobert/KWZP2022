@@ -26,7 +26,6 @@ namespace KWZP2022
         public int ID_stanowisko_produkcyjne { get; set; }
         public System.DateTime Data_od { get; set; }
         public Nullable<System.DateTime> Data_do { get; set; }
-        public string Uwagi { get; set; }
     
         public virtual Rodzaj_obsluga Rodzaj_obsluga { get; set; }
         public virtual Stanowisko_produkcyjne Stanowisko_produkcyjne { get; set; }

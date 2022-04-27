@@ -22,6 +22,7 @@ namespace KWZP2022
 
         private void initDataGridView()
         {
+            this.db = new KWZPEntities();
             dgvNumerSeryjny.DataSource = db.v_Maszyny_numery_nieprzypisane_zero.ToList();
             dgvNumerSeryjny.Columns[0].Visible = false;
             dgvNumerSeryjny.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);

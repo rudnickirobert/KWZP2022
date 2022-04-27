@@ -15,6 +15,7 @@ namespace KWZP2022
     public partial class v_Zamowienia_materialy_w_trakcie_wszystko
     {
         public int Nr_zamówienia { get; set; }
+        public int ID_material { get; set; }
         public string Nazwa_materiału { get; set; }
         public System.DateTime Data_zmiany_stanu { get; set; }
         public int Waga__g_ { get; set; }

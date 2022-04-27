@@ -48,6 +48,7 @@
             this.btnDodajCzesc = new System.Windows.Forms.Button();
             this.btnDodajZamowienie = new System.Windows.Forms.Button();
             this.btnAktualizujStatus = new System.Windows.Forms.Button();
+            this.lblPodpisWidoku = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienieCzesci)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIlosc)).BeginInit();
             this.SuspendLayout();
@@ -67,11 +68,11 @@
             // dgvZamowienieCzesci
             // 
             this.dgvZamowienieCzesci.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvZamowienieCzesci.Location = new System.Drawing.Point(13, 233);
+            this.dgvZamowienieCzesci.Location = new System.Drawing.Point(13, 244);
             this.dgvZamowienieCzesci.Margin = new System.Windows.Forms.Padding(4);
             this.dgvZamowienieCzesci.Name = "dgvZamowienieCzesci";
             this.dgvZamowienieCzesci.RowHeadersWidth = 51;
-            this.dgvZamowienieCzesci.Size = new System.Drawing.Size(772, 208);
+            this.dgvZamowienieCzesci.Size = new System.Drawing.Size(772, 197);
             this.dgvZamowienieCzesci.TabIndex = 14;
             // 
             // btnDodajProducenta
@@ -249,18 +250,31 @@
             // 
             this.btnAktualizujStatus.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.btnAktualizujStatus.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAktualizujStatus.Location = new System.Drawing.Point(608, 451);
+            this.btnAktualizujStatus.Location = new System.Drawing.Point(567, 451);
             this.btnAktualizujStatus.Name = "btnAktualizujStatus";
-            this.btnAktualizujStatus.Size = new System.Drawing.Size(177, 36);
+            this.btnAktualizujStatus.Size = new System.Drawing.Size(218, 36);
             this.btnAktualizujStatus.TabIndex = 60;
             this.btnAktualizujStatus.Text = "Aktualizuj status";
             this.btnAktualizujStatus.UseVisualStyleBackColor = false;
+            this.btnAktualizujStatus.Click += new System.EventHandler(this.btnAktualizujStatus_Click);
+            // 
+            // lblPodpisWidoku
+            // 
+            this.lblPodpisWidoku.AutoSize = true;
+            this.lblPodpisWidoku.BackColor = System.Drawing.Color.Transparent;
+            this.lblPodpisWidoku.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblPodpisWidoku.Location = new System.Drawing.Point(10, 222);
+            this.lblPodpisWidoku.Name = "lblPodpisWidoku";
+            this.lblPodpisWidoku.Size = new System.Drawing.Size(141, 18);
+            this.lblPodpisWidoku.TabIndex = 61;
+            this.lblPodpisWidoku.Text = "Zamówienia części";
             // 
             // FormResDepZamowienieCzesci
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(798, 499);
+            this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnAktualizujStatus);
             this.Controls.Add(this.btnDodajZamowienie);
             this.Controls.Add(this.btnDodajProducenta);
@@ -313,5 +327,6 @@
         private System.Windows.Forms.Button btnDodajCzesc;
         private System.Windows.Forms.Button btnDodajZamowienie;
         private System.Windows.Forms.Button btnAktualizujStatus;
+        private System.Windows.Forms.Label lblPodpisWidoku;
     }
 }

@@ -14,6 +14,7 @@ namespace KWZP2022
     
     public partial class v_Kontrola_parametr_produkt
     {
+        public int ID_wytwarzanie { get; set; }
         public int ID_produkt { get; set; }
         public string Produkt { get; set; }
         public string Parametr { get; set; }

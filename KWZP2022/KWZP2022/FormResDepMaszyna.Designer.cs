@@ -41,6 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtKosztRBG = new System.Windows.Forms.TextBox();
             this.btnDodajParametr = new System.Windows.Forms.Button();
+            this.lblPodpisWidoku = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaszyna)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,10 +105,10 @@
             // dgvMaszyna
             // 
             this.dgvMaszyna.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMaszyna.Location = new System.Drawing.Point(316, 187);
+            this.dgvMaszyna.Location = new System.Drawing.Point(315, 209);
             this.dgvMaszyna.Name = "dgvMaszyna";
             this.dgvMaszyna.RowTemplate.Height = 24;
-            this.dgvMaszyna.Size = new System.Drawing.Size(456, 280);
+            this.dgvMaszyna.Size = new System.Drawing.Size(457, 258);
             this.dgvMaszyna.TabIndex = 23;
             this.dgvMaszyna.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaszyna_CellContentClick);
             // 
@@ -173,11 +174,23 @@
             this.btnDodajParametr.UseVisualStyleBackColor = false;
             this.btnDodajParametr.Click += new System.EventHandler(this.btnDodajParametr_Click);
             // 
+            // lblPodpisWidoku
+            // 
+            this.lblPodpisWidoku.AutoSize = true;
+            this.lblPodpisWidoku.BackColor = System.Drawing.Color.Transparent;
+            this.lblPodpisWidoku.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblPodpisWidoku.Location = new System.Drawing.Point(311, 184);
+            this.lblPodpisWidoku.Name = "lblPodpisWidoku";
+            this.lblPodpisWidoku.Size = new System.Drawing.Size(82, 22);
+            this.lblPodpisWidoku.TabIndex = 55;
+            this.lblPodpisWidoku.Text = "Maszyny";
+            // 
             // FormResDepMaszyna
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
             this.ClientSize = new System.Drawing.Size(800, 498);
+            this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnDodajParametr);
             this.Controls.Add(this.txtKosztRBG);
             this.Controls.Add(this.label1);
@@ -216,5 +229,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtKosztRBG;
         private System.Windows.Forms.Button btnDodajParametr;
+        private System.Windows.Forms.Label lblPodpisWidoku;
     }
 }
