@@ -62,7 +62,8 @@ namespace KWZP2022
             btnGenerateChart.Hide();
             chartProceedsDate.Hide();
         }
-        private void button1_Click(object sender, EventArgs e)
+
+        private void btnDayProceeds_Click(object sender, EventArgs e)
         {
             hideAllCharts();
             chartLineDate();
@@ -74,14 +75,14 @@ namespace KWZP2022
             chartProceedsDate.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnProductsProceeds_Click(object sender, EventArgs e)
         {
             hideAllCharts();
             chartRing();
             chartProceeds.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnMonthProceeds_Click(object sender, EventArgs e)
         {
             hideAllCharts();
             chartAmountSoldProductsData();

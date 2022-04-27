@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title10 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title11 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title12 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.chartAmountSoldProducts = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartProceeds = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartProceedsDate = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -49,9 +49,9 @@
             this.btnGenerateChart = new System.Windows.Forms.Button();
             this.labelDateFrom = new System.Windows.Forms.Label();
             this.labelDateTo = new System.Windows.Forms.Label();
-            this.btn = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnDayProceeds = new System.Windows.Forms.Button();
+            this.btnProductsProceeds = new System.Windows.Forms.Button();
+            this.btnMonthProceeds = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chartAmountSoldProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartProceeds)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartProceedsDate)).BeginInit();
@@ -60,28 +60,28 @@
             // chartAmountSoldProducts
             // 
             this.chartAmountSoldProducts.BackColor = System.Drawing.Color.Transparent;
-            chartArea4.BackColor = System.Drawing.Color.Transparent;
-            chartArea4.Name = "ChartArea1";
-            this.chartAmountSoldProducts.ChartAreas.Add(chartArea4);
-            legend4.BackColor = System.Drawing.Color.Transparent;
-            legend4.Enabled = false;
-            legend4.Name = "Legend1";
-            legend4.TitleBackColor = System.Drawing.Color.Transparent;
-            this.chartAmountSoldProducts.Legends.Add(legend4);
+            chartArea10.BackColor = System.Drawing.Color.Transparent;
+            chartArea10.Name = "ChartArea1";
+            this.chartAmountSoldProducts.ChartAreas.Add(chartArea10);
+            legend10.BackColor = System.Drawing.Color.Transparent;
+            legend10.Enabled = false;
+            legend10.Name = "Legend1";
+            legend10.TitleBackColor = System.Drawing.Color.Transparent;
+            this.chartAmountSoldProducts.Legends.Add(legend10);
             this.chartAmountSoldProducts.Location = new System.Drawing.Point(16, 97);
             this.chartAmountSoldProducts.Name = "chartAmountSoldProducts";
-            series4.ChartArea = "ChartArea1";
-            series4.Color = System.Drawing.Color.Goldenrod;
-            series4.Legend = "Legend1";
-            series4.Name = "SalesMonth";
-            this.chartAmountSoldProducts.Series.Add(series4);
+            series10.ChartArea = "ChartArea1";
+            series10.Color = System.Drawing.Color.Goldenrod;
+            series10.Legend = "Legend1";
+            series10.Name = "SalesMonth";
+            this.chartAmountSoldProducts.Series.Add(series10);
             this.chartAmountSoldProducts.Size = new System.Drawing.Size(1220, 600);
             this.chartAmountSoldProducts.TabIndex = 0;
             this.chartAmountSoldProducts.Text = "chart1";
-            title4.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            title4.Name = "Title1";
-            title4.Text = "Liczba sprzedanych produktów w miesiącu";
-            this.chartAmountSoldProducts.Titles.Add(title4);
+            title10.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            title10.Name = "Title1";
+            title10.Text = "Liczba sprzedanych produktów w miesiącu";
+            this.chartAmountSoldProducts.Titles.Add(title10);
             // 
             // chartProceeds
             // 
@@ -90,57 +90,57 @@
             this.chartProceeds.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.chartProceeds.BackImageTransparentColor = System.Drawing.Color.White;
             this.chartProceeds.BackSecondaryColor = System.Drawing.Color.Transparent;
-            chartArea5.BackColor = System.Drawing.Color.Transparent;
-            chartArea5.Name = "ChartArea1";
-            this.chartProceeds.ChartAreas.Add(chartArea5);
-            legend5.BackColor = System.Drawing.Color.Transparent;
-            legend5.Name = "Legend1";
-            legend5.TitleBackColor = System.Drawing.Color.Transparent;
-            this.chartProceeds.Legends.Add(legend5);
+            chartArea11.BackColor = System.Drawing.Color.Transparent;
+            chartArea11.Name = "ChartArea1";
+            this.chartProceeds.ChartAreas.Add(chartArea11);
+            legend11.BackColor = System.Drawing.Color.Transparent;
+            legend11.Name = "Legend1";
+            legend11.TitleBackColor = System.Drawing.Color.Transparent;
+            this.chartProceeds.Legends.Add(legend11);
             this.chartProceeds.Location = new System.Drawing.Point(16, 97);
             this.chartProceeds.Name = "chartProceeds";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series5.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            series5.LabelForeColor = System.Drawing.Color.Transparent;
-            series5.Legend = "Legend1";
-            series5.Name = "Proceeds";
-            series5.YValuesPerPoint = 4;
-            this.chartProceeds.Series.Add(series5);
+            series11.ChartArea = "ChartArea1";
+            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series11.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            series11.LabelForeColor = System.Drawing.Color.Transparent;
+            series11.Legend = "Legend1";
+            series11.Name = "Proceeds";
+            series11.YValuesPerPoint = 4;
+            this.chartProceeds.Series.Add(series11);
             this.chartProceeds.Size = new System.Drawing.Size(1220, 600);
             this.chartProceeds.TabIndex = 1;
             this.chartProceeds.Text = "chart2";
-            title5.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            title5.Name = "Title1";
-            title5.Text = "Przychód z produktu";
-            this.chartProceeds.Titles.Add(title5);
+            title11.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            title11.Name = "Title1";
+            title11.Text = "Przychód z produktu";
+            this.chartProceeds.Titles.Add(title11);
             // 
             // chartProceedsDate
             // 
             this.chartProceedsDate.BackColor = System.Drawing.Color.Transparent;
-            chartArea6.BackColor = System.Drawing.Color.Transparent;
-            chartArea6.Name = "ChartArea1";
-            this.chartProceedsDate.ChartAreas.Add(chartArea6);
-            legend6.BackColor = System.Drawing.Color.Transparent;
-            legend6.Enabled = false;
-            legend6.Name = "Legend1";
-            legend6.TitleBackColor = System.Drawing.Color.Transparent;
-            this.chartProceedsDate.Legends.Add(legend6);
+            chartArea12.BackColor = System.Drawing.Color.Transparent;
+            chartArea12.Name = "ChartArea1";
+            this.chartProceedsDate.ChartAreas.Add(chartArea12);
+            legend12.BackColor = System.Drawing.Color.Transparent;
+            legend12.Enabled = false;
+            legend12.Name = "Legend1";
+            legend12.TitleBackColor = System.Drawing.Color.Transparent;
+            this.chartProceedsDate.Legends.Add(legend12);
             this.chartProceedsDate.Location = new System.Drawing.Point(16, 97);
             this.chartProceedsDate.Name = "chartProceedsDate";
-            series6.ChartArea = "ChartArea1";
-            series6.Color = System.Drawing.Color.Goldenrod;
-            series6.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            series6.Legend = "Legend1";
-            series6.Name = "ProceedsDate";
-            this.chartProceedsDate.Series.Add(series6);
+            series12.ChartArea = "ChartArea1";
+            series12.Color = System.Drawing.Color.Goldenrod;
+            series12.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            series12.Legend = "Legend1";
+            series12.Name = "ProceedsDate";
+            this.chartProceedsDate.Series.Add(series12);
             this.chartProceedsDate.Size = new System.Drawing.Size(1220, 600);
             this.chartProceedsDate.TabIndex = 2;
             this.chartProceedsDate.Text = "chart1";
-            title6.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            title6.Name = "Title1";
-            title6.Text = "Przychód";
-            this.chartProceedsDate.Titles.Add(title6);
+            title12.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            title12.Name = "Title1";
+            title12.Text = "Przychód";
+            this.chartProceedsDate.Titles.Add(title12);
             // 
             // dtpSTART
             // 
@@ -195,47 +195,47 @@
             this.labelDateTo.TabIndex = 8;
             this.labelDateTo.Text = "Data do:";
             // 
-            // btn
+            // btnDayProceeds
             // 
-            this.btn.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.btn.Location = new System.Drawing.Point(356, 12);
-            this.btn.Name = "btn";
-            this.btn.Size = new System.Drawing.Size(160, 30);
-            this.btn.TabIndex = 10;
-            this.btn.Text = "Dienne przychody";
-            this.btn.UseVisualStyleBackColor = true;
-            this.btn.Click += new System.EventHandler(this.button1_Click);
+            this.btnDayProceeds.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.btnDayProceeds.Location = new System.Drawing.Point(356, 12);
+            this.btnDayProceeds.Name = "btnDayProceeds";
+            this.btnDayProceeds.Size = new System.Drawing.Size(160, 30);
+            this.btnDayProceeds.TabIndex = 10;
+            this.btnDayProceeds.Text = "Dzienne przychody";
+            this.btnDayProceeds.UseVisualStyleBackColor = true;
+            this.btnDayProceeds.Click += new System.EventHandler(this.btnDayProceeds_Click);
             // 
-            // button2
+            // btnProductsProceeds
             // 
-            this.button2.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.button2.Location = new System.Drawing.Point(545, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(160, 30);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Przychody produktów";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnProductsProceeds.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.btnProductsProceeds.Location = new System.Drawing.Point(545, 12);
+            this.btnProductsProceeds.Name = "btnProductsProceeds";
+            this.btnProductsProceeds.Size = new System.Drawing.Size(160, 30);
+            this.btnProductsProceeds.TabIndex = 11;
+            this.btnProductsProceeds.Text = "Przychody produktów";
+            this.btnProductsProceeds.UseVisualStyleBackColor = true;
+            this.btnProductsProceeds.Click += new System.EventHandler(this.btnProductsProceeds_Click);
             // 
-            // button3
+            // btnMonthProceeds
             // 
-            this.button3.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.button3.Location = new System.Drawing.Point(732, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(160, 30);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Miesięczne przychody";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnMonthProceeds.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.btnMonthProceeds.Location = new System.Drawing.Point(732, 12);
+            this.btnMonthProceeds.Name = "btnMonthProceeds";
+            this.btnMonthProceeds.Size = new System.Drawing.Size(160, 30);
+            this.btnMonthProceeds.TabIndex = 12;
+            this.btnMonthProceeds.Text = "Miesięczne przychody";
+            this.btnMonthProceeds.UseVisualStyleBackColor = true;
+            this.btnMonthProceeds.Click += new System.EventHandler(this.btnMonthProceeds_Click);
             // 
             // FormSalesDepartmentSalesStatistics
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background;
             this.ClientSize = new System.Drawing.Size(1264, 711);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.btn);
+            this.Controls.Add(this.btnMonthProceeds);
+            this.Controls.Add(this.btnProductsProceeds);
+            this.Controls.Add(this.btnDayProceeds);
             this.Controls.Add(this.labelDateTo);
             this.Controls.Add(this.labelDateFrom);
             this.Controls.Add(this.btnGenerateChart);
@@ -268,8 +268,8 @@
         private System.Windows.Forms.Button btnGenerateChart;
         private System.Windows.Forms.Label labelDateFrom;
         private System.Windows.Forms.Label labelDateTo;
-        private System.Windows.Forms.Button btn;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnDayProceeds;
+        private System.Windows.Forms.Button btnProductsProceeds;
+        private System.Windows.Forms.Button btnMonthProceeds;
     }
 }

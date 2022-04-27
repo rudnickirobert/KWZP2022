@@ -187,12 +187,19 @@ namespace KWZP2022
             DialogResult result = MessageBox.Show($"Czy na pewno chcesz usunąć zamówienie numer: {orderNo}", "Pytanie", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                Zamowienie selectZamowienie = this.db.Zamowienie.Single(a => a.ID_zamowienie == orderNo);
-                this.db.Zamowienie.Remove(selectZamowienie);
-                List<Zamowienie_szczegol> selectZamowienie_Szczegol = this.db.Zamowienie_szczegol.Where(a => a.ID_zamowienie == orderNo).ToList();
-                this.db.Zamowienie_szczegol.RemoveRange(selectZamowienie_Szczegol);
-                this.db.SaveChanges();
-                showData();
+                try
+                {
+                    Zamowienie selectZamowienie = this.db.Zamowienie.Single(a => a.ID_zamowienie == orderNo);
+                    this.db.Zamowienie.Remove(selectZamowienie);
+                    List<Zamowienie_szczegol> selectZamowienie_Szczegol = this.db.Zamowienie_szczegol.Where(a => a.ID_zamowienie == orderNo).ToList();
+                    this.db.Zamowienie_szczegol.RemoveRange(selectZamowienie_Szczegol);
+                    this.db.SaveChanges();
+                    showData();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Nie można usunąć zamówienia, które zostało sprzedane!","Błąd",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
             }
         }
         private void btnNewOrderDetails_Click(object sender, EventArgs e)
