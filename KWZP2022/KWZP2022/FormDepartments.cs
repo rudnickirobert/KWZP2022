@@ -34,7 +34,9 @@ namespace KWZP2022.Forms
         private void btnResourceDeparment_Click(object sender, EventArgs e)
         {
             FormResourceDepartment produkcjaFrom = new FormResourceDepartment(db);
-            produkcjaFrom.ShowDialog();
+            FormResDepAlerty alertyForm = new FormResDepAlerty(db);
+            produkcjaFrom.Show();
+            alertyForm.Show();
         }
     }
 }

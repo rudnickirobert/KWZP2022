@@ -94,6 +94,12 @@
     <Compile Include="Etat.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FormResDepAlerty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepAlerty.Designer.cs">
+      <DependentUpon>FormResDepAlerty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forma_platnosc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -102,6 +108,12 @@
     </Compile>
     <Compile Include="FormCzasPracyProdukcja.Designer.cs">
       <DependentUpon>FormCzasPracyProdukcja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDodajAlert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDodajAlert.Designer.cs">
+      <DependentUpon>FormDodajAlert.cs</DependentUpon>
     </Compile>
     <Compile Include="FormKosztProdukcja.cs">
       <SubType>Form</SubType>
@@ -629,6 +641,12 @@
     <Compile Include="Umowa_sprzedaz.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Alerty_Resdep.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Alerty_Resdep_nieodczytane.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Czesci.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -1043,9 +1061,15 @@
     <Compile Include="Zwrot.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormResDepAlerty.resx">
+      <DependentUpon>FormResDepAlerty.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCzasPracyProdukcja.resx">
       <DependentUpon>FormCzasPracyProdukcja.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDodajAlert.resx">
+      <DependentUpon>FormDodajAlert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormKosztProdukcja.resx">
       <DependentUpon>FormKosztProdukcja.cs</DependentUpon>
