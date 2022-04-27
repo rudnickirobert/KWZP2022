@@ -189,6 +189,7 @@
             this.Controls.Add(this.cbPracownik);
             this.Font = new System.Drawing.Font("Arial", 8.25F);
             this.Name = "FormCzasPracyProdukcja";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Czas pracy pracowników działu produkcji";
             ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzaniePolprodukt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzanieProdukt)).EndInit();

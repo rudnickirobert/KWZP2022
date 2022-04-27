@@ -167,7 +167,8 @@
             this.Controls.Add(this.cbProdukt);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Name = "FormKosztProdukcja";
-            this.Text = "FormKosztProdukcji";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Koszty produkcji";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkladProdukt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCzynnosciProdukcyjne)).EndInit();
             this.ResumeLayout(false);
