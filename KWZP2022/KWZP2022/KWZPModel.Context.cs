@@ -117,6 +117,8 @@ namespace KWZP2022
         public virtual DbSet<Zwrot> Zwrot { get; set; }
         public virtual DbSet<v_Alerty_ResorceDepartment_nieodczytane> v_Alerty_ResorceDepartment_nieodczytane { get; set; }
         public virtual DbSet<v_Alerty_ResourceDepartment> v_Alerty_ResourceDepartment { get; set; }
+        public virtual DbSet<v_Czas_wytwarzanie_polprodukt> v_Czas_wytwarzanie_polprodukt { get; set; }
+        public virtual DbSet<v_Czas_wytwarzanie_produkt> v_Czas_wytwarzanie_produkt { get; set; }
         public virtual DbSet<v_Czesci> v_Czesci { get; set; }
         public virtual DbSet<v_Czynnosc_produkcyjna> v_Czynnosc_produkcyjna { get; set; }
         public virtual DbSet<v_Dane_adresowe_pracownik> v_Dane_adresowe_pracownik { get; set; }
@@ -227,6 +229,7 @@ namespace KWZP2022
         public virtual DbSet<v_Stanowiska_produkcyjne> v_Stanowiska_produkcyjne { get; set; }
         public virtual DbSet<v_Stanowiska_w_uzyciu> v_Stanowiska_w_uzyciu { get; set; }
         public virtual DbSet<v_Stanowisko_produkcyjne> v_Stanowisko_produkcyjne { get; set; }
+        public virtual DbSet<v_Sumaryczny_czas_wytwarzania_produktu> v_Sumaryczny_czas_wytwarzania_produktu { get; set; }
         public virtual DbSet<v_Sz_czas_proces_polprodukt_czynnosc> v_Sz_czas_proces_polprodukt_czynnosc { get; set; }
         public virtual DbSet<v_Sz_czas_proces_produkt_czynnosc> v_Sz_czas_proces_produkt_czynnosc { get; set; }
         public virtual DbSet<v_Szacowany_czas_wytwarzania_polprodukt> v_Szacowany_czas_wytwarzania_polprodukt { get; set; }
