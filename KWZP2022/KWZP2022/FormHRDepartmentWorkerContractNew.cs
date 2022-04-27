@@ -38,14 +38,14 @@ namespace KWZP2022
             cbWorker.DisplayMember = "Nazwisko";
             cbWorker.ValueMember = "ID_pracownik";
             cbWorkingTime.DataSource = db.Wymiar_pracy.ToList();
-            cbWorkingTime.DisplayMember = "Nazwa_dostawca";
+            cbWorkingTime.DisplayMember = "Nazwa";
             cbWorkingTime.ValueMember = "ID_wymiar_pracy";
             cbRContractType.DataSource = db.Rodzaj_umowy.ToList();
             cbRContractType.DisplayMember = "Nazwa";
             cbRContractType.ValueMember = "ID_rodzaj_umowy";
-            cbEtat.DataSource = db.v_Etat.ToList();
-            cbEtat.DisplayMember = "ID_etat";
-            cbEtat.ValueMember = "ID_etat";
+            cbEtat.DataSource = db.Stanowisko.ToList();
+            cbEtat.DisplayMember = "Nazwa_stanowiska";
+            cbEtat.ValueMember = "ID_stanowisko";
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -70,7 +70,7 @@ namespace KWZP2022
                 umowa.ID_pracownik = (int)cbWorker.SelectedValue;
                 umowa.ID_wymiar_pracy = (int)cbWorkingTime.SelectedValue;
                 umowa.ID_rodzaj_umowy = (int)cbRContractType.SelectedValue;
-                umowa.ID_posada_pracownika = (int)cbWorker.SelectedValue;
+                umowa.ID_posada_pracownika = (int)cbEtat.SelectedValue;
                 umowa.Wynagrodzenie = Convert.ToInt32(tbSalary.Text);
                 db.Umowa.Add(umowa); 
                 db.SaveChanges();
