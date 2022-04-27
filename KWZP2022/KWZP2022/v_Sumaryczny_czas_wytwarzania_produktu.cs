@@ -12,10 +12,10 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Magazyn_material_aktualny
+    public partial class v_Sumaryczny_czas_wytwarzania_produktu
     {
-        public string Nazwa_materiału { get; set; }
-        public Nullable<int> Stan_w_magazynie_g { get; set; }
-        public int ID_material { get; set; }
+        public int ID_produkt { get; set; }
+        public string Produkt { get; set; }
+        public Nullable<int> Czas { get; set; }
     }
 }

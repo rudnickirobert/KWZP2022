@@ -784,7 +784,7 @@ GO
 
 CREATE VIEW v_Zamowienia_narzedzia_w_trakcie_wszystko 
 AS 
-SELECT ZN.ID_zamowienie_narzedzie AS [Nr zamówienia], N.Nazwa_narzedzie AS [Nazwa narzędzia], SRZN.Data_stan [Data zmiany stanu], Sztuk, Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID] 
+SELECT ZN.ID_zamowienie_narzedzie AS [Nr zamówienia], N.Nazwa_narzedzie AS [Nazwa narzędzia], SRZN.Data_stan [Data zmiany stanu], Sztuk, Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID], SZN.ID_narzedzie 
 FROM Szczegoly_zamowienie_narzedzie AS SZN 
 INNER JOIN Zamowienie_narzedzie AS ZN ON SZN.ID_zamowienie_narzedzie = ZN.ID_zamowienie_narzedzie 
 INNER JOIN Narzedzie AS N ON SZN.ID_narzedzie = N.ID_narzedzie
@@ -867,10 +867,10 @@ GO
 
 CREATE VIEW v_Magazyn_narzedzia_wszystko
 AS
-SELECT [Nazwa narzędzia], Sztuk
-FROM v_Zamowienia_narzedzia_w_trakcie_wszystko 
-WHERE StatusID = 4
-GROUP BY [Nazwa narzędzia], Sztuk
+SELECT [Nazwa narzędzia], SUM(Sztuk) AS [Ilość sztuk], ID_narzedzie
+FROM v_Zamowienia_narzedzia_w_trakcie_wszystko
+WHERE StatusID=4
+GROUP BY [Nazwa narzędzia], ID_narzedzie
 GO
 
 CREATE VIEW v_Magazyn_narzedzia_uzywane
@@ -901,10 +901,10 @@ GO
 
 CREATE VIEW v_Magazyn_czesci_wszystko
 AS
-SELECT [Nazwa części], [Ilość]
+SELECT [Nazwa części], SUM([Ilość]) AS [Ilość]
 FROM v_Zamowienia_czesci_w_trakcie_wszystko 
 WHERE StatusID = 4
-GROUP BY [Nazwa części], [Ilość]
+GROUP BY [Nazwa części]
 GO
 
 CREATE VIEW v_Magazyn_czesci_wymienione
@@ -1030,11 +1030,11 @@ FROM v_Magazyn_material_przejsciowy AS MMP
 GROUP BY MMP.ID_material, MMP.[Nazwa materiału], MMP.[Waga (g)]	
 GO
 
-CREATE VIEW v_Magazyn_material_aktualny
+ALTER VIEW v_Magazyn_material_aktualny
 AS
-SELECT MMP.[Nazwa materiału], (MMP.[Waga (g)] - MMP.[Waga material polprodukt (g)] - MMP.[Waga material produkt (g)]) AS [Stan w magazynie g] 
+SELECT  MMP.ID_material, MMP.[Nazwa materiału], (MMP.[Waga (g)] - MMP.[Waga material polprodukt (g)] - MMP.[Waga material produkt (g)]) AS [Stan w magazynie g] 
 FROM v_Magazyn_material_aktualny_dodanie AS MMP
-GROUP BY MMP.[Nazwa materiału], MMP.[Waga (g)],MMP.[Waga material polprodukt (g)],MMP.[Waga material produkt (g)]
+GROUP BY MMP.ID_material, MMP.[Nazwa materiału], MMP.[Waga (g)],MMP.[Waga material polprodukt (g)],MMP.[Waga material produkt (g)]
 GO
 
 CREATE VIEW v_Alerty_ResourceDepartment
