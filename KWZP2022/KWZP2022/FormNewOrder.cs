@@ -77,94 +77,102 @@ namespace KWZP2022
         {
             if (textBoxNoTelClient.Text.Length > 0)
             {
-                int selectedTypZamowienieInt = int.Parse(comboBoxOrderType.SelectedValue.ToString());
-                Typ_zamowienie selectedTyp_Zamowienie = this.db.Typ_zamowienie.Single(a => a.ID_typ_zamowienie == selectedTypZamowienieInt);
-                Nr_telefon_klient selectedClient = this.db.Nr_telefon_klient.SingleOrDefault(a => a.Numer == textBoxNoTelClient.Text);
-                if (selectedClient != null)
+                List<Nr_telefon_klient> selectClientByNoTel = this.db.Nr_telefon_klient.Where(a => (a.Numer == textBoxNoTelClient.Text && a.Data_do == null)).ToList();
+                if (selectClientByNoTel.Count() > 0)
                 {
-                    int selectedEmployeeInt = int.Parse(comboBoxEmployee.SelectedValue.ToString());
-                    Pracownik selectedEmpployee = this.db.Pracownik.Single(a => a.ID_pracownik == selectedEmployeeInt);
-                    Zamowienie newZamowienie = new Zamowienie();
-                    newZamowienie.ID_klient = selectedClient.ID_klient;
-                    newZamowienie.ID_pracownik = selectedEmpployee.ID_pracownik;
-                    newZamowienie.Data_zamowienie = dtpDateOrder.Value.Date;
-                    newZamowienie.ID_typ_zamowienie = selectedTyp_Zamowienie.ID_typ_zamowienie;
-
-                    if (comboBoxOrderType.SelectedValue.ToString() == "1")
+                    int selectedTypZamowienieInt = int.Parse(comboBoxOrderType.SelectedValue.ToString());
+                    Typ_zamowienie selectedTyp_Zamowienie = this.db.Typ_zamowienie.Single(a => a.ID_typ_zamowienie == selectedTypZamowienieInt);
+                    Nr_telefon_klient selectedClient = this.db.Nr_telefon_klient.SingleOrDefault(a => a.Numer == textBoxNoTelClient.Text);
+                    if (selectedClient != null)
                     {
-                        MessageBox.Show("Wprowadź nowy produkt", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        int counterProdutsBefore = this.db.Produkt.Count();
-                        FormProdukt produktForm = new FormProdukt(db);
-                        produktForm.ShowDialog();
-                        int counterProdutsAfter = this.db.Produkt.Count();
-                        if (counterProdutsAfter > counterProdutsBefore)
+                        int selectedEmployeeInt = int.Parse(comboBoxEmployee.SelectedValue.ToString());
+                        Pracownik selectedEmpployee = this.db.Pracownik.Single(a => a.ID_pracownik == selectedEmployeeInt);
+                        Zamowienie newZamowienie = new Zamowienie();
+                        newZamowienie.ID_klient = selectedClient.ID_klient;
+                        newZamowienie.ID_pracownik = selectedEmpployee.ID_pracownik;
+                        newZamowienie.Data_zamowienie = dtpDateOrder.Value.Date;
+                        newZamowienie.ID_typ_zamowienie = selectedTyp_Zamowienie.ID_typ_zamowienie;
+
+                        if (comboBoxOrderType.SelectedValue.ToString() == "1")
                         {
-                            this.db.Zamowienie.Add(newZamowienie);
-                            this.db.SaveChanges();
-                            MessageBox.Show("Dodano zamówienie!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            FormNewOrderDetails formNewOrderDetails = new FormNewOrderDetails(db, newZamowienie);
-                            formNewOrderDetails.ShowDialog();
-                            showData();
-                            MessageBox.Show("Poprawnie zrealizowano zamówienie", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            DialogResult resultNewProduct = MessageBox.Show("Nie wprowadzono nowego produktu. Czy chcesz wprowadzić nowy produkt?", "Pytanie", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                            if (resultNewProduct == DialogResult.Yes)
+                            MessageBox.Show("Wprowadź nowy produkt", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            int counterProdutsBefore = this.db.Produkt.Count();
+                            FormProdukt produktForm = new FormProdukt(db);
+                            produktForm.ShowDialog();
+                            int counterProdutsAfter = this.db.Produkt.Count();
+                            if (counterProdutsAfter > counterProdutsBefore)
                             {
-                                int counterProdutsBeforeAgain = this.db.Produkt.Count();
-                                FormProdukt produktFormAgain = new FormProdukt(db);
-                                produktForm.ShowDialog();
-                                int counterProdutsAfterAgain = this.db.Produkt.Count();
-                                if (counterProdutsAfterAgain > counterProdutsBeforeAgain)
+                                this.db.Zamowienie.Add(newZamowienie);
+                                this.db.SaveChanges();
+                                MessageBox.Show("Dodano zamówienie!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                FormNewOrderDetails formNewOrderDetails = new FormNewOrderDetails(db, newZamowienie);
+                                formNewOrderDetails.ShowDialog();
+                                showData();
+                                MessageBox.Show("Poprawnie zrealizowano zamówienie", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                DialogResult resultNewProduct = MessageBox.Show("Nie wprowadzono nowego produktu. Czy chcesz wprowadzić nowy produkt?", "Pytanie", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                if (resultNewProduct == DialogResult.Yes)
                                 {
-                                    this.db.Zamowienie.Add(newZamowienie);
-                                    this.db.SaveChanges();
-                                    MessageBox.Show("Dodano zamówienie!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    int counterOrderDetailsBefore = this.db.Zamowienie_szczegol.Count();
-                                    FormNewOrderDetails formNewOrderDetails = new FormNewOrderDetails(db, newZamowienie);
-                                    formNewOrderDetails.ShowDialog();
-                                    int counterOrderDetailsAfter = this.db.Zamowienie_szczegol.Count();
-                                    if(counterOrderDetailsAfter > counterOrderDetailsBefore)
+                                    int counterProdutsBeforeAgain = this.db.Produkt.Count();
+                                    FormProdukt produktFormAgain = new FormProdukt(db);
+                                    produktForm.ShowDialog();
+                                    int counterProdutsAfterAgain = this.db.Produkt.Count();
+                                    if (counterProdutsAfterAgain > counterProdutsBeforeAgain)
                                     {
-                                        MessageBox.Show("Poprawnie zrealizowano zamówienie", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                        showData();
+                                        this.db.Zamowienie.Add(newZamowienie);
+                                        this.db.SaveChanges();
+                                        MessageBox.Show("Dodano zamówienie!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        int counterOrderDetailsBefore = this.db.Zamowienie_szczegol.Count();
+                                        FormNewOrderDetails formNewOrderDetails = new FormNewOrderDetails(db, newZamowienie);
+                                        formNewOrderDetails.ShowDialog();
+                                        int counterOrderDetailsAfter = this.db.Zamowienie_szczegol.Count();
+                                        if (counterOrderDetailsAfter > counterOrderDetailsBefore)
+                                        {
+                                            MessageBox.Show("Poprawnie zrealizowano zamówienie", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            showData();
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Wprowadź szczegóły zamówienia", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        }
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Wprowadź szczegóły zamówienia", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    }   
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Nie wprowadzono nowego produktu", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        MessageBox.Show("Nie wprowadzono nowego produktu", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
                                 }
                             }
                         }
+                        else if (comboBoxOrderType.SelectedValue.ToString() == "2")
+                        {
+                            this.db.Zamowienie.Add(newZamowienie);
+                            this.db.SaveChanges();
+                            int counterOrderDetailsBeforeAgain = this.db.Zamowienie_szczegol.Count();
+                            MessageBox.Show("Dodano zamówienie!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            FormNewOrderDetails formNewOrderDetails = new FormNewOrderDetails(db, newZamowienie);
+                            formNewOrderDetails.ShowDialog();
+                            int counterOrderDetailsAfterAgain = this.db.Zamowienie_szczegol.Count();
+                            if (counterOrderDetailsAfterAgain > counterOrderDetailsBeforeAgain)
+                            {
+                                MessageBox.Show("Poprawnie zrealizowano zamówienie", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                showData();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Wprowadź szczegóły zamówienia", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
                     }
-                    else if (comboBoxOrderType.SelectedValue.ToString() == "2")
+                    else
                     {
-                        this.db.Zamowienie.Add(newZamowienie);
-                        this.db.SaveChanges();
-                        int counterOrderDetailsBeforeAgain = this.db.Zamowienie_szczegol.Count();
-                        MessageBox.Show("Dodano zamówienie!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        FormNewOrderDetails formNewOrderDetails = new FormNewOrderDetails(db, newZamowienie);
-                        formNewOrderDetails.ShowDialog();
-                        int counterOrderDetailsAfterAgain = this.db.Zamowienie_szczegol.Count();
-                        if (counterOrderDetailsAfterAgain > counterOrderDetailsBeforeAgain)
-                        {
-                            MessageBox.Show("Poprawnie zrealizowano zamówienie", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            showData();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Wprowadź szczegóły zamówienia", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        MessageBox.Show("Wprowadź dane nowego klienta do systemu", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Wprowadź dane nowego klienta do systemu", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Wprowadzony numer: {textBoxNoTelClient.Text} jest nieaktualny!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -211,6 +219,11 @@ namespace KWZP2022
                     MessageBox.Show("Nie wprowadzono danych","Błąd",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void FormNewOrder_Activated(object sender, EventArgs e)
+        {
+            showData();
         }
     }
 }

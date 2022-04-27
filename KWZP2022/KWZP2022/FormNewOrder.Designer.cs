@@ -260,6 +260,7 @@
             this.Name = "FormNewOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nowe zamówienie";
+            this.Activated += new System.EventHandler(this.FormNewOrder_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

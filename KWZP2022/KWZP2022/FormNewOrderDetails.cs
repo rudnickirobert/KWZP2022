@@ -22,10 +22,17 @@ namespace KWZP2022
             showData();
             comboBoxProductData();
         }
+        private void clearTextBoxAmount()
+        {
+            textBoxAmount.Clear();
+        }
         private void showData()
         {
             this.db = new KWZPEntities();
-            this.dgvOrderDetails.DataSource = this.db.v_Zamowienie_szczegol.ToList();
+            List<v_Zamowienie_szczegol> selectedOrder = this.db.v_Zamowienie_szczegol.Where(a => a.Nr_zamówienia == newOrder.ID_zamowienie).ToList();
+            this.dgvOrderDetails.DataSource = selectedOrder;
+            this.dgvOrderDetails.Columns["Nr_szczegółu"].HeaderText = "Nr szczegółu";
+            this.dgvOrderDetails.Columns["Nr_zamówienia"].HeaderText = "Nr zamówienia";
             this.dgvOrderDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
         private void btnClose_Click(object sender, EventArgs e)
@@ -41,22 +48,43 @@ namespace KWZP2022
         private void btnNewOrder_Click(object sender, EventArgs e)
         {
             int selectedProduct = int.Parse(comboBoxProduct.SelectedValue.ToString());
-            Zamowienie_szczegol newZamowienie_Szczegol = new Zamowienie_szczegol();
-            newZamowienie_Szczegol.ID_zamowienie = this.newOrder.ID_zamowienie;
-            newZamowienie_Szczegol.ID_produkt = selectedProduct;
-            newZamowienie_Szczegol.Ilosc = int.Parse(textBoxAmount.Text);
-            this.db.Zamowienie_szczegol.Add(newZamowienie_Szczegol);
-            this.db.SaveChanges();
-            showData();
-            MessageBox.Show("Dodano szczegóły do zamówienia!","Informacja",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            List< Oferta_handlowa > selectedOrder = this.db.Oferta_handlowa.Where(a => a.ID_zamowienie == newOrder.ID_zamowienie && a.ID_status_oferta == 1).ToList();
+            if (selectedOrder.Count > 0)
+            {
+                MessageBox.Show("Nie można dodać szczegółów do sprzedanego zamówienia!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clearTextBoxAmount();
+            }
+            else
+            {
+                Zamowienie_szczegol newZamowienie_Szczegol = new Zamowienie_szczegol();
+                newZamowienie_Szczegol.ID_zamowienie = this.newOrder.ID_zamowienie;
+                newZamowienie_Szczegol.ID_produkt = selectedProduct;
+                newZamowienie_Szczegol.Ilosc = int.Parse(textBoxAmount.Text);
+                this.db.Zamowienie_szczegol.Add(newZamowienie_Szczegol);
+                this.db.SaveChanges();
+                showData();
+                MessageBox.Show("Dodano szczegóły do zamówienia!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                clearTextBoxAmount();
+            }
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            int selectedOrderDetail = int.Parse(this.dgvOrderDetails.CurrentRow.Cells[0].Value.ToString());
-            Zamowienie_szczegol selectDetail = this.db.Zamowienie_szczegol.Single(a => a.ID_zamowienie == selectedOrderDetail);
-            this.db.Zamowienie_szczegol.Remove(selectDetail);
-            this.db.SaveChanges();
+            try
+            {
+                int selectedOrderDetail = int.Parse(this.dgvOrderDetails.CurrentRow.Cells[0].Value.ToString());
+                Zamowienie_szczegol selectDetail = this.db.Zamowienie_szczegol.Single(a => a.ID_zamowienie_szczegol == selectedOrderDetail);
+                this.db.Zamowienie_szczegol.Remove(selectDetail);
+                this.db.SaveChanges();
+                this.showData();
+                MessageBox.Show("Usunięto szczegół!","Informacja",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                clearTextBoxAmount();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Nie można usunąć szczegółu, który należy do sprzedanego zamówienia!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clearTextBoxAmount();
+            }
         }
     }
 }

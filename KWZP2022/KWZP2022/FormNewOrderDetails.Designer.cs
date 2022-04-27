@@ -106,7 +106,7 @@
             this.btnNewOrder.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.btnNewOrder.Location = new System.Drawing.Point(240, 102);
             this.btnNewOrder.Name = "btnNewOrder";
-            this.btnNewOrder.Size = new System.Drawing.Size(143, 28);
+            this.btnNewOrder.Size = new System.Drawing.Size(170, 28);
             this.btnNewOrder.TabIndex = 20;
             this.btnNewOrder.Text = "Dodaj szczegół";
             this.btnNewOrder.UseVisualStyleBackColor = true;

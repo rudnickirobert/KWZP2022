@@ -108,9 +108,9 @@
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.Location = new System.Drawing.Point(427, 158);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 20);
+            this.label2.Size = new System.Drawing.Size(110, 20);
             this.label2.TabIndex = 90;
-            this.label2.Text = "Kwota sprzedaży:";
+            this.label2.Text = "Kwota za sztukę:";
             // 
             // label1
             // 

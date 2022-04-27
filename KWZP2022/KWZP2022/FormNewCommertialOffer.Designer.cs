@@ -72,9 +72,9 @@
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.label1.Location = new System.Drawing.Point(20, 81);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 20);
+            this.label1.Size = new System.Drawing.Size(126, 20);
             this.label1.TabIndex = 10;
-            this.label1.Text = "Numer zamówienia";
+            this.label1.Text = "Numer zamówienia:";
             // 
             // comboBoxNoOrder
             // 
@@ -133,9 +133,9 @@
             this.label5.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.label5.Location = new System.Drawing.Point(20, 342);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 20);
+            this.label5.Size = new System.Drawing.Size(105, 20);
             this.label5.TabIndex = 16;
-            this.label5.Text = "Cena:";
+            this.label5.Text = "Cena za sztukę:";
             // 
             // textBoxPrice
             // 
@@ -176,9 +176,9 @@
             this.label6.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.label6.Location = new System.Drawing.Point(20, 208);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(109, 20);
+            this.label6.Size = new System.Drawing.Size(209, 20);
             this.label6.TabIndex = 20;
-            this.label6.Text = "Termin realizacji:";
+            this.label6.Text = "Termin realizacji (min 2 tygodnie):";
             // 
             // dtpDateOfImplementation
             // 
