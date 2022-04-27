@@ -1065,9 +1065,6 @@
     <Compile Include="v_Sprzedaz_statystyki.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="v_Sprzedaz_statystyki_miesiac.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="v_Sprzedaz_statystyki_produkty.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
