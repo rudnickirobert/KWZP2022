@@ -209,6 +209,9 @@ namespace KWZP2022
         public virtual DbSet<v_Sprzedane_zamowienia_form> v_Sprzedane_zamowienia_form { get; set; }
         public virtual DbSet<v_Sprzedany_produkt> v_Sprzedany_produkt { get; set; }
         public virtual DbSet<v_Sprzedaz> v_Sprzedaz { get; set; }
+        public virtual DbSet<v_Sprzedaz_statystyki> v_Sprzedaz_statystyki { get; set; }
+        public virtual DbSet<v_Sprzedaz_statystyki_produkty> v_Sprzedaz_statystyki_produkty { get; set; }
+        public virtual DbSet<v_Sprzedaz_statystyki_zarobek_dnia> v_Sprzedaz_statystyki_zarobek_dnia { get; set; }
         public virtual DbSet<v_Stanowiska_do_uzycia> v_Stanowiska_do_uzycia { get; set; }
         public virtual DbSet<v_Stanowiska_produkcyjne> v_Stanowiska_produkcyjne { get; set; }
         public virtual DbSet<v_Stanowiska_w_uzyciu> v_Stanowiska_w_uzyciu { get; set; }
