@@ -331,8 +331,7 @@
             this.btnWczytajZamowienie.Size = new System.Drawing.Size(294, 37);
             this.btnWczytajZamowienie.TabIndex = 65;
             this.btnWczytajZamowienie.Text = "Wczytaj produkty";
-            this.btnWczytajZamowienie.UseVisualStyleBackColor = false;
-            this.btnWczytajZamowienie.Click += new System.EventHandler(this.btnWczytajZamowienie_Click);
+            this.btnWczytajZamowienie.UseVisualStyleBackColor = false;            
             // 
             // FormKontrolaJakosci
             // 

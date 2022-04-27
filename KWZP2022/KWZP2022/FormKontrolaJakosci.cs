@@ -177,11 +177,6 @@ namespace KWZP2022
                 }
                 refreshScreen();
             }            
-        }
-
-        private void btnWczytajZamowienie_Click(object sender, EventArgs e)
-        {
-
-        }
+        }       
     }
 }
