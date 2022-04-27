@@ -31,7 +31,6 @@ namespace KWZP2022
             dgvObsluga.DataSource = pracownikObsluga;
             dgvObsluga.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             this.dgvObsluga.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            //dgvObsluga.Columns[0].Visible = false;
             dgvObsluga.Columns[1].Visible = false;
             dgvObsluga.Columns[2].Visible = false;
         }

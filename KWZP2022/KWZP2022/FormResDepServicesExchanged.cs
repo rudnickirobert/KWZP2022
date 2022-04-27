@@ -43,7 +43,7 @@ namespace KWZP2022
             }
             else
             {
-                MessageBox.Show("CO SIĘ ODPIERDALAAA");
+                MessageBox.Show("Wybierz wymianę");
             }
         }
         private void btnWyborObslugi_Click(object sender, EventArgs e)
