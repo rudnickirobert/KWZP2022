@@ -74,6 +74,7 @@
             this.btnOdswiez.TabIndex = 39;
             this.btnOdswiez.Text = "Odśwież";
             this.btnOdswiez.UseVisualStyleBackColor = true;
+            this.btnOdswiez.Click += new System.EventHandler(this.btnOdswiez_Click);
             // 
             // btnDodaj
             // 

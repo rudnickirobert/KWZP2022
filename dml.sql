@@ -476,13 +476,13 @@ VALUES
 
 INSERT INTO Maszyna (Nazwa_maszyna, ID_rodzaj_maszyna, Koszt_RBG)
 VALUES
-('PRUSA i3 MK3S+',1,200),
-('Shining 3D EinScan SE',4,150),
-('Sinterit Lisa 2 Pro',3,500),
-('Anycubic Photon Mono X',2,250),
-('Creality Ender-5 Pro',1,200),
-('Macbook PRO M1',6,50),
-('Szlifierka Fiberfox',7,80);
+('PRUSA i3 MK3S+',1,40),
+('Shining 3D EinScan SE',4,20),
+('Sinterit Lisa 2 Pro',3,150),
+('Anycubic Photon Mono X',2,50),
+('Creality Ender-5 Pro',1,70),
+('Macbook PRO M1',6,5),
+('Szlifierka Fiberfox',7,30);
 
 INSERT INTO Nr_seryjny (Nr_seryjny)
 VALUES
@@ -594,33 +594,33 @@ VALUES
 
 INSERT INTO Proces_polprodukt_czynnosc (ID_polprodukt, ID_czynnosc_produkcyjna, Czas_trwania)
 VALUES
-(1,2,180),	--Skanowanie				--1.Stanowisko do skanowania
+(1,2,60),	--Skanowanie				--1.Stanowisko do skanowania
 (1,1,15), 	--Przygotowanie stanowiska	--2.Stanowisko do drukowania FDM
 (1,4,360),	--Drukowanie				--2.Stanowisko do drukowania FDM
-(1,5,60),	--Wygladzanie				--9.Stanowisko do wygladzania
-(2,3,300),	--Projektowanie				--8.Stanowisko do projektowania
+(1,5,30),	--Wygladzanie				--9.Stanowisko do wygladzania
+(2,3,120),	--Projektowanie				--8.Stanowisko do projektowania
 (2,1,15),	--Przygotowanie stanowiska	--3.Stanowisko do drukowania SLS	
-(2,4,720),	--Drukowanie				--3.Stanowisko do drukowania SLS
-(2,6,60),	--Szlifowanie				--5.Stanowisko do szlifowania
-(3,3,300),	--Projektowanie				--8.Stanowisko do projektowania
+(2,4,300),	--Drukowanie				--3.Stanowisko do drukowania SLS
+(2,6,30),	--Szlifowanie				--5.Stanowisko do szlifowania
+(3,3,120),	--Projektowanie				--8.Stanowisko do projektowania
 (3,1,15),	--Przygotowanie stanowiska	--3.Stanowisko do drukowania
-(3,4,720),	--Drukowanie				--3.Stanowisko do drukowania
-(3,6,60),	--Szlifowanie				--5.Stanowisko do szlifowania
-(4,3,180),	--Projektowanie				--8.Stanowisko do projektowania
+(3,4,360),	--Drukowanie				--3.Stanowisko do drukowania
+(3,6,30),	--Szlifowanie				--5.Stanowisko do szlifowania
+(4,3,120),	--Projektowanie				--8.Stanowisko do projektowania
 (4,1,15),	--Przygotowanie Stanowiska	--4.Stanowisko do drukowania SLA
-(4,4,720),	--Drukowanie				--4.Stanowisko do drukowania SLA
-(4,5,60),	--Wygladzanie				--9.Stanowisko do wygladzania
-(4,7,120),	--Lakierowanie				--7.Stanowisko do lakierowania
-(5,3,120),	--Projektowanie				--8.Stanowisko do projektowania
+(4,4,300),	--Drukowanie				--4.Stanowisko do drukowania SLA
+(4,5,30),	--Wygladzanie				--9.Stanowisko do wygladzania
+(4,7,15),	--Lakierowanie				--7.Stanowisko do lakierowania
+(5,3,60),	--Projektowanie				--8.Stanowisko do projektowania
 (5,1,15),	--Przygotowanie stanowiska	--2.Stanowisko do drukowania FDM
-(5,4,240),	--Drukowanie				--2.Stanowisko do drukowania FDM
-(5,6,60),	--Szlifowanie				--5.Stanowisko do szlifowania
+(5,4,150),	--Drukowanie				--2.Stanowisko do drukowania FDM
+(5,6,30),	--Szlifowanie				--5.Stanowisko do szlifowania
 (6,3,90),	--Projektowanie				--8.Stanowisko do projektowania
 (6,1,15),	--Przygotowanie stanowiska	--4.Stanowisko do drukowania SLA
-(6,4,480),	--Drukowanie				--4.Stanowisko do drukowania SLA
-(7,3,120),	--Projektowanie				--8.Stanowisko do projektowania
+(6,4,300),	--Drukowanie				--4.Stanowisko do drukowania SLA
+(7,3,30),	--Projektowanie				--8.Stanowisko do projektowania
 (7,1,15),	--Przygotowanie stanowiska	--2.Stanowisko do drukowania FDM
-(7,4,360),	--Drukowanie				--2.Stanowisko do drukowania FDM
+(7,4,90),	--Drukowanie				--2.Stanowisko do drukowania FDM
 (8,3,90),	--Projektowanie				--8.Stanowisko do projektowania
 (8,1,15),	--Przygotowanie stanowiska	--2.Stanowisko do drukowania FDM
 (8,4,300),	--Drukowanie				--2.Stanowisko do drukowania FDM
@@ -633,12 +633,12 @@ VALUES
 
 INSERT INTO Proces_produkt_czynnosc (ID_produkt, ID_czynnosc_produkcyjna, Czas_trwania)
 VALUES
-(1,9,30),	--Montaż		--6.Stanowisko do łączenia półproduktów
-(2,9,60),	--Montaż		--6.
-(2,8,60),	--Klejenie		--6.
-(3,9,120),	--Montaż		--6.
-(4,9,180),	--Montaż		--6.
-(5,9,60);	--Montaż		--6.
+(1,9,15),	--Montaż		--6.Stanowisko do łączenia półproduktów
+(2,9,20),	--Montaż		--6.
+(2,8,30),	--Klejenie		--6.
+(3,9,20),	--Montaż		--6.
+(4,9,30),	--Montaż		--6.
+(5,9,15);	--Montaż		--6.
 
 INSERT INTO Dostawca (Nazwa_dostawca)
 VALUES
