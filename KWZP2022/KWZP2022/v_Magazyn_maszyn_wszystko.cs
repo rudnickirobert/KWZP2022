@@ -16,5 +16,6 @@ namespace KWZP2022
     {
         public string Nazwa_maszyny { get; set; }
         public Nullable<int> Liczba_sztuk { get; set; }
+        public int ID_maszyna { get; set; }
     }
 }

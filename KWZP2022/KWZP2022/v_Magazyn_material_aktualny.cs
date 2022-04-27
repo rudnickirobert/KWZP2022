@@ -14,8 +14,8 @@ namespace KWZP2022
     
     public partial class v_Magazyn_material_aktualny
     {
+        public int ID_material { get; set; }
         public string Nazwa_materiału { get; set; }
         public Nullable<int> Stan_w_magazynie_g { get; set; }
-        public int ID_material { get; set; }
     }
 }
