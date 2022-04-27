@@ -203,8 +203,6 @@ namespace KWZP2022
 
         private void btnWczytajZamowienie_Click(object sender, EventArgs e)
         {
-            initDataGridViewWytworzoneProduktyZamowienie();
-        }
 
             initDataGridViewWytworzoneProduktyZamowienie();
         }
@@ -218,9 +216,6 @@ namespace KWZP2022
         {
             FormKontrolaJakosciGauss gauss = new FormKontrolaJakosciGauss(db);
             gauss.ShowDialog();
-        private void btnOdswiez_Click(object sender, EventArgs e)
-        {
-            clearDgvs();
         }
     }
 }
