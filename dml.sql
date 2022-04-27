@@ -945,14 +945,14 @@ VALUES
 
 INSERT INTO Szczegoly_zamowienie_material(ID_zamowienie_material, ID_material, ID_producent, Waga_g, Cena)
 VALUES
-(1,1,3,10000,30000),
-(2,2,2,20000,15000),
-(3,3,2,15000,20000),
-(4,4,5,25000,17000),
-(5,5,5,45000,15000),
-(6,6,1,20500,12000),
-(7,7,2,36500,24000),
-(8,3,1,28000,22000);
+(1,1,3,15000,3400),
+(2,2,2,20000,1650),
+(3,3,2,15000,1000),
+(4,4,5,25000,2000),
+(5,5,5,45000,3200),
+(6,6,1,20500,2500),
+(7,7,2,7000,300),
+(8,3,1,28000,1700);
 
 INSERT INTO Zamowienie_czesc(ID_pracownik, Data_zamowienia, ID_dostawca)
 VALUES
