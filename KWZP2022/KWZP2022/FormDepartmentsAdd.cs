@@ -35,7 +35,7 @@ namespace KWZP2022
             departmentNew.Nazwa_dzial = txtDepartment.Text;
             db.Dzial.Add(departmentNew);
             db.SaveChanges();
-            MessageBox.Show("Zapisano nowy dział!", "Informacja", MessageBoxButtons.OK);
+            MessageBox.Show("Zapisano nowe stanowisko!", "Informacja", MessageBoxButtons.OK);
             showData();
         }
 
