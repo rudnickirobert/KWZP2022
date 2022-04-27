@@ -94,14 +94,14 @@
     <Compile Include="Etat.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Forma_platnosc.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="FormResDepAlerty.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormResDepAlerty.Designer.cs">
       <DependentUpon>FormResDepAlerty.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forma_platnosc.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="FormCzasPracyProdukcja.cs">
       <SubType>Form</SubType>
