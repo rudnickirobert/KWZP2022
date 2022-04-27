@@ -907,6 +907,7 @@ VALUES
 (14,'2022-04-16',5),
 (14,'2022-04-19',1),
 (14,'2022-04-20',4),
+(14,'2022-04-20',1),
 (14,'2022-04-20',2);
 
 INSERT INTO Stan_realizacji_zamowienie_material(ID_zamowienie_material, ID_status_zamowienie, Data_stan, ID_pracownik)
@@ -940,7 +941,11 @@ VALUES
 (7,3,'2022-04-20 11:21:21',19),
 (7,4,'2022-04-20 12:21:21',18),
 (8,1,'2022-04-21 09:48:51',14),
-(8,2,'2022-04-21 10:21:21',14);
+(8,2,'2022-04-21 10:21:21',14),
+(9,1,'2022-04-21 11:45:33',14),
+(9,2,'2022-04-21 12:12:14',14),
+(9,3,'2022-04-21 13:37:35',15),
+(9,4,'2022-04-21 14:15:28',18);
 
 
 INSERT INTO Szczegoly_zamowienie_material(ID_zamowienie_material, ID_material, ID_producent, Waga_g, Cena)
@@ -951,8 +956,9 @@ VALUES
 (4,4,5,25000,2000),
 (5,5,5,45000,3200),
 (6,6,1,20500,2500),
-(7,7,2,7000,300),
-(8,3,1,28000,1700);
+(7,7,2,10000,1100),
+(8,3,1,28000,1700),
+(9,8,4,7000,310);
 
 INSERT INTO Zamowienie_czesc(ID_pracownik, Data_zamowienia, ID_dostawca)
 VALUES
