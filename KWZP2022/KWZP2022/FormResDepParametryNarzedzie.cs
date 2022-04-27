@@ -65,11 +65,11 @@ namespace KWZP2022
             {
                 string narzedzie = cmbNarzedzie.SelectedValue.ToString();
                 int narzedzieID = int.Parse(narzedzie);
-                System.Linq.IQueryable vParametrNarzedzie = db.v_Parametry_narzedzie.Where(x => x.ID_narzedzie == narzedzieID);
-                int vParametrNarzedzieInt = vParametrNarzedzie.Cast<v_Parametry_narzedzie>().Where(x => x.ID_narzedzie > 0).Count();
-                if (vParametrNarzedzieInt > 0)
+                List<v_Parametry_narzedzie> parametryNarzedzie = db.v_Parametry_narzedzie.Where(a => a.ID_narzedzie == narzedzieID).ToList();
+                if (parametryNarzedzie.Count() > 0)
                 {
-                    dgvParametrNarzedzie.DataSource = vParametrNarzedzie.Cast<v_Parametry_narzedzie>().ToList();
+                    dgvParametrNarzedzie.DataSource = parametryNarzedzie;
+                    dgvParametrNarzedzie.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                 }
             }
         }

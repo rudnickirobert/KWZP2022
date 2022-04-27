@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="KWZPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="KWZPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Alert">
           <Key>
             <PropertyRef Name="ID_alert" />
@@ -268,7 +268,6 @@
           <Property Name="ID_stanowisko_produkcyjne" Type="int" Nullable="false" />
           <Property Name="Data_od" Type="datetime" Nullable="false" />
           <Property Name="Data_do" Type="datetime" />
-          <Property Name="Uwagi" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Obsluga_pracownik">
           <Key>
@@ -968,15 +967,44 @@ warning 6002: The table/view 'KWZP.dbo.v_Kontrola_jakosci_kolejka' does not have
         <EntityType Name="v_Kontrola_jakosci_kolejka">
           <Key>
             <PropertyRef Name="ID_wytwarzanie" />
+            <PropertyRef Name="ID_produkt" />
             <PropertyRef Name="Nazwa_produkt" />
           </Key>
           <Property Name="ID_wytwarzanie" Type="int" Nullable="false" />
+          <Property Name="ID_produkt" Type="int" Nullable="false" />
           <Property Name="Nazwa_produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Kontrola_jakosci_produkt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Kontrola_jakosci_produkt">
+          <Key>
+            <PropertyRef Name="ID_kontrola_jakosci_produkt" />
+            <PropertyRef Name="Pracownik" />
+            <PropertyRef Name="Rodzaj_kontrola" />
+          </Key>
+          <Property Name="ID_kontrola_jakosci_produkt" Type="int" Nullable="false" />
+          <Property Name="Pracownik" Type="varchar" MaxLength="101" Nullable="false" />
+          <Property Name="Rodzaj_kontrola" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Kontrola_negatywna' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Kontrola_negatywna">
+          <Key>
+            <PropertyRef Name="ID_wytwarzanie" />
+            <PropertyRef Name="ID_produkt" />
+            <PropertyRef Name="Produkt" />
+          </Key>
+          <Property Name="ID_wytwarzanie" Type="int" Nullable="false" />
+          <Property Name="ID_produkt" Type="int" Nullable="false" />
+          <Property Name="Produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Wynik_kontrola" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Kontrola_parametr_produkt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Kontrola_parametr_produkt">
           <Key>
+            <PropertyRef Name="ID_wytwarzanie" />
+            <PropertyRef Name="ID_produkt" />
             <PropertyRef Name="Produkt" />
             <PropertyRef Name="Parametr" />
             <PropertyRef Name="Wartość" />
@@ -984,12 +1012,27 @@ warning 6002: The table/view 'KWZP.dbo.v_Kontrola_parametr_produkt' does not hav
             <PropertyRef Name="Zakres górny" />
             <PropertyRef Name="Rezultat kontroli" />
           </Key>
+          <Property Name="ID_wytwarzanie" Type="int" Nullable="false" />
+          <Property Name="ID_produkt" Type="int" Nullable="false" />
           <Property Name="Produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Parametr" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Wartość" Type="decimal" Precision="15" Scale="2" Nullable="false" />
           <Property Name="Zakres dolny" Type="decimal" Precision="15" Scale="2" Nullable="false" />
           <Property Name="Zakres górny" Type="decimal" Precision="15" Scale="2" Nullable="false" />
           <Property Name="Rezultat kontroli" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Kontrola_pozytywna' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Kontrola_pozytywna">
+          <Key>
+            <PropertyRef Name="ID_wytwarzanie" />
+            <PropertyRef Name="ID_produkt" />
+            <PropertyRef Name="Produkt" />
+          </Key>
+          <Property Name="ID_wytwarzanie" Type="int" Nullable="false" />
+          <Property Name="ID_produkt" Type="int" Nullable="false" />
+          <Property Name="Produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Wynik_kontrola" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Koszt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1172,6 +1215,41 @@ warning 6002: The table/view 'KWZP.dbo.v_Magazyn_maszyn_wszystko' does not have 
           </Key>
           <Property Name="Nazwa maszyny" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Liczba sztuk" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Magazyn_material_aktualny' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Magazyn_material_aktualny">
+          <Key>
+            <PropertyRef Name="Nazwa materiału" />
+          </Key>
+          <Property Name="Nazwa materiału" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Stan w magazynie" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Magazyn_material_przejsciowy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Magazyn_material_przejsciowy">
+          <Key>
+            
+            
+            <PropertyRef Name="Waga material polprodukt (g)" />
+            <PropertyRef Name="Waga material produkt (g)" />
+          </Key>
+          <Property Name="ID_material" Type="int" Nullable="false" />
+          <Property Name="Nazwa materiału" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Waga (g)" Type="int" />
+          <Property Name="Waga material polprodukt (g)" Type="int" Nullable="false" />
+          <Property Name="Waga material produkt (g)" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Magazyn_material_wszystko' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Magazyn_material_wszystko">
+          <Key>
+            <PropertyRef Name="ID_material" />
+            <PropertyRef Name="Nazwa materiału" />
+          </Key>
+          <Property Name="ID_material" Type="int" Nullable="false" />
+          <Property Name="Nazwa materiału" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Waga (g)" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Magazyn_narzedzia_nieuzywane' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1402,14 +1480,25 @@ warning 6002: The table/view 'KWZP.dbo.v_Obsluga_cmb' does not have a primary ke
           <Property Name="ComboObsluga" Type="nvarchar" MaxLength="115" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Obsluga_cmb_wymiana' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Obsluga_cmb_wymiana">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ComboObsluga" Type="nvarchar" MaxLength="115" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Obsluga_pracownik' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Obsluga_pracownik">
           <Key>
             <PropertyRef Name="ID_obsluga" />
+            <PropertyRef Name="ID_pracownik" />
             <PropertyRef Name="Obsługa" />
             <PropertyRef Name="Pracownik" />
           </Key>
           <Property Name="ID_obsluga" Type="int" Nullable="false" />
+          <Property Name="ID_pracownik" Type="int" Nullable="false" />
           <Property Name="Obsługa" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Pracownik" Type="varchar" MaxLength="101" Nullable="false" />
         </EntityType>
@@ -1450,13 +1539,11 @@ warning 6002: The table/view 'KWZP.dbo.v_Obslugi_zakonczone' does not have a pri
             <PropertyRef Name="Nr stanowiska" />
             <PropertyRef Name="Obsługa" />
             <PropertyRef Name="Data rozpoczęcia" />
-            <PropertyRef Name="Pracownik" />
           </Key>
           <Property Name="Nr stanowiska" Type="int" Nullable="false" />
           <Property Name="Obsługa" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Data rozpoczęcia" Type="datetime" Nullable="false" />
           <Property Name="Data zakończenia" Type="datetime" />
-          <Property Name="Pracownik" Type="varchar" MaxLength="101" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Oferta_handlowa' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1583,6 +1670,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Parametry_produkt' does not have a prim
         <EntityType Name="v_Parametry_produkt">
           <Key>
             <PropertyRef Name="ID_parametr_produkt" />
+            <PropertyRef Name="ID_produkt" />
             <PropertyRef Name="Produkt" />
             <PropertyRef Name="Parametr" />
             <PropertyRef Name="Wymiar minimalny" />
@@ -1590,11 +1678,30 @@ warning 6002: The table/view 'KWZP.dbo.v_Parametry_produkt' does not have a prim
             <PropertyRef Name="Jednostka" />
           </Key>
           <Property Name="ID_parametr_produkt" Type="int" Nullable="false" />
+          <Property Name="ID_produkt" Type="int" Nullable="false" />
           <Property Name="Produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Parametr" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Wymiar minimalny" Type="decimal" Precision="15" Scale="2" Nullable="false" />
           <Property Name="Wymiar maksymalny" Type="decimal" Precision="15" Scale="2" Nullable="false" />
           <Property Name="Jednostka" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Polprodukt_material' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Polprodukt_material">
+          <Key>
+            <PropertyRef Name="ID_polprodukt" />
+            <PropertyRef Name="ID_material" />
+            <PropertyRef Name="Półprodukt" />
+            <PropertyRef Name="Materiał" />
+            <PropertyRef Name="Rodzaj" />
+            <PropertyRef Name="Waga (g)" />
+          </Key>
+          <Property Name="ID_polprodukt" Type="int" Nullable="false" />
+          <Property Name="ID_material" Type="int" Nullable="false" />
+          <Property Name="Półprodukt" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Materiał" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Rodzaj" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Waga (g)" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Pracownik' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1788,6 +1895,24 @@ warning 6002: The table/view 'KWZP.dbo.v_Producenci' does not have a primary key
           <Property Name="Kod pocztowy" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Produkt_material' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Produkt_material">
+          <Key>
+            <PropertyRef Name="ID_produkt" />
+            <PropertyRef Name="ID_material" />
+            <PropertyRef Name="Produkt" />
+            <PropertyRef Name="Materiał" />
+            <PropertyRef Name="Rodzaj" />
+            <PropertyRef Name="Waga (g)" />
+          </Key>
+          <Property Name="ID_produkt" Type="int" Nullable="false" />
+          <Property Name="ID_material" Type="int" Nullable="false" />
+          <Property Name="Produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Materiał" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Rodzaj" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Waga (g)" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Produkty_na_gwarancji' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Produkty_na_gwarancji">
           <Key>
@@ -1877,11 +2002,15 @@ warning 6002: The table/view 'KWZP.dbo.v_Sklad_polprodukt' does not have a prima
 warning 6002: The table/view 'KWZP.dbo.v_Sklad_produkt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Sklad_produkt">
           <Key>
+            <PropertyRef Name="ID_produkt" />
+            <PropertyRef Name="ID_polprodukt" />
             <PropertyRef Name="ID skład" />
             <PropertyRef Name="Produkt" />
             <PropertyRef Name="Półprodukt" />
             <PropertyRef Name="Liczba" />
           </Key>
+          <Property Name="ID_produkt" Type="int" Nullable="false" />
+          <Property Name="ID_polprodukt" Type="int" Nullable="false" />
           <Property Name="ID skład" Type="int" Nullable="false" />
           <Property Name="Produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Półprodukt" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -2044,6 +2173,16 @@ warning 6002: The table/view 'KWZP.dbo.v_Stanowiska_do_uzycia' does not have a p
           <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Stanowiska_produkcyjne' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Stanowiska_produkcyjne">
+          <Key>
+            <PropertyRef Name="ID_stanowisko_produkcyjne" />
+            <PropertyRef Name="Nazwa" />
+          </Key>
+          <Property Name="ID_stanowisko_produkcyjne" Type="int" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Stanowiska_w_uzyciu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Stanowiska_w_uzyciu">
           <Key>
@@ -2197,6 +2336,17 @@ warning 6002: The table/view 'KWZP.dbo.v_Wymiana_czesc_w_trakcie' does not have 
           <Property Name="Nazwa_czesc" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Wynik_kontroli' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Wynik_kontroli">
+          <Key>
+            <PropertyRef Name="ID_wytwarzanie" />
+            <PropertyRef Name="ID_produkt" />
+          </Key>
+          <Property Name="ID_wytwarzanie" Type="int" Nullable="false" />
+          <Property Name="ID_produkt" Type="int" Nullable="false" />
+          <Property Name="Wynik_kontrola" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Wytwarzanie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Wytwarzanie">
           <Key>
@@ -2214,10 +2364,26 @@ warning 6002: The table/view 'KWZP.dbo.v_Wytwarzanie' does not have a primary ke
           <Property Name="Data zakończenia" Type="datetime" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Wytworzone_polprodukty_material' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Wytworzone_polprodukty_material">
+          <Key>
+            <PropertyRef Name="ID_produkt" />
+            <PropertyRef Name="ID_polprodukt" />
+            <PropertyRef Name="ID_material" />
+            <PropertyRef Name="Materiał" />
+          </Key>
+          <Property Name="ID_produkt" Type="int" Nullable="false" />
+          <Property Name="ID_polprodukt" Type="int" Nullable="false" />
+          <Property Name="ID_material" Type="int" Nullable="false" />
+          <Property Name="Materiał" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Zuzyty material (g)" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Wytworzone_produkty' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Wytworzone_produkty">
           <Key>
             <PropertyRef Name="ID" />
+            <PropertyRef Name="ID_produkt" />
             <PropertyRef Name="Produkt" />
             <PropertyRef Name="Czynność produkcyjna" />
             <PropertyRef Name="Pracownik" />
@@ -2226,6 +2392,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Wytworzone_produkty' does not have a pr
             <PropertyRef Name="Data rozpoczęcia" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID_produkt" Type="int" Nullable="false" />
           <Property Name="Produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Czynność produkcyjna" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Pracownik" Type="varchar" MaxLength="101" Nullable="false" />
@@ -2233,6 +2400,32 @@ warning 6002: The table/view 'KWZP.dbo.v_Wytworzone_produkty' does not have a pr
           <Property Name="Szacowany czas {min}" Type="int" Nullable="false" />
           <Property Name="Data rozpoczęcia" Type="datetime" Nullable="false" />
           <Property Name="Data zakończenia" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Wytworzone_produkty_sklad' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Wytworzone_produkty_sklad">
+          <Key>
+            <PropertyRef Name="ID_produkt" />
+            <PropertyRef Name="ID_polprodukt" />
+            <PropertyRef Name="Liczba" />
+          </Key>
+          <Property Name="ID_produkt" Type="int" Nullable="false" />
+          <Property Name="ID_polprodukt" Type="int" Nullable="false" />
+          <Property Name="Liczba" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Wytworzony_produkt_material' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Wytworzony_produkt_material">
+          <Key>
+            <PropertyRef Name="ID_produkt" />
+            <PropertyRef Name="ID_material" />
+            <PropertyRef Name="Materiał" />
+            <PropertyRef Name="Waga (g)" />
+          </Key>
+          <Property Name="ID_produkt" Type="int" Nullable="false" />
+          <Property Name="ID_material" Type="int" Nullable="false" />
+          <Property Name="Materiał" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Waga (g)" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_czesci_w_trakcie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -2403,6 +2596,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_materialy_w_trakcie_wszystko
         <EntityType Name="v_Zamowienia_materialy_w_trakcie_wszystko">
           <Key>
             <PropertyRef Name="Nr zamówienia" />
+            <PropertyRef Name="ID_material" />
             <PropertyRef Name="Nazwa materiału" />
             <PropertyRef Name="Data zmiany stanu" />
             <PropertyRef Name="Waga (g)" />
@@ -2412,6 +2606,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_materialy_w_trakcie_wszystko
             <PropertyRef Name="StatusID" />
           </Key>
           <Property Name="Nr zamówienia" Type="int" Nullable="false" />
+          <Property Name="ID_material" Type="int" Nullable="false" />
           <Property Name="Nazwa materiału" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Data zmiany stanu" Type="smalldatetime" Nullable="false" />
           <Property Name="Waga (g)" Type="int" Nullable="false" />
@@ -4194,11 +4389,29 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySet Name="v_Kontrola_jakosci_kolejka" EntityType="Self.v_Kontrola_jakosci_kolejka" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Kontrola_jakosci_kolejka].[ID_wytwarzanie] AS [ID_wytwarzanie], 
+    [v_Kontrola_jakosci_kolejka].[ID_produkt] AS [ID_produkt], 
     [v_Kontrola_jakosci_kolejka].[Nazwa_produkt] AS [Nazwa_produkt]
     FROM [dbo].[v_Kontrola_jakosci_kolejka] AS [v_Kontrola_jakosci_kolejka]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_Kontrola_jakosci_produkt" EntityType="Self.v_Kontrola_jakosci_produkt" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Kontrola_jakosci_produkt].[ID_kontrola_jakosci_produkt] AS [ID_kontrola_jakosci_produkt], 
+    [v_Kontrola_jakosci_produkt].[Pracownik] AS [Pracownik], 
+    [v_Kontrola_jakosci_produkt].[Rodzaj_kontrola] AS [Rodzaj_kontrola]
+    FROM [dbo].[v_Kontrola_jakosci_produkt] AS [v_Kontrola_jakosci_produkt]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Kontrola_negatywna" EntityType="Self.v_Kontrola_negatywna" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Kontrola_negatywna].[ID_wytwarzanie] AS [ID_wytwarzanie], 
+    [v_Kontrola_negatywna].[ID_produkt] AS [ID_produkt], 
+    [v_Kontrola_negatywna].[Produkt] AS [Produkt], 
+    [v_Kontrola_negatywna].[Wynik_kontrola] AS [Wynik_kontrola]
+    FROM [dbo].[v_Kontrola_negatywna] AS [v_Kontrola_negatywna]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_Kontrola_parametr_produkt" EntityType="Self.v_Kontrola_parametr_produkt" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [v_Kontrola_parametr_produkt].[ID_wytwarzanie] AS [ID_wytwarzanie], 
+    [v_Kontrola_parametr_produkt].[ID_produkt] AS [ID_produkt], 
     [v_Kontrola_parametr_produkt].[Produkt] AS [Produkt], 
     [v_Kontrola_parametr_produkt].[Parametr] AS [Parametr], 
     [v_Kontrola_parametr_produkt].[Wartość] AS [Wartość], 
@@ -4206,6 +4419,14 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
     [v_Kontrola_parametr_produkt].[Zakres górny] AS [Zakres górny], 
     [v_Kontrola_parametr_produkt].[Rezultat kontroli] AS [Rezultat kontroli]
     FROM [dbo].[v_Kontrola_parametr_produkt] AS [v_Kontrola_parametr_produkt]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Kontrola_pozytywna" EntityType="Self.v_Kontrola_pozytywna" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Kontrola_pozytywna].[ID_wytwarzanie] AS [ID_wytwarzanie], 
+    [v_Kontrola_pozytywna].[ID_produkt] AS [ID_produkt], 
+    [v_Kontrola_pozytywna].[Produkt] AS [Produkt], 
+    [v_Kontrola_pozytywna].[Wynik_kontrola] AS [Wynik_kontrola]
+    FROM [dbo].[v_Kontrola_pozytywna] AS [v_Kontrola_pozytywna]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Koszt" EntityType="Self.v_Koszt" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -4321,6 +4542,28 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
     [v_Magazyn_maszyn_wszystko].[Nazwa maszyny] AS [Nazwa maszyny], 
     [v_Magazyn_maszyn_wszystko].[Liczba sztuk] AS [Liczba sztuk]
     FROM [dbo].[v_Magazyn_maszyn_wszystko] AS [v_Magazyn_maszyn_wszystko]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Magazyn_material_aktualny" EntityType="Self.v_Magazyn_material_aktualny" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Magazyn_material_aktualny].[Nazwa materiału] AS [Nazwa materiału], 
+    [v_Magazyn_material_aktualny].[Stan w magazynie] AS [Stan w magazynie]
+    FROM [dbo].[v_Magazyn_material_aktualny] AS [v_Magazyn_material_aktualny]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Magazyn_material_przejsciowy" EntityType="Self.v_Magazyn_material_przejsciowy" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Magazyn_material_przejsciowy].[ID_material] AS [ID_material], 
+    [v_Magazyn_material_przejsciowy].[Nazwa materiału] AS [Nazwa materiału], 
+    [v_Magazyn_material_przejsciowy].[Waga (g)] AS [Waga (g)], 
+    [v_Magazyn_material_przejsciowy].[Waga material polprodukt (g)] AS [Waga material polprodukt (g)], 
+    [v_Magazyn_material_przejsciowy].[Waga material produkt (g)] AS [Waga material produkt (g)]
+    FROM [dbo].[v_Magazyn_material_przejsciowy] AS [v_Magazyn_material_przejsciowy]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Magazyn_material_wszystko" EntityType="Self.v_Magazyn_material_wszystko" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Magazyn_material_wszystko].[ID_material] AS [ID_material], 
+    [v_Magazyn_material_wszystko].[Nazwa materiału] AS [Nazwa materiału], 
+    [v_Magazyn_material_wszystko].[Waga (g)] AS [Waga (g)]
+    FROM [dbo].[v_Magazyn_material_wszystko] AS [v_Magazyn_material_wszystko]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Magazyn_narzedzia_nieuzywane" EntityType="Self.v_Magazyn_narzedzia_nieuzywane" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -4464,9 +4707,16 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
     [v_Obsluga_cmb].[ComboObsluga] AS [ComboObsluga]
     FROM [dbo].[v_Obsluga_cmb] AS [v_Obsluga_cmb]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_Obsluga_cmb_wymiana" EntityType="Self.v_Obsluga_cmb_wymiana" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Obsluga_cmb_wymiana].[ID] AS [ID], 
+    [v_Obsluga_cmb_wymiana].[ComboObsluga] AS [ComboObsluga]
+    FROM [dbo].[v_Obsluga_cmb_wymiana] AS [v_Obsluga_cmb_wymiana]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_Obsluga_pracownik" EntityType="Self.v_Obsluga_pracownik" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Obsluga_pracownik].[ID_obsluga] AS [ID_obsluga], 
+    [v_Obsluga_pracownik].[ID_pracownik] AS [ID_pracownik], 
     [v_Obsluga_pracownik].[Obsługa] AS [Obsługa], 
     [v_Obsluga_pracownik].[Pracownik] AS [Pracownik]
     FROM [dbo].[v_Obsluga_pracownik] AS [v_Obsluga_pracownik]</DefiningQuery>
@@ -4494,8 +4744,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
     [v_Obslugi_zakonczone].[Nr stanowiska] AS [Nr stanowiska], 
     [v_Obslugi_zakonczone].[Obsługa] AS [Obsługa], 
     [v_Obslugi_zakonczone].[Data rozpoczęcia] AS [Data rozpoczęcia], 
-    [v_Obslugi_zakonczone].[Data zakończenia] AS [Data zakończenia], 
-    [v_Obslugi_zakonczone].[Pracownik] AS [Pracownik]
+    [v_Obslugi_zakonczone].[Data zakończenia] AS [Data zakończenia]
     FROM [dbo].[v_Obslugi_zakonczone] AS [v_Obslugi_zakonczone]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Oferta_handlowa" EntityType="Self.v_Oferta_handlowa" store:Type="Views" store:Schema="dbo">
@@ -4568,12 +4817,23 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySet Name="v_Parametry_produkt" EntityType="Self.v_Parametry_produkt" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Parametry_produkt].[ID_parametr_produkt] AS [ID_parametr_produkt], 
+    [v_Parametry_produkt].[ID_produkt] AS [ID_produkt], 
     [v_Parametry_produkt].[Produkt] AS [Produkt], 
     [v_Parametry_produkt].[Parametr] AS [Parametr], 
     [v_Parametry_produkt].[Wymiar minimalny] AS [Wymiar minimalny], 
     [v_Parametry_produkt].[Wymiar maksymalny] AS [Wymiar maksymalny], 
     [v_Parametry_produkt].[Jednostka] AS [Jednostka]
     FROM [dbo].[v_Parametry_produkt] AS [v_Parametry_produkt]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Polprodukt_material" EntityType="Self.v_Polprodukt_material" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Polprodukt_material].[ID_polprodukt] AS [ID_polprodukt], 
+    [v_Polprodukt_material].[ID_material] AS [ID_material], 
+    [v_Polprodukt_material].[Półprodukt] AS [Półprodukt], 
+    [v_Polprodukt_material].[Materiał] AS [Materiał], 
+    [v_Polprodukt_material].[Rodzaj] AS [Rodzaj], 
+    [v_Polprodukt_material].[Waga (g)] AS [Waga (g)]
+    FROM [dbo].[v_Polprodukt_material] AS [v_Polprodukt_material]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Pracownik" EntityType="Self.v_Pracownik" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -4684,6 +4944,16 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
     [v_Producenci].[Kod pocztowy] AS [Kod pocztowy]
     FROM [dbo].[v_Producenci] AS [v_Producenci]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_Produkt_material" EntityType="Self.v_Produkt_material" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Produkt_material].[ID_produkt] AS [ID_produkt], 
+    [v_Produkt_material].[ID_material] AS [ID_material], 
+    [v_Produkt_material].[Produkt] AS [Produkt], 
+    [v_Produkt_material].[Materiał] AS [Materiał], 
+    [v_Produkt_material].[Rodzaj] AS [Rodzaj], 
+    [v_Produkt_material].[Waga (g)] AS [Waga (g)]
+    FROM [dbo].[v_Produkt_material] AS [v_Produkt_material]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_Produkty_na_gwarancji" EntityType="Self.v_Produkty_na_gwarancji" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Produkty_na_gwarancji].[Nazwa produktu] AS [Nazwa produktu], 
@@ -4735,6 +5005,8 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           </EntitySet>
           <EntitySet Name="v_Sklad_produkt" EntityType="Self.v_Sklad_produkt" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [v_Sklad_produkt].[ID_produkt] AS [ID_produkt], 
+    [v_Sklad_produkt].[ID_polprodukt] AS [ID_polprodukt], 
     [v_Sklad_produkt].[ID skład] AS [ID skład], 
     [v_Sklad_produkt].[Produkt] AS [Produkt], 
     [v_Sklad_produkt].[Półprodukt] AS [Półprodukt], 
@@ -4830,6 +5102,12 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
     [v_Stanowiska_do_uzycia].[Nazwa] AS [Nazwa]
     FROM [dbo].[v_Stanowiska_do_uzycia] AS [v_Stanowiska_do_uzycia]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_Stanowiska_produkcyjne" EntityType="Self.v_Stanowiska_produkcyjne" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Stanowiska_produkcyjne].[ID_stanowisko_produkcyjne] AS [ID_stanowisko_produkcyjne], 
+    [v_Stanowiska_produkcyjne].[Nazwa] AS [Nazwa]
+    FROM [dbo].[v_Stanowiska_produkcyjne] AS [v_Stanowiska_produkcyjne]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_Stanowiska_w_uzyciu" EntityType="Self.v_Stanowiska_w_uzyciu" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Stanowiska_w_uzyciu].[ID_stanowisko_produkcyjne] AS [ID_stanowisko_produkcyjne], 
@@ -4920,6 +5198,13 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
     [v_Wymiana_czesc_w_trakcie].[Nazwa_czesc] AS [Nazwa_czesc]
     FROM [dbo].[v_Wymiana_czesc_w_trakcie] AS [v_Wymiana_czesc_w_trakcie]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_Wynik_kontroli" EntityType="Self.v_Wynik_kontroli" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Wynik_kontroli].[ID_wytwarzanie] AS [ID_wytwarzanie], 
+    [v_Wynik_kontroli].[ID_produkt] AS [ID_produkt], 
+    [v_Wynik_kontroli].[Wynik_kontrola] AS [Wynik_kontrola]
+    FROM [dbo].[v_Wynik_kontroli] AS [v_Wynik_kontroli]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_Wytwarzanie" EntityType="Self.v_Wytwarzanie" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Wytwarzanie].[ID] AS [ID], 
@@ -4930,9 +5215,19 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
     [v_Wytwarzanie].[Data zakończenia] AS [Data zakończenia]
     FROM [dbo].[v_Wytwarzanie] AS [v_Wytwarzanie]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_Wytworzone_polprodukty_material" EntityType="Self.v_Wytworzone_polprodukty_material" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Wytworzone_polprodukty_material].[ID_produkt] AS [ID_produkt], 
+    [v_Wytworzone_polprodukty_material].[ID_polprodukt] AS [ID_polprodukt], 
+    [v_Wytworzone_polprodukty_material].[ID_material] AS [ID_material], 
+    [v_Wytworzone_polprodukty_material].[Materiał] AS [Materiał], 
+    [v_Wytworzone_polprodukty_material].[Zuzyty material (g)] AS [Zuzyty material (g)]
+    FROM [dbo].[v_Wytworzone_polprodukty_material] AS [v_Wytworzone_polprodukty_material]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_Wytworzone_produkty" EntityType="Self.v_Wytworzone_produkty" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Wytworzone_produkty].[ID] AS [ID], 
+    [v_Wytworzone_produkty].[ID_produkt] AS [ID_produkt], 
     [v_Wytworzone_produkty].[Produkt] AS [Produkt], 
     [v_Wytworzone_produkty].[Czynność produkcyjna] AS [Czynność produkcyjna], 
     [v_Wytworzone_produkty].[Pracownik] AS [Pracownik], 
@@ -4941,6 +5236,21 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
     [v_Wytworzone_produkty].[Data rozpoczęcia] AS [Data rozpoczęcia], 
     [v_Wytworzone_produkty].[Data zakończenia] AS [Data zakończenia]
     FROM [dbo].[v_Wytworzone_produkty] AS [v_Wytworzone_produkty]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Wytworzone_produkty_sklad" EntityType="Self.v_Wytworzone_produkty_sklad" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Wytworzone_produkty_sklad].[ID_produkt] AS [ID_produkt], 
+    [v_Wytworzone_produkty_sklad].[ID_polprodukt] AS [ID_polprodukt], 
+    [v_Wytworzone_produkty_sklad].[Liczba] AS [Liczba]
+    FROM [dbo].[v_Wytworzone_produkty_sklad] AS [v_Wytworzone_produkty_sklad]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Wytworzony_produkt_material" EntityType="Self.v_Wytworzony_produkt_material" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Wytworzony_produkt_material].[ID_produkt] AS [ID_produkt], 
+    [v_Wytworzony_produkt_material].[ID_material] AS [ID_material], 
+    [v_Wytworzony_produkt_material].[Materiał] AS [Materiał], 
+    [v_Wytworzony_produkt_material].[Waga (g)] AS [Waga (g)]
+    FROM [dbo].[v_Wytworzony_produkt_material] AS [v_Wytworzony_produkt_material]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Zamowienia_czesci_w_trakcie" EntityType="Self.v_Zamowienia_czesci_w_trakcie" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -5035,6 +5345,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySet Name="v_Zamowienia_materialy_w_trakcie_wszystko" EntityType="Self.v_Zamowienia_materialy_w_trakcie_wszystko" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Zamowienia_materialy_w_trakcie_wszystko].[Nr zamówienia] AS [Nr zamówienia], 
+    [v_Zamowienia_materialy_w_trakcie_wszystko].[ID_material] AS [ID_material], 
     [v_Zamowienia_materialy_w_trakcie_wszystko].[Nazwa materiału] AS [Nazwa materiału], 
     [v_Zamowienia_materialy_w_trakcie_wszystko].[Data zmiany stanu] AS [Data zmiany stanu], 
     [v_Zamowienia_materialy_w_trakcie_wszystko].[Waga (g)] AS [Waga (g)], 
@@ -5598,8 +5909,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
             <End Role="Zwrot" EntitySet="Zwrot" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KWZPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -5926,7 +6236,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <Property Name="ID_stanowisko_produkcyjne" Type="Int32" Nullable="false" />
           <Property Name="Data_od" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Data_do" Type="DateTime" Precision="3" />
-          <Property Name="Uwagi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Rodzaj_obsluga" Relationship="Self.FK__Obsluga__ID_rodz__0697FACD" FromRole="Obsluga" ToRole="Rodzaj_obsluga" />
           <NavigationProperty Name="Stanowisko_produkcyjne" Relationship="Self.FK__Obsluga__ID_stan__078C1F06" FromRole="Obsluga" ToRole="Stanowisko_produkcyjne" />
           <NavigationProperty Name="Wymiana_czesc" Relationship="Self.FK__Wymiana_c__ID_ob__0E391C95" FromRole="Obsluga" ToRole="Wymiana_czesc" />
@@ -6788,13 +7097,38 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
         <EntityType Name="v_Kontrola_jakosci_kolejka">
           <Key>
             <PropertyRef Name="ID_wytwarzanie" />
+            <PropertyRef Name="ID_produkt" />
             <PropertyRef Name="Nazwa_produkt" />
           </Key>
           <Property Name="ID_wytwarzanie" Type="Int32" Nullable="false" />
+          <Property Name="ID_produkt" Type="Int32" Nullable="false" />
           <Property Name="Nazwa_produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_Kontrola_jakosci_produkt">
+          <Key>
+            <PropertyRef Name="ID_kontrola_jakosci_produkt" />
+            <PropertyRef Name="Pracownik" />
+            <PropertyRef Name="Rodzaj_kontrola" />
+          </Key>
+          <Property Name="ID_kontrola_jakosci_produkt" Type="Int32" Nullable="false" />
+          <Property Name="Pracownik" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rodzaj_kontrola" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_Kontrola_negatywna">
+          <Key>
+            <PropertyRef Name="ID_wytwarzanie" />
+            <PropertyRef Name="ID_produkt" />
+            <PropertyRef Name="Produkt" />
+          </Key>
+          <Property Name="ID_wytwarzanie" Type="Int32" Nullable="false" />
+          <Property Name="ID_produkt" Type="Int32" Nullable="false" />
+          <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Wynik_kontrola" Type="Int32" />
         </EntityType>
         <EntityType Name="v_Kontrola_parametr_produkt">
           <Key>
+            <PropertyRef Name="ID_wytwarzanie" />
+            <PropertyRef Name="ID_produkt" />
             <PropertyRef Name="Produkt" />
             <PropertyRef Name="Parametr" />
             <PropertyRef Name="Wartość" />
@@ -6802,12 +7136,25 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
             <PropertyRef Name="Zakres_górny" />
             <PropertyRef Name="Rezultat_kontroli" />
           </Key>
+          <Property Name="ID_wytwarzanie" Type="Int32" Nullable="false" />
+          <Property Name="ID_produkt" Type="Int32" Nullable="false" />
           <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Parametr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Wartość" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
           <Property Name="Zakres_dolny" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
           <Property Name="Zakres_górny" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
           <Property Name="Rezultat_kontroli" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_Kontrola_pozytywna">
+          <Key>
+            <PropertyRef Name="ID_wytwarzanie" />
+            <PropertyRef Name="ID_produkt" />
+            <PropertyRef Name="Produkt" />
+          </Key>
+          <Property Name="ID_wytwarzanie" Type="Int32" Nullable="false" />
+          <Property Name="ID_produkt" Type="Int32" Nullable="false" />
+          <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Wynik_kontrola" Type="Int32" />
         </EntityType>
         <EntityType Name="v_Koszt">
           <Key>
@@ -6958,6 +7305,26 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           </Key>
           <Property Name="Nazwa_maszyny" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Liczba_sztuk" Type="Int32" />
+        </EntityType>
+        <EntityType Name="v_Magazyn_material_przejsciowy">
+          <Key>
+            <PropertyRef Name="Waga_material_polprodukt__g_" />
+            <PropertyRef Name="Waga_material_produkt__g_" />
+          </Key>
+          <Property Name="ID_material" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_materiału" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Waga__g_" Type="Int32" />
+          <Property Name="Waga_material_polprodukt__g_" Type="Int32" Nullable="false" />
+          <Property Name="Waga_material_produkt__g_" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_Magazyn_material_wszystko">
+          <Key>
+            <PropertyRef Name="ID_material" />
+            <PropertyRef Name="Nazwa_materiału" />
+          </Key>
+          <Property Name="ID_material" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_materiału" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Waga__g_" Type="Int32" />
         </EntityType>
         <EntityType Name="v_Magazyn_narzedzia_nieuzywane">
           <Key>
@@ -7147,13 +7514,22 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="ComboObsluga" Type="String" MaxLength="115" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="v_Obsluga_cmb_wymiana">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ComboObsluga" Type="String" MaxLength="115" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="v_Obsluga_pracownik">
           <Key>
             <PropertyRef Name="ID_obsluga" />
+            <PropertyRef Name="ID_pracownik" />
             <PropertyRef Name="Obsługa" />
             <PropertyRef Name="Pracownik" />
           </Key>
           <Property Name="ID_obsluga" Type="Int32" Nullable="false" />
+          <Property Name="ID_pracownik" Type="Int32" Nullable="false" />
           <Property Name="Obsługa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Pracownik" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
@@ -7188,13 +7564,11 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
             <PropertyRef Name="Nr_stanowiska" />
             <PropertyRef Name="Obsługa" />
             <PropertyRef Name="Data_rozpoczęcia" />
-            <PropertyRef Name="Pracownik" />
           </Key>
           <Property Name="Nr_stanowiska" Type="Int32" Nullable="false" />
           <Property Name="Obsługa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Data_rozpoczęcia" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Data_zakończenia" Type="DateTime" Precision="3" />
-          <Property Name="Pracownik" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="v_Oferta_handlowa">
           <Key>
@@ -7307,6 +7681,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
         <EntityType Name="v_Parametry_produkt">
           <Key>
             <PropertyRef Name="ID_parametr_produkt" />
+            <PropertyRef Name="ID_produkt" />
             <PropertyRef Name="Produkt" />
             <PropertyRef Name="Parametr" />
             <PropertyRef Name="Wymiar_minimalny" />
@@ -7314,11 +7689,28 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
             <PropertyRef Name="Jednostka" />
           </Key>
           <Property Name="ID_parametr_produkt" Type="Int32" Nullable="false" />
+          <Property Name="ID_produkt" Type="Int32" Nullable="false" />
           <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Parametr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Wymiar_minimalny" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
           <Property Name="Wymiar_maksymalny" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
           <Property Name="Jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_Polprodukt_material">
+          <Key>
+            <PropertyRef Name="ID_polprodukt" />
+            <PropertyRef Name="ID_material" />
+            <PropertyRef Name="Półprodukt" />
+            <PropertyRef Name="Materiał" />
+            <PropertyRef Name="Rodzaj" />
+            <PropertyRef Name="Waga__g_" />
+          </Key>
+          <Property Name="ID_polprodukt" Type="Int32" Nullable="false" />
+          <Property Name="ID_material" Type="Int32" Nullable="false" />
+          <Property Name="Półprodukt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Materiał" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Rodzaj" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Waga__g_" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="v_Pracownik">
           <Key>
@@ -7489,6 +7881,22 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <Property Name="Nr_budynku" Type="Int32" Nullable="false" />
           <Property Name="Kod_pocztowy" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="v_Produkt_material">
+          <Key>
+            <PropertyRef Name="ID_produkt" />
+            <PropertyRef Name="ID_material" />
+            <PropertyRef Name="Produkt" />
+            <PropertyRef Name="Materiał" />
+            <PropertyRef Name="Rodzaj" />
+            <PropertyRef Name="Waga__g_" />
+          </Key>
+          <Property Name="ID_produkt" Type="Int32" Nullable="false" />
+          <Property Name="ID_material" Type="Int32" Nullable="false" />
+          <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Materiał" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Rodzaj" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Waga__g_" Type="Int32" Nullable="false" />
+        </EntityType>
         <EntityType Name="v_Produkty_na_gwarancji">
           <Key>
             <PropertyRef Name="Nazwa_produktu" />
@@ -7565,11 +7973,15 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
         </EntityType>
         <EntityType Name="v_Sklad_produkt">
           <Key>
+            <PropertyRef Name="ID_produkt" />
+            <PropertyRef Name="ID_polprodukt" />
             <PropertyRef Name="ID_skład" />
             <PropertyRef Name="Produkt" />
             <PropertyRef Name="Półprodukt" />
             <PropertyRef Name="Liczba" />
           </Key>
+          <Property Name="ID_produkt" Type="Int32" Nullable="false" />
+          <Property Name="ID_polprodukt" Type="Int32" Nullable="false" />
           <Property Name="ID_skład" Type="Int32" Nullable="false" />
           <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Półprodukt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -7711,6 +8123,14 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <Property Name="ID_stanowisko_produkcyjne" Type="Int32" Nullable="false" />
           <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
+        <EntityType Name="v_Stanowiska_produkcyjne">
+          <Key>
+            <PropertyRef Name="ID_stanowisko_produkcyjne" />
+            <PropertyRef Name="Nazwa" />
+          </Key>
+          <Property Name="ID_stanowisko_produkcyjne" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
         <EntityType Name="v_Stanowiska_w_uzyciu">
           <Key>
             <PropertyRef Name="ID_stanowisko_produkcyjne" />
@@ -7842,6 +8262,15 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <Property Name="Nr_seryjny" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Nazwa_czesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
+        <EntityType Name="v_Wynik_kontroli">
+          <Key>
+            <PropertyRef Name="ID_wytwarzanie" />
+            <PropertyRef Name="ID_produkt" />
+          </Key>
+          <Property Name="ID_wytwarzanie" Type="Int32" Nullable="false" />
+          <Property Name="ID_produkt" Type="Int32" Nullable="false" />
+          <Property Name="Wynik_kontrola" Type="Int32" />
+        </EntityType>
         <EntityType Name="v_Wytwarzanie">
           <Key>
             <PropertyRef Name="ID" />
@@ -7857,9 +8286,23 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <Property Name="Data_rozpoczęcia" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Data_zakończenia" Type="DateTime" Precision="3" />
         </EntityType>
+        <EntityType Name="v_Wytworzone_polprodukty_material">
+          <Key>
+            <PropertyRef Name="ID_produkt" />
+            <PropertyRef Name="ID_polprodukt" />
+            <PropertyRef Name="ID_material" />
+            <PropertyRef Name="Materiał" />
+          </Key>
+          <Property Name="ID_produkt" Type="Int32" Nullable="false" />
+          <Property Name="ID_polprodukt" Type="Int32" Nullable="false" />
+          <Property Name="ID_material" Type="Int32" Nullable="false" />
+          <Property Name="Materiał" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Zuzyty_material__g_" Type="Int32" />
+        </EntityType>
         <EntityType Name="v_Wytworzone_produkty">
           <Key>
             <PropertyRef Name="ID" />
+            <PropertyRef Name="ID_produkt" />
             <PropertyRef Name="Produkt" />
             <PropertyRef Name="Czynność_produkcyjna" />
             <PropertyRef Name="Pracownik" />
@@ -7868,6 +8311,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
             <PropertyRef Name="Data_rozpoczęcia" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID_produkt" Type="Int32" Nullable="false" />
           <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Czynność_produkcyjna" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Pracownik" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
@@ -7875,6 +8319,28 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <Property Name="Szacowany_czas__min_" Type="Int32" Nullable="false" />
           <Property Name="Data_rozpoczęcia" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Data_zakończenia" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="v_Wytworzone_produkty_sklad">
+          <Key>
+            <PropertyRef Name="ID_produkt" />
+            <PropertyRef Name="ID_polprodukt" />
+            <PropertyRef Name="Liczba" />
+          </Key>
+          <Property Name="ID_produkt" Type="Int32" Nullable="false" />
+          <Property Name="ID_polprodukt" Type="Int32" Nullable="false" />
+          <Property Name="Liczba" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_Wytworzony_produkt_material">
+          <Key>
+            <PropertyRef Name="ID_produkt" />
+            <PropertyRef Name="ID_material" />
+            <PropertyRef Name="Materiał" />
+            <PropertyRef Name="Waga__g_" />
+          </Key>
+          <Property Name="ID_produkt" Type="Int32" Nullable="false" />
+          <Property Name="ID_material" Type="Int32" Nullable="false" />
+          <Property Name="Materiał" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Waga__g_" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="v_Zamowienia_czesci_w_trakcie">
           <Key>
@@ -8027,6 +8493,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
         <EntityType Name="v_Zamowienia_materialy_w_trakcie_wszystko">
           <Key>
             <PropertyRef Name="Nr_zamówienia" />
+            <PropertyRef Name="ID_material" />
             <PropertyRef Name="Nazwa_materiału" />
             <PropertyRef Name="Data_zmiany_stanu" />
             <PropertyRef Name="Waga__g_" />
@@ -8036,6 +8503,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
             <PropertyRef Name="StatusID" />
           </Key>
           <Property Name="Nr_zamówienia" Type="Int32" Nullable="false" />
+          <Property Name="ID_material" Type="Int32" Nullable="false" />
           <Property Name="Nazwa_materiału" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Data_zmiany_stanu" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Waga__g_" Type="Int32" Nullable="false" />
@@ -9714,7 +10182,10 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySet Name="v_Klient_telefon_aktualny" EntityType="Self.v_Klient_telefon_aktualny" />
           <EntitySet Name="v_Klient_telefon_Historia" EntityType="Self.v_Klient_telefon_Historia" />
           <EntitySet Name="v_Kontrola_jakosci_kolejka" EntityType="Self.v_Kontrola_jakosci_kolejka" />
+          <EntitySet Name="v_Kontrola_jakosci_produkt" EntityType="Self.v_Kontrola_jakosci_produkt" />
+          <EntitySet Name="v_Kontrola_negatywna" EntityType="Self.v_Kontrola_negatywna" />
           <EntitySet Name="v_Kontrola_parametr_produkt" EntityType="Self.v_Kontrola_parametr_produkt" />
+          <EntitySet Name="v_Kontrola_pozytywna" EntityType="Self.v_Kontrola_pozytywna" />
           <EntitySet Name="v_Koszt" EntityType="Self.v_Koszt" />
           <EntitySet Name="v_Koszt_godziny_pracy" EntityType="Self.v_Koszt_godziny_pracy" />
           <EntitySet Name="v_Koszt_procesow_polprodukt" EntityType="Self.v_Koszt_procesow_polprodukt" />
@@ -9731,6 +10202,8 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySet Name="v_Magazyn_maszyn_stan" EntityType="Self.v_Magazyn_maszyn_stan" />
           <EntitySet Name="v_Magazyn_maszyn_uzywane" EntityType="Self.v_Magazyn_maszyn_uzywane" />
           <EntitySet Name="v_Magazyn_maszyn_wszystko" EntityType="Self.v_Magazyn_maszyn_wszystko" />
+          <EntitySet Name="v_Magazyn_material_przejsciowy" EntityType="Self.v_Magazyn_material_przejsciowy" />
+          <EntitySet Name="v_Magazyn_material_wszystko" EntityType="Self.v_Magazyn_material_wszystko" />
           <EntitySet Name="v_Magazyn_narzedzia_nieuzywane" EntityType="Self.v_Magazyn_narzedzia_nieuzywane" />
           <EntitySet Name="v_Magazyn_narzedzia_nieuzywane_ID" EntityType="Self.v_Magazyn_narzedzia_nieuzywane_ID" />
           <EntitySet Name="v_Magazyn_narzedzia_stan" EntityType="Self.v_Magazyn_narzedzia_stan" />
@@ -9751,6 +10224,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySet Name="v_Nr_seryjny_maszyna" EntityType="Self.v_Nr_seryjny_maszyna" />
           <EntitySet Name="v_Nr_telefon_pracownik" EntityType="Self.v_Nr_telefon_pracownik" />
           <EntitySet Name="v_Obsluga_cmb" EntityType="Self.v_Obsluga_cmb" />
+          <EntitySet Name="v_Obsluga_cmb_wymiana" EntityType="Self.v_Obsluga_cmb_wymiana" />
           <EntitySet Name="v_Obsluga_pracownik" EntityType="Self.v_Obsluga_pracownik" />
           <EntitySet Name="v_Obslugi_w_trakcie" EntityType="Self.v_Obslugi_w_trakcie" />
           <EntitySet Name="v_Obslugi_w_trakcie_wymiana" EntityType="Self.v_Obslugi_w_trakcie_wymiana" />
@@ -9762,6 +10236,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySet Name="v_Parametry_narzedzie" EntityType="Self.v_Parametry_narzedzie" />
           <EntitySet Name="v_Parametry_polprodukt" EntityType="Self.v_Parametry_polprodukt" />
           <EntitySet Name="v_Parametry_produkt" EntityType="Self.v_Parametry_produkt" />
+          <EntitySet Name="v_Polprodukt_material" EntityType="Self.v_Polprodukt_material" />
           <EntitySet Name="v_Pracownik" EntityType="Self.v_Pracownik" />
           <EntitySet Name="v_Pracownik_obslugi" EntityType="Self.v_Pracownik_obslugi" />
           <EntitySet Name="v_Pracownik_produkcja" EntityType="Self.v_Pracownik_produkcja" />
@@ -9773,6 +10248,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySet Name="v_Proces_wytwarzanie_produkt" EntityType="Self.v_Proces_wytwarzanie_produkt" />
           <EntitySet Name="v_Proces_wytwarzanie_produkt_ewidencja" EntityType="Self.v_Proces_wytwarzanie_produkt_ewidencja" />
           <EntitySet Name="v_Producenci" EntityType="Self.v_Producenci" />
+          <EntitySet Name="v_Produkt_material" EntityType="Self.v_Produkt_material" />
           <EntitySet Name="v_Produkty_na_gwarancji" EntityType="Self.v_Produkty_na_gwarancji" />
           <EntitySet Name="v_Reklamacja" EntityType="Self.v_Reklamacja" />
           <EntitySet Name="v_Rodzaj_kontrola" EntityType="Self.v_Rodzaj_kontrola" />
@@ -9790,6 +10266,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySet Name="v_Slownik_stanowisko" EntityType="Self.v_Slownik_stanowisko" />
           <EntitySet Name="v_Sprzedaz" EntityType="Self.v_Sprzedaz" />
           <EntitySet Name="v_Stanowiska_do_uzycia" EntityType="Self.v_Stanowiska_do_uzycia" />
+          <EntitySet Name="v_Stanowiska_produkcyjne" EntityType="Self.v_Stanowiska_produkcyjne" />
           <EntitySet Name="v_Stanowiska_w_uzyciu" EntityType="Self.v_Stanowiska_w_uzyciu" />
           <EntitySet Name="v_Stanowisko_produkcyjne" EntityType="Self.v_Stanowisko_produkcyjne" />
           <EntitySet Name="v_Sz_czas_proces_polprodukt_czynnosc" EntityType="Self.v_Sz_czas_proces_polprodukt_czynnosc" />
@@ -9801,8 +10278,12 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySet Name="v_Umowa" EntityType="Self.v_Umowa" />
           <EntitySet Name="v_Wymiana_czesc" EntityType="Self.v_Wymiana_czesc" />
           <EntitySet Name="v_Wymiana_czesc_w_trakcie" EntityType="Self.v_Wymiana_czesc_w_trakcie" />
+          <EntitySet Name="v_Wynik_kontroli" EntityType="Self.v_Wynik_kontroli" />
           <EntitySet Name="v_Wytwarzanie" EntityType="Self.v_Wytwarzanie" />
+          <EntitySet Name="v_Wytworzone_polprodukty_material" EntityType="Self.v_Wytworzone_polprodukty_material" />
           <EntitySet Name="v_Wytworzone_produkty" EntityType="Self.v_Wytworzone_produkty" />
+          <EntitySet Name="v_Wytworzone_produkty_sklad" EntityType="Self.v_Wytworzone_produkty_sklad" />
+          <EntitySet Name="v_Wytworzony_produkt_material" EntityType="Self.v_Wytworzony_produkt_material" />
           <EntitySet Name="v_Zamowienia_czesci_w_trakcie" EntityType="Self.v_Zamowienia_czesci_w_trakcie" />
           <EntitySet Name="v_Zamowienia_czesci_w_trakcie_bez_odebranych" EntityType="Self.v_Zamowienia_czesci_w_trakcie_bez_odebranych" />
           <EntitySet Name="v_Zamowienia_czesci_w_trakcie_wszystko" EntityType="Self.v_Zamowienia_czesci_w_trakcie_wszystko" />
@@ -10317,7 +10798,15 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
             <End Role="Obsluga" EntitySet="Obsluga" />
             <End Role="Pracownik" EntitySet="Pracownik" />
           </AssociationSet>
+          <EntitySet Name="v_Magazyn_material_aktualny" EntityType="KWZPModel.v_Magazyn_material_aktualny" />
         </EntityContainer>
+        <EntityType Name="v_Magazyn_material_aktualny">
+          <Key>
+            <PropertyRef Name="Nazwa_materiału" />
+          </Key>
+          <Property Name="Nazwa_materiału" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Stan_w_magazynie" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -10614,7 +11103,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
                 <ScalarProperty Name="ID_stanowisko_produkcyjne" ColumnName="ID_stanowisko_produkcyjne" />
                 <ScalarProperty Name="Data_od" ColumnName="Data_od" />
                 <ScalarProperty Name="Data_do" ColumnName="Data_do" />
-                <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -11312,19 +11800,51 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
             <EntityTypeMapping TypeName="KWZPModel.v_Kontrola_jakosci_kolejka">
               <MappingFragment StoreEntitySet="v_Kontrola_jakosci_kolejka">
                 <ScalarProperty Name="ID_wytwarzanie" ColumnName="ID_wytwarzanie" />
+                <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
                 <ScalarProperty Name="Nazwa_produkt" ColumnName="Nazwa_produkt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Kontrola_jakosci_produkt">
+            <EntityTypeMapping TypeName="KWZPModel.v_Kontrola_jakosci_produkt">
+              <MappingFragment StoreEntitySet="v_Kontrola_jakosci_produkt">
+                <ScalarProperty Name="ID_kontrola_jakosci_produkt" ColumnName="ID_kontrola_jakosci_produkt" />
+                <ScalarProperty Name="Pracownik" ColumnName="Pracownik" />
+                <ScalarProperty Name="Rodzaj_kontrola" ColumnName="Rodzaj_kontrola" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Kontrola_negatywna">
+            <EntityTypeMapping TypeName="KWZPModel.v_Kontrola_negatywna">
+              <MappingFragment StoreEntitySet="v_Kontrola_negatywna">
+                <ScalarProperty Name="ID_wytwarzanie" ColumnName="ID_wytwarzanie" />
+                <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
+                <ScalarProperty Name="Produkt" ColumnName="Produkt" />
+                <ScalarProperty Name="Wynik_kontrola" ColumnName="Wynik_kontrola" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="v_Kontrola_parametr_produkt">
             <EntityTypeMapping TypeName="KWZPModel.v_Kontrola_parametr_produkt">
               <MappingFragment StoreEntitySet="v_Kontrola_parametr_produkt">
+                <ScalarProperty Name="ID_wytwarzanie" ColumnName="ID_wytwarzanie" />
+                <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
                 <ScalarProperty Name="Produkt" ColumnName="Produkt" />
                 <ScalarProperty Name="Parametr" ColumnName="Parametr" />
                 <ScalarProperty Name="Wartość" ColumnName="Wartość" />
                 <ScalarProperty Name="Zakres_dolny" ColumnName="Zakres dolny" />
                 <ScalarProperty Name="Zakres_górny" ColumnName="Zakres górny" />
                 <ScalarProperty Name="Rezultat_kontroli" ColumnName="Rezultat kontroli" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Kontrola_pozytywna">
+            <EntityTypeMapping TypeName="KWZPModel.v_Kontrola_pozytywna">
+              <MappingFragment StoreEntitySet="v_Kontrola_pozytywna">
+                <ScalarProperty Name="ID_wytwarzanie" ColumnName="ID_wytwarzanie" />
+                <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
+                <ScalarProperty Name="Produkt" ColumnName="Produkt" />
+                <ScalarProperty Name="Wynik_kontrola" ColumnName="Wynik_kontrola" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -11472,6 +11992,26 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
               <MappingFragment StoreEntitySet="v_Magazyn_maszyn_wszystko">
                 <ScalarProperty Name="Nazwa_maszyny" ColumnName="Nazwa maszyny" />
                 <ScalarProperty Name="Liczba_sztuk" ColumnName="Liczba sztuk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Magazyn_material_przejsciowy">
+            <EntityTypeMapping TypeName="KWZPModel.v_Magazyn_material_przejsciowy">
+              <MappingFragment StoreEntitySet="v_Magazyn_material_przejsciowy">
+                <ScalarProperty Name="ID_material" ColumnName="ID_material" />
+                <ScalarProperty Name="Nazwa_materiału" ColumnName="Nazwa materiału" />
+                <ScalarProperty Name="Waga__g_" ColumnName="Waga (g)" />
+                <ScalarProperty Name="Waga_material_polprodukt__g_" ColumnName="Waga material polprodukt (g)" />
+                <ScalarProperty Name="Waga_material_produkt__g_" ColumnName="Waga material produkt (g)" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Magazyn_material_wszystko">
+            <EntityTypeMapping TypeName="KWZPModel.v_Magazyn_material_wszystko">
+              <MappingFragment StoreEntitySet="v_Magazyn_material_wszystko">
+                <ScalarProperty Name="ID_material" ColumnName="ID_material" />
+                <ScalarProperty Name="Nazwa_materiału" ColumnName="Nazwa materiału" />
+                <ScalarProperty Name="Waga__g_" ColumnName="Waga (g)" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -11657,10 +12197,19 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="v_Obsluga_cmb_wymiana">
+            <EntityTypeMapping TypeName="KWZPModel.v_Obsluga_cmb_wymiana">
+              <MappingFragment StoreEntitySet="v_Obsluga_cmb_wymiana">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ComboObsluga" ColumnName="ComboObsluga" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="v_Obsluga_pracownik">
             <EntityTypeMapping TypeName="KWZPModel.v_Obsluga_pracownik">
               <MappingFragment StoreEntitySet="v_Obsluga_pracownik">
                 <ScalarProperty Name="ID_obsluga" ColumnName="ID_obsluga" />
+                <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
                 <ScalarProperty Name="Obsługa" ColumnName="Obsługa" />
                 <ScalarProperty Name="Pracownik" ColumnName="Pracownik" />
               </MappingFragment>
@@ -11695,7 +12244,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
                 <ScalarProperty Name="Obsługa" ColumnName="Obsługa" />
                 <ScalarProperty Name="Data_rozpoczęcia" ColumnName="Data rozpoczęcia" />
                 <ScalarProperty Name="Data_zakończenia" ColumnName="Data zakończenia" />
-                <ScalarProperty Name="Pracownik" ColumnName="Pracownik" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -11782,11 +12330,24 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
             <EntityTypeMapping TypeName="KWZPModel.v_Parametry_produkt">
               <MappingFragment StoreEntitySet="v_Parametry_produkt">
                 <ScalarProperty Name="ID_parametr_produkt" ColumnName="ID_parametr_produkt" />
+                <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
                 <ScalarProperty Name="Produkt" ColumnName="Produkt" />
                 <ScalarProperty Name="Parametr" ColumnName="Parametr" />
                 <ScalarProperty Name="Wymiar_minimalny" ColumnName="Wymiar minimalny" />
                 <ScalarProperty Name="Wymiar_maksymalny" ColumnName="Wymiar maksymalny" />
                 <ScalarProperty Name="Jednostka" ColumnName="Jednostka" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Polprodukt_material">
+            <EntityTypeMapping TypeName="KWZPModel.v_Polprodukt_material">
+              <MappingFragment StoreEntitySet="v_Polprodukt_material">
+                <ScalarProperty Name="ID_polprodukt" ColumnName="ID_polprodukt" />
+                <ScalarProperty Name="ID_material" ColumnName="ID_material" />
+                <ScalarProperty Name="Półprodukt" ColumnName="Półprodukt" />
+                <ScalarProperty Name="Materiał" ColumnName="Materiał" />
+                <ScalarProperty Name="Rodzaj" ColumnName="Rodzaj" />
+                <ScalarProperty Name="Waga__g_" ColumnName="Waga (g)" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -11921,6 +12482,18 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="v_Produkt_material">
+            <EntityTypeMapping TypeName="KWZPModel.v_Produkt_material">
+              <MappingFragment StoreEntitySet="v_Produkt_material">
+                <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
+                <ScalarProperty Name="ID_material" ColumnName="ID_material" />
+                <ScalarProperty Name="Produkt" ColumnName="Produkt" />
+                <ScalarProperty Name="Materiał" ColumnName="Materiał" />
+                <ScalarProperty Name="Rodzaj" ColumnName="Rodzaj" />
+                <ScalarProperty Name="Waga__g_" ColumnName="Waga (g)" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="v_Produkty_na_gwarancji">
             <EntityTypeMapping TypeName="KWZPModel.v_Produkty_na_gwarancji">
               <MappingFragment StoreEntitySet="v_Produkty_na_gwarancji">
@@ -11985,6 +12558,8 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySetMapping Name="v_Sklad_produkt">
             <EntityTypeMapping TypeName="KWZPModel.v_Sklad_produkt">
               <MappingFragment StoreEntitySet="v_Sklad_produkt">
+                <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
+                <ScalarProperty Name="ID_polprodukt" ColumnName="ID_polprodukt" />
                 <ScalarProperty Name="ID_skład" ColumnName="ID skład" />
                 <ScalarProperty Name="Produkt" ColumnName="Produkt" />
                 <ScalarProperty Name="Półprodukt" ColumnName="Półprodukt" />
@@ -12096,6 +12671,14 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySetMapping Name="v_Stanowiska_do_uzycia">
             <EntityTypeMapping TypeName="KWZPModel.v_Stanowiska_do_uzycia">
               <MappingFragment StoreEntitySet="v_Stanowiska_do_uzycia">
+                <ScalarProperty Name="ID_stanowisko_produkcyjne" ColumnName="ID_stanowisko_produkcyjne" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Stanowiska_produkcyjne">
+            <EntityTypeMapping TypeName="KWZPModel.v_Stanowiska_produkcyjne">
+              <MappingFragment StoreEntitySet="v_Stanowiska_produkcyjne">
                 <ScalarProperty Name="ID_stanowisko_produkcyjne" ColumnName="ID_stanowisko_produkcyjne" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
               </MappingFragment>
@@ -12213,6 +12796,15 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="v_Wynik_kontroli">
+            <EntityTypeMapping TypeName="KWZPModel.v_Wynik_kontroli">
+              <MappingFragment StoreEntitySet="v_Wynik_kontroli">
+                <ScalarProperty Name="ID_wytwarzanie" ColumnName="ID_wytwarzanie" />
+                <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
+                <ScalarProperty Name="Wynik_kontrola" ColumnName="Wynik_kontrola" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="v_Wytwarzanie">
             <EntityTypeMapping TypeName="KWZPModel.v_Wytwarzanie">
               <MappingFragment StoreEntitySet="v_Wytwarzanie">
@@ -12225,10 +12817,22 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="v_Wytworzone_polprodukty_material">
+            <EntityTypeMapping TypeName="KWZPModel.v_Wytworzone_polprodukty_material">
+              <MappingFragment StoreEntitySet="v_Wytworzone_polprodukty_material">
+                <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
+                <ScalarProperty Name="ID_polprodukt" ColumnName="ID_polprodukt" />
+                <ScalarProperty Name="ID_material" ColumnName="ID_material" />
+                <ScalarProperty Name="Materiał" ColumnName="Materiał" />
+                <ScalarProperty Name="Zuzyty_material__g_" ColumnName="Zuzyty material (g)" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="v_Wytworzone_produkty">
             <EntityTypeMapping TypeName="KWZPModel.v_Wytworzone_produkty">
               <MappingFragment StoreEntitySet="v_Wytworzone_produkty">
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
                 <ScalarProperty Name="Produkt" ColumnName="Produkt" />
                 <ScalarProperty Name="Czynność_produkcyjna" ColumnName="Czynność produkcyjna" />
                 <ScalarProperty Name="Pracownik" ColumnName="Pracownik" />
@@ -12236,6 +12840,25 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
                 <ScalarProperty Name="Szacowany_czas__min_" ColumnName="Szacowany czas {min}" />
                 <ScalarProperty Name="Data_rozpoczęcia" ColumnName="Data rozpoczęcia" />
                 <ScalarProperty Name="Data_zakończenia" ColumnName="Data zakończenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Wytworzone_produkty_sklad">
+            <EntityTypeMapping TypeName="KWZPModel.v_Wytworzone_produkty_sklad">
+              <MappingFragment StoreEntitySet="v_Wytworzone_produkty_sklad">
+                <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
+                <ScalarProperty Name="ID_polprodukt" ColumnName="ID_polprodukt" />
+                <ScalarProperty Name="Liczba" ColumnName="Liczba" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Wytworzony_produkt_material">
+            <EntityTypeMapping TypeName="KWZPModel.v_Wytworzony_produkt_material">
+              <MappingFragment StoreEntitySet="v_Wytworzony_produkt_material">
+                <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
+                <ScalarProperty Name="ID_material" ColumnName="ID_material" />
+                <ScalarProperty Name="Materiał" ColumnName="Materiał" />
+                <ScalarProperty Name="Waga__g_" ColumnName="Waga (g)" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -12349,6 +12972,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
             <EntityTypeMapping TypeName="KWZPModel.v_Zamowienia_materialy_w_trakcie_wszystko">
               <MappingFragment StoreEntitySet="v_Zamowienia_materialy_w_trakcie_wszystko">
                 <ScalarProperty Name="Nr_zamówienia" ColumnName="Nr zamówienia" />
+                <ScalarProperty Name="ID_material" ColumnName="ID_material" />
                 <ScalarProperty Name="Nazwa_materiału" ColumnName="Nazwa materiału" />
                 <ScalarProperty Name="Data_zmiany_stanu" ColumnName="Data zmiany stanu" />
                 <ScalarProperty Name="Waga__g_" ColumnName="Waga (g)" />
@@ -12426,6 +13050,14 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
               <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="v_Magazyn_material_aktualny">
+            <EntityTypeMapping TypeName="KWZPModel.v_Magazyn_material_aktualny">
+              <MappingFragment StoreEntitySet="v_Magazyn_material_aktualny">
+                <ScalarProperty Name="Stan_w_magazynie" ColumnName="Stan w magazynie" />
+                <ScalarProperty Name="Nazwa_materiału" ColumnName="Nazwa materiału" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

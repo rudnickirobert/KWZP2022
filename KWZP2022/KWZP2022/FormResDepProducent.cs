@@ -91,7 +91,6 @@ namespace KWZP2022
                 }
             }
         }
-
         private void btnUsun_Click(object sender, EventArgs e)
         {
             try

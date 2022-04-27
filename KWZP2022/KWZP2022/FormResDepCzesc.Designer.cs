@@ -39,6 +39,7 @@
             this.lblNazwaCzesc = new System.Windows.Forms.Label();
             this.lblRodzajCzesc = new System.Windows.Forms.Label();
             this.btnDodajParametr = new System.Windows.Forms.Button();
+            this.lblPodpisWidoku = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCzesc)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,10 +103,10 @@
             // dgvCzesc
             // 
             this.dgvCzesc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCzesc.Location = new System.Drawing.Point(327, 185);
+            this.dgvCzesc.Location = new System.Drawing.Point(326, 211);
             this.dgvCzesc.Name = "dgvCzesc";
             this.dgvCzesc.RowTemplate.Height = 24;
-            this.dgvCzesc.Size = new System.Drawing.Size(456, 280);
+            this.dgvCzesc.Size = new System.Drawing.Size(457, 254);
             this.dgvCzesc.TabIndex = 14;
             this.dgvCzesc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCzesc_CellContentClick);
             // 
@@ -151,11 +152,23 @@
             this.btnDodajParametr.UseVisualStyleBackColor = false;
             this.btnDodajParametr.Click += new System.EventHandler(this.btnDodajParametr_Click);
             // 
+            // lblPodpisWidoku
+            // 
+            this.lblPodpisWidoku.AutoSize = true;
+            this.lblPodpisWidoku.BackColor = System.Drawing.Color.Transparent;
+            this.lblPodpisWidoku.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblPodpisWidoku.Location = new System.Drawing.Point(322, 186);
+            this.lblPodpisWidoku.Name = "lblPodpisWidoku";
+            this.lblPodpisWidoku.Size = new System.Drawing.Size(68, 22);
+            this.lblPodpisWidoku.TabIndex = 33;
+            this.lblPodpisWidoku.Text = "Części";
+            // 
             // FormResDepCzesc
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 498);
+            this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnDodajParametr);
             this.Controls.Add(this.cmbRodzajCzesc);
             this.Controls.Add(this.btnAktualizuj);
@@ -189,5 +202,6 @@
         private System.Windows.Forms.Label lblNazwaCzesc;
         private System.Windows.Forms.Label lblRodzajCzesc;
         private System.Windows.Forms.Button btnDodajParametr;
+        private System.Windows.Forms.Label lblPodpisWidoku;
     }
 }

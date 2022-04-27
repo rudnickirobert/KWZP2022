@@ -33,15 +33,16 @@
             this.btnDodajMaterial = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnOdswiez = new System.Windows.Forms.Button();
+            this.lblPodpisWidoku = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMagazynMaterial)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvMagazynMaterial
             // 
             this.dgvMagazynMaterial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMagazynMaterial.Location = new System.Drawing.Point(35, 187);
+            this.dgvMagazynMaterial.Location = new System.Drawing.Point(35, 204);
             this.dgvMagazynMaterial.Name = "dgvMagazynMaterial";
-            this.dgvMagazynMaterial.Size = new System.Drawing.Size(731, 264);
+            this.dgvMagazynMaterial.Size = new System.Drawing.Size(731, 247);
             this.dgvMagazynMaterial.TabIndex = 0;
             // 
             // btnDodajMaterial
@@ -79,11 +80,23 @@
             this.btnOdswiez.UseVisualStyleBackColor = false;
             this.btnOdswiez.Click += new System.EventHandler(this.btnOdswiez_Click);
             // 
+            // lblPodpisWidoku
+            // 
+            this.lblPodpisWidoku.AutoSize = true;
+            this.lblPodpisWidoku.BackColor = System.Drawing.Color.Transparent;
+            this.lblPodpisWidoku.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblPodpisWidoku.Location = new System.Drawing.Point(31, 179);
+            this.lblPodpisWidoku.Name = "lblPodpisWidoku";
+            this.lblPodpisWidoku.Size = new System.Drawing.Size(179, 22);
+            this.lblPodpisWidoku.TabIndex = 55;
+            this.lblPodpisWidoku.Text = "Magazyn materiałów";
+            // 
             // FormResDepMagazynMaterialow
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(797, 498);
+            this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnOdswiez);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDodajMaterial);
@@ -106,5 +119,6 @@
         private System.Windows.Forms.Button btnDodajMaterial;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnOdswiez;
+        private System.Windows.Forms.Label lblPodpisWidoku;
     }
 }
