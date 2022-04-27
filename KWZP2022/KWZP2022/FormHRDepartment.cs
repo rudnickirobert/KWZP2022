@@ -50,7 +50,7 @@ namespace KWZP2022
         }
         private void enterName()
         {
-            List<v_Pracownik> workerList = db.v_Pracownik.Where(a => a.Imię == tbImie.Text).ToList();
+            List<v_Umowa> workerList = db.v_Umowa.Where(a => a.Imię == tbImie.Text).ToList();
             if (workerList.Count() > 0)
             {
                 this.dgvWorker.DataSource = workerList;
@@ -64,7 +64,7 @@ namespace KWZP2022
         }
         private void enterSurname()
         {
-            List<v_Pracownik> workerList = db.v_Pracownik.Where(a => a.Nazwisko == tbNazwisko.Text).ToList();
+            List<v_Umowa> workerList = db.v_Umowa.Where(a => a.Nazwisko == tbNazwisko.Text).ToList();
             if (workerList.Count() > 0)
             {
                 this.dgvWorker.DataSource = workerList;
@@ -95,13 +95,11 @@ namespace KWZP2022
         {
             string choose = "";
             if (tbImie.Text.Length > 0)
-                choose = "Surname";
-            if (tbNazwisko.Text.Length > 0)
                 choose = "Name";
+            if (tbNazwisko.Text.Length > 0)
+                choose = "Surname";
             if (tbStanowisko.Text.Length > 0)
                 choose = "Position";
-            if (tbDzial.Text.Length > 0)
-                choose = "Department";
             switch (choose)
             {
                 case "Name":

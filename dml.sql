@@ -1437,3 +1437,10 @@ VALUES
 (14,15,1500),
 (14,16,37);
 
+INSERT INTO Alert ( ID_dzial, Tresc, Czy_odczytano)
+VALUES
+(4, 'Zamów filament ABS', 1),
+(4, 'Zamów filament PLA', 0),
+(4, 'Proszek stali 316L', 1),
+(4, 'Proszek stali PETG', 1),
+(5, 'Wyczyść stanowisko nr 2', 0);
