@@ -81,7 +81,7 @@ namespace KWZP2022
         {
             if (!char.IsControl(e.KeyChar))
             {
-                int dotIndex = txtCena.Text.IndexOf('.');
+                int dotIndex = txtCena.Text.IndexOf(',');
                 if (char.IsDigit(e.KeyChar))
                 {
                     if (dotIndex != -1 &&
@@ -92,7 +92,7 @@ namespace KWZP2022
                     }
                 }
                 else
-                    e.Handled = e.KeyChar != '.' ||
+                    e.Handled = e.KeyChar != ',' ||
                     dotIndex != -1 ||
                     txtCena.Text.Length == 0 ||
                     txtCena.SelectionStart + 2 < txtCena.Text.Length;
