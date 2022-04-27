@@ -140,13 +140,15 @@ GO
 
 CREATE VIEW v_Koszt_procesow_polprodukt
 AS
-SELECT SP.ID_produkt, P.ID_polprodukt AS ID, P.Nazwa AS [Półprodukt], PPPC.Czas_trwania AS [Czas trwania], CP.Nazwa AS [Czynność], vK.[Koszt roboczogodziny stanowiska {PLN}] * PPPC.Czas_trwania/60 AS [Suma kosztu procesów]
+SELECT DISTINCT SP.ID_produkt, P.ID_polprodukt AS ID, P.Nazwa AS [Półprodukt], PPPC.Czas_trwania AS [Czas trwania], CP.Nazwa AS [Czynność], 
+CONVERT(DECIMAL(15,2),vK.[Koszt roboczogodziny stanowiska {PLN}] * PPPC.Czas_trwania/60) AS [Suma kosztu procesów]
 FROM Proces_wytwarzanie_polprodukt AS PWPP
 INNER JOIN Proces_polprodukt_czynnosc AS PPPC ON PWPP.ID_proces_polprodukt = PPPC.ID_proces_polprodukt
 INNER JOIN Czynnosc_produkcyjna AS CP ON PPPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
 INNER JOIN v_Koszt_roboczogodziny_stanowiska AS vK ON PWPP.ID_stanowisko_produkcyjne = vK.[ID stanowiska produkcyjnego]
 INNER JOIN Slownik_polprodukt AS P ON PPPC.ID_polprodukt = P.ID_polprodukt
 INNER JOIN Sklad_produkt AS SP ON SP.ID_polprodukt = P.ID_polprodukt
+INNER JOIN Wytwarzanie AS W ON PWPP.ID_wytwarzanie = W.ID_wytwarzanie
 GO
 
 CREATE VIEW v_Koszt_procesow_produkt
@@ -179,7 +181,6 @@ INNER JOIN Slownik_polprodukt AS SlwPP ON SP.ID_polprodukt = SlwPP.ID_polprodukt
 LEFT JOIN v_Koszt_procesow_polprodukt AS KPP ON SlWPP.Nazwa = KPP.Półprodukt
 LEFT JOIN v_Koszt_procesow_produkt AS KP ON P.Nazwa_produkt = KP.Produkt
 GO
-
 
 CREATE VIEW v_Kontrola_parametr_produkt
 AS
@@ -369,6 +370,36 @@ SELECT [Półprodukt], FORMAT(SUM([Szacowany czas {min}])/CAST(60 AS DECIMAL (4,
 GROUP BY [Półprodukt]
 GO
 
+
+CREATE VIEW v_Czas_wytwarzanie_polprodukt
+AS
+SELECT PPPC.ID_polprodukt, SP.ID_produkt, P.Nazwa_produkt AS [Produkt], SPP.Nazwa AS [Półprodukt], SUM(PPPC.Czas_trwania * SP.Liczba) AS [Czas]
+FROM Proces_polprodukt_czynnosc AS PPPC
+INNER JOIN Slownik_polprodukt AS SPP ON PPPC.ID_polprodukt = SPP.ID_polprodukt
+INNER JOIN Czynnosc_produkcyjna AS CP ON PPPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
+INNER JOIN Sklad_produkt AS SP ON SPP.ID_polprodukt = SP.ID_polprodukt
+INNER JOIN Produkt AS P ON SP.ID_produkt = P.ID_produkt
+GROUP BY PPPC.ID_polprodukt, SPP.Nazwa, SP.ID_produkt, P.Nazwa_produkt
+GO
+
+CREATE VIEW v_Czas_wytwarzanie_produkt
+AS
+SELECT P.ID_produkt, P.Nazwa_produkt AS [Produkt], SUM(PPC.Czas_trwania) AS [Czas]
+FROM Proces_produkt_czynnosc AS PPC
+INNER JOIN Czynnosc_produkcyjna AS CP ON PPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
+INNER JOIN Produkt AS P ON PPC.ID_produkt = P.ID_produkt
+GROUP BY P.ID_produkt, P.Nazwa_produkt
+GO
+
+CREATE VIEW v_Sumaryczny_czas_wytwarzania_produktu
+AS
+SELECT ID_produkt, Produkt, SUM(Czas) AS Czas FROM (SELECT ID_produkt, Produkt, SUM(Czas) AS Czas FROM v_Czas_wytwarzanie_polprodukt
+GROUP BY ID_produkt, Produkt
+UNION
+SELECT ID_produkt, Produkt, Czas AS Czas FROM v_Czas_wytwarzanie_produkt) AS suma
+GROUP BY ID_produkt, Produkt
+GO
+
 CREATE VIEW v_Proces_wytwarzanie_produkt
 AS
 SELECT W.ID_wytwarzanie AS [ID], P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynność produkcyjna], Pr.Nazwisko + ' ' + Pr.Imie AS [Pracownik],
@@ -441,21 +472,23 @@ GO
 
 CREATE VIEW v_Stanowiska_w_uzyciu
 AS
-SELECT SP.ID_stanowisko_produkcyjne, SS.Nazwa_stanowiska AS Nazwa 
+SELECT SP.ID_stanowisko_produkcyjne, SS.Nazwa_stanowiska AS Nazwa
 FROM Proces_wytwarzanie_produkt AS PWP
 INNER JOIN Wytwarzanie AS W ON PWP.ID_wytwarzanie = W.ID_wytwarzanie
 INNER JOIN Proces_produkt_czynnosc AS PPPC ON PWP.ID_proces_produkt = PPPC.ID_proces_produkt
 INNER JOIN Stanowisko_produkcyjne AS SP ON PWP.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
 INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
-WHERE W.Czas_do IS NULL OR W.Czas_do >= GETDATE()
+LEFT JOIN v_Obslugi_w_trakcie AS OWT ON SP.ID_stanowisko_produkcyjne = OWT.[Nr stanowiska]
+WHERE W.Czas_do IS NULL OR W.Czas_do >= GETDATE() OR OWT.Obsługa IS NOT NULL
 UNION 
-SELECT SP.ID_stanowisko_produkcyjne, SS.Nazwa_stanowiska AS Nazwa 
+SELECT SP.ID_stanowisko_produkcyjne, SS.Nazwa_stanowiska AS Nazwa
 FROM Proces_wytwarzanie_polprodukt AS PWPP
 INNER JOIN Wytwarzanie AS W ON PWPP.ID_wytwarzanie = W.ID_wytwarzanie
 INNER JOIN Proces_polprodukt_czynnosc AS PPPC ON PWPP.ID_proces_polprodukt = PPPC.ID_proces_polprodukt
 INNER JOIN Stanowisko_produkcyjne AS SP ON PWPP.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
 INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
-WHERE W.Czas_do IS NULL OR W.Czas_do >= GETDATE()
+LEFT JOIN v_Obslugi_w_trakcie AS OWT ON SP.ID_stanowisko_produkcyjne = OWT.[Nr stanowiska]
+WHERE W.Czas_do IS NULL OR W.Czas_do >= GETDATE() OR OWT.Obsługa IS NOT NULL
 GO
 
 CREATE VIEW v_Stanowiska_do_uzycia
