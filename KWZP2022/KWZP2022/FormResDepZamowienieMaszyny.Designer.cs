@@ -48,6 +48,7 @@
             this.lvlZamowienieMaszyna = new System.Windows.Forms.Label();
             this.dgvZamowienieMaszyna = new System.Windows.Forms.DataGridView();
             this.btnAktualizujStatus = new System.Windows.Forms.Button();
+            this.lblPodpisWidoku = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numIlosc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienieMaszyna)).BeginInit();
             this.SuspendLayout();
@@ -241,29 +242,42 @@
             // dgvZamowienieMaszyna
             // 
             this.dgvZamowienieMaszyna.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvZamowienieMaszyna.Location = new System.Drawing.Point(14, 232);
+            this.dgvZamowienieMaszyna.Location = new System.Drawing.Point(13, 240);
             this.dgvZamowienieMaszyna.Margin = new System.Windows.Forms.Padding(4);
             this.dgvZamowienieMaszyna.Name = "dgvZamowienieMaszyna";
             this.dgvZamowienieMaszyna.RowHeadersWidth = 51;
-            this.dgvZamowienieMaszyna.Size = new System.Drawing.Size(772, 208);
+            this.dgvZamowienieMaszyna.Size = new System.Drawing.Size(773, 200);
             this.dgvZamowienieMaszyna.TabIndex = 41;
             // 
             // btnAktualizujStatus
             // 
             this.btnAktualizujStatus.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.btnAktualizujStatus.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAktualizujStatus.Location = new System.Drawing.Point(611, 450);
+            this.btnAktualizujStatus.Location = new System.Drawing.Point(561, 450);
             this.btnAktualizujStatus.Name = "btnAktualizujStatus";
-            this.btnAktualizujStatus.Size = new System.Drawing.Size(177, 36);
+            this.btnAktualizujStatus.Size = new System.Drawing.Size(227, 36);
             this.btnAktualizujStatus.TabIndex = 59;
             this.btnAktualizujStatus.Text = "Aktualizuj status";
             this.btnAktualizujStatus.UseVisualStyleBackColor = false;
+            this.btnAktualizujStatus.Click += new System.EventHandler(this.btnAktualizujStatus_Click);
+            // 
+            // lblPodpisWidoku
+            // 
+            this.lblPodpisWidoku.AutoSize = true;
+            this.lblPodpisWidoku.BackColor = System.Drawing.Color.Transparent;
+            this.lblPodpisWidoku.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblPodpisWidoku.Location = new System.Drawing.Point(10, 218);
+            this.lblPodpisWidoku.Name = "lblPodpisWidoku";
+            this.lblPodpisWidoku.Size = new System.Drawing.Size(149, 18);
+            this.lblPodpisWidoku.TabIndex = 62;
+            this.lblPodpisWidoku.Text = "Zamówienia maszyn";
             // 
             // FormResDepZamowienieMaszyny
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
             this.ClientSize = new System.Drawing.Size(800, 498);
+            this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnAktualizujStatus);
             this.Controls.Add(this.btnDodajZamowienie);
             this.Controls.Add(this.btnDodajProducenta);
@@ -317,5 +331,6 @@
         private System.Windows.Forms.Label lvlZamowienieMaszyna;
         private System.Windows.Forms.DataGridView dgvZamowienieMaszyna;
         private System.Windows.Forms.Button btnAktualizujStatus;
+        private System.Windows.Forms.Label lblPodpisWidoku;
     }
 }

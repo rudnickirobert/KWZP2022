@@ -15,6 +15,7 @@ namespace KWZP2022
     public partial class v_Kontrola_jakosci_kolejka
     {
         public int ID_wytwarzanie { get; set; }
+        public int ID_produkt { get; set; }
         public string Nazwa_produkt { get; set; }
     }
 }

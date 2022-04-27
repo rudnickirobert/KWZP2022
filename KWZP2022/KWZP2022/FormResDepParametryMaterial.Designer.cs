@@ -42,15 +42,16 @@
             this.btnUsun = new System.Windows.Forms.Button();
             this.btnDodaj = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.lblPodpisWidoku = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParametrMaterial)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvParametrMaterial
             // 
             this.dgvParametrMaterial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvParametrMaterial.Location = new System.Drawing.Point(37, 126);
+            this.dgvParametrMaterial.Location = new System.Drawing.Point(37, 143);
             this.dgvParametrMaterial.Name = "dgvParametrMaterial";
-            this.dgvParametrMaterial.Size = new System.Drawing.Size(738, 161);
+            this.dgvParametrMaterial.Size = new System.Drawing.Size(738, 144);
             this.dgvParametrMaterial.TabIndex = 0;
             // 
             // lblNazwa
@@ -58,7 +59,7 @@
             this.lblNazwa.AutoSize = true;
             this.lblNazwa.BackColor = System.Drawing.Color.Transparent;
             this.lblNazwa.Font = new System.Drawing.Font("Arial", 20.25F);
-            this.lblNazwa.Location = new System.Drawing.Point(33, 37);
+            this.lblNazwa.Location = new System.Drawing.Point(31, 31);
             this.lblNazwa.Name = "lblNazwa";
             this.lblNazwa.Size = new System.Drawing.Size(111, 32);
             this.lblNazwa.TabIndex = 1;
@@ -68,7 +69,7 @@
             // 
             this.cmbMaterial.Font = new System.Drawing.Font("Arial", 16.25F);
             this.cmbMaterial.FormattingEnabled = true;
-            this.cmbMaterial.Location = new System.Drawing.Point(39, 81);
+            this.cmbMaterial.Location = new System.Drawing.Point(37, 69);
             this.cmbMaterial.Name = "cmbMaterial";
             this.cmbMaterial.Size = new System.Drawing.Size(338, 33);
             this.cmbMaterial.TabIndex = 2;
@@ -173,7 +174,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Violet;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.button1.Location = new System.Drawing.Point(226, 34);
+            this.button1.Location = new System.Drawing.Point(228, 28);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(181, 35);
             this.button1.TabIndex = 22;
@@ -181,11 +182,23 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.btnWczytaj_Click);
             // 
+            // lblPodpisWidoku
+            // 
+            this.lblPodpisWidoku.AutoSize = true;
+            this.lblPodpisWidoku.BackColor = System.Drawing.Color.Transparent;
+            this.lblPodpisWidoku.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblPodpisWidoku.Location = new System.Drawing.Point(35, 118);
+            this.lblPodpisWidoku.Name = "lblPodpisWidoku";
+            this.lblPodpisWidoku.Size = new System.Drawing.Size(177, 22);
+            this.lblPodpisWidoku.TabIndex = 57;
+            this.lblPodpisWidoku.Text = "Parametry materiału";
+            // 
             // FormResDepParametryMaterial
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(801, 496);
+            this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAktualizuj);
             this.Controls.Add(this.btnUsun);
@@ -224,5 +237,6 @@
         private System.Windows.Forms.Button btnUsun;
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblPodpisWidoku;
     }
 }
