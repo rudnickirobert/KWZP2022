@@ -464,13 +464,13 @@ GO
 
 CREATE VIEW v_Sklad_maszyna 
 AS 
-SELECT Maszyna.ID_maszyna, Czesc.ID_czesc, Maszyna.Nazwa_maszyna AS [Nazwa maszyny], Czesc.Nazwa_czesc AS [Nazwa części], Sklad_maszyna.Liczba_czesci AS [Liczba czesci]
+SELECT Maszyna.ID_maszyna, Czesc.ID_czesc, Sklad_maszyna.ID_sklad_maszyna, Maszyna.Nazwa_maszyna AS [Nazwa maszyny], Czesc.Nazwa_czesc AS [Nazwa części], Sklad_maszyna.Liczba_czesci AS [Liczba czesci]
 FROM Sklad_maszyna 
 INNER JOIN Maszyna
 ON Sklad_maszyna.ID_maszyna=Maszyna.ID_maszyna
 INNER JOIN Czesc 
 ON Sklad_maszyna.ID_czesc=Czesc.ID_czesc
-GROUP BY Maszyna.ID_maszyna, Czesc.ID_czesc, Maszyna.Nazwa_maszyna, Czesc.Nazwa_czesc, Sklad_maszyna.Liczba_czesci;
+GROUP BY Maszyna.ID_maszyna, Czesc.ID_czesc, Sklad_maszyna.ID_sklad_maszyna, Maszyna.Nazwa_maszyna, Czesc.Nazwa_czesc, Sklad_maszyna.Liczba_czesci;
 GO
 
 CREATE VIEW v_Sklad_SP_maszyna

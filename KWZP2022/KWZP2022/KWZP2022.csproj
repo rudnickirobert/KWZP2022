@@ -109,6 +109,12 @@
     <Compile Include="FormKosztProdukcja.Designer.cs">
       <DependentUpon>FormKosztProdukcja.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormResDepLiczbaCzesci.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepLiczbaCzesci.Designer.cs">
+      <DependentUpon>FormResDepLiczbaCzesci.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormResDepNrSeryjny.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,12 @@
     </Compile>
     <Compile Include="FormResDepParametryNarzedzie.Designer.cs">
       <DependentUpon>FormResDepParametryNarzedzie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResDepSkladMaszyna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepSkladMaszyna.Designer.cs">
+      <DependentUpon>FormResDepSkladMaszyna.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSkladProdukt.cs">
       <SubType>Form</SubType>
@@ -216,12 +228,6 @@
     </Compile>
     <Compile Include="FormResDepServicesExchanged.Designer.cs">
       <DependentUpon>FormResDepServicesExchanged.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormResDepServicesReplacement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormResDepServicesReplacement.Designer.cs">
-      <DependentUpon>FormResDepServicesReplacement.cs</DependentUpon>
     </Compile>
     <Compile Include="FormResDepServicesWorkers.cs">
       <SubType>Form</SubType>
@@ -1044,6 +1050,9 @@
     <EmbeddedResource Include="FormKosztProdukcja.resx">
       <DependentUpon>FormKosztProdukcja.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepLiczbaCzesci.resx">
+      <DependentUpon>FormResDepLiczbaCzesci.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormResDepNrSeryjny.resx">
       <DependentUpon>FormResDepNrSeryjny.cs</DependentUpon>
     </EmbeddedResource>
@@ -1055,6 +1064,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepParametryNarzedzie.resx">
       <DependentUpon>FormResDepParametryNarzedzie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepSkladMaszyna.resx">
+      <DependentUpon>FormResDepSkladMaszyna.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSkladProdukt.resx">
       <DependentUpon>FormSkladProdukt.cs</DependentUpon>
@@ -1097,9 +1109,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepServicesExchanged.resx">
       <DependentUpon>FormResDepServicesExchanged.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormResDepServicesReplacement.resx">
-      <DependentUpon>FormResDepServicesReplacement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepServicesWorkers.resx">
       <DependentUpon>FormResDepServicesWorkers.cs</DependentUpon>
