@@ -56,15 +56,22 @@ namespace KWZP2022
             }
             else
             {
-                Zamowienie_szczegol newZamowienie_Szczegol = new Zamowienie_szczegol();
-                newZamowienie_Szczegol.ID_zamowienie = this.newOrder.ID_zamowienie;
-                newZamowienie_Szczegol.ID_produkt = selectedProduct;
-                newZamowienie_Szczegol.Ilosc = int.Parse(textBoxAmount.Text);
-                this.db.Zamowienie_szczegol.Add(newZamowienie_Szczegol);
-                this.db.SaveChanges();
-                showData();
-                MessageBox.Show("Dodano szczegóły do zamówienia!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                clearTextBoxAmount();
+                try
+                {
+                    Zamowienie_szczegol newZamowienie_Szczegol = new Zamowienie_szczegol();
+                    newZamowienie_Szczegol.ID_zamowienie = this.newOrder.ID_zamowienie;
+                    newZamowienie_Szczegol.ID_produkt = selectedProduct;
+                    newZamowienie_Szczegol.Ilosc = int.Parse(textBoxAmount.Text);
+                    this.db.Zamowienie_szczegol.Add(newZamowienie_Szczegol);
+                    this.db.SaveChanges();
+                    showData();
+                    MessageBox.Show("Dodano szczegóły do zamówienia!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    clearTextBoxAmount();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Wystąpił błąd!","Błąd",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
             }
         }
 

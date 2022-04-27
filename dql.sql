@@ -1301,7 +1301,7 @@ CREATE VIEW v_Kwota_za_materialy AS
 	INNER JOIN Produkt ON Produkt.ID_produkt = Zamowienie_szczegol.ID_produkt
 	INNER JOIN Sklad_produkt_material ON Sklad_produkt_material.ID_produkt = Produkt.ID_produkt
 	INNER JOIN Material ON Material.ID_material = Sklad_produkt_material.ID_material
-	INNER JOIN v_Srednia_cena_za_material ON v_Srednia_cena_za_material.[Nazwa materiału] = Material.Nazwa_material
+	INNER JOIN v_Srednia_cena_za_material ON v_Srednia_cena_za_material.ID_material = Material.Nazwa_material
 	INNER JOIN Sklad_produkt ON Sklad_produkt.ID_produkt = Produkt.ID_produkt
 	INNER JOIN Slownik_polprodukt ON Slownik_polprodukt.ID_polprodukt = Sklad_produkt.ID_polprodukt
 	INNER JOIN Sklad_polprodukt ON Sklad_polprodukt.ID_polprodukt = Slownik_polprodukt.ID_polprodukt

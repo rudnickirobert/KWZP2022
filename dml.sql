@@ -550,7 +550,6 @@ VALUES
 
 INSERT INTO Stanowisko_produkcyjne (ID_nazwa_stanowiska)
 VALUES
-(2),
 (3),
 (1),
 (4),

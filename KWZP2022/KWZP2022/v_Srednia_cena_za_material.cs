@@ -14,7 +14,7 @@ namespace KWZP2022
     
     public partial class v_Srednia_cena_za_material
     {
-        public string Nazwa_materiału { get; set; }
+        public int ID_material { get; set; }
         public Nullable<decimal> Średnia_cena_za__g_ { get; set; }
     }
 }

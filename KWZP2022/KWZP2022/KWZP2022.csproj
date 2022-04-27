@@ -804,6 +804,12 @@
     <Compile Include="v_Alerty_ResourceDepartment.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Czas_wytwarzanie_polprodukt.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Czas_wytwarzanie_produkt.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Czesci.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -1149,6 +1155,9 @@
     <Compile Include="v_Stanowisko_produkcyjne.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Sumaryczny_czas_wytwarzania_produktu.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Szacowany_czas_wytwarzania_polprodukt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -1296,7 +1305,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormHR.resx">
       <DependentUpon>FormHR.cs</DependentUpon>
-</EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDodajAlert.resx">
       <DependentUpon>FormDodajAlert.cs</DependentUpon>
     </EmbeddedResource>
