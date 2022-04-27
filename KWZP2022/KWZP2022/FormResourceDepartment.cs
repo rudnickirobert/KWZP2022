@@ -36,5 +36,11 @@ namespace KWZP2022
             FormResDepServices obslugaForm = new FormResDepServices(db);
             obslugaForm.ShowDialog();
         }
+
+        private void btnAlert_Click(object sender, EventArgs e)
+        {
+            FormResDepAlerty alertyForm = new FormResDepAlerty(db);
+            alertyForm.ShowDialog();
+        }
     }
 }

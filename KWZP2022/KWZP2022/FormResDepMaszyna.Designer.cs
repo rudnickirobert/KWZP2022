@@ -42,6 +42,7 @@
             this.txtKosztRBG = new System.Windows.Forms.TextBox();
             this.btnDodajParametr = new System.Windows.Forms.Button();
             this.lblPodpisWidoku = new System.Windows.Forms.Label();
+            this.btnSkladMaszyna = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaszyna)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,7 +95,7 @@
             // 
             this.btnOdswiez.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnOdswiez.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnOdswiez.Location = new System.Drawing.Point(602, 129);
+            this.btnOdswiez.Location = new System.Drawing.Point(602, 161);
             this.btnOdswiez.Name = "btnOdswiez";
             this.btnOdswiez.Size = new System.Drawing.Size(170, 42);
             this.btnOdswiez.TabIndex = 24;
@@ -127,7 +128,7 @@
             this.lblNazwaMaszyna.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblNazwaMaszyna.Location = new System.Drawing.Point(28, 34);
             this.lblNazwaMaszyna.Name = "lblNazwaMaszyna";
-            this.lblNazwaMaszyna.Size = new System.Drawing.Size(210, 32);
+            this.lblNazwaMaszyna.Size = new System.Drawing.Size(211, 32);
             this.lblNazwaMaszyna.TabIndex = 21;
             this.lblNazwaMaszyna.Text = "Nazwa maszyny";
             // 
@@ -138,7 +139,7 @@
             this.lblRodzajMaszyna.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblRodzajMaszyna.Location = new System.Drawing.Point(28, 79);
             this.lblRodzajMaszyna.Name = "lblRodzajMaszyna";
-            this.lblRodzajMaszyna.Size = new System.Drawing.Size(213, 32);
+            this.lblRodzajMaszyna.Size = new System.Drawing.Size(214, 32);
             this.lblRodzajMaszyna.TabIndex = 20;
             this.lblRodzajMaszyna.Text = "Rodzaj maszyny";
             // 
@@ -149,7 +150,7 @@
             this.label1.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.Location = new System.Drawing.Point(28, 126);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(149, 32);
+            this.label1.Size = new System.Drawing.Size(150, 32);
             this.label1.TabIndex = 29;
             this.label1.Text = "Koszt RBG";
             // 
@@ -166,7 +167,7 @@
             // 
             this.btnDodajParametr.BackColor = System.Drawing.Color.Orange;
             this.btnDodajParametr.Font = new System.Drawing.Font("Arial", 16F);
-            this.btnDodajParametr.Location = new System.Drawing.Point(553, 81);
+            this.btnDodajParametr.Location = new System.Drawing.Point(553, 113);
             this.btnDodajParametr.Name = "btnDodajParametr";
             this.btnDodajParametr.Size = new System.Drawing.Size(219, 42);
             this.btnDodajParametr.TabIndex = 31;
@@ -185,11 +186,24 @@
             this.lblPodpisWidoku.TabIndex = 55;
             this.lblPodpisWidoku.Text = "Maszyny";
             // 
+            // btnSkladMaszyna
+            // 
+            this.btnSkladMaszyna.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnSkladMaszyna.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnSkladMaszyna.Location = new System.Drawing.Point(602, 65);
+            this.btnSkladMaszyna.Name = "btnSkladMaszyna";
+            this.btnSkladMaszyna.Size = new System.Drawing.Size(170, 42);
+            this.btnSkladMaszyna.TabIndex = 56;
+            this.btnSkladMaszyna.Text = "Określ skład";
+            this.btnSkladMaszyna.UseVisualStyleBackColor = false;
+            this.btnSkladMaszyna.Click += new System.EventHandler(this.btnSkladMaszyna_Click);
+            // 
             // FormResDepMaszyna
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
             this.ClientSize = new System.Drawing.Size(800, 498);
+            this.Controls.Add(this.btnSkladMaszyna);
             this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnDodajParametr);
             this.Controls.Add(this.txtKosztRBG);
@@ -230,5 +244,6 @@
         private System.Windows.Forms.TextBox txtKosztRBG;
         private System.Windows.Forms.Button btnDodajParametr;
         private System.Windows.Forms.Label lblPodpisWidoku;
+        private System.Windows.Forms.Button btnSkladMaszyna;
     }
 }

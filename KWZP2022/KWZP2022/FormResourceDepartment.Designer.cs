@@ -35,6 +35,7 @@
             this.lblResDep = new System.Windows.Forms.Label();
             this.lblMotto = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnAlert = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,11 +119,25 @@
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
+            // btnAlert
+            // 
+            this.btnAlert.BackColor = System.Drawing.Color.Gold;
+            this.btnAlert.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAlert.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnAlert.Location = new System.Drawing.Point(307, 468);
+            this.btnAlert.Name = "btnAlert";
+            this.btnAlert.Size = new System.Drawing.Size(141, 62);
+            this.btnAlert.TabIndex = 10;
+            this.btnAlert.Text = "Alerty";
+            this.btnAlert.UseVisualStyleBackColor = false;
+            this.btnAlert.Click += new System.EventHandler(this.btnAlert_Click);
+            // 
             // FormResourceDepartment
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.unknown;
             this.ClientSize = new System.Drawing.Size(1262, 703);
+            this.Controls.Add(this.btnAlert);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblMotto);
             this.Controls.Add(this.lblResDep);
@@ -150,5 +165,6 @@
         private System.Windows.Forms.Label lblResDep;
         private System.Windows.Forms.Label lblMotto;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnAlert;
     }
 }

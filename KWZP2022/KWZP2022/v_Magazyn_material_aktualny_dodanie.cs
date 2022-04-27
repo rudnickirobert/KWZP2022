@@ -12,13 +12,12 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Sklad_maszyna
+    public partial class v_Magazyn_material_aktualny_dodanie
     {
-        public int ID_maszyna { get; set; }
-        public int ID_czesc { get; set; }
-        public int ID_sklad_maszyna { get; set; }
-        public string Nazwa_maszyny { get; set; }
-        public string Nazwa_części { get; set; }
-        public int Liczba_czesci { get; set; }
+        public int ID_material { get; set; }
+        public string Nazwa_materiału { get; set; }
+        public Nullable<int> Waga__g_ { get; set; }
+        public Nullable<int> Waga_material_polprodukt__g_ { get; set; }
+        public Nullable<int> Waga_material_produkt__g_ { get; set; }
     }
 }
