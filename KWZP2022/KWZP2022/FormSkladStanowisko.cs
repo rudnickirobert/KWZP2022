@@ -130,9 +130,9 @@ namespace KWZP2022
             }
             else
             {
-                int Ilosc = int.Parse(txtIlosc.Text);
-                int IloscNarzedzi = int.Parse(this.dgvNarzedzia.CurrentRow.Cells[2].Value.ToString());
-                if (IloscNarzedzi - Ilosc < 0)
+                int ilosc = int.Parse(txtIlosc.Text);
+                int iloscNarzedzi = int.Parse(this.dgvNarzedzia.CurrentRow.Cells[2].Value.ToString());
+                if (iloscNarzedzi - ilosc < 0)
                 {
                     MessageBox.Show("Niewystarczająca ilość narzędzi " + this.dgvNarzedzia.CurrentRow.Cells[1].Value.ToString() + " w magazynie");
 

@@ -232,7 +232,6 @@
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormSkladProdukt";
             this.Text = "FormSkladProdukt";
-            this.Load += new System.EventHandler(this.FormSkladProdukt_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkladProdukt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdukt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPolprodukt)).EndInit();
