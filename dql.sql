@@ -1214,7 +1214,7 @@ CREATE VIEW v_Sprzedaz_statystyki_zarobek_dnia AS
 GO
 
 CREATE VIEW v_Sprzedaz_statystyki_miesiac AS
-SELECT CASE
+SELECT ROW_NUMBER() OVER(ORDER BY MONTH(S.Data_sprzedaz_koniec)) AS ID,CASE
 			WHEN MONTH(S.Data_sprzedaz_koniec) = 1 THEN 'Styczeń'
 			WHEN MONTH(S.Data_sprzedaz_koniec) = 2 THEN 'Luty'
 			WHEN MONTH(S.Data_sprzedaz_koniec) = 3 THEN 'Marzec'

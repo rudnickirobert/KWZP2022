@@ -2323,6 +2323,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Sprzedaz_statystyki' does not have a pr
         <!--Errors Found During Generation:
 warning 6013: The table/view 'KWZP.dbo.v_Sprzedaz_statystyki_miesiac' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="v_Sprzedaz_statystyki_miesiac">
+          <Property Name="ID" Type="bigint" />
           <Property Name="Miesiąc" Type="varchar" MaxLength="11" />
           <Property Name="Zarobek z miesiąca" Type="int" />
         </EntityType>-->

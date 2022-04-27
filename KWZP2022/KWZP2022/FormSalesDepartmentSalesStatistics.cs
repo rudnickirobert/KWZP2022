@@ -19,6 +19,7 @@ namespace KWZP2022
             InitializeComponent();
             this.db = db;
             chartRing();
+            chartAmountSoldProductsData();
         }
         private void chartRing()
         {
@@ -36,6 +37,15 @@ namespace KWZP2022
             chartProceedsDate.Series["ProceedsDate"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTimeOffset;
             chartProceedsDate.Series["ProceedsDate"].YValueMembers = "Zarobek_z_dnia";
             chartProceedsDate.Series["ProceedsDate"].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+        }
+        private void chartAmountSoldProductsData()
+        {
+            //List<v_Sprzedaz_statystyki_miesiac> chartColumnData = this.db.v_Sprzedaz_statystyki_miesiac.ToList();
+            //chartAmountSoldProducts.DataSource = chartColumnData;
+            //chartAmountSoldProducts.Series["SalesMonth"].XValueMember = "Miesiąc";
+            //chartAmountSoldProducts.Series["SalesMonth"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
+            //chartAmountSoldProducts.Series["SalesMonth"].YValueMembers = "Zarobek z miesiąca";
+            //chartAmountSoldProducts.Series["SalesMonth"].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
         }
         private void btnGenerateChart_Click(object sender, EventArgs e)
         {
