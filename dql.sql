@@ -1378,3 +1378,21 @@ FROM     dbo.Umowa INNER JOIN
 dbo.Pracownik ON dbo.Umowa.ID_pracownik = dbo.Pracownik.ID_pracownik CROSS JOIN
 dbo.Czas_pracy
 GO
+
+CREATE VIEW v_Proces_produkt_czynnosc_projekt
+AS
+SELECT PPC.ID_produkt AS [ID Produktu], P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynność] , PPC.Czas_trwania AS [Czas wytwarzania{h}]
+FROM Proces_produkt_czynnosc AS PPC
+INNER JOIN Produkt AS P ON PPC.ID_produkt = P.ID_produkt
+INNER JOIN Czynnosc_produkcyjna CP ON PPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
+--ORDER BY PPC.ID_produkt DESC OFFSET 0 ROWS
+GO
+
+CREATE VIEW v_Proces_polprodukt_czynnosc_projekt
+AS
+SELECT PPPC.ID_polprodukt AS [ID Półproduktu], SPP.Nazwa AS [Półprodukt], CP.Nazwa AS [Czynność], PPPC.Czas_trwania AS [Czas wytwarzania{h}]
+FROM Proces_polprodukt_czynnosc AS PPPC
+INNER JOIN Slownik_polprodukt SPP ON PPPC.ID_polprodukt = SPP.ID_polprodukt
+INNER JOIN Czynnosc_produkcyjna CP ON PPPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
+ORDER BY PPPC.ID_polprodukt DESC OFFSET 0 ROWS
+GO

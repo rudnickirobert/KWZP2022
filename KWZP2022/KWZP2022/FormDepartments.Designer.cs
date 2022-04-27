@@ -81,10 +81,12 @@
             this.btnHumanRsDepartment.TabIndex = 7;
             this.btnHumanRsDepartment.Text = "Dział kadr i przygotowania produkcji";
             this.btnHumanRsDepartment.UseVisualStyleBackColor = true;
-            // 
+            this.btnHumanRsDepartment.Click += new System.EventHandler(this.btnHumanRsDepartment_Click);
+            //
             // FormDepartments
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 711);
             this.Controls.Add(this.btnHumanRsDepartment);
