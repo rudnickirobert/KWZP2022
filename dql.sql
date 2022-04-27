@@ -970,6 +970,20 @@ FROM v_Magazyn_material_przejsciowy AS MMP
 GROUP BY MMP.[Nazwa materiału], MMP.[Waga (g)],MMP.[Waga material polprodukt (g)],MMP.[Waga material produkt (g)]
 GO
 
+CREATE VIEW v_Alerty_Resdep
+AS
+SELECT * 
+FROM Alert 
+WHERE ID_dzial = 4 OR ID_dzial = 5;
+GO
+
+CREATE VIEW v_Alerty_Resdep_nieodczytane
+AS
+SELECT * 
+FROM v_Alerty_Resdep 
+WHERE Czy_odczytano=0 ;
+GO
+
 --SALES AND MARKETING DEPARTMENT --
 CREATE VIEW v_Szczegoly_sprzedaz AS
 SELECT Szczegoly_sprzedaz.ID_sprzedaz AS [Numer sprzedaży], Produkt.Nazwa_produkt AS [Produkt], 
