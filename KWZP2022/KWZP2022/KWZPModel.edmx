@@ -2000,12 +2000,14 @@ warning 6002: The table/view 'KWZP.dbo.v_Sklad_maszyna' does not have a primary 
           <Key>
             <PropertyRef Name="ID_maszyna" />
             <PropertyRef Name="ID_czesc" />
+            <PropertyRef Name="ID_sklad_maszyna" />
             <PropertyRef Name="Nazwa maszyny" />
             <PropertyRef Name="Nazwa części" />
             <PropertyRef Name="Liczba czesci" />
           </Key>
           <Property Name="ID_maszyna" Type="int" Nullable="false" />
           <Property Name="ID_czesc" Type="int" Nullable="false" />
+          <Property Name="ID_sklad_maszyna" Type="int" Nullable="false" />
           <Property Name="Nazwa maszyny" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Nazwa części" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Liczba czesci" Type="int" Nullable="false" />
@@ -5033,6 +5035,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
             <DefiningQuery>SELECT 
     [v_Sklad_maszyna].[ID_maszyna] AS [ID_maszyna], 
     [v_Sklad_maszyna].[ID_czesc] AS [ID_czesc], 
+    [v_Sklad_maszyna].[ID_sklad_maszyna] AS [ID_sklad_maszyna], 
     [v_Sklad_maszyna].[Nazwa maszyny] AS [Nazwa maszyny], 
     [v_Sklad_maszyna].[Nazwa części] AS [Nazwa części], 
     [v_Sklad_maszyna].[Liczba czesci] AS [Liczba czesci]
@@ -8025,12 +8028,14 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <Key>
             <PropertyRef Name="ID_maszyna" />
             <PropertyRef Name="ID_czesc" />
+            <PropertyRef Name="ID_sklad_maszyna" />
             <PropertyRef Name="Nazwa_maszyny" />
             <PropertyRef Name="Nazwa_części" />
             <PropertyRef Name="Liczba_czesci" />
           </Key>
           <Property Name="ID_maszyna" Type="Int32" Nullable="false" />
           <Property Name="ID_czesc" Type="Int32" Nullable="false" />
+          <Property Name="ID_sklad_maszyna" Type="Int32" Nullable="false" />
           <Property Name="Nazwa_maszyny" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Nazwa_części" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Liczba_czesci" Type="Int32" Nullable="false" />
@@ -12639,6 +12644,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
               <MappingFragment StoreEntitySet="v_Sklad_maszyna">
                 <ScalarProperty Name="ID_maszyna" ColumnName="ID_maszyna" />
                 <ScalarProperty Name="ID_czesc" ColumnName="ID_czesc" />
+                <ScalarProperty Name="ID_sklad_maszyna" ColumnName="ID_sklad_maszyna" />
                 <ScalarProperty Name="Nazwa_maszyny" ColumnName="Nazwa maszyny" />
                 <ScalarProperty Name="Nazwa_części" ColumnName="Nazwa części" />
                 <ScalarProperty Name="Liczba_czesci" ColumnName="Liczba czesci" />

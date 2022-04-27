@@ -28,14 +28,7 @@ namespace KWZP2022
 
         private void cmbObsluga_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (cmbObsluga.Text != "Wymiana czesci")
-            {
-                btnDodajWymiana.Visible = false;
-            }
-            else
-            {
-                btnDodajWymiana.Visible = true;
-            }
+            btnDodajWymiana.Visible = cmbObsluga.Text == "Wymiana czesci";
         }
         private void btnDodajWymiana_Click(object sender, EventArgs e)
         {
