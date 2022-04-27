@@ -35,12 +35,13 @@
             this.btnAddnew = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.tbStanowisko = new System.Windows.Forms.TextBox();
             this.tbNazwisko = new System.Windows.Forms.TextBox();
             this.tbImie = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lblNazwisko = new System.Windows.Forms.Label();
             this.lblImie = new System.Windows.Forms.Label();
+            this.cbPosition = new System.Windows.Forms.ComboBox();
+            this.cbPositionSelected = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorker)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,15 +128,6 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // tbStanowisko
-            // 
-            this.tbStanowisko.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.tbStanowisko.Location = new System.Drawing.Point(235, 205);
-            this.tbStanowisko.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbStanowisko.Name = "tbStanowisko";
-            this.tbStanowisko.Size = new System.Drawing.Size(201, 26);
-            this.tbStanowisko.TabIndex = 43;
-            // 
             // tbNazwisko
             // 
             this.tbNazwisko.Font = new System.Drawing.Font("Arial Narrow", 12F);
@@ -157,6 +149,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.label4.Location = new System.Drawing.Point(88, 209);
             this.label4.Name = "label4";
@@ -167,6 +160,7 @@
             // lblNazwisko
             // 
             this.lblNazwisko.AutoSize = true;
+            this.lblNazwisko.BackColor = System.Drawing.Color.Transparent;
             this.lblNazwisko.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.lblNazwisko.Location = new System.Drawing.Point(88, 149);
             this.lblNazwisko.Name = "lblNazwisko";
@@ -177,6 +171,7 @@
             // lblImie
             // 
             this.lblImie.AutoSize = true;
+            this.lblImie.BackColor = System.Drawing.Color.Transparent;
             this.lblImie.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.lblImie.Location = new System.Drawing.Point(88, 100);
             this.lblImie.Name = "lblImie";
@@ -184,12 +179,31 @@
             this.lblImie.TabIndex = 36;
             this.lblImie.Text = "Imię:";
             // 
+            // cbPosition
+            // 
+            this.cbPosition.FormattingEnabled = true;
+            this.cbPosition.Location = new System.Drawing.Point(235, 205);
+            this.cbPosition.Name = "cbPosition";
+            this.cbPosition.Size = new System.Drawing.Size(201, 24);
+            this.cbPosition.TabIndex = 51;
+            // 
+            // cbPositionSelected
+            // 
+            this.cbPositionSelected.AutoSize = true;
+            this.cbPositionSelected.Location = new System.Drawing.Point(458, 209);
+            this.cbPositionSelected.Name = "cbPositionSelected";
+            this.cbPositionSelected.Size = new System.Drawing.Size(15, 14);
+            this.cbPositionSelected.TabIndex = 52;
+            this.cbPositionSelected.UseVisualStyleBackColor = true;
+            // 
             // FormHRDepartment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background;
             this.ClientSize = new System.Drawing.Size(1685, 875);
+            this.Controls.Add(this.cbPositionSelected);
+            this.Controls.Add(this.cbPosition);
             this.Controls.Add(this.btnNieobecnosci);
             this.Controls.Add(this.dgvWorker);
             this.Controls.Add(this.btnContract);
@@ -197,13 +211,12 @@
             this.Controls.Add(this.btnAddnew);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.tbStanowisko);
             this.Controls.Add(this.tbNazwisko);
             this.Controls.Add(this.tbImie);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblNazwisko);
             this.Controls.Add(this.lblImie);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormHRDepartment";
             this.Text = "FormHRDepartment";
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorker)).EndInit();
@@ -221,11 +234,12 @@
         private System.Windows.Forms.Button btnAddnew;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TextBox tbStanowisko;
         private System.Windows.Forms.TextBox tbNazwisko;
         private System.Windows.Forms.TextBox tbImie;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblNazwisko;
         private System.Windows.Forms.Label lblImie;
+        private System.Windows.Forms.ComboBox cbPosition;
+        private System.Windows.Forms.CheckBox cbPositionSelected;
     }
 }

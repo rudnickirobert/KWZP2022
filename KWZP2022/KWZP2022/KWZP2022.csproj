@@ -110,6 +110,18 @@
     <Compile Include="FormCzasPracyProdukcja.Designer.cs">
       <DependentUpon>FormCzasPracyProdukcja.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDepartmentsAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDepartmentsAdd.Designer.cs">
+      <DependentUpon>FormDepartmentsAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHR.Designer.cs">
+      <DependentUpon>FormHR.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDodajAlert.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +170,12 @@
     <Compile Include="FormHRDepartmentWorkerModify.Designer.cs">
       <DependentUpon>FormHRDepartmentWorkerModify.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormHREtat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHREtat.Designer.cs">
+      <DependentUpon>FormHREtat.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormKosztProdukcja.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +187,12 @@
     </Compile>
     <Compile Include="FormResDepHistoriaZamowienMaterial.Designer.cs">
       <DependentUpon>FormResDepHistoriaZamowienMaterial.cs</DependentUpon>
+     </Compile> 
+    <Compile Include="FormPosistionsAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPosistionsAdd.Designer.cs">
+      <DependentUpon>FormPosistionsAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSalesDepartmentSalesStatistics.cs">
       <SubType>Form</SubType>
@@ -1261,6 +1285,12 @@
       <DependentUpon>FormCzasPracyProdukcja.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDepartmentsAdd.resx">
+      <DependentUpon>FormDepartmentsAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHR.resx">
+      <DependentUpon>FormHR.cs</DependentUpon>
+</EmbeddedResource>
     <EmbeddedResource Include="FormDodajAlert.resx">
       <DependentUpon>FormDodajAlert.cs</DependentUpon>
     </EmbeddedResource>
@@ -1285,11 +1315,17 @@
     <EmbeddedResource Include="FormHRDepartmentWorkerModify.resx">
       <DependentUpon>FormHRDepartmentWorkerModify.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormHREtat.resx">
+      <DependentUpon>FormHREtat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormKosztProdukcja.resx">
       <DependentUpon>FormKosztProdukcja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepHistoriaZamowienMaterial.resx">
       <DependentUpon>FormResDepHistoriaZamowienMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPosistionsAdd.resx">
+      <DependentUpon>FormPosistionsAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSalesDepartmentSalesStatistics.resx">
       <DependentUpon>FormSalesDepartmentSalesStatistics.cs</DependentUpon>
