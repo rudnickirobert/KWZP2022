@@ -56,13 +56,13 @@ namespace KWZP2022
             int dane = int.Parse(dgvpracownik.CurrentRow.Cells[0].Value.ToString());
 
             Pracownik pracownik = this.db.Pracownik.Single(a => a.ID_pracownik == dane);
-            tbPracownikNazwisko.Text = selectedWorkerForModify.Nazwisko;
-            tbPracownikImie.Text = selectedWorkerForModify.Imie;
-            tbNrdowodu.Text = selectedWorkerForModify.Nr_dowodu;
-            tbPesel.Text = selectedWorkerForModify.Pesel.ToString();
+            tbPracownikNazwisko.Text = pracownik.Nazwisko;
+            tbPracownikImie.Text = pracownik.Imie;
+            tbNrdowodu.Text = pracownik.Nr_dowodu;
+            tbPesel.Text = pracownik.Pesel.ToString();
             int selectedWyksztalcenie = int.Parse(cbWyksztalcenie.SelectedValue.ToString());
-            selectedWorkerForModify.ID_wyksztalcenie = selectedWyksztalcenie;
-            Dane_adresowe_pracownik daneAdresowePracownik = this.db.Dane_adresowe_pracownik.Single(b => b.ID_pracownik == selectedWorkerForModify.ID_pracownik);
+            pracownik.ID_wyksztalcenie = selectedWyksztalcenie;
+            Dane_adresowe_pracownik daneAdresowePracownik = this.db.Dane_adresowe_pracownik.Single(b => b.ID_pracownik == pracownik.ID_pracownik);
             tbMiejscowosc.Text = daneAdresowePracownik.Miejscowosc;
             tbUlica.Text = daneAdresowePracownik.Ulica;
             tbBudynek.Text = daneAdresowePracownik.Nr_budynku;
@@ -79,7 +79,7 @@ namespace KWZP2022
                 cbDataDo.Checked = false;
                 dpracownikdo.Value = DateTime.Now;
             }
-            Nr_telefon_pracownik nrTelefonPracownik = this.db.Nr_telefon_pracownik.Single(c => c.ID_pracownik == selectedWorkerForModify.ID_pracownik);
+            Nr_telefon_pracownik nrTelefonPracownik = this.db.Nr_telefon_pracownik.Single(c => c.ID_pracownik == pracownik.ID_pracownik);
 
             tbNumer.Text = nrTelefonPracownik.Numer;
             dnrod.Value = nrTelefonPracownik.Data_od;
@@ -93,7 +93,7 @@ namespace KWZP2022
                 cbDataDoNrTelefonu.Checked = false;
                 dnrod.Value = DateTime.Now;
             }
-            Email_pracownik emailPracownik = this.db.Email_pracownik.Single(d => d.ID_pracownik == selectedWorkerForModify.ID_pracownik);
+            Email_pracownik emailPracownik = this.db.Email_pracownik.Single(d => d.ID_pracownik == pracownik.ID_pracownik);
             tbEmail.Text = emailPracownik.Email;
             demailod.Value = emailPracownik.Data_od;
             if (emailPracownik.Data_do != null)
