@@ -79,7 +79,7 @@ namespace KWZP2022
                 szZamowienieCzesc.ID_czesc = (int)cmbCzesc.SelectedValue;
                 szZamowienieCzesc.ID_producent = (int)cmbProducent.SelectedValue;
                 szZamowienieCzesc.Ilosc = (int)numIlosc.Value;
-            szZamowienieCzesc.Cena = Convert.ToDecimal(txtCena.Text);
+                szZamowienieCzesc.Cena = Convert.ToDecimal(txtCena.Text);
                 db.Szczegoly_zamowienie_czesc.Add(szZamowienieCzesc);
                 db.SaveChanges();
                 Stan_realizacji_zamowienie_czesc stRealizacjaCzesc = new Stan_realizacji_zamowienie_czesc();
