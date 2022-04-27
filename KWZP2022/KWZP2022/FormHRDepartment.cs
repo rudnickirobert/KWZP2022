@@ -135,7 +135,7 @@ namespace KWZP2022
 
         private void btnChangedata_Click(object sender, EventArgs e)
         {
-            FormHRDepartmentWorkerModify formHRDepartmentWorkerModify = new FormHRDepartmentWorkerModify(db);
+            FormHRDepartmentWorkerModify2 formHRDepartmentWorkerModify = new FormHRDepartmentWorkerModify2(db);
             formHRDepartmentWorkerModify.ShowDialog();
         }
 

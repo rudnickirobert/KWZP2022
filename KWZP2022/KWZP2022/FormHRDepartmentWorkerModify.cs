@@ -10,16 +10,17 @@ using System.Windows.Forms;
 
 namespace KWZP2022
 {
-    public partial class FormHRDepartmentWorkerModify : Form
+    public partial class FormHRDepartmentWorkerModify2 : Form
     {
         KWZPEntities db;
-        public FormHRDepartmentWorkerModify(KWZPEntities db)
+        public FormHRDepartmentWorkerModify2(KWZPEntities db)
         {
             InitializeComponent();
             this.db = db;
             comboBox();
             showData();
         }
+
         private void showData()
         {
             this.dgvpracownik.DataSource = this.db.v_Pracownik.ToList();
@@ -55,13 +56,13 @@ namespace KWZP2022
             int dane = int.Parse(dgvpracownik.CurrentRow.Cells[0].Value.ToString());
 
             Pracownik pracownik = this.db.Pracownik.Single(a => a.ID_pracownik == dane);
-            tbPracownikNazwisko.Text = pracownik.Nazwisko;
-            tbPracownikImie.Text = pracownik.Imie;
-            tbNrdowodu.Text = pracownik.Nr_dowodu;
-            tbPesel.Text = pracownik.Pesel.ToString();
+            tbPracownikNazwisko.Text = selectedWorkerForModify.Nazwisko;
+            tbPracownikImie.Text = selectedWorkerForModify.Imie;
+            tbNrdowodu.Text = selectedWorkerForModify.Nr_dowodu;
+            tbPesel.Text = selectedWorkerForModify.Pesel.ToString();
             int selectedWyksztalcenie = int.Parse(cbWyksztalcenie.SelectedValue.ToString());
-            pracownik.ID_wyksztalcenie = selectedWyksztalcenie;
-            Dane_adresowe_pracownik daneAdresowePracownik = this.db.Dane_adresowe_pracownik.Single(b => b.ID_pracownik == dane);
+            selectedWorkerForModify.ID_wyksztalcenie = selectedWyksztalcenie;
+            Dane_adresowe_pracownik daneAdresowePracownik = this.db.Dane_adresowe_pracownik.Single(b => b.ID_pracownik == selectedWorkerForModify.ID_pracownik);
             tbMiejscowosc.Text = daneAdresowePracownik.Miejscowosc;
             tbUlica.Text = daneAdresowePracownik.Ulica;
             tbBudynek.Text = daneAdresowePracownik.Nr_budynku;
@@ -78,7 +79,7 @@ namespace KWZP2022
                 cbDataDo.Checked = false;
                 dpracownikdo.Value = DateTime.Now;
             }
-            Nr_telefon_pracownik nrTelefonPracownik = this.db.Nr_telefon_pracownik.Single(c => c.ID_pracownik == dane);
+            Nr_telefon_pracownik nrTelefonPracownik = this.db.Nr_telefon_pracownik.Single(c => c.ID_pracownik == selectedWorkerForModify.ID_pracownik);
 
             tbNumer.Text = nrTelefonPracownik.Numer;
             dnrod.Value = nrTelefonPracownik.Data_od;
@@ -92,7 +93,7 @@ namespace KWZP2022
                 cbDataDoNrTelefonu.Checked = false;
                 dnrod.Value = DateTime.Now;
             }
-            Email_pracownik emailPracownik = this.db.Email_pracownik.Single(d => d.ID_pracownik == dane);
+            Email_pracownik emailPracownik = this.db.Email_pracownik.Single(d => d.ID_pracownik == selectedWorkerForModify.ID_pracownik);
             tbEmail.Text = emailPracownik.Email;
             demailod.Value = emailPracownik.Data_od;
             if (emailPracownik.Data_do != null)
@@ -111,64 +112,58 @@ namespace KWZP2022
         {
             if (this.dgvpracownik.CurrentRow.Cells[0].Value != null)
             {
-                Pracownik pracownik = new Pracownik();
-                pracownik.Nazwisko = tbPracownikNazwisko.Text;
-                pracownik.Imie = tbPracownikImie.Text;
-                pracownik.Nr_dowodu = tbNrdowodu.Text;
-                pracownik.Pesel = int.Parse(tbPesel.Text);
+                int dane = int.Parse(dgvpracownik.CurrentRow.Cells[0].Value.ToString());
+                Pracownik pracownik = (Pracownik)db.Pracownik.Where(a => a.ID_pracownik == dane).First();
+                tbPracownikNazwisko.Text = pracownik.Nazwisko;
+                tbPracownikImie.Text = pracownik.Imie;
+                tbNrdowodu.Text = pracownik.Nr_dowodu;
+                tbPesel.Text = pracownik.Pesel.ToString();
                 int selectedWyksztalcenie = int.Parse(cbWyksztalcenie.SelectedValue.ToString());
-                pracownik.ID_wyksztalcenie = selectedWyksztalcenie;
-                db.Pracownik.Add(pracownik);
-                db.SaveChanges();
-                Dane_adresowe_pracownik daneAdresowePracownik = new Dane_adresowe_pracownik();
-                daneAdresowePracownik.ID_pracownik = pracownik.ID_pracownik;
-                daneAdresowePracownik.Miejscowosc = tbMiejscowosc.Text;
-                daneAdresowePracownik.Ulica = tbUlica.Text;
-                daneAdresowePracownik.Nr_budynku = tbBudynek.Text;
-                daneAdresowePracownik.Nr_lokalu = tblokal.Text;
-                daneAdresowePracownik.Kod_pocztowy = tbKod.Text;
-                daneAdresowePracownik.Data_od = dpracownikod.Value;
+                selectedWyksztalcenie = pracownik.ID_wyksztalcenie;
+                Dane_adresowe_pracownik daneAdresowePracownik = (Dane_adresowe_pracownik)db.Dane_adresowe_pracownik.Single(a => a.ID_pracownik == pracownik.ID_pracownik);
+                pracownik.ID_pracownik = daneAdresowePracownik.ID_pracownik;
+                tbMiejscowosc.Text = daneAdresowePracownik.Miejscowosc;
+                tbUlica.Text = daneAdresowePracownik.Ulica;
+                tbBudynek.Text = daneAdresowePracownik.Nr_budynku;
+                tblokal.Text = daneAdresowePracownik.Nr_lokalu;
+                tbKod.Text = daneAdresowePracownik.Kod_pocztowy;
+                dpracownikod.Value = daneAdresowePracownik.Data_od;
                 if (cbDataDo.Checked)
                 {
-                    daneAdresowePracownik.Data_do = dpracownikdo.Value;
+                    dpracownikdo.Value = (DateTime)daneAdresowePracownik.Data_do;
                 }
                 else
                 {
                     daneAdresowePracownik.Data_do = null;
                 }
-                db.Dane_adresowe_pracownik.Add(daneAdresowePracownik);
-                db.SaveChanges();
-                Nr_telefon_pracownik nrTelefonPracownik = new Nr_telefon_pracownik();
-                nrTelefonPracownik.ID_pracownik = pracownik.ID_pracownik;
-                nrTelefonPracownik.Numer = tbNumer.Text;
-                nrTelefonPracownik.Data_od = dnrod.Value;
+                Nr_telefon_pracownik nrTelefonPracownik = (Nr_telefon_pracownik)db.Nr_telefon_pracownik.Single(a => a.ID_pracownik == pracownik.ID_pracownik);
+                pracownik.ID_pracownik = nrTelefonPracownik.ID_pracownik;
+                tbNumer.Text = nrTelefonPracownik.Numer;
+                dnrod.Value = nrTelefonPracownik.Data_od;
                 if (cbDataDoNrTelefonu.Checked)
                 {
-                    nrTelefonPracownik.Data_do = dnrdo.Value;
+                    dnrdo.Value = (DateTime)nrTelefonPracownik.Data_do;
                 }
                 else
                 {
                     nrTelefonPracownik.Data_do = null;
                 }
-                db.Nr_telefon_pracownik.Add(nrTelefonPracownik);
-                db.SaveChanges();
-                Email_pracownik emailPracownik = new Email_pracownik();
-                emailPracownik.ID_pracownik = pracownik.ID_pracownik;
-                emailPracownik.Email = tbEmail.Text;
-                emailPracownik.Data_od = demailod.Value;
+                Email_pracownik emailPracownik = (Email_pracownik)db.Email_pracownik.Single(a => a.ID_pracownik == pracownik.ID_pracownik);
+                pracownik.ID_pracownik = emailPracownik.ID_pracownik;
+                tbEmail.Text = emailPracownik.Email;
+                demailod.Value = emailPracownik.Data_od;
                 if (cbDataDoEmail.Checked)
                 {
-                    emailPracownik.Data_do = demaildo.Value;
+                    demaildo.Value = (DateTime)emailPracownik.Data_do;
                 }
                 else
                 {
                     emailPracownik.Data_do = null;
                 }
-                db.Email_pracownik.Add(emailPracownik);
                 db.SaveChanges();
                 cleanTextBox();
                 showData();
-                MessageBox.Show("Dodano nowego pracownika!", "Informacja", MessageBoxButtons.OK);
+                MessageBox.Show("Edytowano pracownika!", "Informacja", MessageBoxButtons.OK);
             }
             else
             {
