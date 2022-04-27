@@ -43,6 +43,9 @@
             this.txtProdukt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnOdswiez = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvvParametrProdukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRodzajParametr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdukt)).BeginInit();
@@ -51,26 +54,26 @@
             // dgvvParametrProdukt
             // 
             this.dgvvParametrProdukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvvParametrProdukt.Location = new System.Drawing.Point(449, 291);
+            this.dgvvParametrProdukt.Location = new System.Drawing.Point(449, 346);
             this.dgvvParametrProdukt.MultiSelect = false;
             this.dgvvParametrProdukt.Name = "dgvvParametrProdukt";
-            this.dgvvParametrProdukt.Size = new System.Drawing.Size(798, 404);
+            this.dgvvParametrProdukt.Size = new System.Drawing.Size(798, 359);
             this.dgvvParametrProdukt.TabIndex = 32;
             this.dgvvParametrProdukt.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvvParametrProdukt_CellContentClick);
             // 
             // dgvRodzajParametr
             // 
             this.dgvRodzajParametr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRodzajParametr.Location = new System.Drawing.Point(941, 62);
+            this.dgvRodzajParametr.Location = new System.Drawing.Point(979, 92);
             this.dgvRodzajParametr.Name = "dgvRodzajParametr";
-            this.dgvRodzajParametr.Size = new System.Drawing.Size(231, 223);
+            this.dgvRodzajParametr.Size = new System.Drawing.Size(273, 223);
             this.dgvRodzajParametr.TabIndex = 31;
             this.dgvRodzajParametr.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRodzajParametr_CellContentClick);
             // 
             // dgvProdukt
             // 
             this.dgvProdukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProdukt.Location = new System.Drawing.Point(449, 62);
+            this.dgvProdukt.Location = new System.Drawing.Point(449, 92);
             this.dgvProdukt.Name = "dgvProdukt";
             this.dgvProdukt.Size = new System.Drawing.Size(472, 223);
             this.dgvProdukt.TabIndex = 30;
@@ -201,12 +204,48 @@
             this.btnOdswiez.UseVisualStyleBackColor = true;
             this.btnOdswiez.Click += new System.EventHandler(this.btnOdswiez_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Arial", 16F);
+            this.label5.Location = new System.Drawing.Point(444, 64);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(174, 25);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "Wybierz produkt:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Arial", 16F);
+            this.label6.Location = new System.Drawing.Point(974, 64);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(189, 25);
+            this.label6.TabIndex = 39;
+            this.label6.Text = "Wybierz parametr:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Arial", 16F);
+            this.label7.Location = new System.Drawing.Point(444, 318);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(216, 25);
+            this.label7.TabIndex = 40;
+            this.label7.Text = "Parametry produktów";
+            // 
             // FormParametrProdukt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background;
             this.ClientSize = new System.Drawing.Size(1264, 711);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btnOdswiez);
             this.Controls.Add(this.dgvvParametrProdukt);
             this.Controls.Add(this.dgvRodzajParametr);
@@ -223,7 +262,8 @@
             this.Controls.Add(this.txtProdukt);
             this.Controls.Add(this.label1);
             this.Name = "FormParametrProdukt";
-            this.Text = "ParametrProduktForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Parametry produktów";
             ((System.ComponentModel.ISupportInitialize)(this.dgvvParametrProdukt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRodzajParametr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdukt)).EndInit();
@@ -249,5 +289,8 @@
         private System.Windows.Forms.TextBox txtProdukt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnOdswiez;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

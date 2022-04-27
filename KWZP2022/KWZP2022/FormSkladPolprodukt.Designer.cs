@@ -42,6 +42,9 @@
             this.txtPolprodukt = new System.Windows.Forms.TextBox();
             this.btnDodaj = new System.Windows.Forms.Button();
             this.dgvMaterial = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkladPolprodukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPolprodukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).BeginInit();
@@ -89,7 +92,7 @@
             // dgvSkladPolprodukt
             // 
             this.dgvSkladPolprodukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSkladPolprodukt.Location = new System.Drawing.Point(427, 408);
+            this.dgvSkladPolprodukt.Location = new System.Drawing.Point(439, 420);
             this.dgvSkladPolprodukt.Name = "dgvSkladPolprodukt";
             this.dgvSkladPolprodukt.Size = new System.Drawing.Size(813, 279);
             this.dgvSkladPolprodukt.TabIndex = 28;
@@ -98,7 +101,7 @@
             // dgvPolprodukt
             // 
             this.dgvPolprodukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPolprodukt.Location = new System.Drawing.Point(906, 80);
+            this.dgvPolprodukt.Location = new System.Drawing.Point(439, 69);
             this.dgvPolprodukt.Name = "dgvPolprodukt";
             this.dgvPolprodukt.Size = new System.Drawing.Size(334, 313);
             this.dgvPolprodukt.TabIndex = 27;
@@ -174,18 +177,54 @@
             // dgvMaterial
             // 
             this.dgvMaterial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMaterial.Location = new System.Drawing.Point(427, 80);
+            this.dgvMaterial.Location = new System.Drawing.Point(818, 69);
             this.dgvMaterial.Name = "dgvMaterial";
             this.dgvMaterial.Size = new System.Drawing.Size(434, 313);
             this.dgvMaterial.TabIndex = 20;
             this.dgvMaterial.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaterial_CellContentClick);
             // 
-            // SkladPolproduktForm
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Arial", 16F);
+            this.label4.Location = new System.Drawing.Point(434, 41);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(202, 25);
+            this.label4.TabIndex = 33;
+            this.label4.Text = "Wybierz półprodukt:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Location = new System.Drawing.Point(814, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(172, 24);
+            this.label5.TabIndex = 34;
+            this.label5.Text = "Wybierz materiał:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Arial", 16F);
+            this.label6.Location = new System.Drawing.Point(434, 392);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(197, 25);
+            this.label6.TabIndex = 35;
+            this.label6.Text = "Skład półproduktów";
+            // 
+            // FormSkladPolprodukt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 711);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtIlosc);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtMaterial);
@@ -199,7 +238,8 @@
             this.Controls.Add(this.txtPolprodukt);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.dgvMaterial);
-            this.Name = "SkladPolproduktForm";
+            this.Name = "FormSkladPolprodukt";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Skład Półproduktów";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkladPolprodukt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPolprodukt)).EndInit();
@@ -224,5 +264,8 @@
         private System.Windows.Forms.TextBox txtPolprodukt;
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.DataGridView dgvMaterial;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
