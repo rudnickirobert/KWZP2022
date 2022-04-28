@@ -28,6 +28,7 @@ namespace KWZP2022
         {
             dgvMagazynNarzedzie.DataSource = db.v_Magazyn_narzedzia_nieuzywane.ToList();
             dgvMagazynNarzedzie.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dgvMagazynNarzedzie.Columns[2].Visible = false;
         }
         private void btnOdswiez_Click(object sender, EventArgs e)
         {
