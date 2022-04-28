@@ -233,7 +233,7 @@
             this.lvlZamowienieNarzedzia.Location = new System.Drawing.Point(14, 8);
             this.lvlZamowienieNarzedzia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lvlZamowienieNarzedzia.Name = "lvlZamowienieNarzedzia";
-            this.lvlZamowienieNarzedzia.Size = new System.Drawing.Size(283, 32);
+            this.lvlZamowienieNarzedzia.Size = new System.Drawing.Size(284, 32);
             this.lvlZamowienieNarzedzia.TabIndex = 42;
             this.lvlZamowienieNarzedzia.Text = "Zamówienie narzędzia";
             // 
@@ -309,6 +309,7 @@
             this.Controls.Add(this.dgvZamowienieNarzedzia);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormResDepZamowienieNarzedzia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Zamówienie narzędzia";

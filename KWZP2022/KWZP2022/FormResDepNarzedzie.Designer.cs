@@ -45,7 +45,7 @@
             // 
             this.btnAktualizuj.BackColor = System.Drawing.Color.SkyBlue;
             this.btnAktualizuj.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnAktualizuj.Location = new System.Drawing.Point(48, 276);
+            this.btnAktualizuj.Location = new System.Drawing.Point(48, 219);
             this.btnAktualizuj.Name = "btnAktualizuj";
             this.btnAktualizuj.Size = new System.Drawing.Size(225, 37);
             this.btnAktualizuj.TabIndex = 27;
@@ -57,7 +57,7 @@
             // 
             this.btnUsun.BackColor = System.Drawing.Color.IndianRed;
             this.btnUsun.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnUsun.Location = new System.Drawing.Point(48, 377);
+            this.btnUsun.Location = new System.Drawing.Point(48, 262);
             this.btnUsun.Name = "btnUsun";
             this.btnUsun.Size = new System.Drawing.Size(225, 37);
             this.btnUsun.TabIndex = 26;
@@ -114,7 +114,7 @@
             this.lblNazwaNarzedzie.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblNazwaNarzedzie.Location = new System.Drawing.Point(28, 34);
             this.lblNazwaNarzedzie.Name = "lblNazwaNarzedzie";
-            this.lblNazwaNarzedzie.Size = new System.Drawing.Size(219, 32);
+            this.lblNazwaNarzedzie.Size = new System.Drawing.Size(220, 32);
             this.lblNazwaNarzedzie.TabIndex = 21;
             this.lblNazwaNarzedzie.Text = "Nazwa narzędzia";
             // 
@@ -122,9 +122,9 @@
             // 
             this.btnDodajParametr.BackColor = System.Drawing.Color.Orange;
             this.btnDodajParametr.Font = new System.Drawing.Font("Arial", 16F);
-            this.btnDodajParametr.Location = new System.Drawing.Point(530, 80);
+            this.btnDodajParametr.Location = new System.Drawing.Point(48, 339);
             this.btnDodajParametr.Name = "btnDodajParametr";
-            this.btnDodajParametr.Size = new System.Drawing.Size(242, 42);
+            this.btnDodajParametr.Size = new System.Drawing.Size(225, 37);
             this.btnDodajParametr.TabIndex = 28;
             this.btnDodajParametr.Text = "Przypisz parametry";
             this.btnDodajParametr.UseVisualStyleBackColor = false;
@@ -157,6 +157,7 @@
             this.Controls.Add(this.lblNazwaNarzedzie);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormResDepNarzedzie";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dodaj narzędzie";
