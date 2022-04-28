@@ -185,8 +185,7 @@ CREATE TABLE Slownik_stanowisko
 CREATE TABLE Nr_seryjny
 	(
 	ID_nr_seryjny INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-	Nr_seryjny nvarchar(30) NOT NULL
-
+	Nr_seryjny nvarchar(30) UNIQUE NOT NULL
 );
 
 CREATE TABLE Rodzaj_maszyna	
@@ -211,7 +210,7 @@ CREATE TABLE Maszyna_nr_seryjny
 	ID_maszyna INT FOREIGN KEY 
 		REFERENCES Maszyna(ID_maszyna) NOT NULL,
 	ID_nr_seryjny INT FOREIGN KEY 
-		REFERENCES Nr_seryjny(ID_nr_seryjny)
+		REFERENCES Nr_seryjny(ID_nr_seryjny) NOT NULL
 );
 
 CREATE TABLE Stanowisko_produkcyjne

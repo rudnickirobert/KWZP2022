@@ -19,6 +19,14 @@ namespace KWZP2022
             this.db = db;
             cleanTextBox();
             showData();
+            comboBoxAddValue();
+        }
+
+        private void comboBoxAddValue()
+        {
+            cbPosition.DataSource = this.db.Stanowisko.ToList();
+            cbPosition.ValueMember = "ID_stanowisko";
+            cbPosition.DisplayMember = "Nazwa_stanowiska";
         }
         private void showData()
         {
@@ -29,7 +37,6 @@ namespace KWZP2022
         {
             tbImieU.Clear();
             tbNazwiskoU.Clear();
-            tbStanowiskoU.Clear();
         }
 
         private void msgCleanShowData()
@@ -68,7 +75,7 @@ namespace KWZP2022
         }
         private void enterPosition()
         {
-            List<v_Umowa> workerList = db.v_Umowa.Where(a => a.Nazwa_stanowiska == tbStanowiskoU.Text).ToList();
+            List<v_Umowa> workerList = db.v_Umowa.Where(a => a.Nazwa_stanowiska == cbPosition.Text).ToList();
             if (workerList.Count() > 0)
             {
                 this.dgvWorker.DataSource = workerList;
@@ -90,13 +97,12 @@ namespace KWZP2022
         {
             string choose = "";
             if (tbImieU.Text.Length > 0)
-                choose = "Surname";
-            if (tbNazwiskoU.Text.Length > 0)
                 choose = "Name";
-            if (tbStanowiskoU.Text.Length > 0)
+            if (tbNazwiskoU.Text.Length > 0)
+                choose = "Surname";
+            if (cbPositionFind.Checked)
                 choose = "Position";
-            if (tbDzialU.Text.Length > 0)
-                choose = "Department";
+
             switch (choose)
             {
                 case "Name":

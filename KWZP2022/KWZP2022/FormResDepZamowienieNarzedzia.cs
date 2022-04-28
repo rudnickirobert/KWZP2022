@@ -17,6 +17,12 @@ namespace KWZP2022
         {
             InitializeComponent();
             this.db = db;
+            initComboBoxes();
+            initDataGridView();
+        }
+
+        private void initComboBoxes()
+        {
             cmbPracownik.DataSource = db.v_Pracownik_zasoby.ToList();
             cmbPracownik.DisplayMember = "Pracownik";
             cmbPracownik.ValueMember = "ID_pracownik";
@@ -29,7 +35,6 @@ namespace KWZP2022
             cmbProducent.DataSource = db.Producent.ToList();
             cmbProducent.DisplayMember = "Nazwa_producenta";
             cmbProducent.ValueMember = "ID_producent";
-            initDataGridView();
         }
         private void initDataGridView()
         {
@@ -38,11 +43,12 @@ namespace KWZP2022
             dgvZamowienieNarzedzia.Columns[6].Visible = false;
             dgvZamowienieNarzedzia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
+
         private void txtCena_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar))
             {
-                int dotIndex = txtCena.Text.IndexOf('.');
+                int dotIndex = txtCena.Text.IndexOf(',');
                 if (char.IsDigit(e.KeyChar))
                 {
                     if (dotIndex != -1 &&
@@ -53,7 +59,7 @@ namespace KWZP2022
                     }
                 }
                 else
-                    e.Handled = e.KeyChar != '.' ||
+                    e.Handled = e.KeyChar != ',' ||
                     dotIndex != -1 ||
                     txtCena.Text.Length == 0 ||
                     txtCena.SelectionStart + 2 < txtCena.Text.Length;
@@ -121,6 +127,12 @@ namespace KWZP2022
             db.SaveChanges();
             MessageBox.Show("Zmieniono status zamówienia dla:" + dgvZamowienieNarzedzia.CurrentRow.Cells[1].Value.ToString());
             initDataGridView();
+        }
+
+        private void btnOdswiez_Click(object sender, EventArgs e)
+        {
+            initDataGridView();
+            initComboBoxes();
         }
     }
 }

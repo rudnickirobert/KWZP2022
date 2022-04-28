@@ -255,7 +255,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormResDepServicesExchanged";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FormResDepServicesExchanged";
+            this.Text = "Przypisywanie wymienianych części";
             ((System.ComponentModel.ISupportInitialize)(this.dgvObslugiWymiana)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCzesci)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaszyny)).EndInit();

@@ -49,6 +49,7 @@
             this.btnDodajZamowienie = new System.Windows.Forms.Button();
             this.btnAktualizujStatus = new System.Windows.Forms.Button();
             this.lblPodpisWidoku = new System.Windows.Forms.Label();
+            this.btnOdswiez = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienieCzesci)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numIlosc)).BeginInit();
             this.SuspendLayout();
@@ -269,11 +270,23 @@
             this.lblPodpisWidoku.TabIndex = 61;
             this.lblPodpisWidoku.Text = "Zamówienia części";
             // 
+            // btnOdswiez
+            // 
+            this.btnOdswiez.Font = new System.Drawing.Font("Arial", 15.75F);
+            this.btnOdswiez.Location = new System.Drawing.Point(578, 57);
+            this.btnOdswiez.Name = "btnOdswiez";
+            this.btnOdswiez.Size = new System.Drawing.Size(134, 39);
+            this.btnOdswiez.TabIndex = 62;
+            this.btnOdswiez.Text = "Odśwież";
+            this.btnOdswiez.UseVisualStyleBackColor = true;
+            this.btnOdswiez.Click += new System.EventHandler(this.btnOdswiez_Click);
+            // 
             // FormResDepZamowienieCzesci
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(798, 499);
+            this.Controls.Add(this.btnOdswiez);
             this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnAktualizujStatus);
             this.Controls.Add(this.btnDodajZamowienie);
@@ -328,5 +341,6 @@
         private System.Windows.Forms.Button btnDodajZamowienie;
         private System.Windows.Forms.Button btnAktualizujStatus;
         private System.Windows.Forms.Label lblPodpisWidoku;
+        private System.Windows.Forms.Button btnOdswiez;
     }
 }

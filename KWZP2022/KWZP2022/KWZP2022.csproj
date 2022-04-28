@@ -98,6 +98,12 @@
     <Compile Include="Forma_platnosc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FormKontrolaJakosciGauss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormKontrolaJakosciGauss.Designer.cs">
+      <DependentUpon>FormKontrolaJakosciGauss.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormResDepAlerty.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +188,12 @@
     <Compile Include="FormKosztProdukcja.Designer.cs">
       <DependentUpon>FormKosztProdukcja.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormResDepHistoriaZamowienMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepHistoriaZamowienMaterial.Designer.cs">
+      <DependentUpon>FormResDepHistoriaZamowienMaterial.cs</DependentUpon>
+     </Compile> 
     <Compile Include="FormPosistionsAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -331,12 +343,6 @@
     </Compile>
     <Compile Include="FormResDepServicesExchanged.Designer.cs">
       <DependentUpon>FormResDepServicesExchanged.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormResDepServicesReplacement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormResDepServicesReplacement.Designer.cs">
-      <DependentUpon>FormResDepServicesReplacement.cs</DependentUpon>
     </Compile>
     <Compile Include="FormResDepServicesWorkers.cs">
       <SubType>Form</SubType>
@@ -831,6 +837,9 @@
     <Compile Include="v_Etat.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Ilosc_kontrola_pozytywna.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Klient.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -853,6 +862,9 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Kontrola_pozytywna.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kontrola_wszystkie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Koszt.cs">
@@ -1293,6 +1305,9 @@
     <Compile Include="Zwrot.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormKontrolaJakosciGauss.resx">
+      <DependentUpon>FormKontrolaJakosciGauss.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormResDepAlerty.resx">
       <DependentUpon>FormResDepAlerty.cs</DependentUpon>
     </EmbeddedResource>
@@ -1335,6 +1350,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormKosztProdukcja.resx">
       <DependentUpon>FormKosztProdukcja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepHistoriaZamowienMaterial.resx">
+      <DependentUpon>FormResDepHistoriaZamowienMaterial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPosistionsAdd.resx">
       <DependentUpon>FormPosistionsAdd.cs</DependentUpon>
@@ -1410,9 +1428,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepServicesExchanged.resx">
       <DependentUpon>FormResDepServicesExchanged.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormResDepServicesReplacement.resx">
-      <DependentUpon>FormResDepServicesReplacement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepServicesWorkers.resx">
       <DependentUpon>FormResDepServicesWorkers.cs</DependentUpon>

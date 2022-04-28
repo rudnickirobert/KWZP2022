@@ -114,7 +114,7 @@
             // dgvProdukt
             // 
             this.dgvProdukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProdukt.Location = new System.Drawing.Point(906, 80);
+            this.dgvProdukt.Location = new System.Drawing.Point(427, 80);
             this.dgvProdukt.Name = "dgvProdukt";
             this.dgvProdukt.RowHeadersWidth = 51;
             this.dgvProdukt.Size = new System.Drawing.Size(334, 313);
@@ -191,7 +191,7 @@
             // dgvPolprodukt
             // 
             this.dgvPolprodukt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPolprodukt.Location = new System.Drawing.Point(427, 80);
+            this.dgvPolprodukt.Location = new System.Drawing.Point(818, 80);
             this.dgvPolprodukt.Name = "dgvPolprodukt";
             this.dgvPolprodukt.RowHeadersWidth = 51;
             this.dgvPolprodukt.Size = new System.Drawing.Size(434, 313);
@@ -203,7 +203,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Arial", 16F);
-            this.label4.Location = new System.Drawing.Point(901, 52);
+            this.label4.Location = new System.Drawing.Point(813, 52);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(202, 25);
             this.label4.TabIndex = 36;
