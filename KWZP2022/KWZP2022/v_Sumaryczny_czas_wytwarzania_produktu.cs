@@ -12,10 +12,10 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Magazyn_maszyn_nieuzywane
+    public partial class v_Sumaryczny_czas_wytwarzania_produktu
     {
-        public string Nazwa_maszyny { get; set; }
-        public Nullable<int> Ilość_w_magazynie { get; set; }
-        public int ID_maszyna { get; set; }
+        public int ID_produkt { get; set; }
+        public string Produkt { get; set; }
+        public Nullable<int> Czas { get; set; }
     }
 }

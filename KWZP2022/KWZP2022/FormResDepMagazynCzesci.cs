@@ -33,5 +33,13 @@ namespace KWZP2022
         {
             dgvMagazynCzesc.Refresh();
         }
+
+        private void dgvMagazynCzesc_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int wybranaCzesc = int.Parse(this.dgvMagazynCzesc.CurrentRow.Cells[2].Value.ToString());
+            Czesc wybranaCzescDGV = this.db.Czesc.Single(a => a.ID_czesc == wybranaCzesc);
+            FormResDepHistoriaZamowienCzesci formResDepHisZamCzesc = new FormResDepHistoriaZamowienCzesci(db, wybranaCzescDGV);
+            formResDepHisZamCzesc.ShowDialog();
+        }
     }
 }
