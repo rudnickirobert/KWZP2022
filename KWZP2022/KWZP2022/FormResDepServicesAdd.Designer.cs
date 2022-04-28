@@ -34,9 +34,6 @@
             this.lblStanowisko = new System.Windows.Forms.Label();
             this.lblObsluga = new System.Windows.Forms.Label();
             this.lblNowaObsluga = new System.Windows.Forms.Label();
-            this.dtpDataOd = new System.Windows.Forms.DateTimePicker();
-            this.lblData = new System.Windows.Forms.Label();
-            this.btnDodajWymiana = new System.Windows.Forms.Button();
             this.btnDodajObsluge = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -57,7 +54,6 @@
             this.cmbObsluga.Name = "cmbObsluga";
             this.cmbObsluga.Size = new System.Drawing.Size(364, 32);
             this.cmbObsluga.TabIndex = 66;
-            this.cmbObsluga.SelectedValueChanged += new System.EventHandler(this.cmbObsluga_SelectedValueChanged);
             // 
             // lblStanowisko
             // 
@@ -89,48 +85,15 @@
             this.lblNowaObsluga.Location = new System.Drawing.Point(14, 8);
             this.lblNowaObsluga.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNowaObsluga.Name = "lblNowaObsluga";
-            this.lblNowaObsluga.Size = new System.Drawing.Size(271, 32);
+            this.lblNowaObsluga.Size = new System.Drawing.Size(270, 32);
             this.lblNowaObsluga.TabIndex = 60;
             this.lblNowaObsluga.Text = "Dodawanie Obsługi";
-            // 
-            // dtpDataOd
-            // 
-            this.dtpDataOd.CalendarFont = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dtpDataOd.CustomFormat = "yyyy-MM-dd";
-            this.dtpDataOd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDataOd.Location = new System.Drawing.Point(198, 143);
-            this.dtpDataOd.Name = "dtpDataOd";
-            this.dtpDataOd.Size = new System.Drawing.Size(310, 29);
-            this.dtpDataOd.TabIndex = 77;
-            // 
-            // lblData
-            // 
-            this.lblData.AutoSize = true;
-            this.lblData.BackColor = System.Drawing.Color.Transparent;
-            this.lblData.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblData.Location = new System.Drawing.Point(20, 143);
-            this.lblData.Name = "lblData";
-            this.lblData.Size = new System.Drawing.Size(172, 24);
-            this.lblData.TabIndex = 78;
-            this.lblData.Text = "Data rozpoczęcia";
-            // 
-            // btnDodajWymiana
-            // 
-            this.btnDodajWymiana.BackColor = System.Drawing.Color.Lime;
-            this.btnDodajWymiana.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDodajWymiana.Location = new System.Drawing.Point(560, 64);
-            this.btnDodajWymiana.Name = "btnDodajWymiana";
-            this.btnDodajWymiana.Size = new System.Drawing.Size(216, 62);
-            this.btnDodajWymiana.TabIndex = 79;
-            this.btnDodajWymiana.Text = "Dodaj Wymieniane Części";
-            this.btnDodajWymiana.UseVisualStyleBackColor = false;
-            this.btnDodajWymiana.Click += new System.EventHandler(this.btnDodajWymiana_Click);
             // 
             // btnDodajObsluge
             // 
             this.btnDodajObsluge.BackColor = System.Drawing.Color.Lime;
             this.btnDodajObsluge.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDodajObsluge.Location = new System.Drawing.Point(560, 129);
+            this.btnDodajObsluge.Location = new System.Drawing.Point(24, 146);
             this.btnDodajObsluge.Name = "btnDodajObsluge";
             this.btnDodajObsluge.Size = new System.Drawing.Size(216, 43);
             this.btnDodajObsluge.TabIndex = 80;
@@ -144,9 +107,6 @@
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
             this.ClientSize = new System.Drawing.Size(800, 201);
             this.Controls.Add(this.btnDodajObsluge);
-            this.Controls.Add(this.btnDodajWymiana);
-            this.Controls.Add(this.lblData);
-            this.Controls.Add(this.dtpDataOd);
             this.Controls.Add(this.cmbStanowisko);
             this.Controls.Add(this.cmbObsluga);
             this.Controls.Add(this.lblStanowisko);
@@ -169,9 +129,6 @@
         private System.Windows.Forms.Label lblStanowisko;
         private System.Windows.Forms.Label lblObsluga;
         private System.Windows.Forms.Label lblNowaObsluga;
-        private System.Windows.Forms.DateTimePicker dtpDataOd;
-        private System.Windows.Forms.Label lblData;
-        private System.Windows.Forms.Button btnDodajWymiana;
         private System.Windows.Forms.Button btnDodajObsluge;
     }
 }

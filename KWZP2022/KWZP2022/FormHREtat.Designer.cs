@@ -69,7 +69,7 @@
             this.Controls.Add(this.btnDepartments);
             this.Controls.Add(this.btnPositions);
             this.Name = "FormHREtat";
-            this.Text = "FormHREtat";
+            this.Text = "Etaty";
             this.ResumeLayout(false);
 
         }

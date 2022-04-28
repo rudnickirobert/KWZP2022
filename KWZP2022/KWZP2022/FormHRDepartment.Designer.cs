@@ -218,7 +218,7 @@
             this.Controls.Add(this.lblImie);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormHRDepartment";
-            this.Text = "FormHRDepartment";
+            this.Text = "Pracownicy i umowy";
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorker)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

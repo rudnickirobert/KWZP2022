@@ -34,6 +34,7 @@
             this.dgvMagazynCzesc = new System.Windows.Forms.DataGridView();
             this.btnOdswiez = new System.Windows.Forms.Button();
             this.lblPodpisWidoku = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMagazynCzesc)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,6 +68,7 @@
             this.dgvMagazynCzesc.Name = "dgvMagazynCzesc";
             this.dgvMagazynCzesc.Size = new System.Drawing.Size(731, 250);
             this.dgvMagazynCzesc.TabIndex = 41;
+            this.dgvMagazynCzesc.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMagazynCzesc_CellDoubleClick);
             // 
             // btnOdswiez
             // 
@@ -91,11 +93,23 @@
             this.lblPodpisWidoku.TabIndex = 45;
             this.lblPodpisWidoku.Text = "Magazyn części";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(213, 459);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(383, 16);
+            this.label2.TabIndex = 57;
+            this.label2.Text = "Kliknij dwukrotnie na część, aby zobaczyć jej historię zamówień.";
+            // 
             // FormResDepMagazynCzesci
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(799, 497);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnOdswiez);
             this.Controls.Add(this.lblNazwa);
@@ -120,5 +134,6 @@
         private System.Windows.Forms.DataGridView dgvMagazynCzesc;
         private System.Windows.Forms.Button btnOdswiez;
         private System.Windows.Forms.Label lblPodpisWidoku;
+        private System.Windows.Forms.Label label2;
     }
 }

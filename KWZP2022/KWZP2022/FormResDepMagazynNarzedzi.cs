@@ -33,5 +33,13 @@ namespace KWZP2022
         {
             dgvMagazynNarzedzie.Refresh();
         }
+
+        private void dgvMagazynNarzedzie_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int wybraneNarzedzie = int.Parse(this.dgvMagazynNarzedzie.CurrentRow.Cells[2].Value.ToString());
+            Narzedzie wybraneNarzedzieDGV = this.db.Narzedzie.Single(a => a.ID_narzedzie == wybraneNarzedzie);
+            FormResDepHistoriaZamowienNarzedzia formResDepHisZamNarz = new FormResDepHistoriaZamowienNarzedzia(db, wybraneNarzedzieDGV);
+            formResDepHisZamNarz.ShowDialog();
+        }
     }
 }
