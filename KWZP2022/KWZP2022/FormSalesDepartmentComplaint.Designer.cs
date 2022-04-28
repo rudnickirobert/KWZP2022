@@ -44,6 +44,7 @@ namespace KWZP2022
             this.btnRefresh = new System.Windows.Forms.Button();
             this.cbAcceptComplaintNO = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComplaint)).BeginInit();
             this.SuspendLayout();
             // 
@@ -198,11 +199,23 @@ namespace KWZP2022
             this.label3.TabIndex = 13;
             this.label3.Text = "Czy akceptowano:";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Arial", 10F);
+            this.label4.Location = new System.Drawing.Point(241, 23);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(108, 16);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Data reklamacji:";
+            // 
             // FormSalesDepartmentComplaint
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(794, 491);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbAcceptComplaintNO);
             this.Controls.Add(this.btnRefresh);
@@ -244,5 +257,6 @@ namespace KWZP2022
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.CheckBox cbAcceptComplaintNO;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

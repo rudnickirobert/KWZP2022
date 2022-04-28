@@ -1283,34 +1283,8 @@ CREATE VIEW v_Sprzedaz_statystyki_zarobek_dnia AS
 	GROUP BY S.Data_sprzedaz_koniec
 GO
 
-CREATE VIEW v_Sprzedaz_statystyki_miesiac AS
-SELECT ROW_NUMBER() OVER(ORDER BY MONTH(S.Data_sprzedaz_koniec)) AS ID,CASE
-			WHEN MONTH(S.Data_sprzedaz_koniec) = 1 THEN 'Styczeń'
-			WHEN MONTH(S.Data_sprzedaz_koniec) = 2 THEN 'Luty'
-			WHEN MONTH(S.Data_sprzedaz_koniec) = 3 THEN 'Marzec'
-			WHEN MONTH(S.Data_sprzedaz_koniec) = 4 THEN 'Kwiecień'
-			WHEN MONTH(S.Data_sprzedaz_koniec) = 5 THEN 'Maj'
-			WHEN MONTH(S.Data_sprzedaz_koniec) = 6 THEN 'Czerwiec'
-			WHEN MONTH(S.Data_sprzedaz_koniec) = 7 THEN 'Lipiec'
-			WHEN MONTH(S.Data_sprzedaz_koniec) = 8 THEN 'Sierpień'
-			WHEN MONTH(S.Data_sprzedaz_koniec) = 9 THEN 'Wrzesień'
-			WHEN MONTH(S.Data_sprzedaz_koniec) = 10 THEN 'Październik'
-			WHEN MONTH(S.Data_sprzedaz_koniec) = 11 THEN 'Listopad'
-			WHEN MONTH(S.Data_sprzedaz_koniec) = 12 THEN 'Grudzień'
-		END AS [Miesiąc], SUM(SS.Kwota_sprzedaz*SS.Ilosc) AS [Zarobek z miesiąca]
-FROM Sprzedaz AS S
-INNER JOIN Szczegoly_sprzedaz AS SS ON S.ID_sprzedaz = SS.ID_sprzedaz
-INNER JOIN Umowa_sprzedaz AS US ON S.ID_umowa_sprzedaz = US.ID_umowa_sprzedaz
-INNER JOIN Oferta_handlowa AS OH ON US.ID_oferta_handlowa = OH.ID_oferta_handlowa
-INNER JOIN Zamowienie AS Z ON OH.ID_zamowienie = Z.ID_zamowienie
-INNER JOIN Klient AS K ON Z.ID_klient = K.ID_klient
-INNER JOIN Zamowienie_szczegol AS ZS ON Z.ID_zamowienie = ZS.ID_zamowienie
-INNER JOIN Produkt AS P ON ZS.ID_produkt = P.ID_produkt
-GROUP BY MONTH(S.Data_sprzedaz_koniec)
-GO
-
 CREATE VIEW v_Sprzedaz_miesiac AS
-SELECT LEFT(CONVERT(nvarchar,S.Data_sprzedaz_koniec),7) AS [Miesiąc], SUM(SS.Kwota_sprzedaz*SS.Ilosc) AS [Zarobek z miesiąca]
+SELECT ISNULL(ROW_NUMBER() OVER(ORDER BY LEFT(CONVERT(nvarchar,S.Data_sprzedaz_koniec),7)),-999) AS ID, LEFT(CONVERT(nvarchar,S.Data_sprzedaz_koniec),7) AS [Miesiąc], SUM(SS.Kwota_sprzedaz*SS.Ilosc) AS [Zarobek z miesiąca]
 FROM Sprzedaz AS S
 INNER JOIN Szczegoly_sprzedaz AS SS ON S.ID_sprzedaz = SS.ID_sprzedaz
 INNER JOIN Umowa_sprzedaz AS US ON S.ID_umowa_sprzedaz = US.ID_umowa_sprzedaz
@@ -1322,17 +1296,49 @@ INNER JOIN Produkt AS P ON ZS.ID_produkt = P.ID_produkt
 GROUP BY LEFT(CONVERT(nvarchar,S.Data_sprzedaz_koniec),7)
 GO
 
-CREATE VIEW v_Sprzedaz_miesiac_statystyka AS
-SELECT LEFT(S.Data_sprzedaz_koniec,7) AS [Miesiąc], SUM(SS.Kwota_sprzedaz*SS.Ilosc) AS [Zarobek z miesiąca]
-FROM Sprzedaz AS S
-INNER JOIN Szczegoly_sprzedaz AS SS ON S.ID_sprzedaz = SS.ID_sprzedaz
-INNER JOIN Umowa_sprzedaz AS US ON S.ID_umowa_sprzedaz = US.ID_umowa_sprzedaz
-INNER JOIN Oferta_handlowa AS OH ON US.ID_oferta_handlowa = OH.ID_oferta_handlowa
-INNER JOIN Zamowienie AS Z ON OH.ID_zamowienie = Z.ID_zamowienie
-INNER JOIN Klient AS K ON Z.ID_klient = K.ID_klient
-INNER JOIN Zamowienie_szczegol AS ZS ON Z.ID_zamowienie = ZS.ID_zamowienie
-INNER JOIN Produkt AS P ON ZS.ID_produkt = P.ID_produkt
-GROUP BY LEFT(S.Data_sprzedaz_koniec,7)
+CREATE VIEW v_Srednia_cena_za_material AS
+	SELECT v_Zamowienia_materialy_w_trakcie_wszystko.ID_material, AVG(v_Zamowienia_materialy_w_trakcie_wszystko.Cena/v_Zamowienia_materialy_w_trakcie_wszystko.[Waga (g)]) AS [Średnia cena za (g)]
+	FROM v_Zamowienia_materialy_w_trakcie_wszystko
+	WHERE v_Zamowienia_materialy_w_trakcie_wszystko.StatusID = 4
+	GROUP BY v_Zamowienia_materialy_w_trakcie_wszystko.ID_material
+GO
+
+CREATE VIEW v_Kwota_za_materialy AS
+	SELECT Zamowienie.ID_zamowienie, ROUND((Sum(Sklad_polprodukt.Liczba*v_Srednia_cena_za_material.[Średnia cena za (g)]*Sklad_produkt.Liczba*Zamowienie_szczegol.Ilosc)+SUM(Zamowienie_szczegol.Ilosc*Sklad_produkt_material.Liczba*v_Srednia_cena_za_material.[Średnia cena za (g)])),0) AS [Cena za zamówienie]
+	FROM Zamowienie 
+	INNER JOIN Zamowienie_szczegol ON Zamowienie_szczegol.ID_zamowienie = Zamowienie.ID_zamowienie
+	INNER JOIN Produkt ON Produkt.ID_produkt = Zamowienie_szczegol.ID_produkt
+	INNER JOIN Sklad_produkt_material ON Sklad_produkt_material.ID_produkt = Produkt.ID_produkt
+	INNER JOIN Material ON Material.ID_material = Sklad_produkt_material.ID_material
+	INNER JOIN v_Srednia_cena_za_material ON v_Srednia_cena_za_material.ID_material = Material.Nazwa_material
+	INNER JOIN Sklad_produkt ON Sklad_produkt.ID_produkt = Produkt.ID_produkt
+	INNER JOIN Slownik_polprodukt ON Slownik_polprodukt.ID_polprodukt = Sklad_produkt.ID_polprodukt
+	INNER JOIN Sklad_polprodukt ON Sklad_polprodukt.ID_polprodukt = Slownik_polprodukt.ID_polprodukt
+	GROUP BY Zamowienie.ID_zamowienie
+GO
+
+CREATE VIEW v_Potrzebne_materialy_do_zamowienia AS
+	SELECT Zamowienie_szczegol.ID_zamowienie,
+	Material.ID_material,
+	Material.Nazwa_material,
+	SUM(Sklad_polprodukt.Liczba) AS [Masa]
+	FROM Zamowienie_szczegol
+	INNER JOIN Zamowienie ON Zamowienie_szczegol.ID_zamowienie = Zamowienie.ID_zamowienie
+	INNER JOIN Produkt ON Produkt.ID_produkt = Zamowienie_szczegol.ID_produkt
+	INNER JOIN Material ON Material.ID_material = Produkt.ID_produkt 
+	INNER JOIN Sklad_polprodukt ON Sklad_polprodukt.ID_material = Material.ID_material
+	INNER JOIN Slownik_polprodukt ON Slownik_polprodukt.ID_polprodukt = Sklad_polprodukt.ID_polprodukt
+	GROUP BY Zamowienie_szczegol.ID_zamowienie, Material.Nazwa_material, Material.ID_material
+GO
+
+CREATE VIEW v_Potrzebne_materialy AS
+	SELECT Produkt.ID_produkt, Material.ID_material, SUM(Sklad_polprodukt.Liczba*Sklad_produkt.Liczba) AS [Masa materiału]
+	FROM Produkt
+	INNER JOIN Sklad_produkt ON Sklad_produkt.ID_produkt = Produkt.ID_produkt
+	INNER JOIN Slownik_polprodukt ON Slownik_polprodukt.ID_polprodukt = Sklad_produkt.ID_polprodukt
+	INNER JOIN Sklad_polprodukt ON Sklad_polprodukt.ID_polprodukt = Slownik_polprodukt.ID_polprodukt
+	INNER JOIN Material ON Sklad_polprodukt.ID_material = Material.ID_material
+	GROUP BY Material.ID_material, Produkt.ID_produkt
 GO
 
 	--HR DEPARTMENT --

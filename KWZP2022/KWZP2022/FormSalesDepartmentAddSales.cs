@@ -57,23 +57,30 @@ namespace KWZP2022
 
         private void btnAddNewSale_Click(object sender, EventArgs e)
         {
-            Sprzedaz newSale = new Sprzedaz();
-            newSale.Nr_sprzedaz = int.Parse(textBoxNrSale.Text);
-            newSale.Data_sprzedaz_poczatek = dtpSaleBegin.Value.Date;
-            newSale.Data_sprzedaz_koniec = dtpSaleEnd.Value.Date;
-            newSale.Termin_zaplata = dtpDateOfPayment.Value.Date;
-            newSale.ID_forma_platnosc = int.Parse(comboBoxPaymentMethod.SelectedValue.ToString());
-            if (comboBoxSaleArrangement.SelectedValue != null)
+            try
             {
-                newSale.ID_umowa_sprzedaz = int.Parse(comboBoxSaleArrangement.SelectedValue.ToString());
-                this.db.Sprzedaz.Add(newSale);
-                this.db.SaveChanges();
-                MessageBox.Show("Dodano nową sprzedaż!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                showData();
+                Sprzedaz newSale = new Sprzedaz();
+                newSale.Nr_sprzedaz = int.Parse(textBoxNrSale.Text);
+                newSale.Data_sprzedaz_poczatek = dtpSaleBegin.Value.Date;
+                newSale.Data_sprzedaz_koniec = dtpSaleEnd.Value.Date;
+                newSale.Termin_zaplata = dtpDateOfPayment.Value.Date;
+                newSale.ID_forma_platnosc = int.Parse(comboBoxPaymentMethod.SelectedValue.ToString());
+                if (comboBoxSaleArrangement.SelectedValue != null)
+                {
+                    newSale.ID_umowa_sprzedaz = int.Parse(comboBoxSaleArrangement.SelectedValue.ToString());
+                    this.db.Sprzedaz.Add(newSale);
+                    this.db.SaveChanges();
+                    MessageBox.Show("Dodano nową sprzedaż!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    showData();
+                }
+                else
+                {
+                    MessageBox.Show("Nie podano nr umowy sprzedaży!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("Nie podano nr umowy sprzedaży!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Wystąpił błąd!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void btnSalesDetails_Click(object sender, EventArgs e)

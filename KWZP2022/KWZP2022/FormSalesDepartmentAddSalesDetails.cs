@@ -76,26 +76,33 @@ namespace KWZP2022
         {
             if(textBoxAmount.Text.Length > 0 && textBoxAmount.Text.Length > 0)
             {
-                int selectedNoSale = int.Parse(comboBoxNoSale.SelectedValue.ToString());
-                string selectedProduct = comboBoxProduct.SelectedValue.ToString();
-                Produkt selectedProductFromTableProduct = this.db.Produkt.Single(a => a.Nazwa_produkt == selectedProduct);
-                List<Szczegoly_sprzedaz> selectedRow = this.db.Szczegoly_sprzedaz.Where(a => (a.ID_produkt == selectedProductFromTableProduct.ID_produkt && a.ID_sprzedaz == selectedNoSale)).ToList();
-                if(selectedRow.Count() < 1)
+                try
                 {
-                    Szczegoly_sprzedaz newSaleDetails = new Szczegoly_sprzedaz();
-                    newSaleDetails.ID_sprzedaz = int.Parse(comboBoxNoSale.SelectedValue.ToString());
-                    newSaleDetails.ID_produkt = selectedProductFromTableProduct.ID_produkt;
-                    newSaleDetails.Kwota_sprzedaz = int.Parse(textBoxPrice.Text);
-                    newSaleDetails.ID_podatek = int.Parse(comboBoxTax.SelectedValue.ToString());
-                    newSaleDetails.Ilosc = int.Parse(textBoxAmount.Text);
-                    this.db.Szczegoly_sprzedaz.Add(newSaleDetails);
-                    this.db.SaveChanges();
-                    MessageBox.Show($"Dodano nowy szczegół do sprzedaży: {comboBoxNoSale.SelectedValue}.", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    showData();
+                    int selectedNoSale = int.Parse(comboBoxNoSale.SelectedValue.ToString());
+                    string selectedProduct = comboBoxProduct.SelectedValue.ToString();
+                    Produkt selectedProductFromTableProduct = this.db.Produkt.Single(a => a.Nazwa_produkt == selectedProduct);
+                    List<Szczegoly_sprzedaz> selectedRow = this.db.Szczegoly_sprzedaz.Where(a => (a.ID_produkt == selectedProductFromTableProduct.ID_produkt && a.ID_sprzedaz == selectedNoSale)).ToList();
+                    if (selectedRow.Count() < 1)
+                    {
+                        Szczegoly_sprzedaz newSaleDetails = new Szczegoly_sprzedaz();
+                        newSaleDetails.ID_sprzedaz = int.Parse(comboBoxNoSale.SelectedValue.ToString());
+                        newSaleDetails.ID_produkt = selectedProductFromTableProduct.ID_produkt;
+                        newSaleDetails.Kwota_sprzedaz = int.Parse(textBoxPrice.Text);
+                        newSaleDetails.ID_podatek = int.Parse(comboBoxTax.SelectedValue.ToString());
+                        newSaleDetails.Ilosc = int.Parse(textBoxAmount.Text);
+                        this.db.Szczegoly_sprzedaz.Add(newSaleDetails);
+                        this.db.SaveChanges();
+                        MessageBox.Show($"Dodano nowy szczegół do sprzedaży: {comboBoxNoSale.SelectedValue}.", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        showData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Szczegóły dla danego produktu i nr sprzedaży już istnieją!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
+                catch (Exception)
                 {
-                    MessageBox.Show("Szczegóły dla danego produktu i nr sprzedaży już istnieją!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Wystąpił błąd!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else

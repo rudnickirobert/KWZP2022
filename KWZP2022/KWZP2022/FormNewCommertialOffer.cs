@@ -62,7 +62,7 @@ namespace KWZP2022
                 }
                 else
                 {
-                    comboBoxOfferStatus.DataSource = this.db.Status_oferta.Where(a => a.ID_status_oferta == 3 || a.ID_status_oferta == 1).ToList();
+                    comboBoxOfferStatus.DataSource = this.db.Status_oferta.Where(a => a.ID_status_oferta == 3 || a.ID_status_oferta == 1).OrderByDescending(a => a.ID_status_oferta).ToList();
                     comboBoxOfferStatus.ValueMember = "ID_status_oferta";
                     comboBoxOfferStatus.DisplayMember = "Nazwa_status_oferta";
                 }
@@ -93,7 +93,6 @@ namespace KWZP2022
                     newSaleArrangement.ID_oferta_handlowa = selectedOffer.ID_oferta_handlowa;
                     this.db.Umowa_sprzedaz.Add(newSaleArrangement);
                     this.db.SaveChanges();
-                    MessageBox.Show("Można przejść do sprzedaży!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else

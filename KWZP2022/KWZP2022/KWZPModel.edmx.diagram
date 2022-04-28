@@ -4,7 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2e77cfe956a34339aeb891864490a206" Name="Diagram1">
+
+      <Diagram DiagramId="1ae2cf0ee2c3491eb42e88487d5722ae" Name="Diagram1">
         <EntityTypeShape EntityType="KWZPModel.Alert" Width="1.5" PointX="11.25" PointY="22.5" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.Czas_pracy" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.Czesc" Width="1.5" PointX="20.75" PointY="67.75" IsExpanded="true" />
@@ -168,8 +169,10 @@
         <EntityTypeShape EntityType="KWZPModel.v_Parametry_polprodukt" Width="1.5" PointX="24.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.v_Parametry_produkt" Width="1.5" PointX="4.75" PointY="24.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.v_Polprodukt_material" Width="1.5" PointX="24.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KWZPModel.v_Pracownik" Width="1.5" PointX="24.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KWZPModel.v_Pracownik_dzial" Width="1.5" PointX="22.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KWZPModel.v_Potrzebne_materialy" Width="1.5" PointX="24.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KWZPModel.v_Potrzebne_materialy_do_zamowienia" Width="1.5" PointX="24.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KWZPModel.v_Pracownik" Width="1.5" PointX="26.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KWZPModel.v_Pracownik_dzial" Width="1.5" PointX="26.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.v_Pracownik_obslugi" Width="1.5" PointX="15.75" PointY="22.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.v_Pracownik_produkcja" Width="1.5" PointX="24.75" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.v_Pracownik_zasoby" Width="1.5" PointX="26.75" PointY="0.75" IsExpanded="true" />
