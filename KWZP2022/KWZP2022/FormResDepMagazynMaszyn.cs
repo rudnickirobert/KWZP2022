@@ -33,5 +33,13 @@ namespace KWZP2022
             dgvMagazynMaszyna.DataSource = db.v_Magazyn_maszyn_nieuzywane.ToList();
             dgvMagazynMaszyna.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
+
+        private void dgvMagazynMaszyna_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int wybranaMaszyna = int.Parse(this.dgvMagazynMaszyna.CurrentRow.Cells[2].Value.ToString());
+            Maszyna wybranaMaszynaDGV = this.db.Maszyna.Single(a => a.ID_maszyna == wybranaMaszyna);
+            FormResDepHistoriaZamowienMaszyn formResDepHisZamMasz = new FormResDepHistoriaZamowienMaszyn(db, wybranaMaszynaDGV);
+            formResDepHisZamMasz.ShowDialog();
+        }
     }
 }

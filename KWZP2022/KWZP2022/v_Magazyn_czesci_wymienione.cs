@@ -16,5 +16,6 @@ namespace KWZP2022
     {
         public string Nazwa_części { get; set; }
         public Nullable<int> Wymieniono { get; set; }
+        public int ID_czesc { get; set; }
     }
 }

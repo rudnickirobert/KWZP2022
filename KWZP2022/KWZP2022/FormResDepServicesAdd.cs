@@ -23,28 +23,17 @@ namespace KWZP2022
             cmbStanowisko.DataSource = db.v_Stanowisko_produkcyjne.ToList();
             cmbStanowisko.DisplayMember = "Nazwa_stanowiska";
             cmbStanowisko.ValueMember = "ID";
-            btnDodajWymiana.Visible = true;
         }
-
-        private void cmbObsluga_SelectedValueChanged(object sender, EventArgs e)
-        {
-            btnDodajWymiana.Visible = cmbObsluga.Text == "Wymiana czesci";
-        }
-        private void btnDodajWymiana_Click(object sender, EventArgs e)
-        {
-            FormResDepServicesExchanged wymianaForm = new FormResDepServicesExchanged(db);
-            wymianaForm.ShowDialog();
-        }
-
         private void btnDodajObsluge_Click(object sender, EventArgs e)
         {
             Obsluga nowaObsluga = new Obsluga();
             nowaObsluga.ID_rodzaj_obsluga = (int)cmbObsluga.SelectedValue;
             nowaObsluga.ID_stanowisko_produkcyjne = (int)cmbStanowisko.SelectedValue;
-            nowaObsluga.Data_od = dtpDataOd.Value;
+            nowaObsluga.Data_od = System.DateTime.Now;
             db.Obsluga.Add(nowaObsluga);
             db.SaveChanges();
             MessageBox.Show("Dodano Obsługę!");
+            this.Close();   
         }
     }
 }

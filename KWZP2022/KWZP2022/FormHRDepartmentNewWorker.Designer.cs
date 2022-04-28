@@ -81,6 +81,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Location = new System.Drawing.Point(1055, 90);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(44, 16);
@@ -90,6 +91,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Location = new System.Drawing.Point(823, 94);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(74, 16);
@@ -99,6 +101,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Location = new System.Drawing.Point(437, 89);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(93, 16);
@@ -108,6 +111,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Location = new System.Drawing.Point(437, 288);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(43, 16);
@@ -117,6 +121,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Location = new System.Drawing.Point(437, 218);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(63, 16);
@@ -126,6 +131,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Location = new System.Drawing.Point(437, 153);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(41, 16);
@@ -135,6 +141,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Location = new System.Drawing.Point(437, 34);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(88, 16);
@@ -144,6 +151,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Location = new System.Drawing.Point(89, 297);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 16);
@@ -153,6 +161,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Location = new System.Drawing.Point(89, 222);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 16);
@@ -162,7 +171,8 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(89, 143);
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Location = new System.Drawing.Point(89, 156);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 16);
             this.label3.TabIndex = 141;
@@ -171,6 +181,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(89, 90);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 16);
@@ -180,6 +191,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(89, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 16);
@@ -204,7 +216,7 @@
             this.cbEmailDataDo.Location = new System.Drawing.Point(1236, 289);
             this.cbEmailDataDo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbEmailDataDo.Name = "cbEmailDataDo";
-            this.cbEmailDataDo.Size = new System.Drawing.Size(18, 17);
+            this.cbEmailDataDo.Size = new System.Drawing.Size(15, 14);
             this.cbEmailDataDo.TabIndex = 137;
             this.cbEmailDataDo.UseVisualStyleBackColor = true;
             // 
@@ -214,7 +226,7 @@
             this.cbNrTelefonuDataDo.Location = new System.Drawing.Point(1004, 289);
             this.cbNrTelefonuDataDo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbNrTelefonuDataDo.Name = "cbNrTelefonuDataDo";
-            this.cbNrTelefonuDataDo.Size = new System.Drawing.Size(18, 17);
+            this.cbNrTelefonuDataDo.Size = new System.Drawing.Size(15, 14);
             this.cbNrTelefonuDataDo.TabIndex = 136;
             this.cbNrTelefonuDataDo.UseVisualStyleBackColor = true;
             // 
@@ -224,7 +236,7 @@
             this.cbDataDo.Location = new System.Drawing.Point(377, 446);
             this.cbDataDo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbDataDo.Name = "cbDataDo";
-            this.cbDataDo.Size = new System.Drawing.Size(18, 17);
+            this.cbDataDo.Size = new System.Drawing.Size(15, 14);
             this.cbDataDo.TabIndex = 135;
             this.cbDataDo.UseVisualStyleBackColor = true;
             // 
@@ -349,13 +361,14 @@
             // 
             // btnAddnewworker
             // 
+            this.btnAddnewworker.BackColor = System.Drawing.Color.Red;
             this.btnAddnewworker.Location = new System.Drawing.Point(1048, 450);
             this.btnAddnewworker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddnewworker.Name = "btnAddnewworker";
             this.btnAddnewworker.Size = new System.Drawing.Size(115, 46);
             this.btnAddnewworker.TabIndex = 120;
             this.btnAddnewworker.Text = "Zapisz";
-            this.btnAddnewworker.UseVisualStyleBackColor = true;
+            this.btnAddnewworker.UseVisualStyleBackColor = false;
             this.btnAddnewworker.Click += new System.EventHandler(this.btnAddnewworker_Click);
             // 
             // tbPesel
@@ -432,9 +445,9 @@
             this.Controls.Add(this.tbIdNumber);
             this.Controls.Add(this.tbWorkerName);
             this.Controls.Add(this.tbWorkerSurname);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormHRDepartmentNewWorker";
-            this.Text = "FormHRDepartmentNewWorker";
+            this.Text = "Dodaj praocwnika";
             ((System.ComponentModel.ISupportInitialize)(this.dgvpracownik)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="KWZPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="KWZPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Alert">
           <Key>
             <PropertyRef Name="ID_alert" />
@@ -1299,8 +1299,10 @@ warning 6002: The table/view 'KWZP.dbo.v_Magazyn_maszyn_wszystko' does not have 
 warning 6002: The table/view 'KWZP.dbo.v_Magazyn_material_aktualny' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Magazyn_material_aktualny">
           <Key>
+            <PropertyRef Name="ID_material" />
             <PropertyRef Name="Nazwa materiału" />
           </Key>
+          <Property Name="ID_material" Type="int" Nullable="false" />
           <Property Name="Nazwa materiału" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Stan w magazynie g" Type="int" />
         </EntityType>
@@ -4941,6 +4943,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           </EntitySet>
           <EntitySet Name="v_Magazyn_material_aktualny" EntityType="Self.v_Magazyn_material_aktualny" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [v_Magazyn_material_aktualny].[ID_material] AS [ID_material], 
     [v_Magazyn_material_aktualny].[Nazwa materiału] AS [Nazwa materiału], 
     [v_Magazyn_material_aktualny].[Stan w magazynie g] AS [Stan w magazynie g]
     FROM [dbo].[v_Magazyn_material_aktualny] AS [v_Magazyn_material_aktualny]</DefiningQuery>
@@ -6453,8 +6456,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
             <End Role="Zwrot" EntitySet="Zwrot" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KWZPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -7923,9 +7925,11 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
         <EntityType Name="v_Magazyn_material_aktualny">
           <Key>
             <PropertyRef Name="Nazwa_materiału" />
+            <PropertyRef Name="ID_material" />
           </Key>
           <Property Name="Nazwa_materiału" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Stan_w_magazynie_g" Type="Int32" />
+          <Property Name="ID_material" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="v_Magazyn_material_aktualny_dodanie">
           <Key>
@@ -12910,6 +12914,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySetMapping Name="v_Magazyn_material_aktualny">
             <EntityTypeMapping TypeName="KWZPModel.v_Magazyn_material_aktualny">
               <MappingFragment StoreEntitySet="v_Magazyn_material_aktualny">
+                <ScalarProperty Name="ID_material" ColumnName="ID_material" />
                 <ScalarProperty Name="Nazwa_materiału" ColumnName="Nazwa materiału" />
                 <ScalarProperty Name="Stan_w_magazynie_g" ColumnName="Stan w magazynie g" />
               </MappingFragment>

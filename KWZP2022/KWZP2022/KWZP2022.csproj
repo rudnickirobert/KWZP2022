@@ -182,6 +182,12 @@
     <Compile Include="FormKosztProdukcja.Designer.cs">
       <DependentUpon>FormKosztProdukcja.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormResDepHistoriaZamowienMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepHistoriaZamowienMaterial.Designer.cs">
+      <DependentUpon>FormResDepHistoriaZamowienMaterial.cs</DependentUpon>
+     </Compile> 
     <Compile Include="FormPosistionsAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -331,12 +337,6 @@
     </Compile>
     <Compile Include="FormResDepServicesExchanged.Designer.cs">
       <DependentUpon>FormResDepServicesExchanged.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormResDepServicesReplacement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormResDepServicesReplacement.Designer.cs">
-      <DependentUpon>FormResDepServicesReplacement.cs</DependentUpon>
     </Compile>
     <Compile Include="FormResDepServicesWorkers.cs">
       <SubType>Form</SubType>
@@ -1321,6 +1321,9 @@
     <EmbeddedResource Include="FormKosztProdukcja.resx">
       <DependentUpon>FormKosztProdukcja.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepHistoriaZamowienMaterial.resx">
+      <DependentUpon>FormResDepHistoriaZamowienMaterial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPosistionsAdd.resx">
       <DependentUpon>FormPosistionsAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -1395,9 +1398,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepServicesExchanged.resx">
       <DependentUpon>FormResDepServicesExchanged.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormResDepServicesReplacement.resx">
-      <DependentUpon>FormResDepServicesReplacement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepServicesWorkers.resx">
       <DependentUpon>FormResDepServicesWorkers.cs</DependentUpon>

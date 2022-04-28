@@ -51,7 +51,7 @@ namespace KWZP2022
         {
             if (!char.IsControl(e.KeyChar))  
             {
-                int dotIndex = txtCena.Text.IndexOf('.');
+                int dotIndex = txtCena.Text.IndexOf(',');
                 if (char.IsDigit(e.KeyChar))     
                 {   
                     if (dotIndex != -1 &&  
@@ -62,7 +62,7 @@ namespace KWZP2022
                     }
                 }
                 else 
-                    e.Handled = e.KeyChar != '.' ||
+                    e.Handled = e.KeyChar != ',' ||
                     dotIndex != -1 ||
                     txtCena.Text.Length == 0 ||
                     txtCena.SelectionStart + 2 < txtCena.Text.Length;
@@ -88,7 +88,7 @@ namespace KWZP2022
                     szZamowienieMat.ID_material = (int)cmbMaterial.SelectedValue;
                     szZamowienieMat.ID_producent = (int)cmbProducent.SelectedValue;
                     szZamowienieMat.Waga_g = (int)numWaga.Value;
-                szZamowienieMat.Cena = Convert.ToDecimal(txtCena.Text);
+                    szZamowienieMat.Cena = Convert.ToDecimal(txtCena.Text);
                     db.Szczegoly_zamowienie_material.Add(szZamowienieMat);
                     db.SaveChanges();
                     Stan_realizacji_zamowienie_material stRealizacjaMat = new Stan_realizacji_zamowienie_material();

@@ -40,6 +40,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.Location = new System.Drawing.Point(366, 5);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -87,6 +88,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 15F);
             this.label1.Location = new System.Drawing.Point(17, 29);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -117,7 +119,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtDepartment);
             this.Name = "FormDepartmentsAdd";
-            this.Text = "FormDepartmentsAdd";
+            this.Text = "Dodaj dzial";
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartment)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
