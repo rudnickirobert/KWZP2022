@@ -1305,7 +1305,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormHR.resx">
       <DependentUpon>FormHR.cs</DependentUpon>
-</EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDodajAlert.resx">
       <DependentUpon>FormDodajAlert.cs</DependentUpon>
     </EmbeddedResource>

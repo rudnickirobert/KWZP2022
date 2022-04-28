@@ -38,18 +38,26 @@ namespace KWZP2022
             {
                 int wybranaObslugaID = int.Parse(this.dgvOngoingServices.CurrentRow.Cells[0].Value.ToString());
                 Obsluga wybranaObsluga = this.db.Obsluga.Single(a => a.ID_obsluga == wybranaObslugaID);
-                if (wybranaObsluga.Pracownik.Count()>0)
+                if (wybranaObsluga.Pracownik.Count() > 0)
                 {
+                    if (wybranaObsluga.ID_rodzaj_obsluga == 1 && wybranaObsluga.Wymiana_czesc.Count() == 0)
+                    {
+                        MessageBox.Show("Obsługa nie ma przypisanej wymiany części!", "Błąd", MessageBoxButtons.OK);
+                        return;
+                    }
+                    else
+                    { 
                     int daneObsluga = int.Parse(this.dgvOngoingServices.CurrentRow.Cells[0].Value.ToString());
                     Obsluga daneObslugaID = this.db.Obsluga.Single(a => a.ID_obsluga == daneObsluga);
                     daneObslugaID.Data_do = System.DateTime.Now;
                     db.SaveChanges();
                     initDataGridView();
                     MessageBox.Show("Zapisano zmiany!", "Informacja", MessageBoxButtons.OK);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Obsługa nie ma przypisanego pracownika!", "Błąd", MessageBoxButtons.OK);
+                    MessageBox.Show("Przypisz pracownika!", "Błąd", MessageBoxButtons.OK);
                 }
             }
             else

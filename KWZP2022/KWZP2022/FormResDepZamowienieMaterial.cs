@@ -17,6 +17,12 @@ namespace KWZP2022
         {
             InitializeComponent();
             this.db = db;
+            initDataGridView();
+            initComboBoxes();
+        }
+
+        private void initComboBoxes()
+        {
             cmbPracownik.DataSource = db.v_Pracownik_zasoby.ToList();
             cmbPracownik.DisplayMember = "Pracownik";
             cmbPracownik.ValueMember = "ID_pracownik";
@@ -26,10 +32,9 @@ namespace KWZP2022
             cmbMaterial.DataSource = db.Material.ToList();
             cmbMaterial.DisplayMember = "Nazwa_material";
             cmbMaterial.ValueMember = "ID_material";
-            cmbProducent.DataSource= db.Producent.ToList();
+            cmbProducent.DataSource = db.Producent.ToList();
             cmbProducent.DisplayMember = "Nazwa_producenta";
             cmbProducent.ValueMember = "ID_producent";
-            initDataGridView();
         }
         private void btnDodajMaterial_Click(object sender, EventArgs e)
         {
@@ -120,6 +125,12 @@ namespace KWZP2022
             db.SaveChanges();
             MessageBox.Show("Zmieniono status zamówienia dla: " + dgvZamowienieMaterial.CurrentRow.Cells[1].Value.ToString());
             initDataGridView();
+        }
+
+        private void btnOdswiez_Click(object sender, EventArgs e)
+        {
+            initDataGridView();
+            initComboBoxes();
         }
     }
 }

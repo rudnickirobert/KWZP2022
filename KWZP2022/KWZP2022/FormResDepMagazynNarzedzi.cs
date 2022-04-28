@@ -31,7 +31,7 @@ namespace KWZP2022
         }
         private void btnOdswiez_Click(object sender, EventArgs e)
         {
-            dgvMagazynNarzedzie.Refresh();
+            initDataGridView();
         }
 
         private void dgvMagazynNarzedzie_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

@@ -17,6 +17,11 @@ namespace KWZP2022
         {
             InitializeComponent();
             this.db = db;
+            initDataGridView();
+            initComboBoxes();
+        }
+        private void initComboBoxes()
+        {
             cmbPracownik.DataSource = db.v_Pracownik_zasoby.ToList();
             cmbPracownik.DisplayMember = "Pracownik";
             cmbPracownik.ValueMember = "ID_pracownik";
@@ -29,7 +34,6 @@ namespace KWZP2022
             cmbProducent.DataSource = db.Producent.ToList();
             cmbProducent.DisplayMember = "Nazwa_producenta";
             cmbProducent.ValueMember = "ID_producent";
-            initDataGridView();
         }
         private void initDataGridView()
         {
@@ -126,6 +130,11 @@ namespace KWZP2022
                 FormResDepNrSeryjny formResDepNrSeryjny = new FormResDepNrSeryjny(db);
                 formResDepNrSeryjny.ShowDialog();
             }
+        }
+        private void btnOdswiez_Click(object sender, EventArgs e)
+        {
+            initDataGridView();
+            initComboBoxes();
         }
     }
 }

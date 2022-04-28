@@ -26,7 +26,7 @@ namespace KWZP2022
         }
         private void btnOdswiez_Click(object sender, EventArgs e)
         {
-            dgvMagazynMaszyna.Refresh();
+            initDataGridView();
         }
         private void initDataGridView()
         {
