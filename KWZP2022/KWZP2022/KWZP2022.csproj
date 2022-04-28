@@ -897,6 +897,9 @@
     <Compile Include="v_Koszt_roboczogodziny_stanowiska.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Kwota_za_materialy.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Liczba_zabiegow_wytworczych_polprodukt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -1041,6 +1044,12 @@
     <Compile Include="v_Polprodukt_material.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Potrzebne_materialy.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Potrzebne_materialy_do_zamowienia.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Pracownik.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -1143,6 +1152,9 @@
     <Compile Include="v_Sprzedaz.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Sprzedaz_miesiac.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Sprzedaz_statystyki.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -1150,6 +1162,9 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Sprzedaz_statystyki_zarobek_dnia.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Srednia_cena_za_material.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Stanowiska_do_uzycia.cs">

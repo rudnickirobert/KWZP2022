@@ -142,6 +142,7 @@ namespace KWZP2022
         public virtual DbSet<v_Koszt_procesow_produkt> v_Koszt_procesow_produkt { get; set; }
         public virtual DbSet<v_Koszt_produkcji> v_Koszt_produkcji { get; set; }
         public virtual DbSet<v_Koszt_roboczogodziny_stanowiska> v_Koszt_roboczogodziny_stanowiska { get; set; }
+        public virtual DbSet<v_Kwota_za_materialy> v_Kwota_za_materialy { get; set; }
         public virtual DbSet<v_Liczba_zabiegow_wytworczych_polprodukt> v_Liczba_zabiegow_wytworczych_polprodukt { get; set; }
         public virtual DbSet<v_Liczba_zabiegow_wytworczych_produkt> v_Liczba_zabiegow_wytworczych_produkt { get; set; }
         public virtual DbSet<v_Magazyn_czesci_aktualny> v_Magazyn_czesci_aktualny { get; set; }
@@ -190,6 +191,8 @@ namespace KWZP2022
         public virtual DbSet<v_Parametry_polprodukt> v_Parametry_polprodukt { get; set; }
         public virtual DbSet<v_Parametry_produkt> v_Parametry_produkt { get; set; }
         public virtual DbSet<v_Polprodukt_material> v_Polprodukt_material { get; set; }
+        public virtual DbSet<v_Potrzebne_materialy> v_Potrzebne_materialy { get; set; }
+        public virtual DbSet<v_Potrzebne_materialy_do_zamowienia> v_Potrzebne_materialy_do_zamowienia { get; set; }
         public virtual DbSet<v_Pracownik> v_Pracownik { get; set; }
         public virtual DbSet<v_Pracownik_dzial> v_Pracownik_dzial { get; set; }
         public virtual DbSet<v_Pracownik_obslugi> v_Pracownik_obslugi { get; set; }
@@ -224,9 +227,11 @@ namespace KWZP2022
         public virtual DbSet<v_Sprzedane_zamowienia_form> v_Sprzedane_zamowienia_form { get; set; }
         public virtual DbSet<v_Sprzedany_produkt> v_Sprzedany_produkt { get; set; }
         public virtual DbSet<v_Sprzedaz> v_Sprzedaz { get; set; }
+        public virtual DbSet<v_Sprzedaz_miesiac> v_Sprzedaz_miesiac { get; set; }
         public virtual DbSet<v_Sprzedaz_statystyki> v_Sprzedaz_statystyki { get; set; }
         public virtual DbSet<v_Sprzedaz_statystyki_produkty> v_Sprzedaz_statystyki_produkty { get; set; }
         public virtual DbSet<v_Sprzedaz_statystyki_zarobek_dnia> v_Sprzedaz_statystyki_zarobek_dnia { get; set; }
+        public virtual DbSet<v_Srednia_cena_za_material> v_Srednia_cena_za_material { get; set; }
         public virtual DbSet<v_Stanowiska_do_uzycia> v_Stanowiska_do_uzycia { get; set; }
         public virtual DbSet<v_Stanowiska_produkcyjne> v_Stanowiska_produkcyjne { get; set; }
         public virtual DbSet<v_Stanowiska_w_uzyciu> v_Stanowiska_w_uzyciu { get; set; }
