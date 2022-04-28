@@ -50,7 +50,7 @@
             // 
             this.btnWczytajParametr.BackColor = System.Drawing.Color.Violet;
             this.btnWczytajParametr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.btnWczytajParametr.Location = new System.Drawing.Point(221, 21);
+            this.btnWczytajParametr.Location = new System.Drawing.Point(191, 24);
             this.btnWczytajParametr.Name = "btnWczytajParametr";
             this.btnWczytajParametr.Size = new System.Drawing.Size(181, 35);
             this.btnWczytajParametr.TabIndex = 35;
@@ -148,7 +148,7 @@
             this.lblParametr.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblParametr.Location = new System.Drawing.Point(28, 312);
             this.lblParametr.Name = "lblParametr";
-            this.lblParametr.Size = new System.Drawing.Size(124, 32);
+            this.lblParametr.Size = new System.Drawing.Size(125, 32);
             this.lblParametr.TabIndex = 26;
             this.lblParametr.Text = "Parametr";
             // 
@@ -168,7 +168,7 @@
             this.lblNazwa.Font = new System.Drawing.Font("Arial", 20.25F);
             this.lblNazwa.Location = new System.Drawing.Point(28, 24);
             this.lblNazwa.Name = "lblNazwa";
-            this.lblNazwa.Size = new System.Drawing.Size(134, 32);
+            this.lblNazwa.Size = new System.Drawing.Size(135, 32);
             this.lblNazwa.TabIndex = 24;
             this.lblNazwa.Text = "Narzędzie";
             // 
@@ -212,6 +212,7 @@
             this.Controls.Add(this.dgvParametrNarzedzie);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormResDepParametryNarzedzie";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Parametry narzedzi";

@@ -121,25 +121,12 @@
             // 
             // btnAlert
             // 
-            this.btnAlert.BackColor = System.Drawing.Color.Violet;
-            this.btnAlert.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAlert.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnAlert.Location = new System.Drawing.Point(57, 537);
+            this.btnAlert.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnAlert.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAlert.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnAlert.Location = new System.Drawing.Point(48, 530);
             this.btnAlert.Name = "btnAlert";
-            this.btnAlert.Size = new System.Drawing.Size(141, 62);
-            this.btnAlert.TabIndex = 10;
-            this.btnAlert.Text = "Alerty";
-            this.btnAlert.UseVisualStyleBackColor = false;
-            this.btnAlert.Click += new System.EventHandler(this.btnAlert_Click);
-            // 
-            // btnAlert
-            // 
-            this.btnAlert.BackColor = System.Drawing.Color.Gold;
-            this.btnAlert.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAlert.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnAlert.Location = new System.Drawing.Point(307, 468);
-            this.btnAlert.Name = "btnAlert";
-            this.btnAlert.Size = new System.Drawing.Size(141, 62);
+            this.btnAlert.Size = new System.Drawing.Size(176, 76);
             this.btnAlert.TabIndex = 10;
             this.btnAlert.Text = "Alerty";
             this.btnAlert.UseVisualStyleBackColor = false;
@@ -161,6 +148,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "FormResourceDepartment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dział zasobów";

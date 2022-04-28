@@ -18,10 +18,10 @@ namespace KWZP2022
         public Producent()
         {
             this.Dane_adresowe_producent = new HashSet<Dane_adresowe_producent>();
+            this.Szczegoly_zamowienie_narzedzie = new HashSet<Szczegoly_zamowienie_narzedzie>();
             this.Szczegoly_zamowienie_material = new HashSet<Szczegoly_zamowienie_material>();
             this.Szczegoly_zamowienie_czesc = new HashSet<Szczegoly_zamowienie_czesc>();
             this.Szczegoly_zamowienie_maszyna = new HashSet<Szczegoly_zamowienie_maszyna>();
-            this.Szczegoly_zamowienie_narzedzie = new HashSet<Szczegoly_zamowienie_narzedzie>();
         }
     
         public int ID_producent { get; set; }
@@ -30,12 +30,12 @@ namespace KWZP2022
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dane_adresowe_producent> Dane_adresowe_producent { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Szczegoly_zamowienie_narzedzie> Szczegoly_zamowienie_narzedzie { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Szczegoly_zamowienie_material> Szczegoly_zamowienie_material { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Szczegoly_zamowienie_czesc> Szczegoly_zamowienie_czesc { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Szczegoly_zamowienie_maszyna> Szczegoly_zamowienie_maszyna { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Szczegoly_zamowienie_narzedzie> Szczegoly_zamowienie_narzedzie { get; set; }
     }
 }

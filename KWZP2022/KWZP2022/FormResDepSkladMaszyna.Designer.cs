@@ -59,7 +59,7 @@ namespace KWZP2022
             this.dgvSklad.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSklad.Location = new System.Drawing.Point(415, 86);
             this.dgvSklad.Name = "dgvSklad";
-            this.dgvSklad.Size = new System.Drawing.Size(369, 310);
+            this.dgvSklad.Size = new System.Drawing.Size(369, 276);
             this.dgvSklad.TabIndex = 1;
             // 
             // lblCzesci
@@ -88,7 +88,7 @@ namespace KWZP2022
             // 
             this.btnPrzypisz.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnPrzypisz.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnPrzypisz.Location = new System.Drawing.Point(198, 389);
+            this.btnPrzypisz.Location = new System.Drawing.Point(241, 389);
             this.btnPrzypisz.Name = "btnPrzypisz";
             this.btnPrzypisz.Size = new System.Drawing.Size(193, 45);
             this.btnPrzypisz.TabIndex = 4;
@@ -100,7 +100,7 @@ namespace KWZP2022
             // 
             this.btnUsunPrzypisanie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnUsunPrzypisanie.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnUsunPrzypisanie.Location = new System.Drawing.Point(485, 412);
+            this.btnUsunPrzypisanie.Location = new System.Drawing.Point(480, 389);
             this.btnUsunPrzypisanie.Name = "btnUsunPrzypisanie";
             this.btnUsunPrzypisanie.Size = new System.Drawing.Size(245, 45);
             this.btnUsunPrzypisanie.TabIndex = 5;
@@ -146,7 +146,7 @@ namespace KWZP2022
             // numLiczbaCzesci
             // 
             this.numLiczbaCzesci.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numLiczbaCzesci.Location = new System.Drawing.Point(92, 414);
+            this.numLiczbaCzesci.Location = new System.Drawing.Point(154, 414);
             this.numLiczbaCzesci.Minimum = new decimal(new int[] {
             1,
             0,
@@ -167,7 +167,7 @@ namespace KWZP2022
             this.lblLiczbaCzesci.AutoSize = true;
             this.lblLiczbaCzesci.BackColor = System.Drawing.Color.Transparent;
             this.lblLiczbaCzesci.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblLiczbaCzesci.Location = new System.Drawing.Point(38, 389);
+            this.lblLiczbaCzesci.Location = new System.Drawing.Point(100, 389);
             this.lblLiczbaCzesci.Name = "lblLiczbaCzesci";
             this.lblLiczbaCzesci.Size = new System.Drawing.Size(124, 22);
             this.lblLiczbaCzesci.TabIndex = 10;
@@ -190,6 +190,7 @@ namespace KWZP2022
             this.Controls.Add(this.dgvSklad);
             this.Controls.Add(this.dgvCzesci);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormResDepSkladMaszyna";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Określ skład maszyny";

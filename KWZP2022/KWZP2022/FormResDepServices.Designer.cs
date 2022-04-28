@@ -171,6 +171,7 @@
             this.Controls.Add(this.dgvCompletedServices);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormResDepServices";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Obsługi";

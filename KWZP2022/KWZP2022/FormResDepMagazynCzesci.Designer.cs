@@ -100,7 +100,7 @@
             this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.Location = new System.Drawing.Point(213, 459);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(383, 16);
+            this.label2.Size = new System.Drawing.Size(384, 16);
             this.label2.TabIndex = 57;
             this.label2.Text = "Kliknij dwukrotnie na część, aby zobaczyć jej historię zamówień.";
             // 
@@ -118,6 +118,7 @@
             this.Font = new System.Drawing.Font("Arial", 9.75F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormResDepMagazynCzesci";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Magazyn części";
