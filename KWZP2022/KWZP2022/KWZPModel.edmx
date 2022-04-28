@@ -993,6 +993,19 @@ warning 6002: The table/view 'KWZP.dbo.v_Etat' does not have a primary key defin
           <Property Name="Liczba stanowisk" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Ilosc_kontrola_pozytywna' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Ilosc_kontrola_pozytywna">
+          <Key>
+            <PropertyRef Name="ID_produkt" />
+            <PropertyRef Name="Produkt" />
+            <PropertyRef Name="ID_zamowienie" />
+          </Key>
+          <Property Name="ID_produkt" Type="int" Nullable="false" />
+          <Property Name="Produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ilość" Type="int" />
+          <Property Name="ID_zamowienie" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Klient' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Klient">
           <Key>
@@ -1112,6 +1125,17 @@ warning 6002: The table/view 'KWZP.dbo.v_Kontrola_pozytywna' does not have a pri
           <Property Name="Produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Wynik_kontrola" Type="int" />
           <Property Name="ID_zamowienie" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Kontrola_wszystkie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Kontrola_wszystkie">
+          <Key>
+            <PropertyRef Name="ID_produkt" />
+            <PropertyRef Name="Produkt" />
+          </Key>
+          <Property Name="ID_produkt" Type="int" Nullable="false" />
+          <Property Name="Produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Wynik_kontrola" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Koszt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -2556,7 +2580,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Umowa' does not have a primary key defi
             <PropertyRef Name="Nazwisko" />
             <PropertyRef Name="Imię" />
             <PropertyRef Name="Wymiar pracy" />
-            <PropertyRef Name="Rodzaj Umowy" />
             <PropertyRef Name="Nazwa stanowiska" />
             <PropertyRef Name="Podstawa wynagrodzenia" />
           </Key>
@@ -2564,7 +2587,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Umowa' does not have a primary key defi
           <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Imię" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Wymiar pracy" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Rodzaj Umowy" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Nazwa stanowiska" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Podstawa wynagrodzenia" Type="int" Nullable="false" />
         </EntityType>
@@ -4755,6 +4777,14 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
     [v_Etat].[Liczba stanowisk] AS [Liczba stanowisk]
     FROM [dbo].[v_Etat] AS [v_Etat]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_Ilosc_kontrola_pozytywna" EntityType="Self.v_Ilosc_kontrola_pozytywna" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Ilosc_kontrola_pozytywna].[ID_produkt] AS [ID_produkt], 
+    [v_Ilosc_kontrola_pozytywna].[Produkt] AS [Produkt], 
+    [v_Ilosc_kontrola_pozytywna].[Ilość] AS [Ilość], 
+    [v_Ilosc_kontrola_pozytywna].[ID_zamowienie] AS [ID_zamowienie]
+    FROM [dbo].[v_Ilosc_kontrola_pozytywna] AS [v_Ilosc_kontrola_pozytywna]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_Klient" EntityType="Self.v_Klient" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Klient].[ID] AS [ID], 
@@ -4825,6 +4855,13 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
     [v_Kontrola_pozytywna].[Wynik_kontrola] AS [Wynik_kontrola], 
     [v_Kontrola_pozytywna].[ID_zamowienie] AS [ID_zamowienie]
     FROM [dbo].[v_Kontrola_pozytywna] AS [v_Kontrola_pozytywna]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Kontrola_wszystkie" EntityType="Self.v_Kontrola_wszystkie" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Kontrola_wszystkie].[ID_produkt] AS [ID_produkt], 
+    [v_Kontrola_wszystkie].[Produkt] AS [Produkt], 
+    [v_Kontrola_wszystkie].[Wynik_kontrola] AS [Wynik_kontrola]
+    FROM [dbo].[v_Kontrola_wszystkie] AS [v_Kontrola_wszystkie]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Koszt" EntityType="Self.v_Koszt" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -5672,7 +5709,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
     [v_Umowa].[Nazwisko] AS [Nazwisko], 
     [v_Umowa].[Imię] AS [Imię], 
     [v_Umowa].[Wymiar pracy] AS [Wymiar pracy], 
-    [v_Umowa].[Rodzaj Umowy] AS [Rodzaj Umowy], 
     [v_Umowa].[Nazwa stanowiska] AS [Nazwa stanowiska], 
     [v_Umowa].[Podstawa wynagrodzenia] AS [Podstawa wynagrodzenia]
     FROM [dbo].[v_Umowa] AS [v_Umowa]</DefiningQuery>
@@ -7667,6 +7703,17 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <Property Name="Dzial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Liczba_stanowisk" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="v_Ilosc_kontrola_pozytywna">
+          <Key>
+            <PropertyRef Name="ID_produkt" />
+            <PropertyRef Name="Produkt" />
+            <PropertyRef Name="ID_zamowienie" />
+          </Key>
+          <Property Name="ID_produkt" Type="Int32" Nullable="false" />
+          <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ilość" Type="Int32" />
+          <Property Name="ID_zamowienie" Type="Int32" Nullable="false" />
+        </EntityType>
         <EntityType Name="v_Klient">
           <Key>
             <PropertyRef Name="ID" />
@@ -7771,6 +7818,15 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Wynik_kontrola" Type="Int32" />
           <Property Name="ID_zamowienie" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_Kontrola_wszystkie">
+          <Key>
+            <PropertyRef Name="ID_produkt" />
+            <PropertyRef Name="Produkt" />
+          </Key>
+          <Property Name="ID_produkt" Type="Int32" Nullable="false" />
+          <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Wynik_kontrola" Type="Int32" />
         </EntityType>
         <EntityType Name="v_Koszt">
           <Key>
@@ -8990,7 +9046,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
             <PropertyRef Name="Nazwisko" />
             <PropertyRef Name="Imię" />
             <PropertyRef Name="Wymiar_pracy" />
-            <PropertyRef Name="Rodzaj_Umowy" />
             <PropertyRef Name="Nazwa_stanowiska" />
             <PropertyRef Name="Podstawa_wynagrodzenia" />
           </Key>
@@ -8998,7 +9053,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Imię" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Wymiar_pracy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Rodzaj_Umowy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Nazwa_stanowiska" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Podstawa_wynagrodzenia" Type="Int32" Nullable="false" />
         </EntityType>
@@ -11028,6 +11082,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySet Name="v_Dostawcy" EntityType="Self.v_Dostawcy" />
           <EntitySet Name="v_Email_pracownik" EntityType="Self.v_Email_pracownik" />
           <EntitySet Name="v_Etat" EntityType="Self.v_Etat" />
+          <EntitySet Name="v_Ilosc_kontrola_pozytywna" EntityType="Self.v_Ilosc_kontrola_pozytywna" />
           <EntitySet Name="v_Klient" EntityType="Self.v_Klient" />
           <EntitySet Name="v_Klient_telefon_aktualny" EntityType="Self.v_Klient_telefon_aktualny" />
           <EntitySet Name="v_Klient_telefon_Historia" EntityType="Self.v_Klient_telefon_Historia" />
@@ -11036,6 +11091,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySet Name="v_Kontrola_negatywna" EntityType="Self.v_Kontrola_negatywna" />
           <EntitySet Name="v_Kontrola_parametr_produkt" EntityType="Self.v_Kontrola_parametr_produkt" />
           <EntitySet Name="v_Kontrola_pozytywna" EntityType="Self.v_Kontrola_pozytywna" />
+          <EntitySet Name="v_Kontrola_wszystkie" EntityType="Self.v_Kontrola_wszystkie" />
           <EntitySet Name="v_Koszt" EntityType="Self.v_Koszt" />
           <EntitySet Name="v_Koszt_godziny_pracy" EntityType="Self.v_Koszt_godziny_pracy" />
           <EntitySet Name="v_Koszt_procesow_polprodukt" EntityType="Self.v_Koszt_procesow_polprodukt" />
@@ -12677,6 +12733,16 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="v_Ilosc_kontrola_pozytywna">
+            <EntityTypeMapping TypeName="KWZPModel.v_Ilosc_kontrola_pozytywna">
+              <MappingFragment StoreEntitySet="v_Ilosc_kontrola_pozytywna">
+                <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
+                <ScalarProperty Name="Produkt" ColumnName="Produkt" />
+                <ScalarProperty Name="Ilość" ColumnName="Ilość" />
+                <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="v_Klient">
             <EntityTypeMapping TypeName="KWZPModel.v_Klient">
               <MappingFragment StoreEntitySet="v_Klient">
@@ -12761,6 +12827,15 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
                 <ScalarProperty Name="Produkt" ColumnName="Produkt" />
                 <ScalarProperty Name="Wynik_kontrola" ColumnName="Wynik_kontrola" />
                 <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Kontrola_wszystkie">
+            <EntityTypeMapping TypeName="KWZPModel.v_Kontrola_wszystkie">
+              <MappingFragment StoreEntitySet="v_Kontrola_wszystkie">
+                <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
+                <ScalarProperty Name="Produkt" ColumnName="Produkt" />
+                <ScalarProperty Name="Wynik_kontrola" ColumnName="Wynik_kontrola" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -13815,7 +13890,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
                 <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
                 <ScalarProperty Name="Imię" ColumnName="Imię" />
                 <ScalarProperty Name="Wymiar_pracy" ColumnName="Wymiar pracy" />
-                <ScalarProperty Name="Rodzaj_Umowy" ColumnName="Rodzaj Umowy" />
                 <ScalarProperty Name="Nazwa_stanowiska" ColumnName="Nazwa stanowiska" />
                 <ScalarProperty Name="Podstawa_wynagrodzenia" ColumnName="Podstawa wynagrodzenia" />
               </MappingFragment>

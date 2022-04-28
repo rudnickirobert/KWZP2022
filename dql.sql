@@ -140,7 +140,7 @@ GO
 
 CREATE VIEW v_Koszt_procesow_polprodukt
 AS
-SELECT DISTINCT SP.ID_produkt, P.ID_polprodukt AS ID, P.Nazwa AS [Półprodukt], PPPC.Czas_trwania AS [Czas trwania], CP.Nazwa AS [Czynność], 
+SELECT DISTINCT SP.ID_produkt, P.ID_polprodukt AS ID, P.Nazwa AS [Półprodukt], PPPC.Czas_trwania AS [Czas trwania], CP.Nazwa AS [Czynność],
 CONVERT(DECIMAL(15,2),vK.[Koszt roboczogodziny stanowiska {PLN}] * PPPC.Czas_trwania/60) AS [Suma kosztu procesów]
 FROM Proces_wytwarzanie_polprodukt AS PWPP
 INNER JOIN Proces_polprodukt_czynnosc AS PPPC ON PWPP.ID_proces_polprodukt = PPPC.ID_proces_polprodukt
@@ -198,24 +198,37 @@ GO
 
 CREATE VIEW v_Wynik_kontroli
 AS
-SELECT ID_wytwarzanie, ID_produkt, SUM([Rezultat kontroli]) AS [Wynik_kontrola] 
+SELECT ID_wytwarzanie, ID_produkt, SUM([Rezultat kontroli]) AS [Wynik_kontrola]
 FROM v_Kontrola_parametr_produkt
 GROUP BY ID_wytwarzanie, ID_produkt
 GO
 
 CREATE VIEW v_Kontrola_pozytywna
 AS
-SELECT ID_wytwarzanie, ID_produkt, [Produkt], AVG([Rezultat kontroli]) AS [Wynik_kontrola], [ID_zamowienie]  
+SELECT ID_wytwarzanie, ID_produkt, [Produkt], AVG([Rezultat kontroli]) AS [Wynik_kontrola], [ID_zamowienie]
 FROM v_Kontrola_parametr_produkt
-GROUP BY ID_wytwarzanie, ID_produkt, [Produkt], [ID_zamowienie] 
-HAVING AVG([Rezultat kontroli]) = 1 
+GROUP BY ID_wytwarzanie, ID_produkt, [Produkt], [ID_zamowienie]
+HAVING AVG([Rezultat kontroli]) = 1
+GO
+
+CREATE VIEW v_Ilosc_kontrola_pozytywna
+AS
+SELECT ID_produkt, [Produkt], COUNT([Wynik_kontrola]) AS [Ilość], [ID_zamowienie] FROM v_Kontrola_pozytywna
+GROUP BY ID_produkt, [Produkt], [ID_zamowienie]
+GO
+
+CREATE VIEW v_Kontrola_wszystkie
+AS
+SELECT ID_produkt, [Produkt], AVG([Rezultat kontroli]) AS [Wynik_kontrola]
+FROM v_Kontrola_parametr_produkt
+GROUP BY ID_wytwarzanie, ID_produkt, [Produkt], [ID_zamowienie]
 GO
 
 CREATE VIEW v_Kontrola_negatywna
 AS
 SELECT ID_wytwarzanie, ID_produkt, [Produkt], AVG([Rezultat kontroli]) AS [Wynik_kontrola] FROM v_Kontrola_parametr_produkt
 GROUP BY ID_wytwarzanie, ID_produkt, [Produkt]
-HAVING AVG([Rezultat kontroli]) = 0
+HAVING AVG([Rezultat kontroli]) < 1
 GO
 
 CREATE VIEW v_Kontrola_jakosci_produkt
@@ -636,8 +649,6 @@ INNER JOIN Stanowisko_produkcyjne AS SP ON O.ID_stanowisko_produkcyjne = SP.ID_s
 WHERE Data_do IS NULL
 GO
 
---Production views start
-
 CREATE VIEW v_Stanowiska_w_uzyciu
 AS
 SELECT SP.ID_stanowisko_produkcyjne, SS.Nazwa_stanowiska AS Nazwa
@@ -648,7 +659,7 @@ INNER JOIN Stanowisko_produkcyjne AS SP ON PWP.ID_stanowisko_produkcyjne = SP.ID
 INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
 LEFT JOIN v_Obslugi_w_trakcie AS OWT ON SP.ID_stanowisko_produkcyjne = OWT.[Nr stanowiska]
 WHERE W.Czas_do IS NULL OR W.Czas_do >= GETDATE() OR OWT.Obsługa IS NOT NULL
-UNION 
+UNION
 SELECT SP.ID_stanowisko_produkcyjne, SS.Nazwa_stanowiska AS Nazwa
 FROM Proces_wytwarzanie_polprodukt AS PWPP
 INNER JOIN Wytwarzanie AS W ON PWPP.ID_wytwarzanie = W.ID_wytwarzanie
@@ -666,8 +677,6 @@ INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stan
 EXCEPT
 SELECT * FROM v_Stanowiska_w_uzyciu
 GO
-
---Production views end
 
 CREATE VIEW v_Obslugi_w_trakcie_wymiana
 AS
@@ -1369,7 +1378,7 @@ GO
 
 CREATE VIEW v_Umowa
 AS
-SELECT UM.ID_umowa AS [ID], P.Nazwisko AS [Nazwisko], P.Imie AS [Imię], WP.Nazwa AS [Wymiar pracy], RU.Nazwa AS [Rodzaj Umowy],  ST.Nazwa_stanowiska AS [Nazwa stanowiska], UM.Wynagrodzenie AS [Podstawa wynagrodzenia]  
+SELECT UM.ID_umowa AS [ID], P.Nazwisko AS [Nazwisko], P.Imie AS [Imię], WP.Nazwa AS [Wymiar pracy], RU.Nazwa AS [Rodzaj Umowy],  ST.Nazwa_stanowiska AS [Nazwa stanowiska], UM.Wynagrodzenie AS [Podstawa wynagrodzenia]
 FROM Umowa AS UM
 INNER JOIN
 (Posada_pracownika AS PO INNER JOIN
