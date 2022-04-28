@@ -23,7 +23,7 @@ namespace KWZP2022
     
         public int ID_maszyna_nr { get; set; }
         public int ID_maszyna { get; set; }
-        public Nullable<int> ID_nr_seryjny { get; set; }
+        public int ID_nr_seryjny { get; set; }
     
         public virtual Maszyna Maszyna { get; set; }
         public virtual Nr_seryjny Nr_seryjny { get; set; }

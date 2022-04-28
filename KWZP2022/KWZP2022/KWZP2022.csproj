@@ -188,17 +188,29 @@
     <Compile Include="FormKosztProdukcja.Designer.cs">
       <DependentUpon>FormKosztProdukcja.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormResDepHistoriaZamowienCzesci.cs" />
+    <Compile Include="FormResDepHistoriaZamowienCzesci.Designer.cs">
+      <DependentUpon>FormResDepHistoriaZamowienCzesci.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResDepHistoriaZamowienMaszyn.cs" />
+    <Compile Include="FormResDepHistoriaZamowienMaszyn.Designer.cs">
+      <DependentUpon>FormResDepHistoriaZamowienMaszyn.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormResDepHistoriaZamowienMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormResDepHistoriaZamowienMaterial.Designer.cs">
       <DependentUpon>FormResDepHistoriaZamowienMaterial.cs</DependentUpon>
-     </Compile> 
+    </Compile>
     <Compile Include="FormPosistionsAdd.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormPosistionsAdd.Designer.cs">
       <DependentUpon>FormPosistionsAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResDepHistoriaZamowienNarzedzia.cs" />
+    <Compile Include="FormResDepHistoriaZamowienNarzedzia.Designer.cs">
+      <DependentUpon>FormResDepHistoriaZamowienNarzedzia.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSalesDepartmentSalesStatistics.cs">
       <SubType>Form</SubType>
@@ -1336,11 +1348,20 @@
     <EmbeddedResource Include="FormKosztProdukcja.resx">
       <DependentUpon>FormKosztProdukcja.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepHistoriaZamowienCzesci.resx">
+      <DependentUpon>FormResDepHistoriaZamowienCzesci.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepHistoriaZamowienMaszyn.resx">
+      <DependentUpon>FormResDepHistoriaZamowienMaszyn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormResDepHistoriaZamowienMaterial.resx">
       <DependentUpon>FormResDepHistoriaZamowienMaterial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPosistionsAdd.resx">
       <DependentUpon>FormPosistionsAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepHistoriaZamowienNarzedzia.resx">
+      <DependentUpon>FormResDepHistoriaZamowienNarzedzia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSalesDepartmentSalesStatistics.resx">
       <DependentUpon>FormSalesDepartmentSalesStatistics.cs</DependentUpon>
