@@ -115,7 +115,7 @@
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnPositionAdd);
             this.Name = "FormPosistionsAdd";
-            this.Text = "FormPosistionsAdd";
+            this.Text = "Dodaj stanowisko";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPosition)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

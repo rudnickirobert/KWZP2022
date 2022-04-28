@@ -202,13 +202,15 @@
             // 
             // btnAddnewcontract
             // 
+            this.btnAddnewcontract.BackColor = System.Drawing.Color.Red;
+            this.btnAddnewcontract.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnAddnewcontract.Location = new System.Drawing.Point(445, 140);
             this.btnAddnewcontract.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddnewcontract.Name = "btnAddnewcontract";
             this.btnAddnewcontract.Size = new System.Drawing.Size(115, 46);
             this.btnAddnewcontract.TabIndex = 142;
             this.btnAddnewcontract.Text = "Zapisz";
-            this.btnAddnewcontract.UseVisualStyleBackColor = true;
+            this.btnAddnewcontract.UseVisualStyleBackColor = false;
             this.btnAddnewcontract.Click += new System.EventHandler(this.btnAddnewcontract_Click);
             // 
             // dgvEtat
@@ -257,7 +259,7 @@
             this.Controls.Add(this.btnAddnewcontract);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormHRDepartmentWorkerContractNew";
-            this.Text = "FormHRDepartmentWorkerContractNew";
+            this.Text = "Dodaj nową umowę";
             ((System.ComponentModel.ISupportInitialize)(this.dgvpracownik)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtat)).EndInit();
             this.ResumeLayout(false);
