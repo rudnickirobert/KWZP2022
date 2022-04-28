@@ -188,11 +188,21 @@
     <Compile Include="FormKosztProdukcja.Designer.cs">
       <DependentUpon>FormKosztProdukcja.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormResDepHistoriaZamowienCzesci.cs" />
+    <Compile Include="FormResDepDodajParametr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepDodajParametr.Designer.cs">
+      <DependentUpon>FormResDepDodajParametr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResDepHistoriaZamowienCzesci.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormResDepHistoriaZamowienCzesci.Designer.cs">
       <DependentUpon>FormResDepHistoriaZamowienCzesci.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormResDepHistoriaZamowienMaszyn.cs" />
+    <Compile Include="FormResDepHistoriaZamowienMaszyn.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormResDepHistoriaZamowienMaszyn.Designer.cs">
       <DependentUpon>FormResDepHistoriaZamowienMaszyn.cs</DependentUpon>
     </Compile>
@@ -208,7 +218,9 @@
     <Compile Include="FormPosistionsAdd.Designer.cs">
       <DependentUpon>FormPosistionsAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormResDepHistoriaZamowienNarzedzia.cs" />
+    <Compile Include="FormResDepHistoriaZamowienNarzedzia.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormResDepHistoriaZamowienNarzedzia.Designer.cs">
       <DependentUpon>FormResDepHistoriaZamowienNarzedzia.cs</DependentUpon>
     </Compile>
@@ -1362,6 +1374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormKosztProdukcja.resx">
       <DependentUpon>FormKosztProdukcja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepDodajParametr.resx">
+      <DependentUpon>FormResDepDodajParametr.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepHistoriaZamowienCzesci.resx">
       <DependentUpon>FormResDepHistoriaZamowienCzesci.cs</DependentUpon>
