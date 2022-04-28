@@ -17,18 +17,18 @@ namespace KWZP2022
         {
             InitializeComponent();
             this.db = db;
-            ComboboxProdukt();
-            ComboboxParametr();
+            comboboxProdukt();
+            comboboxParametr();
             this.db = new KWZPEntities();       
         }
 
         private void refreshComboboxes()
         {
-            ComboboxProdukt();
-            ComboboxParametr();
+            comboboxProdukt();
+            comboboxParametr();
         }
 
-        private void ComboboxProdukt()
+        private void comboboxProdukt()
         {            
             cbProdukt.DataSource = this.db.Produkt.ToList();
             cbProdukt.DisplayMember = "Nazwa_produkt";
@@ -36,7 +36,7 @@ namespace KWZP2022
         }
 
 
-        private void ComboboxParametr()
+        private void comboboxParametr()
         {           
             int produktID = int.Parse(cbProdukt.SelectedValue.ToString());
            
@@ -48,7 +48,7 @@ namespace KWZP2022
 
         private void cbProdukt_SelectionChangeCommited(object sender, EventArgs e)
         {
-            ComboboxParametr();
+            comboboxParametr();
         }
     }
 }
