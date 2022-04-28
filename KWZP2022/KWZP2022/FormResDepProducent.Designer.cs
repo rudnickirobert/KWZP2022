@@ -33,7 +33,6 @@
             this.btnUsun = new System.Windows.Forms.Button();
             this.btnDodaj = new System.Windows.Forms.Button();
             this.dgvProducent = new System.Windows.Forms.DataGridView();
-            this.txtKodpocztowy = new System.Windows.Forms.TextBox();
             this.numNrbudynku = new System.Windows.Forms.NumericUpDown();
             this.txtUlica = new System.Windows.Forms.TextBox();
             this.txtMiejscowosc = new System.Windows.Forms.TextBox();
@@ -44,6 +43,7 @@
             this.lblMiejscowosc = new System.Windows.Forms.Label();
             this.lblNazwa = new System.Windows.Forms.Label();
             this.lblPodpisWidoku = new System.Windows.Forms.Label();
+            this.mtxtKodPocztowy = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numNrbudynku)).BeginInit();
             this.SuspendLayout();
@@ -92,14 +92,6 @@
             this.dgvProducent.Size = new System.Drawing.Size(1195, 272);
             this.dgvProducent.TabIndex = 24;
             this.dgvProducent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducent_CellClick);
-            // 
-            // txtKodpocztowy
-            // 
-            this.txtKodpocztowy.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtKodpocztowy.Location = new System.Drawing.Point(293, 285);
-            this.txtKodpocztowy.Name = "txtKodpocztowy";
-            this.txtKodpocztowy.Size = new System.Drawing.Size(214, 44);
-            this.txtKodpocztowy.TabIndex = 23;
             // 
             // numNrbudynku
             // 
@@ -214,17 +206,26 @@
             this.lblPodpisWidoku.TabIndex = 57;
             this.lblPodpisWidoku.Text = "Producenci";
             // 
+            // mtxtKodPocztowy
+            // 
+            this.mtxtKodPocztowy.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.mtxtKodPocztowy.Location = new System.Drawing.Point(293, 285);
+            this.mtxtKodPocztowy.Mask = "00-000";
+            this.mtxtKodPocztowy.Name = "mtxtKodPocztowy";
+            this.mtxtKodPocztowy.Size = new System.Drawing.Size(133, 44);
+            this.mtxtKodPocztowy.TabIndex = 58;
+            // 
             // FormResDepProducent
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1278, 713);
+            this.Controls.Add(this.mtxtKodPocztowy);
             this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnAktualizuj);
             this.Controls.Add(this.btnUsun);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.dgvProducent);
-            this.Controls.Add(this.txtKodpocztowy);
             this.Controls.Add(this.numNrbudynku);
             this.Controls.Add(this.txtUlica);
             this.Controls.Add(this.txtMiejscowosc);
@@ -236,6 +237,7 @@
             this.Controls.Add(this.lblNazwa);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormResDepProducent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dodaj producenta";
@@ -252,7 +254,6 @@
         private System.Windows.Forms.Button btnUsun;
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.DataGridView dgvProducent;
-        private System.Windows.Forms.TextBox txtKodpocztowy;
         private System.Windows.Forms.NumericUpDown numNrbudynku;
         private System.Windows.Forms.TextBox txtUlica;
         private System.Windows.Forms.TextBox txtMiejscowosc;
@@ -263,5 +264,6 @@
         private System.Windows.Forms.Label lblMiejscowosc;
         private System.Windows.Forms.Label lblNazwa;
         private System.Windows.Forms.Label lblPodpisWidoku;
+        private System.Windows.Forms.MaskedTextBox mtxtKodPocztowy;
     }
 }

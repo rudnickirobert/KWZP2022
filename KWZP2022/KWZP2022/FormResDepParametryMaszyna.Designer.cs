@@ -50,7 +50,7 @@
             // 
             this.btnWczytajParametr.BackColor = System.Drawing.Color.Violet;
             this.btnWczytajParametr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.btnWczytajParametr.Location = new System.Drawing.Point(212, 27);
+            this.btnWczytajParametr.Location = new System.Drawing.Point(191, 30);
             this.btnWczytajParametr.Name = "btnWczytajParametr";
             this.btnWczytajParametr.Size = new System.Drawing.Size(181, 35);
             this.btnWczytajParametr.TabIndex = 35;
@@ -62,7 +62,7 @@
             // 
             this.btnAktualizuj.BackColor = System.Drawing.Color.SkyBlue;
             this.btnAktualizuj.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnAktualizuj.Location = new System.Drawing.Point(498, 373);
+            this.btnAktualizuj.Location = new System.Drawing.Point(498, 406);
             this.btnAktualizuj.Name = "btnAktualizuj";
             this.btnAktualizuj.Size = new System.Drawing.Size(225, 37);
             this.btnAktualizuj.TabIndex = 34;
@@ -74,7 +74,7 @@
             // 
             this.btnUsun.BackColor = System.Drawing.Color.IndianRed;
             this.btnUsun.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnUsun.Location = new System.Drawing.Point(498, 425);
+            this.btnUsun.Location = new System.Drawing.Point(498, 449);
             this.btnUsun.Name = "btnUsun";
             this.btnUsun.Size = new System.Drawing.Size(225, 37);
             this.btnUsun.TabIndex = 33;
@@ -86,7 +86,7 @@
             // 
             this.btnDodaj.BackColor = System.Drawing.Color.PaleGreen;
             this.btnDodaj.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnDodaj.Location = new System.Drawing.Point(498, 312);
+            this.btnDodaj.Location = new System.Drawing.Point(498, 363);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(225, 37);
             this.btnDodaj.TabIndex = 32;
@@ -148,7 +148,7 @@
             this.lblParametr.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblParametr.Location = new System.Drawing.Point(28, 312);
             this.lblParametr.Name = "lblParametr";
-            this.lblParametr.Size = new System.Drawing.Size(124, 32);
+            this.lblParametr.Size = new System.Drawing.Size(125, 32);
             this.lblParametr.TabIndex = 26;
             this.lblParametr.Text = "Parametr";
             // 
@@ -168,7 +168,7 @@
             this.lblNazwa.Font = new System.Drawing.Font("Arial", 20.25F);
             this.lblNazwa.Location = new System.Drawing.Point(28, 33);
             this.lblNazwa.Name = "lblNazwa";
-            this.lblNazwa.Size = new System.Drawing.Size(123, 32);
+            this.lblNazwa.Size = new System.Drawing.Size(124, 32);
             this.lblNazwa.TabIndex = 24;
             this.lblNazwa.Text = "Maszyna";
             // 
@@ -212,6 +212,7 @@
             this.Controls.Add(this.dgvParametrMaszyna);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormResDepParametryMaszyna";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Parametry maszyny";

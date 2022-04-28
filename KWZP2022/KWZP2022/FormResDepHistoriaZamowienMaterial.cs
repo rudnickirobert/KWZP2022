@@ -30,7 +30,6 @@ namespace KWZP2022
             this.dgvHistoria.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dgvHistoria.Columns[0].Visible = false;
             dgvHistoria.Columns[1].Visible = false;
-            dgvHistoria.Columns[2].Visible = false;
             dgvHistoria.Columns[7].Visible = false;
             dgvHistoria.Columns[8].Visible = false;
         }

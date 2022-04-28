@@ -62,7 +62,7 @@
             this.lvlZamowienieCzesc.Location = new System.Drawing.Point(13, 9);
             this.lvlZamowienieCzesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lvlZamowienieCzesc.Name = "lvlZamowienieCzesc";
-            this.lvlZamowienieCzesc.Size = new System.Drawing.Size(243, 32);
+            this.lvlZamowienieCzesc.Size = new System.Drawing.Size(244, 32);
             this.lvlZamowienieCzesc.TabIndex = 20;
             this.lvlZamowienieCzesc.Text = "Zamówienie części";
             // 
@@ -309,6 +309,7 @@
             this.Controls.Add(this.dgvZamowienieCzesci);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormResDepZamowienieCzesci";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Zamówienie części";

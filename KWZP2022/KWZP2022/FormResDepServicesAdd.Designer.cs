@@ -85,7 +85,7 @@
             this.lblNowaObsluga.Location = new System.Drawing.Point(14, 8);
             this.lblNowaObsluga.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNowaObsluga.Name = "lblNowaObsluga";
-            this.lblNowaObsluga.Size = new System.Drawing.Size(270, 32);
+            this.lblNowaObsluga.Size = new System.Drawing.Size(271, 32);
             this.lblNowaObsluga.TabIndex = 60;
             this.lblNowaObsluga.Text = "Dodawanie Obsługi";
             // 
@@ -115,6 +115,7 @@
             this.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormResDepServicesAdd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dodawanie nowej obsługi";

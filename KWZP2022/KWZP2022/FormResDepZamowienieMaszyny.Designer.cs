@@ -236,7 +236,7 @@
             this.lvlZamowienieMaszyna.Location = new System.Drawing.Point(14, 8);
             this.lvlZamowienieMaszyna.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lvlZamowienieMaszyna.Name = "lvlZamowienieMaszyna";
-            this.lvlZamowienieMaszyna.Size = new System.Drawing.Size(274, 32);
+            this.lvlZamowienieMaszyna.Size = new System.Drawing.Size(275, 32);
             this.lvlZamowienieMaszyna.TabIndex = 42;
             this.lvlZamowienieMaszyna.Text = "Zamówienie maszyny";
             // 
@@ -313,6 +313,7 @@
             this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormResDepZamowienieMaszyny";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Zamówienia Maszyny";

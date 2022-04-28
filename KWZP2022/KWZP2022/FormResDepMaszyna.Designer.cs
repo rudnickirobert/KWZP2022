@@ -59,7 +59,7 @@
             // 
             this.btnAktualizuj.BackColor = System.Drawing.Color.SkyBlue;
             this.btnAktualizuj.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnAktualizuj.Location = new System.Drawing.Point(48, 309);
+            this.btnAktualizuj.Location = new System.Drawing.Point(34, 252);
             this.btnAktualizuj.Name = "btnAktualizuj";
             this.btnAktualizuj.Size = new System.Drawing.Size(225, 37);
             this.btnAktualizuj.TabIndex = 27;
@@ -71,7 +71,7 @@
             // 
             this.btnUsun.BackColor = System.Drawing.Color.IndianRed;
             this.btnUsun.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnUsun.Location = new System.Drawing.Point(48, 377);
+            this.btnUsun.Location = new System.Drawing.Point(34, 295);
             this.btnUsun.Name = "btnUsun";
             this.btnUsun.Size = new System.Drawing.Size(225, 37);
             this.btnUsun.TabIndex = 26;
@@ -83,7 +83,7 @@
             // 
             this.btnDodaj.BackColor = System.Drawing.Color.PaleGreen;
             this.btnDodaj.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnDodaj.Location = new System.Drawing.Point(48, 238);
+            this.btnDodaj.Location = new System.Drawing.Point(34, 209);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(225, 37);
             this.btnDodaj.TabIndex = 25;
@@ -167,7 +167,7 @@
             // 
             this.btnDodajParametr.BackColor = System.Drawing.Color.Orange;
             this.btnDodajParametr.Font = new System.Drawing.Font("Arial", 16F);
-            this.btnDodajParametr.Location = new System.Drawing.Point(553, 113);
+            this.btnDodajParametr.Location = new System.Drawing.Point(49, 411);
             this.btnDodajParametr.Name = "btnDodajParametr";
             this.btnDodajParametr.Size = new System.Drawing.Size(219, 42);
             this.btnDodajParametr.TabIndex = 31;
@@ -190,7 +190,7 @@
             // 
             this.btnSkladMaszyna.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnSkladMaszyna.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnSkladMaszyna.Location = new System.Drawing.Point(602, 65);
+            this.btnSkladMaszyna.Location = new System.Drawing.Point(69, 363);
             this.btnSkladMaszyna.Name = "btnSkladMaszyna";
             this.btnSkladMaszyna.Size = new System.Drawing.Size(170, 42);
             this.btnSkladMaszyna.TabIndex = 56;
@@ -220,6 +220,7 @@
             this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormResDepMaszyna";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dodaj Maszynę";

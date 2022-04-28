@@ -56,7 +56,7 @@
             // 
             this.btnAktualizuj.BackColor = System.Drawing.Color.SkyBlue;
             this.btnAktualizuj.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnAktualizuj.Location = new System.Drawing.Point(59, 307);
+            this.btnAktualizuj.Location = new System.Drawing.Point(59, 279);
             this.btnAktualizuj.Name = "btnAktualizuj";
             this.btnAktualizuj.Size = new System.Drawing.Size(225, 37);
             this.btnAktualizuj.TabIndex = 18;
@@ -68,7 +68,7 @@
             // 
             this.btnUsun.BackColor = System.Drawing.Color.IndianRed;
             this.btnUsun.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnUsun.Location = new System.Drawing.Point(59, 375);
+            this.btnUsun.Location = new System.Drawing.Point(59, 322);
             this.btnUsun.Name = "btnUsun";
             this.btnUsun.Size = new System.Drawing.Size(225, 37);
             this.btnUsun.TabIndex = 17;
@@ -92,7 +92,7 @@
             // 
             this.btnOdswiez.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnOdswiez.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnOdswiez.Location = new System.Drawing.Point(613, 127);
+            this.btnOdswiez.Location = new System.Drawing.Point(613, 163);
             this.btnOdswiez.Name = "btnOdswiez";
             this.btnOdswiez.Size = new System.Drawing.Size(170, 42);
             this.btnOdswiez.TabIndex = 15;
@@ -125,7 +125,7 @@
             this.lblNazwaCzesc.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblNazwaCzesc.Location = new System.Drawing.Point(39, 32);
             this.lblNazwaCzesc.Name = "lblNazwaCzesc";
-            this.lblNazwaCzesc.Size = new System.Drawing.Size(179, 32);
+            this.lblNazwaCzesc.Size = new System.Drawing.Size(180, 32);
             this.lblNazwaCzesc.TabIndex = 12;
             this.lblNazwaCzesc.Text = "Nazwa części";
             // 
@@ -136,17 +136,17 @@
             this.lblRodzajCzesc.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblRodzajCzesc.Location = new System.Drawing.Point(39, 108);
             this.lblRodzajCzesc.Name = "lblRodzajCzesc";
-            this.lblRodzajCzesc.Size = new System.Drawing.Size(182, 32);
+            this.lblRodzajCzesc.Size = new System.Drawing.Size(183, 32);
             this.lblRodzajCzesc.TabIndex = 11;
             this.lblRodzajCzesc.Text = "Rodzaj części";
             // 
             // btnDodajParametr
             // 
             this.btnDodajParametr.BackColor = System.Drawing.Color.Orange;
-            this.btnDodajParametr.Font = new System.Drawing.Font("Arial", 16F);
-            this.btnDodajParametr.Location = new System.Drawing.Point(569, 79);
+            this.btnDodajParametr.Font = new System.Drawing.Font("Arial", 15F);
+            this.btnDodajParametr.Location = new System.Drawing.Point(59, 384);
             this.btnDodajParametr.Name = "btnDodajParametr";
-            this.btnDodajParametr.Size = new System.Drawing.Size(219, 42);
+            this.btnDodajParametr.Size = new System.Drawing.Size(225, 36);
             this.btnDodajParametr.TabIndex = 32;
             this.btnDodajParametr.Text = "Przypisz parametry";
             this.btnDodajParametr.UseVisualStyleBackColor = false;
@@ -181,6 +181,7 @@
             this.Controls.Add(this.lblRodzajCzesc);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormResDepCzesc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dodaj część";
