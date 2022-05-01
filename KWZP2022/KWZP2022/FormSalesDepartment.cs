@@ -54,5 +54,17 @@ namespace KWZP2022
             FormSalesDepartmentSalesStatistics formSalesDepartmentSalesStatistics = new FormSalesDepartmentSalesStatistics(db);
             formSalesDepartmentSalesStatistics.ShowDialog();
         }
+
+        private void btnSalesAgreement_Click(object sender, EventArgs e)
+        {
+            FormSalesDepartmentSalesAgreement formSalesDepartmentSalesAgreement = new FormSalesDepartmentSalesAgreement(db);
+            formSalesDepartmentSalesAgreement.ShowDialog();
+        }
+
+        private void btnNewCommercialOffers_Click(object sender, EventArgs e)
+        {
+            FormNewCommertialOffer formNewCommertialOffer = new FormNewCommertialOffer(db);
+            formNewCommertialOffer.ShowDialog();
+        }
     }
 }

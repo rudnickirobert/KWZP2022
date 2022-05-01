@@ -37,7 +37,15 @@ namespace KWZP2022
         {
             textBoxNrSale.Text = (this.db.Sprzedaz.Count() + 1).ToString();
         }
-
+        private void dtpData()
+        {
+            int selectedSaleArrangementFromComboBox = int.Parse(comboBoxSaleArrangement.SelectedValue.ToString());
+            Umowa_sprzedaz selectedSaleArrangement = this.db.Umowa_sprzedaz.Single(a => a.ID_umowa_sprzedaz == selectedSaleArrangementFromComboBox);
+            Oferta_handlowa selectedComertialOffer = this.db.Oferta_handlowa.Single(a => (a.ID_oferta_handlowa == selectedSaleArrangement.ID_oferta_handlowa && a.ID_status_oferta == 1));
+            dtpSaleBegin.Value = selectedComertialOffer.Termin_realizacja.Date;
+            dtpSaleEnd.Value = selectedComertialOffer.Termin_realizacja.Date;
+            dtpDateOfPayment.Value = selectedComertialOffer.Termin_realizacja.Date;
+        }
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -82,11 +90,18 @@ namespace KWZP2022
             {
                 MessageBox.Show("Wystąpił błąd!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            comboBoxSaleArrangementData();
+            textBoxNrSaleData();
         }
         private void btnSalesDetails_Click(object sender, EventArgs e)
         {
             FormSalesDepartmentAddSalesDetails formSalesDepartmentAddSalesDetails = new FormSalesDepartmentAddSalesDetails(db);
             formSalesDepartmentAddSalesDetails.ShowDialog();
+        }
+
+        private void comboBoxSaleArrangement_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            dtpData();
         }
     }
 }

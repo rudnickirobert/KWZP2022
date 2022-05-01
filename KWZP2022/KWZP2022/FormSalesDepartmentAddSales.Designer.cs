@@ -137,6 +137,7 @@
             // 
             // comboBoxPaymentMethod
             // 
+            this.comboBoxPaymentMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPaymentMethod.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.comboBoxPaymentMethod.FormattingEnabled = true;
             this.comboBoxPaymentMethod.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -169,12 +170,14 @@
             // 
             // comboBoxSaleArrangement
             // 
+            this.comboBoxSaleArrangement.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSaleArrangement.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.comboBoxSaleArrangement.FormattingEnabled = true;
             this.comboBoxSaleArrangement.Location = new System.Drawing.Point(630, 275);
             this.comboBoxSaleArrangement.Name = "comboBoxSaleArrangement";
             this.comboBoxSaleArrangement.Size = new System.Drawing.Size(152, 28);
             this.comboBoxSaleArrangement.TabIndex = 23;
+            this.comboBoxSaleArrangement.SelectionChangeCommitted += new System.EventHandler(this.comboBoxSaleArrangement_SelectionChangeCommitted);
             // 
             // btnAddNewSale
             // 

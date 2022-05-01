@@ -49,6 +49,7 @@
             // 
             // comboBoxOffers
             // 
+            this.comboBoxOffers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxOffers.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.comboBoxOffers.FormattingEnabled = true;
             this.comboBoxOffers.Location = new System.Drawing.Point(154, 53);

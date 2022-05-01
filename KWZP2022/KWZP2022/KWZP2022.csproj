@@ -188,6 +188,12 @@
     <Compile Include="FormPosistionsAdd.Designer.cs">
       <DependentUpon>FormPosistionsAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSalesDepartmentSalesAgreement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalesDepartmentSalesAgreement.Designer.cs">
+      <DependentUpon>FormSalesDepartmentSalesAgreement.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSalesDepartmentSalesStatistics.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -798,10 +804,16 @@
     <Compile Include="Umowa_sprzedaz.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Aktualny_stan_magazyn.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Alerty_ResorceDepartment_nieodczytane.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Alerty_ResourceDepartment.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Brakujacy_material.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Czas_wytwarzanie_polprodukt.cs">
@@ -955,6 +967,12 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Material.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Materialy_magazyn.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Materialy_z_zamowien.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Nadgodziny.cs">
@@ -1182,6 +1200,9 @@
     <Compile Include="v_Umowa_do_sprzedaz.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Umowy_sprzedazy.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Wymiana_czesc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -1338,6 +1359,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPosistionsAdd.resx">
       <DependentUpon>FormPosistionsAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSalesDepartmentSalesAgreement.resx">
+      <DependentUpon>FormSalesDepartmentSalesAgreement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSalesDepartmentSalesStatistics.resx">
       <DependentUpon>FormSalesDepartmentSalesStatistics.cs</DependentUpon>

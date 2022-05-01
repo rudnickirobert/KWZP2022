@@ -134,9 +134,9 @@
             this.label7.Font = new System.Drawing.Font("Arial", 12F);
             this.label7.Location = new System.Drawing.Point(215, 13);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(122, 18);
+            this.label7.Size = new System.Drawing.Size(123, 18);
             this.label7.TabIndex = 73;
-            this.label7.Text = "Numer produktu:";
+            this.label7.Text = "Nazwa produktu:";
             // 
             // label5
             // 
@@ -194,9 +194,9 @@
             this.label3.Font = new System.Drawing.Font("Arial", 12F);
             this.label3.Location = new System.Drawing.Point(11, 77);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(142, 18);
+            this.label3.Size = new System.Drawing.Size(163, 18);
             this.label3.TabIndex = 67;
-            this.label3.Text = "Numer pracownika:";
+            this.label3.Text = "Nazwisko pracownika:";
             // 
             // label1
             // 
@@ -211,6 +211,7 @@
             // 
             // comboBoxNoSale
             // 
+            this.comboBoxNoSale.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxNoSale.Font = new System.Drawing.Font("Arial", 10F);
             this.comboBoxNoSale.FormattingEnabled = true;
             this.comboBoxNoSale.Location = new System.Drawing.Point(14, 34);
@@ -221,6 +222,7 @@
             // 
             // comboBoxNoProduct
             // 
+            this.comboBoxNoProduct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxNoProduct.Font = new System.Drawing.Font("Arial", 10F);
             this.comboBoxNoProduct.FormattingEnabled = true;
             this.comboBoxNoProduct.Location = new System.Drawing.Point(218, 34);
@@ -230,6 +232,7 @@
             // 
             // comboBoxNoEmployee
             // 
+            this.comboBoxNoEmployee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxNoEmployee.Font = new System.Drawing.Font("Arial", 10F);
             this.comboBoxNoEmployee.FormattingEnabled = true;
             this.comboBoxNoEmployee.Location = new System.Drawing.Point(14, 97);

@@ -105,10 +105,19 @@ namespace KWZP2022
                                 this.db.Zamowienie.Add(newZamowienie);
                                 this.db.SaveChanges();
                                 MessageBox.Show("Dodano zamówienie!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                int counterOrderDetailsBefore = this.db.Zamowienie_szczegol.Count();
                                 FormNewOrderDetails formNewOrderDetails = new FormNewOrderDetails(db, newZamowienie);
                                 formNewOrderDetails.ShowDialog();
-                                showData();
-                                MessageBox.Show("Poprawnie zrealizowano zamówienie", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                int counterOrderDetailsAfter = this.db.Zamowienie_szczegol.Count();
+                                if (counterOrderDetailsAfter > counterOrderDetailsBefore)
+                                {
+                                    showData();
+                                    MessageBox.Show("Poprawnie zrealizowano zamówienie", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Wprowadź szczegóły zamówienia!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
                             }
                             else
                             {
@@ -140,8 +149,12 @@ namespace KWZP2022
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Nie wprowadzono nowego produktu", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        MessageBox.Show("Nie wprowadzono nowego produktu. Zamówienie zostało anulowane!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
+                                }
+                                if(resultNewProduct == DialogResult.No)
+                                {
+                                    MessageBox.Show("Anulowano zamówienie", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
                         }

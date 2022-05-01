@@ -1301,7 +1301,7 @@ CREATE VIEW v_Kwota_za_materialy AS
 	INNER JOIN Produkt ON Produkt.ID_produkt = Zamowienie_szczegol.ID_produkt
 	INNER JOIN Sklad_produkt_material ON Sklad_produkt_material.ID_produkt = Produkt.ID_produkt
 	INNER JOIN Material ON Material.ID_material = Sklad_produkt_material.ID_material
-	INNER JOIN v_Srednia_cena_za_material ON v_Srednia_cena_za_material.ID_material = Material.Nazwa_material
+	INNER JOIN v_Srednia_cena_za_material ON v_Srednia_cena_za_material.ID_material = Material.ID_material
 	INNER JOIN Sklad_produkt ON Sklad_produkt.ID_produkt = Produkt.ID_produkt
 	INNER JOIN Slownik_polprodukt ON Slownik_polprodukt.ID_polprodukt = Sklad_produkt.ID_polprodukt
 	INNER JOIN Sklad_polprodukt ON Sklad_polprodukt.ID_polprodukt = Slownik_polprodukt.ID_polprodukt
@@ -1323,13 +1323,66 @@ CREATE VIEW v_Potrzebne_materialy_do_zamowienia AS
 GO
 
 CREATE VIEW v_Potrzebne_materialy AS
-	SELECT Produkt.ID_produkt, Material.ID_material, SUM(Sklad_polprodukt.Liczba*Sklad_produkt.Liczba) AS [Masa materiału]
+	SELECT Zamowienie_szczegol.ID_zamowienie, Produkt.ID_produkt, Material.ID_material, SUM(Sklad_polprodukt.Liczba*Sklad_produkt.Liczba*Zamowienie_szczegol.Ilosc) AS [Masa materiału]
 	FROM Produkt
 	INNER JOIN Sklad_produkt ON Sklad_produkt.ID_produkt = Produkt.ID_produkt
 	INNER JOIN Slownik_polprodukt ON Slownik_polprodukt.ID_polprodukt = Sklad_produkt.ID_polprodukt
 	INNER JOIN Sklad_polprodukt ON Sklad_polprodukt.ID_polprodukt = Slownik_polprodukt.ID_polprodukt
 	INNER JOIN Material ON Sklad_polprodukt.ID_material = Material.ID_material
-	GROUP BY Material.ID_material, Produkt.ID_produkt
+	INNER JOIN Zamowienie_szczegol ON Zamowienie_szczegol.ID_produkt = Produkt.ID_produkt
+	INNER JOIN Zamowienie ON Zamowienie_szczegol.ID_zamowienie = Zamowienie.ID_zamowienie
+	GROUP BY Material.ID_material, Produkt.ID_produkt, Zamowienie_szczegol.ID_zamowienie
+	ORDER BY Zamowienie_szczegol.ID_zamowienie OFFSET 0 ROWS
+GO
+
+CREATE VIEW v_Materialy_magazyn AS
+	SELECT MMP.ID_material, (MMP.[Waga (g)] - MMP.[Waga material polprodukt (g)] - MMP.[Waga material produkt (g)]) AS [Stan w magazynie g] 
+	FROM v_Magazyn_material_aktualny_dodanie AS MMP
+	GROUP BY MMP.ID_material, MMP.[Waga (g)],MMP.[Waga material polprodukt (g)],MMP.[Waga material produkt (g)]
+GO
+
+CREATE VIEW v_Materialy_z_zamowien AS
+SELECT Material.ID_material, SUM(Sklad_polprodukt.Liczba*Sklad_produkt.Liczba*Zamowienie_szczegol.Ilosc) AS [Masa materiału]
+FROM Produkt
+INNER JOIN Sklad_produkt ON Sklad_produkt.ID_produkt = Produkt.ID_produkt
+INNER JOIN Slownik_polprodukt ON Slownik_polprodukt.ID_polprodukt = Sklad_produkt.ID_polprodukt
+INNER JOIN Sklad_polprodukt ON Sklad_polprodukt.ID_polprodukt = Slownik_polprodukt.ID_polprodukt
+INNER JOIN Material ON Sklad_polprodukt.ID_material = Material.ID_material
+INNER JOIN Zamowienie_szczegol ON Zamowienie_szczegol.ID_produkt = Produkt.ID_produkt
+INNER JOIN Zamowienie ON Zamowienie_szczegol.ID_zamowienie = Zamowienie.ID_zamowienie
+WHERE Zamowienie.ID_zamowienie <> 1 AND Zamowienie.ID_zamowienie <> 2 AND Zamowienie.ID_zamowienie <> 3 AND Zamowienie.ID_zamowienie <> 4 AND Zamowienie.ID_zamowienie <> 5 
+GROUP BY Material.ID_material
+ORDER BY Material.ID_material OFFSET 0 ROWS
+GO
+
+CREATE VIEW v_Aktualny_stan_magazyn AS
+SELECT ISNULL(ROW_NUMBER() OVER(ORDER BY Material.ID_material),-999) AS ID, CASE 
+	WHEN (v_Materialy_magazyn.[Stan w magazynie g] - v_Materialy_z_zamowien.[Masa materiału]) is null THEN v_Materialy_magazyn.[Stan w magazynie g]
+	ELSE (v_Materialy_magazyn.[Stan w magazynie g] - v_Materialy_z_zamowien.[Masa materiału])
+	END AS [Aktualny stan]
+FROM v_Materialy_magazyn
+INNER JOIN Material ON Material.ID_material = v_Materialy_magazyn.ID_material
+FULL OUTER JOIN  v_Materialy_z_zamowien ON v_Materialy_z_zamowien.ID_material = v_Materialy_magazyn.ID_material
+GROUP BY Material.ID_material,  v_Materialy_magazyn.ID_material, v_Materialy_magazyn.[Stan w magazynie g], v_Materialy_z_zamowien.[Masa materiału]
+ORDER BY Material.ID_material OFFSET 0 ROWS
+GO
+
+CREATE VIEW v_Brakujacy_material AS
+SELECT Material.ID_material, Material.Nazwa_material AS [Materiał], ABS(v_Aktualny_stan_magazyn.[Aktualny stan]) AS [Brakująca ilość]
+FROM v_Aktualny_stan_magazyn
+INNER JOIN Material ON Material.ID_material = v_Aktualny_stan_magazyn.ID
+WHERE v_Aktualny_stan_magazyn.[Aktualny stan] < 0
+GO
+
+CREATE VIEW v_Umowy_sprzedazy AS
+	SELECT US.ID_umowa_sprzedaz, OH.ID_oferta_handlowa, Z.ID_zamowienie,
+	NTK.Numer, TZ.Rodzaj_zamowienie
+	FROM Umowa_sprzedaz AS US
+	INNER JOIN Oferta_handlowa AS OH ON OH.ID_oferta_handlowa = US.ID_oferta_handlowa
+	INNER JOIN Zamowienie AS Z ON Z.ID_zamowienie = OH.ID_zamowienie
+	INNER JOIN Typ_zamowienie AS TZ ON TZ.ID_typ_zamowienie = Z.ID_typ_zamowienie
+	INNER JOIN Klient AS K ON K.ID_klient = Z.ID_klient
+	INNER JOIN Nr_telefon_klient AS NTK ON NTK.ID_klient = K.ID_klient
 GO
 
 	--HR DEPARTMENT --

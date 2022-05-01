@@ -51,13 +51,17 @@ namespace KWZP2022
             comboBoxTax.DataSource = this.db.Podatek.ToList();
             comboBoxTax.ValueMember = "ID_podatek";
             comboBoxTax.DisplayMember = "Procent";
+            comboBoxTax.SelectedIndex = 2;
         }
         private void textBoxPriceData()
         {
             int selectedNoSale = int.Parse(comboBoxNoSale.SelectedValue.ToString());
             string selectedProduct = comboBoxProduct.SelectedValue.ToString();
             v_Dodaj_szczegol_sprzedaz selectedRow = this.db.v_Dodaj_szczegol_sprzedaz.Single(a => (a.Produkt == selectedProduct && a.Numer_sprzedaży == selectedNoSale));
-            textBoxPrice.Text = selectedRow.Cena.ToString();
+            int selectedTaxComboBox = int.Parse(comboBoxTax.SelectedValue.ToString());
+            Podatek selectedTaxTable = this.db.Podatek.Single(a => a.ID_podatek == selectedTaxComboBox);
+            int bruttoPrice = (int)(selectedRow.Cena + (selectedRow.Cena * ((double)selectedTaxTable.Procent / 100)));
+            textBoxPrice.Text = bruttoPrice.ToString();
         }
         private void textBoxAmountData()
         {
@@ -121,8 +125,13 @@ namespace KWZP2022
 
         private void comboBoxProduct_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            textBoxPriceData();
+            textBoxPrice.Clear();
             textBoxAmountData();
+        }
+
+        private void comboBoxTax_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            textBoxPriceData();
         }
     }
 }

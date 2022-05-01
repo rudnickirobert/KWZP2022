@@ -33,16 +33,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxTax = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvSalesDetails = new System.Windows.Forms.DataGridView();
             this.lblNrSale = new System.Windows.Forms.Label();
             this.comboBoxNoSale = new System.Windows.Forms.ComboBox();
             this.comboBoxProduct = new System.Windows.Forms.ComboBox();
-            this.textBoxPrice = new System.Windows.Forms.TextBox();
             this.textBoxAmount = new System.Windows.Forms.TextBox();
             this.textBoxNoTel = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.textBoxPrice = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalesDetails)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,7 +75,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(427, 238);
+            this.label5.Location = new System.Drawing.Point(427, 198);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(107, 20);
             this.label5.TabIndex = 94;
@@ -83,34 +83,25 @@
             // 
             // comboBoxTax
             // 
+            this.comboBoxTax.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTax.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.comboBoxTax.FormattingEnabled = true;
-            this.comboBoxTax.Location = new System.Drawing.Point(576, 195);
+            this.comboBoxTax.Location = new System.Drawing.Point(576, 155);
             this.comboBoxTax.Name = "comboBoxTax";
             this.comboBoxTax.Size = new System.Drawing.Size(206, 28);
             this.comboBoxTax.TabIndex = 93;
+            this.comboBoxTax.SelectionChangeCommitted += new System.EventHandler(this.comboBoxTax_SelectionChangeCommitted);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(427, 198);
+            this.label4.Location = new System.Drawing.Point(427, 158);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(115, 20);
             this.label4.TabIndex = 92;
             this.label4.Text = "Wybierz podatek:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(427, 158);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 20);
-            this.label2.TabIndex = 90;
-            this.label2.Text = "Kwota za sztukę:";
             // 
             // label1
             // 
@@ -144,6 +135,7 @@
             // 
             // comboBoxNoSale
             // 
+            this.comboBoxNoSale.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxNoSale.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.comboBoxNoSale.FormattingEnabled = true;
             this.comboBoxNoSale.Location = new System.Drawing.Point(576, 75);
@@ -154,6 +146,7 @@
             // 
             // comboBoxProduct
             // 
+            this.comboBoxProduct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxProduct.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.comboBoxProduct.FormattingEnabled = true;
             this.comboBoxProduct.Location = new System.Drawing.Point(576, 115);
@@ -162,18 +155,10 @@
             this.comboBoxProduct.TabIndex = 100;
             this.comboBoxProduct.SelectionChangeCommitted += new System.EventHandler(this.comboBoxProduct_SelectionChangeCommitted);
             // 
-            // textBoxPrice
-            // 
-            this.textBoxPrice.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.textBoxPrice.Location = new System.Drawing.Point(576, 155);
-            this.textBoxPrice.Name = "textBoxPrice";
-            this.textBoxPrice.Size = new System.Drawing.Size(206, 26);
-            this.textBoxPrice.TabIndex = 101;
-            // 
             // textBoxAmount
             // 
             this.textBoxAmount.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.textBoxAmount.Location = new System.Drawing.Point(576, 235);
+            this.textBoxAmount.Location = new System.Drawing.Point(576, 195);
             this.textBoxAmount.Name = "textBoxAmount";
             this.textBoxAmount.Size = new System.Drawing.Size(206, 26);
             this.textBoxAmount.TabIndex = 102;
@@ -198,15 +183,35 @@
             this.label3.TabIndex = 103;
             this.label3.Text = "Numer telefonu klienta:";
             // 
+            // textBoxPrice
+            // 
+            this.textBoxPrice.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.textBoxPrice.Location = new System.Drawing.Point(576, 235);
+            this.textBoxPrice.Name = "textBoxPrice";
+            this.textBoxPrice.Size = new System.Drawing.Size(206, 26);
+            this.textBoxPrice.TabIndex = 106;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(427, 238);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(110, 20);
+            this.label2.TabIndex = 105;
+            this.label2.Text = "Kwota za sztukę:";
+            // 
             // FormSalesDepartmentAddSalesDetails
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
             this.ClientSize = new System.Drawing.Size(794, 491);
+            this.Controls.Add(this.textBoxPrice);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxNoTel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxAmount);
-            this.Controls.Add(this.textBoxPrice);
             this.Controls.Add(this.comboBoxProduct);
             this.Controls.Add(this.comboBoxNoSale);
             this.Controls.Add(this.btnAddNewSale);
@@ -214,7 +219,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.comboBoxTax);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvSalesDetails);
             this.Controls.Add(this.lblNrSale);
@@ -236,15 +240,15 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBoxTax;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvSalesDetails;
         private System.Windows.Forms.Label lblNrSale;
         private System.Windows.Forms.ComboBox comboBoxNoSale;
         private System.Windows.Forms.ComboBox comboBoxProduct;
-        private System.Windows.Forms.TextBox textBoxPrice;
         private System.Windows.Forms.TextBox textBoxAmount;
         private System.Windows.Forms.TextBox textBoxNoTel;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBoxPrice;
+        private System.Windows.Forms.Label label2;
     }
 }

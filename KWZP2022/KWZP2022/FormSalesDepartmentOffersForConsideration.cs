@@ -17,8 +17,8 @@ namespace KWZP2022
         {
             InitializeComponent();
             this.db = db;
-            showData();
             comboBoxOffersData();
+            showData();
         }
         private void showData()
         {
@@ -61,7 +61,7 @@ namespace KWZP2022
         private void dgvOffersForConsideration_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             int selectOffer = int.Parse(this.dgvOffersForConsideration.CurrentRow.Cells[0].Value.ToString());
-            DialogResult acceptedOffer = MessageBox.Show($"Czy chcesz zaackeptować ofertę nr: {selectOffer}?\nTak - Akceptacja oferty\nNie - Odrzucenie oferty","Pytanie",MessageBoxButtons.YesNoCancel,MessageBoxIcon.Question);
+            DialogResult acceptedOffer = MessageBox.Show($"Czy chcesz zaackeptować ofertę nr: {selectOffer}?\nTak - Akceptacja oferty, pozostałe zostną odrzucone\nNie - Odrzucenie oferty","Pytanie",MessageBoxButtons.YesNoCancel,MessageBoxIcon.Question);
             if(acceptedOffer == DialogResult.Yes)
             {
                 Oferta_handlowa selectedOffer = this.db.Oferta_handlowa.Single(a => a.ID_oferta_handlowa == selectOffer);
@@ -70,6 +70,20 @@ namespace KWZP2022
                 newSaleArrangement.ID_oferta_handlowa = selectOffer;
                 this.db.Umowa_sprzedaz.Add(newSaleArrangement);
                 this.db.SaveChanges();
+                List<IGrouping<int, Oferta_handlowa>> acceptedCommercialOfferList = this.db.Oferta_handlowa.Where(a => a.ID_status_oferta == 1).GroupBy(a => a.ID_zamowienie).ToList();
+                List<IGrouping<int, Oferta_handlowa>> commercialOfferForConsideration = this.db.Oferta_handlowa.Where(a => a.ID_status_oferta == 3).GroupBy(a => a.ID_zamowienie).ToList();
+                int offerFromDataGridView = int.Parse(this.dgvOffersForConsideration.CurrentRow.Cells[1].Value.ToString());
+                int commercialOfferForConsiderationCount = commercialOfferForConsideration.Where(a => a.Key == offerFromDataGridView).GroupBy(a => a.Key).ToList().Count();
+                int acceptedCommercialOfferListCount = acceptedCommercialOfferList.Where(a => a.Key == offerFromDataGridView).GroupBy(a => a.Key).ToList().Count();
+                List<Oferta_handlowa> selectedCommercialOfferForConsiderationList = this.db.Oferta_handlowa.Where(a => a.ID_status_oferta == 3 && a.ID_zamowienie == offerFromDataGridView).ToList();
+                if (commercialOfferForConsiderationCount == acceptedCommercialOfferListCount)
+                {
+                    foreach (Oferta_handlowa commercialOfferForConsiderationCancel in selectedCommercialOfferForConsiderationList)
+                    {
+                        commercialOfferForConsiderationCancel.ID_status_oferta = 2;
+                        this.db.SaveChanges();
+                    }
+                }
                 showData();
                 comboBoxOffersData();
             }

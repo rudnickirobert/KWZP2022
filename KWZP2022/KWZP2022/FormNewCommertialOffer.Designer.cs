@@ -43,6 +43,16 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.dtpDateOfImplementation = new System.Windows.Forms.DateTimePicker();
+            this.textBoxPriceForMaterials = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBoxPriceForOrder = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnCheckAvailableMaterials = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dgvMissingMaterials = new System.Windows.Forms.DataGridView();
+            this.btnAddAlert = new System.Windows.Forms.Button();
+            this.lblDescription = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMissingMaterials)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -58,6 +68,7 @@
             // 
             // comboBoxEmployee
             // 
+            this.comboBoxEmployee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxEmployee.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.comboBoxEmployee.FormattingEnabled = true;
             this.comboBoxEmployee.Location = new System.Drawing.Point(24, 41);
@@ -78,6 +89,7 @@
             // 
             // comboBoxNoOrder
             // 
+            this.comboBoxNoOrder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxNoOrder.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.comboBoxNoOrder.FormattingEnabled = true;
             this.comboBoxNoOrder.Location = new System.Drawing.Point(24, 104);
@@ -99,6 +111,7 @@
             // 
             // comboBoxGuarantee
             // 
+            this.comboBoxGuarantee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxGuarantee.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.comboBoxGuarantee.FormattingEnabled = true;
             this.comboBoxGuarantee.Location = new System.Drawing.Point(24, 166);
@@ -119,6 +132,7 @@
             // 
             // comboBoxOfferStatus
             // 
+            this.comboBoxOfferStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxOfferStatus.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.comboBoxOfferStatus.FormattingEnabled = true;
             this.comboBoxOfferStatus.Location = new System.Drawing.Point(24, 298);
@@ -133,9 +147,9 @@
             this.label5.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.label5.Location = new System.Drawing.Point(20, 342);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(105, 20);
+            this.label5.Size = new System.Drawing.Size(166, 20);
             this.label5.TabIndex = 16;
-            this.label5.Text = "Cena za sztukę:";
+            this.label5.Text = "Cena za całe zamówienie:";
             // 
             // textBoxPrice
             // 
@@ -189,11 +203,118 @@
             this.dtpDateOfImplementation.Size = new System.Drawing.Size(215, 26);
             this.dtpDateOfImplementation.TabIndex = 21;
             // 
+            // textBoxPriceForMaterials
+            // 
+            this.textBoxPriceForMaterials.Enabled = false;
+            this.textBoxPriceForMaterials.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.textBoxPriceForMaterials.Location = new System.Drawing.Point(583, 104);
+            this.textBoxPriceForMaterials.Name = "textBoxPriceForMaterials";
+            this.textBoxPriceForMaterials.Size = new System.Drawing.Size(199, 26);
+            this.textBoxPriceForMaterials.TabIndex = 23;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.label7.Location = new System.Drawing.Point(579, 81);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(124, 20);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "Kwota za materiały:";
+            // 
+            // textBoxPriceForOrder
+            // 
+            this.textBoxPriceForOrder.Enabled = false;
+            this.textBoxPriceForOrder.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.textBoxPriceForOrder.Location = new System.Drawing.Point(583, 166);
+            this.textBoxPriceForOrder.Name = "textBoxPriceForOrder";
+            this.textBoxPriceForOrder.Size = new System.Drawing.Size(199, 26);
+            this.textBoxPriceForOrder.TabIndex = 25;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.label8.Location = new System.Drawing.Point(579, 143);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(192, 20);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "Sugerowana kwota sprzedaży:";
+            // 
+            // btnCheckAvailableMaterials
+            // 
+            this.btnCheckAvailableMaterials.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCheckAvailableMaterials.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.btnCheckAvailableMaterials.Location = new System.Drawing.Point(583, 232);
+            this.btnCheckAvailableMaterials.Name = "btnCheckAvailableMaterials";
+            this.btnCheckAvailableMaterials.Size = new System.Drawing.Size(199, 28);
+            this.btnCheckAvailableMaterials.TabIndex = 26;
+            this.btnCheckAvailableMaterials.Text = "Sprawdź";
+            this.btnCheckAvailableMaterials.UseVisualStyleBackColor = true;
+            this.btnCheckAvailableMaterials.Click += new System.EventHandler(this.btnCheckAvailableMaterials_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.label10.Location = new System.Drawing.Point(579, 209);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(207, 20);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "Sprawdź dostępność materiałów:";
+            // 
+            // dgvMissingMaterials
+            // 
+            this.dgvMissingMaterials.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMissingMaterials.Location = new System.Drawing.Point(472, 298);
+            this.dgvMissingMaterials.Name = "dgvMissingMaterials";
+            this.dgvMissingMaterials.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMissingMaterials.Size = new System.Drawing.Size(310, 147);
+            this.dgvMissingMaterials.TabIndex = 29;
+            this.dgvMissingMaterials.Visible = false;
+            // 
+            // btnAddAlert
+            // 
+            this.btnAddAlert.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddAlert.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.btnAddAlert.Location = new System.Drawing.Point(472, 451);
+            this.btnAddAlert.Name = "btnAddAlert";
+            this.btnAddAlert.Size = new System.Drawing.Size(139, 28);
+            this.btnAddAlert.TabIndex = 30;
+            this.btnAddAlert.Text = "Dodaj alarm";
+            this.btnAddAlert.UseVisualStyleBackColor = true;
+            this.btnAddAlert.Visible = false;
+            this.btnAddAlert.Click += new System.EventHandler(this.btnAddAlert_Click);
+            // 
+            // lblDescription
+            // 
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.BackColor = System.Drawing.Color.Transparent;
+            this.lblDescription.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.lblDescription.Location = new System.Drawing.Point(468, 275);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(281, 20);
+            this.lblDescription.TabIndex = 31;
+            this.lblDescription.Text = "Brakujące materiały do wszystkich zamówień:";
+            this.lblDescription.Visible = false;
+            // 
             // FormNewCommertialOffer
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(794, 491);
+            this.Controls.Add(this.lblDescription);
+            this.Controls.Add(this.btnAddAlert);
+            this.Controls.Add(this.dgvMissingMaterials);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.btnCheckAvailableMaterials);
+            this.Controls.Add(this.textBoxPriceForOrder);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.textBoxPriceForMaterials);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.dtpDateOfImplementation);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnClose);
@@ -213,6 +334,7 @@
             this.Name = "FormNewCommertialOffer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nowa oferta handlowa";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMissingMaterials)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,5 +356,14 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtpDateOfImplementation;
+        private System.Windows.Forms.TextBox textBoxPriceForMaterials;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBoxPriceForOrder;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnCheckAvailableMaterials;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridView dgvMissingMaterials;
+        private System.Windows.Forms.Button btnAddAlert;
+        private System.Windows.Forms.Label lblDescription;
     }
 }

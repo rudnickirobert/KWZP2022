@@ -115,8 +115,10 @@ namespace KWZP2022
         public virtual DbSet<Zamowienie_narzedzie> Zamowienie_narzedzie { get; set; }
         public virtual DbSet<Zamowienie_szczegol> Zamowienie_szczegol { get; set; }
         public virtual DbSet<Zwrot> Zwrot { get; set; }
+        public virtual DbSet<v_Aktualny_stan_magazyn> v_Aktualny_stan_magazyn { get; set; }
         public virtual DbSet<v_Alerty_ResorceDepartment_nieodczytane> v_Alerty_ResorceDepartment_nieodczytane { get; set; }
         public virtual DbSet<v_Alerty_ResourceDepartment> v_Alerty_ResourceDepartment { get; set; }
+        public virtual DbSet<v_Brakujacy_material> v_Brakujacy_material { get; set; }
         public virtual DbSet<v_Czas_wytwarzanie_polprodukt> v_Czas_wytwarzanie_polprodukt { get; set; }
         public virtual DbSet<v_Czas_wytwarzanie_produkt> v_Czas_wytwarzanie_produkt { get; set; }
         public virtual DbSet<v_Czesci> v_Czesci { get; set; }
@@ -168,6 +170,8 @@ namespace KWZP2022
         public virtual DbSet<v_Maszyny_numery_porownanie> v_Maszyny_numery_porownanie { get; set; }
         public virtual DbSet<v_Maszyny_numery_przypisane> v_Maszyny_numery_przypisane { get; set; }
         public virtual DbSet<v_Material> v_Material { get; set; }
+        public virtual DbSet<v_Materialy_magazyn> v_Materialy_magazyn { get; set; }
+        public virtual DbSet<v_Materialy_z_zamowien> v_Materialy_z_zamowien { get; set; }
         public virtual DbSet<v_Nadgodziny> v_Nadgodziny { get; set; }
         public virtual DbSet<v_Nadgodziny_miesiac> v_Nadgodziny_miesiac { get; set; }
         public virtual DbSet<v_Nadgodziny_suma_miesiac> v_Nadgodziny_suma_miesiac { get; set; }
@@ -243,6 +247,7 @@ namespace KWZP2022
         public virtual DbSet<v_Tygodniowe_rozliczenie_pracy_produkcja> v_Tygodniowe_rozliczenie_pracy_produkcja { get; set; }
         public virtual DbSet<v_Umowa> v_Umowa { get; set; }
         public virtual DbSet<v_Umowa_do_sprzedaz> v_Umowa_do_sprzedaz { get; set; }
+        public virtual DbSet<v_Umowy_sprzedazy> v_Umowy_sprzedazy { get; set; }
         public virtual DbSet<v_Wymiana_czesc> v_Wymiana_czesc { get; set; }
         public virtual DbSet<v_Wymiana_czesc_w_trakcie> v_Wymiana_czesc_w_trakcie { get; set; }
         public virtual DbSet<v_Wynik_kontroli> v_Wynik_kontroli { get; set; }
