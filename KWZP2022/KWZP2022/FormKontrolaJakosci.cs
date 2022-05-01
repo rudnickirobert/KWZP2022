@@ -27,6 +27,8 @@ namespace KWZP2022
         {
             initComboboxPracownik();
             initComboboxRodzajKontrola();
+            initDataGridViewKontrolaJakosciParametr();
+            initDataGridViewKontrolaPozytywna();
         }
 
         private void clearDgvs()
@@ -194,11 +196,8 @@ namespace KWZP2022
                 }
                 refreshScreen();
             }
-
             initDataGridViewRezultatKontroli();
             MessageBox.Show("Poprawnie wygenerowano kontrole");
-
-
         }
 
         private void btnWczytajZamowienie_Click(object sender, EventArgs e)
