@@ -81,7 +81,7 @@ namespace KWZP2022
                 if (selectClientByNoTel.Count() > 0)
                 {
                     int selectedTypZamowienieInt = int.Parse(comboBoxOrderType.SelectedValue.ToString());
-                    Typ_zamowienie selectedTyp_Zamowienie = this.db.Typ_zamowienie.Single(a => a.ID_typ_zamowienie == selectedTypZamowienieInt);
+                    Typ_zamowienie selectedTypZamowienie = this.db.Typ_zamowienie.Single(a => a.ID_typ_zamowienie == selectedTypZamowienieInt);
                     Nr_telefon_klient selectedClient = this.db.Nr_telefon_klient.SingleOrDefault(a => a.Numer == textBoxNoTelClient.Text);
                     if (selectedClient != null)
                     {
@@ -91,7 +91,7 @@ namespace KWZP2022
                         newZamowienie.ID_klient = selectedClient.ID_klient;
                         newZamowienie.ID_pracownik = selectedEmpployee.ID_pracownik;
                         newZamowienie.Data_zamowienie = dtpDateOrder.Value.Date;
-                        newZamowienie.ID_typ_zamowienie = selectedTyp_Zamowienie.ID_typ_zamowienie;
+                        newZamowienie.ID_typ_zamowienie = selectedTypZamowienie.ID_typ_zamowienie;
 
                         if (comboBoxOrderType.SelectedValue.ToString() == "1")
                         {
@@ -204,8 +204,8 @@ namespace KWZP2022
                 {
                     Zamowienie selectZamowienie = this.db.Zamowienie.Single(a => a.ID_zamowienie == orderNo);
                     this.db.Zamowienie.Remove(selectZamowienie);
-                    List<Zamowienie_szczegol> selectZamowienie_Szczegol = this.db.Zamowienie_szczegol.Where(a => a.ID_zamowienie == orderNo).ToList();
-                    this.db.Zamowienie_szczegol.RemoveRange(selectZamowienie_Szczegol);
+                    List<Zamowienie_szczegol> selectZamowienieSzczegol = this.db.Zamowienie_szczegol.Where(a => a.ID_zamowienie == orderNo).ToList();
+                    this.db.Zamowienie_szczegol.RemoveRange(selectZamowienieSzczegol);
                     this.db.SaveChanges();
                     showData();
                 }

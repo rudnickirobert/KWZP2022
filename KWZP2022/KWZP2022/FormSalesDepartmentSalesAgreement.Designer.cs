@@ -38,16 +38,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnClearNoAgreement = new System.Windows.Forms.Button();
             this.btnClearNoTelClient = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalesAgreement)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvSalesAgreement
             // 
             this.dgvSalesAgreement.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSalesAgreement.Location = new System.Drawing.Point(12, 12);
+            this.dgvSalesAgreement.Location = new System.Drawing.Point(12, 32);
             this.dgvSalesAgreement.Name = "dgvSalesAgreement";
             this.dgvSalesAgreement.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSalesAgreement.Size = new System.Drawing.Size(400, 440);
+            this.dgvSalesAgreement.Size = new System.Drawing.Size(400, 420);
             this.dgvSalesAgreement.TabIndex = 0;
             this.dgvSalesAgreement.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvSalesAgreement_MouseDoubleClick);
             // 
@@ -149,11 +150,23 @@
             this.btnClearNoTelClient.UseVisualStyleBackColor = true;
             this.btnClearNoTelClient.Click += new System.EventHandler(this.btnClearNoTelClient_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.label2.Location = new System.Drawing.Point(12, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(344, 20);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "Kliknij dwukrotnie, aby usunąć umowę sprzedaży z listy:";
+            // 
             // FormSalesDepartmentSalesAgreement
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
             this.ClientSize = new System.Drawing.Size(794, 491);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnClearNoTelClient);
             this.Controls.Add(this.btnClearNoAgreement);
             this.Controls.Add(this.textBoxNoTelClient);
@@ -187,5 +200,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnClearNoAgreement;
         private System.Windows.Forms.Button btnClearNoTelClient;
+        private System.Windows.Forms.Label label2;
     }
 }

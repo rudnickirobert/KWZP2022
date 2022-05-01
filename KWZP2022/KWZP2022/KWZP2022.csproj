@@ -843,12 +843,6 @@
     <Compile Include="v_Alerty_ResourceDepartment.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="v_Czas_wytwarzanie_polprodukt.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="v_Czas_wytwarzanie_produkt.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="v_Brakujacy_material.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>

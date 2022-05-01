@@ -65,7 +65,7 @@ namespace KWZP2022
         }
         private void dgvSalesAgreement_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            DialogResult removeSaleAgreement = MessageBox.Show($"Czy chcesz usunąc umowę o numerze: {this.dgvSalesAgreement.CurrentRow.Cells[0].Value}? Wszystkie oferty przyjmą status do rozpatrzenia", "Pytanie", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult removeSaleAgreement = MessageBox.Show($"Czy chcesz usunąc umowę o numerze: {this.dgvSalesAgreement.CurrentRow.Cells[0].Value}? Wszystkie oferty handlowe dotyczące tego zamówienia przyjmą status do rozpatrzenia.", "Pytanie", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (removeSaleAgreement == DialogResult.Yes)
             {
                 int selectedSalesAgreementFromDgv = int.Parse(this.dgvSalesAgreement.CurrentRow.Cells[0].Value.ToString());
@@ -73,7 +73,7 @@ namespace KWZP2022
                 {
                     Umowa_sprzedaz selectedSalesAgreement = this.db.Umowa_sprzedaz.Single(a => a.ID_umowa_sprzedaz == selectedSalesAgreementFromDgv);
                     this.db.Umowa_sprzedaz.Remove(selectedSalesAgreement);
-                    int selectedOfferFromDgv = int.Parse(this.dgvSalesAgreement.CurrentRow.Cells[1].Value.ToString());
+                    int selectedOfferFromDgv = int.Parse(this.dgvSalesAgreement.CurrentRow.Cells[2].Value.ToString());
                     List<Oferta_handlowa> commercialOfferList = this.db.Oferta_handlowa.Where(a => a.ID_zamowienie == selectedOfferFromDgv).ToList();
                     foreach (Oferta_handlowa commercialOfferForConsideration in commercialOfferList)
                     {
@@ -126,6 +126,10 @@ namespace KWZP2022
                 {
                     choice = "noSaleAgreement";
                 }
+                else if (textBoxNoTelClient.TextLength == 0 && textBoxSearchSaleAgreement.TextLength == 0)
+                {
+                    choice = "textBoxesWereBlank";
+                }
 
                 switch (choice)
                 {
@@ -139,6 +143,9 @@ namespace KWZP2022
                     case "noSaleAgreement":
                         int selectedSaleAgreementSecond = int.Parse(textBoxSearchSaleAgreement.Text);
                         dgvSalesAgreementData(selectedSaleAgreementSecond);
+                        break;
+                    case "textBoxesWereBlank":
+                        MessageBox.Show("Pola tekstowe są puste!","Uwaga!",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                         break;
                 }
             }
