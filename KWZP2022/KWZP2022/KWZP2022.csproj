@@ -882,6 +882,12 @@
     <Compile Include="v_Kontrola_negatywna.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Kontrola_parametr_gauss_okres.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kontrola_parametr_gauss_wykres.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Kontrola_parametr_produkt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>

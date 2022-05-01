@@ -133,6 +133,8 @@ namespace KWZP2022
         public virtual DbSet<v_Kontrola_jakosci_kolejka> v_Kontrola_jakosci_kolejka { get; set; }
         public virtual DbSet<v_Kontrola_jakosci_produkt> v_Kontrola_jakosci_produkt { get; set; }
         public virtual DbSet<v_Kontrola_negatywna> v_Kontrola_negatywna { get; set; }
+        public virtual DbSet<v_Kontrola_parametr_gauss_okres> v_Kontrola_parametr_gauss_okres { get; set; }
+        public virtual DbSet<v_Kontrola_parametr_gauss_wykres> v_Kontrola_parametr_gauss_wykres { get; set; }
         public virtual DbSet<v_Kontrola_parametr_produkt> v_Kontrola_parametr_produkt { get; set; }
         public virtual DbSet<v_Kontrola_pozytywna> v_Kontrola_pozytywna { get; set; }
         public virtual DbSet<v_Kontrola_wszystkie> v_Kontrola_wszystkie { get; set; }

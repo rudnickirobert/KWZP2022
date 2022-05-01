@@ -185,7 +185,8 @@ GO
 CREATE VIEW v_Kontrola_parametr_produkt
 AS
 SELECT w.ID_wytwarzanie AS [ID_wytwarzanie], P.ID_produkt AS [ID_produkt], P.Nazwa_produkt AS [Produkt], RP.Nazwa_rodzaj_parametr AS [Parametr], KP.Wartosc AS [Wartość],
-PP.Zakres_dol AS [Zakres dolny], PP.Zakres_gora AS [Zakres górny], (CASE WHEN KP.Wartosc BETWEEN PP.Zakres_dol AND PP.Zakres_gora THEN 1 ELSE 0 END) AS [Rezultat kontroli], Z.ID_zamowienie AS ID_zamowienie
+PP.Zakres_dol AS [Zakres dolny], PP.Zakres_gora AS [Zakres górny], (CASE WHEN KP.Wartosc BETWEEN PP.Zakres_dol AND PP.Zakres_gora THEN 1 ELSE 0 END) AS [Rezultat kontroli], Z.ID_zamowienie AS ID_zamowienie,
+PP.ID_parametr_produkt, KJP.Data_od, KJP.Data_do
 FROM Kontrola_parametr AS KP
 INNER JOIN Kontrola_jakosci_produkt AS KJP ON KP.ID_kontrola_jakosci_produkt = KJP.ID_kontrola_jakosci_produkt
 INNER JOIN Parametr_produkt AS PP ON KP.ID_parametr_produkt = PP.ID_parametr_produkt
@@ -195,6 +196,26 @@ INNER JOIN Wytwarzanie AS W ON KJP.ID_wytwarzanie = W.ID_wytwarzanie
 INNER JOIN Zamowienie_szczegol AS ZS ON W.ID_zamowienie_szczegol = ZS.ID_zamowienie_szczegol
 INNER JOIN Zamowienie AS Z ON ZS.ID_zamowienie = Z.ID_zamowienie
 GO
+
+CREATE VIEW v_Kontrola_parametr_gauss_okres
+AS
+SELECT P.ID_produkt AS [ID_produkt], P.Nazwa_produkt AS [Produkt], RP.Nazwa_rodzaj_parametr AS [Parametr], ROUND(KP.Wartosc,1) AS [Wartość],
+PP.ID_parametr_produkt AS [ID_parametr_produkt], KJP.Data_od, KJP.Data_do
+FROM Kontrola_parametr AS KP
+INNER JOIN Kontrola_jakosci_produkt AS KJP ON KP.ID_kontrola_jakosci_produkt = KJP.ID_kontrola_jakosci_produkt
+INNER JOIN Parametr_produkt AS PP ON KP.ID_parametr_produkt = PP.ID_parametr_produkt
+INNER JOIN Produkt AS P ON PP.ID_produkt = P.ID_produkt
+INNER JOIN Rodzaj_parametr AS RP ON PP.ID_rodzaj_parametr = RP.ID_rodzaj_parametr
+INNER JOIN Wytwarzanie AS W ON KJP.ID_wytwarzanie = W.ID_wytwarzanie
+INNER JOIN Zamowienie_szczegol AS ZS ON W.ID_zamowienie_szczegol = ZS.ID_zamowienie_szczegol
+INNER JOIN Zamowienie AS Z ON ZS.ID_zamowienie = Z.ID_zamowienie
+GO
+
+CREATE VIEW v_Kontrola_parametr_gauss_wykres
+AS
+SELECT ID_produkt, COUNT(ID_produkt) AS [Ilość], [ID_parametr_produkt],Wartość FROM v_Kontrola_parametr_gauss_okres
+GROUP BY ID_produkt, Wartość, [ID_parametr_produkt]
+go
 
 CREATE VIEW v_Wynik_kontroli
 AS
