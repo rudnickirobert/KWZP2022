@@ -1317,6 +1317,19 @@ CREATE VIEW v_Kwota_za_materialy AS
 	GROUP BY Zamowienie.ID_zamowienie
 GO
 
+CREATE VIEW v_Kwota_za_materialy_bez_produktu AS
+	SELECT Zamowienie.ID_zamowienie, ROUND((Sum(Sklad_polprodukt.Liczba*v_Srednia_cena_za_material.[Średnia cena za (g)]*Sklad_produkt.Liczba*Zamowienie_szczegol.Ilosc)),0) AS [Cena za zamówienie]
+	FROM Zamowienie
+	INNER JOIN Zamowienie_szczegol ON Zamowienie_szczegol.ID_zamowienie = Zamowienie.ID_zamowienie
+	INNER JOIN Produkt ON Produkt.ID_produkt = Zamowienie_szczegol.ID_produkt
+	INNER JOIN Sklad_produkt ON Sklad_produkt.ID_produkt = Produkt.ID_produkt
+	INNER JOIN Slownik_polprodukt ON Slownik_polprodukt.ID_polprodukt = Sklad_produkt.ID_polprodukt
+	INNER JOIN Sklad_polprodukt ON Sklad_polprodukt.ID_polprodukt = Slownik_polprodukt.ID_polprodukt
+	INNER JOIN Material ON Material.ID_material = Sklad_polprodukt.ID_material
+	INNER JOIN v_Srednia_cena_za_material ON v_Srednia_cena_za_material.ID_material = Material.ID_material
+	GROUP BY Zamowienie.ID_zamowienie
+GO
+
 CREATE VIEW v_Potrzebne_materialy_do_zamowienia AS
 	SELECT Zamowienie_szczegol.ID_zamowienie,
 	Material.ID_material,

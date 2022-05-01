@@ -276,5 +276,6 @@ namespace KWZP2022
         public virtual DbSet<v_Zamowienie_produkcja> v_Zamowienie_produkcja { get; set; }
         public virtual DbSet<v_Zamowienie_szczegol> v_Zamowienie_szczegol { get; set; }
         public virtual DbSet<v_Zamowienie_szczegol_produkcja> v_Zamowienie_szczegol_produkcja { get; set; }
+        public virtual DbSet<v_Kwota_za_materialy_bez_produktu> v_Kwota_za_materialy_bez_produktu { get; set; }
     }
 }

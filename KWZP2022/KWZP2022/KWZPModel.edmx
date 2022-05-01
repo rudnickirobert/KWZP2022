@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="KWZPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="KWZPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Alert">
           <Key>
             <PropertyRef Name="ID_alert" />
@@ -1246,6 +1246,15 @@ warning 6002: The table/view 'KWZP.dbo.v_Koszt_roboczogodziny_stanowiska' does n
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Kwota_za_materialy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Kwota_za_materialy">
+          <Key>
+            <PropertyRef Name="ID_zamowienie" />
+          </Key>
+          <Property Name="ID_zamowienie" Type="int" Nullable="false" />
+          <Property Name="Cena za zamówienie" Type="decimal" Precision="38" Scale="6" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Kwota_za_materialy_bez_produktu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Kwota_za_materialy_bez_produktu">
           <Key>
             <PropertyRef Name="ID_zamowienie" />
           </Key>
@@ -5048,6 +5057,12 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
     [v_Kwota_za_materialy].[Cena za zamówienie] AS [Cena za zamówienie]
     FROM [dbo].[v_Kwota_za_materialy] AS [v_Kwota_za_materialy]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_Kwota_za_materialy_bez_produktu" EntityType="Self.v_Kwota_za_materialy_bez_produktu" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Kwota_za_materialy_bez_produktu].[ID_zamowienie] AS [ID_zamowienie], 
+    [v_Kwota_za_materialy_bez_produktu].[Cena za zamówienie] AS [Cena za zamówienie]
+    FROM [dbo].[v_Kwota_za_materialy_bez_produktu] AS [v_Kwota_za_materialy_bez_produktu]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_Liczba_zabiegow_wytworczych_polprodukt" EntityType="Self.v_Liczba_zabiegow_wytworczych_polprodukt" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Liczba_zabiegow_wytworczych_polprodukt].[Półprodukt] AS [Półprodukt], 
@@ -6688,8 +6703,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
             <End Role="Zwrot" EntitySet="Zwrot" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KWZPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -12041,7 +12055,15 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
             <End Role="Obsluga" EntitySet="Obsluga" />
             <End Role="Pracownik" EntitySet="Pracownik" />
           </AssociationSet>
+          <EntitySet Name="v_Kwota_za_materialy_bez_produktu" EntityType="KWZPModel.v_Kwota_za_materialy_bez_produktu" />
         </EntityContainer>
+        <EntityType Name="v_Kwota_za_materialy_bez_produktu">
+          <Key>
+            <PropertyRef Name="ID_zamowienie" />
+          </Key>
+          <Property Name="ID_zamowienie" Type="Int32" Nullable="false" />
+          <Property Name="Cena_za_zamówienie" Type="Decimal" Precision="38" Scale="6" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -14653,6 +14675,14 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
               <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="v_Kwota_za_materialy_bez_produktu">
+            <EntityTypeMapping TypeName="KWZPModel.v_Kwota_za_materialy_bez_produktu">
+              <MappingFragment StoreEntitySet="v_Kwota_za_materialy_bez_produktu">
+                <ScalarProperty Name="Cena_za_zamówienie" ColumnName="Cena za zamówienie" />
+                <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

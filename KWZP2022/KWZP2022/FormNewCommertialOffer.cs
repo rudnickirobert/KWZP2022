@@ -54,9 +54,18 @@ namespace KWZP2022
             try
             {
                 double selectedNoOrder = int.Parse(comboBoxNoOrder.SelectedValue.ToString());
-                v_Kwota_za_materialy priceForMaterialsSelectedNoOrder = this.db.v_Kwota_za_materialy.Single(a => a.ID_zamowienie == selectedNoOrder);
-                textBoxPriceForMaterials.Text = String.Format("{0:N2}", priceForMaterialsSelectedNoOrder.Cena_za_zamówienie);
-                textBoxPriceForOrder.Text = String.Format("{0:N2}", priceForMaterialsSelectedNoOrder.Cena_za_zamówienie.Value * 2);
+                if(this.db.v_Kwota_za_materialy.Where(a => a.ID_zamowienie == selectedNoOrder).ToList().Count() > 0)
+                {
+                    v_Kwota_za_materialy priceForMaterialsSelectedNoOrder = this.db.v_Kwota_za_materialy.Single(a => a.ID_zamowienie == selectedNoOrder);
+                    textBoxPriceForMaterials.Text = String.Format("{0:N2}", priceForMaterialsSelectedNoOrder.Cena_za_zamówienie);
+                    textBoxPriceForOrder.Text = String.Format("{0:N2}", priceForMaterialsSelectedNoOrder.Cena_za_zamówienie.Value * 2);
+                }
+                else
+                {
+                    v_Kwota_za_materialy_bez_produktu priceForMaterialsSelectedNoOrder = this.db.v_Kwota_za_materialy_bez_produktu.Single(a => a.ID_zamowienie == selectedNoOrder);
+                    textBoxPriceForMaterials.Text = String.Format("{0:N2}", priceForMaterialsSelectedNoOrder.Cena_za_zamówienie);
+                    textBoxPriceForOrder.Text = String.Format("{0:N2}", priceForMaterialsSelectedNoOrder.Cena_za_zamówienie.Value * 2);
+                }
             }
             catch (Exception)
             {

@@ -924,6 +924,9 @@
     <Compile Include="v_Kwota_za_materialy.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Kwota_za_materialy_bez_produktu.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Liczba_zabiegow_wytworczych_polprodukt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>

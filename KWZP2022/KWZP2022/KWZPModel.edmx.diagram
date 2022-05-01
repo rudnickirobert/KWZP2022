@@ -381,6 +381,7 @@
         <AssociationConnector Association="KWZPModel.FK__Wytwarzan__ID_za__3587F3E0" ManuallyRouted="false" />
         <AssociationConnector Association="KWZPModel.FK__Zamowieni__ID_za__2739D489" ManuallyRouted="false" />
         <AssociationConnector Association="KWZPModel.Obsluga_pracownik" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="KWZPModel.v_Kwota_za_materialy_bez_produktu" Width="1.5" PointX="36.375" PointY="38.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
