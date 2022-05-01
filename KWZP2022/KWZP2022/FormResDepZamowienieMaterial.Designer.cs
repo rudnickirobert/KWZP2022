@@ -49,6 +49,7 @@
             this.lvlZamowienieMaterial = new System.Windows.Forms.Label();
             this.btnAktualizujStatus = new System.Windows.Forms.Button();
             this.lblPodpisWidoku = new System.Windows.Forms.Label();
+            this.btnOdswiez = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienieMaterial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numWaga)).BeginInit();
             this.SuspendLayout();
@@ -242,7 +243,7 @@
             this.lvlZamowienieMaterial.Location = new System.Drawing.Point(13, 9);
             this.lvlZamowienieMaterial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lvlZamowienieMaterial.Name = "lvlZamowienieMaterial";
-            this.lvlZamowienieMaterial.Size = new System.Drawing.Size(278, 32);
+            this.lvlZamowienieMaterial.Size = new System.Drawing.Size(279, 32);
             this.lvlZamowienieMaterial.TabIndex = 26;
             this.lvlZamowienieMaterial.Text = "Zamówienie materiału";
             // 
@@ -269,11 +270,23 @@
             this.lblPodpisWidoku.TabIndex = 62;
             this.lblPodpisWidoku.Text = "Zamówienia materiałów";
             // 
+            // btnOdswiez
+            // 
+            this.btnOdswiez.Font = new System.Drawing.Font("Arial", 15.75F);
+            this.btnOdswiez.Location = new System.Drawing.Point(749, 54);
+            this.btnOdswiez.Name = "btnOdswiez";
+            this.btnOdswiez.Size = new System.Drawing.Size(134, 39);
+            this.btnOdswiez.TabIndex = 63;
+            this.btnOdswiez.Text = "Odśwież";
+            this.btnOdswiez.UseVisualStyleBackColor = true;
+            this.btnOdswiez.Click += new System.EventHandler(this.btnOdswiez_Click);
+            // 
             // FormResDepZamowienieMaterial
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(956, 539);
+            this.Controls.Add(this.btnOdswiez);
             this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnAktualizujStatus);
             this.Controls.Add(this.lvlZamowienieMaterial);
@@ -298,6 +311,7 @@
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormResDepZamowienieMaterial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Zamówienie materiału";
@@ -330,5 +344,6 @@
         private System.Windows.Forms.Label lvlZamowienieMaterial;
         private System.Windows.Forms.Button btnAktualizujStatus;
         private System.Windows.Forms.Label lblPodpisWidoku;
+        private System.Windows.Forms.Button btnOdswiez;
     }
 }

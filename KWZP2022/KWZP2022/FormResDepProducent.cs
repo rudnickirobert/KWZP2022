@@ -45,7 +45,7 @@ namespace KWZP2022
                     daneProducent.Miejscowosc = txtMiejscowosc.Text;
                     daneProducent.Ulica = txtUlica.Text;
                     daneProducent.Nr_budynku = (int)numNrbudynku.Value;
-                    daneProducent.Kod_pocztowy = txtKodpocztowy.Text;
+                    daneProducent.Kod_pocztowy = mtxtKodPocztowy.Text;
                     db.Dane_adresowe_producent.Add(daneProducent);
                     db.SaveChanges();
                     initDataGridView();
@@ -66,7 +66,7 @@ namespace KWZP2022
             daneProducentDaneAdresowe.Miejscowosc = txtMiejscowosc.Text;
             daneProducentDaneAdresowe.Ulica = txtUlica.Text;
             daneProducentDaneAdresowe.Nr_budynku = (int)numNrbudynku.Value;
-            daneProducentDaneAdresowe.Kod_pocztowy = txtKodpocztowy.Text;
+            daneProducentDaneAdresowe.Kod_pocztowy = mtxtKodPocztowy.Text;
             db.SaveChanges();
             initDataGridView();
             MessageBox.Show("Zapisano zmiany!", "Informacja", MessageBoxButtons.OK);
@@ -83,11 +83,11 @@ namespace KWZP2022
                 if (row.Cells[5].Value != null)
                 {
                     dgvProducent.CurrentRow.Selected = true;
-                    txtKodpocztowy.Text = row.Cells[5].Value.ToString();
+                    mtxtKodPocztowy.Text = row.Cells[5].Value.ToString();
                 }
                 else
                 {
-                    txtKodpocztowy.Clear();
+                    mtxtKodPocztowy.Clear();
                 }
             }
         }

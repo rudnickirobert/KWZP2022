@@ -49,6 +49,7 @@
             this.dgvZamowienieNarzedzia = new System.Windows.Forms.DataGridView();
             this.btnAktualizujStatus = new System.Windows.Forms.Button();
             this.lblPodpisWidoku = new System.Windows.Forms.Label();
+            this.btnOdswiez = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numSztuk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienieNarzedzia)).BeginInit();
             this.SuspendLayout();
@@ -232,7 +233,7 @@
             this.lvlZamowienieNarzedzia.Location = new System.Drawing.Point(14, 8);
             this.lvlZamowienieNarzedzia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lvlZamowienieNarzedzia.Name = "lvlZamowienieNarzedzia";
-            this.lvlZamowienieNarzedzia.Size = new System.Drawing.Size(283, 32);
+            this.lvlZamowienieNarzedzia.Size = new System.Drawing.Size(284, 32);
             this.lvlZamowienieNarzedzia.TabIndex = 42;
             this.lvlZamowienieNarzedzia.Text = "Zamówienie narzędzia";
             // 
@@ -269,11 +270,23 @@
             this.lblPodpisWidoku.TabIndex = 62;
             this.lblPodpisWidoku.Text = "Zamówienia narzędzi";
             // 
+            // btnOdswiez
+            // 
+            this.btnOdswiez.Font = new System.Drawing.Font("Arial", 15.75F);
+            this.btnOdswiez.Location = new System.Drawing.Point(579, 56);
+            this.btnOdswiez.Name = "btnOdswiez";
+            this.btnOdswiez.Size = new System.Drawing.Size(134, 39);
+            this.btnOdswiez.TabIndex = 63;
+            this.btnOdswiez.Text = "Odśwież";
+            this.btnOdswiez.UseVisualStyleBackColor = true;
+            this.btnOdswiez.Click += new System.EventHandler(this.btnOdswiez_Click);
+            // 
             // FormResDepZamowienieNarzedzia
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(801, 498);
+            this.Controls.Add(this.btnOdswiez);
             this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnAktualizujStatus);
             this.Controls.Add(this.btnDodajZamowienie);
@@ -296,6 +309,7 @@
             this.Controls.Add(this.dgvZamowienieNarzedzia);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormResDepZamowienieNarzedzia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Zamówienie narzędzia";
@@ -328,5 +342,6 @@
         private System.Windows.Forms.DataGridView dgvZamowienieNarzedzia;
         private System.Windows.Forms.Button btnAktualizujStatus;
         private System.Windows.Forms.Label lblPodpisWidoku;
+        private System.Windows.Forms.Button btnOdswiez;
     }
 }

@@ -15,6 +15,7 @@ namespace KWZP2022
     public partial class v_Magazyn_narzedzia_wszystko
     {
         public string Nazwa_narzędzia { get; set; }
-        public int Sztuk { get; set; }
+        public Nullable<int> Ilość_sztuk { get; set; }
+        public int ID_narzedzie { get; set; }
     }
 }

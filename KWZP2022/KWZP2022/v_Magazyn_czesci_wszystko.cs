@@ -15,6 +15,7 @@ namespace KWZP2022
     public partial class v_Magazyn_czesci_wszystko
     {
         public string Nazwa_części { get; set; }
-        public int Ilość { get; set; }
+        public Nullable<int> Ilość { get; set; }
+        public int ID_czesc { get; set; }
     }
 }

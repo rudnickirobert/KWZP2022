@@ -38,12 +38,12 @@
             this.txtMiejscowosc = new System.Windows.Forms.TextBox();
             this.txtUlica = new System.Windows.Forms.TextBox();
             this.numNrbudynku = new System.Windows.Forms.NumericUpDown();
-            this.txtKodpocztowy = new System.Windows.Forms.TextBox();
             this.dgvDostawca = new System.Windows.Forms.DataGridView();
             this.btnAktualizuj = new System.Windows.Forms.Button();
             this.btnUsun = new System.Windows.Forms.Button();
             this.btnDodaj = new System.Windows.Forms.Button();
             this.lblPodpisWidoku = new System.Windows.Forms.Label();
+            this.mtxtKodPocztowy = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numNrbudynku)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDostawca)).BeginInit();
             this.SuspendLayout();
@@ -144,19 +144,12 @@
             this.numNrbudynku.Name = "numNrbudynku";
             this.numNrbudynku.Size = new System.Drawing.Size(214, 44);
             this.numNrbudynku.TabIndex = 8;
+            this.numNrbudynku.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numNrbudynku.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            // 
-            // txtKodpocztowy
-            // 
-            this.txtKodpocztowy.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtKodpocztowy.Location = new System.Drawing.Point(294, 288);
-            this.txtKodpocztowy.Name = "txtKodpocztowy";
-            this.txtKodpocztowy.Size = new System.Drawing.Size(214, 44);
-            this.txtKodpocztowy.TabIndex = 9;
             // 
             // dgvDostawca
             // 
@@ -214,17 +207,26 @@
             this.lblPodpisWidoku.TabIndex = 34;
             this.lblPodpisWidoku.Text = "Dostawcy";
             // 
+            // mtxtKodPocztowy
+            // 
+            this.mtxtKodPocztowy.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.mtxtKodPocztowy.Location = new System.Drawing.Point(294, 288);
+            this.mtxtKodPocztowy.Mask = "00-000";
+            this.mtxtKodPocztowy.Name = "mtxtKodPocztowy";
+            this.mtxtKodPocztowy.Size = new System.Drawing.Size(133, 44);
+            this.mtxtKodPocztowy.TabIndex = 35;
+            // 
             // FormResDepDostawca
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1278, 713);
+            this.Controls.Add(this.mtxtKodPocztowy);
             this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnAktualizuj);
             this.Controls.Add(this.btnUsun);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.dgvDostawca);
-            this.Controls.Add(this.txtKodpocztowy);
             this.Controls.Add(this.numNrbudynku);
             this.Controls.Add(this.txtUlica);
             this.Controls.Add(this.txtMiejscowosc);
@@ -236,6 +238,7 @@
             this.Controls.Add(this.lblNazwa);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormResDepDostawca";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dodaj dostawcę";
@@ -257,11 +260,11 @@
         private System.Windows.Forms.TextBox txtMiejscowosc;
         private System.Windows.Forms.TextBox txtUlica;
         private System.Windows.Forms.NumericUpDown numNrbudynku;
-        private System.Windows.Forms.TextBox txtKodpocztowy;
         private System.Windows.Forms.DataGridView dgvDostawca;
         private System.Windows.Forms.Button btnAktualizuj;
         private System.Windows.Forms.Button btnUsun;
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.Label lblPodpisWidoku;
+        private System.Windows.Forms.MaskedTextBox mtxtKodPocztowy;
     }
 }

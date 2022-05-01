@@ -61,7 +61,7 @@
             this.lblNazwa.Font = new System.Drawing.Font("Arial", 20.25F);
             this.lblNazwa.Location = new System.Drawing.Point(31, 31);
             this.lblNazwa.Name = "lblNazwa";
-            this.lblNazwa.Size = new System.Drawing.Size(111, 32);
+            this.lblNazwa.Size = new System.Drawing.Size(112, 32);
             this.lblNazwa.TabIndex = 1;
             this.lblNazwa.Text = "Materiał";
             // 
@@ -81,7 +81,7 @@
             this.lblParametr.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblParametr.Location = new System.Drawing.Point(33, 310);
             this.lblParametr.Name = "lblParametr";
-            this.lblParametr.Size = new System.Drawing.Size(124, 32);
+            this.lblParametr.Size = new System.Drawing.Size(125, 32);
             this.lblParametr.TabIndex = 3;
             this.lblParametr.Text = "Parametr";
             // 
@@ -138,7 +138,7 @@
             // 
             this.btnAktualizuj.BackColor = System.Drawing.Color.SkyBlue;
             this.btnAktualizuj.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnAktualizuj.Location = new System.Drawing.Point(503, 371);
+            this.btnAktualizuj.Location = new System.Drawing.Point(492, 404);
             this.btnAktualizuj.Name = "btnAktualizuj";
             this.btnAktualizuj.Size = new System.Drawing.Size(225, 37);
             this.btnAktualizuj.TabIndex = 21;
@@ -150,7 +150,7 @@
             // 
             this.btnUsun.BackColor = System.Drawing.Color.IndianRed;
             this.btnUsun.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnUsun.Location = new System.Drawing.Point(503, 423);
+            this.btnUsun.Location = new System.Drawing.Point(492, 447);
             this.btnUsun.Name = "btnUsun";
             this.btnUsun.Size = new System.Drawing.Size(225, 37);
             this.btnUsun.TabIndex = 20;
@@ -162,7 +162,7 @@
             // 
             this.btnDodaj.BackColor = System.Drawing.Color.PaleGreen;
             this.btnDodaj.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnDodaj.Location = new System.Drawing.Point(503, 310);
+            this.btnDodaj.Location = new System.Drawing.Point(492, 361);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(225, 37);
             this.btnDodaj.TabIndex = 19;
@@ -174,7 +174,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Violet;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.button1.Location = new System.Drawing.Point(228, 28);
+            this.button1.Location = new System.Drawing.Point(194, 28);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(181, 35);
             this.button1.TabIndex = 22;
@@ -212,7 +212,9 @@
             this.Controls.Add(this.cmbMaterial);
             this.Controls.Add(this.lblNazwa);
             this.Controls.Add(this.dgvParametrMaterial);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormResDepParametryMaterial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Parametry materiału";

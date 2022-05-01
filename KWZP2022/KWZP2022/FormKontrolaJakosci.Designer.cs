@@ -59,10 +59,14 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.dgvRezultatKontroli = new System.Windows.Forms.DataGridView();
+            this.btnGauss = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvvParametrProdukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvvKontrolaProdukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvvKontrolaJakosciKolejka)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPozytywne)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRezultatKontroli)).BeginInit();
             this.SuspendLayout();
             // 
             // btnOdswiez
@@ -70,7 +74,7 @@
             this.btnOdswiez.Font = new System.Drawing.Font("Arial", 15F);
             this.btnOdswiez.Location = new System.Drawing.Point(12, 605);
             this.btnOdswiez.Name = "btnOdswiez";
-            this.btnOdswiez.Size = new System.Drawing.Size(334, 37);
+            this.btnOdswiez.Size = new System.Drawing.Size(212, 37);
             this.btnOdswiez.TabIndex = 39;
             this.btnOdswiez.Text = "Odśwież";
             this.btnOdswiez.UseVisualStyleBackColor = true;
@@ -82,7 +86,7 @@
             this.btnDodaj.Font = new System.Drawing.Font("Arial", 15F);
             this.btnDodaj.Location = new System.Drawing.Point(12, 536);
             this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(334, 37);
+            this.btnDodaj.Size = new System.Drawing.Size(212, 37);
             this.btnDodaj.TabIndex = 36;
             this.btnDodaj.Text = "Dodaj nowy";
             this.btnDodaj.UseVisualStyleBackColor = false;
@@ -112,9 +116,9 @@
             // 
             this.btnAkceptuj.BackColor = System.Drawing.Color.Aquamarine;
             this.btnAkceptuj.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAkceptuj.Location = new System.Drawing.Point(244, 7);
+            this.btnAkceptuj.Location = new System.Drawing.Point(123, 15);
             this.btnAkceptuj.Name = "btnAkceptuj";
-            this.btnAkceptuj.Size = new System.Drawing.Size(101, 46);
+            this.btnAkceptuj.Size = new System.Drawing.Size(101, 31);
             this.btnAkceptuj.TabIndex = 42;
             this.btnAkceptuj.Text = "Akceptuj";
             this.btnAkceptuj.UseVisualStyleBackColor = false;
@@ -266,9 +270,9 @@
             // dgvvKontrolaJakosciKolejka
             // 
             this.dgvvKontrolaJakosciKolejka.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvvKontrolaJakosciKolejka.Location = new System.Drawing.Point(356, 83);
+            this.dgvvKontrolaJakosciKolejka.Location = new System.Drawing.Point(301, 83);
             this.dgvvKontrolaJakosciKolejka.Name = "dgvvKontrolaJakosciKolejka";
-            this.dgvvKontrolaJakosciKolejka.Size = new System.Drawing.Size(294, 259);
+            this.dgvvKontrolaJakosciKolejka.Size = new System.Drawing.Size(349, 259);
             this.dgvvKontrolaJakosciKolejka.TabIndex = 58;
             this.dgvvKontrolaJakosciKolejka.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvvKontrolaJakosciKolejka_CellContentClick);
             // 
@@ -309,9 +313,9 @@
             // 
             this.btnGeneruj.BackColor = System.Drawing.Color.Khaki;
             this.btnGeneruj.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnGeneruj.Location = new System.Drawing.Point(356, 458);
+            this.btnGeneruj.Location = new System.Drawing.Point(301, 458);
             this.btnGeneruj.Name = "btnGeneruj";
-            this.btnGeneruj.Size = new System.Drawing.Size(294, 37);
+            this.btnGeneruj.Size = new System.Drawing.Size(349, 37);
             this.btnGeneruj.TabIndex = 63;
             this.btnGeneruj.Text = "Pomiar Maszyna";
             this.btnGeneruj.UseVisualStyleBackColor = false;
@@ -321,18 +325,18 @@
             // 
             this.cbZamowienie.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbZamowienie.FormattingEnabled = true;
-            this.cbZamowienie.Location = new System.Drawing.Point(356, 358);
+            this.cbZamowienie.Location = new System.Drawing.Point(301, 358);
             this.cbZamowienie.Name = "cbZamowienie";
-            this.cbZamowienie.Size = new System.Drawing.Size(294, 25);
+            this.cbZamowienie.Size = new System.Drawing.Size(349, 25);
             this.cbZamowienie.TabIndex = 64;
             // 
             // btnWczytajZamowienie
             // 
             this.btnWczytajZamowienie.BackColor = System.Drawing.Color.MediumTurquoise;
             this.btnWczytajZamowienie.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnWczytajZamowienie.Location = new System.Drawing.Point(356, 407);
+            this.btnWczytajZamowienie.Location = new System.Drawing.Point(301, 407);
             this.btnWczytajZamowienie.Name = "btnWczytajZamowienie";
-            this.btnWczytajZamowienie.Size = new System.Drawing.Size(294, 37);
+            this.btnWczytajZamowienie.Size = new System.Drawing.Size(349, 37);
             this.btnWczytajZamowienie.TabIndex = 65;
             this.btnWczytajZamowienie.Text = "Wczytaj produkty";
             this.btnWczytajZamowienie.UseVisualStyleBackColor = false;
@@ -343,7 +347,7 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Arial", 16F);
-            this.label9.Location = new System.Drawing.Point(351, 50);
+            this.label9.Location = new System.Drawing.Point(296, 56);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(174, 25);
             this.label9.TabIndex = 66;
@@ -371,12 +375,46 @@
             this.label11.TabIndex = 68;
             this.label11.Text = "Produkty z pozytywną kontrolą";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Arial", 13F);
+            this.label12.Location = new System.Drawing.Point(297, 524);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(143, 21);
+            this.label12.TabIndex = 69;
+            this.label12.Text = "Rezultat kontroli:";
+            // 
+            // dgvRezultatKontroli
+            // 
+            this.dgvRezultatKontroli.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRezultatKontroli.Location = new System.Drawing.Point(301, 548);
+            this.dgvRezultatKontroli.Name = "dgvRezultatKontroli";
+            this.dgvRezultatKontroli.Size = new System.Drawing.Size(349, 123);
+            this.dgvRezultatKontroli.TabIndex = 70;
+            // 
+            // btnGauss
+            // 
+            this.btnGauss.BackColor = System.Drawing.Color.Thistle;
+            this.btnGauss.Font = new System.Drawing.Font("Arial", 15F);
+            this.btnGauss.Location = new System.Drawing.Point(301, 677);
+            this.btnGauss.Name = "btnGauss";
+            this.btnGauss.Size = new System.Drawing.Size(349, 34);
+            this.btnGauss.TabIndex = 71;
+            this.btnGauss.Text = "Rozkład Gaussa";
+            this.btnGauss.UseVisualStyleBackColor = false;
+            this.btnGauss.Click += new System.EventHandler(this.btnGauss_Click);
+            // 
             // FormKontrolaJakosci
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background;
             this.ClientSize = new System.Drawing.Size(1276, 714);
+            this.Controls.Add(this.btnGauss);
+            this.Controls.Add(this.dgvRezultatKontroli);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -415,6 +453,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvvKontrolaProdukt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvvKontrolaJakosciKolejka)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPozytywne)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRezultatKontroli)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -453,5 +492,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DataGridView dgvRezultatKontroli;
+        private System.Windows.Forms.Button btnGauss;
     }
 }

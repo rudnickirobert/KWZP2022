@@ -34,6 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnOdswiez = new System.Windows.Forms.Button();
             this.lblPodpisWidoku = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMagazynMaterial)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,6 +45,7 @@
             this.dgvMagazynMaterial.Name = "dgvMagazynMaterial";
             this.dgvMagazynMaterial.Size = new System.Drawing.Size(731, 247);
             this.dgvMagazynMaterial.TabIndex = 0;
+            this.dgvMagazynMaterial.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMagazynMaterial_CellDoubleClick);
             // 
             // btnDodajMaterial
             // 
@@ -91,11 +93,23 @@
             this.lblPodpisWidoku.TabIndex = 55;
             this.lblPodpisWidoku.Text = "Magazyn materiałów";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(205, 463);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(406, 16);
+            this.label2.TabIndex = 56;
+            this.label2.Text = "Kliknij dwukrotnie na materiał, aby zobaczyć jego historię zamówień.";
+            // 
             // FormResDepMagazynMaterialow
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(797, 498);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnOdswiez);
             this.Controls.Add(this.label1);
@@ -104,6 +118,7 @@
             this.Font = new System.Drawing.Font("Arial", 9.75F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormResDepMagazynMaterialow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Magazyn materiałów";
@@ -120,5 +135,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnOdswiez;
         private System.Windows.Forms.Label lblPodpisWidoku;
+        private System.Windows.Forms.Label label2;
     }
 }

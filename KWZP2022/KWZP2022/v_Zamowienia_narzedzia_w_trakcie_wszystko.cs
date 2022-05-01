@@ -22,5 +22,6 @@ namespace KWZP2022
         public string Dostawca { get; set; }
         public string Status { get; set; }
         public int StatusID { get; set; }
+        public int ID_narzedzie { get; set; }
     }
 }

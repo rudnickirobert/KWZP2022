@@ -28,10 +28,19 @@ namespace KWZP2022
         {
             dgvMagazynNarzedzie.DataSource = db.v_Magazyn_narzedzia_nieuzywane.ToList();
             dgvMagazynNarzedzie.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dgvMagazynNarzedzie.Columns[2].Visible = false;
         }
         private void btnOdswiez_Click(object sender, EventArgs e)
         {
-            dgvMagazynNarzedzie.Refresh();
+            initDataGridView();
+        }
+
+        private void dgvMagazynNarzedzie_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int wybraneNarzedzie = int.Parse(this.dgvMagazynNarzedzie.CurrentRow.Cells[2].Value.ToString());
+            Narzedzie wybraneNarzedzieDGV = this.db.Narzedzie.Single(a => a.ID_narzedzie == wybraneNarzedzie);
+            FormResDepHistoriaZamowienNarzedzia formResDepHisZamNarz = new FormResDepHistoriaZamowienNarzedzia(db, wybraneNarzedzieDGV);
+            formResDepHisZamNarz.ShowDialog();
         }
     }
 }

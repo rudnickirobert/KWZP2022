@@ -34,6 +34,7 @@
             this.btnDodajMaszyna = new System.Windows.Forms.Button();
             this.dgvMagazynMaszyna = new System.Windows.Forms.DataGridView();
             this.lblPodpisWidoku = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMagazynMaszyna)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,6 +80,7 @@
             this.dgvMagazynMaszyna.Name = "dgvMagazynMaszyna";
             this.dgvMagazynMaszyna.Size = new System.Drawing.Size(731, 251);
             this.dgvMagazynMaszyna.TabIndex = 50;
+            this.dgvMagazynMaszyna.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMagazynMaszyna_CellDoubleClick);
             // 
             // lblPodpisWidoku
             // 
@@ -91,11 +93,23 @@
             this.lblPodpisWidoku.TabIndex = 54;
             this.lblPodpisWidoku.Text = "Magazyn maszyn";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(193, 459);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(402, 16);
+            this.label2.TabIndex = 58;
+            this.label2.Text = "Kliknij dwukrotnie na maszynę, aby zobaczyć jej historię zamówień.";
+            // 
             // FormResDepMagazynMaszyn
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(796, 496);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnOdswiez);
             this.Controls.Add(this.label1);
@@ -104,6 +118,7 @@
             this.Font = new System.Drawing.Font("Arial", 9.75F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormResDepMagazynMaszyn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Magazyn maszyn";
@@ -120,5 +135,6 @@
         private System.Windows.Forms.Button btnDodajMaszyna;
         private System.Windows.Forms.DataGridView dgvMagazynMaszyna;
         private System.Windows.Forms.Label lblPodpisWidoku;
+        private System.Windows.Forms.Label label2;
     }
 }

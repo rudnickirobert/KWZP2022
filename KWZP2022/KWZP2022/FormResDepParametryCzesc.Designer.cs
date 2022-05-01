@@ -50,7 +50,7 @@
             // 
             this.btnWczytajParametr.BackColor = System.Drawing.Color.Violet;
             this.btnWczytajParametr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.btnWczytajParametr.Location = new System.Drawing.Point(221, 33);
+            this.btnWczytajParametr.Location = new System.Drawing.Point(191, 18);
             this.btnWczytajParametr.Name = "btnWczytajParametr";
             this.btnWczytajParametr.Size = new System.Drawing.Size(181, 35);
             this.btnWczytajParametr.TabIndex = 48;
@@ -62,7 +62,7 @@
             // 
             this.btnAktualizuj.BackColor = System.Drawing.Color.SkyBlue;
             this.btnAktualizuj.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnAktualizuj.Location = new System.Drawing.Point(498, 370);
+            this.btnAktualizuj.Location = new System.Drawing.Point(493, 404);
             this.btnAktualizuj.Name = "btnAktualizuj";
             this.btnAktualizuj.Size = new System.Drawing.Size(225, 37);
             this.btnAktualizuj.TabIndex = 47;
@@ -74,7 +74,7 @@
             // 
             this.btnUsun.BackColor = System.Drawing.Color.IndianRed;
             this.btnUsun.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnUsun.Location = new System.Drawing.Point(498, 422);
+            this.btnUsun.Location = new System.Drawing.Point(493, 447);
             this.btnUsun.Name = "btnUsun";
             this.btnUsun.Size = new System.Drawing.Size(225, 37);
             this.btnUsun.TabIndex = 46;
@@ -86,7 +86,7 @@
             // 
             this.btnDodaj.BackColor = System.Drawing.Color.PaleGreen;
             this.btnDodaj.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnDodaj.Location = new System.Drawing.Point(498, 309);
+            this.btnDodaj.Location = new System.Drawing.Point(493, 361);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(225, 37);
             this.btnDodaj.TabIndex = 45;
@@ -114,7 +114,7 @@
             // 
             this.cmbParametr.Font = new System.Drawing.Font("Arial", 16.25F);
             this.cmbParametr.FormattingEnabled = true;
-            this.cmbParametr.Location = new System.Drawing.Point(191, 312);
+            this.cmbParametr.Location = new System.Drawing.Point(191, 318);
             this.cmbParametr.Name = "cmbParametr";
             this.cmbParametr.Size = new System.Drawing.Size(237, 33);
             this.cmbParametr.TabIndex = 42;
@@ -124,7 +124,7 @@
             this.lblZakresdol.AutoSize = true;
             this.lblZakresdol.BackColor = System.Drawing.Color.Transparent;
             this.lblZakresdol.Font = new System.Drawing.Font("Arial", 16.25F);
-            this.lblZakresdol.Location = new System.Drawing.Point(29, 376);
+            this.lblZakresdol.Location = new System.Drawing.Point(29, 374);
             this.lblZakresdol.Name = "lblZakresdol";
             this.lblZakresdol.Size = new System.Drawing.Size(111, 25);
             this.lblZakresdol.TabIndex = 41;
@@ -135,7 +135,7 @@
             this.lblZakresgora.AutoSize = true;
             this.lblZakresgora.BackColor = System.Drawing.Color.Transparent;
             this.lblZakresgora.Font = new System.Drawing.Font("Arial", 16.25F);
-            this.lblZakresgora.Location = new System.Drawing.Point(29, 428);
+            this.lblZakresgora.Location = new System.Drawing.Point(29, 425);
             this.lblZakresgora.Name = "lblZakresgora";
             this.lblZakresgora.Size = new System.Drawing.Size(126, 25);
             this.lblZakresgora.TabIndex = 40;
@@ -146,9 +146,9 @@
             this.lblParametr.AutoSize = true;
             this.lblParametr.BackColor = System.Drawing.Color.Transparent;
             this.lblParametr.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblParametr.Location = new System.Drawing.Point(28, 309);
+            this.lblParametr.Location = new System.Drawing.Point(28, 315);
             this.lblParametr.Name = "lblParametr";
-            this.lblParametr.Size = new System.Drawing.Size(124, 32);
+            this.lblParametr.Size = new System.Drawing.Size(125, 32);
             this.lblParametr.TabIndex = 39;
             this.lblParametr.Text = "Parametr";
             // 
@@ -156,7 +156,7 @@
             // 
             this.cmbCzesc.Font = new System.Drawing.Font("Arial", 16.25F);
             this.cmbCzesc.FormattingEnabled = true;
-            this.cmbCzesc.Location = new System.Drawing.Point(34, 80);
+            this.cmbCzesc.Location = new System.Drawing.Point(34, 65);
             this.cmbCzesc.Name = "cmbCzesc";
             this.cmbCzesc.Size = new System.Drawing.Size(338, 33);
             this.cmbCzesc.TabIndex = 38;
@@ -166,16 +166,16 @@
             this.lblNazwa.AutoSize = true;
             this.lblNazwa.BackColor = System.Drawing.Color.Transparent;
             this.lblNazwa.Font = new System.Drawing.Font("Arial", 20.25F);
-            this.lblNazwa.Location = new System.Drawing.Point(28, 36);
+            this.lblNazwa.Location = new System.Drawing.Point(28, 21);
             this.lblNazwa.Name = "lblNazwa";
-            this.lblNazwa.Size = new System.Drawing.Size(90, 32);
+            this.lblNazwa.Size = new System.Drawing.Size(91, 32);
             this.lblNazwa.TabIndex = 37;
             this.lblNazwa.Text = "Część";
             // 
             // dgvParametrCzesc
             // 
             this.dgvParametrCzesc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvParametrCzesc.Location = new System.Drawing.Point(34, 156);
+            this.dgvParametrCzesc.Location = new System.Drawing.Point(34, 135);
             this.dgvParametrCzesc.Name = "dgvParametrCzesc";
             this.dgvParametrCzesc.Size = new System.Drawing.Size(738, 147);
             this.dgvParametrCzesc.TabIndex = 36;
@@ -185,7 +185,7 @@
             this.lblPodpisWidoku.AutoSize = true;
             this.lblPodpisWidoku.BackColor = System.Drawing.Color.Transparent;
             this.lblPodpisWidoku.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblPodpisWidoku.Location = new System.Drawing.Point(30, 131);
+            this.lblPodpisWidoku.Location = new System.Drawing.Point(30, 110);
             this.lblPodpisWidoku.Name = "lblPodpisWidoku";
             this.lblPodpisWidoku.Size = new System.Drawing.Size(155, 22);
             this.lblPodpisWidoku.TabIndex = 56;
@@ -212,6 +212,7 @@
             this.Controls.Add(this.dgvParametrCzesc);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormResDepParametryCzesc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Parametry części";

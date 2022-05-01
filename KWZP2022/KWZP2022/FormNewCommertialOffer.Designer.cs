@@ -204,16 +204,16 @@
             this.dtpDateOfImplementation.TabIndex = 21;
             // 
             // textBoxPriceForMaterials
-            // 
+            //
             this.textBoxPriceForMaterials.Enabled = false;
             this.textBoxPriceForMaterials.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.textBoxPriceForMaterials.Location = new System.Drawing.Point(583, 104);
             this.textBoxPriceForMaterials.Name = "textBoxPriceForMaterials";
             this.textBoxPriceForMaterials.Size = new System.Drawing.Size(199, 26);
             this.textBoxPriceForMaterials.TabIndex = 23;
-            // 
+            //
             // label7
-            // 
+            //
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Arial Narrow", 12F);
@@ -222,18 +222,18 @@
             this.label7.Size = new System.Drawing.Size(124, 20);
             this.label7.TabIndex = 22;
             this.label7.Text = "Kwota za materiały:";
-            // 
+            //
             // textBoxPriceForOrder
-            // 
+            //
             this.textBoxPriceForOrder.Enabled = false;
             this.textBoxPriceForOrder.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.textBoxPriceForOrder.Location = new System.Drawing.Point(583, 166);
             this.textBoxPriceForOrder.Name = "textBoxPriceForOrder";
             this.textBoxPriceForOrder.Size = new System.Drawing.Size(199, 26);
             this.textBoxPriceForOrder.TabIndex = 25;
-            // 
+            //
             // label8
-            // 
+            //
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Arial Narrow", 12F);
@@ -242,9 +242,9 @@
             this.label8.Size = new System.Drawing.Size(192, 20);
             this.label8.TabIndex = 24;
             this.label8.Text = "Sugerowana kwota sprzedaży:";
-            // 
+            //
             // btnCheckAvailableMaterials
-            // 
+            //
             this.btnCheckAvailableMaterials.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCheckAvailableMaterials.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.btnCheckAvailableMaterials.Location = new System.Drawing.Point(583, 232);
@@ -254,9 +254,9 @@
             this.btnCheckAvailableMaterials.Text = "Sprawdź";
             this.btnCheckAvailableMaterials.UseVisualStyleBackColor = true;
             this.btnCheckAvailableMaterials.Click += new System.EventHandler(this.btnCheckAvailableMaterials_Click);
-            // 
+            //
             // label10
-            // 
+            //
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Arial Narrow", 12F);
@@ -265,9 +265,9 @@
             this.label10.Size = new System.Drawing.Size(207, 20);
             this.label10.TabIndex = 28;
             this.label10.Text = "Sprawdź dostępność materiałów:";
-            // 
+            //
             // dgvMissingMaterials
-            // 
+            //
             this.dgvMissingMaterials.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMissingMaterials.Location = new System.Drawing.Point(472, 298);
             this.dgvMissingMaterials.Name = "dgvMissingMaterials";
@@ -275,9 +275,9 @@
             this.dgvMissingMaterials.Size = new System.Drawing.Size(310, 147);
             this.dgvMissingMaterials.TabIndex = 29;
             this.dgvMissingMaterials.Visible = false;
-            // 
+            //
             // btnAddAlert
-            // 
+            //
             this.btnAddAlert.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddAlert.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.btnAddAlert.Location = new System.Drawing.Point(472, 451);
@@ -288,9 +288,9 @@
             this.btnAddAlert.UseVisualStyleBackColor = true;
             this.btnAddAlert.Visible = false;
             this.btnAddAlert.Click += new System.EventHandler(this.btnAddAlert_Click);
-            // 
+            //
             // lblDescription
-            // 
+            //
             this.lblDescription.AutoSize = true;
             this.lblDescription.BackColor = System.Drawing.Color.Transparent;
             this.lblDescription.Font = new System.Drawing.Font("Arial Narrow", 12F);
@@ -300,7 +300,7 @@
             this.lblDescription.TabIndex = 31;
             this.lblDescription.Text = "Brakujące materiały do wszystkich zamówień:";
             this.lblDescription.Visible = false;
-            // 
+            //
             // FormNewCommertialOffer
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;

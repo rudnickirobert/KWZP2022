@@ -128,6 +128,7 @@ namespace KWZP2022
         public virtual DbSet<v_Dostawcy> v_Dostawcy { get; set; }
         public virtual DbSet<v_Email_pracownik> v_Email_pracownik { get; set; }
         public virtual DbSet<v_Etat> v_Etat { get; set; }
+        public virtual DbSet<v_Ilosc_kontrola_pozytywna> v_Ilosc_kontrola_pozytywna { get; set; }
         public virtual DbSet<v_Klient> v_Klient { get; set; }
         public virtual DbSet<v_Klient_telefon_aktualny> v_Klient_telefon_aktualny { get; set; }
         public virtual DbSet<v_Klient_telefon_Historia> v_Klient_telefon_Historia { get; set; }
@@ -136,6 +137,7 @@ namespace KWZP2022
         public virtual DbSet<v_Kontrola_negatywna> v_Kontrola_negatywna { get; set; }
         public virtual DbSet<v_Kontrola_parametr_produkt> v_Kontrola_parametr_produkt { get; set; }
         public virtual DbSet<v_Kontrola_pozytywna> v_Kontrola_pozytywna { get; set; }
+        public virtual DbSet<v_Kontrola_wszystkie> v_Kontrola_wszystkie { get; set; }
         public virtual DbSet<v_Koszt> v_Koszt { get; set; }
         public virtual DbSet<v_Koszt_godziny_pracy> v_Koszt_godziny_pracy { get; set; }
         public virtual DbSet<v_Koszt_procesow_polprodukt> v_Koszt_procesow_polprodukt { get; set; }
