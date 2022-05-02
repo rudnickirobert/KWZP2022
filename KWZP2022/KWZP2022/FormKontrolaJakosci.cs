@@ -41,17 +41,24 @@ namespace KWZP2022
 
         private void btnAkceptuj_Click(object sender, EventArgs e)
         {
-            int produktID = int.Parse(dgvvKontrolaJakosciKolejka.CurrentRow.Cells[1].Value.ToString());
-            dgvvParametrProdukt.DataSource = 0;
-            List<v_Parametry_produkt> parametrProduktList = db.v_Parametry_produkt.Where(a => a.ID_produkt == produktID).ToList();
-            
-            if (parametrProduktList.Count() > 0)
+            if (dgvvKontrolaJakosciKolejka.DataSource != null)
             {
-                dgvvParametrProdukt.DataSource = parametrProduktList;
-                dgvvParametrProdukt.Columns["ID_parametr_produkt"].Visible=false;
-                dgvvParametrProdukt.Columns["ID_produkt"].Visible = false;
-                this.dgvvParametrProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+                int produktID = int.Parse(dgvvKontrolaJakosciKolejka.CurrentRow.Cells[1].Value.ToString());
+                dgvvParametrProdukt.DataSource = 0;
+                List<v_Parametry_produkt> parametrProduktList = db.v_Parametry_produkt.Where(a => a.ID_produkt == produktID).ToList();
+
+                if (parametrProduktList.Count() > 0)
+                {
+                    dgvvParametrProdukt.DataSource = parametrProduktList;
+                    dgvvParametrProdukt.Columns["ID_parametr_produkt"].Visible = false;
+                    dgvvParametrProdukt.Columns["ID_produkt"].Visible = false;
+                    this.dgvvParametrProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+                }
             }
+            else
+            {
+                MessageBox.Show("Nie wybrano produktu!");
+            }        
         }
 
         private void dgvvParametrProdukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -125,25 +132,32 @@ namespace KWZP2022
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            Kontrola_jakosci_produkt kontrolaProdukt = new Kontrola_jakosci_produkt();
-            kontrolaProdukt.ID_wytwarzanie = int.Parse(this.dgvvKontrolaJakosciKolejka.CurrentRow.Cells[0].Value.ToString());            
-            kontrolaProdukt.ID_pracownik = int.Parse(cBPracownik.SelectedValue.ToString());
-            kontrolaProdukt.ID_rodzaj_kontrola = int.Parse(cBRodzajKontrola.SelectedValue.ToString());
-            kontrolaProdukt.Data_od = dTPDataOd.Value.Date + dTPCzasOd.Value.TimeOfDay;
-            kontrolaProdukt.Data_do = dTPDataDo.Value.Date + dTPCzasDo.Value.TimeOfDay;
-            kontrolaProdukt.Uwagi = txtUwagi.Text;            
-            db.Kontrola_jakosci_produkt.Add(kontrolaProdukt);
-            db.SaveChanges();
+            if (String.IsNullOrEmpty(dgvvKontrolaJakosciKolejka.Text) || String.IsNullOrEmpty(cBPracownik.Text) || String.IsNullOrEmpty(cBRodzajKontrola.Text) || String.IsNullOrEmpty(txtWartosc.Text))
+            {
+                MessageBox.Show("Nie wypełniono formularza!");
+            }
+            else
+            { 
+                Kontrola_jakosci_produkt kontrolaProdukt = new Kontrola_jakosci_produkt();
+                kontrolaProdukt.ID_wytwarzanie = int.Parse(this.dgvvKontrolaJakosciKolejka.CurrentRow.Cells[0].Value.ToString());
+                kontrolaProdukt.ID_pracownik = int.Parse(cBPracownik.SelectedValue.ToString());
+                kontrolaProdukt.ID_rodzaj_kontrola = int.Parse(cBRodzajKontrola.SelectedValue.ToString());
+                kontrolaProdukt.Data_od = dTPDataOd.Value.Date + dTPCzasOd.Value.TimeOfDay;
+                kontrolaProdukt.Data_do = dTPDataDo.Value.Date + dTPCzasDo.Value.TimeOfDay;
+                kontrolaProdukt.Uwagi = txtUwagi.Text;
+                db.Kontrola_jakosci_produkt.Add(kontrolaProdukt);
+                db.SaveChanges();
 
-            Kontrola_parametr kontrolaParametr = new Kontrola_parametr();
-            int numRows = dgvvKontrolaProdukt.Rows.Count;
-            kontrolaParametr.ID_kontrola_jakosci_produkt = int.Parse(this.dgvvKontrolaProdukt.Rows[numRows - 1].Cells[0].Value.ToString());
-            kontrolaParametr.ID_parametr_produkt = int.Parse(this.dgvvParametrProdukt.CurrentRow.Cells[0].Value.ToString());
-            kontrolaParametr.Wartosc = decimal.Parse(txtWartosc.Text);
-            db.Kontrola_parametr.Add(kontrolaParametr);
-            db.SaveChanges();
-            MessageBox.Show("Poprawnie przeprowadzono kontrole");
-            refreshScreen();
+                Kontrola_parametr kontrolaParametr = new Kontrola_parametr();
+                int numRows = dgvvKontrolaProdukt.Rows.Count;
+                kontrolaParametr.ID_kontrola_jakosci_produkt = int.Parse(this.dgvvKontrolaProdukt.Rows[numRows - 1].Cells[0].Value.ToString());
+                kontrolaParametr.ID_parametr_produkt = int.Parse(this.dgvvParametrProdukt.CurrentRow.Cells[0].Value.ToString());
+                kontrolaParametr.Wartosc = decimal.Parse(txtWartosc.Text);
+                db.Kontrola_parametr.Add(kontrolaParametr);
+                db.SaveChanges();
+                MessageBox.Show("Poprawnie przeprowadzono kontrole");
+                refreshScreen();
+            }           
         }
 
         private void dgvvKontrolaJakosciKolejka_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -158,51 +172,56 @@ namespace KWZP2022
 
         private void btnGeneruj_Click(object sender, EventArgs e)
         {
-            int iloscProduktowKolejka = int.Parse(dgvvKontrolaJakosciKolejka.RowCount.ToString());
-
-            for (int i = 0; i <= iloscProduktowKolejka - 1; i++)
+            if (dgvvKontrolaJakosciKolejka.DataSource == null)
             {
-                int currentIdProdukt = int.Parse(dgvvKontrolaJakosciKolejka.Rows[i].Cells[1].Value.ToString());
-                List<v_Parametry_produkt> parametryProdukt = db.v_Parametry_produkt.Where(a => a.ID_produkt == currentIdProdukt).ToList();
-                dgvvParametrProdukt.DataSource = parametryProdukt;
-                int iloscParametrow = int.Parse(dgvvParametrProdukt.RowCount.ToString());
-
-                for (int j = 0; j <= iloscParametrow - 1; j++)
-                {
-                    Kontrola_jakosci_produkt kontrolaProdukt = new Kontrola_jakosci_produkt();
-                    kontrolaProdukt.ID_wytwarzanie = int.Parse(this.dgvvKontrolaJakosciKolejka.Rows[i].Cells[0].Value.ToString());
-                    kontrolaProdukt.ID_pracownik = int.Parse(cBPracownik.SelectedValue.ToString());
-                    kontrolaProdukt.ID_rodzaj_kontrola = int.Parse(cBRodzajKontrola.SelectedValue.ToString());
-                    kontrolaProdukt.Data_od = dTPDataOd.Value.Date + dTPCzasOd.Value.TimeOfDay;
-                    kontrolaProdukt.Data_do = dTPDataDo.Value.Date + dTPCzasDo.Value.TimeOfDay;
-                    kontrolaProdukt.Uwagi = txtUwagi.Text;
-                    db.Kontrola_jakosci_produkt.Add(kontrolaProdukt);
-                    db.SaveChanges();
-
-                    Kontrola_parametr kontrolaParametr = new Kontrola_parametr();
-                    int numRows = dgvvKontrolaProdukt.Rows.Count;
-                    kontrolaParametr.ID_kontrola_jakosci_produkt = int.Parse(this.dgvvKontrolaProdukt.Rows[numRows - 1].Cells[0].Value.ToString());
-                    kontrolaParametr.ID_parametr_produkt = int.Parse(this.dgvvParametrProdukt.Rows[j].Cells[0].Value.ToString());
-
-                    Random rand = new Random();
-                    double dolnyPrzedział = double.Parse(this.dgvvParametrProdukt.Rows[j].Cells[4].Value.ToString()) - (0.01 * double.Parse(this.dgvvParametrProdukt.Rows[j].Cells[4].Value.ToString()));
-                    double gornyPrzedzial = double.Parse(this.dgvvParametrProdukt.Rows[j].Cells[5].Value.ToString()) + (0.01 * double.Parse(this.dgvvParametrProdukt.Rows[j].Cells[4].Value.ToString()));
-                    decimal wartosc = Convert.ToDecimal(NextDouble(rand, dolnyPrzedział, gornyPrzedzial));
-
-                    kontrolaParametr.Wartosc = wartosc;
-                    db.Kontrola_parametr.Add(kontrolaParametr);
-                    db.SaveChanges();
-                    
-                }
-                refreshScreen();
+                MessageBox.Show("Nie wypełniono formularza!");
             }
-            initDataGridViewRezultatKontroli();
-            MessageBox.Show("Poprawnie wygenerowano kontrole");
+            else
+            {
+                int iloscProduktowKolejka = int.Parse(dgvvKontrolaJakosciKolejka.RowCount.ToString());
+
+                for (int i = 0; i <= iloscProduktowKolejka - 1; i++)
+                {
+                    int currentIdProdukt = int.Parse(dgvvKontrolaJakosciKolejka.Rows[i].Cells[1].Value.ToString());
+                    List<v_Parametry_produkt> parametryProdukt = db.v_Parametry_produkt.Where(a => a.ID_produkt == currentIdProdukt).ToList();
+                    dgvvParametrProdukt.DataSource = parametryProdukt;
+                    int iloscParametrow = int.Parse(dgvvParametrProdukt.RowCount.ToString());
+
+                    for (int j = 0; j <= iloscParametrow - 1; j++)
+                    {
+                        Kontrola_jakosci_produkt kontrolaProdukt = new Kontrola_jakosci_produkt();
+                        kontrolaProdukt.ID_wytwarzanie = int.Parse(this.dgvvKontrolaJakosciKolejka.Rows[i].Cells[0].Value.ToString());
+                        kontrolaProdukt.ID_pracownik = int.Parse(cBPracownik.SelectedValue.ToString());
+                        kontrolaProdukt.ID_rodzaj_kontrola = int.Parse(cBRodzajKontrola.SelectedValue.ToString());
+                        kontrolaProdukt.Data_od = dTPDataOd.Value.Date + dTPCzasOd.Value.TimeOfDay;
+                        kontrolaProdukt.Data_do = dTPDataDo.Value.Date + dTPCzasDo.Value.TimeOfDay;
+                        kontrolaProdukt.Uwagi = txtUwagi.Text;
+                        db.Kontrola_jakosci_produkt.Add(kontrolaProdukt);
+                        db.SaveChanges();
+
+                        Kontrola_parametr kontrolaParametr = new Kontrola_parametr();
+                        int numRows = dgvvKontrolaProdukt.Rows.Count;
+                        kontrolaParametr.ID_kontrola_jakosci_produkt = int.Parse(this.dgvvKontrolaProdukt.Rows[numRows - 1].Cells[0].Value.ToString());
+                        kontrolaParametr.ID_parametr_produkt = int.Parse(this.dgvvParametrProdukt.Rows[j].Cells[0].Value.ToString());
+
+                        Random rand = new Random();
+                        double dolnyPrzedział = double.Parse(this.dgvvParametrProdukt.Rows[j].Cells[4].Value.ToString()) - (0.01 * double.Parse(this.dgvvParametrProdukt.Rows[j].Cells[4].Value.ToString()));
+                        double gornyPrzedzial = double.Parse(this.dgvvParametrProdukt.Rows[j].Cells[5].Value.ToString()) + (0.01 * double.Parse(this.dgvvParametrProdukt.Rows[j].Cells[4].Value.ToString()));
+                        decimal wartosc = Convert.ToDecimal(NextDouble(rand, dolnyPrzedział, gornyPrzedzial));
+
+                        kontrolaParametr.Wartosc = wartosc;
+                        db.Kontrola_parametr.Add(kontrolaParametr);
+                        db.SaveChanges();                        
+                    }
+                    refreshScreen();
+                }
+                initDataGridViewRezultatKontroli();
+                MessageBox.Show("Poprawnie wygenerowano kontrole");
+            }           
         }
 
         private void btnWczytajZamowienie_Click(object sender, EventArgs e)
         {
-
             initDataGridViewWytworzoneProduktyZamowienie();
         }
 

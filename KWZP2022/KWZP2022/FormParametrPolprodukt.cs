@@ -79,16 +79,23 @@ namespace KWZP2022
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            Parametr_polprodukt parametr_polprodukt = new Parametr_polprodukt();
-            parametr_polprodukt.ID_polprodukt = int.Parse(this.dgvPolprodukt.CurrentRow.Cells[0].Value.ToString());
-            int numRows = dgvPolprodukt.Rows.Count;
-            parametr_polprodukt.ID_rodzaj_parametr = int.Parse(this.dgvRodzajParametr.CurrentRow.Cells[0].Value.ToString());
-            parametr_polprodukt.Zakres_dol = decimal.Parse(txtZakresDolny.Text);
-            parametr_polprodukt.Zakres_gora = decimal.Parse(txtZakresGorny.Text);
-            db.Parametr_polprodukt.Add(parametr_polprodukt);
-            db.SaveChanges();
-            MessageBox.Show("Poprawnie dodano parametr: " + txtParametrPolprodukt.Text + Environment.NewLine + "dla półproduktu: " + txtPolprodukt.Text + Environment.NewLine + "do bazy danych");
-            refreshScreen();
+            if (String.IsNullOrEmpty(txtParametrPolprodukt.Text) || String.IsNullOrEmpty(txtPolprodukt.Text) || String.IsNullOrEmpty(txtZakresDolny.Text) || String.IsNullOrEmpty(txtZakresGorny.Text))
+            {
+                MessageBox.Show("Nie wypełniono formularza!");
+            }
+            else
+            {
+                Parametr_polprodukt parametr_polprodukt = new Parametr_polprodukt();
+                parametr_polprodukt.ID_polprodukt = int.Parse(this.dgvPolprodukt.CurrentRow.Cells[0].Value.ToString());
+                int numRows = dgvPolprodukt.Rows.Count;
+                parametr_polprodukt.ID_rodzaj_parametr = int.Parse(this.dgvPolprodukt.CurrentRow.Cells[0].Value.ToString());
+                parametr_polprodukt.Zakres_dol = decimal.Parse(txtZakresDolny.Text);
+                parametr_polprodukt.Zakres_gora = decimal.Parse(txtZakresGorny.Text);
+                db.Parametr_polprodukt.Add(parametr_polprodukt);
+                db.SaveChanges();
+                MessageBox.Show("Poprawnie dodano parametr: " + txtParametrPolprodukt.Text + Environment.NewLine + "dla półproduktu: " + txtPolprodukt.Text + Environment.NewLine + "do bazy danych");
+                refreshScreen();
+            }            
         }
 
         private void btnOdswiez_Click(object sender, EventArgs e)
@@ -98,7 +105,7 @@ namespace KWZP2022
 
         private void btnUsun_Click(object sender, EventArgs e)
         {
-            if (txtPolprodukt == null && txtParametrPolprodukt == null && txtZakresDolny == null && txtZakresGorny == null)
+            if (String.IsNullOrEmpty(txtParametrPolprodukt.Text) || String.IsNullOrEmpty(txtPolprodukt.Text) || String.IsNullOrEmpty(txtZakresDolny.Text) || String.IsNullOrEmpty(txtZakresGorny.Text))
             {
                 MessageBox.Show("Nie wybrałeś parametru do usunięcia");
             }
@@ -124,25 +131,32 @@ namespace KWZP2022
 
         private void dgvvParametrPolprodukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtPolprodukt.Text = this.dgvvParametrPolprodukt.CurrentRow.Cells[1].Value.ToString();
-            txtParametrPolprodukt.Text = this.dgvvParametrPolprodukt.CurrentRow.Cells[2].Value.ToString();
-            txtZakresDolny.Text = this.dgvvParametrPolprodukt.CurrentRow.Cells[3].Value.ToString();
-            txtZakresGorny.Text = this.dgvvParametrPolprodukt.CurrentRow.Cells[4].Value.ToString();
+            txtPolprodukt.Text = this.dgvvParametrPolprodukt.CurrentRow.Cells[2].Value.ToString();
+            txtParametrPolprodukt.Text = this.dgvvParametrPolprodukt.CurrentRow.Cells[3].Value.ToString();
+            txtZakresDolny.Text = this.dgvvParametrPolprodukt.CurrentRow.Cells[4].Value.ToString();
+            txtZakresGorny.Text = this.dgvvParametrPolprodukt.CurrentRow.Cells[5].Value.ToString();
         }
 
         private void btnAktualizuj_Click(object sender, EventArgs e)
         {
-            int currentID = int.Parse(dgvvParametrPolprodukt.CurrentRow.Cells[0].Value.ToString());
-            int newZD = (int)decimal.Parse(txtZakresDolny.Text);
-            int newZG = (int)decimal.Parse(txtZakresGorny.Text);
-            Parametr_polprodukt result = db.Parametr_polprodukt.SingleOrDefault(b => b.ID_parametr_polprodukt == currentID);
-            if (result != null)
+            if (String.IsNullOrEmpty(txtParametrPolprodukt.Text) || String.IsNullOrEmpty(txtZakresDolny.Text) || String.IsNullOrEmpty(txtZakresGorny.Text))
             {
-                result.Zakres_dol=newZD;
-                result.Zakres_gora=newZG;
-                db.SaveChanges();
+                MessageBox.Show("Uzupełnij brakujące informacje!");
             }
-            refreshScreen();
+            else
+            { 
+                int currentID = int.Parse(dgvvParametrPolprodukt.CurrentRow.Cells[0].Value.ToString());
+                int newZD = (int)decimal.Parse(txtZakresDolny.Text);
+                int newZG = (int)decimal.Parse(txtZakresGorny.Text);
+                Parametr_polprodukt result = db.Parametr_polprodukt.SingleOrDefault(b => b.ID_parametr_polprodukt == currentID);
+                if (result != null)
+                {
+                    result.Zakres_dol = newZD;
+                    result.Zakres_gora = newZG;
+                    db.SaveChanges();
+                }
+                refreshScreen();
+            }            
         }
     }
 }

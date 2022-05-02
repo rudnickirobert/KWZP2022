@@ -50,15 +50,23 @@ namespace KWZP2022
 
         private void initChartGauss()
         {
-            int produktID = int.Parse(dgvProdukt.CurrentRow.Cells[0].Value.ToString());
-            int parametrID = int.Parse(dgvParametr.CurrentRow.Cells[0].Value.ToString());
-            List<v_Kontrola_parametr_gauss_wykres> chartLineData = db.v_Kontrola_parametr_gauss_wykres.Where(a => a.ID_produkt == produktID && a.ID_parametr_produkt == parametrID).ToList();
-            chrtGauss.DataSource = chartLineData;
-            chrtGauss.Series[0].LegendText = "Rezultat";
-            chrtGauss.Series[0].XValueMember = "Wartość";
-            chrtGauss.Series[0].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            chrtGauss.Series[0].YValueMembers = "Ilość";
-            chrtGauss.Series[0].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            if (String.IsNullOrEmpty(txtProdukt.Text) || String.IsNullOrEmpty(txtParametr.Text))
+            {
+                MessageBox.Show("Nie wypełniono formularza!");
+            }
+            else
+            {
+                int produktID = int.Parse(dgvProdukt.CurrentRow.Cells[0].Value.ToString());
+                int parametrID = int.Parse(dgvParametr.CurrentRow.Cells[0].Value.ToString());
+                List<v_Kontrola_parametr_gauss_wykres> chartLineData = db.v_Kontrola_parametr_gauss_wykres.Where(a => a.ID_produkt == produktID && a.ID_parametr_produkt == parametrID).ToList();
+                chrtGauss.DataSource = chartLineData;
+                chrtGauss.Series[0].LegendText = "Rezultat";
+                chrtGauss.Series[0].XValueMember = "Wartość";
+                chrtGauss.Series[0].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+                chrtGauss.Series[0].YValueMembers = "Ilość";
+                chrtGauss.Series[0].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            }
+            
         }
 
         private void dgvParametr_CellContentClick(object sender, DataGridViewCellEventArgs e)

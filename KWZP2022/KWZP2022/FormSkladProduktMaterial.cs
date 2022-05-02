@@ -67,21 +67,21 @@ namespace KWZP2022
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            if (txtProdukt != null && txtMaterial != null && txtIlosc != null)
+            if(String.IsNullOrEmpty(txtProdukt.Text) || String.IsNullOrEmpty(txtMaterial.Text) || String.IsNullOrEmpty(txtIlosc.Text))
+            {
+                    MessageBox.Show("Uzupełnij brakujące informacje!");
+            }
+            else
             {
                 Sklad_produkt_material skladProduktMaterial = new Sklad_produkt_material();
                 skladProduktMaterial.ID_produkt = int.Parse(dgvProdukt.CurrentRow.Cells[0].Value.ToString());
                 skladProduktMaterial.ID_material = int.Parse(dgvMaterial.CurrentRow.Cells[0].Value.ToString());
                 skladProduktMaterial.Liczba = int.Parse(txtIlosc.Text);
-
                 db.Sklad_produkt_material.Add(skladProduktMaterial);
                 db.SaveChanges();
                 refreshScreen();
             }
-            else
-            {
-                MessageBox.Show("Uzupełnij brakujące informacje.");
-            }
+                  
         }
 
         private void dgvProdukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -96,16 +96,22 @@ namespace KWZP2022
 
         private void btnUsun_Click(object sender, EventArgs e)
         {
-            DialogResult deleteResult = MessageBox.Show("Czy na pewno chcesz usunąć powiązanie między produktem: " + txtProdukt.Text + Environment.NewLine + "a materiałem " + txtMaterial.Text + "?", "Question", MessageBoxButtons.YesNo);
-            if (deleteResult == DialogResult.Yes)
+            if (String.IsNullOrEmpty(txtProdukt.Text) || String.IsNullOrEmpty(txtMaterial.Text))
             {
-                int currentSkladProduktMaterial = int.Parse(dgvvSkladProdukt.CurrentRow.Cells[0].Value.ToString());
-
-                db.Sklad_produkt_material.Remove(db.Sklad_produkt_material.Where(produkt => produkt.ID_sklad_produkt_material == currentSkladProduktMaterial).First());
-                db.SaveChanges();
-                refreshScreen();
-
+                MessageBox.Show("Uzupełnij brakujące informacje!");
             }
+            else
+            { 
+                DialogResult deleteResult = MessageBox.Show("Czy na pewno chcesz usunąć powiązanie między produktem: " + txtProdukt.Text + Environment.NewLine + "a materiałem " + txtMaterial.Text + "?", "Question", MessageBoxButtons.YesNo);
+                if (deleteResult == DialogResult.Yes)
+                {
+                    int currentSkladProduktMaterial = int.Parse(dgvvSkladProdukt.CurrentRow.Cells[0].Value.ToString());
+
+                    db.Sklad_produkt_material.Remove(db.Sklad_produkt_material.Where(produkt => produkt.ID_sklad_produkt_material == currentSkladProduktMaterial).First());
+                    db.SaveChanges();
+                    refreshScreen();
+                }
+            }           
         }
 
         private void dgvvSkladProdukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -117,16 +123,23 @@ namespace KWZP2022
 
         private void btnAktualizuj_Click(object sender, EventArgs e)
         {
-            int currentID = int.Parse(dgvvSkladProdukt.CurrentRow.Cells[0].Value.ToString());
-            int newValue = int.Parse(txtIlosc.Text);
-
-            Sklad_produkt_material result = db.Sklad_produkt_material.SingleOrDefault(b => b.ID_sklad_produkt_material == currentID);
-            if (result != null)
+            if (String.IsNullOrEmpty(txtProdukt.Text) || String.IsNullOrEmpty(txtMaterial.Text) || String.IsNullOrEmpty(txtIlosc.Text))
             {
-                result.Liczba = newValue;
-                db.SaveChanges();
+                MessageBox.Show("Uzupełnij brakujące informacje!");
             }
-            refreshScreen();
+            else
+            { 
+                int currentID = int.Parse(dgvvSkladProdukt.CurrentRow.Cells[0].Value.ToString());
+                int newValue = int.Parse(txtIlosc.Text);
+
+                Sklad_produkt_material result = db.Sklad_produkt_material.SingleOrDefault(b => b.ID_sklad_produkt_material == currentID);
+                if (result != null)
+                {
+                    result.Liczba = newValue;
+                    db.SaveChanges();
+                }
+                refreshScreen();
+            }            
         }
 
         private void btnOdswiez_Click(object sender, EventArgs e)

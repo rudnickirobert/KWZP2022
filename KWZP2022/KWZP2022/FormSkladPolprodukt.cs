@@ -56,7 +56,6 @@ namespace KWZP2022
         private void initDataGridViewSkladPolprodukt()
         {
             dgvSkladPolprodukt.DataSource = db.v_Sklad_polprodukt.ToList();
-
             this.dgvSkladPolprodukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 
@@ -80,7 +79,7 @@ namespace KWZP2022
         {
             if (String.IsNullOrEmpty(txtPolprodukt.Text) || String.IsNullOrEmpty(txtMaterial.Text) || String.IsNullOrEmpty(txtIlosc.Text))
             {
-                MessageBox.Show("Uzupełnij brakujące informacje.");
+                MessageBox.Show("Uzupełnij brakujące informacje!");
                 
             }
             else
@@ -99,15 +98,21 @@ namespace KWZP2022
 
         private void btnUsun_Click(object sender, EventArgs e)
         {
-            DialogResult deleteResult = MessageBox.Show("Czy na pewno chcesz usunąć powiązanie między półproduktem '" + dgvSkladPolprodukt.CurrentRow.Cells[1].Value.ToString() + "',a materiałem '"+ dgvSkladPolprodukt.CurrentRow.Cells[2].Value.ToString() + "'?", "Question",MessageBoxButtons.YesNo);
-            if (deleteResult == DialogResult.Yes)
+            if (String.IsNullOrEmpty(txtPolprodukt.Text) || String.IsNullOrEmpty(txtMaterial.Text) || String.IsNullOrEmpty(txtIlosc.Text))
             {
-                int currentSkladPolprodukt = int.Parse(dgvSkladPolprodukt.CurrentRow.Cells[0].Value.ToString());
+                MessageBox.Show("Uzupełnij brakujące informacje!");
+            }
+            else
+            {
+                DialogResult deleteResult = MessageBox.Show("Czy na pewno chcesz usunąć powiązanie między półproduktem '" + dgvSkladPolprodukt.CurrentRow.Cells[1].Value.ToString() + "',a materiałem '" + dgvSkladPolprodukt.CurrentRow.Cells[2].Value.ToString() + "'?", "Question", MessageBoxButtons.YesNo);
+                if (deleteResult == DialogResult.Yes)
+                {
+                    int currentSkladPolprodukt = int.Parse(dgvSkladPolprodukt.CurrentRow.Cells[0].Value.ToString());
 
-                db.Sklad_polprodukt.Remove(db.Sklad_polprodukt.Where(polprodukt => polprodukt.ID_sklad_polprodukt == currentSkladPolprodukt).First());
-                db.SaveChanges();
-                refreshScreen();
-
+                    db.Sklad_polprodukt.Remove(db.Sklad_polprodukt.Where(polprodukt => polprodukt.ID_sklad_polprodukt == currentSkladPolprodukt).First());
+                    db.SaveChanges();
+                    refreshScreen();
+                }
             }
         }
 
@@ -119,16 +124,23 @@ namespace KWZP2022
 
         private void btnAktualizuj_Click(object sender, EventArgs e)
         {
-            int currentID = int.Parse(dgvSkladPolprodukt.CurrentRow.Cells[0].Value.ToString());
-            int newValue = int.Parse(txtIlosc.Text);
-        
-            Sklad_polprodukt result = db.Sklad_polprodukt.SingleOrDefault(b => b.ID_sklad_polprodukt == currentID);
-            if (result != null)
+            if (String.IsNullOrEmpty(txtPolprodukt.Text) || String.IsNullOrEmpty(txtMaterial.Text) || String.IsNullOrEmpty(txtIlosc.Text))
             {
-                result.Liczba = newValue;
-                db.SaveChanges();
+                MessageBox.Show("Uzupełnij brakujące informacje!");
             }
-            refreshScreen();
+            else
+            {
+                int currentID = int.Parse(dgvSkladPolprodukt.CurrentRow.Cells[0].Value.ToString());
+                int newValue = int.Parse(txtIlosc.Text);
+
+                Sklad_polprodukt result = db.Sklad_polprodukt.SingleOrDefault(b => b.ID_sklad_polprodukt == currentID);
+                if (result != null)
+                {
+                    result.Liczba = newValue;
+                    db.SaveChanges();
+                }
+                refreshScreen();
+            }            
         }
     }
 }
