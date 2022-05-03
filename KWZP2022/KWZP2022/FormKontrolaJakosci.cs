@@ -172,6 +172,7 @@ namespace KWZP2022
 
         private void btnGeneruj_Click(object sender, EventArgs e)
         {
+            int iloscProduktowKontrola = 0;
             if (dgvvKontrolaJakosciKolejka.DataSource == null)
             {
                 MessageBox.Show("Nie wypełniono formularza!");
@@ -186,6 +187,7 @@ namespace KWZP2022
                     List<v_Parametry_produkt> parametryProdukt = db.v_Parametry_produkt.Where(a => a.ID_produkt == currentIdProdukt).ToList();
                     dgvvParametrProdukt.DataSource = parametryProdukt;
                     int iloscParametrow = int.Parse(dgvvParametrProdukt.RowCount.ToString());
+                    iloscProduktowKontrola++;
 
                     for (int j = 0; j <= iloscParametrow - 1; j++)
                     {
@@ -211,12 +213,12 @@ namespace KWZP2022
 
                         kontrolaParametr.Wartosc = wartosc;
                         db.Kontrola_parametr.Add(kontrolaParametr);
-                        db.SaveChanges();                        
+                        db.SaveChanges();
                     }
                     refreshScreen();
                 }
                 initDataGridViewRezultatKontroli();
-                MessageBox.Show("Poprawnie wygenerowano kontrole");
+                MessageBox.Show("Przeprowadzono kontrolę dla " + iloscProduktowKontrola + " produktów.");
             }           
         }
 

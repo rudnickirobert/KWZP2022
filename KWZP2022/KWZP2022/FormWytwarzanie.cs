@@ -228,6 +228,8 @@ namespace KWZP2022
 
         private void btnGenerujPolprodukt_Click(object sender, EventArgs e)
         {
+            int iloscWytwarzanieProdukt = 0;
+            int iloscWytwarzaniePolprodukt = 0;
             if (dgvZamowienieSzczegol.DataSource != null && dgvProcesPolprodukt.DataSource != null)
             {
                 int iloscProduktZamowienie = int.Parse(dgvZamowienieSzczegol.CurrentRow.Cells[3].Value.ToString());
@@ -258,6 +260,7 @@ namespace KWZP2022
                         wytwarzaniePolprodukt.ID_stanowisko_produkcyjne = int.Parse(cbStanowisko.SelectedValue.ToString());
                         db.Proces_wytwarzanie_polprodukt.Add(wytwarzaniePolprodukt);
                         db.SaveChanges();
+                        iloscWytwarzaniePolprodukt++;
                     }
                     dgvCurrentPolprodukt.DataSource = 0;
                 }
@@ -282,10 +285,12 @@ namespace KWZP2022
                         wytwarzanieProdukt.ID_stanowisko_produkcyjne = int.Parse(cbStanowisko.SelectedValue.ToString());
                         db.Proces_wytwarzanie_produkt.Add(wytwarzanieProdukt);
                         db.SaveChanges();
+                        iloscWytwarzanieProdukt++;
                     }
                     dgvCurrentPolprodukt.DataSource = 0;
                 }
                 refreshScreen();
+                MessageBox.Show("Pomyślnie wygenerowano " + iloscWytwarzaniePolprodukt + " procesów wytwarzania półproduktów oraz " + iloscWytwarzanieProdukt + " procesów wytwarzania produktów.");
             }
             else
             {
