@@ -63,12 +63,10 @@ namespace KWZP2022
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
-        {
-            //Sprawdzenie czy dany półprodukt znajduje się już w słowniku.
-
+        {            
             if (String.IsNullOrEmpty(txtNazwaProdukt.Text) || String.IsNullOrEmpty(txtPolprodukt.Text) || String.IsNullOrEmpty(txtIlosc.Text))
             {
-                MessageBox.Show("Uzupełnij brakujące informacje.");
+                MessageBox.Show("Uzupełnij brakujące informacje!");
             }
             else
             {
@@ -91,7 +89,7 @@ namespace KWZP2022
                 {
                     if (txtPolprodukt.Enabled == false)
                     {
-                        MessageBox.Show("Półproduk istnieje już w bazie danych.");
+                        MessageBox.Show("Półprodukt istnieje już w bazie danych.");
                     }
                 }
                 else
@@ -136,7 +134,7 @@ namespace KWZP2022
 
         private void btnUsun_Click(object sender, EventArgs e)
         {
-            if (txtPolprodukt == null && txtNazwaProdukt == null && txtIlosc.Text == null)
+            if (String.IsNullOrEmpty(txtNazwaProdukt.Text) || String.IsNullOrEmpty(txtPolprodukt.Text) || String.IsNullOrEmpty(txtIlosc.Text))
             {
                 MessageBox.Show("Nie wybrałeś obiektu do usunięcia");
             }
@@ -161,7 +159,7 @@ namespace KWZP2022
             }
             else if (txtPolprodukt != null && txtNazwaProdukt != null && txtIlosc.Text != null)
             {
-                DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz usunąć powiązanie między produktem '" + this.dgvSkladProdukt.CurrentRow.Cells[1].Value + "', a półproduktem '" + this.dgvSkladProdukt.CurrentRow.Cells[2].Value + "'?", "Question", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz usunąć powiązanie między produktem '" + this.dgvSkladProdukt.CurrentRow.Cells[3].Value + "', a półproduktem '" + this.dgvSkladProdukt.CurrentRow.Cells[4].Value + "'?", "Question", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     int currentSkladID = int.Parse(this.dgvSkladProdukt.CurrentRow.Cells[0].Value.ToString());
@@ -198,9 +196,9 @@ namespace KWZP2022
 
         private void dgvSkladProdukt_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            txtNazwaProdukt.Text = this.dgvSkladProdukt.CurrentRow.Cells[1].Value.ToString();
-            txtPolprodukt.Text = this.dgvSkladProdukt.CurrentRow.Cells[2].Value.ToString();
-            txtIlosc.Text = this.dgvSkladProdukt.CurrentRow.Cells[3].Value.ToString();
+            txtNazwaProdukt.Text = this.dgvSkladProdukt.CurrentRow.Cells[3].Value.ToString();
+            txtPolprodukt.Text = this.dgvSkladProdukt.CurrentRow.Cells[4].Value.ToString();
+            txtIlosc.Text = this.dgvSkladProdukt.CurrentRow.Cells[5].Value.ToString();
         }
     }
 }
