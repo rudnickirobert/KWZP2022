@@ -231,7 +231,6 @@ namespace KWZP2022
             int iloscWytwarzanieProdukt = 0;
             int iloscWytwarzaniePolprodukt = 0;
             DateTime dateTimeNow = DateTime.Now;
-            
 
             if (dgvZamowienieSzczegol.DataSource != null && dgvProcesPolprodukt.DataSource != null)
             {
@@ -256,6 +255,7 @@ namespace KWZP2022
                         wytwarzanie.ID_zamowienie_szczegol = int.Parse(dgvZamowienieSzczegol.CurrentRow.Cells[4].Value.ToString());
                         wytwarzanie.Czas_od = dateTimeNow;
                         wytwarzanie.Czas_do = dateTimeNow.AddMinutes(rndMinutes);
+
                         db.Wytwarzanie.Add(wytwarzanie);
                         db.SaveChanges();
                         int wytwarzanieID = (from n in db.Wytwarzanie orderby n.ID_wytwarzanie descending select n.ID_wytwarzanie).FirstOrDefault();
@@ -286,6 +286,7 @@ namespace KWZP2022
                         wytwarzanie.ID_zamowienie_szczegol = int.Parse(dgvZamowienieSzczegol.CurrentRow.Cells[4].Value.ToString());
                         wytwarzanie.Czas_od = dateTimeNow;
                         wytwarzanie.Czas_do = dateTimeNow.AddMinutes(rndMinutes);
+
                         db.Wytwarzanie.Add(wytwarzanie);
                         db.SaveChanges();
                         int wytwarzanieID = (from n in db.Wytwarzanie orderby n.ID_wytwarzanie descending select n.ID_wytwarzanie).FirstOrDefault();
