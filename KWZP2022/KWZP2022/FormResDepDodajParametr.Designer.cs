@@ -36,6 +36,7 @@ namespace KWZP2022
             this.lblJednostka = new System.Windows.Forms.Label();
             this.btnDodajParametr = new System.Windows.Forms.Button();
             this.btnDodajJednostka = new System.Windows.Forms.Button();
+            this.btnOdswiez = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtNazwaParametr
@@ -87,6 +88,7 @@ namespace KWZP2022
             this.btnDodajParametr.TabIndex = 20;
             this.btnDodajParametr.Text = "Dodaj nowy parametr";
             this.btnDodajParametr.UseVisualStyleBackColor = false;
+            this.btnDodajParametr.Click += new System.EventHandler(this.btnDodajParametr_Click);
             // 
             // btnDodajJednostka
             // 
@@ -98,6 +100,19 @@ namespace KWZP2022
             this.btnDodajJednostka.TabIndex = 21;
             this.btnDodajJednostka.Text = "Dodaj nową jednostkę";
             this.btnDodajJednostka.UseVisualStyleBackColor = false;
+            this.btnDodajJednostka.Click += new System.EventHandler(this.btnDodajJednostka_Click);
+            // 
+            // btnOdswiez
+            // 
+            this.btnOdswiez.BackColor = System.Drawing.Color.Ivory;
+            this.btnOdswiez.Font = new System.Drawing.Font("Arial", 15F);
+            this.btnOdswiez.Location = new System.Drawing.Point(514, 41);
+            this.btnOdswiez.Name = "btnOdswiez";
+            this.btnOdswiez.Size = new System.Drawing.Size(150, 41);
+            this.btnOdswiez.TabIndex = 62;
+            this.btnOdswiez.Text = "Odśwież";
+            this.btnOdswiez.UseVisualStyleBackColor = false;
+            this.btnOdswiez.Click += new System.EventHandler(this.btnOdswiez_Click);
             // 
             // FormResDepDodajParametr
             // 
@@ -105,6 +120,7 @@ namespace KWZP2022
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(676, 273);
+            this.Controls.Add(this.btnOdswiez);
             this.Controls.Add(this.btnDodajJednostka);
             this.Controls.Add(this.btnDodajParametr);
             this.Controls.Add(this.lblJednostka);
@@ -113,6 +129,7 @@ namespace KWZP2022
             this.Controls.Add(this.txtNazwaParametr);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormResDepDodajParametr";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -129,5 +146,6 @@ namespace KWZP2022
         private System.Windows.Forms.Label lblJednostka;
         private System.Windows.Forms.Button btnDodajParametr;
         private System.Windows.Forms.Button btnDodajJednostka;
+        private System.Windows.Forms.Button btnOdswiez;
     }
 }
