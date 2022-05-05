@@ -43,6 +43,8 @@
             this.lblNazwa = new System.Windows.Forms.Label();
             this.dgvParametrNarzedzie = new System.Windows.Forms.DataGridView();
             this.lblPodpisWidoku = new System.Windows.Forms.Label();
+            this.btnOdswiez = new System.Windows.Forms.Button();
+            this.btnNowyParametr = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParametrNarzedzie)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +64,7 @@
             // 
             this.btnAktualizuj.BackColor = System.Drawing.Color.SkyBlue;
             this.btnAktualizuj.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnAktualizuj.Location = new System.Drawing.Point(498, 373);
+            this.btnAktualizuj.Location = new System.Drawing.Point(498, 406);
             this.btnAktualizuj.Name = "btnAktualizuj";
             this.btnAktualizuj.Size = new System.Drawing.Size(225, 37);
             this.btnAktualizuj.TabIndex = 34;
@@ -74,7 +76,7 @@
             // 
             this.btnUsun.BackColor = System.Drawing.Color.IndianRed;
             this.btnUsun.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnUsun.Location = new System.Drawing.Point(498, 425);
+            this.btnUsun.Location = new System.Drawing.Point(498, 449);
             this.btnUsun.Name = "btnUsun";
             this.btnUsun.Size = new System.Drawing.Size(225, 37);
             this.btnUsun.TabIndex = 33;
@@ -86,7 +88,7 @@
             // 
             this.btnDodaj.BackColor = System.Drawing.Color.PaleGreen;
             this.btnDodaj.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnDodaj.Location = new System.Drawing.Point(498, 312);
+            this.btnDodaj.Location = new System.Drawing.Point(498, 358);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(225, 37);
             this.btnDodaj.TabIndex = 32;
@@ -148,7 +150,7 @@
             this.lblParametr.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblParametr.Location = new System.Drawing.Point(28, 312);
             this.lblParametr.Name = "lblParametr";
-            this.lblParametr.Size = new System.Drawing.Size(125, 32);
+            this.lblParametr.Size = new System.Drawing.Size(124, 32);
             this.lblParametr.TabIndex = 26;
             this.lblParametr.Text = "Parametr";
             // 
@@ -168,7 +170,7 @@
             this.lblNazwa.Font = new System.Drawing.Font("Arial", 20.25F);
             this.lblNazwa.Location = new System.Drawing.Point(28, 24);
             this.lblNazwa.Name = "lblNazwa";
-            this.lblNazwa.Size = new System.Drawing.Size(135, 32);
+            this.lblNazwa.Size = new System.Drawing.Size(134, 32);
             this.lblNazwa.TabIndex = 24;
             this.lblNazwa.Text = "Narzędzie";
             // 
@@ -191,11 +193,37 @@
             this.lblPodpisWidoku.TabIndex = 57;
             this.lblPodpisWidoku.Text = "Parametry narzędzia";
             // 
+            // btnOdswiez
+            // 
+            this.btnOdswiez.BackColor = System.Drawing.Color.Ivory;
+            this.btnOdswiez.Font = new System.Drawing.Font("Arial", 15F);
+            this.btnOdswiez.Location = new System.Drawing.Point(623, 95);
+            this.btnOdswiez.Name = "btnOdswiez";
+            this.btnOdswiez.Size = new System.Drawing.Size(147, 44);
+            this.btnOdswiez.TabIndex = 61;
+            this.btnOdswiez.Text = "Odśwież";
+            this.btnOdswiez.UseVisualStyleBackColor = false;
+            this.btnOdswiez.Click += new System.EventHandler(this.btnOdswiez_Click);
+            // 
+            // btnNowyParametr
+            // 
+            this.btnNowyParametr.BackColor = System.Drawing.Color.Gold;
+            this.btnNowyParametr.Font = new System.Drawing.Font("Arial", 15F);
+            this.btnNowyParametr.Location = new System.Drawing.Point(498, 315);
+            this.btnNowyParametr.Name = "btnNowyParametr";
+            this.btnNowyParametr.Size = new System.Drawing.Size(225, 37);
+            this.btnNowyParametr.TabIndex = 60;
+            this.btnNowyParametr.Text = "Dodaj nowy parametr";
+            this.btnNowyParametr.UseVisualStyleBackColor = false;
+            this.btnNowyParametr.Click += new System.EventHandler(this.btnNowyParametr_Click);
+            // 
             // FormResDepParametryNarzedzie
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(799, 498);
+            this.Controls.Add(this.btnOdswiez);
+            this.Controls.Add(this.btnNowyParametr);
             this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnWczytajParametr);
             this.Controls.Add(this.btnAktualizuj);
@@ -238,5 +266,7 @@
         private System.Windows.Forms.Label lblNazwa;
         private System.Windows.Forms.DataGridView dgvParametrNarzedzie;
         private System.Windows.Forms.Label lblPodpisWidoku;
+        private System.Windows.Forms.Button btnOdswiez;
+        private System.Windows.Forms.Button btnNowyParametr;
     }
 }

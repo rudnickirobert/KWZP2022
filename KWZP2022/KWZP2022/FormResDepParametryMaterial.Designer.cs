@@ -43,6 +43,8 @@
             this.btnDodaj = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.lblPodpisWidoku = new System.Windows.Forms.Label();
+            this.btnOdswiez = new System.Windows.Forms.Button();
+            this.btnNowyParametr = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParametrMaterial)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +63,7 @@
             this.lblNazwa.Font = new System.Drawing.Font("Arial", 20.25F);
             this.lblNazwa.Location = new System.Drawing.Point(31, 31);
             this.lblNazwa.Name = "lblNazwa";
-            this.lblNazwa.Size = new System.Drawing.Size(112, 32);
+            this.lblNazwa.Size = new System.Drawing.Size(111, 32);
             this.lblNazwa.TabIndex = 1;
             this.lblNazwa.Text = "Materiał";
             // 
@@ -81,7 +83,7 @@
             this.lblParametr.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblParametr.Location = new System.Drawing.Point(33, 310);
             this.lblParametr.Name = "lblParametr";
-            this.lblParametr.Size = new System.Drawing.Size(125, 32);
+            this.lblParametr.Size = new System.Drawing.Size(124, 32);
             this.lblParametr.TabIndex = 3;
             this.lblParametr.Text = "Parametr";
             // 
@@ -193,11 +195,37 @@
             this.lblPodpisWidoku.TabIndex = 57;
             this.lblPodpisWidoku.Text = "Parametry materiału";
             // 
+            // btnOdswiez
+            // 
+            this.btnOdswiez.BackColor = System.Drawing.Color.Ivory;
+            this.btnOdswiez.Font = new System.Drawing.Font("Arial", 15F);
+            this.btnOdswiez.Location = new System.Drawing.Point(617, 71);
+            this.btnOdswiez.Name = "btnOdswiez";
+            this.btnOdswiez.Size = new System.Drawing.Size(147, 44);
+            this.btnOdswiez.TabIndex = 61;
+            this.btnOdswiez.Text = "Odśwież";
+            this.btnOdswiez.UseVisualStyleBackColor = false;
+            this.btnOdswiez.Click += new System.EventHandler(this.btnOdswiez_Click);
+            // 
+            // btnNowyParametr
+            // 
+            this.btnNowyParametr.BackColor = System.Drawing.Color.Gold;
+            this.btnNowyParametr.Font = new System.Drawing.Font("Arial", 15F);
+            this.btnNowyParametr.Location = new System.Drawing.Point(492, 318);
+            this.btnNowyParametr.Name = "btnNowyParametr";
+            this.btnNowyParametr.Size = new System.Drawing.Size(225, 37);
+            this.btnNowyParametr.TabIndex = 60;
+            this.btnNowyParametr.Text = "Dodaj nowy parametr";
+            this.btnNowyParametr.UseVisualStyleBackColor = false;
+            this.btnNowyParametr.Click += new System.EventHandler(this.btnNowyParametr_Click);
+            // 
             // FormResDepParametryMaterial
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(801, 496);
+            this.Controls.Add(this.btnOdswiez);
+            this.Controls.Add(this.btnNowyParametr);
             this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAktualizuj);
@@ -240,5 +268,7 @@
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblPodpisWidoku;
+        private System.Windows.Forms.Button btnOdswiez;
+        private System.Windows.Forms.Button btnNowyParametr;
     }
 }
