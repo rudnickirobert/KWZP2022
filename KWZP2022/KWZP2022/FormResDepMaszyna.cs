@@ -136,13 +136,17 @@ namespace KWZP2022
             FormResDepParametryMaszyna parametrMaszyna = new FormResDepParametryMaszyna(db);
             parametrMaszyna.ShowDialog();        
         }
-
         private void btnSkladMaszyna_Click(object sender, EventArgs e)
         {
             int wybranaMaszyna = int.Parse(this.dgvMaszyna.CurrentRow.Cells[0].Value.ToString());
             Maszyna wybranaMaszynaDGV = this.db.Maszyna.Single(a => a.ID_maszyna == wybranaMaszyna);
             FormResDepSkladMaszyna formResDepSkladMaszyna = new FormResDepSkladMaszyna(db, wybranaMaszynaDGV);
             formResDepSkladMaszyna.ShowDialog();
+        }
+        private void btnNowyRodzaj_Click(object sender, EventArgs e)
+        {
+            FormResDepDodajMaszyna rodzajMaszyna = new FormResDepDodajMaszyna(db);
+            rodzajMaszyna.ShowDialog();
         }
     }
 }

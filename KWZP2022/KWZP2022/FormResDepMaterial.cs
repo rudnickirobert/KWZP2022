@@ -112,5 +112,11 @@ namespace KWZP2022
             FormResDepParametryMaterial parametrMaterial = new FormResDepParametryMaterial(db);
             parametrMaterial.ShowDialog();  
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormResDepDodajMaterial rodzajMaterial = new FormResDepDodajMaterial(db);
+            rodzajMaterial.ShowDialog();
+        }
     }
 }

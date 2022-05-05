@@ -42,9 +42,9 @@ namespace KWZP2022
             // txtNazwaParametr
             // 
             this.txtNazwaParametr.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtNazwaParametr.Location = new System.Drawing.Point(225, 47);
+            this.txtNazwaParametr.Location = new System.Drawing.Point(140, 47);
             this.txtNazwaParametr.Name = "txtNazwaParametr";
-            this.txtNazwaParametr.Size = new System.Drawing.Size(239, 35);
+            this.txtNazwaParametr.Size = new System.Drawing.Size(324, 35);
             this.txtNazwaParametr.TabIndex = 1;
             // 
             // lblNazwa
@@ -54,17 +54,17 @@ namespace KWZP2022
             this.lblNazwa.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblNazwa.Location = new System.Drawing.Point(12, 55);
             this.lblNazwa.Name = "lblNazwa";
-            this.lblNazwa.Size = new System.Drawing.Size(201, 27);
+            this.lblNazwa.Size = new System.Drawing.Size(91, 27);
             this.lblNazwa.TabIndex = 2;
-            this.lblNazwa.Text = "Nazwa parametru";
+            this.lblNazwa.Text = "Nazwa ";
             // 
             // cmbJednostka
             // 
             this.cmbJednostka.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbJednostka.FormattingEnabled = true;
-            this.cmbJednostka.Location = new System.Drawing.Point(225, 102);
+            this.cmbJednostka.Location = new System.Drawing.Point(140, 102);
             this.cmbJednostka.Name = "cmbJednostka";
-            this.cmbJednostka.Size = new System.Drawing.Size(239, 33);
+            this.cmbJednostka.Size = new System.Drawing.Size(324, 33);
             this.cmbJednostka.TabIndex = 3;
             // 
             // lblJednostka
@@ -72,7 +72,7 @@ namespace KWZP2022
             this.lblJednostka.AutoSize = true;
             this.lblJednostka.BackColor = System.Drawing.Color.Transparent;
             this.lblJednostka.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblJednostka.Location = new System.Drawing.Point(91, 104);
+            this.lblJednostka.Location = new System.Drawing.Point(12, 102);
             this.lblJednostka.Name = "lblJednostka";
             this.lblJednostka.Size = new System.Drawing.Size(122, 27);
             this.lblJednostka.TabIndex = 4;
@@ -82,7 +82,7 @@ namespace KWZP2022
             // 
             this.btnDodajParametr.BackColor = System.Drawing.Color.PaleGreen;
             this.btnDodajParametr.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDodajParametr.Location = new System.Drawing.Point(225, 163);
+            this.btnDodajParametr.Location = new System.Drawing.Point(187, 155);
             this.btnDodajParametr.Name = "btnDodajParametr";
             this.btnDodajParametr.Size = new System.Drawing.Size(239, 37);
             this.btnDodajParametr.TabIndex = 20;
@@ -119,7 +119,7 @@ namespace KWZP2022
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(676, 273);
+            this.ClientSize = new System.Drawing.Size(676, 285);
             this.Controls.Add(this.btnOdswiez);
             this.Controls.Add(this.btnDodajJednostka);
             this.Controls.Add(this.btnDodajParametr);
