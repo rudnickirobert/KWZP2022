@@ -559,6 +559,21 @@ WHERE NS.Nr_seryjny NOT IN
 (SELECT [Nr seryjny maszyny] FROM v_Sklad_stanowisko_produkcyjne_maszyna);
 GO
 
+CREATE VIEW v_Alerty_ProductionDepartment
+AS
+SELECT A.ID_alert, D.ID_dzial, D.Nazwa_dzial, A.Tresc, A.Czy_odczytano 
+FROM Alert AS A
+INNER JOIN Dzial AS D ON A.ID_dzial = D.ID_dzial
+WHERE A.ID_dzial = 3 OR A.ID_dzial = 7
+GO
+
+CREATE VIEW v_Alerty_ProductionDepartment_nieodczytane
+AS
+SELECT * 
+FROM v_Alerty_ProductionDepartment 
+WHERE Czy_odczytano=0
+GO
+
 -----RESOURCE DEPARTMENT----
 
 CREATE VIEW v_Sklad_maszyna 
