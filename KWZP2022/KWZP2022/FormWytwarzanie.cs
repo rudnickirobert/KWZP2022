@@ -69,7 +69,7 @@ namespace KWZP2022
 
         private void initComboboxStanowisko()
         {
-            cbStanowisko.DataSource = db.v_Stanowiska_produkcyjne.ToList();
+            cbStanowisko.DataSource = db.v_Stanowiska_do_uzycia.ToList();
             cbStanowisko.ValueMember = "ID_stanowisko_produkcyjne";
             cbStanowisko.DisplayMember = "Nazwa";
 
@@ -230,6 +230,8 @@ namespace KWZP2022
         {
             int iloscWytwarzanieProdukt = 0;
             int iloscWytwarzaniePolprodukt = 0;
+            DateTime dateTimeNow = DateTime.Now;
+
             if (dgvZamowienieSzczegol.DataSource != null && dgvProcesPolprodukt.DataSource != null)
             {
                 int iloscProduktZamowienie = int.Parse(dgvZamowienieSzczegol.CurrentRow.Cells[3].Value.ToString());
@@ -238,6 +240,9 @@ namespace KWZP2022
 
                 for (int i = 0; i <= iloscWierszyDgvPolprodut - 1; i++)
                 {
+                    Random random = new Random();
+                    int rndMinutes = random.Next(1, 120);
+                    
                     int obecnyPolprodukt = int.Parse(dgvProcesPolprodukt.Rows[i].Cells[0].Value.ToString());
                     List<v_Sklad_produkt> skladProdukt = db.v_Sklad_produkt.Where(a => a.ID_produkt == obecnyProdukt && a.ID_polprodukt == obecnyPolprodukt).ToList();
                     dgvCurrentPolprodukt.DataSource = skladProdukt;
@@ -248,8 +253,9 @@ namespace KWZP2022
                         Wytwarzanie wytwarzanie = new Wytwarzanie();
                         wytwarzanie.ID_pracownik = int.Parse(cbPracownik.SelectedValue.ToString());
                         wytwarzanie.ID_zamowienie_szczegol = int.Parse(dgvZamowienieSzczegol.CurrentRow.Cells[4].Value.ToString());
-                        wytwarzanie.Czas_od = dtpDataOd.Value.Date + dtpCzasOd.Value.TimeOfDay;
-                        wytwarzanie.Czas_do = dtpDataDo.Value.Date + dtpCzasDo.Value.TimeOfDay;
+                        wytwarzanie.Czas_od = dateTimeNow;
+                        wytwarzanie.Czas_do = dateTimeNow.AddMinutes(rndMinutes);
+
                         db.Wytwarzanie.Add(wytwarzanie);
                         db.SaveChanges();
                         int wytwarzanieID = (from n in db.Wytwarzanie orderby n.ID_wytwarzanie descending select n.ID_wytwarzanie).FirstOrDefault();
@@ -261,6 +267,8 @@ namespace KWZP2022
                         db.Proces_wytwarzanie_polprodukt.Add(wytwarzaniePolprodukt);
                         db.SaveChanges();
                         iloscWytwarzaniePolprodukt++;
+
+                        dateTimeNow = dateTimeNow.AddMinutes(rndMinutes);
                     }
                     dgvCurrentPolprodukt.DataSource = 0;
                 }
@@ -270,11 +278,15 @@ namespace KWZP2022
                 {
                     for (int j = 0; j < iloscProduktZamowienie; j++)
                     {
+                        Random random = new Random();
+                        int rndMinutes = random.Next(1, 120);
+
                         Wytwarzanie wytwarzanie = new Wytwarzanie();
                         wytwarzanie.ID_pracownik = int.Parse(cbPracownik.SelectedValue.ToString());
                         wytwarzanie.ID_zamowienie_szczegol = int.Parse(dgvZamowienieSzczegol.CurrentRow.Cells[4].Value.ToString());
-                        wytwarzanie.Czas_od = dtpDataOd.Value.Date + dtpCzasOd.Value.TimeOfDay;
-                        wytwarzanie.Czas_do = dtpDataDo.Value.Date + dtpCzasDo.Value.TimeOfDay;
+                        wytwarzanie.Czas_od = dateTimeNow;
+                        wytwarzanie.Czas_do = dateTimeNow.AddMinutes(rndMinutes);
+
                         db.Wytwarzanie.Add(wytwarzanie);
                         db.SaveChanges();
                         int wytwarzanieID = (from n in db.Wytwarzanie orderby n.ID_wytwarzanie descending select n.ID_wytwarzanie).FirstOrDefault();
@@ -286,6 +298,8 @@ namespace KWZP2022
                         db.Proces_wytwarzanie_produkt.Add(wytwarzanieProdukt);
                         db.SaveChanges();
                         iloscWytwarzanieProdukt++;
+
+                        dateTimeNow = dateTimeNow.AddMinutes(rndMinutes);
                     }
                     dgvCurrentPolprodukt.DataSource = 0;
                 }

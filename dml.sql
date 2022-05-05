@@ -572,8 +572,8 @@ VALUES
 (4,4),
 (4,25),
 (5,7),
-(10,10),
-(10,29);
+(9,10),
+(9,29);
 
 
 INSERT INTO Sklad_stanowisko_produkcyjne_narzedzie (ID_stanowisko_produkcyjne, ID_narzedzie, Liczba)
@@ -587,9 +587,9 @@ VALUES
 (3,4,1),
 (4,2,1),
 (5,2,2),
-(10,2,3),
-(10,5,2),
-(10,6,1);
+(9,2,3),
+(9,5,2),
+(9,6,1);
 
 INSERT INTO Proces_polprodukt_czynnosc (ID_polprodukt, ID_czynnosc_produkcyjna, Czas_trwania)
 VALUES
