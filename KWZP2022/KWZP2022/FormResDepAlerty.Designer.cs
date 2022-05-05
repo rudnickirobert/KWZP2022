@@ -105,6 +105,7 @@ namespace KWZP2022
             this.Controls.Add(this.dgvAlerty);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormResDepAlerty";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

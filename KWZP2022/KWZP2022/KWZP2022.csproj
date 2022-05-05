@@ -104,6 +104,12 @@
     <Compile Include="FormKontrolaJakosciGauss.Designer.cs">
       <DependentUpon>FormKontrolaJakosciGauss.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormResDepDodajJednostka.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepDodajJednostka.Designer.cs">
+      <DependentUpon>FormResDepDodajJednostka.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormResDepAlerty.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1337,6 +1343,9 @@
     </Compile>
     <EmbeddedResource Include="FormKontrolaJakosciGauss.resx">
       <DependentUpon>FormKontrolaJakosciGauss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepDodajJednostka.resx">
+      <DependentUpon>FormResDepDodajJednostka.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepAlerty.resx">
       <DependentUpon>FormResDepAlerty.cs</DependentUpon>
