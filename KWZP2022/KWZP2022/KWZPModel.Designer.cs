@@ -1,6 +1,4 @@
-
-﻿// T4 code generation is enabled for model 'C:\Users\Czernich\Desktop\4.05 18.00\KWZP2022\KWZP2022\KWZP2022\KWZPModel.edmx'. 
-
+﻿// T4 code generation is enabled for model 'C:\Users\arek0\Desktop\DRUKARCZYK\KWZP2022\KWZP2022\KWZP2022\KWZPModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

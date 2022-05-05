@@ -91,7 +91,8 @@ namespace KWZP2022
 
                 db.Sklad_polprodukt.Add(skladPolprodukt);
                 db.SaveChanges();
-                refreshScreen();
+                MessageBox.Show("Poprawnie powiązano półprodukt " + txtPolprodukt.Text + " z materiałem " + txtMaterial.Text + ".");
+                refreshScreen();                
             }
 
         }
@@ -111,6 +112,7 @@ namespace KWZP2022
 
                     db.Sklad_polprodukt.Remove(db.Sklad_polprodukt.Where(polprodukt => polprodukt.ID_sklad_polprodukt == currentSkladPolprodukt).First());
                     db.SaveChanges();
+                    MessageBox.Show("Poprawnie usunięto.");
                     refreshScreen();
                 }
             }
@@ -139,6 +141,7 @@ namespace KWZP2022
                     result.Liczba = newValue;
                     db.SaveChanges();
                 }
+                MessageBox.Show("Poprawnie zaktualizowano.");
                 refreshScreen();
             }            
         }

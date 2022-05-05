@@ -12,9 +12,11 @@ namespace KWZP2022
 {
     public partial class FormResDepDodajParametr : Form
     {
-        public FormResDepDodajParametr()
+        KWZPEntities db;
+        public FormResDepDodajParametr(KWZPEntities db)
         {
             InitializeComponent();
+            this.db = db;
         }
     }
 }
