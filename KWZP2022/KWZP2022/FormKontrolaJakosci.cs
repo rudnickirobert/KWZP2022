@@ -179,9 +179,22 @@ namespace KWZP2022
             }
             else
             {
-                int iloscProduktowKolejka = int.Parse(dgvvKontrolaJakosciKolejka.RowCount.ToString());
+                int iloscProduktowKolejka = 0;
+                int startIndex = 0;
 
-                for (int i = 0; i <= iloscProduktowKolejka - 1; i++)
+                if (String.IsNullOrEmpty(txtKontrolaIlosc.Text))
+                {
+                    iloscProduktowKolejka = int.Parse(dgvvKontrolaJakosciKolejka.RowCount.ToString());
+                }
+                else
+                {
+                    startIndex = int.Parse(dgvvKontrolaJakosciKolejka.RowCount.ToString()) - int.Parse(txtKontrolaIlosc.Text);
+                    iloscProduktowKolejka = int.Parse(dgvvKontrolaJakosciKolejka.RowCount.ToString());
+                }
+
+/*                int iloscProduktowKolejka = int.Parse(dgvvKontrolaJakosciKolejka.RowCount.ToString());
+*/
+                for (int i = startIndex; i <= iloscProduktowKolejka - 1; i++)
                 {
                     int currentIdProdukt = int.Parse(dgvvKontrolaJakosciKolejka.Rows[i].Cells[1].Value.ToString());
                     List<v_Parametry_produkt> parametryProdukt = db.v_Parametry_produkt.Where(a => a.ID_produkt == currentIdProdukt).ToList();
