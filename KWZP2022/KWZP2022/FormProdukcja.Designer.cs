@@ -78,7 +78,7 @@
             // 
             this.btnWytwarzanie.BackColor = System.Drawing.Color.Chartreuse;
             this.btnWytwarzanie.Font = new System.Drawing.Font("Arial", 20F);
-            this.btnWytwarzanie.Location = new System.Drawing.Point(439, 193);
+            this.btnWytwarzanie.Location = new System.Drawing.Point(458, 191);
             this.btnWytwarzanie.Name = "btnWytwarzanie";
             this.btnWytwarzanie.Size = new System.Drawing.Size(337, 123);
             this.btnWytwarzanie.TabIndex = 3;
@@ -102,7 +102,7 @@
             // 
             this.btnKontrola.BackColor = System.Drawing.Color.Crimson;
             this.btnKontrola.Font = new System.Drawing.Font("Arial", 20F);
-            this.btnKontrola.Location = new System.Drawing.Point(439, 394);
+            this.btnKontrola.Location = new System.Drawing.Point(458, 396);
             this.btnKontrola.Name = "btnKontrola";
             this.btnKontrola.Size = new System.Drawing.Size(337, 123);
             this.btnKontrola.TabIndex = 4;
@@ -112,9 +112,9 @@
             // 
             // btnAlert
             // 
-            this.btnAlert.BackColor = System.Drawing.Color.Beige;
+            this.btnAlert.BackColor = System.Drawing.Color.Yellow;
             this.btnAlert.Font = new System.Drawing.Font("Arial", 20F);
-            this.btnAlert.Location = new System.Drawing.Point(899, 576);
+            this.btnAlert.Location = new System.Drawing.Point(870, 490);
             this.btnAlert.Name = "btnAlert";
             this.btnAlert.Size = new System.Drawing.Size(337, 123);
             this.btnAlert.TabIndex = 6;

@@ -94,13 +94,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
+            this.ClientSize = new System.Drawing.Size(794, 491);
             this.Controls.Add(this.btnOdswiez);
             this.Controls.Add(this.lblNazwa);
             this.Controls.Add(this.btnOdczytano);
             this.Controls.Add(this.btnDodajAlert);
             this.Controls.Add(this.dgvAlerty);
             this.Name = "FormProdukcjaAlert";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormProdukcjaAlert";
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlerty)).EndInit();
             this.ResumeLayout(false);

@@ -119,6 +119,7 @@ namespace KWZP2022
         public virtual DbSet<v_Alerty_ProductionDepartment_nieodczytane> v_Alerty_ProductionDepartment_nieodczytane { get; set; }
         public virtual DbSet<v_Alerty_ResorceDepartment_nieodczytane> v_Alerty_ResorceDepartment_nieodczytane { get; set; }
         public virtual DbSet<v_Alerty_ResourceDepartment> v_Alerty_ResourceDepartment { get; set; }
+        public virtual DbSet<v_Calkowity_koszt_zamowienia> v_Calkowity_koszt_zamowienia { get; set; }
         public virtual DbSet<v_Czas_wytwarzanie_polprodukt> v_Czas_wytwarzanie_polprodukt { get; set; }
         public virtual DbSet<v_Czas_wytwarzanie_produkt> v_Czas_wytwarzanie_produkt { get; set; }
         public virtual DbSet<v_Czesci> v_Czesci { get; set; }

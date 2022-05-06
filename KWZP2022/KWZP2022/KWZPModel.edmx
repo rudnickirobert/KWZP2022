@@ -893,6 +893,15 @@ warning 6002: The table/view 'KWZP.dbo.v_Alerty_ResourceDepartment' does not hav
           <Property Name="Czy_odczytano" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Calkowity_koszt_zamowienia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Calkowity_koszt_zamowienia">
+          <Key>
+            <PropertyRef Name="ID_zamowienie" />
+          </Key>
+          <Property Name="ID_zamowienie" Type="int" Nullable="false" />
+          <Property Name="Koszt" Type="decimal" Precision="38" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Czas_wytwarzanie_polprodukt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Czas_wytwarzanie_polprodukt">
           <Key>
@@ -4886,6 +4895,12 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
     [v_Alerty_ResourceDepartment].[Czy_odczytano] AS [Czy_odczytano]
     FROM [dbo].[v_Alerty_ResourceDepartment] AS [v_Alerty_ResourceDepartment]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_Calkowity_koszt_zamowienia" EntityType="Self.v_Calkowity_koszt_zamowienia" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Calkowity_koszt_zamowienia].[ID_zamowienie] AS [ID_zamowienie], 
+    [v_Calkowity_koszt_zamowienia].[Koszt] AS [Koszt]
+    FROM [dbo].[v_Calkowity_koszt_zamowienia] AS [v_Calkowity_koszt_zamowienia]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_Czas_wytwarzanie_polprodukt" EntityType="Self.v_Czas_wytwarzanie_polprodukt" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Czas_wytwarzanie_polprodukt].[ID_polprodukt] AS [ID_polprodukt], 
@@ -7902,6 +7917,13 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <Property Name="Nazwa_dzial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Tresc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Czy_odczytano" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_Calkowity_koszt_zamowienia">
+          <Key>
+            <PropertyRef Name="ID_zamowienie" />
+          </Key>
+          <Property Name="ID_zamowienie" Type="Int32" Nullable="false" />
+          <Property Name="Koszt" Type="Decimal" Precision="38" Scale="2" />
         </EntityType>
         <EntityType Name="v_Czas_wytwarzanie_polprodukt">
           <Key>
@@ -11528,6 +11550,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySet Name="v_Alerty_ProductionDepartment_nieodczytane" EntityType="Self.v_Alerty_ProductionDepartment_nieodczytane" />
           <EntitySet Name="v_Alerty_ResorceDepartment_nieodczytane" EntityType="Self.v_Alerty_ResorceDepartment_nieodczytane" />
           <EntitySet Name="v_Alerty_ResourceDepartment" EntityType="Self.v_Alerty_ResourceDepartment" />
+          <EntitySet Name="v_Calkowity_koszt_zamowienia" EntityType="Self.v_Calkowity_koszt_zamowienia" />
           <EntitySet Name="v_Czas_wytwarzanie_polprodukt" EntityType="Self.v_Czas_wytwarzanie_polprodukt" />
           <EntitySet Name="v_Czas_wytwarzanie_produkt" EntityType="Self.v_Czas_wytwarzanie_produkt" />
           <EntitySet Name="v_Czesci" EntityType="Self.v_Czesci" />
@@ -13119,6 +13142,14 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
                 <ScalarProperty Name="Nazwa_dzial" ColumnName="Nazwa_dzial" />
                 <ScalarProperty Name="Tresc" ColumnName="Tresc" />
                 <ScalarProperty Name="Czy_odczytano" ColumnName="Czy_odczytano" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Calkowity_koszt_zamowienia">
+            <EntityTypeMapping TypeName="KWZPModel.v_Calkowity_koszt_zamowienia">
+              <MappingFragment StoreEntitySet="v_Calkowity_koszt_zamowienia">
+                <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
+                <ScalarProperty Name="Koszt" ColumnName="Koszt" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
