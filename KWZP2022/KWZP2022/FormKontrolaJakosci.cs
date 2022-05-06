@@ -22,6 +22,7 @@ namespace KWZP2022
             initComboboxRodzajKontrola();
             initDataGridViewKontrolaJakosciParametr();
             initComboboxZamowienie();
+            refreshScreen();
         }
 
         private void refreshScreen()
@@ -30,6 +31,8 @@ namespace KWZP2022
             initComboboxRodzajKontrola();
             initDataGridViewKontrolaJakosciParametr();
             initDataGridViewKontrolaPozytywna();
+            dTPCzasDo.ShowUpDown = true;
+            dTPCzasOd.ShowUpDown = true;
         }
 
         private void clearDgvs()

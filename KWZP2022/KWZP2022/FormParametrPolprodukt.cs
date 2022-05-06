@@ -91,10 +91,17 @@ namespace KWZP2022
                 parametr_polprodukt.ID_rodzaj_parametr = int.Parse(this.dgvPolprodukt.CurrentRow.Cells[0].Value.ToString());
                 parametr_polprodukt.Zakres_dol = decimal.Parse(txtZakresDolny.Text);
                 parametr_polprodukt.Zakres_gora = decimal.Parse(txtZakresGorny.Text);
-                db.Parametr_polprodukt.Add(parametr_polprodukt);
-                db.SaveChanges();
-                MessageBox.Show("Poprawnie dodano parametr: " + txtParametrPolprodukt.Text + Environment.NewLine + "dla półproduktu: " + txtPolprodukt.Text + Environment.NewLine + "do bazy danych");
-                refreshScreen();
+                if (parametr_polprodukt.Zakres_gora < parametr_polprodukt.Zakres_dol)
+                {
+                    MessageBox.Show("Zakres górny musi być większy lub równy dolnemu");
+                }
+                else
+                {
+                    db.Parametr_polprodukt.Add(parametr_polprodukt);
+                    db.SaveChanges();
+                    MessageBox.Show("Poprawnie dodano parametr: " + txtParametrPolprodukt.Text + Environment.NewLine + "dla produktu: " + txtPolprodukt.Text + Environment.NewLine + "do bazy danych");
+                    refreshScreen();
+                }
             }            
         }
 
@@ -132,10 +139,10 @@ namespace KWZP2022
 
         private void dgvvParametrPolprodukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtPolprodukt.Text = this.dgvvParametrPolprodukt.CurrentRow.Cells[2].Value.ToString();
-            txtParametrPolprodukt.Text = this.dgvvParametrPolprodukt.CurrentRow.Cells[3].Value.ToString();
-            txtZakresDolny.Text = this.dgvvParametrPolprodukt.CurrentRow.Cells[4].Value.ToString();
-            txtZakresGorny.Text = this.dgvvParametrPolprodukt.CurrentRow.Cells[5].Value.ToString();
+            txtPolprodukt.Text = this.dgvvParametrPolprodukt.CurrentRow.Cells[1].Value.ToString();
+            txtParametrPolprodukt.Text = this.dgvvParametrPolprodukt.CurrentRow.Cells[2].Value.ToString();
+            txtZakresDolny.Text = this.dgvvParametrPolprodukt.CurrentRow.Cells[3].Value.ToString();
+            txtZakresGorny.Text = this.dgvvParametrPolprodukt.CurrentRow.Cells[4].Value.ToString();
         }
 
         private void btnAktualizuj_Click(object sender, EventArgs e)
