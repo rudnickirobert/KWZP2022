@@ -502,6 +502,17 @@ INNER JOIN Zamowienie AS Z ON ZS.ID_zamowienie = Z.ID_zamowienie
 INNER JOIN v_Koszt_roboczogodziny_stanowiska AS KRGS ON SP.ID_stanowisko_produkcyjne = KRGS.[ID stanowiska produkcyjnego]
 GO
 
+CREATE VIEW v_Calkowity_koszt_zamowienia
+AS
+SELECT fs.ID_zamowienie, SUM(fs.Suma) AS Koszt FROM
+(SELECT ID_zamowienie, SUM(Koszt_procesu) AS Suma FROM v_Proces_wytwarzanie_produkt_koszt
+GROUP BY ID_zamowienie
+UNION
+SELECT ID_zamowienie, SUM(Koszt_procesu) AS Suma FROM v_Proces_wytwarzanie_polprodukt_koszt
+GROUP BY ID_zamowienie) AS fs
+GROUP BY fs.ID_zamowienie
+GO
+
 CREATE VIEW v_Wytworzone_produkty
 AS
 SELECT W.ID_wytwarzanie AS [ID], P.ID_produkt, P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynność produkcyjna], Pr.Nazwisko + ' ' + Pr.Imie AS [Pracownik],
