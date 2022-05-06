@@ -94,6 +94,9 @@ namespace KWZP2022
         }
         private void btnOdswiez_Click(object sender, EventArgs e)
         {
+            cmbRodzajCzesc.DataSource = db.Rodzaj_czesc.ToList();
+            cmbRodzajCzesc.DisplayMember = "Nazwa_rodzaj_czesc";
+            cmbRodzajCzesc.ValueMember = "ID_rodzaj_czesc";
             initDataGridView();
             txtNazwaCzesc.Clear();
         }

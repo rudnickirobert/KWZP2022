@@ -34,9 +34,5 @@ namespace KWZP2022
                 this.Close();
             }
         }
-        private void btnOdswiez_Click(object sender, EventArgs e)
-        {
-            txtNazwaRodzaj.Text = "";
-        }
     }
 }
