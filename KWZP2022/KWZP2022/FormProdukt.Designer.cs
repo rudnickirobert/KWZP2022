@@ -120,31 +120,31 @@
             // 
             // btnDodajParametrProdukt
             // 
-            this.btnDodajParametrProdukt.Location = new System.Drawing.Point(366, 3);
+            this.btnDodajParametrProdukt.Location = new System.Drawing.Point(231, 9);
             this.btnDodajParametrProdukt.Name = "btnDodajParametrProdukt";
             this.btnDodajParametrProdukt.Size = new System.Drawing.Size(118, 38);
             this.btnDodajParametrProdukt.TabIndex = 7;
-            this.btnDodajParametrProdukt.Text = "Dodaj Parametr";
+            this.btnDodajParametrProdukt.Text = "Powiąż parametr";
             this.btnDodajParametrProdukt.UseVisualStyleBackColor = true;
             this.btnDodajParametrProdukt.Click += new System.EventHandler(this.btnDodajParametrProdukt_Click);
             // 
             // btnDodajSkladProduktu
             // 
-            this.btnDodajSkladProduktu.Location = new System.Drawing.Point(490, 3);
+            this.btnDodajSkladProduktu.Location = new System.Drawing.Point(355, 9);
             this.btnDodajSkladProduktu.Name = "btnDodajSkladProduktu";
             this.btnDodajSkladProduktu.Size = new System.Drawing.Size(118, 38);
             this.btnDodajSkladProduktu.TabIndex = 8;
-            this.btnDodajSkladProduktu.Text = "Dodaj skład produktu";
+            this.btnDodajSkladProduktu.Text = "Powiąż skład produktu";
             this.btnDodajSkladProduktu.UseVisualStyleBackColor = true;
             this.btnDodajSkladProduktu.Click += new System.EventHandler(this.btnDodajSkladProduktu_Click);
             // 
             // btnSkladProduktMaterial
             // 
-            this.btnSkladProduktMaterial.Location = new System.Drawing.Point(243, 3);
+            this.btnSkladProduktMaterial.Location = new System.Drawing.Point(479, 9);
             this.btnSkladProduktMaterial.Name = "btnSkladProduktMaterial";
             this.btnSkladProduktMaterial.Size = new System.Drawing.Size(118, 38);
             this.btnSkladProduktMaterial.TabIndex = 9;
-            this.btnSkladProduktMaterial.Text = "Dodaj materiał montażowy";
+            this.btnSkladProduktMaterial.Text = "Powiąż materiał montażowy";
             this.btnSkladProduktMaterial.UseVisualStyleBackColor = true;
             this.btnSkladProduktMaterial.Click += new System.EventHandler(this.btnSkladProduktMaterial_Click);
             // 
