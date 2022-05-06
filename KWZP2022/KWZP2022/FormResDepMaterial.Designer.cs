@@ -40,7 +40,7 @@
             this.cmbRodzajMaterial = new System.Windows.Forms.ComboBox();
             this.btnDodajParametr = new System.Windows.Forms.Button();
             this.lblPodpisWidoku = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDodajRodzaj = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).BeginInit();
             this.SuspendLayout();
             // 
@@ -163,17 +163,17 @@
             this.lblPodpisWidoku.TabIndex = 55;
             this.lblPodpisWidoku.Text = "Materiały";
             // 
-            // button1
+            // btnDodajRodzaj
             // 
-            this.button1.BackColor = System.Drawing.Color.Yellow;
-            this.button1.Font = new System.Drawing.Font("Arial", 15F);
-            this.button1.Location = new System.Drawing.Point(539, 119);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(224, 37);
-            this.button1.TabIndex = 56;
-            this.button1.Text = "Dodaj nowy rodzaj";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnDodajRodzaj.BackColor = System.Drawing.Color.Yellow;
+            this.btnDodajRodzaj.Font = new System.Drawing.Font("Arial", 15F);
+            this.btnDodajRodzaj.Location = new System.Drawing.Point(539, 119);
+            this.btnDodajRodzaj.Name = "btnDodajRodzaj";
+            this.btnDodajRodzaj.Size = new System.Drawing.Size(224, 37);
+            this.btnDodajRodzaj.TabIndex = 56;
+            this.btnDodajRodzaj.Text = "Dodaj nowy rodzaj";
+            this.btnDodajRodzaj.UseVisualStyleBackColor = false;
+            this.btnDodajRodzaj.Click += new System.EventHandler(this.btnDodajRodzaj_Click);
             // 
             // FormResDepMaterial
             // 
@@ -181,7 +181,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(959, 541);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnDodajRodzaj);
             this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnDodajParametr);
             this.Controls.Add(this.cmbRodzajMaterial);
@@ -220,6 +220,6 @@
         private System.Windows.Forms.ComboBox cmbRodzajMaterial;
         private System.Windows.Forms.Button btnDodajParametr;
         private System.Windows.Forms.Label lblPodpisWidoku;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDodajRodzaj;
     }
 }

@@ -113,7 +113,7 @@ namespace KWZP2022
             parametrMaterial.ShowDialog();  
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnDodajRodzaj_Click(object sender, EventArgs e)
         {
             FormResDepDodajMaterial rodzajMaterial = new FormResDepDodajMaterial(db);
             rodzajMaterial.ShowDialog();
