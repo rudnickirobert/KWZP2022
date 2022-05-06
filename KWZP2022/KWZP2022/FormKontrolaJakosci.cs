@@ -197,8 +197,6 @@ namespace KWZP2022
                     iloscProduktowKolejka = int.Parse(dgvvKontrolaJakosciKolejka.RowCount.ToString());
                 }
 
-/*                int iloscProduktowKolejka = int.Parse(dgvvKontrolaJakosciKolejka.RowCount.ToString());
-*/
                 for (int i = startIndex; i <= iloscProduktowKolejka - 1; i++)
                 {
                     int currentIdProdukt = int.Parse(dgvvKontrolaJakosciKolejka.Rows[i].Cells[1].Value.ToString());
