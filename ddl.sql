@@ -240,8 +240,6 @@ CREATE TABLE Proces_produkt_czynnosc
 	Czas_trwania INT NOT NULL,
 );
 
-
-
 CREATE TABLE Narzedzie
 	(
 	ID_narzedzie INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
