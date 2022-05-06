@@ -118,6 +118,9 @@ namespace KWZP2022
         private void btnOdswiez_Click(object sender, EventArgs e)
         {
             initDataGridView();
+            cmbRodzajMaszyna.DataSource = db.Rodzaj_maszyna.ToList();
+            cmbRodzajMaszyna.DisplayMember = "Nazwa_rodzaj_maszyna";
+            cmbRodzajMaszyna.ValueMember = "ID_rodzaj_maszyna";
             txtNazwaMaszyna.Clear();
             txtKosztRBG.Clear();
         }

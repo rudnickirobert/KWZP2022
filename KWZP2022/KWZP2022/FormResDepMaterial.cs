@@ -78,6 +78,9 @@ namespace KWZP2022
         private void btnOdswiez_Click(object sender, EventArgs e)
         {
             initDataGridView();
+            cmbRodzajMaterial.DataSource = db.Rodzaj_material.ToList();
+            cmbRodzajMaterial.DisplayMember = "Nazwa_rodzaj_material";
+            cmbRodzajMaterial.ValueMember = "ID_rodzaj_material";
             txtNazwaMaterial.Clear();
         }
         private void btnAktualizuj_Click(object sender, EventArgs e)

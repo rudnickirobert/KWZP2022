@@ -29,29 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormResDepDodajCzesc));
-            this.btnOdswiez = new System.Windows.Forms.Button();
             this.btnDodajRodzaj = new System.Windows.Forms.Button();
             this.lblNazwa = new System.Windows.Forms.Label();
             this.txtNazwaRodzaj = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // btnOdswiez
-            // 
-            this.btnOdswiez.BackColor = System.Drawing.Color.Ivory;
-            this.btnOdswiez.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnOdswiez.Location = new System.Drawing.Point(289, 131);
-            this.btnOdswiez.Name = "btnOdswiez";
-            this.btnOdswiez.Size = new System.Drawing.Size(157, 37);
-            this.btnOdswiez.TabIndex = 67;
-            this.btnOdswiez.Text = "Odśwież";
-            this.btnOdswiez.UseVisualStyleBackColor = false;
-            this.btnOdswiez.Click += new System.EventHandler(this.btnOdswiez_Click);
-            // 
             // btnDodajRodzaj
             // 
             this.btnDodajRodzaj.BackColor = System.Drawing.Color.PaleGreen;
             this.btnDodajRodzaj.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDodajRodzaj.Location = new System.Drawing.Point(44, 131);
+            this.btnDodajRodzaj.Location = new System.Drawing.Point(167, 129);
             this.btnDodajRodzaj.Name = "btnDodajRodzaj";
             this.btnDodajRodzaj.Size = new System.Drawing.Size(239, 37);
             this.btnDodajRodzaj.TabIndex = 66;
@@ -84,7 +71,6 @@
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(554, 291);
-            this.Controls.Add(this.btnOdswiez);
             this.Controls.Add(this.btnDodajRodzaj);
             this.Controls.Add(this.lblNazwa);
             this.Controls.Add(this.txtNazwaRodzaj);
@@ -100,8 +86,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnOdswiez;
         private System.Windows.Forms.Button btnDodajRodzaj;
         private System.Windows.Forms.Label lblNazwa;
         private System.Windows.Forms.TextBox txtNazwaRodzaj;
