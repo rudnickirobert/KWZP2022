@@ -60,7 +60,7 @@ namespace KWZP2022
 
         private void btnAlert_Click(object sender, EventArgs e)
         {
-            FormResDepAlerty alertyForm = new FormResDepAlerty(db);
+            FormProdukcjaAlert alertyForm = new FormProdukcjaAlert(db);
             alertyForm.ShowDialog();
         }
     }
