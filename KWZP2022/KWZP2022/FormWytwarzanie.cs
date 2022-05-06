@@ -231,7 +231,7 @@ namespace KWZP2022
         {
             int iloscWytwarzanieProdukt = 0;
             int iloscWytwarzaniePolprodukt = 0;
-            DateTime dateTimeNow = dtpDataDo.Value.Date + dtpCzasDo.Value.TimeOfDay;
+            DateTime dateTimeNow = dtpDataOd.Value.Date + dtpCzasOd.Value.TimeOfDay;
 
             if (dgvZamowienieSzczegol.DataSource != null && dgvProcesPolprodukt.DataSource != null)
             {

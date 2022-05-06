@@ -17,6 +17,8 @@ namespace KWZP2022
         {
             InitializeComponent();
             this.db = db;
+            FormProdukcjaAlert alertyForm = new FormProdukcjaAlert(db);
+            alertyForm.ShowDialog();
         }
 
         private void btnProdukty_Click(object sender, EventArgs e)
@@ -54,6 +56,12 @@ namespace KWZP2022
         {
             FormKontrolaJakosci kontrolaJakosciForm = new FormKontrolaJakosci(db);
             kontrolaJakosciForm.ShowDialog();
+        }
+
+        private void btnAlert_Click(object sender, EventArgs e)
+        {
+            FormResDepAlerty alertyForm = new FormResDepAlerty(db);
+            alertyForm.ShowDialog();
         }
     }
 }

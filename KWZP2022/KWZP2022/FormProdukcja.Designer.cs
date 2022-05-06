@@ -35,6 +35,7 @@
             this.btnWytwarzanie = new System.Windows.Forms.Button();
             this.btnStaytystyki = new System.Windows.Forms.Button();
             this.btnKontrola = new System.Windows.Forms.Button();
+            this.btnAlert = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnProdukty
@@ -89,7 +90,7 @@
             // 
             this.btnStaytystyki.BackColor = System.Drawing.Color.Beige;
             this.btnStaytystyki.Font = new System.Drawing.Font("Arial", 20F);
-            this.btnStaytystyki.Location = new System.Drawing.Point(861, 94);
+            this.btnStaytystyki.Location = new System.Drawing.Point(870, 105);
             this.btnStaytystyki.Name = "btnStaytystyki";
             this.btnStaytystyki.Size = new System.Drawing.Size(337, 123);
             this.btnStaytystyki.TabIndex = 5;
@@ -109,12 +110,25 @@
             this.btnKontrola.UseVisualStyleBackColor = false;
             this.btnKontrola.Click += new System.EventHandler(this.btnKontrola_Click);
             // 
+            // btnAlert
+            // 
+            this.btnAlert.BackColor = System.Drawing.Color.Beige;
+            this.btnAlert.Font = new System.Drawing.Font("Arial", 20F);
+            this.btnAlert.Location = new System.Drawing.Point(899, 576);
+            this.btnAlert.Name = "btnAlert";
+            this.btnAlert.Size = new System.Drawing.Size(337, 123);
+            this.btnAlert.TabIndex = 6;
+            this.btnAlert.Text = "Alerty";
+            this.btnAlert.UseVisualStyleBackColor = false;
+            this.btnAlert.Click += new System.EventHandler(this.btnAlert_Click);
+            // 
             // FormProdukcja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 711);
+            this.Controls.Add(this.btnAlert);
             this.Controls.Add(this.btnStaytystyki);
             this.Controls.Add(this.btnWytwarzanie);
             this.Controls.Add(this.btnKontrola);
@@ -137,5 +151,6 @@
         private System.Windows.Forms.Button btnWytwarzanie;
         private System.Windows.Forms.Button btnStaytystyki;
         private System.Windows.Forms.Button btnKontrola;
+        private System.Windows.Forms.Button btnAlert;
     }
 }

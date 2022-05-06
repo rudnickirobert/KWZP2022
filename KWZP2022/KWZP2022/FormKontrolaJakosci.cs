@@ -17,6 +17,7 @@ namespace KWZP2022
         {
             InitializeComponent();
             this.db = db;
+            
             initComboboxPracownik();
             initComboboxRodzajKontrola();
             initDataGridViewKontrolaJakosciParametr();
@@ -114,6 +115,7 @@ namespace KWZP2022
 
         private void initDataGridViewRezultatKontroli()
         {
+            this.db = new KWZPEntities();
             int wybraneZamowienie = int.Parse(cbZamowienie.SelectedValue.ToString());
             List<v_Ilosc_kontrola_pozytywna> RezultatKontroli = db.v_Ilosc_kontrola_pozytywna.Where(a => a.ID_zamowienie == wybraneZamowienie).ToList();
             dgvRezultatKontroli.DataSource = RezultatKontroli;
@@ -220,8 +222,8 @@ namespace KWZP2022
                         kontrolaParametr.ID_parametr_produkt = int.Parse(this.dgvvParametrProdukt.Rows[j].Cells[0].Value.ToString());
 
                         Random rand = new Random();
-                        double dolnyPrzedział = double.Parse(this.dgvvParametrProdukt.Rows[j].Cells[4].Value.ToString()) - (0.01 * double.Parse(this.dgvvParametrProdukt.Rows[j].Cells[4].Value.ToString()));
-                        double gornyPrzedzial = double.Parse(this.dgvvParametrProdukt.Rows[j].Cells[5].Value.ToString()) + (0.01 * double.Parse(this.dgvvParametrProdukt.Rows[j].Cells[4].Value.ToString()));
+                        double dolnyPrzedział = double.Parse(this.dgvvParametrProdukt.Rows[j].Cells[4].Value.ToString());
+                        double gornyPrzedzial = double.Parse(this.dgvvParametrProdukt.Rows[j].Cells[5].Value.ToString());
                         decimal wartosc = Convert.ToDecimal(NextDouble(rand, dolnyPrzedział, gornyPrzedzial));
 
                         kontrolaParametr.Wartosc = wartosc;
@@ -249,6 +251,11 @@ namespace KWZP2022
         {
             FormKontrolaJakosciGauss gauss = new FormKontrolaJakosciGauss(db);
             gauss.ShowDialog();
+        }
+
+        private void btnRezultat_Click(object sender, EventArgs e)
+        {
+            initDataGridViewRezultatKontroli();
         }
     }
 }

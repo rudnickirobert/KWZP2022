@@ -829,6 +829,38 @@
           <Property Name="Akceptacja" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Alerty_ProductionDepartment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Alerty_ProductionDepartment">
+          <Key>
+            <PropertyRef Name="ID_alert" />
+            <PropertyRef Name="ID_dzial" />
+            <PropertyRef Name="Nazwa_dzial" />
+            <PropertyRef Name="Tresc" />
+            <PropertyRef Name="Czy_odczytano" />
+          </Key>
+          <Property Name="ID_alert" Type="int" Nullable="false" />
+          <Property Name="ID_dzial" Type="int" Nullable="false" />
+          <Property Name="Nazwa_dzial" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tresc" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Czy_odczytano" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Alerty_ProductionDepartment_nieodczytane' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Alerty_ProductionDepartment_nieodczytane">
+          <Key>
+            <PropertyRef Name="ID_alert" />
+            <PropertyRef Name="ID_dzial" />
+            <PropertyRef Name="Nazwa_dzial" />
+            <PropertyRef Name="Tresc" />
+            <PropertyRef Name="Czy_odczytano" />
+          </Key>
+          <Property Name="ID_alert" Type="int" Nullable="false" />
+          <Property Name="ID_dzial" Type="int" Nullable="false" />
+          <Property Name="Nazwa_dzial" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tresc" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Czy_odczytano" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Alerty_ResorceDepartment_nieodczytane' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Alerty_ResorceDepartment_nieodczytane">
           <Key>
@@ -4818,6 +4850,24 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySet Name="Zamowienie_narzedzie" EntityType="Self.Zamowienie_narzedzie" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zamowienie_szczegol" EntityType="Self.Zamowienie_szczegol" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zwrot" EntityType="Self.Zwrot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="v_Alerty_ProductionDepartment" EntityType="Self.v_Alerty_ProductionDepartment" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Alerty_ProductionDepartment].[ID_alert] AS [ID_alert], 
+    [v_Alerty_ProductionDepartment].[ID_dzial] AS [ID_dzial], 
+    [v_Alerty_ProductionDepartment].[Nazwa_dzial] AS [Nazwa_dzial], 
+    [v_Alerty_ProductionDepartment].[Tresc] AS [Tresc], 
+    [v_Alerty_ProductionDepartment].[Czy_odczytano] AS [Czy_odczytano]
+    FROM [dbo].[v_Alerty_ProductionDepartment] AS [v_Alerty_ProductionDepartment]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Alerty_ProductionDepartment_nieodczytane" EntityType="Self.v_Alerty_ProductionDepartment_nieodczytane" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Alerty_ProductionDepartment_nieodczytane].[ID_alert] AS [ID_alert], 
+    [v_Alerty_ProductionDepartment_nieodczytane].[ID_dzial] AS [ID_dzial], 
+    [v_Alerty_ProductionDepartment_nieodczytane].[Nazwa_dzial] AS [Nazwa_dzial], 
+    [v_Alerty_ProductionDepartment_nieodczytane].[Tresc] AS [Tresc], 
+    [v_Alerty_ProductionDepartment_nieodczytane].[Czy_odczytano] AS [Czy_odczytano]
+    FROM [dbo].[v_Alerty_ProductionDepartment_nieodczytane] AS [v_Alerty_ProductionDepartment_nieodczytane]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_Alerty_ResorceDepartment_nieodczytane" EntityType="Self.v_Alerty_ResorceDepartment_nieodczytane" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Alerty_ResorceDepartment_nieodczytane].[ID_alert] AS [ID_alert], 
@@ -7796,6 +7846,34 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <Property Name="Akceptacja" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Produkt" Relationship="Self.FK__Zwrot__ID_produk__5E8A0973" FromRole="Zwrot" ToRole="Produkt" />
           <NavigationProperty Name="Reklamacja" Relationship="Self.FK__Zwrot__ID_reklam__5D95E53A" FromRole="Zwrot" ToRole="Reklamacja" />
+        </EntityType>
+        <EntityType Name="v_Alerty_ProductionDepartment">
+          <Key>
+            <PropertyRef Name="ID_alert" />
+            <PropertyRef Name="ID_dzial" />
+            <PropertyRef Name="Nazwa_dzial" />
+            <PropertyRef Name="Tresc" />
+            <PropertyRef Name="Czy_odczytano" />
+          </Key>
+          <Property Name="ID_alert" Type="Int32" Nullable="false" />
+          <Property Name="ID_dzial" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_dzial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tresc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Czy_odczytano" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_Alerty_ProductionDepartment_nieodczytane">
+          <Key>
+            <PropertyRef Name="ID_alert" />
+            <PropertyRef Name="ID_dzial" />
+            <PropertyRef Name="Nazwa_dzial" />
+            <PropertyRef Name="Tresc" />
+            <PropertyRef Name="Czy_odczytano" />
+          </Key>
+          <Property Name="ID_alert" Type="Int32" Nullable="false" />
+          <Property Name="ID_dzial" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_dzial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tresc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Czy_odczytano" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="v_Alerty_ResorceDepartment_nieodczytane">
           <Key>
@@ -11446,6 +11524,8 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
           <EntitySet Name="Zamowienie_narzedzie" EntityType="Self.Zamowienie_narzedzie" />
           <EntitySet Name="Zamowienie_szczegol" EntityType="Self.Zamowienie_szczegol" />
           <EntitySet Name="Zwrot" EntityType="Self.Zwrot" />
+          <EntitySet Name="v_Alerty_ProductionDepartment" EntityType="Self.v_Alerty_ProductionDepartment" />
+          <EntitySet Name="v_Alerty_ProductionDepartment_nieodczytane" EntityType="Self.v_Alerty_ProductionDepartment_nieodczytane" />
           <EntitySet Name="v_Alerty_ResorceDepartment_nieodczytane" EntityType="Self.v_Alerty_ResorceDepartment_nieodczytane" />
           <EntitySet Name="v_Alerty_ResourceDepartment" EntityType="Self.v_Alerty_ResourceDepartment" />
           <EntitySet Name="v_Czas_wytwarzanie_polprodukt" EntityType="Self.v_Czas_wytwarzanie_polprodukt" />
@@ -12995,6 +13075,28 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol_produkcja' does not
                 <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
                 <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
                 <ScalarProperty Name="Akceptacja" ColumnName="Akceptacja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Alerty_ProductionDepartment">
+            <EntityTypeMapping TypeName="KWZPModel.v_Alerty_ProductionDepartment">
+              <MappingFragment StoreEntitySet="v_Alerty_ProductionDepartment">
+                <ScalarProperty Name="ID_alert" ColumnName="ID_alert" />
+                <ScalarProperty Name="ID_dzial" ColumnName="ID_dzial" />
+                <ScalarProperty Name="Nazwa_dzial" ColumnName="Nazwa_dzial" />
+                <ScalarProperty Name="Tresc" ColumnName="Tresc" />
+                <ScalarProperty Name="Czy_odczytano" ColumnName="Czy_odczytano" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Alerty_ProductionDepartment_nieodczytane">
+            <EntityTypeMapping TypeName="KWZPModel.v_Alerty_ProductionDepartment_nieodczytane">
+              <MappingFragment StoreEntitySet="v_Alerty_ProductionDepartment_nieodczytane">
+                <ScalarProperty Name="ID_alert" ColumnName="ID_alert" />
+                <ScalarProperty Name="ID_dzial" ColumnName="ID_dzial" />
+                <ScalarProperty Name="Nazwa_dzial" ColumnName="Nazwa_dzial" />
+                <ScalarProperty Name="Tresc" ColumnName="Tresc" />
+                <ScalarProperty Name="Czy_odczytano" ColumnName="Czy_odczytano" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
