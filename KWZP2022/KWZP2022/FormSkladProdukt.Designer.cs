@@ -184,7 +184,7 @@
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(334, 37);
             this.btnDodaj.TabIndex = 23;
-            this.btnDodaj.Text = "Dodaj nowy";
+            this.btnDodaj.Text = "Powiąż";
             this.btnDodaj.UseVisualStyleBackColor = false;
             this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
             // 

@@ -104,6 +104,12 @@
     <Compile Include="FormKontrolaJakosciGauss.Designer.cs">
       <DependentUpon>FormKontrolaJakosciGauss.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormResDepDodajJednostka.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepDodajJednostka.Designer.cs">
+      <DependentUpon>FormResDepDodajJednostka.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormResDepAlerty.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1155,10 +1161,16 @@
     <Compile Include="v_Proces_wytwarzanie_polprodukt_ewidencja.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Proces_wytwarzanie_polprodukt_koszt.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Proces_wytwarzanie_produkt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Proces_wytwarzanie_produkt_ewidencja.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Proces_wytwarzanie_produkt_koszt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Producenci.cs">
@@ -1430,6 +1442,9 @@
     </Compile>
     <EmbeddedResource Include="FormKontrolaJakosciGauss.resx">
       <DependentUpon>FormKontrolaJakosciGauss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepDodajJednostka.resx">
+      <DependentUpon>FormResDepDodajJednostka.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepAlerty.resx">
       <DependentUpon>FormResDepAlerty.cs</DependentUpon>

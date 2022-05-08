@@ -159,5 +159,22 @@ namespace KWZP2022
                     txtZakresGora.SelectionStart + 2 < txtZakresGora.Text.Length;
             }
         }
+
+        private void btnNowyParametr_Click(object sender, EventArgs e)
+        {
+            FormResDepDodajParametr dodajNowyParamter = new FormResDepDodajParametr(db);
+            dodajNowyParamter.ShowDialog();
+        }
+
+        private void btnOdswiez_Click(object sender, EventArgs e)
+        {
+            initDataGridView();
+            cmbNarzedzie.DataSource = db.Narzedzie.ToList();
+            cmbNarzedzie.DisplayMember = "Nazwa_narzedzie";
+            cmbNarzedzie.ValueMember = "ID_narzedzie";
+            cmbParametr.DataSource = db.v_Rodzaj_parametr.ToList();
+            cmbParametr.DisplayMember = "Parametr";
+            cmbParametr.ValueMember = "ID_rodzaj_parametr";
+        }
     }
 }

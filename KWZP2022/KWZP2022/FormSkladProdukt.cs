@@ -97,7 +97,7 @@ namespace KWZP2022
                     polprodukt.Nazwa = txtPolprodukt.Text;
                     db.Slownik_polprodukt.Add(polprodukt);
                     db.SaveChanges();
-                    MessageBox.Show("Poprawnie dodano półproduk '" + polprodukt.Nazwa + "' do słownika");
+                    MessageBox.Show("Poprawnie dodano półprodukt '" + polprodukt.Nazwa + "' do słownika");
                     initDataGridViewPolprodukt();
 
                     DialogResult polproduktResult = MessageBox.Show("Czy chcesz dodać parametr półproduktu?", "Question", MessageBoxButtons.YesNo);
@@ -167,7 +167,7 @@ namespace KWZP2022
                     db.SaveChanges();
                 }
             }
-
+            MessageBox.Show("Poprawnie usunięto.");
             refreshScreen();
 
         }

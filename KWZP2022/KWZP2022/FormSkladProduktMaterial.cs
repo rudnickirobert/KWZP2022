@@ -79,6 +79,7 @@ namespace KWZP2022
                 skladProduktMaterial.Liczba = int.Parse(txtIlosc.Text);
                 db.Sklad_produkt_material.Add(skladProduktMaterial);
                 db.SaveChanges();
+                MessageBox.Show("Poprawnie powiązano półprodukt " + txtProdukt.Text + " z materiałem " + txtMaterial.Text + ".");
                 refreshScreen();
             }
                   
@@ -108,10 +109,11 @@ namespace KWZP2022
                     int currentSkladProduktMaterial = int.Parse(dgvvSkladProdukt.CurrentRow.Cells[0].Value.ToString());
 
                     db.Sklad_produkt_material.Remove(db.Sklad_produkt_material.Where(produkt => produkt.ID_sklad_produkt_material == currentSkladProduktMaterial).First());
-                    db.SaveChanges();
-                    refreshScreen();
+                    db.SaveChanges();                    
                 }
-            }           
+                MessageBox.Show("Poprawnie usunięto.");
+                refreshScreen();
+            }                       
         }
 
         private void dgvvSkladProdukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -138,6 +140,7 @@ namespace KWZP2022
                     result.Liczba = newValue;
                     db.SaveChanges();
                 }
+                MessageBox.Show("Poprawnie zaktualizowano.");
                 refreshScreen();
             }            
         }

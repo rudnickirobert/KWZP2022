@@ -2240,6 +2240,27 @@ warning 6002: The table/view 'KWZP.dbo.v_Proces_wytwarzanie_polprodukt_ewidencja
           <Property Name="Czas pracy" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Proces_wytwarzanie_polprodukt_koszt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Proces_wytwarzanie_polprodukt_koszt">
+          <Key>
+            <PropertyRef Name="ID_zamowienie" />
+            <PropertyRef Name="Półprodukt" />
+            <PropertyRef Name="ID_stanowisko" />
+            <PropertyRef Name="Stanowisko" />
+            <PropertyRef Name="Data rozpoczęcia" />
+            <PropertyRef Name="Czas pracy" />
+          </Key>
+          <Property Name="ID_zamowienie" Type="int" Nullable="false" />
+          <Property Name="Półprodukt" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_stanowisko" Type="int" Nullable="false" />
+          <Property Name="Stanowisko" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Data rozpoczęcia" Type="datetime" Nullable="false" />
+          <Property Name="Data zakończenia" Type="datetime" />
+          <Property Name="Czas pracy" Type="int" Nullable="false" />
+          <Property Name="Koszt roboczogodziny stanowiska {PLN}" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Koszt_procesu" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Proces_wytwarzanie_produkt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Proces_wytwarzanie_produkt">
           <Key>
@@ -2284,6 +2305,29 @@ warning 6002: The table/view 'KWZP.dbo.v_Proces_wytwarzanie_produkt_ewidencja' d
           <Property Name="Data rozpoczęcia" Type="datetime" Nullable="false" />
           <Property Name="Data zakończenia" Type="datetime" />
           <Property Name="Czas pracy" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Proces_wytwarzanie_produkt_koszt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Proces_wytwarzanie_produkt_koszt">
+          <Key>
+            <PropertyRef Name="ID_zamowienie" />
+            <PropertyRef Name="Produkt" />
+            <PropertyRef Name="Czynność produkcyjna" />
+            <PropertyRef Name="ID_stanowisko" />
+            <PropertyRef Name="Stanowisko" />
+            <PropertyRef Name="Data rozpoczęcia" />
+            <PropertyRef Name="Czas pracy" />
+          </Key>
+          <Property Name="ID_zamowienie" Type="int" Nullable="false" />
+          <Property Name="Produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Czynność produkcyjna" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_stanowisko" Type="int" Nullable="false" />
+          <Property Name="Stanowisko" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Data rozpoczęcia" Type="datetime" Nullable="false" />
+          <Property Name="Data zakończenia" Type="datetime" />
+          <Property Name="Czas pracy" Type="int" Nullable="false" />
+          <Property Name="Koszt roboczogodziny stanowiska {PLN}" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Koszt_procesu" Type="decimal" Precision="6" Scale="2" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Producenci' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -5975,6 +6019,19 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
     [v_Proces_wytwarzanie_polprodukt_ewidencja].[Czas pracy] AS [Czas pracy]
     FROM [dbo].[v_Proces_wytwarzanie_polprodukt_ewidencja] AS [v_Proces_wytwarzanie_polprodukt_ewidencja]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_Proces_wytwarzanie_polprodukt_koszt" EntityType="Self.v_Proces_wytwarzanie_polprodukt_koszt" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Proces_wytwarzanie_polprodukt_koszt].[ID_zamowienie] AS [ID_zamowienie], 
+    [v_Proces_wytwarzanie_polprodukt_koszt].[Półprodukt] AS [Półprodukt], 
+    [v_Proces_wytwarzanie_polprodukt_koszt].[ID_stanowisko] AS [ID_stanowisko], 
+    [v_Proces_wytwarzanie_polprodukt_koszt].[Stanowisko] AS [Stanowisko], 
+    [v_Proces_wytwarzanie_polprodukt_koszt].[Data rozpoczęcia] AS [Data rozpoczęcia], 
+    [v_Proces_wytwarzanie_polprodukt_koszt].[Data zakończenia] AS [Data zakończenia], 
+    [v_Proces_wytwarzanie_polprodukt_koszt].[Czas pracy] AS [Czas pracy], 
+    [v_Proces_wytwarzanie_polprodukt_koszt].[Koszt roboczogodziny stanowiska {PLN}] AS [Koszt roboczogodziny stanowiska {PLN}], 
+    [v_Proces_wytwarzanie_polprodukt_koszt].[Koszt_procesu] AS [Koszt_procesu]
+    FROM [dbo].[v_Proces_wytwarzanie_polprodukt_koszt] AS [v_Proces_wytwarzanie_polprodukt_koszt]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_Proces_wytwarzanie_produkt" EntityType="Self.v_Proces_wytwarzanie_produkt" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Proces_wytwarzanie_produkt].[ID] AS [ID], 
@@ -6000,6 +6057,20 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
     [v_Proces_wytwarzanie_produkt_ewidencja].[Data zakończenia] AS [Data zakończenia], 
     [v_Proces_wytwarzanie_produkt_ewidencja].[Czas pracy] AS [Czas pracy]
     FROM [dbo].[v_Proces_wytwarzanie_produkt_ewidencja] AS [v_Proces_wytwarzanie_produkt_ewidencja]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Proces_wytwarzanie_produkt_koszt" EntityType="Self.v_Proces_wytwarzanie_produkt_koszt" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Proces_wytwarzanie_produkt_koszt].[ID_zamowienie] AS [ID_zamowienie], 
+    [v_Proces_wytwarzanie_produkt_koszt].[Produkt] AS [Produkt], 
+    [v_Proces_wytwarzanie_produkt_koszt].[Czynność produkcyjna] AS [Czynność produkcyjna], 
+    [v_Proces_wytwarzanie_produkt_koszt].[ID_stanowisko] AS [ID_stanowisko], 
+    [v_Proces_wytwarzanie_produkt_koszt].[Stanowisko] AS [Stanowisko], 
+    [v_Proces_wytwarzanie_produkt_koszt].[Data rozpoczęcia] AS [Data rozpoczęcia], 
+    [v_Proces_wytwarzanie_produkt_koszt].[Data zakończenia] AS [Data zakończenia], 
+    [v_Proces_wytwarzanie_produkt_koszt].[Czas pracy] AS [Czas pracy], 
+    [v_Proces_wytwarzanie_produkt_koszt].[Koszt roboczogodziny stanowiska {PLN}] AS [Koszt roboczogodziny stanowiska {PLN}], 
+    [v_Proces_wytwarzanie_produkt_koszt].[Koszt_procesu] AS [Koszt_procesu]
+    FROM [dbo].[v_Proces_wytwarzanie_produkt_koszt] AS [v_Proces_wytwarzanie_produkt_koszt]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Producenci" EntityType="Self.v_Producenci" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -9470,6 +9541,25 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <Property Name="Data_zakończenia" Type="DateTime" Precision="3" />
           <Property Name="Czas_pracy" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="v_Proces_wytwarzanie_polprodukt_koszt">
+          <Key>
+            <PropertyRef Name="ID_zamowienie" />
+            <PropertyRef Name="Półprodukt" />
+            <PropertyRef Name="ID_stanowisko" />
+            <PropertyRef Name="Stanowisko" />
+            <PropertyRef Name="Data_rozpoczęcia" />
+            <PropertyRef Name="Czas_pracy" />
+          </Key>
+          <Property Name="ID_zamowienie" Type="Int32" Nullable="false" />
+          <Property Name="Półprodukt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_stanowisko" Type="Int32" Nullable="false" />
+          <Property Name="Stanowisko" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Data_rozpoczęcia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Data_zakończenia" Type="DateTime" Precision="3" />
+          <Property Name="Czas_pracy" Type="Int32" Nullable="false" />
+          <Property Name="Koszt_roboczogodziny_stanowiska__PLN_" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Koszt_procesu" Type="Decimal" Precision="10" Scale="2" />
+        </EntityType>
         <EntityType Name="v_Proces_wytwarzanie_produkt">
           <Key>
             <PropertyRef Name="ID" />
@@ -9511,6 +9601,27 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <Property Name="Data_rozpoczęcia" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Data_zakończenia" Type="DateTime" Precision="3" />
           <Property Name="Czas_pracy" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_Proces_wytwarzanie_produkt_koszt">
+          <Key>
+            <PropertyRef Name="ID_zamowienie" />
+            <PropertyRef Name="Produkt" />
+            <PropertyRef Name="Czynność_produkcyjna" />
+            <PropertyRef Name="ID_stanowisko" />
+            <PropertyRef Name="Stanowisko" />
+            <PropertyRef Name="Data_rozpoczęcia" />
+            <PropertyRef Name="Czas_pracy" />
+          </Key>
+          <Property Name="ID_zamowienie" Type="Int32" Nullable="false" />
+          <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Czynność_produkcyjna" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_stanowisko" Type="Int32" Nullable="false" />
+          <Property Name="Stanowisko" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Data_rozpoczęcia" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Data_zakończenia" Type="DateTime" Precision="3" />
+          <Property Name="Czas_pracy" Type="Int32" Nullable="false" />
+          <Property Name="Koszt_roboczogodziny_stanowiska__PLN_" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Koszt_procesu" Type="Decimal" Precision="6" Scale="2" />
         </EntityType>
         <EntityType Name="v_Producenci">
           <Key>
@@ -12245,8 +12356,10 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <EntitySet Name="v_Proces_produkt_czynnosc_projekt" EntityType="Self.v_Proces_produkt_czynnosc_projekt" />
           <EntitySet Name="v_Proces_wytwarzanie_polprodukt" EntityType="Self.v_Proces_wytwarzanie_polprodukt" />
           <EntitySet Name="v_Proces_wytwarzanie_polprodukt_ewidencja" EntityType="Self.v_Proces_wytwarzanie_polprodukt_ewidencja" />
+          <EntitySet Name="v_Proces_wytwarzanie_polprodukt_koszt" EntityType="Self.v_Proces_wytwarzanie_polprodukt_koszt" />
           <EntitySet Name="v_Proces_wytwarzanie_produkt" EntityType="Self.v_Proces_wytwarzanie_produkt" />
           <EntitySet Name="v_Proces_wytwarzanie_produkt_ewidencja" EntityType="Self.v_Proces_wytwarzanie_produkt_ewidencja" />
+          <EntitySet Name="v_Proces_wytwarzanie_produkt_koszt" EntityType="Self.v_Proces_wytwarzanie_produkt_koszt" />
           <EntitySet Name="v_Producenci" EntityType="Self.v_Producenci" />
           <EntitySet Name="v_Produkt_material" EntityType="Self.v_Produkt_material" />
           <EntitySet Name="v_Produkty_na_gwarancji" EntityType="Self.v_Produkty_na_gwarancji" />
@@ -14782,6 +14895,21 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="v_Proces_wytwarzanie_polprodukt_koszt">
+            <EntityTypeMapping TypeName="KWZPModel.v_Proces_wytwarzanie_polprodukt_koszt">
+              <MappingFragment StoreEntitySet="v_Proces_wytwarzanie_polprodukt_koszt">
+                <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
+                <ScalarProperty Name="Półprodukt" ColumnName="Półprodukt" />
+                <ScalarProperty Name="ID_stanowisko" ColumnName="ID_stanowisko" />
+                <ScalarProperty Name="Stanowisko" ColumnName="Stanowisko" />
+                <ScalarProperty Name="Data_rozpoczęcia" ColumnName="Data rozpoczęcia" />
+                <ScalarProperty Name="Data_zakończenia" ColumnName="Data zakończenia" />
+                <ScalarProperty Name="Czas_pracy" ColumnName="Czas pracy" />
+                <ScalarProperty Name="Koszt_roboczogodziny_stanowiska__PLN_" ColumnName="Koszt roboczogodziny stanowiska {PLN}" />
+                <ScalarProperty Name="Koszt_procesu" ColumnName="Koszt_procesu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="v_Proces_wytwarzanie_produkt">
             <EntityTypeMapping TypeName="KWZPModel.v_Proces_wytwarzanie_produkt">
               <MappingFragment StoreEntitySet="v_Proces_wytwarzanie_produkt">
@@ -14809,6 +14937,22 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
                 <ScalarProperty Name="Data_rozpoczęcia" ColumnName="Data rozpoczęcia" />
                 <ScalarProperty Name="Data_zakończenia" ColumnName="Data zakończenia" />
                 <ScalarProperty Name="Czas_pracy" ColumnName="Czas pracy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Proces_wytwarzanie_produkt_koszt">
+            <EntityTypeMapping TypeName="KWZPModel.v_Proces_wytwarzanie_produkt_koszt">
+              <MappingFragment StoreEntitySet="v_Proces_wytwarzanie_produkt_koszt">
+                <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
+                <ScalarProperty Name="Produkt" ColumnName="Produkt" />
+                <ScalarProperty Name="Czynność_produkcyjna" ColumnName="Czynność produkcyjna" />
+                <ScalarProperty Name="ID_stanowisko" ColumnName="ID_stanowisko" />
+                <ScalarProperty Name="Stanowisko" ColumnName="Stanowisko" />
+                <ScalarProperty Name="Data_rozpoczęcia" ColumnName="Data rozpoczęcia" />
+                <ScalarProperty Name="Data_zakończenia" ColumnName="Data zakończenia" />
+                <ScalarProperty Name="Czas_pracy" ColumnName="Czas pracy" />
+                <ScalarProperty Name="Koszt_roboczogodziny_stanowiska__PLN_" ColumnName="Koszt roboczogodziny stanowiska {PLN}" />
+                <ScalarProperty Name="Koszt_procesu" ColumnName="Koszt_procesu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

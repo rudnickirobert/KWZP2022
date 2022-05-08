@@ -119,11 +119,12 @@ namespace KWZP2022
                         int current_parametrID = int.Parse(this.dgvvParametrPolprodukt.CurrentRow.Cells[0].Value.ToString());
                         db.Parametr_polprodukt.Remove(db.Parametr_polprodukt.Where(parametrID => parametrID.ID_parametr_polprodukt == current_parametrID).First());
                         db.SaveChanges();
+                        MessageBox.Show("Poprawnie usunięto.");
                     }
                     catch (Exception)
                     {
                         MessageBox.Show("Nie możesz usunąć parametru!");
-                    }
+                    }                    
                     refreshScreen();
                 }
             }
@@ -155,8 +156,15 @@ namespace KWZP2022
                     result.Zakres_gora = newZG;
                     db.SaveChanges();
                 }
+                MessageBox.Show("Poprawnie zaktualizowano.");
                 refreshScreen();
             }            
+        }
+
+        private void btnNowyParametr_Click(object sender, EventArgs e)
+        {
+            FormResDepDodajParametr dodajParametr = new FormResDepDodajParametr(db);
+            dodajParametr.ShowDialog();
         }
     }
 }

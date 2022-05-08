@@ -43,6 +43,8 @@
             this.lblNazwa = new System.Windows.Forms.Label();
             this.dgvParametrMaszyna = new System.Windows.Forms.DataGridView();
             this.lblPodpisWidoku = new System.Windows.Forms.Label();
+            this.btnNowyParametr = new System.Windows.Forms.Button();
+            this.btnOdswiez = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParametrMaszyna)).BeginInit();
             this.SuspendLayout();
             // 
@@ -148,7 +150,7 @@
             this.lblParametr.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblParametr.Location = new System.Drawing.Point(28, 312);
             this.lblParametr.Name = "lblParametr";
-            this.lblParametr.Size = new System.Drawing.Size(125, 32);
+            this.lblParametr.Size = new System.Drawing.Size(124, 32);
             this.lblParametr.TabIndex = 26;
             this.lblParametr.Text = "Parametr";
             // 
@@ -168,7 +170,7 @@
             this.lblNazwa.Font = new System.Drawing.Font("Arial", 20.25F);
             this.lblNazwa.Location = new System.Drawing.Point(28, 33);
             this.lblNazwa.Name = "lblNazwa";
-            this.lblNazwa.Size = new System.Drawing.Size(124, 32);
+            this.lblNazwa.Size = new System.Drawing.Size(123, 32);
             this.lblNazwa.TabIndex = 24;
             this.lblNazwa.Text = "Maszyna";
             // 
@@ -191,11 +193,37 @@
             this.lblPodpisWidoku.TabIndex = 57;
             this.lblPodpisWidoku.Text = "Parametry maszyn";
             // 
+            // btnNowyParametr
+            // 
+            this.btnNowyParametr.BackColor = System.Drawing.Color.Gold;
+            this.btnNowyParametr.Font = new System.Drawing.Font("Arial", 15F);
+            this.btnNowyParametr.Location = new System.Drawing.Point(498, 315);
+            this.btnNowyParametr.Name = "btnNowyParametr";
+            this.btnNowyParametr.Size = new System.Drawing.Size(225, 37);
+            this.btnNowyParametr.TabIndex = 58;
+            this.btnNowyParametr.Text = "Dodaj nowy parametr";
+            this.btnNowyParametr.UseVisualStyleBackColor = false;
+            this.btnNowyParametr.Click += new System.EventHandler(this.btnNowyParametr_Click);
+            // 
+            // btnOdswiez
+            // 
+            this.btnOdswiez.BackColor = System.Drawing.Color.Ivory;
+            this.btnOdswiez.Font = new System.Drawing.Font("Arial", 15F);
+            this.btnOdswiez.Location = new System.Drawing.Point(623, 68);
+            this.btnOdswiez.Name = "btnOdswiez";
+            this.btnOdswiez.Size = new System.Drawing.Size(147, 44);
+            this.btnOdswiez.TabIndex = 59;
+            this.btnOdswiez.Text = "Odśwież";
+            this.btnOdswiez.UseVisualStyleBackColor = false;
+            this.btnOdswiez.Click += new System.EventHandler(this.btnOdswiez_Click);
+            // 
             // FormResDepParametryMaszyna
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(798, 498);
+            this.Controls.Add(this.btnOdswiez);
+            this.Controls.Add(this.btnNowyParametr);
             this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnWczytajParametr);
             this.Controls.Add(this.btnAktualizuj);
@@ -238,5 +266,7 @@
         private System.Windows.Forms.Label lblNazwa;
         private System.Windows.Forms.DataGridView dgvParametrMaszyna;
         private System.Windows.Forms.Label lblPodpisWidoku;
+        private System.Windows.Forms.Button btnNowyParametr;
+        private System.Windows.Forms.Button btnOdswiez;
     }
 }

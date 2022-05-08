@@ -46,6 +46,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnNowyParametr = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvvParametrProdukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRodzajParametr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdukt)).BeginInit();
@@ -237,12 +238,24 @@
             this.label7.TabIndex = 40;
             this.label7.Text = "Parametry produktów";
             // 
+            // btnNowyParametr
+            // 
+            this.btnNowyParametr.Font = new System.Drawing.Font("Arial", 15F);
+            this.btnNowyParametr.Location = new System.Drawing.Point(449, 12);
+            this.btnNowyParametr.Name = "btnNowyParametr";
+            this.btnNowyParametr.Size = new System.Drawing.Size(293, 37);
+            this.btnNowyParametr.TabIndex = 53;
+            this.btnNowyParametr.Text = "Dodaj nowy parametr";
+            this.btnNowyParametr.UseVisualStyleBackColor = true;
+            this.btnNowyParametr.Click += new System.EventHandler(this.btnNowyParametr_Click);
+            // 
             // FormParametrProdukt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background;
             this.ClientSize = new System.Drawing.Size(1264, 711);
+            this.Controls.Add(this.btnNowyParametr);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -292,5 +305,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnNowyParametr;
     }
 }
