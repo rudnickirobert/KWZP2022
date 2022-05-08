@@ -402,7 +402,7 @@
             this.btnGauss.Name = "btnGauss";
             this.btnGauss.Size = new System.Drawing.Size(349, 34);
             this.btnGauss.TabIndex = 71;
-            this.btnGauss.Text = "Rozkład Gaussa";
+            this.btnGauss.Text = "Rozkład Normalny";
             this.btnGauss.UseVisualStyleBackColor = false;
             this.btnGauss.Click += new System.EventHandler(this.btnGauss_Click);
             // 

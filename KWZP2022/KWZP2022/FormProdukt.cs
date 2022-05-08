@@ -38,30 +38,45 @@ namespace KWZP2022
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            Produkt produkt = new Produkt();
-            produkt.Nazwa_produkt = txtNazwaProdukt.Text;
-            db.Produkt.Add(produkt);
-            db.SaveChanges();
-            initDataGridView();
-            MessageBox.Show("Poprawnie dodano " + produkt.Nazwa_produkt + " do bazy danych");
-            DialogResult dialogResult = MessageBox.Show("Czy chcesz dodać parametr?", "Question", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            if (String.IsNullOrEmpty(txtNazwaProdukt.Text))
             {
-                FormParametrProdukt parametrproduktForm = new FormParametrProdukt(db);
-                parametrproduktForm.ShowDialog();
+                MessageBox.Show("Uzupełnij brakujące informacje!");
             }
+            else
+            { 
+                Produkt produkt = new Produkt();
+                produkt.Nazwa_produkt = txtNazwaProdukt.Text;
+                db.Produkt.Add(produkt);
+                db.SaveChanges();
+                initDataGridView();
+                MessageBox.Show("Poprawnie dodano " + produkt.Nazwa_produkt + " do bazy danych");
+                DialogResult dialogResult = MessageBox.Show("Czy chcesz dodać parametr?", "Question", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    FormParametrProdukt parametrproduktForm = new FormParametrProdukt(db);
+                    parametrproduktForm.ShowDialog();
+                }
+            }
+         
         }
 
         private void btnUsun_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz usunąć produkt: " + this.dgvProdukt.CurrentRow.Cells[1].Value, "Question", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            if (String.IsNullOrEmpty(txtNazwaProdukt.Text))
             {
-                string current_product = this.dgvProdukt.CurrentRow.Cells[1].Value.ToString();
-                db.Produkt.Remove(db.Produkt.Where(product => product.Nazwa_produkt == current_product).First());
-                db.SaveChanges();
-                initDataGridView();
-                txtNazwaProdukt.Text = "";
+                MessageBox.Show("Uzupełnij brakujące informacje!");
+            }
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz usunąć produkt: " + this.dgvProdukt.CurrentRow.Cells[1].Value, "Question", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    string current_product = this.dgvProdukt.CurrentRow.Cells[1].Value.ToString();
+                    db.Produkt.Remove(db.Produkt.Where(product => product.Nazwa_produkt == current_product).First());
+                    db.SaveChanges();
+                    initDataGridView();
+                    txtNazwaProdukt.Text = "";
+                }
             }
 
         }
@@ -74,10 +89,16 @@ namespace KWZP2022
 
         private void btnAktualizuj_Click(object sender, EventArgs e)
         {
-            this.dgvProdukt.CurrentRow.Cells[1].Value = txtNazwaProdukt.Text;
-            db.SaveChanges();
-            initDataGridView();
-
+            if (String.IsNullOrEmpty(txtNazwaProdukt.Text))
+            {
+                MessageBox.Show("Uzupełnij brakujące informacje!");
+            }
+            else
+            {
+                this.dgvProdukt.CurrentRow.Cells[1].Value = txtNazwaProdukt.Text;
+                db.SaveChanges();
+                initDataGridView();
+            }
         }
 
         private void dgvProdukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -95,6 +116,12 @@ namespace KWZP2022
         {          
             FormSkladProdukt skladproduktForm = new FormSkladProdukt(db);
             skladproduktForm.ShowDialog();
+        }
+
+        private void btnSkladProduktMaterial_Click(object sender, EventArgs e)
+        {
+            FormSkladProduktMaterial skladproduktmaterialForm = new FormSkladProduktMaterial(db);
+            skladproduktmaterialForm.ShowDialog();
         }
     }
 }

@@ -80,16 +80,30 @@ namespace KWZP2022
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            Parametr_produkt parametr_produkt = new Parametr_produkt();
-            parametr_produkt.ID_produkt = int.Parse(this.dgvProdukt.CurrentRow.Cells[0].Value.ToString());
-            int numRows = dgvProdukt.Rows.Count;
-            parametr_produkt.ID_rodzaj_parametr = int.Parse(this.dgvRodzajParametr.CurrentRow.Cells[0].Value.ToString());
-            parametr_produkt.Zakres_dol = decimal.Parse(txtZakresDolny.Text);
-            parametr_produkt.Zakres_gora = decimal.Parse(txtZakresGorny.Text);
-            db.Parametr_produkt.Add(parametr_produkt);
-            db.SaveChanges();
-            MessageBox.Show("Poprawnie dodano parametr: " + txtParametrProdukt.Text + Environment.NewLine + "dla produktu: " + txtProdukt.Text + Environment.NewLine + "do bazy danych");
-            refreshScreen();
+            if (String.IsNullOrEmpty(txtParametrProdukt.Text) || String.IsNullOrEmpty(txtProdukt.Text) || String.IsNullOrEmpty(txtZakresDolny.Text) || String.IsNullOrEmpty(txtZakresGorny.Text))
+            {                
+                    MessageBox.Show("Uzupełnij brakujące informacje!");
+            }
+            else
+            { 
+                Parametr_produkt parametr_produkt = new Parametr_produkt();
+                parametr_produkt.ID_produkt = int.Parse(this.dgvProdukt.CurrentRow.Cells[0].Value.ToString());
+                int numRows = dgvProdukt.Rows.Count;
+                parametr_produkt.ID_rodzaj_parametr = int.Parse(this.dgvRodzajParametr.CurrentRow.Cells[0].Value.ToString());
+                parametr_produkt.Zakres_dol = decimal.Parse(txtZakresDolny.Text);
+                parametr_produkt.Zakres_gora = decimal.Parse(txtZakresGorny.Text);
+                if (parametr_produkt.Zakres_gora < parametr_produkt.Zakres_dol)
+                {
+                    MessageBox.Show("Zakres górny musi być większy lub równy dolnemu");
+                }
+                else
+                {                    
+                    db.Parametr_produkt.Add(parametr_produkt);
+                    db.SaveChanges();
+                    MessageBox.Show("Poprawnie dodano parametr: " + txtParametrProdukt.Text + Environment.NewLine + "dla produktu: " + txtProdukt.Text + Environment.NewLine + "do bazy danych");
+                    refreshScreen();
+                }
+            }            
         }
 
         private void btnOdswiez_Click(object sender, EventArgs e)
@@ -99,7 +113,7 @@ namespace KWZP2022
 
         private void btnUsun_Click(object sender, EventArgs e)
         {
-            if (txtProdukt == null && txtParametrProdukt == null && txtZakresDolny == null && txtZakresGorny == null)
+            if (String.IsNullOrEmpty(txtParametrProdukt.Text) || String.IsNullOrEmpty(txtProdukt.Text) || String.IsNullOrEmpty(txtZakresDolny.Text) || String.IsNullOrEmpty(txtZakresGorny.Text))
             {
                 MessageBox.Show("Nie wybrałeś parametru do usunięcia");
             }
@@ -125,14 +139,19 @@ namespace KWZP2022
 
         private void dgvvParametrProdukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtProdukt.Text = this.dgvvParametrProdukt.CurrentRow.Cells[1].Value.ToString();
-            txtParametrProdukt.Text = this.dgvvParametrProdukt.CurrentRow.Cells[2].Value.ToString();
-            txtZakresDolny.Text = this.dgvvParametrProdukt.CurrentRow.Cells[3].Value.ToString();
-            txtZakresGorny.Text = this.dgvvParametrProdukt.CurrentRow.Cells[4].Value.ToString();
+            txtProdukt.Text = this.dgvvParametrProdukt.CurrentRow.Cells[2].Value.ToString();
+            txtParametrProdukt.Text = this.dgvvParametrProdukt.CurrentRow.Cells[3].Value.ToString();
+            txtZakresDolny.Text = this.dgvvParametrProdukt.CurrentRow.Cells[4].Value.ToString();
+            txtZakresGorny.Text = this.dgvvParametrProdukt.CurrentRow.Cells[5].Value.ToString();
         }
 
         private void btnAktualizuj_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(txtParametrProdukt.Text) || String.IsNullOrEmpty(txtProdukt.Text) || String.IsNullOrEmpty(txtZakresDolny.Text) || String.IsNullOrEmpty(txtZakresGorny.Text))
+            {
+                MessageBox.Show("Uzupełnij brakujące informacje!");
+            }
+            else
             {
                 int currentID = int.Parse(dgvvParametrProdukt.CurrentRow.Cells[0].Value.ToString());
                 int newZD = (int)decimal.Parse(txtZakresDolny.Text);

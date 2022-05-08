@@ -38,6 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnDodajParametrProdukt = new System.Windows.Forms.Button();
             this.btnDodajSkladProduktu = new System.Windows.Forms.Button();
+            this.btnSkladProduktMaterial = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdukt)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,7 +120,7 @@
             // 
             // btnDodajParametrProdukt
             // 
-            this.btnDodajParametrProdukt.Location = new System.Drawing.Point(322, 3);
+            this.btnDodajParametrProdukt.Location = new System.Drawing.Point(366, 3);
             this.btnDodajParametrProdukt.Name = "btnDodajParametrProdukt";
             this.btnDodajParametrProdukt.Size = new System.Drawing.Size(118, 38);
             this.btnDodajParametrProdukt.TabIndex = 7;
@@ -129,7 +130,7 @@
             // 
             // btnDodajSkladProduktu
             // 
-            this.btnDodajSkladProduktu.Location = new System.Drawing.Point(446, 3);
+            this.btnDodajSkladProduktu.Location = new System.Drawing.Point(490, 3);
             this.btnDodajSkladProduktu.Name = "btnDodajSkladProduktu";
             this.btnDodajSkladProduktu.Size = new System.Drawing.Size(118, 38);
             this.btnDodajSkladProduktu.TabIndex = 8;
@@ -137,12 +138,23 @@
             this.btnDodajSkladProduktu.UseVisualStyleBackColor = true;
             this.btnDodajSkladProduktu.Click += new System.EventHandler(this.btnDodajSkladProduktu_Click);
             // 
+            // btnSkladProduktMaterial
+            // 
+            this.btnSkladProduktMaterial.Location = new System.Drawing.Point(243, 3);
+            this.btnSkladProduktMaterial.Name = "btnSkladProduktMaterial";
+            this.btnSkladProduktMaterial.Size = new System.Drawing.Size(118, 38);
+            this.btnSkladProduktMaterial.TabIndex = 9;
+            this.btnSkladProduktMaterial.Text = "Dodaj materiał montażowy";
+            this.btnSkladProduktMaterial.UseVisualStyleBackColor = true;
+            this.btnSkladProduktMaterial.Click += new System.EventHandler(this.btnSkladProduktMaterial_Click);
+            // 
             // FormProdukt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(794, 461);
+            this.Controls.Add(this.btnSkladProduktMaterial);
             this.Controls.Add(this.btnDodajSkladProduktu);
             this.Controls.Add(this.btnDodajParametrProdukt);
             this.Controls.Add(this.label1);
@@ -173,5 +185,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnDodajParametrProdukt;
         private System.Windows.Forms.Button btnDodajSkladProduktu;
+        private System.Windows.Forms.Button btnSkladProduktMaterial;
     }
 }
