@@ -50,9 +50,9 @@
             // 
             this.btnAddNewSale.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddNewSale.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAddNewSale.Location = new System.Drawing.Point(454, 360);
+            this.btnAddNewSale.Location = new System.Drawing.Point(431, 360);
             this.btnAddNewSale.Name = "btnAddNewSale";
-            this.btnAddNewSale.Size = new System.Drawing.Size(328, 27);
+            this.btnAddNewSale.Size = new System.Drawing.Size(351, 27);
             this.btnAddNewSale.TabIndex = 98;
             this.btnAddNewSale.Text = "Dodaj szczegół sprzedaży";
             this.btnAddNewSale.UseVisualStyleBackColor = true;
@@ -91,7 +91,7 @@
             this.comboBoxTax.Size = new System.Drawing.Size(206, 28);
             this.comboBoxTax.TabIndex = 93;
             this.comboBoxTax.SelectionChangeCommitted += new System.EventHandler(this.comboBoxTax_SelectionChangeCommitted);
-            //
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -102,7 +102,7 @@
             this.label4.Size = new System.Drawing.Size(115, 20);
             this.label4.TabIndex = 92;
             this.label4.Text = "Wybierz podatek:";
-            //
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -154,7 +154,7 @@
             this.comboBoxProduct.Size = new System.Drawing.Size(206, 28);
             this.comboBoxProduct.TabIndex = 100;
             this.comboBoxProduct.SelectionChangeCommitted += new System.EventHandler(this.comboBoxProduct_SelectionChangeCommitted);
-            //
+            // 
             // textBoxAmount
             // 
             this.textBoxAmount.Font = new System.Drawing.Font("Arial Narrow", 12F);
@@ -184,15 +184,15 @@
             this.label3.Text = "Numer telefonu klienta:";
             // 
             // textBoxPrice
-            //
+            // 
             this.textBoxPrice.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.textBoxPrice.Location = new System.Drawing.Point(576, 235);
             this.textBoxPrice.Name = "textBoxPrice";
             this.textBoxPrice.Size = new System.Drawing.Size(206, 26);
             this.textBoxPrice.TabIndex = 106;
-            //
+            // 
             // label2
-            //
+            // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -201,7 +201,7 @@
             this.label2.Size = new System.Drawing.Size(110, 20);
             this.label2.TabIndex = 105;
             this.label2.Text = "Kwota za sztukę:";
-            //
+            // 
             // FormSalesDepartmentAddSalesDetails
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;

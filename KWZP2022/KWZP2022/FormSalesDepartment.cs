@@ -66,5 +66,11 @@ namespace KWZP2022
             FormNewCommertialOffer formNewCommertialOffer = new FormNewCommertialOffer(db);
             formNewCommertialOffer.ShowDialog();
         }
+
+        private void btnAlert_Click(object sender, EventArgs e)
+        {
+            FormSalesDepartmentAlert formSalesDepartmentAlert = new FormSalesDepartmentAlert(db);
+            formSalesDepartmentAlert.ShowDialog();
+        }
     }
 }

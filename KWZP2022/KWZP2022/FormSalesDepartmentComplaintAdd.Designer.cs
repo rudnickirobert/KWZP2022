@@ -143,7 +143,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Arial", 12F);
-            this.label5.Location = new System.Drawing.Point(215, 143);
+            this.label5.Location = new System.Drawing.Point(215, 140);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(120, 18);
             this.label5.TabIndex = 71;
@@ -152,9 +152,10 @@
             // textBoxDesciption
             // 
             this.textBoxDesciption.Font = new System.Drawing.Font("Arial Narrow", 10F);
-            this.textBoxDesciption.Location = new System.Drawing.Point(218, 164);
+            this.textBoxDesciption.Location = new System.Drawing.Point(218, 161);
+            this.textBoxDesciption.Multiline = true;
             this.textBoxDesciption.Name = "textBoxDesciption";
-            this.textBoxDesciption.Size = new System.Drawing.Size(564, 23);
+            this.textBoxDesciption.Size = new System.Drawing.Size(564, 67);
             this.textBoxDesciption.TabIndex = 70;
             // 
             // cbDateComplaint
@@ -244,7 +245,7 @@
             // 
             this.btnCheckComplaint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCheckComplaint.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.btnCheckComplaint.Location = new System.Drawing.Point(218, 214);
+            this.btnCheckComplaint.Location = new System.Drawing.Point(218, 234);
             this.btnCheckComplaint.Name = "btnCheckComplaint";
             this.btnCheckComplaint.Size = new System.Drawing.Size(220, 28);
             this.btnCheckComplaint.TabIndex = 86;

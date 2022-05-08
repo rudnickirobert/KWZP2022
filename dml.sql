@@ -331,24 +331,28 @@ VALUES
 
 INSERT INTO Sklad_polprodukt (ID_polprodukt, ID_material, Liczba)
 VALUES
-(1,5,200),
-(2,2,150),
-(3,3,400),
-(2,4,100),
-(3,2,100),
-(4,1,300),
-(4,3,200),
-(5,5,400);
+(1,5,20),
+(2,2,15),
+(3,3,40),
+(2,4,10),
+(3,2,10),
+(4,1,30),
+(4,3,20),
+(5,5,40),
+(6,2,50),
+(7,5,30),
+(8,4,20),
+(9,2,45);
 
 INSERT INTO Sklad_produkt_material (ID_produkt, ID_material, Liczba)
 VALUES
-(1,7,200),
-(2,7,250),
-(2,8,100),
-(3,8,150),
-(4,8,100),
-(5,7,120),
-(5,8,100);
+(1,7,20),
+(2,7,25),
+(2,8,10),
+(3,8,15),
+(4,8,10),
+(5,7,12),
+(5,8,10);
 
 INSERT INTO Czesc (Nazwa_czesc, ID_rodzaj_czesc)
 VALUES
@@ -572,8 +576,8 @@ VALUES
 (4,4),
 (4,25),
 (5,7),
-(10,10),
-(10,29);
+(9,10),
+(9,29);
 
 
 INSERT INTO Sklad_stanowisko_produkcyjne_narzedzie (ID_stanowisko_produkcyjne, ID_narzedzie, Liczba)
@@ -587,9 +591,9 @@ VALUES
 (3,4,1),
 (4,2,1),
 (5,2,2),
-(10,2,3),
-(10,5,2),
-(10,6,1);
+(9,2,3),
+(9,5,2),
+(9,6,1);
 
 INSERT INTO Proces_polprodukt_czynnosc (ID_polprodukt, ID_czynnosc_produkcyjna, Czas_trwania)
 VALUES

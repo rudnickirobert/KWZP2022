@@ -37,6 +37,7 @@
             this.btnStatistics = new System.Windows.Forms.Button();
             this.btnSalesAgreement = new System.Windows.Forms.Button();
             this.btnNewCommercialOffers = new System.Windows.Forms.Button();
+            this.btnAlert = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnOrder
@@ -135,11 +136,24 @@
             this.btnNewCommercialOffers.UseVisualStyleBackColor = true;
             this.btnNewCommercialOffers.Click += new System.EventHandler(this.btnNewCommercialOffers_Click);
             // 
+            // btnAlert
+            // 
+            this.btnAlert.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAlert.Font = new System.Drawing.Font("Arial Narrow", 18F);
+            this.btnAlert.Location = new System.Drawing.Point(12, 12);
+            this.btnAlert.Name = "btnAlert";
+            this.btnAlert.Size = new System.Drawing.Size(151, 70);
+            this.btnAlert.TabIndex = 8;
+            this.btnAlert.Text = "Alerty";
+            this.btnAlert.UseVisualStyleBackColor = true;
+            this.btnAlert.Click += new System.EventHandler(this.btnAlert_Click);
+            // 
             // FormSalesDepartment
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 711);
+            this.Controls.Add(this.btnAlert);
             this.Controls.Add(this.btnNewCommercialOffers);
             this.Controls.Add(this.btnSalesAgreement);
             this.Controls.Add(this.btnStatistics);
@@ -167,5 +181,6 @@
         private System.Windows.Forms.Button btnStatistics;
         private System.Windows.Forms.Button btnSalesAgreement;
         private System.Windows.Forms.Button btnNewCommercialOffers;
+        private System.Windows.Forms.Button btnAlert;
     }
 }

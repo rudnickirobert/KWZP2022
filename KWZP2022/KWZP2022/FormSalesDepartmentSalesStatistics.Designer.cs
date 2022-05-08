@@ -80,7 +80,7 @@
             this.chartAmountSoldProducts.Text = "chart1";
             title1.Font = new System.Drawing.Font("Arial Narrow", 12F);
             title1.Name = "Title1";
-            title1.Text = "Przychód w skali miesiaca";
+            title1.Text = "Bilans miesięczny";
             this.chartAmountSoldProducts.Titles.Add(title1);
             // 
             // chartProceeds
@@ -174,7 +174,7 @@
             this.btnGenerateChart.Click += new System.EventHandler(this.btnGenerateChart_Click);
             // 
             // labelDateFrom
-            //
+            // 
             this.labelDateFrom.AutoSize = true;
             this.labelDateFrom.BackColor = System.Drawing.Color.Transparent;
             this.labelDateFrom.Font = new System.Drawing.Font("Arial Narrow", 12F);
@@ -183,9 +183,9 @@
             this.labelDateFrom.Size = new System.Drawing.Size(59, 20);
             this.labelDateFrom.TabIndex = 7;
             this.labelDateFrom.Text = "Data od:";
-            //
+            // 
             // labelDateTo
-            //
+            // 
             this.labelDateTo.AutoSize = true;
             this.labelDateTo.BackColor = System.Drawing.Color.Transparent;
             this.labelDateTo.Font = new System.Drawing.Font("Arial Narrow", 12F);
@@ -216,18 +216,18 @@
             this.btnProductsProceeds.Text = "Przychody produktów";
             this.btnProductsProceeds.UseVisualStyleBackColor = true;
             this.btnProductsProceeds.Click += new System.EventHandler(this.btnProductsProceeds_Click);
-            //
+            // 
             // btnMonthProceeds
-            //
+            // 
             this.btnMonthProceeds.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.btnMonthProceeds.Location = new System.Drawing.Point(732, 12);
             this.btnMonthProceeds.Name = "btnMonthProceeds";
             this.btnMonthProceeds.Size = new System.Drawing.Size(160, 30);
             this.btnMonthProceeds.TabIndex = 12;
-            this.btnMonthProceeds.Text = "Miesięczne przychody";
+            this.btnMonthProceeds.Text = "Bilans miesięczny";
             this.btnMonthProceeds.UseVisualStyleBackColor = true;
             this.btnMonthProceeds.Click += new System.EventHandler(this.btnMonthProceeds_Click);
-            //
+            // 
             // FormSalesDepartmentSalesStatistics
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;

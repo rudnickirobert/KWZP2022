@@ -140,11 +140,19 @@ namespace KWZP2022
         public virtual DbSet<v_Kontrola_wszystkie> v_Kontrola_wszystkie { get; set; }
         public virtual DbSet<v_Koszt> v_Koszt { get; set; }
         public virtual DbSet<v_Koszt_godziny_pracy> v_Koszt_godziny_pracy { get; set; }
+        public virtual DbSet<v_Koszt_material_polprodukt_sztuka> v_Koszt_material_polprodukt_sztuka { get; set; }
+        public virtual DbSet<v_Koszt_material_polprodukt_sztuka_suma> v_Koszt_material_polprodukt_sztuka_suma { get; set; }
+        public virtual DbSet<v_Koszt_material_produkt_sztuka> v_Koszt_material_produkt_sztuka { get; set; }
+        public virtual DbSet<v_Koszt_material_produkt_sztuka_suma> v_Koszt_material_produkt_sztuka_suma { get; set; }
+        public virtual DbSet<v_Koszt_material_sztuka_suma> v_Koszt_material_sztuka_suma { get; set; }
         public virtual DbSet<v_Koszt_procesow_polprodukt> v_Koszt_procesow_polprodukt { get; set; }
         public virtual DbSet<v_Koszt_procesow_produkt> v_Koszt_procesow_produkt { get; set; }
         public virtual DbSet<v_Koszt_produkcji> v_Koszt_produkcji { get; set; }
         public virtual DbSet<v_Koszt_roboczogodziny_stanowiska> v_Koszt_roboczogodziny_stanowiska { get; set; }
+        public virtual DbSet<v_Koszty_za_material_produkt> v_Koszty_za_material_produkt { get; set; }
+        public virtual DbSet<v_Koszty_za_material_produkt_suma> v_Koszty_za_material_produkt_suma { get; set; }
         public virtual DbSet<v_Kwota_za_materialy> v_Kwota_za_materialy { get; set; }
+        public virtual DbSet<v_Kwota_za_materialy_bez_produktu> v_Kwota_za_materialy_bez_produktu { get; set; }
         public virtual DbSet<v_Liczba_zabiegow_wytworczych_polprodukt> v_Liczba_zabiegow_wytworczych_polprodukt { get; set; }
         public virtual DbSet<v_Liczba_zabiegow_wytworczych_produkt> v_Liczba_zabiegow_wytworczych_produkt { get; set; }
         public virtual DbSet<v_Magazyn_czesci_aktualny> v_Magazyn_czesci_aktualny { get; set; }
@@ -276,6 +284,20 @@ namespace KWZP2022
         public virtual DbSet<v_Zamowienie_produkcja> v_Zamowienie_produkcja { get; set; }
         public virtual DbSet<v_Zamowienie_szczegol> v_Zamowienie_szczegol { get; set; }
         public virtual DbSet<v_Zamowienie_szczegol_produkcja> v_Zamowienie_szczegol_produkcja { get; set; }
-        public virtual DbSet<v_Kwota_za_materialy_bez_produktu> v_Kwota_za_materialy_bez_produktu { get; set; }
+        public virtual DbSet<v_Zarobek_sprzedaz_miesiac> v_Zarobek_sprzedaz_miesiac { get; set; }
+        public virtual DbSet<v_Zarobek_miesiac_suma> v_Zarobek_miesiac_suma { get; set; }
+        public virtual DbSet<v_Alert_handel_marketing> v_Alert_handel_marketing { get; set; }
+        public virtual DbSet<v_Zamowione_produkty> v_Zamowione_produkty { get; set; }
+        public virtual DbSet<v_Czas_drukowanie_produktow_do_zamowien> v_Czas_drukowanie_produktow_do_zamowien { get; set; }
+        public virtual DbSet<v_Szacowany_czas_realizacji_zamowienia> v_Szacowany_czas_realizacji_zamowienia { get; set; }
+        public virtual DbSet<v_Zamowienia_czesc_status_zamowiono> v_Zamowienia_czesc_status_zamowiono { get; set; }
+        public virtual DbSet<v_Zamowienia_czesc_status_zamowiono_zmiana_daty> v_Zamowienia_czesc_status_zamowiono_zmiana_daty { get; set; }
+        public virtual DbSet<v_Zamowienia_maszyna_status_zamowiono> v_Zamowienia_maszyna_status_zamowiono { get; set; }
+        public virtual DbSet<v_Zamowienia_maszyna_status_zamowiono_zmiana_daty> v_Zamowienia_maszyna_status_zamowiono_zmiana_daty { get; set; }
+        public virtual DbSet<v_Zamowienia_narzedzia_status_zamowiono> v_Zamowienia_narzedzia_status_zamowiono { get; set; }
+        public virtual DbSet<v_Zamowienia_narzedzia_status_zamowiono_zmiana_daty> v_Zamowienia_narzedzia_status_zamowiono_zmiana_daty { get; set; }
+        public virtual DbSet<v_Szacowany_koszt_maszyn_do_zamowienia> v_Szacowany_koszt_maszyn_do_zamowienia { get; set; }
+        public virtual DbSet<v_Szacowany_koszt_pracownik_do_zamowienia> v_Szacowany_koszt_pracownik_do_zamowienia { get; set; }
+        public virtual DbSet<v_Zamowienia_bez_umowy> v_Zamowienia_bez_umowy { get; set; }
     }
 }
