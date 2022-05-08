@@ -1395,9 +1395,6 @@
     <Compile Include="v_Zarobek_miesiac_suma.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="v_Zarobek_sprzedaz_miesiac.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Wyksztalcenie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>

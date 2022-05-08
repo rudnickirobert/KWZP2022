@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="KWZPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="KWZPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Alert">
           <Key>
             <PropertyRef Name="ID_alert" />
@@ -3511,15 +3511,11 @@ warning 6002: The table/view 'KWZP.dbo.v_Zarobek_miesiac_suma' does not have a p
           <Property Name="Zarobek na miesiąc" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="v_Zarobek_sprzedaz_miesiac">
-          <Key>
-            <PropertyRef Name="ID_zamowienie" />
-          </Key>
-          <Property Name="ID_zamowienie" Type="int" Nullable="false" />
           <Property Name="Miesiąc" Type="nvarchar" MaxLength="7" />
           <Property Name="Zarobek z miesiąca" Type="decimal" Precision="38" Scale="6" />
-        </EntityType>
+        </EntityType>-->
         <Association Name="FK__Alert__ID_dzial__43A1090D">
           <End Role="Dzial" Type="Self.Dzial" Multiplicity="1" />
           <End Role="Alert" Type="Self.Alert" Multiplicity="*" />
@@ -6698,13 +6694,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
     [v_Zarobek_miesiac_suma].[Zarobek na miesiąc] AS [Zarobek na miesiąc]
     FROM [dbo].[v_Zarobek_miesiac_suma] AS [v_Zarobek_miesiac_suma]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="v_Zarobek_sprzedaz_miesiac" EntityType="Self.v_Zarobek_sprzedaz_miesiac" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [v_Zarobek_sprzedaz_miesiac].[ID_zamowienie] AS [ID_zamowienie], 
-    [v_Zarobek_sprzedaz_miesiac].[Miesiąc] AS [Miesiąc], 
-    [v_Zarobek_sprzedaz_miesiac].[Zarobek z miesiąca] AS [Zarobek z miesiąca]
-    FROM [dbo].[v_Zarobek_sprzedaz_miesiac] AS [v_Zarobek_sprzedaz_miesiac]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK__Alert__ID_dzial__43A1090D" Association="Self.FK__Alert__ID_dzial__43A1090D">
             <End Role="Dzial" EntitySet="Dzial" />
             <End Role="Alert" EntitySet="Alert" />
@@ -7210,7 +7199,8 @@ warning 6002: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
             <End Role="Zwrot" EntitySet="Zwrot" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KWZPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -8286,6 +8276,17 @@ warning 6002: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <Property Name="ID" Type="Int64" Nullable="false" />
           <Property Name="Aktualny_stan" Type="Int32" />
         </EntityType>
+        <EntityType Name="v_Alert_handel_marketing">
+          <Key>
+            <PropertyRef Name="ID_alert" />
+            <PropertyRef Name="ID_dzial" />
+            <PropertyRef Name="Tresc" />
+          </Key>
+          <Property Name="ID_alert" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_dzial" Type="Int32" Nullable="false" />
+          <Property Name="Tresc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Czy_odczytano" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="v_Alerty_ResorceDepartment_nieodczytane">
           <Key>
             <PropertyRef Name="ID_alert" />
@@ -8322,6 +8323,16 @@ warning 6002: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <Property Name="ID_material" Type="Int32" Nullable="false" />
           <Property Name="Materiał" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Brakująca_ilość" Type="Int32" />
+        </EntityType>
+        <EntityType Name="v_Czas_drukowanie_produktow_do_zamowien">
+          <Key>
+            <PropertyRef Name="ID_zamowienie" />
+            <PropertyRef Name="Ilosc" />
+          </Key>
+          <Property Name="ID_zamowienie" Type="Int32" Nullable="false" />
+          <Property Name="Czas" Type="Int32" />
+          <Property Name="Ilosc" Type="Int32" Nullable="false" />
+          <Property Name="Łączny_czas" Type="Int32" />
         </EntityType>
         <EntityType Name="v_Czas_wytwarzanie_polprodukt">
           <Key>
@@ -9907,6 +9918,13 @@ warning 6002: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <Property Name="Czynność" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Szacowany_czas_w_min" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="v_Szacowany_czas_realizacji_zamowienia">
+          <Key>
+            <PropertyRef Name="ID_zamowienie" />
+          </Key>
+          <Property Name="ID_zamowienie" Type="Int32" Nullable="false" />
+          <Property Name="Szacowany_czas_realizacji" Type="Int32" />
+        </EntityType>
         <EntityType Name="v_Szacowany_czas_wytwarzania_polprodukt">
           <Key>
             <PropertyRef Name="Półprodukt" />
@@ -9920,6 +9938,20 @@ warning 6002: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           </Key>
           <Property Name="Produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Czas_wytwarzania__h_" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="v_Szacowany_koszt_maszyn_do_zamowienia">
+          <Key>
+            <PropertyRef Name="ID_zamowienie" />
+          </Key>
+          <Property Name="ID_zamowienie" Type="Int32" Nullable="false" />
+          <Property Name="Średnia" Type="Decimal" Precision="38" Scale="6" />
+        </EntityType>
+        <EntityType Name="v_Szacowany_koszt_pracownik_do_zamowienia">
+          <Key>
+            <PropertyRef Name="ID_zamowienie" />
+          </Key>
+          <Property Name="ID_zamowienie" Type="Int32" Nullable="false" />
+          <Property Name="Średnia" Type="Int32" />
         </EntityType>
         <EntityType Name="v_Szczegoly_sprzedaz">
           <Key>
@@ -10125,6 +10157,41 @@ warning 6002: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <Property Name="Materiał" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Waga__g_" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="v_Zamowienia_bez_umowy">
+          <Key>
+            <PropertyRef Name="ID_zamowienie" />
+          </Key>
+          <Property Name="ID_zamowienie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="v_Zamowienia_czesc_status_zamowiono">
+          <Key>
+            <PropertyRef Name="Nr_zamówienia" />
+            <PropertyRef Name="Nazwa_części" />
+            <PropertyRef Name="Data_zmiany_stanu" />
+            <PropertyRef Name="Ilość" />
+            <PropertyRef Name="Cena" />
+            <PropertyRef Name="Dostawca" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="StatusID" />
+            <PropertyRef Name="ID_czesc" />
+          </Key>
+          <Property Name="Nr_zamówienia" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_części" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Data_zmiany_stanu" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Ilość" Type="Int32" Nullable="false" />
+          <Property Name="Cena" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="Dostawca" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StatusID" Type="Int32" Nullable="false" />
+          <Property Name="ID_czesc" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_Zamowienia_czesc_status_zamowiono_zmiana_daty">
+          <Key>
+            <PropertyRef Name="Cena" />
+          </Key>
+          <Property Name="Data_miesiac" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="Cena" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+        </EntityType>
         <EntityType Name="v_Zamowienia_czesci_w_trakcie">
           <Key>
             <PropertyRef Name="Nr_zamówienia" />
@@ -10182,6 +10249,35 @@ warning 6002: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="StatusID" Type="Int32" Nullable="false" />
           <Property Name="ID_czesc" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_Zamowienia_maszyna_status_zamowiono">
+          <Key>
+            <PropertyRef Name="Nr_zamówienia" />
+            <PropertyRef Name="Nazwa_maszyny" />
+            <PropertyRef Name="Data_zmiany_stanu" />
+            <PropertyRef Name="Ilość" />
+            <PropertyRef Name="Cena" />
+            <PropertyRef Name="Dostawca" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="StatusID" />
+            <PropertyRef Name="ID_maszyna" />
+          </Key>
+          <Property Name="Nr_zamówienia" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_maszyny" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Data_zmiany_stanu" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Ilość" Type="Int32" Nullable="false" />
+          <Property Name="Cena" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="Dostawca" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StatusID" Type="Int32" Nullable="false" />
+          <Property Name="ID_maszyna" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_Zamowienia_maszyna_status_zamowiono_zmiana_daty">
+          <Key>
+            <PropertyRef Name="Cena" />
+          </Key>
+          <Property Name="Data_miesiac" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="Cena" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
         </EntityType>
         <EntityType Name="v_Zamowienia_maszyny_w_trakcie">
           <Key>
@@ -10299,6 +10395,35 @@ warning 6002: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="StatusID" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="v_Zamowienia_narzedzia_status_zamowiono">
+          <Key>
+            <PropertyRef Name="Nr_zamówienia" />
+            <PropertyRef Name="Nazwa_narzędzia" />
+            <PropertyRef Name="Data_zmiany_stanu" />
+            <PropertyRef Name="Sztuk" />
+            <PropertyRef Name="Cena" />
+            <PropertyRef Name="Dostawca" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="StatusID" />
+            <PropertyRef Name="ID_narzedzie" />
+          </Key>
+          <Property Name="Nr_zamówienia" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_narzędzia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Data_zmiany_stanu" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Sztuk" Type="Int32" Nullable="false" />
+          <Property Name="Cena" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="Dostawca" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StatusID" Type="Int32" Nullable="false" />
+          <Property Name="ID_narzedzie" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_Zamowienia_narzedzia_status_zamowiono_zmiana_daty">
+          <Key>
+            <PropertyRef Name="Cena" />
+          </Key>
+          <Property Name="Data_miesiac" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="Cena" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+        </EntityType>
         <EntityType Name="v_Zamowienia_narzedzia_w_trakcie">
           <Key>
             <PropertyRef Name="Nr_zamówienia" />
@@ -10414,13 +10539,23 @@ warning 6002: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <Property Name="Ilość" Type="Int32" Nullable="false" />
           <Property Name="ID_zamowienie_szczegol" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityType Name="v_Zarobek_sprzedaz_miesiac">
+        <EntityType Name="v_Zamowione_produkty">
           <Key>
+            <PropertyRef Name="ID_zamowienie_szczegol" />
             <PropertyRef Name="ID_zamowienie" />
+            <PropertyRef Name="ID_produkt" />
           </Key>
+          <Property Name="ID_zamowienie_szczegol" Type="Int32" Nullable="false" />
           <Property Name="ID_zamowienie" Type="Int32" Nullable="false" />
+          <Property Name="ID_produkt" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_Zarobek_miesiac_suma">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
           <Property Name="Miesiąc" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
-          <Property Name="Zarobek_z_miesiąca" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="Zarobek_na_miesiąc" Type="Decimal" Precision="38" Scale="2" />
         </EntityType>
         <Association Name="FK__Alert__ID_dzial__43A1090D">
           <End Role="Dzial" Type="Self.Dzial" Multiplicity="1" />
@@ -12006,9 +12141,11 @@ warning 6002: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <EntitySet Name="Zamowienie_szczegol" EntityType="Self.Zamowienie_szczegol" />
           <EntitySet Name="Zwrot" EntityType="Self.Zwrot" />
           <EntitySet Name="v_Aktualny_stan_magazyn" EntityType="Self.v_Aktualny_stan_magazyn" />
+          <EntitySet Name="v_Alert_handel_marketing" EntityType="Self.v_Alert_handel_marketing" />
           <EntitySet Name="v_Alerty_ResorceDepartment_nieodczytane" EntityType="Self.v_Alerty_ResorceDepartment_nieodczytane" />
           <EntitySet Name="v_Alerty_ResourceDepartment" EntityType="Self.v_Alerty_ResourceDepartment" />
           <EntitySet Name="v_Brakujacy_material" EntityType="Self.v_Brakujacy_material" />
+          <EntitySet Name="v_Czas_drukowanie_produktow_do_zamowien" EntityType="Self.v_Czas_drukowanie_produktow_do_zamowien" />
           <EntitySet Name="v_Czas_wytwarzanie_polprodukt" EntityType="Self.v_Czas_wytwarzanie_polprodukt" />
           <EntitySet Name="v_Czas_wytwarzanie_produkt" EntityType="Self.v_Czas_wytwarzanie_produkt" />
           <EntitySet Name="v_Czesci" EntityType="Self.v_Czesci" />
@@ -12143,8 +12280,11 @@ warning 6002: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <EntitySet Name="v_Sumaryczny_czas_wytwarzania_produktu" EntityType="Self.v_Sumaryczny_czas_wytwarzania_produktu" />
           <EntitySet Name="v_Sz_czas_proces_polprodukt_czynnosc" EntityType="Self.v_Sz_czas_proces_polprodukt_czynnosc" />
           <EntitySet Name="v_Sz_czas_proces_produkt_czynnosc" EntityType="Self.v_Sz_czas_proces_produkt_czynnosc" />
+          <EntitySet Name="v_Szacowany_czas_realizacji_zamowienia" EntityType="Self.v_Szacowany_czas_realizacji_zamowienia" />
           <EntitySet Name="v_Szacowany_czas_wytwarzania_polprodukt" EntityType="Self.v_Szacowany_czas_wytwarzania_polprodukt" />
           <EntitySet Name="v_Szacowany_czas_wytwarzania_produkt" EntityType="Self.v_Szacowany_czas_wytwarzania_produkt" />
+          <EntitySet Name="v_Szacowany_koszt_maszyn_do_zamowienia" EntityType="Self.v_Szacowany_koszt_maszyn_do_zamowienia" />
+          <EntitySet Name="v_Szacowany_koszt_pracownik_do_zamowienia" EntityType="Self.v_Szacowany_koszt_pracownik_do_zamowienia" />
           <EntitySet Name="v_Szczegoly_sprzedaz" EntityType="Self.v_Szczegoly_sprzedaz" />
           <EntitySet Name="v_Tygodniowe_rozliczenie_pracy_produkcja" EntityType="Self.v_Tygodniowe_rozliczenie_pracy_produkcja" />
           <EntitySet Name="v_Umowa" EntityType="Self.v_Umowa" />
@@ -12159,15 +12299,22 @@ warning 6002: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <EntitySet Name="v_Wytworzone_produkty_sklad" EntityType="Self.v_Wytworzone_produkty_sklad" />
           <EntitySet Name="v_Wytworzone_produkty_zamowienie" EntityType="Self.v_Wytworzone_produkty_zamowienie" />
           <EntitySet Name="v_Wytworzony_produkt_material" EntityType="Self.v_Wytworzony_produkt_material" />
+          <EntitySet Name="v_Zamowienia_bez_umowy" EntityType="Self.v_Zamowienia_bez_umowy" />
+          <EntitySet Name="v_Zamowienia_czesc_status_zamowiono" EntityType="Self.v_Zamowienia_czesc_status_zamowiono" />
+          <EntitySet Name="v_Zamowienia_czesc_status_zamowiono_zmiana_daty" EntityType="Self.v_Zamowienia_czesc_status_zamowiono_zmiana_daty" />
           <EntitySet Name="v_Zamowienia_czesci_w_trakcie" EntityType="Self.v_Zamowienia_czesci_w_trakcie" />
           <EntitySet Name="v_Zamowienia_czesci_w_trakcie_bez_odebranych" EntityType="Self.v_Zamowienia_czesci_w_trakcie_bez_odebranych" />
           <EntitySet Name="v_Zamowienia_czesci_w_trakcie_wszystko" EntityType="Self.v_Zamowienia_czesci_w_trakcie_wszystko" />
+          <EntitySet Name="v_Zamowienia_maszyna_status_zamowiono" EntityType="Self.v_Zamowienia_maszyna_status_zamowiono" />
+          <EntitySet Name="v_Zamowienia_maszyna_status_zamowiono_zmiana_daty" EntityType="Self.v_Zamowienia_maszyna_status_zamowiono_zmiana_daty" />
           <EntitySet Name="v_Zamowienia_maszyny_w_trakcie" EntityType="Self.v_Zamowienia_maszyny_w_trakcie" />
           <EntitySet Name="v_Zamowienia_maszyny_w_trakcie_bez_odebranych" EntityType="Self.v_Zamowienia_maszyny_w_trakcie_bez_odebranych" />
           <EntitySet Name="v_Zamowienia_maszyny_w_trakcie_wszystko" EntityType="Self.v_Zamowienia_maszyny_w_trakcie_wszystko" />
           <EntitySet Name="v_Zamowienia_materialy_w_trakcie" EntityType="Self.v_Zamowienia_materialy_w_trakcie" />
           <EntitySet Name="v_Zamowienia_materialy_w_trakcie_bez_odebranych" EntityType="Self.v_Zamowienia_materialy_w_trakcie_bez_odebranych" />
           <EntitySet Name="v_Zamowienia_materialy_w_trakcie_wszystko" EntityType="Self.v_Zamowienia_materialy_w_trakcie_wszystko" />
+          <EntitySet Name="v_Zamowienia_narzedzia_status_zamowiono" EntityType="Self.v_Zamowienia_narzedzia_status_zamowiono" />
+          <EntitySet Name="v_Zamowienia_narzedzia_status_zamowiono_zmiana_daty" EntityType="Self.v_Zamowienia_narzedzia_status_zamowiono_zmiana_daty" />
           <EntitySet Name="v_Zamowienia_narzedzia_w_trakcie" EntityType="Self.v_Zamowienia_narzedzia_w_trakcie" />
           <EntitySet Name="v_Zamowienia_narzedzia_w_trakcie_bez_odebranych" EntityType="Self.v_Zamowienia_narzedzia_w_trakcie_bez_odebranych" />
           <EntitySet Name="v_Zamowienia_narzedzia_w_trakcie_wszystko" EntityType="Self.v_Zamowienia_narzedzia_w_trakcie_wszystko" />
@@ -12176,7 +12323,8 @@ warning 6002: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <EntitySet Name="v_Zamowienie_produkcja" EntityType="Self.v_Zamowienie_produkcja" />
           <EntitySet Name="v_Zamowienie_szczegol" EntityType="Self.v_Zamowienie_szczegol" />
           <EntitySet Name="v_Zamowienie_szczegol_produkcja" EntityType="Self.v_Zamowienie_szczegol_produkcja" />
-          <EntitySet Name="v_Zarobek_sprzedaz_miesiac" EntityType="Self.v_Zarobek_sprzedaz_miesiac" />
+          <EntitySet Name="v_Zamowione_produkty" EntityType="Self.v_Zamowione_produkty" />
+          <EntitySet Name="v_Zarobek_miesiac_suma" EntityType="Self.v_Zarobek_miesiac_suma" />
           <AssociationSet Name="FK__Alert__ID_dzial__43A1090D" Association="Self.FK__Alert__ID_dzial__43A1090D">
             <End Role="Dzial" EntitySet="Dzial" />
             <End Role="Alert" EntitySet="Alert" />
@@ -12677,174 +12825,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
             <End Role="Obsluga" EntitySet="Obsluga" />
             <End Role="Pracownik" EntitySet="Pracownik" />
           </AssociationSet>
-          <EntitySet Name="v_Zarobek_miesiac_suma" EntityType="KWZPModel.v_Zarobek_miesiac_suma" />
-          <EntitySet Name="v_Alert_handel_marketing" EntityType="KWZPModel.v_Alert_handel_marketing" />
-          <EntitySet Name="v_Zamowione_produkty" EntityType="KWZPModel.v_Zamowione_produkty" />
-          <EntitySet Name="v_Czas_drukowanie_produktow_do_zamowien" EntityType="KWZPModel.v_Czas_drukowanie_produktow_do_zamowien" />
-          <EntitySet Name="v_Szacowany_czas_realizacji_zamowienia" EntityType="KWZPModel.v_Szacowany_czas_realizacji_zamowienia" />
-          <EntitySet Name="v_Zamowienia_czesc_status_zamowiono" EntityType="KWZPModel.v_Zamowienia_czesc_status_zamowiono" />
-          <EntitySet Name="v_Zamowienia_czesc_status_zamowiono_zmiana_daty" EntityType="KWZPModel.v_Zamowienia_czesc_status_zamowiono_zmiana_daty" />
-          <EntitySet Name="v_Zamowienia_maszyna_status_zamowiono" EntityType="KWZPModel.v_Zamowienia_maszyna_status_zamowiono" />
-          <EntitySet Name="v_Zamowienia_maszyna_status_zamowiono_zmiana_daty" EntityType="KWZPModel.v_Zamowienia_maszyna_status_zamowiono_zmiana_daty" />
-          <EntitySet Name="v_Zamowienia_narzedzia_status_zamowiono" EntityType="KWZPModel.v_Zamowienia_narzedzia_status_zamowiono" />
-          <EntitySet Name="v_Zamowienia_narzedzia_status_zamowiono_zmiana_daty" EntityType="KWZPModel.v_Zamowienia_narzedzia_status_zamowiono_zmiana_daty" />
-          <EntitySet Name="v_Szacowany_koszt_maszyn_do_zamowienia" EntityType="KWZPModel.v_Szacowany_koszt_maszyn_do_zamowienia" />
-          <EntitySet Name="v_Szacowany_koszt_pracownik_do_zamowienia" EntityType="KWZPModel.v_Szacowany_koszt_pracownik_do_zamowienia" />
-          <EntitySet Name="v_Zamowienia_bez_umowy" EntityType="KWZPModel.v_Zamowienia_bez_umowy" />
         </EntityContainer>
-        <EntityType Name="v_Zarobek_miesiac_suma">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int64" Nullable="false" />
-          <Property Name="Miesiąc" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
-          <Property Name="Zarobek_na_miesiąc" Type="Decimal" Precision="38" Scale="2" />
-        </EntityType>
-        <EntityType Name="v_Alert_handel_marketing">
-          <Key>
-            <PropertyRef Name="ID_alert" />
-            <PropertyRef Name="ID_dzial" />
-            <PropertyRef Name="Tresc" />
-          </Key>
-          <Property Name="ID_alert" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_dzial" Type="Int32" Nullable="false" />
-          <Property Name="Tresc" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Czy_odczytano" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="v_Zamowione_produkty">
-          <Key>
-            <PropertyRef Name="ID_zamowienie_szczegol" />
-            <PropertyRef Name="ID_zamowienie" />
-            <PropertyRef Name="ID_produkt" />
-          </Key>
-          <Property Name="ID_zamowienie_szczegol" Type="Int32" Nullable="false" />
-          <Property Name="ID_zamowienie" Type="Int32" Nullable="false" />
-          <Property Name="ID_produkt" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="v_Czas_drukowanie_produktow_do_zamowien">
-          <Key>
-            <PropertyRef Name="ID_zamowienie" />
-            <PropertyRef Name="Ilosc" />
-          </Key>
-          <Property Name="ID_zamowienie" Type="Int32" Nullable="false" />
-          <Property Name="Czas" Type="Int32" />
-          <Property Name="Ilosc" Type="Int32" Nullable="false" />
-          <Property Name="Łączny_czas" Type="Int32" />
-        </EntityType>
-        <EntityType Name="v_Szacowany_czas_realizacji_zamowienia">
-          <Key>
-            <PropertyRef Name="ID_zamowienie" />
-          </Key>
-          <Property Name="ID_zamowienie" Type="Int32" Nullable="false" />
-          <Property Name="Szacowany_czas_realizacji" Type="Int32" />
-        </EntityType>
-        <EntityType Name="v_Zamowienia_czesc_status_zamowiono">
-          <Key>
-            <PropertyRef Name="Nr_zamówienia" />
-            <PropertyRef Name="Nazwa_części" />
-            <PropertyRef Name="Data_zmiany_stanu" />
-            <PropertyRef Name="Ilość" />
-            <PropertyRef Name="Cena" />
-            <PropertyRef Name="Dostawca" />
-            <PropertyRef Name="Status" />
-            <PropertyRef Name="StatusID" />
-            <PropertyRef Name="ID_czesc" />
-          </Key>
-          <Property Name="Nr_zamówienia" Type="Int32" Nullable="false" />
-          <Property Name="Nazwa_części" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Data_zmiany_stanu" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Ilość" Type="Int32" Nullable="false" />
-          <Property Name="Cena" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
-          <Property Name="Dostawca" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="StatusID" Type="Int32" Nullable="false" />
-          <Property Name="ID_czesc" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="v_Zamowienia_czesc_status_zamowiono_zmiana_daty">
-          <Key>
-            <PropertyRef Name="Cena" />
-          </Key>
-          <Property Name="Data_miesiac" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
-          <Property Name="Cena" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
-        </EntityType>
-        <EntityType Name="v_Zamowienia_maszyna_status_zamowiono">
-          <Key>
-            <PropertyRef Name="Nr_zamówienia" />
-            <PropertyRef Name="Nazwa_maszyny" />
-            <PropertyRef Name="Data_zmiany_stanu" />
-            <PropertyRef Name="Ilość" />
-            <PropertyRef Name="Cena" />
-            <PropertyRef Name="Dostawca" />
-            <PropertyRef Name="Status" />
-            <PropertyRef Name="StatusID" />
-            <PropertyRef Name="ID_maszyna" />
-          </Key>
-          <Property Name="Nr_zamówienia" Type="Int32" Nullable="false" />
-          <Property Name="Nazwa_maszyny" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Data_zmiany_stanu" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Ilość" Type="Int32" Nullable="false" />
-          <Property Name="Cena" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
-          <Property Name="Dostawca" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="StatusID" Type="Int32" Nullable="false" />
-          <Property Name="ID_maszyna" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="v_Zamowienia_maszyna_status_zamowiono_zmiana_daty">
-          <Key>
-            <PropertyRef Name="Cena" />
-          </Key>
-          <Property Name="Data_miesiac" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
-          <Property Name="Cena" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
-        </EntityType>
-        <EntityType Name="v_Zamowienia_narzedzia_status_zamowiono">
-          <Key>
-            <PropertyRef Name="Nr_zamówienia" />
-            <PropertyRef Name="Nazwa_narzędzia" />
-            <PropertyRef Name="Data_zmiany_stanu" />
-            <PropertyRef Name="Sztuk" />
-            <PropertyRef Name="Cena" />
-            <PropertyRef Name="Dostawca" />
-            <PropertyRef Name="Status" />
-            <PropertyRef Name="StatusID" />
-            <PropertyRef Name="ID_narzedzie" />
-          </Key>
-          <Property Name="Nr_zamówienia" Type="Int32" Nullable="false" />
-          <Property Name="Nazwa_narzędzia" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Data_zmiany_stanu" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Sztuk" Type="Int32" Nullable="false" />
-          <Property Name="Cena" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
-          <Property Name="Dostawca" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="StatusID" Type="Int32" Nullable="false" />
-          <Property Name="ID_narzedzie" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="v_Zamowienia_narzedzia_status_zamowiono_zmiana_daty">
-          <Key>
-            <PropertyRef Name="Cena" />
-          </Key>
-          <Property Name="Data_miesiac" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
-          <Property Name="Cena" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
-        </EntityType>
-        <EntityType Name="v_Szacowany_koszt_maszyn_do_zamowienia">
-          <Key>
-            <PropertyRef Name="ID_zamowienie" />
-          </Key>
-          <Property Name="ID_zamowienie" Type="Int32" Nullable="false" />
-          <Property Name="Średnia" Type="Decimal" Precision="38" Scale="6" />
-        </EntityType>
-        <EntityType Name="v_Szacowany_koszt_pracownik_do_zamowienia">
-          <Key>
-            <PropertyRef Name="ID_zamowienie" />
-          </Key>
-          <Property Name="ID_zamowienie" Type="Int32" Nullable="false" />
-          <Property Name="Średnia" Type="Int32" />
-        </EntityType>
-        <EntityType Name="v_Zamowienia_bez_umowy">
-          <Key>
-            <PropertyRef Name="ID_zamowienie" />
-          </Key>
-          <Property Name="ID_zamowienie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -13744,6 +13725,16 @@ warning 6002: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="v_Alert_handel_marketing">
+            <EntityTypeMapping TypeName="KWZPModel.v_Alert_handel_marketing">
+              <MappingFragment StoreEntitySet="v_Alert_handel_marketing">
+                <ScalarProperty Name="ID_alert" ColumnName="ID_alert" />
+                <ScalarProperty Name="ID_dzial" ColumnName="ID_dzial" />
+                <ScalarProperty Name="Tresc" ColumnName="Tresc" />
+                <ScalarProperty Name="Czy_odczytano" ColumnName="Czy odczytano" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="v_Alerty_ResorceDepartment_nieodczytane">
             <EntityTypeMapping TypeName="KWZPModel.v_Alerty_ResorceDepartment_nieodczytane">
               <MappingFragment StoreEntitySet="v_Alerty_ResorceDepartment_nieodczytane">
@@ -13772,6 +13763,16 @@ warning 6002: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
                 <ScalarProperty Name="ID_material" ColumnName="ID_material" />
                 <ScalarProperty Name="Materiał" ColumnName="Materiał" />
                 <ScalarProperty Name="Brakująca_ilość" ColumnName="Brakująca ilość" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Czas_drukowanie_produktow_do_zamowien">
+            <EntityTypeMapping TypeName="KWZPModel.v_Czas_drukowanie_produktow_do_zamowien">
+              <MappingFragment StoreEntitySet="v_Czas_drukowanie_produktow_do_zamowien">
+                <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
+                <ScalarProperty Name="Czas" ColumnName="Czas" />
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+                <ScalarProperty Name="Łączny_czas" ColumnName="Łączny czas" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -15151,6 +15152,14 @@ warning 6002: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="v_Szacowany_czas_realizacji_zamowienia">
+            <EntityTypeMapping TypeName="KWZPModel.v_Szacowany_czas_realizacji_zamowienia">
+              <MappingFragment StoreEntitySet="v_Szacowany_czas_realizacji_zamowienia">
+                <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
+                <ScalarProperty Name="Szacowany_czas_realizacji" ColumnName="Szacowany czas realizacji" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="v_Szacowany_czas_wytwarzania_polprodukt">
             <EntityTypeMapping TypeName="KWZPModel.v_Szacowany_czas_wytwarzania_polprodukt">
               <MappingFragment StoreEntitySet="v_Szacowany_czas_wytwarzania_polprodukt">
@@ -15164,6 +15173,22 @@ warning 6002: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
               <MappingFragment StoreEntitySet="v_Szacowany_czas_wytwarzania_produkt">
                 <ScalarProperty Name="Produkt" ColumnName="Produkt" />
                 <ScalarProperty Name="Czas_wytwarzania__h_" ColumnName="Czas wytwarzania {h}" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Szacowany_koszt_maszyn_do_zamowienia">
+            <EntityTypeMapping TypeName="KWZPModel.v_Szacowany_koszt_maszyn_do_zamowienia">
+              <MappingFragment StoreEntitySet="v_Szacowany_koszt_maszyn_do_zamowienia">
+                <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
+                <ScalarProperty Name="Średnia" ColumnName="Średnia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Szacowany_koszt_pracownik_do_zamowienia">
+            <EntityTypeMapping TypeName="KWZPModel.v_Szacowany_koszt_pracownik_do_zamowienia">
+              <MappingFragment StoreEntitySet="v_Szacowany_koszt_pracownik_do_zamowienia">
+                <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
+                <ScalarProperty Name="Średnia" ColumnName="Średnia" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -15329,6 +15354,36 @@ warning 6002: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="v_Zamowienia_bez_umowy">
+            <EntityTypeMapping TypeName="KWZPModel.v_Zamowienia_bez_umowy">
+              <MappingFragment StoreEntitySet="v_Zamowienia_bez_umowy">
+                <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Zamowienia_czesc_status_zamowiono">
+            <EntityTypeMapping TypeName="KWZPModel.v_Zamowienia_czesc_status_zamowiono">
+              <MappingFragment StoreEntitySet="v_Zamowienia_czesc_status_zamowiono">
+                <ScalarProperty Name="Nr_zamówienia" ColumnName="Nr zamówienia" />
+                <ScalarProperty Name="Nazwa_części" ColumnName="Nazwa części" />
+                <ScalarProperty Name="Data_zmiany_stanu" ColumnName="Data zmiany stanu" />
+                <ScalarProperty Name="Ilość" ColumnName="Ilość" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+                <ScalarProperty Name="Dostawca" ColumnName="Dostawca" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="ID_czesc" ColumnName="ID_czesc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Zamowienia_czesc_status_zamowiono_zmiana_daty">
+            <EntityTypeMapping TypeName="KWZPModel.v_Zamowienia_czesc_status_zamowiono_zmiana_daty">
+              <MappingFragment StoreEntitySet="v_Zamowienia_czesc_status_zamowiono_zmiana_daty">
+                <ScalarProperty Name="Data_miesiac" ColumnName="Data miesiac" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="v_Zamowienia_czesci_w_trakcie">
             <EntityTypeMapping TypeName="KWZPModel.v_Zamowienia_czesci_w_trakcie">
               <MappingFragment StoreEntitySet="v_Zamowienia_czesci_w_trakcie">
@@ -15367,6 +15422,29 @@ warning 6002: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="StatusID" ColumnName="StatusID" />
                 <ScalarProperty Name="ID_czesc" ColumnName="ID_czesc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Zamowienia_maszyna_status_zamowiono">
+            <EntityTypeMapping TypeName="KWZPModel.v_Zamowienia_maszyna_status_zamowiono">
+              <MappingFragment StoreEntitySet="v_Zamowienia_maszyna_status_zamowiono">
+                <ScalarProperty Name="Nr_zamówienia" ColumnName="Nr zamówienia" />
+                <ScalarProperty Name="Nazwa_maszyny" ColumnName="Nazwa maszyny" />
+                <ScalarProperty Name="Data_zmiany_stanu" ColumnName="Data zmiany stanu" />
+                <ScalarProperty Name="Ilość" ColumnName="Ilość" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+                <ScalarProperty Name="Dostawca" ColumnName="Dostawca" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="ID_maszyna" ColumnName="ID_maszyna" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Zamowienia_maszyna_status_zamowiono_zmiana_daty">
+            <EntityTypeMapping TypeName="KWZPModel.v_Zamowienia_maszyna_status_zamowiono_zmiana_daty">
+              <MappingFragment StoreEntitySet="v_Zamowienia_maszyna_status_zamowiono_zmiana_daty">
+                <ScalarProperty Name="Data_miesiac" ColumnName="Data miesiac" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -15449,6 +15527,29 @@ warning 6002: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
                 <ScalarProperty Name="Dostawca" ColumnName="Dostawca" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Zamowienia_narzedzia_status_zamowiono">
+            <EntityTypeMapping TypeName="KWZPModel.v_Zamowienia_narzedzia_status_zamowiono">
+              <MappingFragment StoreEntitySet="v_Zamowienia_narzedzia_status_zamowiono">
+                <ScalarProperty Name="Nr_zamówienia" ColumnName="Nr zamówienia" />
+                <ScalarProperty Name="Nazwa_narzędzia" ColumnName="Nazwa narzędzia" />
+                <ScalarProperty Name="Data_zmiany_stanu" ColumnName="Data zmiany stanu" />
+                <ScalarProperty Name="Sztuk" ColumnName="Sztuk" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+                <ScalarProperty Name="Dostawca" ColumnName="Dostawca" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="ID_narzedzie" ColumnName="ID_narzedzie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Zamowienia_narzedzia_status_zamowiono_zmiana_daty">
+            <EntityTypeMapping TypeName="KWZPModel.v_Zamowienia_narzedzia_status_zamowiono_zmiana_daty">
+              <MappingFragment StoreEntitySet="v_Zamowienia_narzedzia_status_zamowiono_zmiana_daty">
+                <ScalarProperty Name="Data_miesiac" ColumnName="Data miesiac" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -15542,12 +15643,21 @@ warning 6002: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="v_Zarobek_sprzedaz_miesiac">
-            <EntityTypeMapping TypeName="KWZPModel.v_Zarobek_sprzedaz_miesiac">
-              <MappingFragment StoreEntitySet="v_Zarobek_sprzedaz_miesiac">
+          <EntitySetMapping Name="v_Zamowione_produkty">
+            <EntityTypeMapping TypeName="KWZPModel.v_Zamowione_produkty">
+              <MappingFragment StoreEntitySet="v_Zamowione_produkty">
+                <ScalarProperty Name="ID_zamowienie_szczegol" ColumnName="ID_zamowienie_szczegol" />
                 <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
+                <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Zarobek_miesiac_suma">
+            <EntityTypeMapping TypeName="KWZPModel.v_Zarobek_miesiac_suma">
+              <MappingFragment StoreEntitySet="v_Zarobek_miesiac_suma">
+                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Miesiąc" ColumnName="Miesiąc" />
-                <ScalarProperty Name="Zarobek_z_miesiąca" ColumnName="Zarobek z miesiąca" />
+                <ScalarProperty Name="Zarobek_na_miesiąc" ColumnName="Zarobek na miesiąc" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -15559,144 +15669,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
               <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="v_Zarobek_miesiac_suma">
-            <EntityTypeMapping TypeName="KWZPModel.v_Zarobek_miesiac_suma">
-              <MappingFragment StoreEntitySet="v_Zarobek_miesiac_suma">
-                <ScalarProperty Name="Zarobek_na_miesiąc" ColumnName="Zarobek na miesiąc" />
-                <ScalarProperty Name="Miesiąc" ColumnName="Miesiąc" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="v_Alert_handel_marketing">
-            <EntityTypeMapping TypeName="KWZPModel.v_Alert_handel_marketing">
-              <MappingFragment StoreEntitySet="v_Alert_handel_marketing">
-                <ScalarProperty Name="Czy_odczytano" ColumnName="Czy odczytano" />
-                <ScalarProperty Name="Tresc" ColumnName="Tresc" />
-                <ScalarProperty Name="ID_dzial" ColumnName="ID_dzial" />
-                <ScalarProperty Name="ID_alert" ColumnName="ID_alert" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="v_Zamowione_produkty">
-            <EntityTypeMapping TypeName="KWZPModel.v_Zamowione_produkty">
-              <MappingFragment StoreEntitySet="v_Zamowione_produkty">
-                <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
-                <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
-                <ScalarProperty Name="ID_zamowienie_szczegol" ColumnName="ID_zamowienie_szczegol" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="v_Czas_drukowanie_produktow_do_zamowien">
-            <EntityTypeMapping TypeName="KWZPModel.v_Czas_drukowanie_produktow_do_zamowien">
-              <MappingFragment StoreEntitySet="v_Czas_drukowanie_produktow_do_zamowien">
-                <ScalarProperty Name="Łączny_czas" ColumnName="Łączny czas" />
-                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
-                <ScalarProperty Name="Czas" ColumnName="Czas" />
-                <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="v_Szacowany_czas_realizacji_zamowienia">
-            <EntityTypeMapping TypeName="KWZPModel.v_Szacowany_czas_realizacji_zamowienia">
-              <MappingFragment StoreEntitySet="v_Szacowany_czas_realizacji_zamowienia">
-                <ScalarProperty Name="Szacowany_czas_realizacji" ColumnName="Szacowany czas realizacji" />
-                <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="v_Zamowienia_czesc_status_zamowiono">
-            <EntityTypeMapping TypeName="KWZPModel.v_Zamowienia_czesc_status_zamowiono">
-              <MappingFragment StoreEntitySet="v_Zamowienia_czesc_status_zamowiono">
-                <ScalarProperty Name="ID_czesc" ColumnName="ID_czesc" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Dostawca" ColumnName="Dostawca" />
-                <ScalarProperty Name="Cena" ColumnName="Cena" />
-                <ScalarProperty Name="Ilość" ColumnName="Ilość" />
-                <ScalarProperty Name="Data_zmiany_stanu" ColumnName="Data zmiany stanu" />
-                <ScalarProperty Name="Nazwa_części" ColumnName="Nazwa części" />
-                <ScalarProperty Name="Nr_zamówienia" ColumnName="Nr zamówienia" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="v_Zamowienia_czesc_status_zamowiono_zmiana_daty">
-            <EntityTypeMapping TypeName="KWZPModel.v_Zamowienia_czesc_status_zamowiono_zmiana_daty">
-              <MappingFragment StoreEntitySet="v_Zamowienia_czesc_status_zamowiono_zmiana_daty">
-                <ScalarProperty Name="Cena" ColumnName="Cena" />
-                <ScalarProperty Name="Data_miesiac" ColumnName="Data miesiac" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="v_Zamowienia_maszyna_status_zamowiono">
-            <EntityTypeMapping TypeName="KWZPModel.v_Zamowienia_maszyna_status_zamowiono">
-              <MappingFragment StoreEntitySet="v_Zamowienia_maszyna_status_zamowiono">
-                <ScalarProperty Name="ID_maszyna" ColumnName="ID_maszyna" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Dostawca" ColumnName="Dostawca" />
-                <ScalarProperty Name="Cena" ColumnName="Cena" />
-                <ScalarProperty Name="Ilość" ColumnName="Ilość" />
-                <ScalarProperty Name="Data_zmiany_stanu" ColumnName="Data zmiany stanu" />
-                <ScalarProperty Name="Nazwa_maszyny" ColumnName="Nazwa maszyny" />
-                <ScalarProperty Name="Nr_zamówienia" ColumnName="Nr zamówienia" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="v_Zamowienia_maszyna_status_zamowiono_zmiana_daty">
-            <EntityTypeMapping TypeName="KWZPModel.v_Zamowienia_maszyna_status_zamowiono_zmiana_daty">
-              <MappingFragment StoreEntitySet="v_Zamowienia_maszyna_status_zamowiono_zmiana_daty">
-                <ScalarProperty Name="Cena" ColumnName="Cena" />
-                <ScalarProperty Name="Data_miesiac" ColumnName="Data miesiac" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="v_Zamowienia_narzedzia_status_zamowiono">
-            <EntityTypeMapping TypeName="KWZPModel.v_Zamowienia_narzedzia_status_zamowiono">
-              <MappingFragment StoreEntitySet="v_Zamowienia_narzedzia_status_zamowiono">
-                <ScalarProperty Name="ID_narzedzie" ColumnName="ID_narzedzie" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Dostawca" ColumnName="Dostawca" />
-                <ScalarProperty Name="Cena" ColumnName="Cena" />
-                <ScalarProperty Name="Sztuk" ColumnName="Sztuk" />
-                <ScalarProperty Name="Data_zmiany_stanu" ColumnName="Data zmiany stanu" />
-                <ScalarProperty Name="Nazwa_narzędzia" ColumnName="Nazwa narzędzia" />
-                <ScalarProperty Name="Nr_zamówienia" ColumnName="Nr zamówienia" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="v_Zamowienia_narzedzia_status_zamowiono_zmiana_daty">
-            <EntityTypeMapping TypeName="KWZPModel.v_Zamowienia_narzedzia_status_zamowiono_zmiana_daty">
-              <MappingFragment StoreEntitySet="v_Zamowienia_narzedzia_status_zamowiono_zmiana_daty">
-                <ScalarProperty Name="Cena" ColumnName="Cena" />
-                <ScalarProperty Name="Data_miesiac" ColumnName="Data miesiac" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="v_Szacowany_koszt_maszyn_do_zamowienia">
-            <EntityTypeMapping TypeName="KWZPModel.v_Szacowany_koszt_maszyn_do_zamowienia">
-              <MappingFragment StoreEntitySet="v_Szacowany_koszt_maszyn_do_zamowienia">
-                <ScalarProperty Name="Średnia" ColumnName="Średnia" />
-                <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="v_Szacowany_koszt_pracownik_do_zamowienia">
-            <EntityTypeMapping TypeName="KWZPModel.v_Szacowany_koszt_pracownik_do_zamowienia">
-              <MappingFragment StoreEntitySet="v_Szacowany_koszt_pracownik_do_zamowienia">
-                <ScalarProperty Name="Średnia" ColumnName="Średnia" />
-                <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="v_Zamowienia_bez_umowy">
-            <EntityTypeMapping TypeName="KWZPModel.v_Zamowienia_bez_umowy">
-              <MappingFragment StoreEntitySet="v_Zamowienia_bez_umowy">
-                <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

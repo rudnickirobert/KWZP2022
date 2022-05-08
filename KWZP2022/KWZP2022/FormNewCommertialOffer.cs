@@ -60,92 +60,128 @@ namespace KWZP2022
         private void textBoxPricesData()
         {
             int selectedNoOrder = int.Parse(comboBoxNoOrder.SelectedValue.ToString());
-            try
+            bool checkingMaterialsError = false;
+            if (this.db.v_Kwota_za_materialy.Where(a => a.ID_zamowienie == selectedNoOrder).ToList().Count() > 0)
             {
-                if (this.db.v_Kwota_za_materialy.Where(a => a.ID_zamowienie == selectedNoOrder).ToList().Count() > 0)
+                if(this.db.v_Kwota_za_materialy.Where(a => a.ID_zamowienie == selectedNoOrder).ToList().Count() > 0)
                 {
                     v_Kwota_za_materialy priceForMaterialsSelectedNoOrder = this.db.v_Kwota_za_materialy.Single(a => a.ID_zamowienie == selectedNoOrder);
                     textBoxPriceForMaterials.Text = String.Format("{0:N2}", priceForMaterialsSelectedNoOrder.Cena_za_zamówienie);
                 }
                 else
                 {
-                    v_Kwota_za_materialy_bez_produktu priceForMaterialsSelectedNoOrder = this.db.v_Kwota_za_materialy_bez_produktu.Single(a => a.ID_zamowienie == selectedNoOrder);
-                    textBoxPriceForMaterials.Text = String.Format("{0:N2}", priceForMaterialsSelectedNoOrder.Cena_za_zamówienie);
+                    comboBoxNoOrder.SelectedIndex = -1;
+                    textBoxTextClear();
+                    MessageBox.Show("Nie dodano materiałów do wytworzenia nowego produktu! Proszę dodać materiały do produktu lub wybrać inne zamówienie.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    checkingMaterialsError = true;
                 }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Nie dodano materiałów do wytworzenia nowego produktu! Proszę dodać materiały do produktu lub wybrać inne zamówienie.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                comboBoxNoOrder.SelectedIndex = -1;
-                textBoxPriceForMaterials.Clear();
-                textBoxPriceForOrder.Clear();
-                goto EndChecking;
-            }
-            if (this.db.v_Kwota_za_materialy.Where(a => a.ID_zamowienie == selectedNoOrder).ToList().Count() > 0)
-            {
-                List<v_Zamowione_produkty> productsList = this.db.v_Zamowione_produkty.Where(a => a.ID_zamowienie == selectedNoOrder).ToList();
-                foreach (v_Zamowione_produkty orderedProducts in productsList)
-                {
-                    List<Sklad_produkt> compositionProductsList = this.db.Sklad_produkt.Where(a => a.ID_produkt == orderedProducts.ID_produkt).ToList();
-
-                    foreach (Sklad_produkt checkingSemiFinishedProducts in compositionProductsList)
-                    {
-                        if (this.db.Proces_polprodukt_czynnosc.Where(a => a.ID_polprodukt == checkingSemiFinishedProducts.ID_polprodukt).ToList().Count == 0)
-                        {
-                            comboBoxNoOrder.SelectedIndex = -1;
-                            textBoxTextClear();
-                            MessageBox.Show("Nie dodano czynności półproduktu", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            goto EndLoop;
-                        }
-                    }
-                    List<Sklad_produkt_material> compositionMaterialsForProductsList = this.db.Sklad_produkt_material.Where(a => a.ID_produkt == orderedProducts.ID_produkt).ToList();
-                    foreach (Sklad_produkt_material checkingProducts in compositionMaterialsForProductsList)
-                    {
-                        if (this.db.Proces_produkt_czynnosc.Where(a => a.ID_produkt == checkingProducts.ID_produkt).ToList().Count == 0)
-                        {
-                            comboBoxNoOrder.SelectedIndex = -1;
-                            textBoxTextClear();
-                            MessageBox.Show("Nie dodano czynności produktu", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            goto EndLoop;
-                        }
-                    }
-                }
-                v_Kwota_za_materialy priceForMaterialsSelectedNoOrder = this.db.v_Kwota_za_materialy.Single(a => a.ID_zamowienie == selectedNoOrder);
-                v_Szacowany_koszt_maszyn_do_zamowienia priceForMachines = this.db.v_Szacowany_koszt_maszyn_do_zamowienia.Single(a => a.ID_zamowienie == selectedNoOrder);
-                v_Szacowany_koszt_pracownik_do_zamowienia priceForEmployee = this.db.v_Szacowany_koszt_pracownik_do_zamowienia.Single(a => a.ID_zamowienie == selectedNoOrder);
-                textBoxPriceForMaterials.Text = String.Format("{0:N2}", priceForMaterialsSelectedNoOrder.Cena_za_zamówienie);
-                textBoxPriceForMachines.Text = String.Format("{0:N2}", priceForMachines.Średnia);
-                textBoxPriceForEmployee.Text = String.Format("{0:N2}", priceForEmployee.Średnia);
-                textBoxPriceForOrder.Text = String.Format("{0:N2}", (priceForMaterialsSelectedNoOrder.Cena_za_zamówienie.Value + priceForMachines.Średnia + priceForEmployee.Średnia) * 2);
-            EndLoop:;
             }
             else
             {
-                List<v_Zamowione_produkty> productsList = this.db.v_Zamowione_produkty.Where(a => a.ID_zamowienie == selectedNoOrder).ToList();
-                foreach (v_Zamowione_produkty orderedProducts in productsList)
+                if(this.db.v_Kwota_za_materialy_bez_produktu.Where(a => a.ID_zamowienie == selectedNoOrder).ToList().Count() > 0)
                 {
-                    List<Sklad_produkt> compositionProductsList = this.db.Sklad_produkt.Where(a => a.ID_produkt == orderedProducts.ID_produkt).ToList();
-
-                    foreach (Sklad_produkt checkSemiFinishedProducts in compositionProductsList)
+                    v_Kwota_za_materialy_bez_produktu priceForMaterialsSelectedNoOrder = this.db.v_Kwota_za_materialy_bez_produktu.Single(a => a.ID_zamowienie == selectedNoOrder);
+                    textBoxPriceForMaterials.Text = String.Format("{0:N2}", priceForMaterialsSelectedNoOrder.Cena_za_zamówienie);
+                }
+                else
+                {
+                    comboBoxNoOrder.SelectedIndex = -1;
+                    textBoxTextClear();
+                    MessageBox.Show("Nie dodano materiałów do wytworzenia nowego produktu! Proszę dodać materiały do produktu lub wybrać inne zamówienie.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    checkingMaterialsError = true;
+                }
+            }
+            bool compositionProductsError = false;
+            bool compositionSemiFinishedProductsError = false;
+            if (checkingMaterialsError == false)
+            {
+                if (this.db.v_Kwota_za_materialy.Where(a => a.ID_zamowienie == selectedNoOrder).ToList().Count() > 0)
+                {
+                    List<v_Zamowione_produkty> productsList = this.db.v_Zamowione_produkty.Where(a => a.ID_zamowienie == selectedNoOrder).ToList();
+                    foreach (v_Zamowione_produkty orderedProducts in productsList)
                     {
-                        if (this.db.Proces_polprodukt_czynnosc.Where(a => a.ID_polprodukt == checkSemiFinishedProducts.ID_polprodukt).ToList().Count == 0)
+                        List<Sklad_produkt> compositionProductsList = this.db.Sklad_produkt.Where(a => a.ID_produkt == orderedProducts.ID_produkt).ToList();
+
+                        foreach (Sklad_produkt checkingSemiFinishedProducts in compositionProductsList)
                         {
-                            comboBoxNoOrder.SelectedIndex = -1;
-                            textBoxTextClear();
-                            MessageBox.Show("Nie dodano czynności półproduktu", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            goto EndSecondLoop;
+                            if (this.db.Proces_polprodukt_czynnosc.Where(a => a.ID_polprodukt == checkingSemiFinishedProducts.ID_polprodukt).ToList().Count == 0)
+                            {
+                                comboBoxNoOrder.SelectedIndex = -1;
+                                textBoxTextClear();
+                                MessageBox.Show("Nie dodano czynności półproduktu", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                compositionSemiFinishedProductsError = true;
+                                break;
+                            }
+                        }
+                        if(compositionSemiFinishedProductsError)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            List<Sklad_produkt_material> compositionMaterialsForProductsList = this.db.Sklad_produkt_material.Where(a => a.ID_produkt == orderedProducts.ID_produkt).ToList();
+                            foreach (Sklad_produkt_material checkingProducts in compositionMaterialsForProductsList)
+                            {
+                                if (this.db.Proces_produkt_czynnosc.Where(a => a.ID_produkt == checkingProducts.ID_produkt).ToList().Count == 0)
+                                {
+                                    comboBoxNoOrder.SelectedIndex = -1;
+                                    textBoxTextClear();
+                                    MessageBox.Show("Nie dodano czynności produktu", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    compositionProductsError = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if (compositionProductsError)
+                        {
+                            break;
                         }
                     }
+                    if(compositionSemiFinishedProductsError == false && compositionProductsError == false)
+                    {
+                        v_Kwota_za_materialy priceForMaterialsSelectedNoOrder = this.db.v_Kwota_za_materialy.Single(a => a.ID_zamowienie == selectedNoOrder);
+                        v_Szacowany_koszt_maszyn_do_zamowienia priceForMachines = this.db.v_Szacowany_koszt_maszyn_do_zamowienia.Single(a => a.ID_zamowienie == selectedNoOrder);
+                        v_Szacowany_koszt_pracownik_do_zamowienia priceForEmployee = this.db.v_Szacowany_koszt_pracownik_do_zamowienia.Single(a => a.ID_zamowienie == selectedNoOrder);
+                        textBoxPriceForMaterials.Text = String.Format("{0:N2}", priceForMaterialsSelectedNoOrder.Cena_za_zamówienie);
+                        textBoxPriceForMachines.Text = String.Format("{0:N2}", priceForMachines.Średnia);
+                        textBoxPriceForEmployee.Text = String.Format("{0:N2}", priceForEmployee.Średnia);
+                        textBoxPriceForOrder.Text = String.Format("{0:N2}", (priceForMaterialsSelectedNoOrder.Cena_za_zamówienie.Value + priceForMachines.Średnia + priceForEmployee.Średnia) * 2);
+                    }
                 }
-                v_Kwota_za_materialy_bez_produktu priceForMaterialsSelectedNoOrder = this.db.v_Kwota_za_materialy_bez_produktu.Single(a => a.ID_zamowienie == selectedNoOrder);
-                v_Szacowany_koszt_maszyn_do_zamowienia priceForMachines = this.db.v_Szacowany_koszt_maszyn_do_zamowienia.Single(a => a.ID_zamowienie == selectedNoOrder);
-                v_Szacowany_koszt_pracownik_do_zamowienia priceForEmployee = this.db.v_Szacowany_koszt_pracownik_do_zamowienia.Single(a => a.ID_zamowienie == selectedNoOrder);
-                textBoxPriceForMachines.Text = String.Format("{0:N2}", priceForMachines.Średnia);
-                textBoxPriceForEmployee.Text = String.Format("{0:N2}", priceForEmployee.Średnia);
-                textBoxPriceForOrder.Text = String.Format("{0:N2}", (priceForMaterialsSelectedNoOrder.Cena_za_zamówienie.Value + priceForMachines.Średnia + priceForEmployee.Średnia) * 2);
-            EndSecondLoop:;
+                else
+                {
+                    List<v_Zamowione_produkty> productsList = this.db.v_Zamowione_produkty.Where(a => a.ID_zamowienie == selectedNoOrder).ToList();
+                    foreach (v_Zamowione_produkty orderedProducts in productsList)
+                    {
+                        List<Sklad_produkt> compositionProductsList = this.db.Sklad_produkt.Where(a => a.ID_produkt == orderedProducts.ID_produkt).ToList();
+
+                        foreach (Sklad_produkt checkSemiFinishedProducts in compositionProductsList)
+                        {
+                            if (this.db.Proces_polprodukt_czynnosc.Where(a => a.ID_polprodukt == checkSemiFinishedProducts.ID_polprodukt).ToList().Count == 0)
+                            {
+                                comboBoxNoOrder.SelectedIndex = -1;
+                                textBoxTextClear();
+                                MessageBox.Show("Nie dodano czynności półproduktu", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                compositionSemiFinishedProductsError = true;
+                                break;
+                            }
+                        }
+                        if (compositionSemiFinishedProductsError)
+                        {
+                            break;
+                        }
+                    }
+                    if(compositionSemiFinishedProductsError == false)
+                    {
+                        v_Kwota_za_materialy_bez_produktu priceForMaterialsSelectedNoOrder = this.db.v_Kwota_za_materialy_bez_produktu.Single(a => a.ID_zamowienie == selectedNoOrder);
+                        v_Szacowany_koszt_maszyn_do_zamowienia priceForMachines = this.db.v_Szacowany_koszt_maszyn_do_zamowienia.Single(a => a.ID_zamowienie == selectedNoOrder);
+                        v_Szacowany_koszt_pracownik_do_zamowienia priceForEmployee = this.db.v_Szacowany_koszt_pracownik_do_zamowienia.Single(a => a.ID_zamowienie == selectedNoOrder);
+                        textBoxPriceForMachines.Text = String.Format("{0:N2}", priceForMachines.Średnia);
+                        textBoxPriceForEmployee.Text = String.Format("{0:N2}", priceForEmployee.Średnia);
+                        textBoxPriceForOrder.Text = String.Format("{0:N2}", (priceForMaterialsSelectedNoOrder.Cena_za_zamówienie.Value + priceForMachines.Średnia + priceForEmployee.Średnia) * 2);
+                    }
+                }
             }
-        EndChecking:;
         }
         private void comboBoxOfferStatusData()
         {
@@ -173,122 +209,135 @@ namespace KWZP2022
         }
         private void btnAddNewOffer_Click(object sender, EventArgs e)
         {
+            bool errorWithEnteredData = false;
             if (comboBoxNoOrder.SelectedValue == null)
             {
                 MessageBox.Show("Źle wprowadzono dane", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                goto EndLoop;
+                errorWithEnteredData = true;
+                comboBoxNoOrder.SelectedIndex = -1;
             }
-            int selectedNoOrder = int.Parse(comboBoxNoOrder.SelectedValue.ToString());
-            List<v_Potrzebne_materialy> necessaryMaterial = this.db.v_Potrzebne_materialy.Where(a => a.ID_zamowienie == selectedNoOrder).ToList();
-            List<v_Aktualny_stan_magazyn> materialsInWarehouse = this.db.v_Aktualny_stan_magazyn.ToList();
-            foreach (v_Potrzebne_materialy requiredMaterial in necessaryMaterial)
+            bool requiredMaterialError = false;
+            if (errorWithEnteredData == false)
             {
-                foreach (v_Aktualny_stan_magazyn materialInWarehouse in materialsInWarehouse)
+                int selectedNoOrder = int.Parse(comboBoxNoOrder.SelectedValue.ToString());
+                List<v_Potrzebne_materialy> necessaryMaterial = this.db.v_Potrzebne_materialy.Where(a => a.ID_zamowienie == selectedNoOrder).ToList();
+                List<v_Aktualny_stan_magazyn> materialsInWarehouse = this.db.v_Aktualny_stan_magazyn.ToList();
+                foreach (v_Potrzebne_materialy requiredMaterial in necessaryMaterial)
                 {
-                    if (requiredMaterial.ID_material == materialInWarehouse.ID)
+                    foreach (v_Aktualny_stan_magazyn materialInWarehouse in materialsInWarehouse)
                     {
-                        int materialAmount = (int)(materialInWarehouse.Aktualny_stan - requiredMaterial.Masa_materiału);
-                        if (materialAmount < 0)
+                        if (requiredMaterial.ID_material == materialInWarehouse.ID)
                         {
-                            MessageBox.Show("Nie ma wystarczającej ilości materiałów w magazynie!", "Uwaga!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            missingMaterials();
-                            goto EndLoop;
+                            int materialAmount = (int)(materialInWarehouse.Aktualny_stan - requiredMaterial.Masa_materiału);
+                            if (materialAmount < 0)
+                            {
+                                MessageBox.Show("Nie ma wystarczającej ilości materiałów w magazynie!", "Uwaga!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                missingMaterials();
+                                requiredMaterialError = true;
+                                break;
+                            }
                         }
                     }
-                }
-            }
-            v_Szacowany_czas_realizacji_zamowienia timeForOrder = this.db.v_Szacowany_czas_realizacji_zamowienia.Single(a => a.ID_zamowienie == selectedNoOrder);
-            int amountDays = int.Parse(timeForOrder.Szacowany_czas_realizacji.ToString()) + 1;
-            if (dtpDateOfImplementation.Value.Date > (DateTime.Now.AddDays(amountDays)))
-            {
-                int suggestedPrice = (int)(double.Parse(textBoxPriceForOrder.Text));
-                int enteredPrice = int.Parse(textBoxPrice.Text.ToString());
-                if (enteredPrice < suggestedPrice)
-                {
-                    DialogResult enteredPriceLowerThansuggestedPrice = MessageBox.Show("Czy na pewno kwota za zamówienie ma być niższa od kwoty sugerowanej?", "Uwaga", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (enteredPriceLowerThansuggestedPrice == DialogResult.Yes)
+                    if (requiredMaterialError)
                     {
-                        Oferta_handlowa newComertialOffer = new Oferta_handlowa();
-                        newComertialOffer.ID_pracownik = int.Parse(comboBoxEmployee.SelectedValue.ToString());
-                        newComertialOffer.ID_zamowienie = int.Parse(comboBoxNoOrder.SelectedValue.ToString());
-                        newComertialOffer.ID_gwarancja = int.Parse(comboBoxGuarantee.SelectedValue.ToString());
-                        newComertialOffer.Termin_realizacja = dtpDateOfImplementation.Value.Date;
-                        newComertialOffer.ID_status_oferta = int.Parse(comboBoxOfferStatus.SelectedValue.ToString());
-                        newComertialOffer.Cena = int.Parse(textBoxPrice.Text);
-                        this.db.Oferta_handlowa.Add(newComertialOffer);
-                        this.db.SaveChanges();
-                        MessageBox.Show("Dodano nową ofertę handlową", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        if (comboBoxOfferStatus.SelectedValue.ToString() == "1")
+                        break;
+                    }
+                }
+                if(requiredMaterialError == false)
+                {
+                    v_Szacowany_czas_realizacji_zamowienia timeForOrder = this.db.v_Szacowany_czas_realizacji_zamowienia.Single(a => a.ID_zamowienie == selectedNoOrder);
+                    int amountDays = int.Parse(timeForOrder.Szacowany_czas_realizacji.ToString()) + 1;
+                    if (dtpDateOfImplementation.Value.Date > (DateTime.Now.AddDays(amountDays)))
+                    {
+                        int suggestedPrice = (int)(double.Parse(textBoxPriceForOrder.Text));
+                        int enteredPrice = int.Parse(textBoxPrice.Text.ToString());
+                        if (enteredPrice < suggestedPrice)
                         {
-                            Umowa_sprzedaz newSaleArrangement = new Umowa_sprzedaz();
-                            Oferta_handlowa selectedOffer = this.db.Oferta_handlowa.AsEnumerable().Last();
-                            newSaleArrangement.ID_oferta_handlowa = selectedOffer.ID_oferta_handlowa;
-                            this.db.Umowa_sprzedaz.Add(newSaleArrangement);
-                            this.db.SaveChanges();
-                            List<IGrouping<int, Oferta_handlowa>> acceptedCommercialOfferList = this.db.Oferta_handlowa.Where(a => a.ID_status_oferta == 1).GroupBy(a => a.ID_zamowienie).ToList();
-                            List<IGrouping<int, Oferta_handlowa>> commercialOfferForConsiderationList = this.db.Oferta_handlowa.Where(a => a.ID_status_oferta == 3).GroupBy(a => a.ID_zamowienie).ToList();
-                            int offerFromComboBoxNoOrder = int.Parse(comboBoxNoOrder.SelectedValue.ToString());
-                            int commercialOfferForConsiderationCount = commercialOfferForConsiderationList.Where(a => a.Key == offerFromComboBoxNoOrder).GroupBy(a => a.Key).ToList().Count();
-                            int acceptedCommercialOfferListCount = acceptedCommercialOfferList.Where(a => a.Key == offerFromComboBoxNoOrder).GroupBy(a => a.Key).ToList().Count();
-                            List<Oferta_handlowa> selectedCommercialOfferForConsiderationList = this.db.Oferta_handlowa.Where(a => a.ID_status_oferta == 3 && a.ID_zamowienie == offerFromComboBoxNoOrder).ToList();
-                            if (commercialOfferForConsiderationCount == acceptedCommercialOfferListCount)
+                            DialogResult enteredPriceLowerThansuggestedPrice = MessageBox.Show("Czy na pewno kwota za zamówienie ma być niższa od kwoty sugerowanej?", "Uwaga", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                            if (enteredPriceLowerThansuggestedPrice == DialogResult.Yes)
                             {
-                                foreach (Oferta_handlowa commercialOfferForConsiderationCancel in selectedCommercialOfferForConsiderationList)
+                                Oferta_handlowa newComertialOffer = new Oferta_handlowa();
+                                newComertialOffer.ID_pracownik = int.Parse(comboBoxEmployee.SelectedValue.ToString());
+                                newComertialOffer.ID_zamowienie = int.Parse(comboBoxNoOrder.SelectedValue.ToString());
+                                newComertialOffer.ID_gwarancja = int.Parse(comboBoxGuarantee.SelectedValue.ToString());
+                                newComertialOffer.Termin_realizacja = dtpDateOfImplementation.Value.Date;
+                                newComertialOffer.ID_status_oferta = int.Parse(comboBoxOfferStatus.SelectedValue.ToString());
+                                newComertialOffer.Cena = int.Parse(textBoxPrice.Text);
+                                this.db.Oferta_handlowa.Add(newComertialOffer);
+                                this.db.SaveChanges();
+                                MessageBox.Show("Dodano nową ofertę handlową", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                if (comboBoxOfferStatus.SelectedValue.ToString() == "1")
                                 {
-                                    commercialOfferForConsiderationCancel.ID_status_oferta = 2;
+                                    Umowa_sprzedaz newSaleArrangement = new Umowa_sprzedaz();
+                                    Oferta_handlowa selectedOffer = this.db.Oferta_handlowa.AsEnumerable().Last();
+                                    newSaleArrangement.ID_oferta_handlowa = selectedOffer.ID_oferta_handlowa;
+                                    this.db.Umowa_sprzedaz.Add(newSaleArrangement);
                                     this.db.SaveChanges();
+                                    List<IGrouping<int, Oferta_handlowa>> acceptedCommercialOfferList = this.db.Oferta_handlowa.Where(a => a.ID_status_oferta == 1).GroupBy(a => a.ID_zamowienie).ToList();
+                                    List<IGrouping<int, Oferta_handlowa>> commercialOfferForConsiderationList = this.db.Oferta_handlowa.Where(a => a.ID_status_oferta == 3).GroupBy(a => a.ID_zamowienie).ToList();
+                                    int offerFromComboBoxNoOrder = int.Parse(comboBoxNoOrder.SelectedValue.ToString());
+                                    int commercialOfferForConsiderationCount = commercialOfferForConsiderationList.Where(a => a.Key == offerFromComboBoxNoOrder).GroupBy(a => a.Key).ToList().Count();
+                                    int acceptedCommercialOfferListCount = acceptedCommercialOfferList.Where(a => a.Key == offerFromComboBoxNoOrder).GroupBy(a => a.Key).ToList().Count();
+                                    List<Oferta_handlowa> selectedCommercialOfferForConsiderationList = this.db.Oferta_handlowa.Where(a => a.ID_status_oferta == 3 && a.ID_zamowienie == offerFromComboBoxNoOrder).ToList();
+                                    if (commercialOfferForConsiderationCount == acceptedCommercialOfferListCount)
+                                    {
+                                        foreach (Oferta_handlowa commercialOfferForConsiderationCancel in selectedCommercialOfferForConsiderationList)
+                                        {
+                                            commercialOfferForConsiderationCancel.ID_status_oferta = 2;
+                                            this.db.SaveChanges();
+                                        }
+                                    }
+                                    comboBoxData();
                                 }
                             }
-                            comboBoxData();
-                        }
-                    }
-                    else if (enteredPriceLowerThansuggestedPrice == DialogResult.No)
-                    {
-                        MessageBox.Show("Oferta handlowa została anulowana", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                else
-                {
-                    Oferta_handlowa newComertialOffer = new Oferta_handlowa();
-                    newComertialOffer.ID_pracownik = int.Parse(comboBoxEmployee.SelectedValue.ToString());
-                    newComertialOffer.ID_zamowienie = int.Parse(comboBoxNoOrder.SelectedValue.ToString());
-                    newComertialOffer.ID_gwarancja = int.Parse(comboBoxGuarantee.SelectedValue.ToString());
-                    newComertialOffer.Termin_realizacja = dtpDateOfImplementation.Value.Date;
-                    newComertialOffer.ID_status_oferta = int.Parse(comboBoxOfferStatus.SelectedValue.ToString());
-                    newComertialOffer.Cena = int.Parse(textBoxPrice.Text);
-                    this.db.Oferta_handlowa.Add(newComertialOffer);
-                    this.db.SaveChanges();
-                    MessageBox.Show("Dodano nową ofertę handlową", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (comboBoxOfferStatus.SelectedValue.ToString() == "1")
-                    {
-                        Umowa_sprzedaz newSaleArrangement = new Umowa_sprzedaz();
-                        Oferta_handlowa selectedOffer = this.db.Oferta_handlowa.AsEnumerable().Last();
-                        newSaleArrangement.ID_oferta_handlowa = selectedOffer.ID_oferta_handlowa;
-                        this.db.Umowa_sprzedaz.Add(newSaleArrangement);
-                        this.db.SaveChanges();
-                        List<IGrouping<int, Oferta_handlowa>> acceptedCommercialOfferList = this.db.Oferta_handlowa.Where(a => a.ID_status_oferta == 1).GroupBy(a => a.ID_zamowienie).ToList();
-                        List<IGrouping<int, Oferta_handlowa>> commercialOfferForConsiderationList = this.db.Oferta_handlowa.Where(a => a.ID_status_oferta == 3).GroupBy(a => a.ID_zamowienie).ToList();
-                        int offerFromComboBoxNoOrder = int.Parse(comboBoxNoOrder.SelectedValue.ToString());
-                        int commercialOfferForConsiderationCount = commercialOfferForConsiderationList.Where(a => a.Key == offerFromComboBoxNoOrder).GroupBy(a => a.Key).ToList().Count();
-                        int acceptedCommercialOfferListCount = acceptedCommercialOfferList.Where(a => a.Key == offerFromComboBoxNoOrder).GroupBy(a => a.Key).ToList().Count();
-                        List<Oferta_handlowa> selectedCommercialOfferForConsiderationList = this.db.Oferta_handlowa.Where(a => a.ID_status_oferta == 3 && a.ID_zamowienie == offerFromComboBoxNoOrder).ToList();
-                        if (commercialOfferForConsiderationCount == acceptedCommercialOfferListCount)
-                        {
-                            foreach (Oferta_handlowa commercialOfferForConsiderationCancel in selectedCommercialOfferForConsiderationList)
+                            else if (enteredPriceLowerThansuggestedPrice == DialogResult.No)
                             {
-                                commercialOfferForConsiderationCancel.ID_status_oferta = 2;
-                                this.db.SaveChanges();
+                                MessageBox.Show("Oferta handlowa została anulowana", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
-                        comboBoxData();
+                        else
+                        {
+                            Oferta_handlowa newComertialOffer = new Oferta_handlowa();
+                            newComertialOffer.ID_pracownik = int.Parse(comboBoxEmployee.SelectedValue.ToString());
+                            newComertialOffer.ID_zamowienie = int.Parse(comboBoxNoOrder.SelectedValue.ToString());
+                            newComertialOffer.ID_gwarancja = int.Parse(comboBoxGuarantee.SelectedValue.ToString());
+                            newComertialOffer.Termin_realizacja = dtpDateOfImplementation.Value.Date;
+                            newComertialOffer.ID_status_oferta = int.Parse(comboBoxOfferStatus.SelectedValue.ToString());
+                            newComertialOffer.Cena = int.Parse(textBoxPrice.Text);
+                            this.db.Oferta_handlowa.Add(newComertialOffer);
+                            this.db.SaveChanges();
+                            MessageBox.Show("Dodano nową ofertę handlową", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if (comboBoxOfferStatus.SelectedValue.ToString() == "1")
+                            {
+                                Umowa_sprzedaz newSaleArrangement = new Umowa_sprzedaz();
+                                Oferta_handlowa selectedOffer = this.db.Oferta_handlowa.AsEnumerable().Last();
+                                newSaleArrangement.ID_oferta_handlowa = selectedOffer.ID_oferta_handlowa;
+                                this.db.Umowa_sprzedaz.Add(newSaleArrangement);
+                                this.db.SaveChanges();
+                                List<IGrouping<int, Oferta_handlowa>> acceptedCommercialOfferList = this.db.Oferta_handlowa.Where(a => a.ID_status_oferta == 1).GroupBy(a => a.ID_zamowienie).ToList();
+                                List<IGrouping<int, Oferta_handlowa>> commercialOfferForConsiderationList = this.db.Oferta_handlowa.Where(a => a.ID_status_oferta == 3).GroupBy(a => a.ID_zamowienie).ToList();
+                                int offerFromComboBoxNoOrder = int.Parse(comboBoxNoOrder.SelectedValue.ToString());
+                                int commercialOfferForConsiderationCount = commercialOfferForConsiderationList.Where(a => a.Key == offerFromComboBoxNoOrder).GroupBy(a => a.Key).ToList().Count();
+                                int acceptedCommercialOfferListCount = acceptedCommercialOfferList.Where(a => a.Key == offerFromComboBoxNoOrder).GroupBy(a => a.Key).ToList().Count();
+                                List<Oferta_handlowa> selectedCommercialOfferForConsiderationList = this.db.Oferta_handlowa.Where(a => a.ID_status_oferta == 3 && a.ID_zamowienie == offerFromComboBoxNoOrder).ToList();
+                                if (commercialOfferForConsiderationCount == acceptedCommercialOfferListCount)
+                                {
+                                    foreach (Oferta_handlowa commercialOfferForConsiderationCancel in selectedCommercialOfferForConsiderationList)
+                                    {
+                                        commercialOfferForConsiderationCancel.ID_status_oferta = 2;
+                                        this.db.SaveChanges();
+                                    }
+                                }
+                                comboBoxData();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Źle wprowadzono dane", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
-            else
-            {
-                MessageBox.Show("Źle wprowadzono dane", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        EndLoop:;
             comboBoxNoOrder.SelectedIndex = -1;
         }
         private void comboBoxNoOrder_SelectionChangeCommitted(object sender, EventArgs e)
@@ -322,29 +371,40 @@ namespace KWZP2022
 
         private void btnCheckAvailableMaterials_Click(object sender, EventArgs e)
         {
-            if (comboBoxNoOrder.SelectedValue == null)
-                goto EndLoop;
-            int selectedNoOrder = int.Parse(comboBoxNoOrder.SelectedValue.ToString());
-            List<v_Potrzebne_materialy> necessaryMaterial = this.db.v_Potrzebne_materialy.Where(a => a.ID_zamowienie == selectedNoOrder).ToList();
-            List<v_Aktualny_stan_magazyn> materialsInWarehouse = this.db.v_Aktualny_stan_magazyn.ToList();
-            foreach (v_Potrzebne_materialy requiredMaterial in necessaryMaterial)
+            if (comboBoxNoOrder.SelectedValue != null)
             {
-                foreach (v_Aktualny_stan_magazyn materialInWarehouse in materialsInWarehouse)
+                bool materialInWarehouseErrorLoop = false;
+                bool requiredMaterialErrorLoop = false;
+                int selectedNoOrder = int.Parse(comboBoxNoOrder.SelectedValue.ToString());
+                List<v_Potrzebne_materialy> necessaryMaterial = this.db.v_Potrzebne_materialy.Where(a => a.ID_zamowienie == selectedNoOrder).ToList();
+                List<v_Aktualny_stan_magazyn> materialsInWarehouse = this.db.v_Aktualny_stan_magazyn.ToList();
+                foreach (v_Potrzebne_materialy requiredMaterial in necessaryMaterial)
                 {
-                    if (requiredMaterial.ID_material == materialInWarehouse.ID)
+                    foreach (v_Aktualny_stan_magazyn materialInWarehouse in materialsInWarehouse)
                     {
-                        int materialAmount = (int)(materialInWarehouse.Aktualny_stan - requiredMaterial.Masa_materiału);
-                        if (materialAmount < 0)
+                        if (requiredMaterial.ID_material == materialInWarehouse.ID)
                         {
-                            MessageBox.Show("Nie ma wystarczającej ilości materiałów w magazynie!", "Uwaga!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            missingMaterials();
-                            goto EndLoop;
+                            int materialAmount = (int)(materialInWarehouse.Aktualny_stan - requiredMaterial.Masa_materiału);
+                            if (materialAmount < 0)
+                            {
+                                MessageBox.Show("Nie ma wystarczającej ilości materiałów w magazynie!", "Uwaga!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                missingMaterials();
+                                requiredMaterialErrorLoop = true;
+                                break;
+                            }
                         }
                     }
+                    if (requiredMaterialErrorLoop)
+                    {
+                        materialInWarehouseErrorLoop = true;
+                        break;
+                    }
+                }
+                if(materialInWarehouseErrorLoop == false)
+                {
+                    MessageBox.Show("W magazynie jest wystarczająco materiałów!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            MessageBox.Show("W magazynie jest wystarczająco materiałów!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        EndLoop:;
         }
         private void missingMaterials()
         {
