@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title10 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title11 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title12 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.chartAmountSoldProducts = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartProceeds = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartProceedsDate = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -60,28 +60,28 @@
             // chartAmountSoldProducts
             // 
             this.chartAmountSoldProducts.BackColor = System.Drawing.Color.Transparent;
-            chartArea10.BackColor = System.Drawing.Color.Transparent;
-            chartArea10.Name = "ChartArea1";
-            this.chartAmountSoldProducts.ChartAreas.Add(chartArea10);
-            legend10.BackColor = System.Drawing.Color.Transparent;
-            legend10.Enabled = false;
-            legend10.Name = "Legend1";
-            legend10.TitleBackColor = System.Drawing.Color.Transparent;
-            this.chartAmountSoldProducts.Legends.Add(legend10);
+            chartArea1.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.Name = "ChartArea1";
+            this.chartAmountSoldProducts.ChartAreas.Add(chartArea1);
+            legend1.BackColor = System.Drawing.Color.Transparent;
+            legend1.Enabled = false;
+            legend1.Name = "Legend1";
+            legend1.TitleBackColor = System.Drawing.Color.Transparent;
+            this.chartAmountSoldProducts.Legends.Add(legend1);
             this.chartAmountSoldProducts.Location = new System.Drawing.Point(16, 97);
             this.chartAmountSoldProducts.Name = "chartAmountSoldProducts";
-            series10.ChartArea = "ChartArea1";
-            series10.Color = System.Drawing.Color.Goldenrod;
-            series10.Legend = "Legend1";
-            series10.Name = "SalesMonth";
-            this.chartAmountSoldProducts.Series.Add(series10);
+            series1.ChartArea = "ChartArea1";
+            series1.Color = System.Drawing.Color.Goldenrod;
+            series1.Legend = "Legend1";
+            series1.Name = "SalesMonth";
+            this.chartAmountSoldProducts.Series.Add(series1);
             this.chartAmountSoldProducts.Size = new System.Drawing.Size(1220, 600);
             this.chartAmountSoldProducts.TabIndex = 0;
             this.chartAmountSoldProducts.Text = "chart1";
-            title10.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            title10.Name = "Title1";
-            title10.Text = "Liczba sprzedanych produktów w miesiącu";
-            this.chartAmountSoldProducts.Titles.Add(title10);
+            title1.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            title1.Name = "Title1";
+            title1.Text = "Bilans miesięczny";
+            this.chartAmountSoldProducts.Titles.Add(title1);
             // 
             // chartProceeds
             // 
@@ -90,57 +90,57 @@
             this.chartProceeds.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.chartProceeds.BackImageTransparentColor = System.Drawing.Color.White;
             this.chartProceeds.BackSecondaryColor = System.Drawing.Color.Transparent;
-            chartArea11.BackColor = System.Drawing.Color.Transparent;
-            chartArea11.Name = "ChartArea1";
-            this.chartProceeds.ChartAreas.Add(chartArea11);
-            legend11.BackColor = System.Drawing.Color.Transparent;
-            legend11.Name = "Legend1";
-            legend11.TitleBackColor = System.Drawing.Color.Transparent;
-            this.chartProceeds.Legends.Add(legend11);
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.Name = "ChartArea1";
+            this.chartProceeds.ChartAreas.Add(chartArea2);
+            legend2.BackColor = System.Drawing.Color.Transparent;
+            legend2.Name = "Legend1";
+            legend2.TitleBackColor = System.Drawing.Color.Transparent;
+            this.chartProceeds.Legends.Add(legend2);
             this.chartProceeds.Location = new System.Drawing.Point(16, 97);
             this.chartProceeds.Name = "chartProceeds";
-            series11.ChartArea = "ChartArea1";
-            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series11.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            series11.LabelForeColor = System.Drawing.Color.Transparent;
-            series11.Legend = "Legend1";
-            series11.Name = "Proceeds";
-            series11.YValuesPerPoint = 4;
-            this.chartProceeds.Series.Add(series11);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            series2.LabelForeColor = System.Drawing.Color.Transparent;
+            series2.Legend = "Legend1";
+            series2.Name = "Proceeds";
+            series2.YValuesPerPoint = 4;
+            this.chartProceeds.Series.Add(series2);
             this.chartProceeds.Size = new System.Drawing.Size(1220, 600);
             this.chartProceeds.TabIndex = 1;
             this.chartProceeds.Text = "chart2";
-            title11.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            title11.Name = "Title1";
-            title11.Text = "Przychód z produktu";
-            this.chartProceeds.Titles.Add(title11);
+            title2.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            title2.Name = "Title1";
+            title2.Text = "Przychód z produktu";
+            this.chartProceeds.Titles.Add(title2);
             // 
             // chartProceedsDate
             // 
             this.chartProceedsDate.BackColor = System.Drawing.Color.Transparent;
-            chartArea12.BackColor = System.Drawing.Color.Transparent;
-            chartArea12.Name = "ChartArea1";
-            this.chartProceedsDate.ChartAreas.Add(chartArea12);
-            legend12.BackColor = System.Drawing.Color.Transparent;
-            legend12.Enabled = false;
-            legend12.Name = "Legend1";
-            legend12.TitleBackColor = System.Drawing.Color.Transparent;
-            this.chartProceedsDate.Legends.Add(legend12);
+            chartArea3.BackColor = System.Drawing.Color.Transparent;
+            chartArea3.Name = "ChartArea1";
+            this.chartProceedsDate.ChartAreas.Add(chartArea3);
+            legend3.BackColor = System.Drawing.Color.Transparent;
+            legend3.Enabled = false;
+            legend3.Name = "Legend1";
+            legend3.TitleBackColor = System.Drawing.Color.Transparent;
+            this.chartProceedsDate.Legends.Add(legend3);
             this.chartProceedsDate.Location = new System.Drawing.Point(16, 97);
             this.chartProceedsDate.Name = "chartProceedsDate";
-            series12.ChartArea = "ChartArea1";
-            series12.Color = System.Drawing.Color.Goldenrod;
-            series12.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            series12.Legend = "Legend1";
-            series12.Name = "ProceedsDate";
-            this.chartProceedsDate.Series.Add(series12);
+            series3.ChartArea = "ChartArea1";
+            series3.Color = System.Drawing.Color.Goldenrod;
+            series3.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            series3.Legend = "Legend1";
+            series3.Name = "ProceedsDate";
+            this.chartProceedsDate.Series.Add(series3);
             this.chartProceedsDate.Size = new System.Drawing.Size(1220, 600);
             this.chartProceedsDate.TabIndex = 2;
             this.chartProceedsDate.Text = "chart1";
-            title12.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            title12.Name = "Title1";
-            title12.Text = "Przychód";
-            this.chartProceedsDate.Titles.Add(title12);
+            title3.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            title3.Name = "Title1";
+            title3.Text = "Przychód";
+            this.chartProceedsDate.Titles.Add(title3);
             // 
             // dtpSTART
             // 
@@ -224,7 +224,7 @@
             this.btnMonthProceeds.Name = "btnMonthProceeds";
             this.btnMonthProceeds.Size = new System.Drawing.Size(160, 30);
             this.btnMonthProceeds.TabIndex = 12;
-            this.btnMonthProceeds.Text = "Miesięczne przychody";
+            this.btnMonthProceeds.Text = "Bilans miesięczny";
             this.btnMonthProceeds.UseVisualStyleBackColor = true;
             this.btnMonthProceeds.Click += new System.EventHandler(this.btnMonthProceeds_Click);
             // 

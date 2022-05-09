@@ -12,11 +12,16 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Potrzebne_materialy
+    public partial class v_Zamowienia_narzedzia_status_zamowiono
     {
-        public int ID_zamowienie { get; set; }
-        public int ID_produkt { get; set; }
-        public int ID_material { get; set; }
-        public Nullable<int> Masa_materiału { get; set; }
+        public int Nr_zamówienia { get; set; }
+        public string Nazwa_narzędzia { get; set; }
+        public System.DateTime Data_zmiany_stanu { get; set; }
+        public int Sztuk { get; set; }
+        public decimal Cena { get; set; }
+        public string Dostawca { get; set; }
+        public string Status { get; set; }
+        public int StatusID { get; set; }
+        public int ID_narzedzie { get; set; }
     }
 }

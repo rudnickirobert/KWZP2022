@@ -120,7 +120,6 @@ namespace KWZP2022
                 {
                     try
                     {
-                        v_Reklamacja productReturnSingle = this.db.v_Reklamacja.Single(a => a.Numer_sprzedaży == selectNoSale && a.ID_produkt == selectNoProduct);
                         int amountTotal = productCount.Ilosc - int.Parse(textBoxAmount.Text);
                         if (amountTotal >= 0)
                         {

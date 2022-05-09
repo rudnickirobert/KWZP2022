@@ -14,6 +14,8 @@ namespace KWZP2022
     {
 
         KWZPEntities db;
+        string requiredMaterial;
+        string amount;
         public FormDodajAlert(KWZPEntities db)
         {
             InitializeComponent();
@@ -21,6 +23,19 @@ namespace KWZP2022
             cmbDzial.DataSource = db.Dzial.ToList();
             cmbDzial.DisplayMember = "Nazwa_dzial";
             cmbDzial.ValueMember = "ID_dzial";
+        }
+        public FormDodajAlert(KWZPEntities db, string material, string ilosc)
+        {
+            InitializeComponent();
+            this.db = db;
+            cmbDzial.DataSource = db.Dzial.ToList();
+            cmbDzial.DisplayMember = "Nazwa_dzial";
+            cmbDzial.ValueMember = "ID_dzial";
+            this.requiredMaterial = material;
+            this.amount = ilosc;
+            string textMessage = $"Brakujący materiał: {requiredMaterial}, w ilości: {amount}g.";
+            cmbDzial.SelectedIndex = 3;
+            txtTresc.Text = textMessage;
         }
 
         private void btnDodajAlert_Click(object sender, EventArgs e)
