@@ -1123,7 +1123,7 @@ GO
 CREATE VIEW v_Zamowienia_czesc_status_zamowiono
 AS
 SELECT *
-FROM v_Zamowienia_czesci_w_trakcie_wszystko
+FROM v_Zamowienia_czesci_w_trakcie_wszystko	
 WHERE StatusID=1
 GO
 
@@ -1133,7 +1133,7 @@ SELECT CONVERT(varchar(7),CAST([Data zmiany stanu] AS DATE),126) AS [Data miesia
 FROM v_Zamowienia_czesc_status_zamowiono
 GO
 
-CREATE VIEW v_Zamowienia_czesci_koszt
+CREATE VIEW v_Zamowienia_czesci_koszt 
 AS
 SELECT [Data miesiac], SUM (Cena) AS [Łączna cena]
 FROM v_Zamowienia_czesc_status_zamowiono_zmiana_daty
@@ -1153,7 +1153,7 @@ SELECT CONVERT(varchar(7),CAST([Data zmiany stanu] AS DATE),126) AS [Data miesia
 FROM v_Zamowienia_maszyna_status_zamowiono
 GO
 
-CREATE VIEW v_Zamowienia_maszyna_koszt
+CREATE VIEW v_Zamowienia_maszyna_koszt 
 AS
 SELECT [Data miesiac], SUM (Cena) AS [Łączna cena]
 FROM v_Zamowienia_maszyna_status_zamowiono_zmiana_daty
@@ -1163,7 +1163,7 @@ GO
 CREATE VIEW v_Zamowienia_narzedzia_status_zamowiono
 AS
 SELECT *
-FROM v_Zamowienia_narzedzia_w_trakcie_wszystko
+FROM v_Zamowienia_narzedzia_w_trakcie_wszystko	
 WHERE StatusID=1
 GO
 
@@ -1173,7 +1173,7 @@ SELECT CONVERT(varchar(7),CAST([Data zmiany stanu] AS DATE),126) AS [Data miesia
 FROM v_Zamowienia_narzedzia_status_zamowiono
 GO
 
-CREATE VIEW v_Zamowienia_narzedzia_koszt
+CREATE VIEW v_Zamowienia_narzedzia_koszt 
 AS
 SELECT [Data miesiac], SUM (Cena) AS [Łączna cena]
 FROM v_Zamowienia_narzedzia_status_zamowiono_zmiana_daty
@@ -1217,6 +1217,7 @@ SELECT [Data miesiac], SUM([Łączna cena]) AS [Całkowity koszt]
 FROM v_Zamowienia_koszt_union
 GROUP BY [Data miesiac]
 GO
+
 
 --SALES AND MARKETING DEPARTMENT --
 CREATE VIEW v_Szczegoly_sprzedaz AS
