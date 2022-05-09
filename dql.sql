@@ -1531,7 +1531,7 @@ CREATE VIEW v_Brakujacy_material AS
 SELECT Material.ID_material, Material.Nazwa_material AS [Materiał], ABS(v_Aktualny_stan_magazyn.[Aktualny stan]) AS [Brakująca ilość]
 FROM v_Aktualny_stan_magazyn
 INNER JOIN Material ON Material.ID_material = v_Aktualny_stan_magazyn.ID
-WHERE v_Aktualny_stan_magazyn.[Aktualny stan] <= 0
+WHERE v_Aktualny_stan_magazyn.[Aktualny stan] < 0
 GO
 
 CREATE VIEW v_Umowy_sprzedazy AS
