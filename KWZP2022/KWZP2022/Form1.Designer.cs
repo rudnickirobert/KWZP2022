@@ -30,7 +30,6 @@ namespace KWZP2022
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartForm));
             this.lblDate = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.btnNewOrder = new System.Windows.Forms.Button();
@@ -103,7 +102,7 @@ namespace KWZP2022
             // StartForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::KWZP2022.Properties.Resources.unknown;
             this.ClientSize = new System.Drawing.Size(1264, 711);
             this.Controls.Add(this.lblHello);
             this.Controls.Add(this.btnDepartments);

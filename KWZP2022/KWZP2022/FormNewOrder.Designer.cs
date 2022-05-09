@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewOrder));
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAddNewClient = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -238,7 +237,7 @@
             // FormNewOrder
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
             this.ClientSize = new System.Drawing.Size(794, 491);
             this.Controls.Add(this.btnCommercialOffer);
             this.Controls.Add(this.btnNewOrderDetails);
