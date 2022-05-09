@@ -40,11 +40,11 @@ namespace KWZP2022
         }
         private void chartAmountSoldProductsData()
         {
-            List<v_Sprzedaz_miesiac> chartColumnData = this.db.v_Sprzedaz_miesiac.ToList();
+            List<v_Zarobek_miesiac_suma> chartColumnData = this.db.v_Zarobek_miesiac_suma.ToList();
             chartAmountSoldProducts.DataSource = chartColumnData;
             chartAmountSoldProducts.Series["SalesMonth"].XValueMember = "Miesiąc";
             chartAmountSoldProducts.Series["SalesMonth"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
-            chartAmountSoldProducts.Series["SalesMonth"].YValueMembers = "Zarobek_z_miesiąca";
+            chartAmountSoldProducts.Series["SalesMonth"].YValueMembers = "Zarobek_na_miesiąc";
             chartAmountSoldProducts.Series["SalesMonth"].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
         }
         private void btnGenerateChart_Click(object sender, EventArgs e)

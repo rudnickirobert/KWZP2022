@@ -51,13 +51,41 @@ namespace KWZP2022
             comboBoxTax.DataSource = this.db.Podatek.ToList();
             comboBoxTax.ValueMember = "ID_podatek";
             comboBoxTax.DisplayMember = "Procent";
+            comboBoxTax.SelectedIndex = 2;
         }
         private void textBoxPriceData()
         {
             int selectedNoSale = int.Parse(comboBoxNoSale.SelectedValue.ToString());
-            string selectedProduct = comboBoxProduct.SelectedValue.ToString();
-            v_Dodaj_szczegol_sprzedaz selectedRow = this.db.v_Dodaj_szczegol_sprzedaz.Single(a => (a.Produkt == selectedProduct && a.Numer_sprzedaży == selectedNoSale));
-            textBoxPrice.Text = selectedRow.Cena.ToString();
+            string selectedProductComboBox = comboBoxProduct.SelectedValue.ToString();
+            Produkt selectedProductTable = this.db.Produkt.Single(a => a.Nazwa_produkt == selectedProductComboBox);
+            int selectedTaxComboBox = int.Parse(comboBoxTax.SelectedValue.ToString());
+            Podatek selectedTaxTable = this.db.Podatek.Single(a => a.ID_podatek == selectedTaxComboBox);
+            List<v_Koszt_material_sztuka_suma> selectMaterialsCost = this.db.v_Koszt_material_sztuka_suma.Where(a => a.ID_produkt == selectedProductTable.ID_produkt).ToList();
+            List<v_Koszt_material_polprodukt_sztuka_suma> selectMaterialsSemiFinishedProductsCost = this.db.v_Koszt_material_polprodukt_sztuka_suma.Where(a => a.ID_produkt == selectedProductTable.ID_produkt).ToList();
+            Sprzedaz selectSaleNumber = this.db.Sprzedaz.Single(a => a.ID_sprzedaz == selectedNoSale);
+            Umowa_sprzedaz selectSaleAgreement = this.db.Umowa_sprzedaz.Single(a => a.ID_umowa_sprzedaz == selectSaleNumber.ID_umowa_sprzedaz);
+            Oferta_handlowa selectPriceFromCommercialOffer = this.db.Oferta_handlowa.Single(a => a.ID_oferta_handlowa == selectSaleAgreement.ID_oferta_handlowa);
+            
+            if (selectMaterialsCost.Count > 0)
+            {
+                List<v_Kwota_za_materialy> priceForMaterialsSelectedNoOrder = this.db.v_Kwota_za_materialy.Where(a => a.ID_zamowienie == selectPriceFromCommercialOffer.ID_zamowienie).ToList();
+                if (priceForMaterialsSelectedNoOrder.Count > 0)
+                {
+                    v_Kwota_za_materialy priceForMaterialsFullProduct = this.db.v_Kwota_za_materialy.Single(a => a.ID_zamowienie == selectPriceFromCommercialOffer.ID_zamowienie);
+                    double multiplier = (double)selectPriceFromCommercialOffer.Cena / (double)priceForMaterialsFullProduct.Cena_za_zamówienie;
+                    int costProduct = decimal.ToInt32(selectMaterialsCost.Single(a => a.ID_produkt == selectedProductTable.ID_produkt).Suma_koszt_materiał.Value);
+                    int bruttoPrice = (int)(costProduct * multiplier + ((costProduct * multiplier) * ((double)selectedTaxTable.Procent / 100)));
+                    textBoxPrice.Text = bruttoPrice.ToString();
+                }
+            }
+            else
+            {
+                v_Kwota_za_materialy_bez_produktu priceForMaterialsSemiFinishedProduct = this.db.v_Kwota_za_materialy_bez_produktu.Single(a => a.ID_zamowienie == selectPriceFromCommercialOffer.ID_zamowienie);
+                double multiplier = (double)selectPriceFromCommercialOffer.Cena / (double)priceForMaterialsSemiFinishedProduct.Cena_za_zamówienie;
+                int costProduct = decimal.ToInt32(selectMaterialsSemiFinishedProductsCost.Single(a => a.ID_produkt == selectedProductTable.ID_produkt).Suma_koszt_material_na_półprodukt.Value);
+                int bruttoPrice = (int)(costProduct * multiplier + ((costProduct * multiplier) * ((double)selectedTaxTable.Procent / 100)));
+                textBoxPrice.Text = bruttoPrice.ToString();
+            }
         }
         private void textBoxAmountData()
         {
@@ -121,8 +149,13 @@ namespace KWZP2022
 
         private void comboBoxProduct_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            textBoxPriceData();
+            textBoxPrice.Clear();
             textBoxAmountData();
+        }
+
+        private void comboBoxTax_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            textBoxPriceData();
         }
     }
 }
