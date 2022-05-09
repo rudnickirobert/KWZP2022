@@ -106,6 +106,7 @@
             // 
             // comboBoxEmployee
             // 
+            this.comboBoxEmployee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxEmployee.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.comboBoxEmployee.FormattingEnabled = true;
             this.comboBoxEmployee.Location = new System.Drawing.Point(24, 43);
@@ -146,6 +147,7 @@
             // 
             // comboBoxOrderType
             // 
+            this.comboBoxOrderType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxOrderType.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.comboBoxOrderType.FormattingEnabled = true;
             this.comboBoxOrderType.Location = new System.Drawing.Point(294, 43);

@@ -77,20 +77,30 @@ namespace KWZP2022
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            try
+            int selectedProduct = int.Parse(comboBoxProduct.SelectedValue.ToString());
+            List<Oferta_handlowa> selectedOrder = this.db.Oferta_handlowa.Where(a => a.ID_zamowienie == newOrder.ID_zamowienie && a.ID_status_oferta == 1).ToList();
+            if(selectedOrder.Count > 0)
             {
-                int selectedOrderDetail = int.Parse(this.dgvOrderDetails.CurrentRow.Cells[0].Value.ToString());
-                Zamowienie_szczegol selectDetail = this.db.Zamowienie_szczegol.Single(a => a.ID_zamowienie_szczegol == selectedOrderDetail);
-                this.db.Zamowienie_szczegol.Remove(selectDetail);
-                this.db.SaveChanges();
-                this.showData();
-                MessageBox.Show("Usunięto szczegół!","Informacja",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Nie można usunąć szczegółów sprzedanego zamówienia!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 clearTextBoxAmount();
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("Nie można usunąć szczegółu, który należy do sprzedanego zamówienia!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                clearTextBoxAmount();
+                try
+                {
+                    int selectedOrderDetail = int.Parse(this.dgvOrderDetails.CurrentRow.Cells[0].Value.ToString());
+                    Zamowienie_szczegol selectDetail = this.db.Zamowienie_szczegol.Single(a => a.ID_zamowienie_szczegol == selectedOrderDetail);
+                    this.db.Zamowienie_szczegol.Remove(selectDetail);
+                    this.db.SaveChanges();
+                    this.showData();
+                    MessageBox.Show("Usunięto szczegół!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    clearTextBoxAmount();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Nie można usunąć szczegółu, który należy do sprzedanego zamówienia!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    clearTextBoxAmount();
+                }
             }
         }
     }

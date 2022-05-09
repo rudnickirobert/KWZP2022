@@ -79,7 +79,7 @@
             // 
             this.dtpSaleBegin.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.dtpSaleBegin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpSaleBegin.Location = new System.Drawing.Point(630, 113);
+            this.dtpSaleBegin.Location = new System.Drawing.Point(630, 153);
             this.dtpSaleBegin.Name = "dtpSaleBegin";
             this.dtpSaleBegin.Size = new System.Drawing.Size(152, 26);
             this.dtpSaleBegin.TabIndex = 15;
@@ -89,7 +89,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(450, 118);
+            this.label1.Location = new System.Drawing.Point(450, 158);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(165, 20);
             this.label1.TabIndex = 16;
@@ -100,7 +100,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(450, 158);
+            this.label2.Location = new System.Drawing.Point(450, 198);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(150, 20);
             this.label2.TabIndex = 18;
@@ -110,7 +110,7 @@
             // 
             this.dtpSaleEnd.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.dtpSaleEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpSaleEnd.Location = new System.Drawing.Point(630, 153);
+            this.dtpSaleEnd.Location = new System.Drawing.Point(630, 193);
             this.dtpSaleEnd.Name = "dtpSaleEnd";
             this.dtpSaleEnd.Size = new System.Drawing.Size(152, 26);
             this.dtpSaleEnd.TabIndex = 17;
@@ -120,7 +120,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(450, 198);
+            this.label4.Location = new System.Drawing.Point(450, 240);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 20);
             this.label4.TabIndex = 20;
@@ -130,17 +130,18 @@
             // 
             this.dtpDateOfPayment.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.dtpDateOfPayment.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDateOfPayment.Location = new System.Drawing.Point(630, 193);
+            this.dtpDateOfPayment.Location = new System.Drawing.Point(630, 235);
             this.dtpDateOfPayment.Name = "dtpDateOfPayment";
             this.dtpDateOfPayment.Size = new System.Drawing.Size(152, 26);
             this.dtpDateOfPayment.TabIndex = 19;
             // 
             // comboBoxPaymentMethod
             // 
+            this.comboBoxPaymentMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPaymentMethod.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.comboBoxPaymentMethod.FormattingEnabled = true;
             this.comboBoxPaymentMethod.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBoxPaymentMethod.Location = new System.Drawing.Point(630, 235);
+            this.comboBoxPaymentMethod.Location = new System.Drawing.Point(630, 275);
             this.comboBoxPaymentMethod.Name = "comboBoxPaymentMethod";
             this.comboBoxPaymentMethod.Size = new System.Drawing.Size(152, 28);
             this.comboBoxPaymentMethod.TabIndex = 21;
@@ -150,7 +151,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(450, 238);
+            this.label5.Location = new System.Drawing.Point(450, 278);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(108, 20);
             this.label5.TabIndex = 22;
@@ -161,7 +162,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(450, 278);
+            this.label6.Location = new System.Drawing.Point(450, 116);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(124, 20);
             this.label6.TabIndex = 24;
@@ -169,12 +170,14 @@
             // 
             // comboBoxSaleArrangement
             // 
+            this.comboBoxSaleArrangement.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSaleArrangement.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.comboBoxSaleArrangement.FormattingEnabled = true;
-            this.comboBoxSaleArrangement.Location = new System.Drawing.Point(630, 275);
+            this.comboBoxSaleArrangement.Location = new System.Drawing.Point(630, 113);
             this.comboBoxSaleArrangement.Name = "comboBoxSaleArrangement";
             this.comboBoxSaleArrangement.Size = new System.Drawing.Size(152, 28);
             this.comboBoxSaleArrangement.TabIndex = 23;
+            this.comboBoxSaleArrangement.SelectionChangeCommitted += new System.EventHandler(this.comboBoxSaleArrangement_SelectionChangeCommitted);
             // 
             // btnAddNewSale
             // 

@@ -12,11 +12,10 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Potrzebne_materialy
+    public partial class v_Zarobek_miesiac_suma
     {
-        public int ID_zamowienie { get; set; }
-        public int ID_produkt { get; set; }
-        public int ID_material { get; set; }
-        public Nullable<int> Masa_materiału { get; set; }
+        public long ID { get; set; }
+        public string Miesiąc { get; set; }
+        public Nullable<decimal> Zarobek_na_miesiąc { get; set; }
     }
 }
