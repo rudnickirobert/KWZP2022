@@ -870,6 +870,12 @@
     <Compile Include="Umowa_sprzedaz.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Alerty_ProductionDepartment.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Alerty_ProductionDepartment_nieodczytane.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Aktualny_stan_magazyn.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>

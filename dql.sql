@@ -1130,7 +1130,7 @@ GO
 CREATE VIEW v_Zamowienia_czesc_status_zamowiono
 AS
 SELECT *
-FROM v_Zamowienia_czesci_w_trakcie_wszystko
+FROM v_Zamowienia_czesci_w_trakcie_wszystko	
 WHERE StatusID=1
 GO
 
@@ -1140,7 +1140,7 @@ SELECT CONVERT(varchar(7),CAST([Data zmiany stanu] AS DATE),126) AS [Data miesia
 FROM v_Zamowienia_czesc_status_zamowiono
 GO
 
-CREATE VIEW v_Zamowienia_czesci_koszt
+CREATE VIEW v_Zamowienia_czesci_koszt 
 AS
 SELECT [Data miesiac], SUM (Cena) AS [Łączna cena]
 FROM v_Zamowienia_czesc_status_zamowiono_zmiana_daty
@@ -1160,7 +1160,7 @@ SELECT CONVERT(varchar(7),CAST([Data zmiany stanu] AS DATE),126) AS [Data miesia
 FROM v_Zamowienia_maszyna_status_zamowiono
 GO
 
-CREATE VIEW v_Zamowienia_maszyna_koszt
+CREATE VIEW v_Zamowienia_maszyna_koszt 
 AS
 SELECT [Data miesiac], SUM (Cena) AS [Łączna cena]
 FROM v_Zamowienia_maszyna_status_zamowiono_zmiana_daty
@@ -1170,7 +1170,7 @@ GO
 CREATE VIEW v_Zamowienia_narzedzia_status_zamowiono
 AS
 SELECT *
-FROM v_Zamowienia_narzedzia_w_trakcie_wszystko
+FROM v_Zamowienia_narzedzia_w_trakcie_wszystko	
 WHERE StatusID=1
 GO
 
@@ -1180,20 +1180,51 @@ SELECT CONVERT(varchar(7),CAST([Data zmiany stanu] AS DATE),126) AS [Data miesia
 FROM v_Zamowienia_narzedzia_status_zamowiono
 GO
 
-CREATE VIEW v_Zamowienia_narzedzia_koszt
+CREATE VIEW v_Zamowienia_narzedzia_koszt 
 AS
 SELECT [Data miesiac], SUM (Cena) AS [Łączna cena]
 FROM v_Zamowienia_narzedzia_status_zamowiono_zmiana_daty
 GROUP BY [Data miesiac]
 GO
 
+CREATE VIEW v_Zamowienia_material_status_zamowiono
+AS
+SELECT *
+FROM v_Zamowienia_materialy_w_trakcie_wszystko
+WHERE StatusID=1
+GO
+
+CREATE VIEW v_Zamowienia_material_status_zamowiono_zmiana_daty
+AS
+SELECT CONVERT(varchar(7),CAST([Data zmiany stanu] AS DATE),126) AS [Data miesiac], Cena
+FROM v_Zamowienia_material_status_zamowiono
+GO
+
+CREATE VIEW v_Zamowienia_material_koszt
+AS
+SELECT [Data miesiac], SUM (Cena) AS [Łączna cena]
+FROM v_Zamowienia_material_status_zamowiono_zmiana_daty
+GROUP BY [Data miesiac]
+GO
+
+CREATE VIEW v_Zamowienia_koszt_union
+AS
+SELECT * FROM v_Zamowienia_czesci_koszt
+UNION 
+SELECT * FROM v_Zamowienia_material_koszt
+UNION 
+SELECT * FROM v_Zamowienia_maszyna_koszt
+UNION 
+SELECT * FROM v_Zamowienia_narzedzia_koszt
+GO
+
 CREATE VIEW v_Zamowienia_koszt_suma
 AS
-SELECT ZC.[Data miesiac], (ZC.[Łączna cena] + ZM.[Łączna cena] + ZN.[Łączna cena]) AS [Całkowity koszt]
-FROM v_Zamowienia_czesci_koszt AS ZC
-FULL JOIN v_Zamowienia_maszyna_koszt AS ZM ON ZC.[Data miesiac]=ZM.[Data miesiac]
-FULL JOIN v_Zamowienia_narzedzia_koszt AS ZN ON ZC.[Data miesiac]=ZN.[Data miesiac]
+SELECT [Data miesiac], SUM([Łączna cena]) AS [Całkowity koszt]
+FROM v_Zamowienia_koszt_union
+GROUP BY [Data miesiac]
 GO
+
 
 --SALES AND MARKETING DEPARTMENT --
 CREATE VIEW v_Szczegoly_sprzedaz AS
