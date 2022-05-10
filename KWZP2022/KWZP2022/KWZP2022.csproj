@@ -248,6 +248,12 @@
     <Compile Include="FormResDepHistoriaZamowienNarzedzia.Designer.cs">
       <DependentUpon>FormResDepHistoriaZamowienNarzedzia.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormResDepStatystykiObslug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepStatystykiObslug.Designer.cs">
+      <DependentUpon>FormResDepStatystykiObslug.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSalesDepartmentAlert.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -864,12 +870,6 @@
     <Compile Include="Umowa_sprzedaz.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="v_Alerty_ProductionDepartment.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="v_Alerty_ProductionDepartment_nieodczytane.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="v_Aktualny_stan_magazyn.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -1119,6 +1119,9 @@
     <Compile Include="v_Obslugi_zakonczone.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Obslugi_zakonczone_suma.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Oferta_handlowa.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -1185,10 +1188,16 @@
     <Compile Include="v_Proces_wytwarzanie_polprodukt_ewidencja.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Proces_wytwarzanie_polprodukt_koszt.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Proces_wytwarzanie_produkt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Proces_wytwarzanie_produkt_ewidencja.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Proces_wytwarzanie_produkt_koszt.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Producenci.cs">
@@ -1530,6 +1539,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPosistionsAdd.resx">
       <DependentUpon>FormPosistionsAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepStatystykiObslug.resx">
+      <DependentUpon>FormResDepStatystykiObslug.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSalesDepartmentAlert.resx">
       <DependentUpon>FormSalesDepartmentAlert.cs</DependentUpon>

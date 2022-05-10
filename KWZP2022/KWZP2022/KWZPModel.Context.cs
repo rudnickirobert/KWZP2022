@@ -220,8 +220,10 @@ namespace KWZP2022
         public virtual DbSet<v_Proces_produkt_czynnosc_projekt> v_Proces_produkt_czynnosc_projekt { get; set; }
         public virtual DbSet<v_Proces_wytwarzanie_polprodukt> v_Proces_wytwarzanie_polprodukt { get; set; }
         public virtual DbSet<v_Proces_wytwarzanie_polprodukt_ewidencja> v_Proces_wytwarzanie_polprodukt_ewidencja { get; set; }
+        public virtual DbSet<v_Proces_wytwarzanie_polprodukt_koszt> v_Proces_wytwarzanie_polprodukt_koszt { get; set; }
         public virtual DbSet<v_Proces_wytwarzanie_produkt> v_Proces_wytwarzanie_produkt { get; set; }
         public virtual DbSet<v_Proces_wytwarzanie_produkt_ewidencja> v_Proces_wytwarzanie_produkt_ewidencja { get; set; }
+        public virtual DbSet<v_Proces_wytwarzanie_produkt_koszt> v_Proces_wytwarzanie_produkt_koszt { get; set; }
         public virtual DbSet<v_Producenci> v_Producenci { get; set; }
         public virtual DbSet<v_Produkt_material> v_Produkt_material { get; set; }
         public virtual DbSet<v_Produkty_na_gwarancji> v_Produkty_na_gwarancji { get; set; }
@@ -300,5 +302,6 @@ namespace KWZP2022
         public virtual DbSet<v_Zamowienie_szczegol_produkcja> v_Zamowienie_szczegol_produkcja { get; set; }
         public virtual DbSet<v_Zamowione_produkty> v_Zamowione_produkty { get; set; }
         public virtual DbSet<v_Zarobek_miesiac_suma> v_Zarobek_miesiac_suma { get; set; }
+        public virtual DbSet<v_Obslugi_zakonczone_suma> v_Obslugi_zakonczone_suma { get; set; }
     }
 }

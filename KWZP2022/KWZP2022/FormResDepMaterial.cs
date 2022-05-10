@@ -121,5 +121,6 @@ namespace KWZP2022
             FormResDepDodajMaterial rodzajMaterial = new FormResDepDodajMaterial(db);
             rodzajMaterial.ShowDialog();
         }
+
     }
 }

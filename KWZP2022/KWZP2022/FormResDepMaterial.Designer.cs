@@ -94,6 +94,7 @@
             this.btnOdswiez.TabIndex = 6;
             this.btnOdswiez.Text = "Odśwież";
             this.btnOdswiez.UseVisualStyleBackColor = false;
+            this.btnOdswiez.Click += new System.EventHandler(this.btnOdswiez_Click);
             // 
             // btnAktualizuj
             // 

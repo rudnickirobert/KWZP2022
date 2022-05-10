@@ -39,6 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnDodajWymiane = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnStats = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompletedServices)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOngoingServices)).BeginInit();
             this.SuspendLayout();
@@ -75,7 +76,7 @@
             // 
             // btnCloseService
             // 
-            this.btnCloseService.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnCloseService.BackColor = System.Drawing.Color.OrangeRed;
             this.btnCloseService.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnCloseService.Location = new System.Drawing.Point(1011, 202);
             this.btnCloseService.Name = "btnCloseService";
@@ -154,11 +155,24 @@
             this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // btnStats
+            // 
+            this.btnStats.BackColor = System.Drawing.Color.Orange;
+            this.btnStats.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnStats.Location = new System.Drawing.Point(1011, 507);
+            this.btnStats.Name = "btnStats";
+            this.btnStats.Size = new System.Drawing.Size(216, 71);
+            this.btnStats.TabIndex = 82;
+            this.btnStats.Text = "Statystyka Obsług";
+            this.btnStats.UseVisualStyleBackColor = false;
+            this.btnStats.Click += new System.EventHandler(this.btnStats_Click);
+            // 
             // FormResDepServices
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1274, 711);
+            this.Controls.Add(this.btnStats);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnDodajWymiane);
             this.Controls.Add(this.label2);
@@ -194,5 +208,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnDodajWymiane;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnStats;
     }
 }
