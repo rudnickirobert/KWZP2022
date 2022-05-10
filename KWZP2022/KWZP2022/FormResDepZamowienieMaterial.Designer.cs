@@ -243,7 +243,7 @@
             this.lvlZamowienieMaterial.Location = new System.Drawing.Point(13, 9);
             this.lvlZamowienieMaterial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lvlZamowienieMaterial.Name = "lvlZamowienieMaterial";
-            this.lvlZamowienieMaterial.Size = new System.Drawing.Size(279, 32);
+            this.lvlZamowienieMaterial.Size = new System.Drawing.Size(278, 32);
             this.lvlZamowienieMaterial.TabIndex = 26;
             this.lvlZamowienieMaterial.Text = "Zamówienie materiału";
             // 
@@ -273,7 +273,7 @@
             // btnOdswiez
             // 
             this.btnOdswiez.Font = new System.Drawing.Font("Arial", 15.75F);
-            this.btnOdswiez.Location = new System.Drawing.Point(749, 54);
+            this.btnOdswiez.Location = new System.Drawing.Point(810, 70);
             this.btnOdswiez.Name = "btnOdswiez";
             this.btnOdswiez.Size = new System.Drawing.Size(134, 39);
             this.btnOdswiez.TabIndex = 63;

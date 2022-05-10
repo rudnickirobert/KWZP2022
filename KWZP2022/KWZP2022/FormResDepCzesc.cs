@@ -89,11 +89,14 @@ namespace KWZP2022
             }
             catch
             {
-                MessageBox.Show("Nie można usunąć części, ponieważ jest obecnie wykorzystywany.");
+                MessageBox.Show("Nie można usunąć części, ponieważ jest obecnie wykorzystywana.");
             }
         }
         private void btnOdswiez_Click(object sender, EventArgs e)
         {
+            cmbRodzajCzesc.DataSource = db.Rodzaj_czesc.ToList();
+            cmbRodzajCzesc.DisplayMember = "Nazwa_rodzaj_czesc";
+            cmbRodzajCzesc.ValueMember = "ID_rodzaj_czesc";
             initDataGridView();
             txtNazwaCzesc.Clear();
         }
@@ -106,11 +109,15 @@ namespace KWZP2022
                 cmbRodzajCzesc.SelectedValue = row.Cells[1].Value;
             }
         }
-
         private void btnDodajParametr_Click(object sender, EventArgs e)
         {
             FormResDepParametryCzesc parametrCzesc = new FormResDepParametryCzesc(db);
             parametrCzesc.ShowDialog();        
+        }
+        private void btnDodajRodzaj_Click(object sender, EventArgs e)
+        {
+            FormResDepDodajCzesc rodzajCzesc =new FormResDepDodajCzesc(db);
+            rodzajCzesc.ShowDialog();
         }
     }
 }

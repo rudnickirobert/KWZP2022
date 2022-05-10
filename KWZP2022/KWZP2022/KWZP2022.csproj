@@ -104,6 +104,12 @@
     <Compile Include="FormKontrolaJakosciGauss.Designer.cs">
       <DependentUpon>FormKontrolaJakosciGauss.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormResDepDodajCzesc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepDodajCzesc.Designer.cs">
+      <DependentUpon>FormResDepDodajCzesc.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormResDepDodajJednostka.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +199,18 @@
     </Compile>
     <Compile Include="FormKosztProdukcja.Designer.cs">
       <DependentUpon>FormKosztProdukcja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResDepDodajMaszyna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepDodajMaszyna.Designer.cs">
+      <DependentUpon>FormResDepDodajMaszyna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormResDepDodajMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResDepDodajMaterial.Designer.cs">
+      <DependentUpon>FormResDepDodajMaterial.cs</DependentUpon>
     </Compile>
     <Compile Include="FormResDepDodajParametr.cs">
       <SubType>Form</SubType>
@@ -846,6 +864,12 @@
     <Compile Include="Umowa_sprzedaz.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Alerty_ProductionDepartment.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Alerty_ProductionDepartment_nieodczytane.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Aktualny_stan_magazyn.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -1437,6 +1461,9 @@
     <EmbeddedResource Include="FormKontrolaJakosciGauss.resx">
       <DependentUpon>FormKontrolaJakosciGauss.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepDodajCzesc.resx">
+      <DependentUpon>FormResDepDodajCzesc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormResDepDodajJednostka.resx">
       <DependentUpon>FormResDepDodajJednostka.cs</DependentUpon>
     </EmbeddedResource>
@@ -1482,6 +1509,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormKosztProdukcja.resx">
       <DependentUpon>FormKosztProdukcja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepDodajMaszyna.resx">
+      <DependentUpon>FormResDepDodajMaszyna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResDepDodajMaterial.resx">
+      <DependentUpon>FormResDepDodajMaterial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepDodajParametr.resx">
       <DependentUpon>FormResDepDodajParametr.cs</DependentUpon>

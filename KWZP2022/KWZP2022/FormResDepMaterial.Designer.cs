@@ -40,6 +40,7 @@
             this.cmbRodzajMaterial = new System.Windows.Forms.ComboBox();
             this.btnDodajParametr = new System.Windows.Forms.Button();
             this.lblPodpisWidoku = new System.Windows.Forms.Label();
+            this.btnDodajRodzaj = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +51,7 @@
             this.lblRodzajMaterial.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblRodzajMaterial.Location = new System.Drawing.Point(40, 119);
             this.lblRodzajMaterial.Name = "lblRodzajMaterial";
-            this.lblRodzajMaterial.Size = new System.Drawing.Size(218, 32);
+            this.lblRodzajMaterial.Size = new System.Drawing.Size(217, 32);
             this.lblRodzajMaterial.TabIndex = 0;
             this.lblRodzajMaterial.Text = "Rodzaj materiału";
             // 
@@ -61,7 +62,7 @@
             this.lblNazwaMaterial.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblNazwaMaterial.Location = new System.Drawing.Point(40, 43);
             this.lblNazwaMaterial.Name = "lblNazwaMaterial";
-            this.lblNazwaMaterial.Size = new System.Drawing.Size(215, 32);
+            this.lblNazwaMaterial.Size = new System.Drawing.Size(214, 32);
             this.lblNazwaMaterial.TabIndex = 1;
             this.lblNazwaMaterial.Text = "Nazwa materiału";
             // 
@@ -162,12 +163,25 @@
             this.lblPodpisWidoku.TabIndex = 55;
             this.lblPodpisWidoku.Text = "Materiały";
             // 
+            // btnDodajRodzaj
+            // 
+            this.btnDodajRodzaj.BackColor = System.Drawing.Color.Yellow;
+            this.btnDodajRodzaj.Font = new System.Drawing.Font("Arial", 15F);
+            this.btnDodajRodzaj.Location = new System.Drawing.Point(539, 119);
+            this.btnDodajRodzaj.Name = "btnDodajRodzaj";
+            this.btnDodajRodzaj.Size = new System.Drawing.Size(224, 37);
+            this.btnDodajRodzaj.TabIndex = 56;
+            this.btnDodajRodzaj.Text = "Dodaj nowy rodzaj";
+            this.btnDodajRodzaj.UseVisualStyleBackColor = false;
+            this.btnDodajRodzaj.Click += new System.EventHandler(this.btnDodajRodzaj_Click);
+            // 
             // FormResDepMaterial
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(959, 541);
+            this.Controls.Add(this.btnDodajRodzaj);
             this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnDodajParametr);
             this.Controls.Add(this.cmbRodzajMaterial);
@@ -206,5 +220,6 @@
         private System.Windows.Forms.ComboBox cmbRodzajMaterial;
         private System.Windows.Forms.Button btnDodajParametr;
         private System.Windows.Forms.Label lblPodpisWidoku;
+        private System.Windows.Forms.Button btnDodajRodzaj;
     }
 }
