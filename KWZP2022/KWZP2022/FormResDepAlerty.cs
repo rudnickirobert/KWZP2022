@@ -24,6 +24,7 @@ namespace KWZP2022
         {
             dgvAlerty.DataSource = db.v_Alerty_ResorceDepartment_nieodczytane.ToList();
             dgvAlerty.Columns[1].Visible = false;
+            dgvAlerty.Columns[0].Visible = false;
             dgvAlerty.Columns[4].Visible = false;
             dgvAlerty.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
@@ -36,7 +37,7 @@ namespace KWZP2022
 
         private void btnOdczytano_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Czy alert: " + this.dgvAlerty.CurrentRow.Cells[2].Value + " został odczytany?", "Question", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Czy alert: " + this.dgvAlerty.CurrentRow.Cells[3].Value + " został odczytany?", "Question", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 int odczytano = int.Parse(this.dgvAlerty.CurrentRow.Cells[0].Value.ToString());
