@@ -18,6 +18,7 @@ namespace KWZP2022
             InitializeComponent();
             this.db = db;
             comboBoxData();
+            comboBoxNoOrder.SelectedIndex = -1;
         }
         private void comboBoxData()
         {
@@ -228,7 +229,7 @@ namespace KWZP2022
                     {
                         if (requiredMaterial.ID_material == materialInWarehouse.ID)
                         {
-                            int materialAmount = (int)(materialInWarehouse.Aktualny_stan - requiredMaterial.Masa_materiału);
+                            int materialAmount = (int)(materialInWarehouse.Aktualny_stan);
                             if (materialAmount < 0)
                             {
                                 MessageBox.Show("Nie ma wystarczającej ilości materiałów w magazynie!", "Uwaga!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -384,7 +385,7 @@ namespace KWZP2022
                     {
                         if (requiredMaterial.ID_material == materialInWarehouse.ID)
                         {
-                            int materialAmount = (int)(materialInWarehouse.Aktualny_stan - requiredMaterial.Masa_materiału);
+                            int materialAmount = (int)(materialInWarehouse.Aktualny_stan);
                             if (materialAmount < 0)
                             {
                                 MessageBox.Show("Nie ma wystarczającej ilości materiałów w magazynie!", "Uwaga!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
