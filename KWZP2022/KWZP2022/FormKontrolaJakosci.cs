@@ -45,10 +45,10 @@ namespace KWZP2022
 
         private void btnAkceptuj_Click(object sender, EventArgs e)
         {
+            dgvvParametrProdukt.DataSource = 0;
             if (dgvvKontrolaJakosciKolejka.DataSource != null)
             {
-                int produktID = int.Parse(dgvvKontrolaJakosciKolejka.CurrentRow.Cells[1].Value.ToString());
-                dgvvParametrProdukt.DataSource = 0;
+                int produktID = int.Parse(dgvvKontrolaJakosciKolejka.CurrentRow.Cells[1].Value.ToString());                
                 List<v_Parametry_produkt> parametrProduktList = db.v_Parametry_produkt.Where(a => a.ID_produkt == produktID).ToList();
 
                 if (parametrProduktList.Count() > 0)
@@ -68,6 +68,7 @@ namespace KWZP2022
         private void dgvvParametrProdukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             txtParametrProdukt.Text = this.dgvvParametrProdukt.CurrentRow.Cells[3].Value.ToString();
+            label13.Text = this.dgvvKontrolaJakosciKolejka.CurrentRow.Cells[0].Value.ToString();
         }
 
         private void initComboboxPracownik()
@@ -137,7 +138,7 @@ namespace KWZP2022
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(dgvvKontrolaJakosciKolejka.Text) || String.IsNullOrEmpty(cBPracownik.Text) || String.IsNullOrEmpty(cBRodzajKontrola.Text) || String.IsNullOrEmpty(txtWartosc.Text))
+            if (String.IsNullOrEmpty(txtNazwa.Text) || String.IsNullOrEmpty(txtParametrProdukt.Text) || String.IsNullOrEmpty(cBPracownik.Text) || String.IsNullOrEmpty(cBRodzajKontrola.Text) || String.IsNullOrEmpty(txtWartosc.Text))
             {
                 MessageBox.Show("Nie wypełniono formularza!");
             }
@@ -153,6 +154,8 @@ namespace KWZP2022
                 db.Kontrola_jakosci_produkt.Add(kontrolaProdukt);
                 db.SaveChanges();
 
+                this.db = new KWZPEntities();
+
                 Kontrola_parametr kontrolaParametr = new Kontrola_parametr();
                 int numRows = dgvvKontrolaProdukt.Rows.Count;
                 kontrolaParametr.ID_kontrola_jakosci_produkt = int.Parse(this.dgvvKontrolaProdukt.Rows[numRows - 1].Cells[0].Value.ToString());
@@ -162,7 +165,8 @@ namespace KWZP2022
                 db.SaveChanges();
                 MessageBox.Show("Poprawnie przeprowadzono kontrole");
                 refreshScreen();
-            }           
+            }      
+            refreshScreen();
         }
 
         private void dgvvKontrolaJakosciKolejka_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -197,7 +201,7 @@ namespace KWZP2022
                     iloscProduktowKolejka = int.Parse(dgvvKontrolaJakosciKolejka.RowCount.ToString());
                 }
 
-                for (int i = startIndex; i <= iloscProduktowKolejka - 1; i++)
+                for (int i = startIndex; i < iloscProduktowKolejka; i++)
                 {
                     int currentIdProdukt = int.Parse(dgvvKontrolaJakosciKolejka.Rows[i].Cells[1].Value.ToString());
                     List<v_Parametry_produkt> parametryProdukt = db.v_Parametry_produkt.Where(a => a.ID_produkt == currentIdProdukt).ToList();

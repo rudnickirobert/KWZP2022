@@ -64,6 +64,7 @@
             this.btnGauss = new System.Windows.Forms.Button();
             this.txtKontrolaIlosc = new System.Windows.Forms.TextBox();
             this.btnRezultat = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvvParametrProdukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvvKontrolaProdukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvvKontrolaJakosciKolejka)).BeginInit();
@@ -427,12 +428,22 @@
             this.btnRezultat.UseVisualStyleBackColor = false;
             this.btnRezultat.Click += new System.EventHandler(this.btnRezultat_Click);
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(253, 387);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(41, 13);
+            this.label13.TabIndex = 74;
+            this.label13.Text = "label13";
+            // 
             // FormKontrolaJakosci
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background;
             this.ClientSize = new System.Drawing.Size(1276, 714);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.btnRezultat);
             this.Controls.Add(this.txtKontrolaIlosc);
             this.Controls.Add(this.btnGauss);
@@ -520,5 +531,6 @@
         private System.Windows.Forms.Button btnGauss;
         private System.Windows.Forms.TextBox txtKontrolaIlosc;
         private System.Windows.Forms.Button btnRezultat;
+        private System.Windows.Forms.Label label13;
     }
 }
