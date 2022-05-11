@@ -118,6 +118,9 @@ namespace KWZP2022
         private void btnOdswiez_Click(object sender, EventArgs e)
         {
             initDataGridView();
+            cmbRodzajMaszyna.DataSource = db.Rodzaj_maszyna.ToList();
+            cmbRodzajMaszyna.DisplayMember = "Nazwa_rodzaj_maszyna";
+            cmbRodzajMaszyna.ValueMember = "ID_rodzaj_maszyna";
             txtNazwaMaszyna.Clear();
             txtKosztRBG.Clear();
         }
@@ -136,13 +139,17 @@ namespace KWZP2022
             FormResDepParametryMaszyna parametrMaszyna = new FormResDepParametryMaszyna(db);
             parametrMaszyna.ShowDialog();        
         }
-
         private void btnSkladMaszyna_Click(object sender, EventArgs e)
         {
             int wybranaMaszyna = int.Parse(this.dgvMaszyna.CurrentRow.Cells[0].Value.ToString());
             Maszyna wybranaMaszynaDGV = this.db.Maszyna.Single(a => a.ID_maszyna == wybranaMaszyna);
             FormResDepSkladMaszyna formResDepSkladMaszyna = new FormResDepSkladMaszyna(db, wybranaMaszynaDGV);
             formResDepSkladMaszyna.ShowDialog();
+        }
+        private void btnNowyRodzaj_Click(object sender, EventArgs e)
+        {
+            FormResDepDodajMaszyna rodzajMaszyna = new FormResDepDodajMaszyna(db);
+            rodzajMaszyna.ShowDialog();
         }
     }
 }

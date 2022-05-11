@@ -73,7 +73,7 @@ namespace KWZP2022
             if (dgvProcesPolprodukt.DataSource != null)
             {
                 polproduktSum = dgvProcesPolprodukt.Rows.Cast<DataGridViewRow>()
-                    .Sum(t => Convert.ToDecimal(t.Cells[8].Value));
+                    .Sum(n => Convert.ToDecimal(n.Cells[8].Value));
             }
 
             if (dgvProcesProdukt.DataSource != null)

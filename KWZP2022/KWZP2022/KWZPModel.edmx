@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="KWZPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="KWZPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Alert">
           <Key>
             <PropertyRef Name="ID_alert" />
@@ -851,6 +851,38 @@ warning 6002: The table/view 'KWZP.dbo.v_Alert_handel_marketing' does not have a
           <Property Name="Czy odczytano" Type="varchar" MaxLength="3" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Alerty_ProductionDepartment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Alerty_ProductionDepartment">
+          <Key>
+            <PropertyRef Name="ID_alert" />
+            <PropertyRef Name="ID_dzial" />
+            <PropertyRef Name="Nazwa_dzial" />
+            <PropertyRef Name="Tresc" />
+            <PropertyRef Name="Czy_odczytano" />
+          </Key>
+          <Property Name="ID_alert" Type="int" Nullable="false" />
+          <Property Name="ID_dzial" Type="int" Nullable="false" />
+          <Property Name="Nazwa_dzial" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tresc" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Czy_odczytano" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Alerty_ProductionDepartment_nieodczytane' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Alerty_ProductionDepartment_nieodczytane">
+          <Key>
+            <PropertyRef Name="ID_alert" />
+            <PropertyRef Name="ID_dzial" />
+            <PropertyRef Name="Nazwa_dzial" />
+            <PropertyRef Name="Tresc" />
+            <PropertyRef Name="Czy_odczytano" />
+          </Key>
+          <Property Name="ID_alert" Type="int" Nullable="false" />
+          <Property Name="ID_dzial" Type="int" Nullable="false" />
+          <Property Name="Nazwa_dzial" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tresc" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Czy_odczytano" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Alerty_ResorceDepartment_nieodczytane' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Alerty_ResorceDepartment_nieodczytane">
           <Key>
@@ -892,6 +924,15 @@ warning 6002: The table/view 'KWZP.dbo.v_Brakujacy_material' does not have a pri
           <Property Name="ID_material" Type="int" Nullable="false" />
           <Property Name="Materiał" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Brakująca ilość" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Calkowity_koszt_zamowienia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Calkowity_koszt_zamowienia">
+          <Key>
+            <PropertyRef Name="ID_zamowienie" />
+          </Key>
+          <Property Name="ID_zamowienie" Type="int" Nullable="false" />
+          <Property Name="Koszt" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Czas_drukowanie_produktow_do_zamowien' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1866,6 +1907,17 @@ warning 6002: The table/view 'KWZP.dbo.v_Obslugi_zakonczone' does not have a pri
           <Property Name="Obsługa" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Data rozpoczęcia" Type="datetime" Nullable="false" />
           <Property Name="Data zakończenia" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Obslugi_zakonczone_suma' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Obslugi_zakonczone_suma">
+          <Key>
+            <PropertyRef Name="Nr stanowiska" />
+            <PropertyRef Name="Obsługa" />
+          </Key>
+          <Property Name="Nr stanowiska" Type="int" Nullable="false" />
+          <Property Name="Obsługa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ilość" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Oferta_handlowa' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -3144,12 +3196,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_czesc_status_zamowiono_zmian
           <Property Name="Cena" Type="decimal" Precision="15" Scale="2" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'KWZP.dbo.v_Zamowienia_czesci_koszt' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="v_Zamowienia_czesci_koszt">
-          <Property Name="Data miesiac" Type="varchar" MaxLength="7" />
-          <Property Name="Łączna cena" Type="decimal" Precision="38" Scale="2" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_czesci_w_trakcie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Zamowienia_czesci_w_trakcie">
           <Key>
@@ -3218,6 +3264,12 @@ warning 6013: The table/view 'KWZP.dbo.v_Zamowienia_koszt_suma' does not have a 
         <EntityType Name="v_Zamowienia_koszt_suma">
           <Property Name="Data miesiac" Type="varchar" MaxLength="7" />
           <Property Name="Całkowity koszt" Type="decimal" Precision="38" Scale="2" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'KWZP.dbo.v_Zamowienia_koszt_union' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="v_Zamowienia_koszt_union">
+          <Property Name="Data miesiac" Type="varchar" MaxLength="7" />
+          <Property Name="Łączna cena" Type="decimal" Precision="38" Scale="2" />
         </EntityType>-->
         <!--Errors Found During Generation:
 warning 6013: The table/view 'KWZP.dbo.v_Zamowienia_maszyna_koszt' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
@@ -3323,6 +3375,45 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_maszyny_w_trakcie_wszystko' 
           <Property Name="ID_maszyna" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6013: The table/view 'KWZP.dbo.v_Zamowienia_material_koszt' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="v_Zamowienia_material_koszt">
+          <Property Name="Data miesiac" Type="varchar" MaxLength="7" />
+          <Property Name="Łączna cena" Type="decimal" Precision="38" Scale="2" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_material_status_zamowiono' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Zamowienia_material_status_zamowiono">
+          <Key>
+            <PropertyRef Name="Nr zamówienia" />
+            <PropertyRef Name="ID_material" />
+            <PropertyRef Name="Nazwa materiału" />
+            <PropertyRef Name="Data zmiany stanu" />
+            <PropertyRef Name="Waga (g)" />
+            <PropertyRef Name="Cena" />
+            <PropertyRef Name="Dostawca" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="Nr zamówienia" Type="int" Nullable="false" />
+          <Property Name="ID_material" Type="int" Nullable="false" />
+          <Property Name="Nazwa materiału" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Data zmiany stanu" Type="smalldatetime" Nullable="false" />
+          <Property Name="Waga (g)" Type="int" Nullable="false" />
+          <Property Name="Cena" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="Dostawca" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="StatusID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_material_status_zamowiono_zmiana_daty' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Zamowienia_material_status_zamowiono_zmiana_daty">
+          <Key>
+            <PropertyRef Name="Cena" />
+          </Key>
+          <Property Name="Data miesiac" Type="varchar" MaxLength="7" />
+          <Property Name="Cena" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_materialy_w_trakcie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Zamowienia_materialy_w_trakcie">
           <Key>
@@ -3386,12 +3477,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_materialy_w_trakcie_wszystko
           <Property Name="Status" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="StatusID" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_koszt' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="v_Zamowienia_narzedzia_koszt">
-          <Property Name="Data miesiac" Type="varchar" MaxLength="7" />
-          <Property Name="Łączna cena" Type="decimal" Precision="38" Scale="2" />
-        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_status_zamowiono' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Zamowienia_narzedzia_status_zamowiono">
@@ -3578,12 +3663,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Zarobek_miesiac_suma' does not have a p
           <Property Name="Miesiąc" Type="nvarchar" MaxLength="7" />
           <Property Name="Zarobek na miesiąc" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="v_Zarobek_sprzedaz_miesiac">
-          <Property Name="Miesiąc" Type="nvarchar" MaxLength="7" />
-          <Property Name="Zarobek z miesiąca" Type="decimal" Precision="38" Scale="6" />
-        </EntityType>-->
         <Association Name="FK__Alert__ID_dzial__43A1090D">
           <End Role="Dzial" Type="Self.Dzial" Multiplicity="1" />
           <End Role="Alert" Type="Self.Alert" Multiplicity="*" />
@@ -5202,6 +5281,24 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
     [v_Alert_handel_marketing].[Czy odczytano] AS [Czy odczytano]
     FROM [dbo].[v_Alert_handel_marketing] AS [v_Alert_handel_marketing]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_Alerty_ProductionDepartment" EntityType="Self.v_Alerty_ProductionDepartment" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Alerty_ProductionDepartment].[ID_alert] AS [ID_alert], 
+    [v_Alerty_ProductionDepartment].[ID_dzial] AS [ID_dzial], 
+    [v_Alerty_ProductionDepartment].[Nazwa_dzial] AS [Nazwa_dzial], 
+    [v_Alerty_ProductionDepartment].[Tresc] AS [Tresc], 
+    [v_Alerty_ProductionDepartment].[Czy_odczytano] AS [Czy_odczytano]
+    FROM [dbo].[v_Alerty_ProductionDepartment] AS [v_Alerty_ProductionDepartment]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Alerty_ProductionDepartment_nieodczytane" EntityType="Self.v_Alerty_ProductionDepartment_nieodczytane" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Alerty_ProductionDepartment_nieodczytane].[ID_alert] AS [ID_alert], 
+    [v_Alerty_ProductionDepartment_nieodczytane].[ID_dzial] AS [ID_dzial], 
+    [v_Alerty_ProductionDepartment_nieodczytane].[Nazwa_dzial] AS [Nazwa_dzial], 
+    [v_Alerty_ProductionDepartment_nieodczytane].[Tresc] AS [Tresc], 
+    [v_Alerty_ProductionDepartment_nieodczytane].[Czy_odczytano] AS [Czy_odczytano]
+    FROM [dbo].[v_Alerty_ProductionDepartment_nieodczytane] AS [v_Alerty_ProductionDepartment_nieodczytane]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_Alerty_ResorceDepartment_nieodczytane" EntityType="Self.v_Alerty_ResorceDepartment_nieodczytane" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Alerty_ResorceDepartment_nieodczytane].[ID_alert] AS [ID_alert], 
@@ -5226,6 +5323,12 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
     [v_Brakujacy_material].[Materiał] AS [Materiał], 
     [v_Brakujacy_material].[Brakująca ilość] AS [Brakująca ilość]
     FROM [dbo].[v_Brakujacy_material] AS [v_Brakujacy_material]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Calkowity_koszt_zamowienia" EntityType="Self.v_Calkowity_koszt_zamowienia" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Calkowity_koszt_zamowienia].[ID_zamowienie] AS [ID_zamowienie], 
+    [v_Calkowity_koszt_zamowienia].[Koszt] AS [Koszt]
+    FROM [dbo].[v_Calkowity_koszt_zamowienia] AS [v_Calkowity_koszt_zamowienia]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Czas_drukowanie_produktow_do_zamowien" EntityType="Self.v_Czas_drukowanie_produktow_do_zamowien" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -5830,6 +5933,13 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
     [v_Obslugi_zakonczone].[Data rozpoczęcia] AS [Data rozpoczęcia], 
     [v_Obslugi_zakonczone].[Data zakończenia] AS [Data zakończenia]
     FROM [dbo].[v_Obslugi_zakonczone] AS [v_Obslugi_zakonczone]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Obslugi_zakonczone_suma" EntityType="Self.v_Obslugi_zakonczone_suma" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Obslugi_zakonczone_suma].[Nr stanowiska] AS [Nr stanowiska], 
+    [v_Obslugi_zakonczone_suma].[Obsługa] AS [Obsługa], 
+    [v_Obslugi_zakonczone_suma].[Ilość] AS [Ilość]
+    FROM [dbo].[v_Obslugi_zakonczone_suma] AS [v_Obslugi_zakonczone_suma]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Oferta_handlowa" EntityType="Self.v_Oferta_handlowa" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -6660,6 +6770,25 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
     [v_Zamowienia_maszyny_w_trakcie_wszystko].[ID_maszyna] AS [ID_maszyna]
     FROM [dbo].[v_Zamowienia_maszyny_w_trakcie_wszystko] AS [v_Zamowienia_maszyny_w_trakcie_wszystko]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_Zamowienia_material_status_zamowiono" EntityType="Self.v_Zamowienia_material_status_zamowiono" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Zamowienia_material_status_zamowiono].[Nr zamówienia] AS [Nr zamówienia], 
+    [v_Zamowienia_material_status_zamowiono].[ID_material] AS [ID_material], 
+    [v_Zamowienia_material_status_zamowiono].[Nazwa materiału] AS [Nazwa materiału], 
+    [v_Zamowienia_material_status_zamowiono].[Data zmiany stanu] AS [Data zmiany stanu], 
+    [v_Zamowienia_material_status_zamowiono].[Waga (g)] AS [Waga (g)], 
+    [v_Zamowienia_material_status_zamowiono].[Cena] AS [Cena], 
+    [v_Zamowienia_material_status_zamowiono].[Dostawca] AS [Dostawca], 
+    [v_Zamowienia_material_status_zamowiono].[Status] AS [Status], 
+    [v_Zamowienia_material_status_zamowiono].[StatusID] AS [StatusID]
+    FROM [dbo].[v_Zamowienia_material_status_zamowiono] AS [v_Zamowienia_material_status_zamowiono]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Zamowienia_material_status_zamowiono_zmiana_daty" EntityType="Self.v_Zamowienia_material_status_zamowiono_zmiana_daty" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Zamowienia_material_status_zamowiono_zmiana_daty].[Data miesiac] AS [Data miesiac], 
+    [v_Zamowienia_material_status_zamowiono_zmiana_daty].[Cena] AS [Cena]
+    FROM [dbo].[v_Zamowienia_material_status_zamowiono_zmiana_daty] AS [v_Zamowienia_material_status_zamowiono_zmiana_daty]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_Zamowienia_materialy_w_trakcie" EntityType="Self.v_Zamowienia_materialy_w_trakcie" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Zamowienia_materialy_w_trakcie].[Nr zamówienia] AS [Nr zamówienia], 
@@ -7307,8 +7436,7 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
             <End Role="Zwrot" EntitySet="Zwrot" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KWZPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -8395,6 +8523,34 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <Property Name="Tresc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Czy_odczytano" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="v_Alerty_ProductionDepartment">
+          <Key>
+            <PropertyRef Name="ID_alert" />
+            <PropertyRef Name="ID_dzial" />
+            <PropertyRef Name="Nazwa_dzial" />
+            <PropertyRef Name="Tresc" />
+            <PropertyRef Name="Czy_odczytano" />
+          </Key>
+          <Property Name="ID_alert" Type="Int32" Nullable="false" />
+          <Property Name="ID_dzial" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_dzial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tresc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Czy_odczytano" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_Alerty_ProductionDepartment_nieodczytane">
+          <Key>
+            <PropertyRef Name="ID_alert" />
+            <PropertyRef Name="ID_dzial" />
+            <PropertyRef Name="Nazwa_dzial" />
+            <PropertyRef Name="Tresc" />
+            <PropertyRef Name="Czy_odczytano" />
+          </Key>
+          <Property Name="ID_alert" Type="Int32" Nullable="false" />
+          <Property Name="ID_dzial" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_dzial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tresc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Czy_odczytano" Type="Boolean" Nullable="false" />
+        </EntityType>
         <EntityType Name="v_Alerty_ResorceDepartment_nieodczytane">
           <Key>
             <PropertyRef Name="ID_alert" />
@@ -8431,6 +8587,13 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <Property Name="ID_material" Type="Int32" Nullable="false" />
           <Property Name="Materiał" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Brakująca_ilość" Type="Int32" />
+        </EntityType>
+        <EntityType Name="v_Calkowity_koszt_zamowienia">
+          <Key>
+            <PropertyRef Name="ID_zamowienie" />
+          </Key>
+          <Property Name="ID_zamowienie" Type="Int32" Nullable="false" />
+          <Property Name="Koszt" Type="Decimal" Precision="38" Scale="2" />
         </EntityType>
         <EntityType Name="v_Czas_drukowanie_produktow_do_zamowien">
           <Key>
@@ -10507,6 +10670,35 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <Property Name="StatusID" Type="Int32" Nullable="false" />
           <Property Name="ID_maszyna" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="v_Zamowienia_material_status_zamowiono">
+          <Key>
+            <PropertyRef Name="Nr_zamówienia" />
+            <PropertyRef Name="ID_material" />
+            <PropertyRef Name="Nazwa_materiału" />
+            <PropertyRef Name="Data_zmiany_stanu" />
+            <PropertyRef Name="Waga__g_" />
+            <PropertyRef Name="Cena" />
+            <PropertyRef Name="Dostawca" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="Nr_zamówienia" Type="Int32" Nullable="false" />
+          <Property Name="ID_material" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_materiału" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Data_zmiany_stanu" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Waga__g_" Type="Int32" Nullable="false" />
+          <Property Name="Cena" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="Dostawca" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StatusID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_Zamowienia_material_status_zamowiono_zmiana_daty">
+          <Key>
+            <PropertyRef Name="Cena" />
+          </Key>
+          <Property Name="Data_miesiac" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="Cena" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+        </EntityType>
         <EntityType Name="v_Zamowienia_materialy_w_trakcie">
           <Key>
             <PropertyRef Name="Nr_zamówienia" />
@@ -12312,9 +12504,12 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <EntitySet Name="Zwrot" EntityType="Self.Zwrot" />
           <EntitySet Name="v_Aktualny_stan_magazyn" EntityType="Self.v_Aktualny_stan_magazyn" />
           <EntitySet Name="v_Alert_handel_marketing" EntityType="Self.v_Alert_handel_marketing" />
+          <EntitySet Name="v_Alerty_ProductionDepartment" EntityType="Self.v_Alerty_ProductionDepartment" />
+          <EntitySet Name="v_Alerty_ProductionDepartment_nieodczytane" EntityType="Self.v_Alerty_ProductionDepartment_nieodczytane" />
           <EntitySet Name="v_Alerty_ResorceDepartment_nieodczytane" EntityType="Self.v_Alerty_ResorceDepartment_nieodczytane" />
           <EntitySet Name="v_Alerty_ResourceDepartment" EntityType="Self.v_Alerty_ResourceDepartment" />
           <EntitySet Name="v_Brakujacy_material" EntityType="Self.v_Brakujacy_material" />
+          <EntitySet Name="v_Calkowity_koszt_zamowienia" EntityType="Self.v_Calkowity_koszt_zamowienia" />
           <EntitySet Name="v_Czas_drukowanie_produktow_do_zamowien" EntityType="Self.v_Czas_drukowanie_produktow_do_zamowien" />
           <EntitySet Name="v_Czas_wytwarzanie_polprodukt" EntityType="Self.v_Czas_wytwarzanie_polprodukt" />
           <EntitySet Name="v_Czas_wytwarzanie_produkt" EntityType="Self.v_Czas_wytwarzanie_produkt" />
@@ -12483,6 +12678,8 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <EntitySet Name="v_Zamowienia_maszyny_w_trakcie" EntityType="Self.v_Zamowienia_maszyny_w_trakcie" />
           <EntitySet Name="v_Zamowienia_maszyny_w_trakcie_bez_odebranych" EntityType="Self.v_Zamowienia_maszyny_w_trakcie_bez_odebranych" />
           <EntitySet Name="v_Zamowienia_maszyny_w_trakcie_wszystko" EntityType="Self.v_Zamowienia_maszyny_w_trakcie_wszystko" />
+          <EntitySet Name="v_Zamowienia_material_status_zamowiono" EntityType="Self.v_Zamowienia_material_status_zamowiono" />
+          <EntitySet Name="v_Zamowienia_material_status_zamowiono_zmiana_daty" EntityType="Self.v_Zamowienia_material_status_zamowiono_zmiana_daty" />
           <EntitySet Name="v_Zamowienia_materialy_w_trakcie" EntityType="Self.v_Zamowienia_materialy_w_trakcie" />
           <EntitySet Name="v_Zamowienia_materialy_w_trakcie_bez_odebranych" EntityType="Self.v_Zamowienia_materialy_w_trakcie_bez_odebranych" />
           <EntitySet Name="v_Zamowienia_materialy_w_trakcie_wszystko" EntityType="Self.v_Zamowienia_materialy_w_trakcie_wszystko" />
@@ -12998,7 +13195,17 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
             <End Role="Obsluga" EntitySet="Obsluga" />
             <End Role="Pracownik" EntitySet="Pracownik" />
           </AssociationSet>
+          <EntitySet Name="v_Obslugi_zakonczone_suma" EntityType="KWZPModel.v_Obslugi_zakonczone_suma" />
         </EntityContainer>
+        <EntityType Name="v_Obslugi_zakonczone_suma">
+          <Key>
+            <PropertyRef Name="Nr_stanowiska" />
+            <PropertyRef Name="Obsługa" />
+          </Key>
+          <Property Name="Nr_stanowiska" Type="Int32" Nullable="false" />
+          <Property Name="Obsługa" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ilość" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -13908,6 +14115,28 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="v_Alerty_ProductionDepartment">
+            <EntityTypeMapping TypeName="KWZPModel.v_Alerty_ProductionDepartment">
+              <MappingFragment StoreEntitySet="v_Alerty_ProductionDepartment">
+                <ScalarProperty Name="ID_alert" ColumnName="ID_alert" />
+                <ScalarProperty Name="ID_dzial" ColumnName="ID_dzial" />
+                <ScalarProperty Name="Nazwa_dzial" ColumnName="Nazwa_dzial" />
+                <ScalarProperty Name="Tresc" ColumnName="Tresc" />
+                <ScalarProperty Name="Czy_odczytano" ColumnName="Czy_odczytano" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Alerty_ProductionDepartment_nieodczytane">
+            <EntityTypeMapping TypeName="KWZPModel.v_Alerty_ProductionDepartment_nieodczytane">
+              <MappingFragment StoreEntitySet="v_Alerty_ProductionDepartment_nieodczytane">
+                <ScalarProperty Name="ID_alert" ColumnName="ID_alert" />
+                <ScalarProperty Name="ID_dzial" ColumnName="ID_dzial" />
+                <ScalarProperty Name="Nazwa_dzial" ColumnName="Nazwa_dzial" />
+                <ScalarProperty Name="Tresc" ColumnName="Tresc" />
+                <ScalarProperty Name="Czy_odczytano" ColumnName="Czy_odczytano" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="v_Alerty_ResorceDepartment_nieodczytane">
             <EntityTypeMapping TypeName="KWZPModel.v_Alerty_ResorceDepartment_nieodczytane">
               <MappingFragment StoreEntitySet="v_Alerty_ResorceDepartment_nieodczytane">
@@ -13936,6 +14165,14 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
                 <ScalarProperty Name="ID_material" ColumnName="ID_material" />
                 <ScalarProperty Name="Materiał" ColumnName="Materiał" />
                 <ScalarProperty Name="Brakująca_ilość" ColumnName="Brakująca ilość" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Calkowity_koszt_zamowienia">
+            <EntityTypeMapping TypeName="KWZPModel.v_Calkowity_koszt_zamowienia">
+              <MappingFragment StoreEntitySet="v_Calkowity_koszt_zamowienia">
+                <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
+                <ScalarProperty Name="Koszt" ColumnName="Koszt" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -15708,6 +15945,29 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="v_Zamowienia_material_status_zamowiono">
+            <EntityTypeMapping TypeName="KWZPModel.v_Zamowienia_material_status_zamowiono">
+              <MappingFragment StoreEntitySet="v_Zamowienia_material_status_zamowiono">
+                <ScalarProperty Name="Nr_zamówienia" ColumnName="Nr zamówienia" />
+                <ScalarProperty Name="ID_material" ColumnName="ID_material" />
+                <ScalarProperty Name="Nazwa_materiału" ColumnName="Nazwa materiału" />
+                <ScalarProperty Name="Data_zmiany_stanu" ColumnName="Data zmiany stanu" />
+                <ScalarProperty Name="Waga__g_" ColumnName="Waga (g)" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+                <ScalarProperty Name="Dostawca" ColumnName="Dostawca" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Zamowienia_material_status_zamowiono_zmiana_daty">
+            <EntityTypeMapping TypeName="KWZPModel.v_Zamowienia_material_status_zamowiono_zmiana_daty">
+              <MappingFragment StoreEntitySet="v_Zamowienia_material_status_zamowiono_zmiana_daty">
+                <ScalarProperty Name="Data_miesiac" ColumnName="Data miesiac" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="v_Zamowienia_materialy_w_trakcie">
             <EntityTypeMapping TypeName="KWZPModel.v_Zamowienia_materialy_w_trakcie">
               <MappingFragment StoreEntitySet="v_Zamowienia_materialy_w_trakcie">
@@ -15888,6 +16148,15 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
               <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="v_Obslugi_zakonczone_suma">
+            <EntityTypeMapping TypeName="KWZPModel.v_Obslugi_zakonczone_suma">
+              <MappingFragment StoreEntitySet="v_Obslugi_zakonczone_suma">
+                <ScalarProperty Name="Ilość" ColumnName="Ilość" />
+                <ScalarProperty Name="Obsługa" ColumnName="Obsługa" />
+                <ScalarProperty Name="Nr_stanowiska" ColumnName="Nr stanowiska" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

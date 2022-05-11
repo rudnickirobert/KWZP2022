@@ -67,6 +67,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.txtGenerowanaIlosc = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzaniePolprodukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWytwarzanieProdukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesProdukt)).BeginInit();
@@ -460,12 +461,21 @@
             this.label14.TabIndex = 53;
             this.label14.Text = "Wytworzone półprodukty";
             // 
+            // txtGenerowanaIlosc
+            // 
+            this.txtGenerowanaIlosc.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.txtGenerowanaIlosc.Location = new System.Drawing.Point(1324, 648);
+            this.txtGenerowanaIlosc.Name = "txtGenerowanaIlosc";
+            this.txtGenerowanaIlosc.Size = new System.Drawing.Size(62, 38);
+            this.txtGenerowanaIlosc.TabIndex = 54;
+            // 
             // FormWytwarzanie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1738, 738);
+            this.Controls.Add(this.txtGenerowanaIlosc);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label13);
@@ -558,5 +568,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtGenerowanaIlosc;
     }
 }

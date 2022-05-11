@@ -502,6 +502,17 @@ INNER JOIN Zamowienie AS Z ON ZS.ID_zamowienie = Z.ID_zamowienie
 INNER JOIN v_Koszt_roboczogodziny_stanowiska AS KRGS ON SP.ID_stanowisko_produkcyjne = KRGS.[ID stanowiska produkcyjnego]
 GO
 
+CREATE VIEW v_Calkowity_koszt_zamowienia
+AS
+SELECT fs.ID_zamowienie, SUM(fs.Suma) AS Koszt FROM
+(SELECT ID_zamowienie, SUM(Koszt_procesu) AS Suma FROM v_Proces_wytwarzanie_produkt_koszt
+GROUP BY ID_zamowienie
+UNION
+SELECT ID_zamowienie, SUM(Koszt_procesu) AS Suma FROM v_Proces_wytwarzanie_polprodukt_koszt
+GROUP BY ID_zamowienie) AS fs
+GROUP BY fs.ID_zamowienie
+GO
+
 CREATE VIEW v_Wytworzone_produkty
 AS
 SELECT W.ID_wytwarzanie AS [ID], P.ID_produkt, P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynność produkcyjna], Pr.Nazwisko + ' ' + Pr.Imie AS [Pracownik],
@@ -557,6 +568,21 @@ INNER JOIN Maszyna AS M ON MNS.ID_maszyna = M.ID_maszyna
 INNER JOIN Nr_seryjny AS NS ON MNS.ID_nr_seryjny = NS.ID_nr_seryjny
 WHERE NS.Nr_seryjny NOT IN
 (SELECT [Nr seryjny maszyny] FROM v_Sklad_stanowisko_produkcyjne_maszyna);
+GO
+
+CREATE VIEW v_Alerty_ProductionDepartment
+AS
+SELECT Alert.ID_alert, Dzial.ID_dzial, Dzial.Nazwa_dzial, Alert.Tresc, Alert.Czy_odczytano 
+FROM Alert 
+INNER JOIN Dzial ON Alert.ID_dzial = Dzial.ID_dzial
+WHERE Alert.ID_dzial = 3 OR Alert.ID_dzial = 7
+GO
+
+CREATE VIEW v_Alerty_ProductionDepartment_nieodczytane
+AS
+SELECT * 
+FROM v_Alerty_ProductionDepartment 
+WHERE Czy_odczytano=0
 GO
 
 -----RESOURCE DEPARTMENT----
@@ -697,6 +723,13 @@ INNER JOIN Obsluga AS O ON OP.ID_obsluga = O.ID_obsluga
 INNER JOIN Rodzaj_obsluga AS RO ON O.ID_rodzaj_obsluga = RO.ID_rodzaj_obsluga
 INNER JOIN Stanowisko_produkcyjne AS SP ON O.ID_stanowisko_produkcyjne = SP.ID_stanowisko_produkcyjne
 WHERE Data_do IS NOT NULL AND GETDATE() > Data_do
+GO
+
+CREATE VIEW v_Obslugi_zakonczone_suma 
+AS
+SELECT [Nr stanowiska], [Obsługa], COUNT(Obsługa) AS [Ilość]
+FROM v_Obslugi_zakonczone
+GROUP BY [Nr stanowiska], [Obsługa]
 GO
 
 CREATE VIEW v_Obslugi_w_trakcie
@@ -1123,7 +1156,7 @@ GO
 CREATE VIEW v_Zamowienia_czesc_status_zamowiono
 AS
 SELECT *
-FROM v_Zamowienia_czesci_w_trakcie_wszystko
+FROM v_Zamowienia_czesci_w_trakcie_wszystko	
 WHERE StatusID=1
 GO
 
@@ -1133,7 +1166,7 @@ SELECT CONVERT(varchar(7),CAST([Data zmiany stanu] AS DATE),126) AS [Data miesia
 FROM v_Zamowienia_czesc_status_zamowiono
 GO
 
-CREATE VIEW v_Zamowienia_czesci_koszt
+CREATE VIEW v_Zamowienia_czesci_koszt 
 AS
 SELECT [Data miesiac], SUM (Cena) AS [Łączna cena]
 FROM v_Zamowienia_czesc_status_zamowiono_zmiana_daty
@@ -1153,7 +1186,7 @@ SELECT CONVERT(varchar(7),CAST([Data zmiany stanu] AS DATE),126) AS [Data miesia
 FROM v_Zamowienia_maszyna_status_zamowiono
 GO
 
-CREATE VIEW v_Zamowienia_maszyna_koszt
+CREATE VIEW v_Zamowienia_maszyna_koszt 
 AS
 SELECT [Data miesiac], SUM (Cena) AS [Łączna cena]
 FROM v_Zamowienia_maszyna_status_zamowiono_zmiana_daty
@@ -1163,7 +1196,7 @@ GO
 CREATE VIEW v_Zamowienia_narzedzia_status_zamowiono
 AS
 SELECT *
-FROM v_Zamowienia_narzedzia_w_trakcie_wszystko
+FROM v_Zamowienia_narzedzia_w_trakcie_wszystko	
 WHERE StatusID=1
 GO
 
@@ -1173,20 +1206,51 @@ SELECT CONVERT(varchar(7),CAST([Data zmiany stanu] AS DATE),126) AS [Data miesia
 FROM v_Zamowienia_narzedzia_status_zamowiono
 GO
 
-CREATE VIEW v_Zamowienia_narzedzia_koszt
+CREATE VIEW v_Zamowienia_narzedzia_koszt 
 AS
 SELECT [Data miesiac], SUM (Cena) AS [Łączna cena]
 FROM v_Zamowienia_narzedzia_status_zamowiono_zmiana_daty
 GROUP BY [Data miesiac]
 GO
 
+CREATE VIEW v_Zamowienia_material_status_zamowiono
+AS
+SELECT *
+FROM v_Zamowienia_materialy_w_trakcie_wszystko
+WHERE StatusID=1
+GO
+
+CREATE VIEW v_Zamowienia_material_status_zamowiono_zmiana_daty
+AS
+SELECT CONVERT(varchar(7),CAST([Data zmiany stanu] AS DATE),126) AS [Data miesiac], Cena
+FROM v_Zamowienia_material_status_zamowiono
+GO
+
+CREATE VIEW v_Zamowienia_material_koszt
+AS
+SELECT [Data miesiac], SUM (Cena) AS [Łączna cena]
+FROM v_Zamowienia_material_status_zamowiono_zmiana_daty
+GROUP BY [Data miesiac]
+GO
+
+CREATE VIEW v_Zamowienia_koszt_union
+AS
+SELECT * FROM v_Zamowienia_czesci_koszt
+UNION 
+SELECT * FROM v_Zamowienia_material_koszt
+UNION 
+SELECT * FROM v_Zamowienia_maszyna_koszt
+UNION 
+SELECT * FROM v_Zamowienia_narzedzia_koszt
+GO
+
 CREATE VIEW v_Zamowienia_koszt_suma
 AS
-SELECT ZC.[Data miesiac], (ZC.[Łączna cena] + ZM.[Łączna cena] + ZN.[Łączna cena]) AS [Całkowity koszt]
-FROM v_Zamowienia_czesci_koszt AS ZC
-FULL JOIN v_Zamowienia_maszyna_koszt AS ZM ON ZC.[Data miesiac]=ZM.[Data miesiac]
-FULL JOIN v_Zamowienia_narzedzia_koszt AS ZN ON ZC.[Data miesiac]=ZN.[Data miesiac]
+SELECT [Data miesiac], SUM([Łączna cena]) AS [Całkowity koszt]
+FROM v_Zamowienia_koszt_union
+GROUP BY [Data miesiac]
 GO
+
 
 --SALES AND MARKETING DEPARTMENT --
 CREATE VIEW v_Szczegoly_sprzedaz AS
