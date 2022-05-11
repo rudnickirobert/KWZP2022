@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDepartments));
             this.btnProductionDepartment = new System.Windows.Forms.Button();
             this.btnSalesDepartment = new System.Windows.Forms.Button();
             this.btnResourceDeparment = new System.Windows.Forms.Button();
@@ -82,11 +81,11 @@
             this.btnHumanRsDepartment.Text = "Dział kadr i przygotowania produkcji";
             this.btnHumanRsDepartment.UseVisualStyleBackColor = true;
             this.btnHumanRsDepartment.Click += new System.EventHandler(this.btnHumanRsDepartment_Click);
-            //
+            // 
             // FormDepartments
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::KWZP2022.Properties.Resources.unknown;
             this.ClientSize = new System.Drawing.Size(1264, 711);
             this.Controls.Add(this.btnHumanRsDepartment);
             this.Controls.Add(this.btnResourceDeparment);

@@ -76,9 +76,9 @@
             // dgvCzesci
             // 
             this.dgvCzesci.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCzesci.Location = new System.Drawing.Point(865, 174);
+            this.dgvCzesci.Location = new System.Drawing.Point(865, 186);
             this.dgvCzesci.Name = "dgvCzesci";
-            this.dgvCzesci.Size = new System.Drawing.Size(414, 496);
+            this.dgvCzesci.Size = new System.Drawing.Size(414, 484);
             this.dgvCzesci.TabIndex = 98;
             // 
             // txtWybranaObsluga
@@ -211,7 +211,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(863, 153);
+            this.label5.Location = new System.Drawing.Point(861, 164);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(288, 19);
             this.label5.TabIndex = 114;

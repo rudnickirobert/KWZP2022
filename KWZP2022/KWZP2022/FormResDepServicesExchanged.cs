@@ -40,6 +40,8 @@ namespace KWZP2022
                 dgvHistoriaWymian.Columns[0].Visible = false;
                 dgvHistoriaWymian.Columns[1].Visible = false;
                 dgvHistoriaWymian.Columns[2].Visible = false;
+                dgvHistoriaWymian.Columns[3].Visible = false;
+                dgvHistoriaWymian.Columns[4].Visible = false;
             }
             else
             {
@@ -84,6 +86,7 @@ namespace KWZP2022
                     dgvCzesci.Columns[0].Visible = false;
                     dgvCzesci.Columns[1].Visible = false;
                     dgvCzesci.Columns[2].Visible = false;
+                    dgvCzesci.Columns[3].Visible = false;
                     txtMaszynaWybrana.Text = dgvMaszyny.CurrentRow.Cells[4].Value.ToString();
                     btnDodajWymiane.Visible = true;
                     btnUsunWymiane.Visible = true;

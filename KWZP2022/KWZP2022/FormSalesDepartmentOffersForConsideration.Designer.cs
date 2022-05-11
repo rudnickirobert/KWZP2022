@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSalesDepartmentOffersForConsideration));
             this.dgvOffersForConsideration = new System.Windows.Forms.DataGridView();
             this.comboBoxOffers = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,6 +48,7 @@
             // 
             // comboBoxOffers
             // 
+            this.comboBoxOffers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxOffers.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.comboBoxOffers.FormattingEnabled = true;
             this.comboBoxOffers.Location = new System.Drawing.Point(154, 53);
@@ -95,7 +95,7 @@
             // FormSalesDepartmentOffersForConsideration
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
             this.ClientSize = new System.Drawing.Size(794, 491);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnClose);

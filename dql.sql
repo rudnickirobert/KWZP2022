@@ -387,7 +387,7 @@ CREATE VIEW v_Proces_wytwarzanie_polprodukt_ewidencja
 AS
 SELECT W.ID_wytwarzanie AS [ID], P.Nazwa AS [Półprodukt], CP.Nazwa AS [Czynność produkcyjna], Pr.ID_pracownik, Pr.Nazwisko + ' ' + Pr.Imie AS [Pracownik],
 SST.Nazwa_stanowiska AS [Stanowisko], PPPC.Czas_trwania AS [Szacowany czas {min}],
-W.Czas_od AS [Data rozpoczęcia], W.Czas_do AS [Data zakończenia], ISNULL(DATEDIFF(MINUTE, W.Czas_od,W.Czas_do),0) AS [Czas pracy]
+W.Czas_od AS [Data rozpoczęcia], W.Czas_do AS [Data zakończenia], ISNULL(DATEDIFF(HOUR, W.Czas_od,W.Czas_do),0) AS [Czas pracy]
 FROM Proces_wytwarzanie_polprodukt AS PWPP
 INNER JOIN Wytwarzanie AS W ON PWPP.ID_wytwarzanie = W.ID_wytwarzanie
 INNER JOIN Proces_polprodukt_czynnosc AS PPPC ON PWPP.ID_proces_polprodukt = PPPC.ID_proces_polprodukt
@@ -473,7 +473,7 @@ CREATE VIEW v_Proces_wytwarzanie_produkt_ewidencja
 AS
 SELECT W.ID_wytwarzanie AS [ID], P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynność produkcyjna],Pr.ID_pracownik, Pr.Nazwisko + ' ' + Pr.Imie AS [Pracownik],
 SST.Nazwa_stanowiska AS [Stanowisko], PPPC.Czas_trwania AS [Szacowany czas {min}],
-W.Czas_od AS [Data rozpoczęcia], W.Czas_do AS [Data zakończenia], ISNULL(DATEDIFF(MINUTE, W.Czas_od,W.Czas_do),0) AS [Czas pracy]
+W.Czas_od AS [Data rozpoczęcia], W.Czas_do AS [Data zakończenia], ISNULL(DATEDIFF(HOUR, W.Czas_od,W.Czas_do),0) AS [Czas pracy]
 FROM Proces_wytwarzanie_produkt AS PWP
 INNER JOIN Wytwarzanie AS W ON PWP.ID_wytwarzanie = W.ID_wytwarzanie
 INNER JOIN Proces_produkt_czynnosc AS PPPC ON PWP.ID_proces_produkt = PPPC.ID_proces_produkt
@@ -568,21 +568,6 @@ INNER JOIN Maszyna AS M ON MNS.ID_maszyna = M.ID_maszyna
 INNER JOIN Nr_seryjny AS NS ON MNS.ID_nr_seryjny = NS.ID_nr_seryjny
 WHERE NS.Nr_seryjny NOT IN
 (SELECT [Nr seryjny maszyny] FROM v_Sklad_stanowisko_produkcyjne_maszyna);
-GO
-
-CREATE VIEW v_Alerty_ProductionDepartment
-AS
-SELECT A.ID_alert, D.ID_dzial, D.Nazwa_dzial, A.Tresc, A.Czy_odczytano 
-FROM Alert AS A
-INNER JOIN Dzial AS D ON A.ID_dzial = D.ID_dzial
-WHERE A.ID_dzial = 3 OR A.ID_dzial = 7
-GO
-
-CREATE VIEW v_Alerty_ProductionDepartment_nieodczytane
-AS
-SELECT * 
-FROM v_Alerty_ProductionDepartment 
-WHERE Czy_odczytano=0
 GO
 
 -----RESOURCE DEPARTMENT----
@@ -824,7 +809,7 @@ GO
 
 CREATE VIEW v_Zamowienia_czesci_w_trakcie_wszystko 
 AS 
-SELECT ZC.ID_zamowienie_czesc AS [Nr zamówienia], C.Nazwa_czesc AS [Nazwa części], SRZC.Data_stan [Data zmiany stanu], Ilosc AS [Ilość], Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID], SZC.ID_czesc 
+SELECT ZC.ID_zamowienie_czesc AS [Nr zamówienia], C.Nazwa_czesc AS [Nazwa części], SRZC.Data_stan [Data zmiany stanu], Ilosc AS [Ilość], Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID], SZC.ID_czesc
 FROM Szczegoly_zamowienie_czesc AS SZC 
 INNER JOIN Zamowienie_czesc AS ZC ON SZC.ID_zamowienie_czesc = ZC.ID_zamowienie_czesc 
 INNER JOIN Czesc AS C ON SZC.ID_czesc = C.ID_czesc 
@@ -878,7 +863,7 @@ GO
 
 CREATE VIEW v_Zamowienia_narzedzia_w_trakcie_wszystko 
 AS 
-SELECT ZN.ID_zamowienie_narzedzie AS [Nr zamówienia], N.Nazwa_narzedzie AS [Nazwa narzędzia], SRZN.Data_stan [Data zmiany stanu], Sztuk, Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID], SZN.ID_narzedzie 
+SELECT ZN.ID_zamowienie_narzedzie AS [Nr zamówienia], N.Nazwa_narzedzie AS [Nazwa narzędzia], SRZN.Data_stan [Data zmiany stanu], Sztuk, Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID], SZN.ID_narzedzie
 FROM Szczegoly_zamowienie_narzedzie AS SZN 
 INNER JOIN Zamowienie_narzedzie AS ZN ON SZN.ID_zamowienie_narzedzie = ZN.ID_zamowienie_narzedzie 
 INNER JOIN Narzedzie AS N ON SZN.ID_narzedzie = N.ID_narzedzie
@@ -905,7 +890,7 @@ GO
 
 CREATE VIEW v_Zamowienia_maszyny_w_trakcie_wszystko 
 AS 
-SELECT ZM.ID_zamowienie_maszyna AS [Nr zamówienia], M.Nazwa_maszyna AS [Nazwa maszyny], SRZM.Data_stan AS [Data zmiany stanu], Ilosc AS [Ilość], Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID], SZM.ID_maszyna 
+SELECT ZM.ID_zamowienie_maszyna AS [Nr zamówienia], M.Nazwa_maszyna AS [Nazwa maszyny], SRZM.Data_stan AS [Data zmiany stanu], Ilosc AS [Ilość], Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID], SZM.ID_maszyna
 FROM Szczegoly_zamowienie_maszyna AS SZM 
 INNER JOIN Zamowienie_maszyna AS ZM ON SZM.ID_zamowienie_maszyna = ZM.ID_zamowienie_maszyna
 INNER JOIN Maszyna AS M ON SZM.ID_maszyna = M.ID_maszyna
@@ -1003,7 +988,7 @@ GO
 
 CREATE VIEW v_Magazyn_czesci_wymienione
 AS
-SELECT C.Nazwa_czesc AS [Nazwa części], COUNT([Nazwa_czesc]) AS [Wymieniono], WC.ID_czesc 
+SELECT C.Nazwa_czesc AS [Nazwa części], COUNT([Nazwa_czesc]) AS [Wymieniono], WC.ID_czesc
 FROM Wymiana_czesc AS WC
 INNER JOIN Czesc AS C ON WC.ID_czesc = C.ID_czesc 
 GROUP BY C.Nazwa_czesc, WC.ID_czesc
@@ -1126,7 +1111,7 @@ GO
 
 CREATE VIEW v_Magazyn_material_aktualny
 AS
-SELECT  MMP.ID_material, MMP.[Nazwa materiału], (MMP.[Waga (g)] - MMP.[Waga material polprodukt (g)] - MMP.[Waga material produkt (g)]) AS [Stan w magazynie g] 
+SELECT  MMP.ID_material, MMP.[Nazwa materiału], (MMP.[Waga (g)] - MMP.[Waga material polprodukt (g)] - MMP.[Waga material produkt (g)]) AS [Stan w magazynie g]
 FROM v_Magazyn_material_aktualny_dodanie AS MMP
 GROUP BY MMP.ID_material, MMP.[Nazwa materiału], MMP.[Waga (g)],MMP.[Waga material polprodukt (g)],MMP.[Waga material produkt (g)]
 GO
@@ -1144,6 +1129,104 @@ AS
 SELECT * 
 FROM v_Alerty_ResourceDepartment 
 WHERE Czy_odczytano=0
+GO
+
+CREATE VIEW v_Zamowienia_czesc_status_zamowiono
+AS
+SELECT *
+FROM v_Zamowienia_czesci_w_trakcie_wszystko	
+WHERE StatusID=1
+GO
+
+CREATE VIEW v_Zamowienia_czesc_status_zamowiono_zmiana_daty
+AS
+SELECT CONVERT(varchar(7),CAST([Data zmiany stanu] AS DATE),126) AS [Data miesiac], Cena
+FROM v_Zamowienia_czesc_status_zamowiono
+GO
+
+CREATE VIEW v_Zamowienia_czesci_koszt 
+AS
+SELECT [Data miesiac], SUM (Cena) AS [Łączna cena]
+FROM v_Zamowienia_czesc_status_zamowiono_zmiana_daty
+GROUP BY [Data miesiac]
+GO
+
+CREATE VIEW v_Zamowienia_maszyna_status_zamowiono
+AS
+SELECT *
+FROM v_Zamowienia_maszyny_w_trakcie_wszystko
+WHERE StatusID=1
+GO
+
+CREATE VIEW v_Zamowienia_maszyna_status_zamowiono_zmiana_daty
+AS
+SELECT CONVERT(varchar(7),CAST([Data zmiany stanu] AS DATE),126) AS [Data miesiac], Cena
+FROM v_Zamowienia_maszyna_status_zamowiono
+GO
+
+CREATE VIEW v_Zamowienia_maszyna_koszt 
+AS
+SELECT [Data miesiac], SUM (Cena) AS [Łączna cena]
+FROM v_Zamowienia_maszyna_status_zamowiono_zmiana_daty
+GROUP BY [Data miesiac]
+GO
+
+CREATE VIEW v_Zamowienia_narzedzia_status_zamowiono
+AS
+SELECT *
+FROM v_Zamowienia_narzedzia_w_trakcie_wszystko	
+WHERE StatusID=1
+GO
+
+CREATE VIEW v_Zamowienia_narzedzia_status_zamowiono_zmiana_daty
+AS
+SELECT CONVERT(varchar(7),CAST([Data zmiany stanu] AS DATE),126) AS [Data miesiac], Cena
+FROM v_Zamowienia_narzedzia_status_zamowiono
+GO
+
+CREATE VIEW v_Zamowienia_narzedzia_koszt 
+AS
+SELECT [Data miesiac], SUM (Cena) AS [Łączna cena]
+FROM v_Zamowienia_narzedzia_status_zamowiono_zmiana_daty
+GROUP BY [Data miesiac]
+GO
+
+CREATE VIEW v_Zamowienia_material_status_zamowiono
+AS
+SELECT *
+FROM v_Zamowienia_materialy_w_trakcie_wszystko
+WHERE StatusID=1
+GO
+
+CREATE VIEW v_Zamowienia_material_status_zamowiono_zmiana_daty
+AS
+SELECT CONVERT(varchar(7),CAST([Data zmiany stanu] AS DATE),126) AS [Data miesiac], Cena
+FROM v_Zamowienia_material_status_zamowiono
+GO
+
+CREATE VIEW v_Zamowienia_material_koszt
+AS
+SELECT [Data miesiac], SUM (Cena) AS [Łączna cena]
+FROM v_Zamowienia_material_status_zamowiono_zmiana_daty
+GROUP BY [Data miesiac]
+GO
+
+CREATE VIEW v_Zamowienia_koszt_union
+AS
+SELECT * FROM v_Zamowienia_czesci_koszt
+UNION 
+SELECT * FROM v_Zamowienia_material_koszt
+UNION 
+SELECT * FROM v_Zamowienia_maszyna_koszt
+UNION 
+SELECT * FROM v_Zamowienia_narzedzia_koszt
+GO
+
+CREATE VIEW v_Zamowienia_koszt_suma
+AS
+SELECT [Data miesiac], SUM([Łączna cena]) AS [Całkowity koszt]
+FROM v_Zamowienia_koszt_union
+GROUP BY [Data miesiac]
 GO
 
 
@@ -1235,7 +1318,7 @@ CREATE VIEW v_Klient_telefon_Historia AS
 	ORDER BY Data_do DESC OFFSET 0 ROWS
 	GO
 
-	CREATE VIEW v_Sprzedany_produkt
+CREATE VIEW v_Sprzedany_produkt
 AS
 SELECT S.ID_sprzedaz, SS.ID_produkt, P.Nazwa_produkt FROM Szczegoly_sprzedaz AS SS
 INNER JOIN Sprzedaz AS S ON SS.ID_sprzedaz = S.ID_sprzedaz
@@ -1343,7 +1426,7 @@ CREATE VIEW v_Sprzedaz_statystyki AS
 GO
 
 CREATE VIEW v_Sprzedaz_statystyki_produkty AS
-	SELECT P.Nazwa_produkt,SUM(SS.Kwota_sprzedaz*SS.Ilosc) AS 'Całkowity koszt'--, P.ID_produkt,
+	SELECT P.Nazwa_produkt,SUM(SS.Kwota_sprzedaz*SS.Ilosc) AS 'Całkowity koszt'
 	FROM Sprzedaz AS S
 	INNER JOIN Szczegoly_sprzedaz AS SS ON S.ID_sprzedaz = SS.ID_sprzedaz
 	INNER JOIN Umowa_sprzedaz AS US ON S.ID_umowa_sprzedaz = US.ID_umowa_sprzedaz
@@ -1356,7 +1439,7 @@ CREATE VIEW v_Sprzedaz_statystyki_produkty AS
 GO
 
 CREATE VIEW v_Sprzedaz_statystyki_zarobek_dnia AS
-	SELECT  S.Data_sprzedaz_koniec, SUM(SS.Kwota_sprzedaz*SS.Ilosc) AS 'Zarobek z dnia' --P.Nazwa_produkt,, SS.Kwota_sprzedaz*SS.Ilosc
+	SELECT  S.Data_sprzedaz_koniec, SUM(SS.Kwota_sprzedaz*SS.Ilosc) AS 'Zarobek z dnia'
 	FROM Sprzedaz AS S
 	INNER JOIN Szczegoly_sprzedaz AS SS ON S.ID_sprzedaz = SS.ID_sprzedaz
 	INNER JOIN Umowa_sprzedaz AS US ON S.ID_umowa_sprzedaz = US.ID_umowa_sprzedaz
@@ -1388,18 +1471,43 @@ CREATE VIEW v_Srednia_cena_za_material AS
 	GROUP BY v_Zamowienia_materialy_w_trakcie_wszystko.ID_material
 GO
 
-CREATE VIEW v_Kwota_za_materialy AS
-	SELECT Zamowienie.ID_zamowienie, ROUND((Sum(Sklad_polprodukt.Liczba*v_Srednia_cena_za_material.[Średnia cena za (g)]*Sklad_produkt.Liczba*Zamowienie_szczegol.Ilosc)+SUM(Zamowienie_szczegol.Ilosc*Sklad_produkt_material.Liczba*v_Srednia_cena_za_material.[Średnia cena za (g)])),0) AS [Cena za zamówienie]
-	FROM Zamowienie 
+CREATE VIEW v_Koszty_za_material_produkt AS
+	SELECT DISTINCT Zamowienie.ID_zamowienie,Zamowienie_szczegol.ID_produkt,Zamowienie_szczegol.Ilosc,Sklad_produkt_material.Liczba, v_Srednia_cena_za_material.[Średnia cena za (g)],Zamowienie_szczegol.Ilosc*Sklad_produkt_material.Liczba*v_Srednia_cena_za_material.[Średnia cena za (g)] AS [Koszty za materiały produktu]
+	FROM Zamowienie
 	INNER JOIN Zamowienie_szczegol ON Zamowienie_szczegol.ID_zamowienie = Zamowienie.ID_zamowienie
 	INNER JOIN Produkt ON Produkt.ID_produkt = Zamowienie_szczegol.ID_produkt
 	INNER JOIN Sklad_produkt_material ON Sklad_produkt_material.ID_produkt = Produkt.ID_produkt
 	INNER JOIN Material ON Material.ID_material = Sklad_produkt_material.ID_material
-	INNER JOIN v_Srednia_cena_za_material ON v_Srednia_cena_za_material.ID_material = Material.Nazwa_material
+	INNER JOIN v_Srednia_cena_za_material ON v_Srednia_cena_za_material.ID_material = Material.ID_material
 	INNER JOIN Sklad_produkt ON Sklad_produkt.ID_produkt = Produkt.ID_produkt
 	INNER JOIN Slownik_polprodukt ON Slownik_polprodukt.ID_polprodukt = Sklad_produkt.ID_polprodukt
 	INNER JOIN Sklad_polprodukt ON Sklad_polprodukt.ID_polprodukt = Slownik_polprodukt.ID_polprodukt
+GO
+
+CREATE VIEW v_Koszty_za_material_produkt_suma AS 
+	SELECT v_Koszty_za_material_produkt.ID_zamowienie, ROUND(SUM(v_Koszty_za_material_produkt.[Koszty za materiały produktu]),0) AS [Suma kosztów materiałów na produkt]
+	FROM v_Koszty_za_material_produkt
+	GROUP BY v_Koszty_za_material_produkt.ID_zamowienie
+GO
+
+CREATE VIEW v_Kwota_za_materialy_bez_produktu AS
+	SELECT Zamowienie.ID_zamowienie, ROUND((Sum(Sklad_polprodukt.Liczba*v_Srednia_cena_za_material.[Średnia cena za (g)]*Sklad_produkt.Liczba*Zamowienie_szczegol.Ilosc)),0) AS [Cena za zamówienie]
+	FROM Zamowienie
+	INNER JOIN Zamowienie_szczegol ON Zamowienie_szczegol.ID_zamowienie = Zamowienie.ID_zamowienie
+	INNER JOIN Produkt ON Produkt.ID_produkt = Zamowienie_szczegol.ID_produkt
+	INNER JOIN Sklad_produkt ON Sklad_produkt.ID_produkt = Produkt.ID_produkt
+	INNER JOIN Slownik_polprodukt ON Slownik_polprodukt.ID_polprodukt = Sklad_produkt.ID_polprodukt
+	INNER JOIN Sklad_polprodukt ON Sklad_polprodukt.ID_polprodukt = Slownik_polprodukt.ID_polprodukt
+	INNER JOIN Material ON Material.ID_material = Sklad_polprodukt.ID_material
+	INNER JOIN v_Srednia_cena_za_material ON v_Srednia_cena_za_material.ID_material = Material.ID_material
 	GROUP BY Zamowienie.ID_zamowienie
+GO
+
+CREATE VIEW v_Kwota_za_materialy AS
+	SELECT v_Koszty_za_material_produkt_suma.ID_zamowienie, ROUND(SUM(v_Koszty_za_material_produkt_suma.[Suma kosztów materiałów na produkt]+v_Kwota_za_materialy_bez_produktu.[Cena za zamówienie]),0) AS [Cena za zamówienie]
+	FROM v_Koszty_za_material_produkt_suma
+	INNER JOIN v_Kwota_za_materialy_bez_produktu ON v_Kwota_za_materialy_bez_produktu.ID_zamowienie = v_Koszty_za_material_produkt_suma.ID_zamowienie
+	GROUP BY v_Koszty_za_material_produkt_suma.ID_zamowienie
 GO
 
 CREATE VIEW v_Potrzebne_materialy_do_zamowienia AS
@@ -1410,20 +1518,223 @@ CREATE VIEW v_Potrzebne_materialy_do_zamowienia AS
 	FROM Zamowienie_szczegol
 	INNER JOIN Zamowienie ON Zamowienie_szczegol.ID_zamowienie = Zamowienie.ID_zamowienie
 	INNER JOIN Produkt ON Produkt.ID_produkt = Zamowienie_szczegol.ID_produkt
-	INNER JOIN Material ON Material.ID_material = Produkt.ID_produkt 
+	INNER JOIN Material ON Material.ID_material = Produkt.ID_produkt
 	INNER JOIN Sklad_polprodukt ON Sklad_polprodukt.ID_material = Material.ID_material
 	INNER JOIN Slownik_polprodukt ON Slownik_polprodukt.ID_polprodukt = Sklad_polprodukt.ID_polprodukt
 	GROUP BY Zamowienie_szczegol.ID_zamowienie, Material.Nazwa_material, Material.ID_material
 GO
 
 CREATE VIEW v_Potrzebne_materialy AS
-	SELECT Produkt.ID_produkt, Material.ID_material, SUM(Sklad_polprodukt.Liczba*Sklad_produkt.Liczba) AS [Masa materiału]
+	SELECT Zamowienie_szczegol.ID_zamowienie, Produkt.ID_produkt, Material.ID_material, SUM(Sklad_polprodukt.Liczba*Sklad_produkt.Liczba*Zamowienie_szczegol.Ilosc) AS [Masa materiału]
 	FROM Produkt
 	INNER JOIN Sklad_produkt ON Sklad_produkt.ID_produkt = Produkt.ID_produkt
 	INNER JOIN Slownik_polprodukt ON Slownik_polprodukt.ID_polprodukt = Sklad_produkt.ID_polprodukt
 	INNER JOIN Sklad_polprodukt ON Sklad_polprodukt.ID_polprodukt = Slownik_polprodukt.ID_polprodukt
 	INNER JOIN Material ON Sklad_polprodukt.ID_material = Material.ID_material
-	GROUP BY Material.ID_material, Produkt.ID_produkt
+	INNER JOIN Zamowienie_szczegol ON Zamowienie_szczegol.ID_produkt = Produkt.ID_produkt
+	INNER JOIN Zamowienie ON Zamowienie_szczegol.ID_zamowienie = Zamowienie.ID_zamowienie
+	GROUP BY Material.ID_material, Produkt.ID_produkt, Zamowienie_szczegol.ID_zamowienie
+	ORDER BY Zamowienie_szczegol.ID_zamowienie OFFSET 0 ROWS
+GO
+
+CREATE VIEW v_Materialy_magazyn AS
+	SELECT MMP.ID_material, (MMP.[Waga (g)] - MMP.[Waga material polprodukt (g)] - MMP.[Waga material produkt (g)]) AS [Stan w magazynie g]
+	FROM v_Magazyn_material_aktualny_dodanie AS MMP
+	GROUP BY MMP.ID_material, MMP.[Waga (g)],MMP.[Waga material polprodukt (g)],MMP.[Waga material produkt (g)]
+GO
+
+CREATE VIEW v_Materialy_z_zamowien AS
+SELECT Material.ID_material, SUM(Sklad_polprodukt.Liczba*Sklad_produkt.Liczba*Zamowienie_szczegol.Ilosc) AS [Masa materiału]
+FROM Produkt
+INNER JOIN Sklad_produkt ON Sklad_produkt.ID_produkt = Produkt.ID_produkt
+INNER JOIN Slownik_polprodukt ON Slownik_polprodukt.ID_polprodukt = Sklad_produkt.ID_polprodukt
+INNER JOIN Sklad_polprodukt ON Sklad_polprodukt.ID_polprodukt = Slownik_polprodukt.ID_polprodukt
+INNER JOIN Material ON Sklad_polprodukt.ID_material = Material.ID_material
+INNER JOIN Zamowienie_szczegol ON Zamowienie_szczegol.ID_produkt = Produkt.ID_produkt
+INNER JOIN Zamowienie ON Zamowienie_szczegol.ID_zamowienie = Zamowienie.ID_zamowienie
+WHERE Zamowienie.ID_zamowienie <> 1 AND Zamowienie.ID_zamowienie <> 2 AND Zamowienie.ID_zamowienie <> 3 AND Zamowienie.ID_zamowienie <> 4 AND Zamowienie.ID_zamowienie <> 5
+GROUP BY Material.ID_material
+ORDER BY Material.ID_material OFFSET 0 ROWS
+GO
+
+CREATE VIEW v_Aktualny_stan_magazyn AS
+SELECT ISNULL(ROW_NUMBER() OVER(ORDER BY Material.ID_material),-999) AS ID, CASE
+	WHEN (v_Materialy_magazyn.[Stan w magazynie g] - v_Materialy_z_zamowien.[Masa materiału]) is null THEN v_Materialy_magazyn.[Stan w magazynie g]
+	ELSE (v_Materialy_magazyn.[Stan w magazynie g] - v_Materialy_z_zamowien.[Masa materiału])
+	END AS [Aktualny stan]
+FROM v_Materialy_magazyn
+INNER JOIN Material ON Material.ID_material = v_Materialy_magazyn.ID_material
+FULL OUTER JOIN  v_Materialy_z_zamowien ON v_Materialy_z_zamowien.ID_material = v_Materialy_magazyn.ID_material
+GROUP BY Material.ID_material,  v_Materialy_magazyn.ID_material, v_Materialy_magazyn.[Stan w magazynie g], v_Materialy_z_zamowien.[Masa materiału]
+ORDER BY Material.ID_material OFFSET 0 ROWS
+GO
+
+CREATE VIEW v_Brakujacy_material AS
+SELECT Material.ID_material, Material.Nazwa_material AS [Materiał], ABS(v_Aktualny_stan_magazyn.[Aktualny stan]) AS [Brakująca ilość]
+FROM v_Aktualny_stan_magazyn
+INNER JOIN Material ON Material.ID_material = v_Aktualny_stan_magazyn.ID
+WHERE v_Aktualny_stan_magazyn.[Aktualny stan] < 0
+GO
+
+CREATE VIEW v_Umowy_sprzedazy AS
+	SELECT US.ID_umowa_sprzedaz, OH.ID_oferta_handlowa, Z.ID_zamowienie,
+	NTK.Numer, TZ.Rodzaj_zamowienie
+	FROM Umowa_sprzedaz AS US
+	INNER JOIN Oferta_handlowa AS OH ON OH.ID_oferta_handlowa = US.ID_oferta_handlowa
+	INNER JOIN Zamowienie AS Z ON Z.ID_zamowienie = OH.ID_zamowienie
+	INNER JOIN Typ_zamowienie AS TZ ON TZ.ID_typ_zamowienie = Z.ID_typ_zamowienie
+	INNER JOIN Klient AS K ON K.ID_klient = Z.ID_klient
+	INNER JOIN Nr_telefon_klient AS NTK ON NTK.ID_klient = K.ID_klient
+GO
+
+CREATE VIEW v_Zarobek_sprzedaz_miesiac AS
+	SELECT LEFT(CONVERT(NVARCHAR,Sprzedaz.Data_sprzedaz_koniec),7) AS [Miesiąc], SUM(Szczegoly_sprzedaz.Kwota_sprzedaz*Szczegoly_sprzedaz.Ilosc)-
+	CASE 
+		WHEN v_Kwota_za_materialy.ID_zamowienie is null THEN v_Kwota_za_materialy_bez_produktu.[Cena za zamówienie]
+		ELSE v_Kwota_za_materialy.[Cena za zamówienie] 
+	END AS [Zarobek z miesiąca]
+	FROM v_Kwota_za_materialy_bez_produktu
+	left JOIN v_Kwota_za_materialy ON v_Kwota_za_materialy_bez_produktu.ID_zamowienie = v_Kwota_za_materialy.ID_zamowienie
+	INNER JOIN zamowienie on Zamowienie.ID_zamowienie = v_Kwota_za_materialy_bez_produktu.ID_zamowienie
+	INNER JOIN Oferta_handlowa ON Oferta_handlowa.ID_zamowienie = Zamowienie.ID_zamowienie
+	INNER JOIN Umowa_sprzedaz ON Umowa_sprzedaz.ID_oferta_handlowa = Oferta_handlowa.ID_oferta_handlowa
+	INNER JOIN Sprzedaz ON Sprzedaz.ID_umowa_sprzedaz = Umowa_sprzedaz.ID_umowa_sprzedaz
+	INNER JOIN Szczegoly_sprzedaz ON Szczegoly_sprzedaz.ID_sprzedaz = Sprzedaz.ID_sprzedaz
+	GROUP BY LEFT(CONVERT(NVARCHAR,Sprzedaz.Data_sprzedaz_koniec),7),CASE 
+		WHEN v_Kwota_za_materialy.ID_zamowienie is null THEN v_Kwota_za_materialy_bez_produktu.[Cena za zamówienie]
+		ELSE v_Kwota_za_materialy.[Cena za zamówienie] 
+	END
+GO
+
+CREATE VIEW v_Zarobek_miesiac_suma AS
+	SELECT ISNULL(ROW_NUMBER() OVER(ORDER BY v_Zarobek_sprzedaz_miesiac.Miesiąc),-999) AS ID, 
+		CASE 
+			WHEN v_Zarobek_sprzedaz_miesiac.Miesiąc IS NULL THEN v_Zamowienia_koszt_suma.[Data miesiac]
+			WHEN v_Zamowienia_koszt_suma.[Data miesiac] IS NULL THEN v_Zarobek_sprzedaz_miesiac.Miesiąc
+			ELSE v_Zarobek_sprzedaz_miesiac.Miesiąc
+		END AS [Miesiąc], 
+		CASE 
+			WHEN v_Zarobek_sprzedaz_miesiac.Miesiąc IS NULL THEN SUM(- v_Zamowienia_koszt_suma.[Całkowity koszt]) - (SELECT SUM(Umowa.Wynagrodzenie) AS [Wypłaty pracowników]
+																														FROM Umowa
+																														INNER JOIN Posada_pracownika ON Posada_pracownika.ID_posada_pracownika = Umowa.ID_posada_pracownika
+																														INNER JOIN Etat ON Etat.ID_etat = Posada_pracownika.ID_etat)
+			WHEN v_Zamowienia_koszt_suma.[Data miesiac] IS NULL THEN SUM(v_Zarobek_sprzedaz_miesiac.[Zarobek z miesiąca])-(SELECT SUM(Umowa.Wynagrodzenie) AS [Wypłaty pracowników]
+																														FROM Umowa
+																														INNER JOIN Posada_pracownika ON Posada_pracownika.ID_posada_pracownika = Umowa.ID_posada_pracownika
+																														INNER JOIN Etat ON Etat.ID_etat = Posada_pracownika.ID_etat)
+			ELSE SUM(v_Zarobek_sprzedaz_miesiac.[Zarobek z miesiąca] - v_Zamowienia_koszt_suma.[Całkowity koszt])-(SELECT SUM(Umowa.Wynagrodzenie) AS [Wypłaty pracowników]
+																														FROM Umowa
+																														INNER JOIN Posada_pracownika ON Posada_pracownika.ID_posada_pracownika = Umowa.ID_posada_pracownika
+																														INNER JOIN Etat ON Etat.ID_etat = Posada_pracownika.ID_etat)
+		END AS [Zarobek na miesiąc]
+	FROM v_Zarobek_sprzedaz_miesiac
+	FULL OUTER JOIN v_Zamowienia_koszt_suma ON v_Zamowienia_koszt_suma.[Data miesiac] = v_Zarobek_sprzedaz_miesiac.Miesiąc
+	GROUP BY v_Zarobek_sprzedaz_miesiac.Miesiąc, v_Zamowienia_koszt_suma.[Data miesiac]
+	ORDER BY [Miesiąc] OFFSET 0 ROWS
+GO
+
+CREATE VIEW v_Koszt_material_produkt_sztuka AS
+	SELECT DISTINCT P.ID_produkt, SPM.Liczba*v_Srednia_cena_za_material.[Średnia cena za (g)] AS [Kwota material na produkt]
+	FROM Produkt AS P
+	INNER JOIN Sklad_produkt_material AS SPM ON SPM.ID_produkt = P.ID_produkt
+	INNER JOIN Material AS M ON M.ID_material = SPM.ID_material
+	INNER JOIN Sklad_produkt AS SP ON SP.ID_produkt = P.ID_produkt
+	INNER JOIN Slownik_polprodukt AS SLPP ON SLPP.ID_polprodukt = SP.ID_polprodukt
+	INNER JOIN Sklad_polprodukt AS SPP ON SPP.ID_polprodukt = SLPP.ID_polprodukt
+	INNER JOIN v_Srednia_cena_za_material ON v_Srednia_cena_za_material.ID_material = M.ID_material
+GO
+
+CREATE VIEW v_Koszt_material_produkt_sztuka_suma AS
+	SELECT v_Koszt_material_produkt_sztuka.ID_produkt, SUM(v_Koszt_material_produkt_sztuka.[Kwota material na produkt]) AS [Suma koszt material na produkt]
+	FROM v_Koszt_material_produkt_sztuka
+	GROUP BY v_Koszt_material_produkt_sztuka.ID_produkt
+GO
+
+CREATE VIEW v_Koszt_material_polprodukt_sztuka AS
+	SELECT DISTINCT SP.ID_produkt,(SP.Liczba*(SPP.Liczba*v_Srednia_cena_za_material.[Średnia cena za (g)])) AS [Kwota material na półprodukt]
+	FROM Produkt AS P
+	LEFT JOIN Sklad_produkt_material AS SPM ON SPM.ID_produkt = P.ID_produkt
+	LEFT JOIN Material AS M ON M.ID_material = SPM.ID_material
+	INNER JOIN Sklad_produkt AS SP ON SP.ID_produkt = P.ID_produkt
+	INNER JOIN Slownik_polprodukt AS SLPP ON SLPP.ID_polprodukt = SP.ID_polprodukt
+	INNER JOIN Sklad_polprodukt AS SPP ON SPP.ID_polprodukt = SLPP.ID_polprodukt
+	INNER JOIN v_Srednia_cena_za_material ON v_Srednia_cena_za_material.ID_material = SPP.ID_material
+GO
+
+CREATE VIEW v_Koszt_material_polprodukt_sztuka_suma AS
+	SELECT v_Koszt_material_polprodukt_sztuka.ID_produkt, SUM(v_Koszt_material_polprodukt_sztuka.[Kwota material na półprodukt]) AS [Suma koszt material na półprodukt]
+	FROM v_Koszt_material_polprodukt_sztuka
+	GROUP BY v_Koszt_material_polprodukt_sztuka.ID_produkt
+GO
+
+CREATE VIEW v_Koszt_material_sztuka_suma AS
+	SELECT Produkt.ID_produkt, ROUND(SUM(v_Koszt_material_polprodukt_sztuka_suma.[Suma koszt material na półprodukt]+v_Koszt_material_produkt_sztuka_suma.[Suma koszt material na produkt]),0) AS [Suma koszt materiał]
+	FROM Produkt
+	INNER JOIN v_Koszt_material_polprodukt_sztuka_suma ON v_Koszt_material_polprodukt_sztuka_suma.ID_produkt = Produkt.ID_produkt
+	INNER JOIN v_Koszt_material_produkt_sztuka_suma ON v_Koszt_material_produkt_sztuka_suma.ID_produkt = Produkt.ID_produkt
+	GROUP BY Produkt.ID_produkt
+GO
+
+CREATE VIEW v_Alert_handel_marketing AS
+	SELECT Alert.ID_alert, Alert.ID_dzial, Alert.Tresc, 
+	CASE 
+		WHEN Alert.Czy_odczytano = 1 THEN 'TAK'
+		WHEN ALERT.Czy_odczytano = 0 THEN 'NIE'
+	END AS [Czy odczytano]
+	FROM Alert
+	WHERE Alert.ID_dzial = 2
+GO
+
+CREATE VIEW v_Zamowione_produkty AS
+	SELECT Zamowienie_szczegol.ID_zamowienie_szczegol, Zamowienie.ID_zamowienie, Produkt.ID_produkt
+	FROM Zamowienie_szczegol
+	INNER JOIN Produkt ON Produkt.ID_produkt = Zamowienie_szczegol.ID_produkt
+	INNER JOIN Zamowienie ON Zamowienie.ID_zamowienie = Zamowienie_szczegol.ID_zamowienie
+GO
+
+CREATE VIEW v_Czas_drukowanie_produktow_do_zamowien AS
+	SELECT DISTINCT v_Zamowione_produkty.ID_zamowienie, v_Sumaryczny_czas_wytwarzania_produktu.Czas, Zamowienie_szczegol.Ilosc,v_Sumaryczny_czas_wytwarzania_produktu.Czas*Zamowienie_szczegol.Ilosc AS [Łączny czas]
+	FROM Zamowienie_szczegol
+	INNER JOIN v_Zamowione_produkty on v_Zamowione_produkty.ID_zamowienie = Zamowienie_szczegol.ID_zamowienie
+	INNER JOIN v_Sumaryczny_czas_wytwarzania_produktu on v_Sumaryczny_czas_wytwarzania_produktu.ID_produkt = Zamowienie_szczegol.ID_produkt
+GO
+
+CREATE VIEW v_Szacowany_czas_realizacji_zamowienia AS
+	SELECT v_Czas_drukowanie_produktow_do_zamowien.ID_zamowienie, (SUM(v_Czas_drukowanie_produktow_do_zamowien.[Łączny czas])/60)/24 AS [Szacowany czas realizacji]
+	FROM v_Czas_drukowanie_produktow_do_zamowien
+	GROUP BY v_Czas_drukowanie_produktow_do_zamowien.ID_zamowienie
+GO
+
+CREATE VIEW v_Szacowany_koszt_maszyn_do_zamowienia AS
+	SELECT v_Szacowany_czas_realizacji_zamowienia.ID_zamowienie, 
+		CASE 
+			WHEN v_Szacowany_czas_realizacji_zamowienia.[Szacowany czas realizacji] = 0 THEN 1
+			ELSE v_Szacowany_czas_realizacji_zamowienia.[Szacowany czas realizacji]
+		END * 24 * (SELECT ROUND(AVG(Maszyna.Koszt_RBG),0) AS [Średni koszt RBG] FROM Maszyna) AS [Średnia]
+	FROM v_Szacowany_czas_realizacji_zamowienia
+GO
+
+CREATE VIEW v_Szacowany_koszt_pracownik_do_zamowienia AS
+	SELECT v_Szacowany_czas_realizacji_zamowienia.ID_zamowienie, 
+		CASE 
+			WHEN v_Szacowany_czas_realizacji_zamowienia.[Szacowany czas realizacji] = 0 THEN 1
+			ELSE v_Szacowany_czas_realizacji_zamowienia.[Szacowany czas realizacji]
+		END * 24 * (SELECT (AVG(Umowa.Wynagrodzenie)/160) AS [Stawka godzina pracownik] 
+					FROM Umowa
+					INNER JOIN Posada_pracownika ON Posada_pracownika.ID_posada_pracownika = Umowa.ID_posada_pracownika
+					INNER JOIN Etat ON Etat.ID_etat = Posada_pracownika.ID_etat
+					WHERE Etat.ID_dzial = 3) AS [Średnia]
+	FROM v_Szacowany_czas_realizacji_zamowienia
+GO
+
+CREATE VIEW v_Zamowienia_bez_umowy AS
+	SELECT Zamowienie.ID_zamowienie 
+	FROM Zamowienie
+	EXCEPT
+	SELECT Zamowienie.ID_zamowienie 
+	FROM Zamowienie
+	INNER JOIN Oferta_handlowa ON Zamowienie.ID_zamowienie = Oferta_handlowa.ID_zamowienie
+	INNER JOIN Umowa_sprzedaz ON Oferta_handlowa.ID_oferta_handlowa = Umowa_sprzedaz.ID_oferta_handlowa
 GO
 
 	--HR DEPARTMENT --

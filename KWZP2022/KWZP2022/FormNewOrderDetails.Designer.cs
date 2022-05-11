@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewOrderDetails));
             this.btnClose = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBoxProduct = new System.Windows.Forms.ComboBox();
@@ -65,6 +64,7 @@
             // 
             // comboBoxProduct
             // 
+            this.comboBoxProduct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxProduct.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.comboBoxProduct.FormattingEnabled = true;
             this.comboBoxProduct.Location = new System.Drawing.Point(21, 39);
@@ -127,7 +127,7 @@
             // FormNewOrderDetails
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
             this.ClientSize = new System.Drawing.Size(794, 491);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnNewOrder);

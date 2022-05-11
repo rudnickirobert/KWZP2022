@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSalesDepartmentClientModifyClient));
             this.cbEmailDate2 = new System.Windows.Forms.CheckBox();
             this.cbTelDate2 = new System.Windows.Forms.CheckBox();
             this.dtpTelDate2 = new System.Windows.Forms.DateTimePicker();
@@ -412,7 +411,7 @@
             // FormSalesDepartmentClientModifyClient
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
             this.ClientSize = new System.Drawing.Size(794, 491);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);

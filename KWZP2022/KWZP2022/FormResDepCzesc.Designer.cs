@@ -40,6 +40,7 @@
             this.lblRodzajCzesc = new System.Windows.Forms.Label();
             this.btnDodajParametr = new System.Windows.Forms.Button();
             this.lblPodpisWidoku = new System.Windows.Forms.Label();
+            this.btnDodajRodzaj = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCzesc)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,7 +126,7 @@
             this.lblNazwaCzesc.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblNazwaCzesc.Location = new System.Drawing.Point(39, 32);
             this.lblNazwaCzesc.Name = "lblNazwaCzesc";
-            this.lblNazwaCzesc.Size = new System.Drawing.Size(180, 32);
+            this.lblNazwaCzesc.Size = new System.Drawing.Size(179, 32);
             this.lblNazwaCzesc.TabIndex = 12;
             this.lblNazwaCzesc.Text = "Nazwa części";
             // 
@@ -136,7 +137,7 @@
             this.lblRodzajCzesc.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblRodzajCzesc.Location = new System.Drawing.Point(39, 108);
             this.lblRodzajCzesc.Name = "lblRodzajCzesc";
-            this.lblRodzajCzesc.Size = new System.Drawing.Size(183, 32);
+            this.lblRodzajCzesc.Size = new System.Drawing.Size(182, 32);
             this.lblRodzajCzesc.TabIndex = 11;
             this.lblRodzajCzesc.Text = "Rodzaj części";
             // 
@@ -163,11 +164,24 @@
             this.lblPodpisWidoku.TabIndex = 33;
             this.lblPodpisWidoku.Text = "Części";
             // 
+            // btnDodajRodzaj
+            // 
+            this.btnDodajRodzaj.BackColor = System.Drawing.Color.Yellow;
+            this.btnDodajRodzaj.Font = new System.Drawing.Font("Arial", 15F);
+            this.btnDodajRodzaj.Location = new System.Drawing.Point(538, 108);
+            this.btnDodajRodzaj.Name = "btnDodajRodzaj";
+            this.btnDodajRodzaj.Size = new System.Drawing.Size(224, 37);
+            this.btnDodajRodzaj.TabIndex = 57;
+            this.btnDodajRodzaj.Text = "Dodaj nowy rodzaj";
+            this.btnDodajRodzaj.UseVisualStyleBackColor = false;
+            this.btnDodajRodzaj.Click += new System.EventHandler(this.btnDodajRodzaj_Click);
+            // 
             // FormResDepCzesc
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 498);
+            this.Controls.Add(this.btnDodajRodzaj);
             this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnDodajParametr);
             this.Controls.Add(this.cmbRodzajCzesc);
@@ -204,5 +218,6 @@
         private System.Windows.Forms.Label lblRodzajCzesc;
         private System.Windows.Forms.Button btnDodajParametr;
         private System.Windows.Forms.Label lblPodpisWidoku;
+        private System.Windows.Forms.Button btnDodajRodzaj;
     }
 }

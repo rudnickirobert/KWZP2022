@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSalesDepartmentClient));
             this.btnRefresh = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxNIP = new System.Windows.Forms.TextBox();
@@ -291,7 +290,7 @@
             // FormSalesDepartmentClient
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background;
             this.ClientSize = new System.Drawing.Size(1264, 711);
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.btnRemove);

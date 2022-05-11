@@ -14,6 +14,7 @@ namespace KWZP2022
     
     public partial class v_Potrzebne_materialy
     {
+        public int ID_zamowienie { get; set; }
         public int ID_produkt { get; set; }
         public int ID_material { get; set; }
         public Nullable<int> Masa_materiału { get; set; }

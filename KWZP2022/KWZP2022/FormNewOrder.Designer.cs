@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNewOrder));
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAddNewClient = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -106,6 +105,7 @@
             // 
             // comboBoxEmployee
             // 
+            this.comboBoxEmployee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxEmployee.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.comboBoxEmployee.FormattingEnabled = true;
             this.comboBoxEmployee.Location = new System.Drawing.Point(24, 43);
@@ -146,6 +146,7 @@
             // 
             // comboBoxOrderType
             // 
+            this.comboBoxOrderType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxOrderType.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.comboBoxOrderType.FormattingEnabled = true;
             this.comboBoxOrderType.Location = new System.Drawing.Point(294, 43);
@@ -236,7 +237,7 @@
             // FormNewOrder
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
             this.ClientSize = new System.Drawing.Size(794, 491);
             this.Controls.Add(this.btnCommercialOffer);
             this.Controls.Add(this.btnNewOrderDetails);

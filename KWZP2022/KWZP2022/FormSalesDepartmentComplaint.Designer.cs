@@ -29,7 +29,6 @@ namespace KWZP2022
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSalesDepartmentComplaint));
             this.btnAddReturn = new System.Windows.Forms.Button();
             this.dgvComplaint = new System.Windows.Forms.DataGridView();
             this.btnClose = new System.Windows.Forms.Button();
@@ -213,7 +212,7 @@ namespace KWZP2022
             // FormSalesDepartmentComplaint
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
             this.ClientSize = new System.Drawing.Size(794, 491);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
