@@ -387,7 +387,7 @@ CREATE VIEW v_Proces_wytwarzanie_polprodukt_ewidencja
 AS
 SELECT W.ID_wytwarzanie AS [ID], P.Nazwa AS [Półprodukt], CP.Nazwa AS [Czynność produkcyjna], Pr.ID_pracownik, Pr.Nazwisko + ' ' + Pr.Imie AS [Pracownik],
 SST.Nazwa_stanowiska AS [Stanowisko], PPPC.Czas_trwania AS [Szacowany czas {min}],
-W.Czas_od AS [Data rozpoczęcia], W.Czas_do AS [Data zakończenia], ISNULL(DATEDIFF(HOUR, W.Czas_od,W.Czas_do),0) AS [Czas pracy]
+W.Czas_od AS [Data rozpoczęcia], W.Czas_do AS [Data zakończenia], ISNULL(DATEDIFF(MINUTE, W.Czas_od,W.Czas_do),0) AS [Czas pracy]
 FROM Proces_wytwarzanie_polprodukt AS PWPP
 INNER JOIN Wytwarzanie AS W ON PWPP.ID_wytwarzanie = W.ID_wytwarzanie
 INNER JOIN Proces_polprodukt_czynnosc AS PPPC ON PWPP.ID_proces_polprodukt = PPPC.ID_proces_polprodukt
@@ -473,7 +473,7 @@ CREATE VIEW v_Proces_wytwarzanie_produkt_ewidencja
 AS
 SELECT W.ID_wytwarzanie AS [ID], P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynność produkcyjna],Pr.ID_pracownik, Pr.Nazwisko + ' ' + Pr.Imie AS [Pracownik],
 SST.Nazwa_stanowiska AS [Stanowisko], PPPC.Czas_trwania AS [Szacowany czas {min}],
-W.Czas_od AS [Data rozpoczęcia], W.Czas_do AS [Data zakończenia], ISNULL(DATEDIFF(HOUR, W.Czas_od,W.Czas_do),0) AS [Czas pracy]
+W.Czas_od AS [Data rozpoczęcia], W.Czas_do AS [Data zakończenia], ISNULL(DATEDIFF(MINUTE, W.Czas_od,W.Czas_do),0) AS [Czas pracy]
 FROM Proces_wytwarzanie_produkt AS PWP
 INNER JOIN Wytwarzanie AS W ON PWP.ID_wytwarzanie = W.ID_wytwarzanie
 INNER JOIN Proces_produkt_czynnosc AS PPPC ON PWP.ID_proces_produkt = PPPC.ID_proces_produkt

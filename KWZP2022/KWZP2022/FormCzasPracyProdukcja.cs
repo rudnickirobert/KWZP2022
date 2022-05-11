@@ -41,7 +41,7 @@ namespace KWZP2022
             int produktSum = dgvWytwarzanieProdukt.Rows.Cast<DataGridViewRow>()
                 .Sum(t => Convert.ToInt32(t.Cells[9].Value));
 
-            int finalSum = polproduktSum + produktSum;
+            decimal finalSum = Math.Round((Convert.ToDecimal(polproduktSum + produktSum))/60,2);
             lblSum.Text = finalSum.ToString() + ' ' + 'h';
         }
 

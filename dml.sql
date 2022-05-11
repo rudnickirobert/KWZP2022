@@ -480,11 +480,11 @@ VALUES
 
 INSERT INTO Maszyna (Nazwa_maszyna, ID_rodzaj_maszyna, Koszt_RBG)
 VALUES
-('PRUSA i3 MK3S+',1,40),
+('PRUSA i3 MK3S+',1,25),
 ('Shining 3D EinScan SE',4,20),
-('Sinterit Lisa 2 Pro',3,150),
-('Anycubic Photon Mono X',2,50),
-('Creality Ender-5 Pro',1,70),
+('Sinterit Lisa 2 Pro',3,27),
+('Anycubic Photon Mono X',2,35),
+('Creality Ender-5 Pro',1,32),
 ('Macbook PRO M1',6,5),
 ('Szlifierka Fiberfox',7,30);
 

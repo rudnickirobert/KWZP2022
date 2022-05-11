@@ -197,6 +197,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormKontrolaJakosciGauss";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Rozkład Normalny";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdukt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParametr)).EndInit();
