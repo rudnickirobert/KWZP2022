@@ -104,6 +104,12 @@
     <Compile Include="FormKontrolaJakosciGauss.Designer.cs">
       <DependentUpon>FormKontrolaJakosciGauss.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormProdukcjaAlert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProdukcjaAlert.Designer.cs">
+      <DependentUpon>FormProdukcjaAlert.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormResDepDodajCzesc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -864,13 +870,13 @@
     <Compile Include="Umowa_sprzedaz.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Aktualny_stan_magazyn.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Alerty_ProductionDepartment.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Alerty_ProductionDepartment_nieodczytane.cs">
-      <DependentUpon>KWZPModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="v_Aktualny_stan_magazyn.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Alerty_ResorceDepartment_nieodczytane.cs">
@@ -883,6 +889,9 @@
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Brakujacy_material.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Calkowity_koszt_zamowienia.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Czas_drukowanie_produktow_do_zamowien.cs">
@@ -1395,6 +1404,12 @@
     <Compile Include="v_Zamowienia_materialy_w_trakcie_wszystko.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Zamowienia_material_status_zamowiono.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Zamowienia_material_status_zamowiono_zmiana_daty.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Zamowienia_narzedzia_status_zamowiono.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -1466,6 +1481,9 @@
     </Compile>
     <EmbeddedResource Include="FormKontrolaJakosciGauss.resx">
       <DependentUpon>FormKontrolaJakosciGauss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProdukcjaAlert.resx">
+      <DependentUpon>FormProdukcjaAlert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormResDepDodajCzesc.resx">
       <DependentUpon>FormResDepDodajCzesc.cs</DependentUpon>

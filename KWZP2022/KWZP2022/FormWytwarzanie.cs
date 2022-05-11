@@ -110,6 +110,7 @@ namespace KWZP2022
         {
             txtSzukanyProduktID.Text = dgvZamowienieSzczegol.CurrentRow.Cells[1].Value.ToString();
             txtSzukanyProduktNazwa.Text = dgvZamowienieSzczegol.CurrentRow.Cells[2].Value.ToString();
+            txtGenerowanaIlosc.Text = dgvZamowienieSzczegol.CurrentRow.Cells[3].Value.ToString();
         }
 
         private void btnAkceptuj_Click(object sender, EventArgs e)
@@ -230,18 +231,16 @@ namespace KWZP2022
         {
             int iloscWytwarzanieProdukt = 0;
             int iloscWytwarzaniePolprodukt = 0;
-            DateTime dateTimeNow = dtpDataDo.Value.Date + dtpCzasDo.Value.TimeOfDay;
+            DateTime dateTimeNow = dtpDataOd.Value.Date + dtpCzasOd.Value.TimeOfDay;
 
             if (dgvZamowienieSzczegol.DataSource != null && dgvProcesPolprodukt.DataSource != null)
             {
-                int iloscProduktZamowienie = int.Parse(dgvZamowienieSzczegol.CurrentRow.Cells[3].Value.ToString());
+                int iloscProduktZamowienie = int.Parse(txtGenerowanaIlosc.Text);
                 int iloscWierszyDgvPolprodut = int.Parse(dgvProcesPolprodukt.RowCount.ToString());
                 int obecnyProdukt = int.Parse(txtSzukanyProduktID.Text);
 
                 for (int i = 0; i <= iloscWierszyDgvPolprodut - 1; i++)
                 {
-                    
-                    
                     int obecnyPolprodukt = int.Parse(dgvProcesPolprodukt.Rows[i].Cells[0].Value.ToString());
                     List<v_Sklad_produkt> skladProdukt = db.v_Sklad_produkt.Where(a => a.ID_produkt == obecnyProdukt && a.ID_polprodukt == obecnyPolprodukt).ToList();
                     dgvCurrentPolprodukt.DataSource = skladProdukt;
@@ -317,7 +316,6 @@ namespace KWZP2022
                 MessageBox.Show("Uzupełnij brakujące informacje!");
             }
         }
-
     }
 }
         
