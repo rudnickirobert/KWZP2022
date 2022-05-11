@@ -412,6 +412,7 @@
         <AssociationConnector Association="KWZPModel.FK__Wytwarzan__ID_za__3587F3E0" ManuallyRouted="false" />
         <AssociationConnector Association="KWZPModel.FK__Zamowieni__ID_za__2739D489" ManuallyRouted="false" />
         <AssociationConnector Association="KWZPModel.Obsluga_pracownik" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="KWZPModel.v_Obslugi_zakonczone_suma" Width="1.5" PointX="33.375" PointY="42.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="KWZPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="KWZPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Alert">
           <Key>
             <PropertyRef Name="ID_alert" />
@@ -1909,6 +1909,17 @@ warning 6002: The table/view 'KWZP.dbo.v_Obslugi_zakonczone' does not have a pri
           <Property Name="Data zakończenia" Type="datetime" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Obslugi_zakonczone_suma' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Obslugi_zakonczone_suma">
+          <Key>
+            <PropertyRef Name="Nr stanowiska" />
+            <PropertyRef Name="Obsługa" />
+          </Key>
+          <Property Name="Nr stanowiska" Type="int" Nullable="false" />
+          <Property Name="Obsługa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ilość" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Oferta_handlowa' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Oferta_handlowa">
           <Key>
@@ -3161,12 +3172,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_czesc_status_zamowiono_zmian
           <Property Name="Cena" Type="decimal" Precision="15" Scale="2" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'KWZP.dbo.v_Zamowienia_czesci_koszt' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="v_Zamowienia_czesci_koszt">
-          <Property Name="Data miesiac" Type="varchar" MaxLength="7" />
-          <Property Name="Łączna cena" Type="decimal" Precision="38" Scale="2" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_czesci_w_trakcie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Zamowienia_czesci_w_trakcie">
           <Key>
@@ -3449,12 +3454,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_materialy_w_trakcie_wszystko
           <Property Name="StatusID" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_koszt' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="v_Zamowienia_narzedzia_koszt">
-          <Property Name="Data miesiac" Type="varchar" MaxLength="7" />
-          <Property Name="Łączna cena" Type="decimal" Precision="38" Scale="2" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Zamowienia_narzedzia_status_zamowiono' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Zamowienia_narzedzia_status_zamowiono">
           <Key>
@@ -3640,12 +3639,6 @@ warning 6002: The table/view 'KWZP.dbo.v_Zarobek_miesiac_suma' does not have a p
           <Property Name="Miesiąc" Type="nvarchar" MaxLength="7" />
           <Property Name="Zarobek na miesiąc" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="v_Zarobek_sprzedaz_miesiac">
-          <Property Name="Miesiąc" Type="nvarchar" MaxLength="7" />
-          <Property Name="Zarobek z miesiąca" Type="decimal" Precision="38" Scale="6" />
-        </EntityType>-->
         <Association Name="FK__Alert__ID_dzial__43A1090D">
           <End Role="Dzial" Type="Self.Dzial" Multiplicity="1" />
           <End Role="Alert" Type="Self.Alert" Multiplicity="*" />
@@ -5917,6 +5910,13 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
     [v_Obslugi_zakonczone].[Data zakończenia] AS [Data zakończenia]
     FROM [dbo].[v_Obslugi_zakonczone] AS [v_Obslugi_zakonczone]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_Obslugi_zakonczone_suma" EntityType="Self.v_Obslugi_zakonczone_suma" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Obslugi_zakonczone_suma].[Nr stanowiska] AS [Nr stanowiska], 
+    [v_Obslugi_zakonczone_suma].[Obsługa] AS [Obsługa], 
+    [v_Obslugi_zakonczone_suma].[Ilość] AS [Ilość]
+    FROM [dbo].[v_Obslugi_zakonczone_suma] AS [v_Obslugi_zakonczone_suma]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_Oferta_handlowa" EntityType="Self.v_Oferta_handlowa" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Oferta_handlowa].[Numer zamówienia] AS [Numer zamówienia], 
@@ -7399,8 +7399,7 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
             <End Role="Zwrot" EntitySet="Zwrot" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KWZPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -13136,7 +13135,17 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
             <End Role="Obsluga" EntitySet="Obsluga" />
             <End Role="Pracownik" EntitySet="Pracownik" />
           </AssociationSet>
+          <EntitySet Name="v_Obslugi_zakonczone_suma" EntityType="KWZPModel.v_Obslugi_zakonczone_suma" />
         </EntityContainer>
+        <EntityType Name="v_Obslugi_zakonczone_suma">
+          <Key>
+            <PropertyRef Name="Nr_stanowiska" />
+            <PropertyRef Name="Obsługa" />
+          </Key>
+          <Property Name="Nr_stanowiska" Type="Int32" Nullable="false" />
+          <Property Name="Obsługa" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ilość" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -16064,6 +16073,15 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
               <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="v_Obslugi_zakonczone_suma">
+            <EntityTypeMapping TypeName="KWZPModel.v_Obslugi_zakonczone_suma">
+              <MappingFragment StoreEntitySet="v_Obslugi_zakonczone_suma">
+                <ScalarProperty Name="Ilość" ColumnName="Ilość" />
+                <ScalarProperty Name="Obsługa" ColumnName="Obsługa" />
+                <ScalarProperty Name="Nr_stanowiska" ColumnName="Nr stanowiska" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

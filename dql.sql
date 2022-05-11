@@ -725,6 +725,13 @@ INNER JOIN Stanowisko_produkcyjne AS SP ON O.ID_stanowisko_produkcyjne = SP.ID_s
 WHERE Data_do IS NOT NULL AND GETDATE() > Data_do
 GO
 
+CREATE VIEW v_Obslugi_zakonczone_suma 
+AS
+SELECT [Nr stanowiska], [Obsługa], COUNT(Obsługa) AS [Ilość]
+FROM v_Obslugi_zakonczone
+GROUP BY [Nr stanowiska], [Obsługa]
+GO
+
 CREATE VIEW v_Obslugi_w_trakcie
 AS
 SELECT ID_obsluga AS [ID], SP.ID_stanowisko_produkcyjne AS [Nr stanowiska], RO.Nazwa_rodzaj_obsluga AS [Obsługa], Data_od AS [Data rozpoczęcia], Data_do AS [Data zakończenia]
