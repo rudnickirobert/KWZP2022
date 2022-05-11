@@ -14,13 +14,14 @@ namespace KWZP2022
     
     public partial class v_Sprzedaz
     {
-        public int Numer_sprzedaży { get; set; }
+        public int Nr_sprzedaz { get; set; }
+        public int ID_umowa_sprzedaz { get; set; }
         public string Nazwisko_klienta { get; set; }
         public string Imię_klienta { get; set; }
         public string NIP { get; set; }
-        public System.DateTime Data_początku_sprzedaży { get; set; }
-        public System.DateTime Data_końca_sprzedaży { get; set; }
-        public int Umowa { get; set; }
-        public Nullable<int> Koszt { get; set; }
+        public System.DateTime Data_sprzedaz_poczatek { get; set; }
+        public System.DateTime Data_sprzedaz_koniec { get; set; }
+        public string Nazwa_produkt { get; set; }
+        public Nullable<int> Kwota { get; set; }
     }
 }

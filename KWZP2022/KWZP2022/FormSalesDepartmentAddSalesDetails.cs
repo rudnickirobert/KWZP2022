@@ -103,7 +103,7 @@ namespace KWZP2022
         {
             int selectedNoSale = int.Parse(comboBoxNoSale.SelectedValue.ToString());
             string selectedProduct = comboBoxProduct.SelectedValue.ToString();
-            v_Dodaj_szczegol_sprzedaz selectedRow = this.db.v_Dodaj_szczegol_sprzedaz.Single(a => (a.Produkt == selectedProduct && a.Numer_sprzedaży == selectedNoSale));
+            v_Dodaj_szczegol_sprzedaz selectedRow = this.db.v_Dodaj_szczegol_sprzedaz.Where(a => (a.Produkt == selectedProduct && a.Numer_sprzedaży == selectedNoSale)).First();
             textBoxAmount.Text = selectedRow.Ilość.ToString();
         }
         private void textBoxNoTelData()
@@ -121,7 +121,8 @@ namespace KWZP2022
                     int selectedNoSale = int.Parse(comboBoxNoSale.SelectedValue.ToString());
                     string selectedProduct = comboBoxProduct.SelectedValue.ToString();
                     Produkt selectedProductFromTableProduct = this.db.Produkt.Single(a => a.Nazwa_produkt == selectedProduct);
-                    List<Szczegoly_sprzedaz> selectedRow = this.db.Szczegoly_sprzedaz.Where(a => (a.ID_produkt == selectedProductFromTableProduct.ID_produkt && a.ID_sprzedaz == selectedNoSale)).ToList();
+                    int selectedTax = int.Parse(comboBoxTax.SelectedValue.ToString());
+                    List<Szczegoly_sprzedaz> selectedRow = this.db.Szczegoly_sprzedaz.Where(a => (a.ID_produkt == selectedProductFromTableProduct.ID_produkt && a.ID_sprzedaz == selectedNoSale && a.ID_podatek == selectedTax)).ToList();
                     if (selectedRow.Count() < 1)
                     {
                         Szczegoly_sprzedaz newSaleDetails = new Szczegoly_sprzedaz();

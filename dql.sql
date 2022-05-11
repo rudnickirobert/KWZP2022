@@ -1265,17 +1265,16 @@ INNER JOIN Produkt ON Produkt.ID_produkt = Szczegoly_sprzedaz.ID_produkt
 GO
 
 CREATE VIEW v_Sprzedaz AS
-SELECT Sprzedaz.Nr_sprzedaz AS [Numer sprzedaży], Klient.Nazwisko AS [Nazwisko klienta], Klient.Imie AS [Imię klienta], Klient.NIP,
-		Sprzedaz.Data_sprzedaz_poczatek AS [Data początku sprzedaży], Sprzedaz.Data_sprzedaz_koniec AS [Data końca sprzedaży],
-		Umowa_sprzedaz.ID_umowa_sprzedaz AS [Umowa], (Szczegoly_sprzedaz.Ilosc * Szczegoly_sprzedaz.Kwota_sprzedaz) AS [Koszt]
+SELECT Sprzedaz.Nr_sprzedaz, Umowa_sprzedaz.ID_umowa_sprzedaz, Klient.Nazwisko AS [Nazwisko klienta], Klient.Imie AS [Imię klienta], Klient.NIP,
+		Sprzedaz.Data_sprzedaz_poczatek, Sprzedaz.Data_sprzedaz_koniec, Produkt.Nazwa_produkt,
+		 (Szczegoly_sprzedaz.Ilosc * Szczegoly_sprzedaz.Kwota_sprzedaz) AS Kwota
 FROM Sprzedaz
-INNER JOIN 
-(Umowa_sprzedaz INNER JOIN 
-(Oferta_handlowa INNER JOIN 
-(Klient INNER JOIN Zamowienie ON Klient.ID_klient = Zamowienie.ID_klient) 
-ON Oferta_handlowa.ID_zamowienie = Zamowienie.ID_zamowienie) 
-ON Umowa_sprzedaz.ID_oferta_handlowa = Oferta_handlowa.ID_oferta_handlowa) ON Umowa_sprzedaz.ID_umowa_sprzedaz = Sprzedaz.ID_umowa_sprzedaz
-INNER JOIN Szczegoly_sprzedaz ON Szczegoly_sprzedaz.ID_sprzedaz = Sprzedaz.ID_sprzedaz
+INNER JOIN Szczegoly_sprzedaz ON Sprzedaz.ID_sprzedaz = Szczegoly_sprzedaz.ID_sprzedaz
+INNER JOIN Umowa_sprzedaz ON Sprzedaz.ID_umowa_sprzedaz = Umowa_sprzedaz.ID_umowa_sprzedaz
+INNER JOIN Oferta_handlowa ON Umowa_sprzedaz.ID_oferta_handlowa = Oferta_handlowa.ID_oferta_handlowa
+INNER JOIN Zamowienie ON Oferta_handlowa.ID_zamowienie = Zamowienie.ID_zamowienie
+INNER JOIN Klient ON Zamowienie.ID_klient = Klient.ID_klient
+INNER JOIN Produkt ON Szczegoly_sprzedaz.ID_produkt = Produkt.ID_produkt
 GO
 
 CREATE VIEW v_Oferta_handlowa AS
