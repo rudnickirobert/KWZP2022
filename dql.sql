@@ -1695,6 +1695,15 @@ CREATE VIEW v_Zamowienia_bez_umowy AS
 	INNER JOIN Umowa_sprzedaz ON Oferta_handlowa.ID_oferta_handlowa = Umowa_sprzedaz.ID_oferta_handlowa
 GO
 
+CREATE VIEW v_Szczegol_sprzedaz AS
+	SELECT SS.ID_szczegoly_sprzedaz, S.Nr_sprzedaz,SS.ID_produkt,P.Nazwa_produkt, 
+		SS.ID_sprzedaz, SS.Ilosc, SS.ID_podatek, PD.Procent,SS.Kwota_sprzedaz
+	FROM Szczegoly_sprzedaz AS SS
+	INNER JOIN Sprzedaz AS S ON SS.ID_sprzedaz = S.ID_sprzedaz
+	INNER JOIN Podatek AS PD ON SS.ID_podatek = PD.ID_podatek
+	INNER JOIN Produkt AS P ON SS.ID_produkt = P.ID_produkt
+GO
+
 	--HR DEPARTMENT --
 CREATE VIEW v_Pracownik
 AS
