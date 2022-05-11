@@ -117,9 +117,12 @@ namespace KWZP2022
         public virtual DbSet<Zwrot> Zwrot { get; set; }
         public virtual DbSet<v_Aktualny_stan_magazyn> v_Aktualny_stan_magazyn { get; set; }
         public virtual DbSet<v_Alert_handel_marketing> v_Alert_handel_marketing { get; set; }
+        public virtual DbSet<v_Alerty_ProductionDepartment> v_Alerty_ProductionDepartment { get; set; }
+        public virtual DbSet<v_Alerty_ProductionDepartment_nieodczytane> v_Alerty_ProductionDepartment_nieodczytane { get; set; }
         public virtual DbSet<v_Alerty_ResorceDepartment_nieodczytane> v_Alerty_ResorceDepartment_nieodczytane { get; set; }
         public virtual DbSet<v_Alerty_ResourceDepartment> v_Alerty_ResourceDepartment { get; set; }
         public virtual DbSet<v_Brakujacy_material> v_Brakujacy_material { get; set; }
+        public virtual DbSet<v_Calkowity_koszt_zamowienia> v_Calkowity_koszt_zamowienia { get; set; }
         public virtual DbSet<v_Czas_drukowanie_produktow_do_zamowien> v_Czas_drukowanie_produktow_do_zamowien { get; set; }
         public virtual DbSet<v_Czas_wytwarzanie_polprodukt> v_Czas_wytwarzanie_polprodukt { get; set; }
         public virtual DbSet<v_Czas_wytwarzanie_produkt> v_Czas_wytwarzanie_produkt { get; set; }
@@ -287,6 +290,8 @@ namespace KWZP2022
         public virtual DbSet<v_Zamowienia_maszyny_w_trakcie> v_Zamowienia_maszyny_w_trakcie { get; set; }
         public virtual DbSet<v_Zamowienia_maszyny_w_trakcie_bez_odebranych> v_Zamowienia_maszyny_w_trakcie_bez_odebranych { get; set; }
         public virtual DbSet<v_Zamowienia_maszyny_w_trakcie_wszystko> v_Zamowienia_maszyny_w_trakcie_wszystko { get; set; }
+        public virtual DbSet<v_Zamowienia_material_status_zamowiono> v_Zamowienia_material_status_zamowiono { get; set; }
+        public virtual DbSet<v_Zamowienia_material_status_zamowiono_zmiana_daty> v_Zamowienia_material_status_zamowiono_zmiana_daty { get; set; }
         public virtual DbSet<v_Zamowienia_materialy_w_trakcie> v_Zamowienia_materialy_w_trakcie { get; set; }
         public virtual DbSet<v_Zamowienia_materialy_w_trakcie_bez_odebranych> v_Zamowienia_materialy_w_trakcie_bez_odebranych { get; set; }
         public virtual DbSet<v_Zamowienia_materialy_w_trakcie_wszystko> v_Zamowienia_materialy_w_trakcie_wszystko { get; set; }

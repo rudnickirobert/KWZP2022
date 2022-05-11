@@ -502,6 +502,17 @@ INNER JOIN Zamowienie AS Z ON ZS.ID_zamowienie = Z.ID_zamowienie
 INNER JOIN v_Koszt_roboczogodziny_stanowiska AS KRGS ON SP.ID_stanowisko_produkcyjne = KRGS.[ID stanowiska produkcyjnego]
 GO
 
+CREATE VIEW v_Calkowity_koszt_zamowienia
+AS
+SELECT fs.ID_zamowienie, SUM(fs.Suma) AS Koszt FROM
+(SELECT ID_zamowienie, SUM(Koszt_procesu) AS Suma FROM v_Proces_wytwarzanie_produkt_koszt
+GROUP BY ID_zamowienie
+UNION
+SELECT ID_zamowienie, SUM(Koszt_procesu) AS Suma FROM v_Proces_wytwarzanie_polprodukt_koszt
+GROUP BY ID_zamowienie) AS fs
+GROUP BY fs.ID_zamowienie
+GO
+
 CREATE VIEW v_Wytworzone_produkty
 AS
 SELECT W.ID_wytwarzanie AS [ID], P.ID_produkt, P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynność produkcyjna], Pr.Nazwisko + ' ' + Pr.Imie AS [Pracownik],
@@ -557,6 +568,21 @@ INNER JOIN Maszyna AS M ON MNS.ID_maszyna = M.ID_maszyna
 INNER JOIN Nr_seryjny AS NS ON MNS.ID_nr_seryjny = NS.ID_nr_seryjny
 WHERE NS.Nr_seryjny NOT IN
 (SELECT [Nr seryjny maszyny] FROM v_Sklad_stanowisko_produkcyjne_maszyna);
+GO
+
+CREATE VIEW v_Alerty_ProductionDepartment
+AS
+SELECT Alert.ID_alert, Dzial.ID_dzial, Dzial.Nazwa_dzial, Alert.Tresc, Alert.Czy_odczytano 
+FROM Alert 
+INNER JOIN Dzial ON Alert.ID_dzial = Dzial.ID_dzial
+WHERE Alert.ID_dzial = 3 OR Alert.ID_dzial = 7
+GO
+
+CREATE VIEW v_Alerty_ProductionDepartment_nieodczytane
+AS
+SELECT * 
+FROM v_Alerty_ProductionDepartment 
+WHERE Czy_odczytano=0
 GO
 
 -----RESOURCE DEPARTMENT----
