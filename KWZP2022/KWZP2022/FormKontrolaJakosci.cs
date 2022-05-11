@@ -23,6 +23,8 @@ namespace KWZP2022
             initDataGridViewKontrolaJakosciParametr();
             initComboboxZamowienie();
             refreshScreen();
+            clearDgvs();
+            
         }
 
         private void refreshScreen()
@@ -41,6 +43,9 @@ namespace KWZP2022
             dgvvKontrolaJakosciKolejka.DataSource = 0;
             dgvvParametrProdukt.DataSource = 0;
             dgvRezultatKontroli.DataSource = 0;
+            txtNazwa.Text = "";
+            txtParametrProdukt.Text = "";
+            txtWartosc.Text = "";
         }
 
         private void btnAkceptuj_Click(object sender, EventArgs e)
@@ -68,7 +73,6 @@ namespace KWZP2022
         private void dgvvParametrProdukt_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             txtParametrProdukt.Text = this.dgvvParametrProdukt.CurrentRow.Cells[3].Value.ToString();
-            label13.Text = this.dgvvKontrolaJakosciKolejka.CurrentRow.Cells[0].Value.ToString();
         }
 
         private void initComboboxPracownik()
@@ -109,6 +113,7 @@ namespace KWZP2022
 
         private void initDataGridViewKontrolaPozytywna()
         {
+            dgvPozytywne.DataSource = 0;
             int wybraneZamowienie = int.Parse(cbZamowienie.SelectedValue.ToString());
             List<v_Kontrola_pozytywna> pozytywnaKontrola = db.v_Kontrola_pozytywna.Where(a => a.ID_zamowienie == wybraneZamowienie).ToList();
             dgvPozytywne.DataSource = pozytywnaKontrola;
@@ -158,7 +163,7 @@ namespace KWZP2022
 
                 Kontrola_parametr kontrolaParametr = new Kontrola_parametr();
                 int numRows = dgvvKontrolaProdukt.Rows.Count;
-                kontrolaParametr.ID_kontrola_jakosci_produkt = int.Parse(this.dgvvKontrolaProdukt.Rows[numRows - 1].Cells[0].Value.ToString());
+                kontrolaParametr.ID_kontrola_jakosci_produkt = int.Parse(this.dgvvKontrolaProdukt.Rows[numRows - 1].Cells[0].Value.ToString()) + 1;
                 kontrolaParametr.ID_parametr_produkt = int.Parse(this.dgvvParametrProdukt.CurrentRow.Cells[0].Value.ToString());
                 kontrolaParametr.Wartosc = decimal.Parse(txtWartosc.Text);
                 db.Kontrola_parametr.Add(kontrolaParametr);
@@ -167,6 +172,8 @@ namespace KWZP2022
                 refreshScreen();
             }      
             refreshScreen();
+            txtParametrProdukt.Text = "";
+            txtWartosc.Text = "";
         }
 
         private void dgvvKontrolaJakosciKolejka_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -206,6 +213,10 @@ namespace KWZP2022
                     int currentIdProdukt = int.Parse(dgvvKontrolaJakosciKolejka.Rows[i].Cells[1].Value.ToString());
                     List<v_Parametry_produkt> parametryProdukt = db.v_Parametry_produkt.Where(a => a.ID_produkt == currentIdProdukt).ToList();
                     dgvvParametrProdukt.DataSource = parametryProdukt;
+                    dgvvParametrProdukt.Columns["ID_parametr_produkt"].Visible = false;
+                    dgvvParametrProdukt.Columns["ID_produkt"].Visible = false;
+                    this.dgvvParametrProdukt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+
                     int iloscParametrow = int.Parse(dgvvParametrProdukt.RowCount.ToString());
                     iloscProduktowKontrola++;
 
@@ -221,14 +232,13 @@ namespace KWZP2022
                         db.Kontrola_jakosci_produkt.Add(kontrolaProdukt);
                         db.SaveChanges();
 
-                        
+                        this.db = new KWZPEntities();
 
                         Kontrola_parametr kontrolaParametr = new Kontrola_parametr();
                         int numRows = dgvvKontrolaProdukt.Rows.Count;
-                        kontrolaParametr.ID_kontrola_jakosci_produkt = int.Parse(this.dgvvKontrolaProdukt.Rows[numRows - 1].Cells[0].Value.ToString());
+                        kontrolaParametr.ID_kontrola_jakosci_produkt = int.Parse(this.dgvvKontrolaProdukt.Rows[numRows - 1].Cells[0].Value.ToString()) + 1;
                         kontrolaParametr.ID_parametr_produkt = int.Parse(this.dgvvParametrProdukt.Rows[j].Cells[0].Value.ToString());
 
-                        label13.Text = Convert.ToString(this.dgvvKontrolaJakosciKolejka.Rows[i].Cells[0].Value.ToString() + " " + this.dgvvKontrolaProdukt.Rows[numRows - 1].Cells[0].Value.ToString() + " " + this.dgvvParametrProdukt.Rows[j].Cells[0].Value.ToString());
 
                         Random rand = new Random();
                         double dolnyPrzedział = double.Parse(this.dgvvParametrProdukt.Rows[j].Cells[4].Value.ToString());
