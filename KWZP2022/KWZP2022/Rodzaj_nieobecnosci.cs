@@ -22,6 +22,7 @@ namespace KWZP2022
     
         public int ID_rodzaj_nieobecnosci { get; set; }
         public string Symbol { get; set; }
+        public Nullable<decimal> Wspolczynnik_wynagrodzenia { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Nieobecnosc> Nieobecnosc { get; set; }

@@ -150,5 +150,11 @@ namespace KWZP2022
             FormHRDepartmentWorkerContract formHRDepartmentWorkerContract = new FormHRDepartmentWorkerContract(db);
             formHRDepartmentWorkerContract.ShowDialog();
         }
+
+        private void btnSalary_Click(object sender, EventArgs e)
+        {
+            FormHRDepartmentSalary formHRDepartmentSalary = new FormHRDepartmentSalary(db);
+            formHRDepartmentSalary.ShowDialog();
+        }
     }
 }

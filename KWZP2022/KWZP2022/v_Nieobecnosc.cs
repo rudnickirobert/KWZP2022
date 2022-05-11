@@ -14,10 +14,14 @@ namespace KWZP2022
     
     public partial class v_Nieobecnosc
     {
+        public int ID_pracownik { get; set; }
         public string Nazwisko { get; set; }
         public string Imię { get; set; }
-        public string Rodzaj_nieobecności { get; set; }
+        public int ID_rodzaj_nieobecnosci { get; set; }
+        public string Rodzaj_nieobecnosci { get; set; }
         public System.DateTime Data_od_ { get; set; }
         public System.DateTime Data_do_ { get; set; }
+        public Nullable<int> Duration { get; set; }
+        public Nullable<int> Miesiac_nieobecnosci { get; set; }
     }
 }
