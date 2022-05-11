@@ -209,7 +209,7 @@ namespace KWZP2022
                     int iloscParametrow = int.Parse(dgvvParametrProdukt.RowCount.ToString());
                     iloscProduktowKontrola++;
 
-                    for (int j = 0; j <= iloscParametrow - 1; j++)
+                    for (int j = 0; j <= iloscParametrow-1; j++)
                     {
                         Kontrola_jakosci_produkt kontrolaProdukt = new Kontrola_jakosci_produkt();
                         kontrolaProdukt.ID_wytwarzanie = int.Parse(this.dgvvKontrolaJakosciKolejka.Rows[i].Cells[0].Value.ToString());
@@ -221,10 +221,14 @@ namespace KWZP2022
                         db.Kontrola_jakosci_produkt.Add(kontrolaProdukt);
                         db.SaveChanges();
 
+                        
+
                         Kontrola_parametr kontrolaParametr = new Kontrola_parametr();
                         int numRows = dgvvKontrolaProdukt.Rows.Count;
                         kontrolaParametr.ID_kontrola_jakosci_produkt = int.Parse(this.dgvvKontrolaProdukt.Rows[numRows - 1].Cells[0].Value.ToString());
                         kontrolaParametr.ID_parametr_produkt = int.Parse(this.dgvvParametrProdukt.Rows[j].Cells[0].Value.ToString());
+
+                        label13.Text = Convert.ToString(this.dgvvKontrolaJakosciKolejka.Rows[i].Cells[0].Value.ToString() + " " + this.dgvvKontrolaProdukt.Rows[numRows - 1].Cells[0].Value.ToString() + " " + this.dgvvParametrProdukt.Rows[j].Cells[0].Value.ToString());
 
                         Random rand = new Random();
                         double dolnyPrzedział = double.Parse(this.dgvvParametrProdukt.Rows[j].Cells[4].Value.ToString());
