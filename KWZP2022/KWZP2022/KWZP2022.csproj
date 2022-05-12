@@ -1392,6 +1392,9 @@
     <Compile Include="v_Wytwarzanie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Wytwarzanie_grupowane.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Wytworzone_polprodukty_material.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
