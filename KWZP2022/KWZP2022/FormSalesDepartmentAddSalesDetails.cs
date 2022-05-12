@@ -29,8 +29,20 @@ namespace KWZP2022
         private void showData()
         {
             this.db = new KWZPEntities();
-            this.dgvSalesDetails.DataSource = this.db.v_Zamowienie_szczegol.ToList();
+            this.dgvOrderDetails.DataSource = this.db.v_Zamowienie_szczegol.ToList();
+            this.dgvOrderDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSalesDetails.DataSource = this.db.v_Szczegol_sprzedaz.ToList();
+            this.dgvSalesDetails.Columns["ID_sprzedaz"].Visible = false;
+            this.dgvSalesDetails.Columns["ID_produkt"].Visible = false;
+            this.dgvSalesDetails.Columns["ID_podatek"].Visible = false;
+            this.dgvSalesDetails.Columns["ID_szczegoly_sprzedaz"].HeaderText = "Numer szczegółu";
+            this.dgvSalesDetails.Columns["Nr_sprzedaz"].HeaderText = "Numer sprzedaży";
+            this.dgvSalesDetails.Columns["Nazwa_produkt"].HeaderText = "Nazwa produktu";
+            this.dgvSalesDetails.Columns["Ilosc"].HeaderText = "Ilość sztuk";
+            this.dgvSalesDetails.Columns["Procent"].HeaderText = "Podatek [%]";
+            this.dgvSalesDetails.Columns["Kwota_sprzedaz"].HeaderText = "Cena za sztukę";
             this.dgvSalesDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+
         }
         private void comboBoxNoSaleData()
         {
@@ -91,7 +103,7 @@ namespace KWZP2022
         {
             int selectedNoSale = int.Parse(comboBoxNoSale.SelectedValue.ToString());
             string selectedProduct = comboBoxProduct.SelectedValue.ToString();
-            v_Dodaj_szczegol_sprzedaz selectedRow = this.db.v_Dodaj_szczegol_sprzedaz.Single(a => (a.Produkt == selectedProduct && a.Numer_sprzedaży == selectedNoSale));
+            v_Dodaj_szczegol_sprzedaz selectedRow = this.db.v_Dodaj_szczegol_sprzedaz.Where(a => (a.Produkt == selectedProduct && a.Numer_sprzedaży == selectedNoSale)).First();
             textBoxAmount.Text = selectedRow.Ilość.ToString();
         }
         private void textBoxNoTelData()
@@ -102,14 +114,15 @@ namespace KWZP2022
         }
         private void btnAddNewSale_Click(object sender, EventArgs e)
         {
-            if(textBoxAmount.Text.Length > 0 && textBoxAmount.Text.Length > 0)
+            if(textBoxAmount.Text.Length > 0 && textBoxPrice.Text.Length > 0)
             {
                 try
                 {
                     int selectedNoSale = int.Parse(comboBoxNoSale.SelectedValue.ToString());
                     string selectedProduct = comboBoxProduct.SelectedValue.ToString();
                     Produkt selectedProductFromTableProduct = this.db.Produkt.Single(a => a.Nazwa_produkt == selectedProduct);
-                    List<Szczegoly_sprzedaz> selectedRow = this.db.Szczegoly_sprzedaz.Where(a => (a.ID_produkt == selectedProductFromTableProduct.ID_produkt && a.ID_sprzedaz == selectedNoSale)).ToList();
+                    int selectedTax = int.Parse(comboBoxTax.SelectedValue.ToString());
+                    List<Szczegoly_sprzedaz> selectedRow = this.db.Szczegoly_sprzedaz.Where(a => (a.ID_produkt == selectedProductFromTableProduct.ID_produkt && a.ID_sprzedaz == selectedNoSale && a.ID_podatek == selectedTax)).ToList();
                     if (selectedRow.Count() < 1)
                     {
                         Szczegoly_sprzedaz newSaleDetails = new Szczegoly_sprzedaz();
@@ -145,17 +158,74 @@ namespace KWZP2022
             textBoxNoTelData();
             textBoxAmount.Clear();
             textBoxPrice.Clear();
+            comboBoxTaxData();
+            textBoxAmountData();
+            textBoxPriceData();
         }
 
         private void comboBoxProduct_SelectionChangeCommitted(object sender, EventArgs e)
         {
             textBoxPrice.Clear();
             textBoxAmountData();
+            textBoxPriceData();
         }
 
         private void comboBoxTax_SelectionChangeCommitted(object sender, EventArgs e)
         {
             textBoxPriceData();
+        }
+
+        private void dgvSalesDetails_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int numberSaleDetail = int.Parse(this.dgvSalesDetails.CurrentRow.Cells[0].Value.ToString());
+            Szczegoly_sprzedaz selectedSaleDetail = this.db.Szczegoly_sprzedaz.Single(a => a.ID_szczegoly_sprzedaz == numberSaleDetail);
+            Sprzedaz selectedSale = this.db.Sprzedaz.Single(a => a.ID_sprzedaz == selectedSaleDetail.ID_sprzedaz);
+            Produkt selectedProduct = this.db.Produkt.Single(a => a.ID_produkt == selectedSaleDetail.ID_produkt);
+            Podatek selectedTax = this.db.Podatek.Single(a => a.ID_podatek == selectedSaleDetail.ID_podatek);
+            v_Dodaj_szczegol_sprzedaz selectClient = this.db.v_Dodaj_szczegol_sprzedaz.Where(a => a.Numer_sprzedaży == selectedSale.Nr_sprzedaz).First();
+            comboBoxNoSale.Text = selectedSale.Nr_sprzedaz.ToString();
+            comboBoxNoSale_SelectionChangeCommitted(selectedSale, e);
+            comboBoxProduct.Text = selectedProduct.Nazwa_produkt.ToString();
+            comboBoxTax.Text = selectedTax.Procent.ToString();
+            textBoxAmount.Text = selectedSaleDetail.Ilosc.ToString();
+            textBoxPrice.Text = selectedSaleDetail.Kwota_sprzedaz.ToString();
+            textBoxNoTel.Text = selectClient.Numer_telefonu_klient.ToString();
+        }
+
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+            string selectedSaleDetailNoSale = this.dgvSalesDetails.CurrentRow.Cells[1].Value.ToString();
+            string selectedSaleDetailProduct = this.dgvSalesDetails.CurrentRow.Cells[3].Value.ToString();
+            if ((comboBoxNoSale.Text != selectedSaleDetailNoSale) || (comboBoxProduct.Text != selectedSaleDetailProduct))
+            {
+                MessageBox.Show("Dane nie są zgodne! Kliknij dwa razy na sprzedaż którą chcesz zmodyfikować.", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if ((comboBoxNoSale.Text == selectedSaleDetailNoSale) && (comboBoxProduct.Text == selectedSaleDetailProduct))
+            {
+                if (comboBoxNoSale.Text.Length < 0 || comboBoxProduct.Text.Length < 0 || comboBoxTax.Text.Length < 0 || textBoxAmount.Text.Length < 0 || textBoxPrice.Text.Length < 0)
+                {
+                    MessageBox.Show("Nie wprowadzono danych poprawnie!", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    DialogResult changeSale = MessageBox.Show("Czy na pewno chcesz zmienić szczegóły sprzedaży?", "Pytanie", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (changeSale == DialogResult.Yes)
+                    {
+                        int selectedSaleDetailFromDgv = int.Parse(this.dgvSalesDetails.CurrentRow.Cells[0].Value.ToString());
+                        Szczegoly_sprzedaz selecetedSaleDetail = this.db.Szczegoly_sprzedaz.Single(a => a.ID_szczegoly_sprzedaz == selectedSaleDetailFromDgv);
+                        string selectedProductFromComboBox = comboBoxProduct.Text;
+                        Produkt selectedProduct = this.db.Produkt.Single(a => a.Nazwa_produkt == selectedProductFromComboBox);
+                        selecetedSaleDetail.ID_sprzedaz = int.Parse(comboBoxNoSale.SelectedValue.ToString());
+                        selecetedSaleDetail.ID_produkt = selectedProduct.ID_produkt;
+                        selecetedSaleDetail.Kwota_sprzedaz = int.Parse(textBoxPrice.Text);
+                        selecetedSaleDetail.ID_podatek = int.Parse(comboBoxTax.SelectedValue.ToString());
+                        selecetedSaleDetail.Ilosc = int.Parse(textBoxAmount.Text);
+                        this.db.SaveChanges();
+                        showData();
+                        MessageBox.Show("Zmodyfikowano dane!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
         }
     }
 }

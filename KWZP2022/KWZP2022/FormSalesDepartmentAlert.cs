@@ -31,7 +31,10 @@ namespace KWZP2022
         }
         private void textBoxData()
         {
-            textBoxContents.Text = this.dgvAlert.CurrentRow.Cells[2].Value.ToString();
+            if(this.dgvAlert.CurrentRow != null)
+            {
+                textBoxContents.Text = this.dgvAlert.CurrentRow.Cells[2].Value.ToString();
+            }
         }
         private void dgvAlert_MouseClick(object sender, MouseEventArgs e)
         {
@@ -39,11 +42,18 @@ namespace KWZP2022
         }
         private void btnReaded_Click(object sender, EventArgs e)
         {
-            int selectedAlertFromDgv = int.Parse(this.dgvAlert.CurrentRow.Cells[0].Value.ToString());
-            Alert selectAlert = this.db.Alert.Single(a => a.ID_alert == selectedAlertFromDgv);
-            selectAlert.Czy_odczytano = true;
-            this.db.SaveChanges();
-            showData();
+            if(this.dgvAlert.CurrentRow != null)
+            {
+                int selectedAlertFromDgv = int.Parse(this.dgvAlert.CurrentRow.Cells[0].Value.ToString());
+                Alert selectAlert = this.db.Alert.Single(a => a.ID_alert == selectedAlertFromDgv);
+                selectAlert.Czy_odczytano = true;
+                this.db.SaveChanges();
+                showData();
+            }
+            else
+            {
+                MessageBox.Show("Zaznacz alert, który chcesz oznaczyć jako przeczytany","Uwaga",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -51,14 +61,17 @@ namespace KWZP2022
         }
         private void dgvAlert_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            int selectedAlertFromDgv = int.Parse(this.dgvAlert.CurrentRow.Cells[0].Value.ToString());
-            DialogResult unreadAlert = MessageBox.Show($"Czy chcesz ustawić status alertu: {selectedAlertFromDgv}, jako nieprzeczytane?","Pytanie?",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-            if(unreadAlert == DialogResult.Yes)
+            if (this.dgvAlert.CurrentRow != null)
             {
-                Alert selectAlert = this.db.Alert.Single(a => a.ID_alert == selectedAlertFromDgv);
-                selectAlert.Czy_odczytano = false;
-                this.db.SaveChanges();
-                showData();
+                int selectedAlertFromDgv = int.Parse(this.dgvAlert.CurrentRow.Cells[0].Value.ToString());
+                DialogResult unreadAlert = MessageBox.Show($"Czy chcesz ustawić status alertu: {selectedAlertFromDgv}, jako nieprzeczytane?", "Pytanie?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (unreadAlert == DialogResult.Yes)
+                {
+                    Alert selectAlert = this.db.Alert.Single(a => a.ID_alert == selectedAlertFromDgv);
+                    selectAlert.Czy_odczytano = false;
+                    this.db.SaveChanges();
+                    showData();
+                }
             }
         }
     }

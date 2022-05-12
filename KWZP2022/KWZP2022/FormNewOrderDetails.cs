@@ -48,10 +48,16 @@ namespace KWZP2022
         private void btnNewOrder_Click(object sender, EventArgs e)
         {
             int selectedProduct = int.Parse(comboBoxProduct.SelectedValue.ToString());
+            List<Zamowienie_szczegol> searchOrder = this.db.Zamowienie_szczegol.Where(a => a.ID_produkt == selectedProduct && a.ID_zamowienie == newOrder.ID_zamowienie).ToList();
             List< Oferta_handlowa > selectedOrder = this.db.Oferta_handlowa.Where(a => a.ID_zamowienie == newOrder.ID_zamowienie && a.ID_status_oferta == 1).ToList();
             if (selectedOrder.Count > 0)
             {
-                MessageBox.Show("Nie można dodać szczegółów do sprzedanego zamówienia!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Nie można dodać szczegółów do sprzedanego zamówienia!", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clearTextBoxAmount();
+            }
+            else if (searchOrder.Count > 0)
+            {
+                MessageBox.Show("Ten produkt został już dodany!", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 clearTextBoxAmount();
             }
             else

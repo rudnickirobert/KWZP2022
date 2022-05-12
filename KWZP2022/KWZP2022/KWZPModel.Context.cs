@@ -266,6 +266,7 @@ namespace KWZP2022
         public virtual DbSet<v_Szacowany_czas_wytwarzania_produkt> v_Szacowany_czas_wytwarzania_produkt { get; set; }
         public virtual DbSet<v_Szacowany_koszt_maszyn_do_zamowienia> v_Szacowany_koszt_maszyn_do_zamowienia { get; set; }
         public virtual DbSet<v_Szacowany_koszt_pracownik_do_zamowienia> v_Szacowany_koszt_pracownik_do_zamowienia { get; set; }
+        public virtual DbSet<v_Szczegol_sprzedaz> v_Szczegol_sprzedaz { get; set; }
         public virtual DbSet<v_Szczegoly_sprzedaz> v_Szczegoly_sprzedaz { get; set; }
         public virtual DbSet<v_Tygodniowe_rozliczenie_pracy_produkcja> v_Tygodniowe_rozliczenie_pracy_produkcja { get; set; }
         public virtual DbSet<v_Umowa> v_Umowa { get; set; }

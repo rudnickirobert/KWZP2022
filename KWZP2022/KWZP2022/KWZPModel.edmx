@@ -2702,21 +2702,23 @@ warning 6002: The table/view 'KWZP.dbo.v_Sprzedany_produkt' does not have a prim
 warning 6002: The table/view 'KWZP.dbo.v_Sprzedaz' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Sprzedaz">
           <Key>
-            <PropertyRef Name="Numer sprzedaży" />
+            <PropertyRef Name="Nr_sprzedaz" />
+            <PropertyRef Name="ID_umowa_sprzedaz" />
             <PropertyRef Name="Nazwisko klienta" />
             <PropertyRef Name="Imię klienta" />
-            <PropertyRef Name="Data początku sprzedaży" />
-            <PropertyRef Name="Data końca sprzedaży" />
-            <PropertyRef Name="Umowa" />
+            <PropertyRef Name="Data_sprzedaz_poczatek" />
+            <PropertyRef Name="Data_sprzedaz_koniec" />
+            <PropertyRef Name="Nazwa_produkt" />
           </Key>
-          <Property Name="Numer sprzedaży" Type="int" Nullable="false" />
+          <Property Name="Nr_sprzedaz" Type="int" Nullable="false" />
+          <Property Name="ID_umowa_sprzedaz" Type="int" Nullable="false" />
           <Property Name="Nazwisko klienta" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Imię klienta" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="NIP" Type="nvarchar" MaxLength="10" />
-          <Property Name="Data początku sprzedaży" Type="date" Nullable="false" />
-          <Property Name="Data końca sprzedaży" Type="date" Nullable="false" />
-          <Property Name="Umowa" Type="int" Nullable="false" />
-          <Property Name="Koszt" Type="int" />
+          <Property Name="Data_sprzedaz_poczatek" Type="date" Nullable="false" />
+          <Property Name="Data_sprzedaz_koniec" Type="date" Nullable="false" />
+          <Property Name="Nazwa_produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Kwota" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Sprzedaz_miesiac' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -2897,6 +2899,30 @@ warning 6002: The table/view 'KWZP.dbo.v_Szacowany_koszt_pracownik_do_zamowienia
           </Key>
           <Property Name="ID_zamowienie" Type="int" Nullable="false" />
           <Property Name="Średnia" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Szczegol_sprzedaz' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Szczegol_sprzedaz">
+          <Key>
+            <PropertyRef Name="ID_szczegoly_sprzedaz" />
+            <PropertyRef Name="Nr_sprzedaz" />
+            <PropertyRef Name="ID_produkt" />
+            <PropertyRef Name="Nazwa_produkt" />
+            <PropertyRef Name="ID_sprzedaz" />
+            <PropertyRef Name="Ilosc" />
+            <PropertyRef Name="ID_podatek" />
+            <PropertyRef Name="Procent" />
+            <PropertyRef Name="Kwota_sprzedaz" />
+          </Key>
+          <Property Name="ID_szczegoly_sprzedaz" Type="int" Nullable="false" />
+          <Property Name="Nr_sprzedaz" Type="int" Nullable="false" />
+          <Property Name="ID_produkt" Type="int" Nullable="false" />
+          <Property Name="Nazwa_produkt" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_sprzedaz" Type="int" Nullable="false" />
+          <Property Name="Ilosc" Type="int" Nullable="false" />
+          <Property Name="ID_podatek" Type="int" Nullable="false" />
+          <Property Name="Procent" Type="int" Nullable="false" />
+          <Property Name="Kwota_sprzedaz" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Szczegoly_sprzedaz' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -6381,14 +6407,15 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           </EntitySet>
           <EntitySet Name="v_Sprzedaz" EntityType="Self.v_Sprzedaz" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [v_Sprzedaz].[Numer sprzedaży] AS [Numer sprzedaży], 
+    [v_Sprzedaz].[Nr_sprzedaz] AS [Nr_sprzedaz], 
+    [v_Sprzedaz].[ID_umowa_sprzedaz] AS [ID_umowa_sprzedaz], 
     [v_Sprzedaz].[Nazwisko klienta] AS [Nazwisko klienta], 
     [v_Sprzedaz].[Imię klienta] AS [Imię klienta], 
     [v_Sprzedaz].[NIP] AS [NIP], 
-    [v_Sprzedaz].[Data początku sprzedaży] AS [Data początku sprzedaży], 
-    [v_Sprzedaz].[Data końca sprzedaży] AS [Data końca sprzedaży], 
-    [v_Sprzedaz].[Umowa] AS [Umowa], 
-    [v_Sprzedaz].[Koszt] AS [Koszt]
+    [v_Sprzedaz].[Data_sprzedaz_poczatek] AS [Data_sprzedaz_poczatek], 
+    [v_Sprzedaz].[Data_sprzedaz_koniec] AS [Data_sprzedaz_koniec], 
+    [v_Sprzedaz].[Nazwa_produkt] AS [Nazwa_produkt], 
+    [v_Sprzedaz].[Kwota] AS [Kwota]
     FROM [dbo].[v_Sprzedaz] AS [v_Sprzedaz]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Sprzedaz_miesiac" EntityType="Self.v_Sprzedaz_miesiac" store:Type="Views" store:Schema="dbo">
@@ -6503,6 +6530,19 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
     [v_Szacowany_koszt_pracownik_do_zamowienia].[ID_zamowienie] AS [ID_zamowienie], 
     [v_Szacowany_koszt_pracownik_do_zamowienia].[Średnia] AS [Średnia]
     FROM [dbo].[v_Szacowany_koszt_pracownik_do_zamowienia] AS [v_Szacowany_koszt_pracownik_do_zamowienia]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Szczegol_sprzedaz" EntityType="Self.v_Szczegol_sprzedaz" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Szczegol_sprzedaz].[ID_szczegoly_sprzedaz] AS [ID_szczegoly_sprzedaz], 
+    [v_Szczegol_sprzedaz].[Nr_sprzedaz] AS [Nr_sprzedaz], 
+    [v_Szczegol_sprzedaz].[ID_produkt] AS [ID_produkt], 
+    [v_Szczegol_sprzedaz].[Nazwa_produkt] AS [Nazwa_produkt], 
+    [v_Szczegol_sprzedaz].[ID_sprzedaz] AS [ID_sprzedaz], 
+    [v_Szczegol_sprzedaz].[Ilosc] AS [Ilosc], 
+    [v_Szczegol_sprzedaz].[ID_podatek] AS [ID_podatek], 
+    [v_Szczegol_sprzedaz].[Procent] AS [Procent], 
+    [v_Szczegol_sprzedaz].[Kwota_sprzedaz] AS [Kwota_sprzedaz]
+    FROM [dbo].[v_Szczegol_sprzedaz] AS [v_Szczegol_sprzedaz]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Szczegoly_sprzedaz" EntityType="Self.v_Szczegoly_sprzedaz" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -10093,21 +10133,23 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
         </EntityType>
         <EntityType Name="v_Sprzedaz">
           <Key>
-            <PropertyRef Name="Numer_sprzedaży" />
+            <PropertyRef Name="Nr_sprzedaz" />
+            <PropertyRef Name="ID_umowa_sprzedaz" />
             <PropertyRef Name="Nazwisko_klienta" />
             <PropertyRef Name="Imię_klienta" />
-            <PropertyRef Name="Data_początku_sprzedaży" />
-            <PropertyRef Name="Data_końca_sprzedaży" />
-            <PropertyRef Name="Umowa" />
+            <PropertyRef Name="Data_sprzedaz_poczatek" />
+            <PropertyRef Name="Data_sprzedaz_koniec" />
+            <PropertyRef Name="Nazwa_produkt" />
           </Key>
-          <Property Name="Numer_sprzedaży" Type="Int32" Nullable="false" />
+          <Property Name="Nr_sprzedaz" Type="Int32" Nullable="false" />
+          <Property Name="ID_umowa_sprzedaz" Type="Int32" Nullable="false" />
           <Property Name="Nazwisko_klienta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Imię_klienta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NIP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Data_początku_sprzedaży" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Data_końca_sprzedaży" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Umowa" Type="Int32" Nullable="false" />
-          <Property Name="Koszt" Type="Int32" />
+          <Property Name="Data_sprzedaz_poczatek" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Data_sprzedaz_koniec" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Nazwa_produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Kwota" Type="Int32" />
         </EntityType>
         <EntityType Name="v_Sprzedaz_miesiac">
           <Key>
@@ -10254,6 +10296,28 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           </Key>
           <Property Name="ID_zamowienie" Type="Int32" Nullable="false" />
           <Property Name="Średnia" Type="Int32" />
+        </EntityType>
+        <EntityType Name="v_Szczegol_sprzedaz">
+          <Key>
+            <PropertyRef Name="ID_szczegoly_sprzedaz" />
+            <PropertyRef Name="Nr_sprzedaz" />
+            <PropertyRef Name="ID_produkt" />
+            <PropertyRef Name="Nazwa_produkt" />
+            <PropertyRef Name="ID_sprzedaz" />
+            <PropertyRef Name="Ilosc" />
+            <PropertyRef Name="ID_podatek" />
+            <PropertyRef Name="Procent" />
+            <PropertyRef Name="Kwota_sprzedaz" />
+          </Key>
+          <Property Name="ID_szczegoly_sprzedaz" Type="Int32" Nullable="false" />
+          <Property Name="Nr_sprzedaz" Type="Int32" Nullable="false" />
+          <Property Name="ID_produkt" Type="Int32" Nullable="false" />
+          <Property Name="Nazwa_produkt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_sprzedaz" Type="Int32" Nullable="false" />
+          <Property Name="Ilosc" Type="Int32" Nullable="false" />
+          <Property Name="ID_podatek" Type="Int32" Nullable="false" />
+          <Property Name="Procent" Type="Int32" Nullable="false" />
+          <Property Name="Kwota_sprzedaz" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="v_Szczegoly_sprzedaz">
           <Key>
@@ -12622,6 +12686,7 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <EntitySet Name="v_Szacowany_czas_wytwarzania_produkt" EntityType="Self.v_Szacowany_czas_wytwarzania_produkt" />
           <EntitySet Name="v_Szacowany_koszt_maszyn_do_zamowienia" EntityType="Self.v_Szacowany_koszt_maszyn_do_zamowienia" />
           <EntitySet Name="v_Szacowany_koszt_pracownik_do_zamowienia" EntityType="Self.v_Szacowany_koszt_pracownik_do_zamowienia" />
+          <EntitySet Name="v_Szczegol_sprzedaz" EntityType="Self.v_Szczegol_sprzedaz" />
           <EntitySet Name="v_Szczegoly_sprzedaz" EntityType="Self.v_Szczegoly_sprzedaz" />
           <EntitySet Name="v_Tygodniowe_rozliczenie_pracy_produkcja" EntityType="Self.v_Tygodniowe_rozliczenie_pracy_produkcja" />
           <EntitySet Name="v_Umowa" EntityType="Self.v_Umowa" />
@@ -15443,14 +15508,15 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <EntitySetMapping Name="v_Sprzedaz">
             <EntityTypeMapping TypeName="KWZPModel.v_Sprzedaz">
               <MappingFragment StoreEntitySet="v_Sprzedaz">
-                <ScalarProperty Name="Numer_sprzedaży" ColumnName="Numer sprzedaży" />
+                <ScalarProperty Name="Nr_sprzedaz" ColumnName="Nr_sprzedaz" />
+                <ScalarProperty Name="ID_umowa_sprzedaz" ColumnName="ID_umowa_sprzedaz" />
                 <ScalarProperty Name="Nazwisko_klienta" ColumnName="Nazwisko klienta" />
                 <ScalarProperty Name="Imię_klienta" ColumnName="Imię klienta" />
                 <ScalarProperty Name="NIP" ColumnName="NIP" />
-                <ScalarProperty Name="Data_początku_sprzedaży" ColumnName="Data początku sprzedaży" />
-                <ScalarProperty Name="Data_końca_sprzedaży" ColumnName="Data końca sprzedaży" />
-                <ScalarProperty Name="Umowa" ColumnName="Umowa" />
-                <ScalarProperty Name="Koszt" ColumnName="Koszt" />
+                <ScalarProperty Name="Data_sprzedaz_poczatek" ColumnName="Data_sprzedaz_poczatek" />
+                <ScalarProperty Name="Data_sprzedaz_koniec" ColumnName="Data_sprzedaz_koniec" />
+                <ScalarProperty Name="Nazwa_produkt" ColumnName="Nazwa_produkt" />
+                <ScalarProperty Name="Kwota" ColumnName="Kwota" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -15598,6 +15664,21 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
               <MappingFragment StoreEntitySet="v_Szacowany_koszt_pracownik_do_zamowienia">
                 <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
                 <ScalarProperty Name="Średnia" ColumnName="Średnia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Szczegol_sprzedaz">
+            <EntityTypeMapping TypeName="KWZPModel.v_Szczegol_sprzedaz">
+              <MappingFragment StoreEntitySet="v_Szczegol_sprzedaz">
+                <ScalarProperty Name="ID_szczegoly_sprzedaz" ColumnName="ID_szczegoly_sprzedaz" />
+                <ScalarProperty Name="Nr_sprzedaz" ColumnName="Nr_sprzedaz" />
+                <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
+                <ScalarProperty Name="Nazwa_produkt" ColumnName="Nazwa_produkt" />
+                <ScalarProperty Name="ID_sprzedaz" ColumnName="ID_sprzedaz" />
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+                <ScalarProperty Name="ID_podatek" ColumnName="ID_podatek" />
+                <ScalarProperty Name="Procent" ColumnName="Procent" />
+                <ScalarProperty Name="Kwota_sprzedaz" ColumnName="Kwota_sprzedaz" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
