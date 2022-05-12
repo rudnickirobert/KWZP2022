@@ -17,6 +17,6 @@ namespace KWZP2022
         public int ID_Półproduktu { get; set; }
         public string Półprodukt { get; set; }
         public string Czynność { get; set; }
-        public int Czas_wytwarzania_h_ { get; set; }
+        public int Czas_wytwarzania_min_ { get; set; }
     }
 }

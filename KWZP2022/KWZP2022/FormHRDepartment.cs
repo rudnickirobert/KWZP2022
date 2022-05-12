@@ -145,12 +145,6 @@ namespace KWZP2022
             formHRDepartmentTimesheets.ShowDialog();
         }
 
-        private void btnContract_Click(object sender, EventArgs e)
-        {
-            FormHRDepartmentWorkerContract formHRDepartmentWorkerContract = new FormHRDepartmentWorkerContract(db);
-            formHRDepartmentWorkerContract.ShowDialog();
-        }
-
         private void btnSalary_Click(object sender, EventArgs e)
         {
             FormHRDepartmentSalary formHRDepartmentSalary = new FormHRDepartmentSalary(db);
@@ -160,6 +154,12 @@ namespace KWZP2022
         {
             FormHRDepartmentOvertime formHRDepartmentOvertime = new FormHRDepartmentOvertime(db);
             formHRDepartmentOvertime.ShowDialog();
+        }
+
+        private void bntContract1_Click(object sender, EventArgs e)
+        {
+            FormHRDepartmentWorkerContract formHRDepartmentWorkerContract = new FormHRDepartmentWorkerContract(db);
+            formHRDepartmentWorkerContract.ShowDialog();
         }
     }
 }

@@ -44,7 +44,7 @@
             this.cbPositionSelected = new System.Windows.Forms.CheckBox();
             this.btnSalary = new System.Windows.Forms.Button();
             this.btnNadgodziny = new System.Windows.Forms.Button();
-
+            this.bntContract1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorker)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,8 +81,7 @@
             this.btnContract.TabIndex = 48;
             this.btnContract.Text = "Umowa";
             this.btnContract.UseVisualStyleBackColor = true;
-            this.btnContract.Click += new System.EventHandler(this.btnContract_Click);
-            // 
+
             // btnChangedata
             // 
             this.btnChangedata.Font = new System.Drawing.Font("Arial Narrow", 12F);
@@ -228,12 +227,25 @@
             this.btnNadgodziny.UseVisualStyleBackColor = true;
             this.btnNadgodziny.Click += new System.EventHandler(this.btnNadgodziny_Click);
             // 
+            // bntContract1
+            // 
+            this.bntContract1.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.bntContract1.Location = new System.Drawing.Point(454, 170);
+            this.bntContract1.Margin = new System.Windows.Forms.Padding(2);
+            this.bntContract1.Name = "bntContract1";
+            this.bntContract1.Size = new System.Drawing.Size(151, 34);
+            this.bntContract1.TabIndex = 55;
+            this.bntContract1.Text = "Umowy";
+            this.bntContract1.UseVisualStyleBackColor = true;
+            this.bntContract1.Click += new System.EventHandler(this.bntContract1_Click);
+            // 
             // FormHRDepartment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background;
             this.ClientSize = new System.Drawing.Size(1264, 711);
+            this.Controls.Add(this.bntContract1);
             this.Controls.Add(this.btnNadgodziny);
             this.Controls.Add(this.btnSalary);
             this.Controls.Add(this.cbPositionSelected);
@@ -277,6 +289,6 @@
         private System.Windows.Forms.CheckBox cbPositionSelected;
         private System.Windows.Forms.Button btnSalary;
         private System.Windows.Forms.Button btnNadgodziny;
-
+        private System.Windows.Forms.Button bntContract1;
     }
 }

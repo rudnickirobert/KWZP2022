@@ -1542,7 +1542,6 @@
     <Compile Include="Zwrot.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
-
     <EmbeddedResource Include="FormHRDepartmentNewSalary.resx">
       <DependentUpon>FormHRDepartmentNewSalary.cs</DependentUpon>
     </EmbeddedResource>
