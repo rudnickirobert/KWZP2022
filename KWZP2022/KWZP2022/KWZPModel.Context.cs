@@ -201,6 +201,7 @@ namespace KWZP2022
         public virtual DbSet<v_Obslugi_w_trakcie> v_Obslugi_w_trakcie { get; set; }
         public virtual DbSet<v_Obslugi_w_trakcie_wymiana> v_Obslugi_w_trakcie_wymiana { get; set; }
         public virtual DbSet<v_Obslugi_zakonczone> v_Obslugi_zakonczone { get; set; }
+        public virtual DbSet<v_Obslugi_zakonczone_suma> v_Obslugi_zakonczone_suma { get; set; }
         public virtual DbSet<v_Oferta_handlowa> v_Oferta_handlowa { get; set; }
         public virtual DbSet<v_Oferta_handlowa_do_rozpatrzenia> v_Oferta_handlowa_do_rozpatrzenia { get; set; }
         public virtual DbSet<v_Parametry_czesc> v_Parametry_czesc { get; set; }
@@ -265,6 +266,7 @@ namespace KWZP2022
         public virtual DbSet<v_Szacowany_czas_wytwarzania_produkt> v_Szacowany_czas_wytwarzania_produkt { get; set; }
         public virtual DbSet<v_Szacowany_koszt_maszyn_do_zamowienia> v_Szacowany_koszt_maszyn_do_zamowienia { get; set; }
         public virtual DbSet<v_Szacowany_koszt_pracownik_do_zamowienia> v_Szacowany_koszt_pracownik_do_zamowienia { get; set; }
+        public virtual DbSet<v_Szczegol_sprzedaz> v_Szczegol_sprzedaz { get; set; }
         public virtual DbSet<v_Szczegoly_sprzedaz> v_Szczegoly_sprzedaz { get; set; }
         public virtual DbSet<v_Tygodniowe_rozliczenie_pracy_produkcja> v_Tygodniowe_rozliczenie_pracy_produkcja { get; set; }
         public virtual DbSet<v_Umowa> v_Umowa { get; set; }
@@ -307,6 +309,5 @@ namespace KWZP2022
         public virtual DbSet<v_Zamowienie_szczegol_produkcja> v_Zamowienie_szczegol_produkcja { get; set; }
         public virtual DbSet<v_Zamowione_produkty> v_Zamowione_produkty { get; set; }
         public virtual DbSet<v_Zarobek_miesiac_suma> v_Zarobek_miesiac_suma { get; set; }
-        public virtual DbSet<v_Obslugi_zakonczone_suma> v_Obslugi_zakonczone_suma { get; set; }
     }
 }

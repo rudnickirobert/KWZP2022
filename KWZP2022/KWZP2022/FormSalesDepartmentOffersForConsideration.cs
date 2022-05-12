@@ -84,6 +84,12 @@ namespace KWZP2022
                         this.db.SaveChanges();
                     }
                 }
+                Alert newAlertForProductionDepartment = new Alert();
+                newAlertForProductionDepartment.ID_dzial = 3;
+                newAlertForProductionDepartment.Tresc = $"Nowe zamówienie nr: {selectedOffer.ID_zamowienie}";
+                newAlertForProductionDepartment.Czy_odczytano = false;
+                this.db.Alert.Add(newAlertForProductionDepartment);
+                this.db.SaveChanges();
                 showData();
                 comboBoxOffersData();
             }

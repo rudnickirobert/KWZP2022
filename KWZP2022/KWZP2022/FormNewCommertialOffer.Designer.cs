@@ -275,7 +275,7 @@
             this.btnAddAlert.Name = "btnAddAlert";
             this.btnAddAlert.Size = new System.Drawing.Size(139, 28);
             this.btnAddAlert.TabIndex = 30;
-            this.btnAddAlert.Text = "Dodaj alarm";
+            this.btnAddAlert.Text = "Dodaj alert";
             this.btnAddAlert.UseVisualStyleBackColor = true;
             this.btnAddAlert.Visible = false;
             this.btnAddAlert.Click += new System.EventHandler(this.btnAddAlert_Click);
