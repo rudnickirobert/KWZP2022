@@ -177,6 +177,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtbDataStart);
             this.Name = "FormSetupProductionProduct";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Proces produkt czynnosc";
             ((System.ComponentModel.ISupportInitialize)(this.dtbDataStart)).EndInit();
             this.ResumeLayout(false);
