@@ -43,6 +43,8 @@
             this.cbPosition = new System.Windows.Forms.ComboBox();
             this.cbPositionSelected = new System.Windows.Forms.CheckBox();
             this.btnSalary = new System.Windows.Forms.Button();
+            this.btnNadgodziny = new System.Windows.Forms.Button();
+
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorker)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,7 +74,7 @@
             // btnContract
             // 
             this.btnContract.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.btnContract.Location = new System.Drawing.Point(953, 123);
+            this.btnContract.Location = new System.Drawing.Point(697, 170);
             this.btnContract.Margin = new System.Windows.Forms.Padding(2);
             this.btnContract.Name = "btnContract";
             this.btnContract.Size = new System.Drawing.Size(151, 24);
@@ -205,14 +207,26 @@
             // btnSalary
             // 
             this.btnSalary.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.btnSalary.Location = new System.Drawing.Point(913, 167);
+            this.btnSalary.Location = new System.Drawing.Point(953, 163);
             this.btnSalary.Margin = new System.Windows.Forms.Padding(2);
             this.btnSalary.Name = "btnSalary";
-            this.btnSalary.Size = new System.Drawing.Size(235, 34);
+            this.btnSalary.Size = new System.Drawing.Size(151, 27);
             this.btnSalary.TabIndex = 53;
             this.btnSalary.Text = "Pasek płacowy";
             this.btnSalary.UseVisualStyleBackColor = true;
             this.btnSalary.Click += new System.EventHandler(this.btnSalary_Click);
+            // 
+            // btnNadgodziny
+            // 
+            this.btnNadgodziny.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.btnNadgodziny.Location = new System.Drawing.Point(953, 122);
+            this.btnNadgodziny.Margin = new System.Windows.Forms.Padding(2);
+            this.btnNadgodziny.Name = "btnNadgodziny";
+            this.btnNadgodziny.Size = new System.Drawing.Size(151, 25);
+            this.btnNadgodziny.TabIndex = 54;
+            this.btnNadgodziny.Text = "Nadgodziny";
+            this.btnNadgodziny.UseVisualStyleBackColor = true;
+            this.btnNadgodziny.Click += new System.EventHandler(this.btnNadgodziny_Click);
             // 
             // FormHRDepartment
             // 
@@ -220,6 +234,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background;
             this.ClientSize = new System.Drawing.Size(1264, 711);
+            this.Controls.Add(this.btnNadgodziny);
             this.Controls.Add(this.btnSalary);
             this.Controls.Add(this.cbPositionSelected);
             this.Controls.Add(this.cbPosition);
@@ -260,5 +275,7 @@
         private System.Windows.Forms.ComboBox cbPosition;
         private System.Windows.Forms.CheckBox cbPositionSelected;
         private System.Windows.Forms.Button btnSalary;
+        private System.Windows.Forms.Button btnNadgodziny;
+
     }
 }

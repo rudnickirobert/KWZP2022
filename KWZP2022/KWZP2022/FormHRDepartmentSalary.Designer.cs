@@ -39,6 +39,8 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnNewSalary = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalary)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,7 +118,7 @@
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.btnSearch.Location = new System.Drawing.Point(405, 58);
+            this.btnSearch.Location = new System.Drawing.Point(351, 57);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(151, 25);
@@ -128,7 +130,7 @@
             // btnRefresh
             // 
             this.btnRefresh.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.btnRefresh.Location = new System.Drawing.Point(405, 112);
+            this.btnRefresh.Location = new System.Drawing.Point(351, 111);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(151, 24);
@@ -140,19 +142,36 @@
             // btnNewSalary
             // 
             this.btnNewSalary.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.btnNewSalary.Location = new System.Drawing.Point(405, 162);
+            this.btnNewSalary.Location = new System.Drawing.Point(602, 105);
             this.btnNewSalary.Margin = new System.Windows.Forms.Padding(2);
             this.btnNewSalary.Name = "btnNewSalary";
-            this.btnNewSalary.Size = new System.Drawing.Size(151, 25);
+            this.btnNewSalary.Size = new System.Drawing.Size(151, 33);
             this.btnNewSalary.TabIndex = 48;
-            this.btnNewSalary.Text = "Dodaj wypłaty";
+            this.btnNewSalary.Text = "Dodaj wypłatę";
             this.btnNewSalary.UseVisualStyleBackColor = true;
+            this.btnNewSalary.Click += new System.EventHandler(this.btnNewSalary_Click);
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 23);
+            this.label1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 23);
+            this.label2.TabIndex = 0;
             // 
             // FormHRDepartmentSalary
             // 
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1264, 711);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnNewSalary);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnSearch);
@@ -184,5 +203,7 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnNewSalary;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
