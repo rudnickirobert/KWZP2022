@@ -14,7 +14,7 @@ namespace KWZP2022
     
     public partial class v_Wyplata
     {
-        public int ID_wypłata { get; set; }
+        public int ID_wyplata { get; set; }
         public int ID_Pracownik { get; set; }
         public System.DateTime Data_wyplaty { get; set; }
         public Nullable<int> Miesiac_wyplata { get; set; }

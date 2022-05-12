@@ -757,9 +757,9 @@
         </EntityType>
         <EntityType Name="Wyplata">
           <Key>
-            <PropertyRef Name="ID_wypłata" />
+            <PropertyRef Name="ID_wyplata" />
           </Key>
-          <Property Name="ID_wypłata" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_wyplata" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Pracownik" Type="int" Nullable="false" />
           <Property Name="Data_wyplaty" Type="date" Nullable="false" />
         </EntityType>
@@ -3167,11 +3167,11 @@ warning 6002: The table/view 'KWZP.dbo.v_Wynik_kontroli' does not have a primary
 warning 6002: The table/view 'KWZP.dbo.v_Wyplata' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Wyplata">
           <Key>
-            <PropertyRef Name="ID_wypłata" />
+            <PropertyRef Name="ID_wyplata" />
             <PropertyRef Name="ID_Pracownik" />
             <PropertyRef Name="Data_wyplaty" />
           </Key>
-          <Property Name="ID_wypłata" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_wyplata" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Pracownik" Type="int" Nullable="false" />
           <Property Name="Data_wyplaty" Type="date" Nullable="false" />
           <Property Name="Miesiac_wyplata" Type="int" />
@@ -3800,7 +3800,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_produkcja' does not have a p
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="Klient" Type="nvarchar" MaxLength="134" />
+          <Property Name="Klient" Type="nvarchar" MaxLength="167" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -6873,7 +6873,7 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           </EntitySet>
           <EntitySet Name="v_Wyplata" EntityType="Self.v_Wyplata" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [v_Wyplata].[ID_wypłata] AS [ID_wypłata], 
+    [v_Wyplata].[ID_wyplata] AS [ID_wyplata], 
     [v_Wyplata].[ID_Pracownik] AS [ID_Pracownik], 
     [v_Wyplata].[Data_wyplaty] AS [Data_wyplaty], 
     [v_Wyplata].[Miesiac_wyplata] AS [Miesiac_wyplata]
@@ -8722,9 +8722,9 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
         </EntityType>
         <EntityType Name="Wyplata">
           <Key>
-            <PropertyRef Name="ID_wypłata" />
+            <PropertyRef Name="ID_wyplata" />
           </Key>
-          <Property Name="ID_wypłata" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_wyplata" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Pracownik" Type="Int32" Nullable="false" />
           <Property Name="Data_wyplaty" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="Pracownik" Relationship="Self.FK__Wyplata__ID_Prac__4B422AD5" FromRole="Wyplata" ToRole="Pracownik" />
@@ -10830,11 +10830,11 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
         </EntityType>
         <EntityType Name="v_Wyplata">
           <Key>
-            <PropertyRef Name="ID_wypłata" />
+            <PropertyRef Name="ID_wyplata" />
             <PropertyRef Name="ID_Pracownik" />
             <PropertyRef Name="Data_wyplaty" />
           </Key>
-          <Property Name="ID_wypłata" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_wyplata" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Pracownik" Type="Int32" Nullable="false" />
           <Property Name="Data_wyplaty" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Miesiac_wyplata" Type="Int32" />
@@ -11361,7 +11361,7 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Klient" Type="String" MaxLength="134" FixedLength="false" Unicode="true" />
+          <Property Name="Klient" Type="String" MaxLength="167" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="v_Zamowienie_szczegol">
           <Key>
@@ -14525,7 +14525,7 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <EntitySetMapping Name="Wyplata">
             <EntityTypeMapping TypeName="KWZPModel.Wyplata">
               <MappingFragment StoreEntitySet="Wyplata">
-                <ScalarProperty Name="ID_wypłata" ColumnName="ID_wypłata" />
+                <ScalarProperty Name="ID_wyplata" ColumnName="ID_wyplata" />
                 <ScalarProperty Name="ID_Pracownik" ColumnName="ID_Pracownik" />
                 <ScalarProperty Name="Data_wyplaty" ColumnName="Data_wyplaty" />
               </MappingFragment>
@@ -16343,7 +16343,7 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <EntitySetMapping Name="v_Wyplata">
             <EntityTypeMapping TypeName="KWZPModel.v_Wyplata">
               <MappingFragment StoreEntitySet="v_Wyplata">
-                <ScalarProperty Name="ID_wypłata" ColumnName="ID_wypłata" />
+                <ScalarProperty Name="ID_wyplata" ColumnName="ID_wyplata" />
                 <ScalarProperty Name="ID_Pracownik" ColumnName="ID_Pracownik" />
                 <ScalarProperty Name="Data_wyplaty" ColumnName="Data_wyplaty" />
                 <ScalarProperty Name="Miesiac_wyplata" ColumnName="Miesiac_wyplata" />
