@@ -30,6 +30,7 @@ namespace KWZP2022
             this.Stan_realizacji_zamowienie_maszyna = new HashSet<Stan_realizacji_zamowienie_maszyna>();
             this.Stan_realizacji_zamowienie_narzedzie = new HashSet<Stan_realizacji_zamowienie_narzedzie>();
             this.Umowa = new HashSet<Umowa>();
+            this.Wyplata = new HashSet<Wyplata>();
             this.Wytwarzanie = new HashSet<Wytwarzanie>();
             this.Zamowienie = new HashSet<Zamowienie>();
             this.Zamowienie_material = new HashSet<Zamowienie_material>();
@@ -73,6 +74,8 @@ namespace KWZP2022
         public virtual ICollection<Stan_realizacji_zamowienie_narzedzie> Stan_realizacji_zamowienie_narzedzie { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Umowa> Umowa { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Wyplata> Wyplata { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Wytwarzanie> Wytwarzanie { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

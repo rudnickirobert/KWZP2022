@@ -12,15 +12,16 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Umowa
+    public partial class v_Wyplata_suma
     {
-        public int ID { get; set; }
         public int ID_pracownik { get; set; }
         public string Nazwisko { get; set; }
         public string Imię { get; set; }
-        public string Wymiar_pracy { get; set; }
-        public string Rodzaj_Umowy { get; set; }
-        public string Nazwa_stanowiska { get; set; }
         public int Podstawa_wynagrodzenia { get; set; }
+        public Nullable<int> Miesiac_wyplata { get; set; }
+        public int Wynagrodzenie_nadgodziny { get; set; }
+        public int Ilość_dni_CH { get; set; }
+        public int Ilość_dni_NB { get; set; }
+        public Nullable<decimal> Wypłata { get; set; }
     }
 }
