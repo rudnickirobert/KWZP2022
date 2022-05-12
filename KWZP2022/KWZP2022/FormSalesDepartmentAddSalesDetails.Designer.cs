@@ -34,7 +34,7 @@
             this.comboBoxTax = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvSalesDetails = new System.Windows.Forms.DataGridView();
+            this.dgvOrderDetails = new System.Windows.Forms.DataGridView();
             this.lblNrSale = new System.Windows.Forms.Label();
             this.comboBoxNoSale = new System.Windows.Forms.ComboBox();
             this.comboBoxProduct = new System.Windows.Forms.ComboBox();
@@ -43,6 +43,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxPrice = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.dgvSalesDetails = new System.Windows.Forms.DataGridView();
+            this.btnModify = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalesDetails)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,13 +118,14 @@
             this.label1.TabIndex = 88;
             this.label1.Text = "Wybierz produkt:";
             // 
-            // dgvSalesDetails
+            // dgvOrderDetails
             // 
-            this.dgvSalesDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSalesDetails.Location = new System.Drawing.Point(12, 12);
-            this.dgvSalesDetails.Name = "dgvSalesDetails";
-            this.dgvSalesDetails.Size = new System.Drawing.Size(380, 446);
-            this.dgvSalesDetails.TabIndex = 86;
+            this.dgvOrderDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrderDetails.Location = new System.Drawing.Point(12, 12);
+            this.dgvOrderDetails.Name = "dgvOrderDetails";
+            this.dgvOrderDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvOrderDetails.Size = new System.Drawing.Size(380, 209);
+            this.dgvOrderDetails.TabIndex = 86;
             // 
             // lblNrSale
             // 
@@ -202,11 +207,47 @@
             this.label2.TabIndex = 105;
             this.label2.Text = "Kwota za sztukę:";
             // 
+            // dgvSalesDetails
+            // 
+            this.dgvSalesDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSalesDetails.Location = new System.Drawing.Point(12, 247);
+            this.dgvSalesDetails.Name = "dgvSalesDetails";
+            this.dgvSalesDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSalesDetails.Size = new System.Drawing.Size(380, 209);
+            this.dgvSalesDetails.TabIndex = 107;
+            this.dgvSalesDetails.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvSalesDetails_MouseDoubleClick);
+            // 
+            // btnModify
+            // 
+            this.btnModify.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModify.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnModify.Location = new System.Drawing.Point(431, 452);
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Size = new System.Drawing.Size(166, 27);
+            this.btnModify.TabIndex = 108;
+            this.btnModify.Text = "Modyfikuj";
+            this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(12, 224);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(366, 20);
+            this.label6.TabIndex = 109;
+            this.label6.Text = "Kliknij dwukrotnie na szczegół, który chcesz zmodyfikować:";
+            // 
             // FormSalesDepartmentAddSalesDetails
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
             this.ClientSize = new System.Drawing.Size(794, 491);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.btnModify);
+            this.Controls.Add(this.dgvSalesDetails);
             this.Controls.Add(this.textBoxPrice);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxNoTel);
@@ -220,13 +261,14 @@
             this.Controls.Add(this.comboBoxTax);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dgvSalesDetails);
+            this.Controls.Add(this.dgvOrderDetails);
             this.Controls.Add(this.lblNrSale);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FormSalesDepartmentAddSalesDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dodawanie szczegółów sprzedaży";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalesDetails)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -241,7 +283,7 @@
         private System.Windows.Forms.ComboBox comboBoxTax;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvSalesDetails;
+        private System.Windows.Forms.DataGridView dgvOrderDetails;
         private System.Windows.Forms.Label lblNrSale;
         private System.Windows.Forms.ComboBox comboBoxNoSale;
         private System.Windows.Forms.ComboBox comboBoxProduct;
@@ -250,5 +292,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxPrice;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dgvSalesDetails;
+        private System.Windows.Forms.Button btnModify;
+        private System.Windows.Forms.Label label6;
     }
 }
