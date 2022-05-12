@@ -64,7 +64,7 @@ namespace KWZP2022
                 pracownik.Nazwisko = tbWorkerSurname.Text;
                 pracownik.Imie = tbWorkerName.Text;
                 pracownik.Nr_dowodu = tbIdNumber.Text;
-                pracownik.Pesel = int.Parse(tbPesel.Text);
+                pracownik.Pesel = long.Parse(tbPesel.Text);
                 int selectedwyksztalcenie = int.Parse(cbEducation.SelectedValue.ToString());
                 pracownik.ID_wyksztalcenie = selectedwyksztalcenie;
                 db.Pracownik.Add(pracownik);

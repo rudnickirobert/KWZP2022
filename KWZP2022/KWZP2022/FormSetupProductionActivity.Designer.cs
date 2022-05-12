@@ -42,8 +42,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(504, 11);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(378, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(365, 23);
             this.label2.TabIndex = 64;
@@ -54,8 +53,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(16, 60);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(12, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(205, 23);
             this.label1.TabIndex = 63;
@@ -65,10 +63,9 @@
             // 
             this.btnEditActivity.BackColor = System.Drawing.Color.SkyBlue;
             this.btnEditActivity.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnEditActivity.Location = new System.Drawing.Point(16, 383);
-            this.btnEditActivity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditActivity.Location = new System.Drawing.Point(12, 311);
             this.btnEditActivity.Name = "btnEditActivity";
-            this.btnEditActivity.Size = new System.Drawing.Size(305, 46);
+            this.btnEditActivity.Size = new System.Drawing.Size(229, 37);
             this.btnEditActivity.TabIndex = 62;
             this.btnEditActivity.Text = "Edytuj";
             this.btnEditActivity.UseVisualStyleBackColor = false;
@@ -78,10 +75,9 @@
             // 
             this.btnAddActivity.BackColor = System.Drawing.Color.PaleGreen;
             this.btnAddActivity.Font = new System.Drawing.Font("Arial", 15F);
-            this.btnAddActivity.Location = new System.Drawing.Point(16, 235);
-            this.btnAddActivity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddActivity.Location = new System.Drawing.Point(12, 191);
             this.btnAddActivity.Name = "btnAddActivity";
-            this.btnAddActivity.Size = new System.Drawing.Size(305, 46);
+            this.btnAddActivity.Size = new System.Drawing.Size(229, 37);
             this.btnAddActivity.TabIndex = 61;
             this.btnAddActivity.Text = "Dodaj ";
             this.btnAddActivity.UseVisualStyleBackColor = false;
@@ -90,35 +86,33 @@
             // txtActivity
             // 
             this.txtActivity.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtActivity.Location = new System.Drawing.Point(16, 105);
-            this.txtActivity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtActivity.Location = new System.Drawing.Point(12, 85);
             this.txtActivity.Name = "txtActivity";
-            this.txtActivity.Size = new System.Drawing.Size(304, 30);
+            this.txtActivity.Size = new System.Drawing.Size(229, 30);
             this.txtActivity.TabIndex = 60;
             // 
             // dgvActivity
             // 
-            this.dgvActivity.Location = new System.Drawing.Point(444, 60);
-            this.dgvActivity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvActivity.Location = new System.Drawing.Point(333, 49);
             this.dgvActivity.Name = "dgvActivity";
-            this.dgvActivity.Size = new System.Drawing.Size(599, 529);
+            this.dgvActivity.Size = new System.Drawing.Size(449, 430);
             this.dgvActivity.TabIndex = 59;
             this.dgvActivity.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvActivity_CellClick);
             // 
             // FormSetupProductionActivity
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
-            this.ClientSize = new System.Drawing.Size(1059, 604);
+            this.ClientSize = new System.Drawing.Size(794, 491);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEditActivity);
             this.Controls.Add(this.btnAddActivity);
             this.Controls.Add(this.txtActivity);
             this.Controls.Add(this.dgvActivity);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormSetupProductionActivity";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dodaj czynnosc produkcyjna";
             ((System.ComponentModel.ISupportInitialize)(this.dgvActivity)).EndInit();
             this.ResumeLayout(false);

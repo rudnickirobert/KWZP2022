@@ -54,7 +54,7 @@
             this.btnNieobecnosci.Location = new System.Drawing.Point(953, 76);
             this.btnNieobecnosci.Margin = new System.Windows.Forms.Padding(2);
             this.btnNieobecnosci.Name = "btnNieobecnosci";
-            this.btnNieobecnosci.Size = new System.Drawing.Size(151, 24);
+            this.btnNieobecnosci.Size = new System.Drawing.Size(151, 34);
             this.btnNieobecnosci.TabIndex = 50;
             this.btnNieobecnosci.Text = " Nieobecności";
             this.btnNieobecnosci.UseVisualStyleBackColor = true;
@@ -77,7 +77,7 @@
             this.btnContract.Location = new System.Drawing.Point(697, 170);
             this.btnContract.Margin = new System.Windows.Forms.Padding(2);
             this.btnContract.Name = "btnContract";
-            this.btnContract.Size = new System.Drawing.Size(151, 24);
+            this.btnContract.Size = new System.Drawing.Size(151, 34);
             this.btnContract.TabIndex = 48;
             this.btnContract.Text = "Umowa";
             this.btnContract.UseVisualStyleBackColor = true;
@@ -89,7 +89,7 @@
             this.btnChangedata.Location = new System.Drawing.Point(697, 123);
             this.btnChangedata.Margin = new System.Windows.Forms.Padding(2);
             this.btnChangedata.Name = "btnChangedata";
-            this.btnChangedata.Size = new System.Drawing.Size(151, 24);
+            this.btnChangedata.Size = new System.Drawing.Size(151, 34);
             this.btnChangedata.TabIndex = 47;
             this.btnChangedata.Text = "Zmień dane";
             this.btnChangedata.UseVisualStyleBackColor = true;
@@ -101,7 +101,7 @@
             this.btnAddnew.Location = new System.Drawing.Point(697, 77);
             this.btnAddnew.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddnew.Name = "btnAddnew";
-            this.btnAddnew.Size = new System.Drawing.Size(151, 24);
+            this.btnAddnew.Size = new System.Drawing.Size(151, 34);
             this.btnAddnew.TabIndex = 46;
             this.btnAddnew.Text = "Nowy pracownik";
             this.btnAddnew.UseVisualStyleBackColor = true;
@@ -110,10 +110,10 @@
             // btnRefresh
             // 
             this.btnRefresh.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.btnRefresh.Location = new System.Drawing.Point(454, 123);
+            this.btnRefresh.Location = new System.Drawing.Point(454, 121);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(151, 24);
+            this.btnRefresh.Size = new System.Drawing.Size(151, 34);
             this.btnRefresh.TabIndex = 45;
             this.btnRefresh.Text = "Odśwież";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -125,7 +125,7 @@
             this.btnSearch.Location = new System.Drawing.Point(454, 77);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(151, 24);
+            this.btnSearch.Size = new System.Drawing.Size(151, 34);
             this.btnSearch.TabIndex = 44;
             this.btnSearch.Text = "Szukaj";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -207,10 +207,10 @@
             // btnSalary
             // 
             this.btnSalary.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.btnSalary.Location = new System.Drawing.Point(953, 163);
+            this.btnSalary.Location = new System.Drawing.Point(697, 170);
             this.btnSalary.Margin = new System.Windows.Forms.Padding(2);
             this.btnSalary.Name = "btnSalary";
-            this.btnSalary.Size = new System.Drawing.Size(151, 27);
+            this.btnSalary.Size = new System.Drawing.Size(151, 34);
             this.btnSalary.TabIndex = 53;
             this.btnSalary.Text = "Pasek płacowy";
             this.btnSalary.UseVisualStyleBackColor = true;
@@ -251,6 +251,7 @@
             this.Controls.Add(this.lblNazwisko);
             this.Controls.Add(this.lblImie);
             this.Name = "FormHRDepartment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Pracownicy i umowy";
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorker)).EndInit();
             this.ResumeLayout(false);
