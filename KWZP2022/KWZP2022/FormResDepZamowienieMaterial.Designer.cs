@@ -50,8 +50,11 @@
             this.btnAktualizujStatus = new System.Windows.Forms.Button();
             this.lblPodpisWidoku = new System.Windows.Forms.Label();
             this.btnOdswiez = new System.Windows.Forms.Button();
+            this.dgvMissingMaterials = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienieMaterial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numWaga)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMissingMaterials)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDodajMaterial
@@ -162,9 +165,9 @@
             this.lblWaga.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblWaga.Location = new System.Drawing.Point(647, 133);
             this.lblWaga.Name = "lblWaga";
-            this.lblWaga.Size = new System.Drawing.Size(96, 24);
+            this.lblWaga.Size = new System.Drawing.Size(93, 24);
             this.lblWaga.TabIndex = 17;
-            this.lblWaga.Text = "Waga (g)";
+            this.lblWaga.Text = "Masa (g)";
             // 
             // lblCena
             // 
@@ -266,9 +269,9 @@
             this.lblPodpisWidoku.Font = new System.Drawing.Font("Arial", 12F);
             this.lblPodpisWidoku.Location = new System.Drawing.Point(16, 221);
             this.lblPodpisWidoku.Name = "lblPodpisWidoku";
-            this.lblPodpisWidoku.Size = new System.Drawing.Size(173, 18);
+            this.lblPodpisWidoku.Size = new System.Drawing.Size(177, 18);
             this.lblPodpisWidoku.TabIndex = 62;
-            this.lblPodpisWidoku.Text = "Zamówienia materiałów";
+            this.lblPodpisWidoku.Text = "Zamówienia materiałów:";
             // 
             // btnOdswiez
             // 
@@ -281,11 +284,32 @@
             this.btnOdswiez.UseVisualStyleBackColor = true;
             this.btnOdswiez.Click += new System.EventHandler(this.btnOdswiez_Click);
             // 
+            // dgvMissingMaterials
+            // 
+            this.dgvMissingMaterials.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMissingMaterials.Location = new System.Drawing.Point(990, 120);
+            this.dgvMissingMaterials.Name = "dgvMissingMaterials";
+            this.dgvMissingMaterials.Size = new System.Drawing.Size(303, 338);
+            this.dgvMissingMaterials.TabIndex = 64;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(986, 85);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(188, 24);
+            this.label1.TabIndex = 65;
+            this.label1.Text = "Brakujący materiał:";
+            // 
             // FormResDepZamowienieMaterial
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(956, 539);
+            this.ClientSize = new System.Drawing.Size(1305, 539);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dgvMissingMaterials);
             this.Controls.Add(this.btnOdswiez);
             this.Controls.Add(this.lblPodpisWidoku);
             this.Controls.Add(this.btnAktualizujStatus);
@@ -317,6 +341,7 @@
             this.Text = "Zamówienie materiału";
             ((System.ComponentModel.ISupportInitialize)(this.dgvZamowienieMaterial)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numWaga)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMissingMaterials)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -345,5 +370,7 @@
         private System.Windows.Forms.Button btnAktualizujStatus;
         private System.Windows.Forms.Label lblPodpisWidoku;
         private System.Windows.Forms.Button btnOdswiez;
+        private System.Windows.Forms.DataGridView dgvMissingMaterials;
+        private System.Windows.Forms.Label label1;
     }
 }

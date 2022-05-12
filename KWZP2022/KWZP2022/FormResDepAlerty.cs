@@ -37,7 +37,7 @@ namespace KWZP2022
 
         private void btnOdczytano_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Czy alert: " + this.dgvAlerty.CurrentRow.Cells[3].Value + " został odczytany?", "Question", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Czy alert: " + this.dgvAlerty.CurrentRow.Cells[3].Value + " został odczytany?", "Odczytano Alert?", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 int odczytano = int.Parse(this.dgvAlerty.CurrentRow.Cells[0].Value.ToString());

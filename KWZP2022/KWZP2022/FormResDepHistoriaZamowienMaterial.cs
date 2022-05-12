@@ -32,6 +32,7 @@ namespace KWZP2022
             dgvHistoria.Columns[1].Visible = false;
             dgvHistoria.Columns[7].Visible = false;
             dgvHistoria.Columns[8].Visible = false;
+            dgvHistoria.Columns[4].HeaderText = "Masa (g)";
         }
         private void btnNoweZam_Click(object sender, EventArgs e)
         {
