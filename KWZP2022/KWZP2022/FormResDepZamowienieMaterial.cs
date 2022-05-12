@@ -18,6 +18,7 @@ namespace KWZP2022
             InitializeComponent();
             this.db = db;
             initDataGridView();
+            initDataGridViewMaterialy();
             initComboBoxes();
         }
 
@@ -46,6 +47,14 @@ namespace KWZP2022
             dgvZamowienieMaterial.DataSource = db.v_Zamowienia_materialy_w_trakcie.ToList();
             dgvZamowienieMaterial.Columns[6].Visible = false;
             dgvZamowienieMaterial.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dgvZamowienieMaterial.Columns[3].HeaderText = "Masa (g)";
+        }
+        private void initDataGridViewMaterialy()
+        {
+            dgvMissingMaterials.DataSource = this.db.v_Brakujacy_material.ToList();
+            dgvMissingMaterials.Columns["ID_material"].Visible = false;
+            dgvMissingMaterials.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            dgvMissingMaterials.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
         }
         private void txtCena_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -116,21 +125,27 @@ namespace KWZP2022
 
         private void btnAktualizujStatus_Click(object sender, EventArgs e)
         {
-            Stan_realizacji_zamowienie_material stRealizacjaMaterial = new Stan_realizacji_zamowienie_material();
-            stRealizacjaMaterial.ID_zamowienie_material = (int)dgvZamowienieMaterial.CurrentRow.Cells[0].Value;
-            stRealizacjaMaterial.ID_status_zamowienie = (int)dgvZamowienieMaterial.CurrentRow.Cells[6].Value + 1;
-            stRealizacjaMaterial.Data_stan = System.DateTime.Now;
-            stRealizacjaMaterial.ID_pracownik = (int)cmbPracownik.SelectedValue;
-            db.Stan_realizacji_zamowienie_material.Add(stRealizacjaMaterial);
-            db.SaveChanges();
-            MessageBox.Show("Zmieniono status zamówienia dla: " + dgvZamowienieMaterial.CurrentRow.Cells[1].Value.ToString());
-            initDataGridView();
+            DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz zmienić status zamówienia: " + this.dgvZamowienieMaterial.CurrentRow.Cells[0].Value + "?" , "Zmiana Statusu", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Stan_realizacji_zamowienie_material stRealizacjaMaterial = new Stan_realizacji_zamowienie_material();
+                stRealizacjaMaterial.ID_zamowienie_material = (int)dgvZamowienieMaterial.CurrentRow.Cells[0].Value;
+                stRealizacjaMaterial.ID_status_zamowienie = (int)dgvZamowienieMaterial.CurrentRow.Cells[6].Value + 1;
+                stRealizacjaMaterial.Data_stan = System.DateTime.Now;
+                stRealizacjaMaterial.ID_pracownik = (int)cmbPracownik.SelectedValue;
+                db.Stan_realizacji_zamowienie_material.Add(stRealizacjaMaterial);
+                db.SaveChanges();
+                MessageBox.Show("Zmieniono status zamówienia dla: " + dgvZamowienieMaterial.CurrentRow.Cells[1].Value.ToString());
+                initDataGridView();
+                initDataGridViewMaterialy();
+            }
         }
-
         private void btnOdswiez_Click(object sender, EventArgs e)
         {
             initDataGridView();
             initComboBoxes();
+            initDataGridViewMaterialy();
         }
+
     }
 }

@@ -171,7 +171,7 @@ namespace KWZP2022
             textBoxPriceData();
             textBoxRealPriceForProductData();
         }
-        
+
         private void comboBoxTax_SelectionChangeCommitted(object sender, EventArgs e)
         {
             textBoxPriceData();

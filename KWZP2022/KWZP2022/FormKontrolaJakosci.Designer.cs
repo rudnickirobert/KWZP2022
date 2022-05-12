@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormKontrolaJakosci));
             this.btnOdswiez = new System.Windows.Forms.Button();
             this.btnDodaj = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -64,6 +65,7 @@
             this.btnGauss = new System.Windows.Forms.Button();
             this.txtKontrolaIlosc = new System.Windows.Forms.TextBox();
             this.btnRezultat = new System.Windows.Forms.Button();
+            this.btnAlert = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvvParametrProdukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvvKontrolaProdukt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvvKontrolaJakosciKolejka)).BeginInit();
@@ -419,7 +421,10 @@
             // btnRezultat
             // 
             this.btnRezultat.BackColor = System.Drawing.Color.Thistle;
+            this.btnRezultat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRezultat.BackgroundImage")));
             this.btnRezultat.Font = new System.Drawing.Font("Arial", 15F);
+            this.btnRezultat.Image = ((System.Drawing.Image)(resources.GetObject("btnRezultat.Image")));
+            this.btnRezultat.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnRezultat.Location = new System.Drawing.Point(260, 637);
             this.btnRezultat.Name = "btnRezultat";
             this.btnRezultat.Size = new System.Drawing.Size(35, 34);
@@ -427,12 +432,25 @@
             this.btnRezultat.UseVisualStyleBackColor = false;
             this.btnRezultat.Click += new System.EventHandler(this.btnRezultat_Click);
             // 
+            // btnAlert
+            // 
+            this.btnAlert.BackColor = System.Drawing.Color.LightYellow;
+            this.btnAlert.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.btnAlert.Location = new System.Drawing.Point(920, 12);
+            this.btnAlert.Name = "btnAlert";
+            this.btnAlert.Size = new System.Drawing.Size(344, 63);
+            this.btnAlert.TabIndex = 74;
+            this.btnAlert.Text = "POWIADOM O REALIZACJI";
+            this.btnAlert.UseVisualStyleBackColor = false;
+            this.btnAlert.Click += new System.EventHandler(this.btnAlert_Click);
+            // 
             // FormKontrolaJakosci
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background;
             this.ClientSize = new System.Drawing.Size(1276, 714);
+            this.Controls.Add(this.btnAlert);
             this.Controls.Add(this.btnRezultat);
             this.Controls.Add(this.txtKontrolaIlosc);
             this.Controls.Add(this.btnGauss);
@@ -520,5 +538,6 @@
         private System.Windows.Forms.Button btnGauss;
         private System.Windows.Forms.TextBox txtKontrolaIlosc;
         private System.Windows.Forms.Button btnRezultat;
+        private System.Windows.Forms.Button btnAlert;
     }
 }

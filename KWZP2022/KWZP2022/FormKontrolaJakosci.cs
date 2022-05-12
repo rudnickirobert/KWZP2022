@@ -168,7 +168,7 @@ namespace KWZP2022
                 kontrolaParametr.Wartosc = decimal.Parse(txtWartosc.Text);
                 db.Kontrola_parametr.Add(kontrolaParametr);
                 db.SaveChanges();
-                MessageBox.Show("Poprawnie przeprowadzono kontrole");
+                MessageBox.Show("Poprawnie zarejestrowano kontrolę jakości.");
                 refreshScreen();
             }      
             refreshScreen();
@@ -275,6 +275,50 @@ namespace KWZP2022
         private void btnRezultat_Click(object sender, EventArgs e)
         {
             initDataGridViewRezultatKontroli();
+        }
+
+        private void btnAlert_Click(object sender, EventArgs e)
+        {
+            if (this.dgvRezultatKontroli.SelectedRows.Count > 0)
+            {
+                if (this.dgvRezultatKontroli.CurrentRow != null)
+                {
+                    string produkt = this.dgvRezultatKontroli.CurrentRow.Cells[1].Value.ToString();
+                    int ilosc = int.Parse(this.dgvRezultatKontroli.CurrentRow.Cells[2].Value.ToString());
+                    int alertCountBefore = this.db.Alert.ToList().Count;
+                    FormDodajAlert addAlert = new FormDodajAlert(db, produkt, ilosc);
+                    addAlert.ShowDialog();
+                    int alertCountAfter = this.db.Alert.ToList().Count;
+                    if (alertCountBefore >= alertCountAfter)
+                    {
+                        MessageBox.Show("Nie dodano alarmu!", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    int alertCountBefore = this.db.Alert.ToList().Count;
+                    FormDodajAlert addAlert = new FormDodajAlert(db);
+                    addAlert.ShowDialog();
+                    int alertCountAfter = this.db.Alert.ToList().Count;
+                    if (alertCountBefore >= alertCountAfter)
+                    {
+                        MessageBox.Show("Nie dodano alarmu!", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                string produkt = this.dgvRezultatKontroli.CurrentRow.Cells[1].Value.ToString();
+                int ilosc = int.Parse(this.dgvRezultatKontroli.CurrentRow.Cells[2].Value.ToString());
+                int alertCountBefore = this.db.Alert.ToList().Count;
+                FormDodajAlert addAlert = new FormDodajAlert(db, produkt, ilosc);
+                addAlert.ShowDialog();
+                int alertCountAfter = this.db.Alert.ToList().Count;
+                if (alertCountBefore >= alertCountAfter)
+                {
+                    MessageBox.Show("Nie dodano alarmu!", "Błąd!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

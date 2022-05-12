@@ -98,6 +98,12 @@
     <Compile Include="Forma_platnosc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FormHRDepartmentSalary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHRDepartmentSalary.Designer.cs">
+      <DependentUpon>FormHRDepartmentSalary.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormKontrolaJakosciGauss.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1110,6 +1116,21 @@
     <Compile Include="v_Nieobecnosc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_NieobecnoscCH.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_NieobecnoscCH_kwota.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_NieobecnoscNB.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_NieobecnoscNB_kwota.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_NieobecnoscUW.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Nr_seryjny_maszyna.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -1353,7 +1374,19 @@
     <Compile Include="v_Wymiana_czesc_w_trakcie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Wymiar_pracy.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Wynik_kontroli.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Wyplata.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Wyplata_nieobecnosci.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Wyplata_suma.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
     <Compile Include="v_Wytwarzanie.cs">
@@ -1470,6 +1503,9 @@
     <Compile Include="Wymiar_pracy.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Wyplata.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Wytwarzanie.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -1494,6 +1530,9 @@
     <Compile Include="Zwrot.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormHRDepartmentSalary.resx">
+      <DependentUpon>FormHRDepartmentSalary.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormKontrolaJakosciGauss.resx">
       <DependentUpon>FormKontrolaJakosciGauss.cs</DependentUpon>
     </EmbeddedResource>

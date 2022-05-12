@@ -472,6 +472,7 @@
           </Key>
           <Property Name="ID_rodzaj_nieobecnosci" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Symbol" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Wspolczynnik_wynagrodzenia" Type="decimal" Precision="2" Scale="1" />
         </EntityType>
         <EntityType Name="Rodzaj_obsluga">
           <Key>
@@ -752,6 +753,15 @@
           </Key>
           <Property Name="ID_wymiar_pracy" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Wspolczynnik_wynagrodzenia" Type="decimal" Precision="2" Scale="1" />
+        </EntityType>
+        <EntityType Name="Wyplata">
+          <Key>
+            <PropertyRef Name="ID_wypłata" />
+          </Key>
+          <Property Name="ID_wypłata" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Pracownik" Type="int" Nullable="false" />
+          <Property Name="Data_wyplaty" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="Wytwarzanie">
           <Key>
@@ -1794,17 +1804,103 @@ warning 6002: The table/view 'KWZP.dbo.v_Nadgodziny_suma_miesiac' does not have 
 warning 6002: The table/view 'KWZP.dbo.v_Nieobecnosc' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Nieobecnosc">
           <Key>
+            <PropertyRef Name="ID_pracownik" />
             <PropertyRef Name="Nazwisko" />
             <PropertyRef Name="Imię" />
-            <PropertyRef Name="Rodzaj nieobecności" />
+            <PropertyRef Name="ID_rodzaj_nieobecnosci" />
+            <PropertyRef Name="Rodzaj_nieobecnosci" />
             <PropertyRef Name="Data od:" />
             <PropertyRef Name="Data do:" />
           </Key>
+          <Property Name="ID_pracownik" Type="int" Nullable="false" />
           <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Imię" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Rodzaj nieobecności" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ID_rodzaj_nieobecnosci" Type="int" Nullable="false" />
+          <Property Name="Rodzaj_nieobecnosci" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="Data od:" Type="date" Nullable="false" />
           <Property Name="Data do:" Type="date" Nullable="false" />
+          <Property Name="Duration" Type="int" />
+          <Property Name="Miesiac_nieobecnosci" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_NieobecnoscCH' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_NieobecnoscCH">
+          <Key>
+            <PropertyRef Name="ID_pracownikCH" />
+            <PropertyRef Name="NazwiskoCH" />
+            <PropertyRef Name="ImięCH" />
+            <PropertyRef Name="Rodzaj_nieobecnosci" />
+          </Key>
+          <Property Name="ID_pracownikCH" Type="int" Nullable="false" />
+          <Property Name="NazwiskoCH" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImięCH" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rodzaj_nieobecnosci" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Ilosc_CH" Type="int" />
+          <Property Name="Miesiac_nieobecnosci" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_NieobecnoscCH_kwota' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_NieobecnoscCH_kwota">
+          <Key>
+            <PropertyRef Name="ID_pracownik" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="Imię" />
+            <PropertyRef Name="Rodzaj_nieobecnosci" />
+          </Key>
+          <Property Name="ID_pracownik" Type="int" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Imię" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rodzaj_nieobecnosci" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Suma_CH" Type="decimal" Precision="29" Scale="6" />
+          <Property Name="Miesiac_nieobecnosci" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_NieobecnoscNB' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_NieobecnoscNB">
+          <Key>
+            <PropertyRef Name="ID_pracownik" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="Imię" />
+            <PropertyRef Name="Rodzaj_nieobecnosci" />
+          </Key>
+          <Property Name="ID_pracownik" Type="int" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Imię" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rodzaj_nieobecnosci" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Ilosc_NB" Type="int" />
+          <Property Name="Miesiac_nieobecnosci" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_NieobecnoscNB_kwota' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_NieobecnoscNB_kwota">
+          <Key>
+            <PropertyRef Name="ID_pracownik" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="Imię" />
+            <PropertyRef Name="Rodzaj_nieobecnosci" />
+          </Key>
+          <Property Name="ID_pracownik" Type="int" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Imię" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rodzaj_nieobecnosci" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Suma_NB" Type="decimal" Precision="29" Scale="6" />
+          <Property Name="Miesiac_nieobecnosci" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_NieobecnoscUW' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_NieobecnoscUW">
+          <Key>
+            <PropertyRef Name="ID_pracownik" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="Imię" />
+            <PropertyRef Name="Rodzaj_nieobecnosci" />
+          </Key>
+          <Property Name="ID_pracownik" Type="int" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Imię" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rodzaj_nieobecnosci" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Ilosc_UW" Type="int" />
+          <Property Name="Miesiac_nieobecnosci" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Nr_seryjny_maszyna' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -2956,6 +3052,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Umowa' does not have a primary key defi
         <EntityType Name="v_Umowa">
           <Key>
             <PropertyRef Name="ID" />
+            <PropertyRef Name="ID_pracownik" />
             <PropertyRef Name="Nazwisko" />
             <PropertyRef Name="Imię" />
             <PropertyRef Name="Wymiar pracy" />
@@ -2964,6 +3061,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Umowa' does not have a primary key defi
             <PropertyRef Name="Podstawa wynagrodzenia" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID_pracownik" Type="int" Nullable="false" />
           <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Imię" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Wymiar pracy" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -3040,6 +3138,21 @@ warning 6002: The table/view 'KWZP.dbo.v_Wymiana_czesc_w_trakcie' does not have 
           <Property Name="Nazwa_czesc" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Wymiar_pracy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Wymiar_pracy">
+          <Key>
+            <PropertyRef Name="ID_pracownik" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="Imie" />
+            <PropertyRef Name="Wynagrodzenie" />
+          </Key>
+          <Property Name="ID_pracownik" Type="int" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Imie" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Wynagrodzenie" Type="int" Nullable="false" />
+          <Property Name="Wspolczynnik_wynagrodzenia" Type="decimal" Precision="2" Scale="1" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Wynik_kontroli' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Wynik_kontroli">
           <Key>
@@ -3049,6 +3162,62 @@ warning 6002: The table/view 'KWZP.dbo.v_Wynik_kontroli' does not have a primary
           <Property Name="ID_wytwarzanie" Type="int" Nullable="false" />
           <Property Name="ID_produkt" Type="int" Nullable="false" />
           <Property Name="Wynik_kontrola" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Wyplata' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Wyplata">
+          <Key>
+            <PropertyRef Name="ID_wypłata" />
+            <PropertyRef Name="ID_Pracownik" />
+            <PropertyRef Name="Data_wyplaty" />
+          </Key>
+          <Property Name="ID_wypłata" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Pracownik" Type="int" Nullable="false" />
+          <Property Name="Data_wyplaty" Type="date" Nullable="false" />
+          <Property Name="Miesiac_wyplata" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Wyplata_nieobecnosci' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Wyplata_nieobecnosci">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="Imię" />
+            <PropertyRef Name="Ilość dni CH" />
+            <PropertyRef Name="Ilość dni NB" />
+            <PropertyRef Name="Kwota_CH" />
+            <PropertyRef Name="Kwota_NB" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Imię" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Miesiac_wyplata" Type="int" />
+          <Property Name="Ilość dni CH" Type="int" Nullable="false" />
+          <Property Name="Ilość dni NB" Type="int" Nullable="false" />
+          <Property Name="Kwota_CH" Type="decimal" Precision="29" Scale="6" Nullable="false" />
+          <Property Name="Kwota_NB" Type="decimal" Precision="29" Scale="6" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Wyplata_suma' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Wyplata_suma">
+          <Key>
+            <PropertyRef Name="ID_pracownik" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="Imię" />
+            <PropertyRef Name="Podstawa wynagrodzenia" />
+            <PropertyRef Name="Wynagrodzenie_nadgodziny" />
+            <PropertyRef Name="Ilość dni CH" />
+            <PropertyRef Name="Ilość dni NB" />
+          </Key>
+          <Property Name="ID_pracownik" Type="int" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Imię" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Podstawa wynagrodzenia" Type="int" Nullable="false" />
+          <Property Name="Miesiac_wyplata" Type="int" />
+          <Property Name="Wynagrodzenie_nadgodziny" Type="int" Nullable="false" />
+          <Property Name="Ilość dni CH" Type="int" Nullable="false" />
+          <Property Name="Ilość dni NB" Type="int" Nullable="false" />
+          <Property Name="Wypłata" Type="decimal" Precision="31" Scale="6" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Wytwarzanie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -4999,6 +5168,18 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Wyplata__ID_Prac__4B422AD5">
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+          <End Role="Wyplata" Type="Self.Wyplata" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownik">
+              <PropertyRef Name="ID_pracownik" />
+            </Principal>
+            <Dependent Role="Wyplata">
+              <PropertyRef Name="ID_Pracownik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Wytwarzan__ID_pr__3493CFA7">
           <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
           <End Role="Wytwarzanie" Type="Self.Wytwarzanie" Multiplicity="*" />
@@ -5287,6 +5468,7 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <EntitySet Name="Wyksztalcenie" EntityType="Self.Wyksztalcenie" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wymiana_czesc" EntityType="Self.Wymiana_czesc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wymiar_pracy" EntityType="Self.Wymiar_pracy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wyplata" EntityType="Self.Wyplata" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Wytwarzanie" EntityType="Self.Wytwarzanie" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zamowienie" EntityType="Self.Zamowienie" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zamowienie_czesc" EntityType="Self.Zamowienie_czesc" Schema="dbo" store:Type="Tables" />
@@ -5893,12 +6075,66 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           </EntitySet>
           <EntitySet Name="v_Nieobecnosc" EntityType="Self.v_Nieobecnosc" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [v_Nieobecnosc].[ID_pracownik] AS [ID_pracownik], 
     [v_Nieobecnosc].[Nazwisko] AS [Nazwisko], 
     [v_Nieobecnosc].[Imię] AS [Imię], 
-    [v_Nieobecnosc].[Rodzaj nieobecności] AS [Rodzaj nieobecności], 
+    [v_Nieobecnosc].[ID_rodzaj_nieobecnosci] AS [ID_rodzaj_nieobecnosci], 
+    [v_Nieobecnosc].[Rodzaj_nieobecnosci] AS [Rodzaj_nieobecnosci], 
     [v_Nieobecnosc].[Data od:] AS [Data od:], 
-    [v_Nieobecnosc].[Data do:] AS [Data do:]
+    [v_Nieobecnosc].[Data do:] AS [Data do:], 
+    [v_Nieobecnosc].[Duration] AS [Duration], 
+    [v_Nieobecnosc].[Miesiac_nieobecnosci] AS [Miesiac_nieobecnosci]
     FROM [dbo].[v_Nieobecnosc] AS [v_Nieobecnosc]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_NieobecnoscCH" EntityType="Self.v_NieobecnoscCH" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_NieobecnoscCH].[ID_pracownikCH] AS [ID_pracownikCH], 
+    [v_NieobecnoscCH].[NazwiskoCH] AS [NazwiskoCH], 
+    [v_NieobecnoscCH].[ImięCH] AS [ImięCH], 
+    [v_NieobecnoscCH].[Rodzaj_nieobecnosci] AS [Rodzaj_nieobecnosci], 
+    [v_NieobecnoscCH].[Ilosc_CH] AS [Ilosc_CH], 
+    [v_NieobecnoscCH].[Miesiac_nieobecnosci] AS [Miesiac_nieobecnosci]
+    FROM [dbo].[v_NieobecnoscCH] AS [v_NieobecnoscCH]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_NieobecnoscCH_kwota" EntityType="Self.v_NieobecnoscCH_kwota" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_NieobecnoscCH_kwota].[ID_pracownik] AS [ID_pracownik], 
+    [v_NieobecnoscCH_kwota].[Nazwisko] AS [Nazwisko], 
+    [v_NieobecnoscCH_kwota].[Imię] AS [Imię], 
+    [v_NieobecnoscCH_kwota].[Rodzaj_nieobecnosci] AS [Rodzaj_nieobecnosci], 
+    [v_NieobecnoscCH_kwota].[Suma_CH] AS [Suma_CH], 
+    [v_NieobecnoscCH_kwota].[Miesiac_nieobecnosci] AS [Miesiac_nieobecnosci]
+    FROM [dbo].[v_NieobecnoscCH_kwota] AS [v_NieobecnoscCH_kwota]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_NieobecnoscNB" EntityType="Self.v_NieobecnoscNB" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_NieobecnoscNB].[ID_pracownik] AS [ID_pracownik], 
+    [v_NieobecnoscNB].[Nazwisko] AS [Nazwisko], 
+    [v_NieobecnoscNB].[Imię] AS [Imię], 
+    [v_NieobecnoscNB].[Rodzaj_nieobecnosci] AS [Rodzaj_nieobecnosci], 
+    [v_NieobecnoscNB].[Ilosc_NB] AS [Ilosc_NB], 
+    [v_NieobecnoscNB].[Miesiac_nieobecnosci] AS [Miesiac_nieobecnosci]
+    FROM [dbo].[v_NieobecnoscNB] AS [v_NieobecnoscNB]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_NieobecnoscNB_kwota" EntityType="Self.v_NieobecnoscNB_kwota" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_NieobecnoscNB_kwota].[ID_pracownik] AS [ID_pracownik], 
+    [v_NieobecnoscNB_kwota].[Nazwisko] AS [Nazwisko], 
+    [v_NieobecnoscNB_kwota].[Imię] AS [Imię], 
+    [v_NieobecnoscNB_kwota].[Rodzaj_nieobecnosci] AS [Rodzaj_nieobecnosci], 
+    [v_NieobecnoscNB_kwota].[Suma_NB] AS [Suma_NB], 
+    [v_NieobecnoscNB_kwota].[Miesiac_nieobecnosci] AS [Miesiac_nieobecnosci]
+    FROM [dbo].[v_NieobecnoscNB_kwota] AS [v_NieobecnoscNB_kwota]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_NieobecnoscUW" EntityType="Self.v_NieobecnoscUW" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_NieobecnoscUW].[ID_pracownik] AS [ID_pracownik], 
+    [v_NieobecnoscUW].[Nazwisko] AS [Nazwisko], 
+    [v_NieobecnoscUW].[Imię] AS [Imię], 
+    [v_NieobecnoscUW].[Rodzaj_nieobecnosci] AS [Rodzaj_nieobecnosci], 
+    [v_NieobecnoscUW].[Ilosc_UW] AS [Ilosc_UW], 
+    [v_NieobecnoscUW].[Miesiac_nieobecnosci] AS [Miesiac_nieobecnosci]
+    FROM [dbo].[v_NieobecnoscUW] AS [v_NieobecnoscUW]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Nr_seryjny_maszyna" EntityType="Self.v_Nr_seryjny_maszyna" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -6571,6 +6807,7 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <EntitySet Name="v_Umowa" EntityType="Self.v_Umowa" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Umowa].[ID] AS [ID], 
+    [v_Umowa].[ID_pracownik] AS [ID_pracownik], 
     [v_Umowa].[Nazwisko] AS [Nazwisko], 
     [v_Umowa].[Imię] AS [Imię], 
     [v_Umowa].[Wymiar pracy] AS [Wymiar pracy], 
@@ -6618,12 +6855,54 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
     [v_Wymiana_czesc_w_trakcie].[Nazwa_czesc] AS [Nazwa_czesc]
     FROM [dbo].[v_Wymiana_czesc_w_trakcie] AS [v_Wymiana_czesc_w_trakcie]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="v_Wymiar_pracy" EntityType="Self.v_Wymiar_pracy" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Wymiar_pracy].[ID_pracownik] AS [ID_pracownik], 
+    [v_Wymiar_pracy].[Nazwisko] AS [Nazwisko], 
+    [v_Wymiar_pracy].[Imie] AS [Imie], 
+    [v_Wymiar_pracy].[Wynagrodzenie] AS [Wynagrodzenie], 
+    [v_Wymiar_pracy].[Wspolczynnik_wynagrodzenia] AS [Wspolczynnik_wynagrodzenia]
+    FROM [dbo].[v_Wymiar_pracy] AS [v_Wymiar_pracy]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="v_Wynik_kontroli" EntityType="Self.v_Wynik_kontroli" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [v_Wynik_kontroli].[ID_wytwarzanie] AS [ID_wytwarzanie], 
     [v_Wynik_kontroli].[ID_produkt] AS [ID_produkt], 
     [v_Wynik_kontroli].[Wynik_kontrola] AS [Wynik_kontrola]
     FROM [dbo].[v_Wynik_kontroli] AS [v_Wynik_kontroli]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Wyplata" EntityType="Self.v_Wyplata" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Wyplata].[ID_wypłata] AS [ID_wypłata], 
+    [v_Wyplata].[ID_Pracownik] AS [ID_Pracownik], 
+    [v_Wyplata].[Data_wyplaty] AS [Data_wyplaty], 
+    [v_Wyplata].[Miesiac_wyplata] AS [Miesiac_wyplata]
+    FROM [dbo].[v_Wyplata] AS [v_Wyplata]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Wyplata_nieobecnosci" EntityType="Self.v_Wyplata_nieobecnosci" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Wyplata_nieobecnosci].[ID] AS [ID], 
+    [v_Wyplata_nieobecnosci].[Nazwisko] AS [Nazwisko], 
+    [v_Wyplata_nieobecnosci].[Imię] AS [Imię], 
+    [v_Wyplata_nieobecnosci].[Miesiac_wyplata] AS [Miesiac_wyplata], 
+    [v_Wyplata_nieobecnosci].[Ilość dni CH] AS [Ilość dni CH], 
+    [v_Wyplata_nieobecnosci].[Ilość dni NB] AS [Ilość dni NB], 
+    [v_Wyplata_nieobecnosci].[Kwota_CH] AS [Kwota_CH], 
+    [v_Wyplata_nieobecnosci].[Kwota_NB] AS [Kwota_NB]
+    FROM [dbo].[v_Wyplata_nieobecnosci] AS [v_Wyplata_nieobecnosci]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Wyplata_suma" EntityType="Self.v_Wyplata_suma" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Wyplata_suma].[ID_pracownik] AS [ID_pracownik], 
+    [v_Wyplata_suma].[Nazwisko] AS [Nazwisko], 
+    [v_Wyplata_suma].[Imię] AS [Imię], 
+    [v_Wyplata_suma].[Podstawa wynagrodzenia] AS [Podstawa wynagrodzenia], 
+    [v_Wyplata_suma].[Miesiac_wyplata] AS [Miesiac_wyplata], 
+    [v_Wyplata_suma].[Wynagrodzenie_nadgodziny] AS [Wynagrodzenie_nadgodziny], 
+    [v_Wyplata_suma].[Ilość dni CH] AS [Ilość dni CH], 
+    [v_Wyplata_suma].[Ilość dni NB] AS [Ilość dni NB], 
+    [v_Wyplata_suma].[Wypłata] AS [Wypłata]
+    FROM [dbo].[v_Wyplata_suma] AS [v_Wyplata_suma]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Wytwarzanie" EntityType="Self.v_Wytwarzanie" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -7401,6 +7680,10 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
             <End Role="Obsluga" EntitySet="Obsluga" />
             <End Role="Wymiana_czesc" EntitySet="Wymiana_czesc" />
           </AssociationSet>
+          <AssociationSet Name="FK__Wyplata__ID_Prac__4B422AD5" Association="Self.FK__Wyplata__ID_Prac__4B422AD5">
+            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Wyplata" EntitySet="Wyplata" />
+          </AssociationSet>
           <AssociationSet Name="FK__Wytwarzan__ID_pr__3493CFA7" Association="Self.FK__Wytwarzan__ID_pr__3493CFA7">
             <End Role="Pracownik" EntitySet="Pracownik" />
             <End Role="Wytwarzanie" EntitySet="Wytwarzanie" />
@@ -7936,6 +8219,7 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <NavigationProperty Name="Stan_realizacji_zamowienie_maszyna" Relationship="Self.FK__Stan_real__ID_pr__6EC0713C" FromRole="Pracownik" ToRole="Stan_realizacji_zamowienie_maszyna" />
           <NavigationProperty Name="Stan_realizacji_zamowienie_narzedzie" Relationship="Self.FK__Stan_real__ID_pr__7C1A6C5A" FromRole="Pracownik" ToRole="Stan_realizacji_zamowienie_narzedzie" />
           <NavigationProperty Name="Umowa" Relationship="Self.FK__Umowa__ID_pracow__123EB7A3" FromRole="Pracownik" ToRole="Umowa" />
+          <NavigationProperty Name="Wyplata" Relationship="Self.FK__Wyplata__ID_Prac__4B422AD5" FromRole="Pracownik" ToRole="Wyplata" />
           <NavigationProperty Name="Wytwarzanie" Relationship="Self.FK__Wytwarzan__ID_pr__3493CFA7" FromRole="Pracownik" ToRole="Wytwarzanie" />
           <NavigationProperty Name="Zamowienie" Relationship="Self.FK__Zamowieni__ID_pr__236943A5" FromRole="Pracownik" ToRole="Zamowienie" />
           <NavigationProperty Name="Zamowienie_material" Relationship="Self.FK__Zamowieni__ID_pr__28ED12D1" FromRole="Pracownik" ToRole="Zamowienie_material" />
@@ -8071,6 +8355,7 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           </Key>
           <Property Name="ID_rodzaj_nieobecnosci" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Symbol" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Wspolczynnik_wynagrodzenia" Type="Decimal" Precision="2" Scale="1" />
           <NavigationProperty Name="Nieobecnosc" Relationship="Self.FK__Nieobecno__ID_ro__0B91BA14" FromRole="Rodzaj_nieobecnosci" ToRole="Nieobecnosc" />
         </EntityType>
         <EntityType Name="Rodzaj_obsluga">
@@ -8432,7 +8717,17 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           </Key>
           <Property Name="ID_wymiar_pracy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Wspolczynnik_wynagrodzenia" Type="Decimal" Precision="2" Scale="1" />
           <NavigationProperty Name="Umowa" Relationship="Self.FK__Umowa__ID_wymiar__10566F31" FromRole="Wymiar_pracy" ToRole="Umowa" />
+        </EntityType>
+        <EntityType Name="Wyplata">
+          <Key>
+            <PropertyRef Name="ID_wypłata" />
+          </Key>
+          <Property Name="ID_wypłata" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Pracownik" Type="Int32" Nullable="false" />
+          <Property Name="Data_wyplaty" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.FK__Wyplata__ID_Prac__4B422AD5" FromRole="Wyplata" ToRole="Pracownik" />
         </EntityType>
         <EntityType Name="Wytwarzanie">
           <Key>
@@ -9350,17 +9645,93 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
         </EntityType>
         <EntityType Name="v_Nieobecnosc">
           <Key>
+            <PropertyRef Name="ID_pracownik" />
             <PropertyRef Name="Nazwisko" />
             <PropertyRef Name="Imię" />
-            <PropertyRef Name="Rodzaj_nieobecności" />
+            <PropertyRef Name="ID_rodzaj_nieobecnosci" />
+            <PropertyRef Name="Rodzaj_nieobecnosci" />
             <PropertyRef Name="Data_od_" />
             <PropertyRef Name="Data_do_" />
           </Key>
+          <Property Name="ID_pracownik" Type="Int32" Nullable="false" />
           <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Imię" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Rodzaj_nieobecności" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_rodzaj_nieobecnosci" Type="Int32" Nullable="false" />
+          <Property Name="Rodzaj_nieobecnosci" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Data_od_" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Data_do_" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Duration" Type="Int32" />
+          <Property Name="Miesiac_nieobecnosci" Type="Int32" />
+        </EntityType>
+        <EntityType Name="v_NieobecnoscCH">
+          <Key>
+            <PropertyRef Name="ID_pracownikCH" />
+            <PropertyRef Name="NazwiskoCH" />
+            <PropertyRef Name="ImięCH" />
+            <PropertyRef Name="Rodzaj_nieobecnosci" />
+          </Key>
+          <Property Name="ID_pracownikCH" Type="Int32" Nullable="false" />
+          <Property Name="NazwiskoCH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ImięCH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rodzaj_nieobecnosci" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ilosc_CH" Type="Int32" />
+          <Property Name="Miesiac_nieobecnosci" Type="Int32" />
+        </EntityType>
+        <EntityType Name="v_NieobecnoscCH_kwota">
+          <Key>
+            <PropertyRef Name="ID_pracownik" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="Imię" />
+            <PropertyRef Name="Rodzaj_nieobecnosci" />
+          </Key>
+          <Property Name="ID_pracownik" Type="Int32" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Imię" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rodzaj_nieobecnosci" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Suma_CH" Type="Decimal" Precision="29" Scale="6" />
+          <Property Name="Miesiac_nieobecnosci" Type="Int32" />
+        </EntityType>
+        <EntityType Name="v_NieobecnoscNB">
+          <Key>
+            <PropertyRef Name="ID_pracownik" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="Imię" />
+            <PropertyRef Name="Rodzaj_nieobecnosci" />
+          </Key>
+          <Property Name="ID_pracownik" Type="Int32" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Imię" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rodzaj_nieobecnosci" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ilosc_NB" Type="Int32" />
+          <Property Name="Miesiac_nieobecnosci" Type="Int32" />
+        </EntityType>
+        <EntityType Name="v_NieobecnoscNB_kwota">
+          <Key>
+            <PropertyRef Name="ID_pracownik" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="Imię" />
+            <PropertyRef Name="Rodzaj_nieobecnosci" />
+          </Key>
+          <Property Name="ID_pracownik" Type="Int32" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Imię" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rodzaj_nieobecnosci" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Suma_NB" Type="Decimal" Precision="29" Scale="6" />
+          <Property Name="Miesiac_nieobecnosci" Type="Int32" />
+        </EntityType>
+        <EntityType Name="v_NieobecnoscUW">
+          <Key>
+            <PropertyRef Name="ID_pracownik" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="Imię" />
+            <PropertyRef Name="Rodzaj_nieobecnosci" />
+          </Key>
+          <Property Name="ID_pracownik" Type="Int32" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Imię" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rodzaj_nieobecnosci" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ilosc_UW" Type="Int32" />
+          <Property Name="Miesiac_nieobecnosci" Type="Int32" />
         </EntityType>
         <EntityType Name="v_Nr_seryjny_maszyna">
           <Key>
@@ -10358,6 +10729,7 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
         <EntityType Name="v_Umowa">
           <Key>
             <PropertyRef Name="ID" />
+            <PropertyRef Name="ID_pracownik" />
             <PropertyRef Name="Nazwisko" />
             <PropertyRef Name="Imię" />
             <PropertyRef Name="Wymiar_pracy" />
@@ -10366,6 +10738,7 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
             <PropertyRef Name="Podstawa_wynagrodzenia" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID_pracownik" Type="Int32" Nullable="false" />
           <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Imię" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Wymiar_pracy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -10433,6 +10806,19 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <Property Name="Nr_seryjny" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Nazwa_czesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
+        <EntityType Name="v_Wymiar_pracy">
+          <Key>
+            <PropertyRef Name="ID_pracownik" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="Imie" />
+            <PropertyRef Name="Wynagrodzenie" />
+          </Key>
+          <Property Name="ID_pracownik" Type="Int32" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Wynagrodzenie" Type="Int32" Nullable="false" />
+          <Property Name="Wspolczynnik_wynagrodzenia" Type="Decimal" Precision="2" Scale="1" />
+        </EntityType>
         <EntityType Name="v_Wynik_kontroli">
           <Key>
             <PropertyRef Name="ID_wytwarzanie" />
@@ -10441,6 +10827,56 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <Property Name="ID_wytwarzanie" Type="Int32" Nullable="false" />
           <Property Name="ID_produkt" Type="Int32" Nullable="false" />
           <Property Name="Wynik_kontrola" Type="Int32" />
+        </EntityType>
+        <EntityType Name="v_Wyplata">
+          <Key>
+            <PropertyRef Name="ID_wypłata" />
+            <PropertyRef Name="ID_Pracownik" />
+            <PropertyRef Name="Data_wyplaty" />
+          </Key>
+          <Property Name="ID_wypłata" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Pracownik" Type="Int32" Nullable="false" />
+          <Property Name="Data_wyplaty" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Miesiac_wyplata" Type="Int32" />
+        </EntityType>
+        <EntityType Name="v_Wyplata_nieobecnosci">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="Imię" />
+            <PropertyRef Name="Ilość_dni_CH" />
+            <PropertyRef Name="Ilość_dni_NB" />
+            <PropertyRef Name="Kwota_CH" />
+            <PropertyRef Name="Kwota_NB" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Imię" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Miesiac_wyplata" Type="Int32" />
+          <Property Name="Ilość_dni_CH" Type="Int32" Nullable="false" />
+          <Property Name="Ilość_dni_NB" Type="Int32" Nullable="false" />
+          <Property Name="Kwota_CH" Type="Decimal" Precision="29" Scale="6" Nullable="false" />
+          <Property Name="Kwota_NB" Type="Decimal" Precision="29" Scale="6" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_Wyplata_suma">
+          <Key>
+            <PropertyRef Name="ID_pracownik" />
+            <PropertyRef Name="Nazwisko" />
+            <PropertyRef Name="Imię" />
+            <PropertyRef Name="Podstawa_wynagrodzenia" />
+            <PropertyRef Name="Wynagrodzenie_nadgodziny" />
+            <PropertyRef Name="Ilość_dni_CH" />
+            <PropertyRef Name="Ilość_dni_NB" />
+          </Key>
+          <Property Name="ID_pracownik" Type="Int32" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Imię" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Podstawa_wynagrodzenia" Type="Int32" Nullable="false" />
+          <Property Name="Miesiac_wyplata" Type="Int32" />
+          <Property Name="Wynagrodzenie_nadgodziny" Type="Int32" Nullable="false" />
+          <Property Name="Ilość_dni_CH" Type="Int32" Nullable="false" />
+          <Property Name="Ilość_dni_NB" Type="Int32" Nullable="false" />
+          <Property Name="Wypłata" Type="Decimal" Precision="31" Scale="6" />
         </EntityType>
         <EntityType Name="v_Wytwarzanie">
           <Key>
@@ -11871,6 +12307,18 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Wyplata__ID_Prac__4B422AD5">
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+          <End Role="Wyplata" Type="Self.Wyplata" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownik">
+              <PropertyRef Name="ID_pracownik" />
+            </Principal>
+            <Dependent Role="Wyplata">
+              <PropertyRef Name="ID_Pracownik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Wytwarzan__ID_pr__3493CFA7">
           <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
           <End Role="Wytwarzanie" Type="Self.Wytwarzanie" Multiplicity="*" />
@@ -12546,6 +12994,7 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <EntitySet Name="Wyksztalcenie" EntityType="Self.Wyksztalcenie" />
           <EntitySet Name="Wymiana_czesc" EntityType="Self.Wymiana_czesc" />
           <EntitySet Name="Wymiar_pracy" EntityType="Self.Wymiar_pracy" />
+          <EntitySet Name="Wyplata" EntityType="Self.Wyplata" />
           <EntitySet Name="Wytwarzanie" EntityType="Self.Wytwarzanie" />
           <EntitySet Name="Zamowienie" EntityType="Self.Zamowienie" />
           <EntitySet Name="Zamowienie_czesc" EntityType="Self.Zamowienie_czesc" />
@@ -12632,6 +13081,11 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <EntitySet Name="v_Nadgodziny_miesiac" EntityType="Self.v_Nadgodziny_miesiac" />
           <EntitySet Name="v_Nadgodziny_suma_miesiac" EntityType="Self.v_Nadgodziny_suma_miesiac" />
           <EntitySet Name="v_Nieobecnosc" EntityType="Self.v_Nieobecnosc" />
+          <EntitySet Name="v_NieobecnoscCH" EntityType="Self.v_NieobecnoscCH" />
+          <EntitySet Name="v_NieobecnoscCH_kwota" EntityType="Self.v_NieobecnoscCH_kwota" />
+          <EntitySet Name="v_NieobecnoscNB" EntityType="Self.v_NieobecnoscNB" />
+          <EntitySet Name="v_NieobecnoscNB_kwota" EntityType="Self.v_NieobecnoscNB_kwota" />
+          <EntitySet Name="v_NieobecnoscUW" EntityType="Self.v_NieobecnoscUW" />
           <EntitySet Name="v_Nr_seryjny_maszyna" EntityType="Self.v_Nr_seryjny_maszyna" />
           <EntitySet Name="v_Nr_telefon_pracownik" EntityType="Self.v_Nr_telefon_pracownik" />
           <EntitySet Name="v_Obsluga_cmb" EntityType="Self.v_Obsluga_cmb" />
@@ -12713,7 +13167,11 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <EntitySet Name="v_Umowy_sprzedazy" EntityType="Self.v_Umowy_sprzedazy" />
           <EntitySet Name="v_Wymiana_czesc" EntityType="Self.v_Wymiana_czesc" />
           <EntitySet Name="v_Wymiana_czesc_w_trakcie" EntityType="Self.v_Wymiana_czesc_w_trakcie" />
+          <EntitySet Name="v_Wymiar_pracy" EntityType="Self.v_Wymiar_pracy" />
           <EntitySet Name="v_Wynik_kontroli" EntityType="Self.v_Wynik_kontroli" />
+          <EntitySet Name="v_Wyplata" EntityType="Self.v_Wyplata" />
+          <EntitySet Name="v_Wyplata_nieobecnosci" EntityType="Self.v_Wyplata_nieobecnosci" />
+          <EntitySet Name="v_Wyplata_suma" EntityType="Self.v_Wyplata_suma" />
           <EntitySet Name="v_Wytwarzanie" EntityType="Self.v_Wytwarzanie" />
           <EntitySet Name="v_Wytwarzanie_grupowane" EntityType="Self.v_Wytwarzanie_grupowane" />
           <EntitySet Name="v_Wytworzone_polprodukty_material" EntityType="Self.v_Wytworzone_polprodukty_material" />
@@ -13048,6 +13506,10 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <AssociationSet Name="FK__Umowa__ID_pracow__123EB7A3" Association="Self.FK__Umowa__ID_pracow__123EB7A3">
             <End Role="Pracownik" EntitySet="Pracownik" />
             <End Role="Umowa" EntitySet="Umowa" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Wyplata__ID_Prac__4B422AD5" Association="Self.FK__Wyplata__ID_Prac__4B422AD5">
+            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Wyplata" EntitySet="Wyplata" />
           </AssociationSet>
           <AssociationSet Name="FK__Wytwarzan__ID_pr__3493CFA7" Association="Self.FK__Wytwarzan__ID_pr__3493CFA7">
             <End Role="Pracownik" EntitySet="Pracownik" />
@@ -13760,6 +14222,7 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
               <MappingFragment StoreEntitySet="Rodzaj_nieobecnosci">
                 <ScalarProperty Name="ID_rodzaj_nieobecnosci" ColumnName="ID_rodzaj_nieobecnosci" />
                 <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+                <ScalarProperty Name="Wspolczynnik_wynagrodzenia" ColumnName="Wspolczynnik_wynagrodzenia" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -14055,6 +14518,16 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
               <MappingFragment StoreEntitySet="Wymiar_pracy">
                 <ScalarProperty Name="ID_wymiar_pracy" ColumnName="ID_wymiar_pracy" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Wspolczynnik_wynagrodzenia" ColumnName="Wspolczynnik_wynagrodzenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wyplata">
+            <EntityTypeMapping TypeName="KWZPModel.Wyplata">
+              <MappingFragment StoreEntitySet="Wyplata">
+                <ScalarProperty Name="ID_wypłata" ColumnName="ID_wypłata" />
+                <ScalarProperty Name="ID_Pracownik" ColumnName="ID_Pracownik" />
+                <ScalarProperty Name="Data_wyplaty" ColumnName="Data_wyplaty" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -14894,11 +15367,75 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <EntitySetMapping Name="v_Nieobecnosc">
             <EntityTypeMapping TypeName="KWZPModel.v_Nieobecnosc">
               <MappingFragment StoreEntitySet="v_Nieobecnosc">
+                <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
                 <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
                 <ScalarProperty Name="Imię" ColumnName="Imię" />
-                <ScalarProperty Name="Rodzaj_nieobecności" ColumnName="Rodzaj nieobecności" />
+                <ScalarProperty Name="ID_rodzaj_nieobecnosci" ColumnName="ID_rodzaj_nieobecnosci" />
+                <ScalarProperty Name="Rodzaj_nieobecnosci" ColumnName="Rodzaj_nieobecnosci" />
                 <ScalarProperty Name="Data_od_" ColumnName="Data od:" />
                 <ScalarProperty Name="Data_do_" ColumnName="Data do:" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Miesiac_nieobecnosci" ColumnName="Miesiac_nieobecnosci" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_NieobecnoscCH">
+            <EntityTypeMapping TypeName="KWZPModel.v_NieobecnoscCH">
+              <MappingFragment StoreEntitySet="v_NieobecnoscCH">
+                <ScalarProperty Name="ID_pracownikCH" ColumnName="ID_pracownikCH" />
+                <ScalarProperty Name="NazwiskoCH" ColumnName="NazwiskoCH" />
+                <ScalarProperty Name="ImięCH" ColumnName="ImięCH" />
+                <ScalarProperty Name="Rodzaj_nieobecnosci" ColumnName="Rodzaj_nieobecnosci" />
+                <ScalarProperty Name="Ilosc_CH" ColumnName="Ilosc_CH" />
+                <ScalarProperty Name="Miesiac_nieobecnosci" ColumnName="Miesiac_nieobecnosci" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_NieobecnoscCH_kwota">
+            <EntityTypeMapping TypeName="KWZPModel.v_NieobecnoscCH_kwota">
+              <MappingFragment StoreEntitySet="v_NieobecnoscCH_kwota">
+                <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Imię" ColumnName="Imię" />
+                <ScalarProperty Name="Rodzaj_nieobecnosci" ColumnName="Rodzaj_nieobecnosci" />
+                <ScalarProperty Name="Suma_CH" ColumnName="Suma_CH" />
+                <ScalarProperty Name="Miesiac_nieobecnosci" ColumnName="Miesiac_nieobecnosci" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_NieobecnoscNB">
+            <EntityTypeMapping TypeName="KWZPModel.v_NieobecnoscNB">
+              <MappingFragment StoreEntitySet="v_NieobecnoscNB">
+                <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Imię" ColumnName="Imię" />
+                <ScalarProperty Name="Rodzaj_nieobecnosci" ColumnName="Rodzaj_nieobecnosci" />
+                <ScalarProperty Name="Ilosc_NB" ColumnName="Ilosc_NB" />
+                <ScalarProperty Name="Miesiac_nieobecnosci" ColumnName="Miesiac_nieobecnosci" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_NieobecnoscNB_kwota">
+            <EntityTypeMapping TypeName="KWZPModel.v_NieobecnoscNB_kwota">
+              <MappingFragment StoreEntitySet="v_NieobecnoscNB_kwota">
+                <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Imię" ColumnName="Imię" />
+                <ScalarProperty Name="Rodzaj_nieobecnosci" ColumnName="Rodzaj_nieobecnosci" />
+                <ScalarProperty Name="Suma_NB" ColumnName="Suma_NB" />
+                <ScalarProperty Name="Miesiac_nieobecnosci" ColumnName="Miesiac_nieobecnosci" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_NieobecnoscUW">
+            <EntityTypeMapping TypeName="KWZPModel.v_NieobecnoscUW">
+              <MappingFragment StoreEntitySet="v_NieobecnoscUW">
+                <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Imię" ColumnName="Imię" />
+                <ScalarProperty Name="Rodzaj_nieobecnosci" ColumnName="Rodzaj_nieobecnosci" />
+                <ScalarProperty Name="Ilosc_UW" ColumnName="Ilosc_UW" />
+                <ScalarProperty Name="Miesiac_nieobecnosci" ColumnName="Miesiac_nieobecnosci" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -15726,6 +16263,7 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
             <EntityTypeMapping TypeName="KWZPModel.v_Umowa">
               <MappingFragment StoreEntitySet="v_Umowa">
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
                 <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
                 <ScalarProperty Name="Imię" ColumnName="Imię" />
                 <ScalarProperty Name="Wymiar_pracy" ColumnName="Wymiar pracy" />
@@ -15782,12 +16320,62 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="v_Wymiar_pracy">
+            <EntityTypeMapping TypeName="KWZPModel.v_Wymiar_pracy">
+              <MappingFragment StoreEntitySet="v_Wymiar_pracy">
+                <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="Wynagrodzenie" ColumnName="Wynagrodzenie" />
+                <ScalarProperty Name="Wspolczynnik_wynagrodzenia" ColumnName="Wspolczynnik_wynagrodzenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="v_Wynik_kontroli">
             <EntityTypeMapping TypeName="KWZPModel.v_Wynik_kontroli">
               <MappingFragment StoreEntitySet="v_Wynik_kontroli">
                 <ScalarProperty Name="ID_wytwarzanie" ColumnName="ID_wytwarzanie" />
                 <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
                 <ScalarProperty Name="Wynik_kontrola" ColumnName="Wynik_kontrola" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Wyplata">
+            <EntityTypeMapping TypeName="KWZPModel.v_Wyplata">
+              <MappingFragment StoreEntitySet="v_Wyplata">
+                <ScalarProperty Name="ID_wypłata" ColumnName="ID_wypłata" />
+                <ScalarProperty Name="ID_Pracownik" ColumnName="ID_Pracownik" />
+                <ScalarProperty Name="Data_wyplaty" ColumnName="Data_wyplaty" />
+                <ScalarProperty Name="Miesiac_wyplata" ColumnName="Miesiac_wyplata" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Wyplata_nieobecnosci">
+            <EntityTypeMapping TypeName="KWZPModel.v_Wyplata_nieobecnosci">
+              <MappingFragment StoreEntitySet="v_Wyplata_nieobecnosci">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Imię" ColumnName="Imię" />
+                <ScalarProperty Name="Miesiac_wyplata" ColumnName="Miesiac_wyplata" />
+                <ScalarProperty Name="Ilość_dni_CH" ColumnName="Ilość dni CH" />
+                <ScalarProperty Name="Ilość_dni_NB" ColumnName="Ilość dni NB" />
+                <ScalarProperty Name="Kwota_CH" ColumnName="Kwota_CH" />
+                <ScalarProperty Name="Kwota_NB" ColumnName="Kwota_NB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Wyplata_suma">
+            <EntityTypeMapping TypeName="KWZPModel.v_Wyplata_suma">
+              <MappingFragment StoreEntitySet="v_Wyplata_suma">
+                <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Imię" ColumnName="Imię" />
+                <ScalarProperty Name="Podstawa_wynagrodzenia" ColumnName="Podstawa wynagrodzenia" />
+                <ScalarProperty Name="Miesiac_wyplata" ColumnName="Miesiac_wyplata" />
+                <ScalarProperty Name="Wynagrodzenie_nadgodziny" ColumnName="Wynagrodzenie_nadgodziny" />
+                <ScalarProperty Name="Ilość_dni_CH" ColumnName="Ilość dni CH" />
+                <ScalarProperty Name="Ilość_dni_NB" ColumnName="Ilość dni NB" />
+                <ScalarProperty Name="Wypłata" ColumnName="Wypłata" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

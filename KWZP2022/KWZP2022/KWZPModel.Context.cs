@@ -107,6 +107,7 @@ namespace KWZP2022
         public virtual DbSet<Wyksztalcenie> Wyksztalcenie { get; set; }
         public virtual DbSet<Wymiana_czesc> Wymiana_czesc { get; set; }
         public virtual DbSet<Wymiar_pracy> Wymiar_pracy { get; set; }
+        public virtual DbSet<Wyplata> Wyplata { get; set; }
         public virtual DbSet<Wytwarzanie> Wytwarzanie { get; set; }
         public virtual DbSet<Zamowienie> Zamowienie { get; set; }
         public virtual DbSet<Zamowienie_czesc> Zamowienie_czesc { get; set; }
@@ -193,6 +194,11 @@ namespace KWZP2022
         public virtual DbSet<v_Nadgodziny_miesiac> v_Nadgodziny_miesiac { get; set; }
         public virtual DbSet<v_Nadgodziny_suma_miesiac> v_Nadgodziny_suma_miesiac { get; set; }
         public virtual DbSet<v_Nieobecnosc> v_Nieobecnosc { get; set; }
+        public virtual DbSet<v_NieobecnoscCH> v_NieobecnoscCH { get; set; }
+        public virtual DbSet<v_NieobecnoscCH_kwota> v_NieobecnoscCH_kwota { get; set; }
+        public virtual DbSet<v_NieobecnoscNB> v_NieobecnoscNB { get; set; }
+        public virtual DbSet<v_NieobecnoscNB_kwota> v_NieobecnoscNB_kwota { get; set; }
+        public virtual DbSet<v_NieobecnoscUW> v_NieobecnoscUW { get; set; }
         public virtual DbSet<v_Nr_seryjny_maszyna> v_Nr_seryjny_maszyna { get; set; }
         public virtual DbSet<v_Nr_telefon_pracownik> v_Nr_telefon_pracownik { get; set; }
         public virtual DbSet<v_Obsluga_cmb> v_Obsluga_cmb { get; set; }
@@ -274,7 +280,11 @@ namespace KWZP2022
         public virtual DbSet<v_Umowy_sprzedazy> v_Umowy_sprzedazy { get; set; }
         public virtual DbSet<v_Wymiana_czesc> v_Wymiana_czesc { get; set; }
         public virtual DbSet<v_Wymiana_czesc_w_trakcie> v_Wymiana_czesc_w_trakcie { get; set; }
+        public virtual DbSet<v_Wymiar_pracy> v_Wymiar_pracy { get; set; }
         public virtual DbSet<v_Wynik_kontroli> v_Wynik_kontroli { get; set; }
+        public virtual DbSet<v_Wyplata> v_Wyplata { get; set; }
+        public virtual DbSet<v_Wyplata_nieobecnosci> v_Wyplata_nieobecnosci { get; set; }
+        public virtual DbSet<v_Wyplata_suma> v_Wyplata_suma { get; set; }
         public virtual DbSet<v_Wytwarzanie> v_Wytwarzanie { get; set; }
         public virtual DbSet<v_Wytwarzanie_grupowane> v_Wytwarzanie_grupowane { get; set; }
         public virtual DbSet<v_Wytworzone_polprodukty_material> v_Wytworzone_polprodukty_material { get; set; }

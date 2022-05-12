@@ -215,7 +215,7 @@ CREATE VIEW v_Kontrola_parametr_gauss_wykres
 AS
 SELECT ID_produkt, COUNT(ID_produkt) AS [Ilość], [ID_parametr_produkt],Wartość FROM v_Kontrola_parametr_gauss_okres
 GROUP BY ID_produkt, Wartość, [ID_parametr_produkt]
-go
+GO
 
 CREATE VIEW v_Wynik_kontroli
 AS
@@ -342,7 +342,7 @@ INNER JOIN Zamowienie AS Z ON Z.ID_zamowienie = ZC.ID_zamowienie
 GO
 
 CREATE VIEW v_Zamowienie_produkcja AS
-SELECT Z.ID_zamowienie AS [ID], K.Nazwisko + ' ' + K.Imie + ' - ' + CONVERT(NVARCHAR,Z.Data_zamowienie) AS [Klient]
+SELECT Z.ID_zamowienie AS [ID], CONVERT(NVARCHAR,Z.ID_zamowienie) + ' ' + '-' + ' ' + K.Nazwisko + ' ' + K.Imie + ' - ' + CONVERT(NVARCHAR,Z.Data_zamowienie) AS [Klient]
 FROM Zamowienie AS Z
 INNER JOIN Klient AS K ON K.ID_klient = Z.ID_klient
 INNER JOIN Pracownik AS P ON P.ID_pracownik = Z.ID_pracownik
@@ -387,7 +387,7 @@ CREATE VIEW v_Proces_wytwarzanie_polprodukt_ewidencja
 AS
 SELECT W.ID_wytwarzanie AS [ID], P.Nazwa AS [Półprodukt], CP.Nazwa AS [Czynność produkcyjna], Pr.ID_pracownik, Pr.Nazwisko + ' ' + Pr.Imie AS [Pracownik],
 SST.Nazwa_stanowiska AS [Stanowisko], PPPC.Czas_trwania AS [Szacowany czas {min}],
-W.Czas_od AS [Data rozpoczęcia], W.Czas_do AS [Data zakończenia], ISNULL(DATEDIFF(HOUR, W.Czas_od,W.Czas_do),0) AS [Czas pracy]
+W.Czas_od AS [Data rozpoczęcia], W.Czas_do AS [Data zakończenia], ISNULL(DATEDIFF(MINUTE, W.Czas_od,W.Czas_do),0) AS [Czas pracy]
 FROM Proces_wytwarzanie_polprodukt AS PWPP
 INNER JOIN Wytwarzanie AS W ON PWPP.ID_wytwarzanie = W.ID_wytwarzanie
 INNER JOIN Proces_polprodukt_czynnosc AS PPPC ON PWPP.ID_proces_polprodukt = PPPC.ID_proces_polprodukt
@@ -423,7 +423,6 @@ AS
 SELECT [Półprodukt], FORMAT(SUM([Szacowany czas {min}])/CAST(60 AS DECIMAL (4,1)),'0.######') AS [Czas wytwarzania {h}] FROM v_Proces_wytwarzanie_polprodukt
 GROUP BY [Półprodukt]
 GO
-
 
 CREATE VIEW v_Czas_wytwarzanie_polprodukt
 AS
@@ -473,7 +472,7 @@ CREATE VIEW v_Proces_wytwarzanie_produkt_ewidencja
 AS
 SELECT W.ID_wytwarzanie AS [ID], P.Nazwa_produkt AS [Produkt], CP.Nazwa AS [Czynność produkcyjna],Pr.ID_pracownik, Pr.Nazwisko + ' ' + Pr.Imie AS [Pracownik],
 SST.Nazwa_stanowiska AS [Stanowisko], PPPC.Czas_trwania AS [Szacowany czas {min}],
-W.Czas_od AS [Data rozpoczęcia], W.Czas_do AS [Data zakończenia], ISNULL(DATEDIFF(HOUR, W.Czas_od,W.Czas_do),0) AS [Czas pracy]
+W.Czas_od AS [Data rozpoczęcia], W.Czas_do AS [Data zakończenia], ISNULL(DATEDIFF(MINUTE, W.Czas_od,W.Czas_do),0) AS [Czas pracy]
 FROM Proces_wytwarzanie_produkt AS PWP
 INNER JOIN Wytwarzanie AS W ON PWP.ID_wytwarzanie = W.ID_wytwarzanie
 INNER JOIN Proces_produkt_czynnosc AS PPPC ON PWP.ID_proces_produkt = PPPC.ID_proces_produkt
@@ -1130,7 +1129,6 @@ SELECT MMP.ID_material, MMP.[Nazwa materiału], MMP.[Waga (g)], SUM (MMP.[Waga m
 FROM v_Magazyn_material_przejsciowy AS MMP
 GROUP BY MMP.ID_material, MMP.[Nazwa materiału], MMP.[Waga (g)]	
 GO
-
 CREATE VIEW v_Magazyn_material_aktualny
 AS
 SELECT  MMP.ID_material, MMP.[Nazwa materiału], (MMP.[Waga (g)] - MMP.[Waga material polprodukt (g)] - MMP.[Waga material produkt (g)]) AS [Stan w magazynie g]
@@ -1251,7 +1249,6 @@ FROM v_Zamowienia_koszt_union
 GROUP BY [Data miesiac]
 GO
 
-
 --SALES AND MARKETING DEPARTMENT --
 CREATE VIEW v_Szczegoly_sprzedaz AS
 SELECT Szczegoly_sprzedaz.ID_sprzedaz AS [Numer sprzedaży], Produkt.Nazwa_produkt AS [Produkt], 
@@ -1339,7 +1336,7 @@ CREATE VIEW v_Klient_telefon_Historia AS
 	ORDER BY Data_do DESC OFFSET 0 ROWS
 	GO
 
-CREATE VIEW v_Sprzedany_produkt
+		CREATE VIEW v_Sprzedany_produkt
 AS
 SELECT S.ID_sprzedaz, SS.ID_produkt, P.Nazwa_produkt FROM Szczegoly_sprzedaz AS SS
 INNER JOIN Sprzedaz AS S ON SS.ID_sprzedaz = S.ID_sprzedaz
@@ -1759,7 +1756,7 @@ CREATE VIEW v_Zamowienia_bez_umowy AS
 GO
 
 CREATE VIEW v_Szczegol_sprzedaz AS
-	SELECT SS.ID_szczegoly_sprzedaz, S.Nr_sprzedaz,SS.ID_produkt,P.Nazwa_produkt, 
+	SELECT SS.ID_szczegoly_sprzedaz, S.Nr_sprzedaz,SS.ID_produkt,P.Nazwa_produkt,
 		SS.ID_sprzedaz, SS.Ilosc, SS.ID_podatek, PD.Procent,SS.Kwota_sprzedaz
 	FROM Szczegoly_sprzedaz AS SS
 	INNER JOIN Sprzedaz AS S ON SS.ID_sprzedaz = S.ID_sprzedaz
@@ -1788,13 +1785,6 @@ SELECT ID_pracownik AS [ID], Miejscowosc AS [Miejscowość zamieszkania], Ulica 
 FROM Dane_adresowe_pracownik;
 GO
 
-CREATE VIEW v_Nieobecnosc
-AS
-SELECT P.Nazwisko AS [Nazwisko], P.Imie AS [Imię], RN.Symbol AS [Rodzaj nieobecności], N.Data_od AS [Data od:], N.Data_do AS [Data do:] FROM Nieobecnosc AS N
-INNER JOIN Pracownik AS P ON N.ID_pracownik = P.ID_pracownik
-INNER JOIN Rodzaj_nieobecnosci AS RN ON N.ID_rodzaj_nieobecnosci = RN. ID_rodzaj_nieobecnosci
-GO
-
 CREATE VIEW v_Nr_telefon_pracownik
 AS
 SELECT P.Nazwisko AS [Nazwisko], P.Imie AS [Imię], NTP.Numer AS [Numer telefonu], NTP.Data_od AS [Data od:], NTP.Data_do AS [Data do:] From Nr_telefon_pracownik AS NTP
@@ -1816,7 +1806,7 @@ GO
 
 CREATE VIEW v_Umowa
 AS
-SELECT UM.ID_umowa AS [ID], P.Nazwisko AS [Nazwisko], P.Imie AS [Imię], WP.Nazwa AS [Wymiar pracy], RU.Nazwa AS [Rodzaj Umowy],  ST.Nazwa_stanowiska AS [Nazwa stanowiska], UM.Wynagrodzenie AS [Podstawa wynagrodzenia]
+SELECT UM.ID_umowa AS [ID],p.ID_pracownik, P.Nazwisko AS [Nazwisko], P.Imie AS [Imię], WP.Nazwa AS [Wymiar pracy], RU.Nazwa AS [Rodzaj Umowy], ST.Nazwa_stanowiska AS [Nazwa stanowiska], UM.Wynagrodzenie AS [Podstawa wynagrodzenia]
 FROM Umowa AS UM
 INNER JOIN
 (Posada_pracownika AS PO INNER JOIN
@@ -1825,6 +1815,58 @@ ON ET.ID_etat = PO.ID_etat) ON UM.ID_posada_pracownika = PO.ID_posada_pracownika
 INNER JOIN Pracownik AS P ON UM.ID_pracownik = P.ID_pracownik
 INNER JOIN Wymiar_pracy AS WP ON UM.ID_wymiar_pracy = WP.ID_wymiar_pracy
 INNER JOIN Rodzaj_umowy AS RU ON UM.ID_rodzaj_umowy = RU.ID_rodzaj_umowy
+
+GO
+CREATE VIEW v_Nieobecnosc
+AS
+SELECT P.ID_pracownik AS ID_pracownik, P.Nazwisko AS [Nazwisko], P.Imie AS [Imię],RN.ID_rodzaj_nieobecnosci, RN.Symbol AS [Rodzaj_nieobecnosci], N.Data_od AS [Data od:], N.Data_do AS [Data do:],  (DateDIFF(day, N.Data_od,N.Data_do) + 1) AS Duration, MONTH(Data_od) AS Miesiac_nieobecnosci
+FROM Nieobecnosc AS N
+INNER JOIN Pracownik AS P ON N.ID_pracownik = P.ID_pracownik
+INNER JOIN Rodzaj_nieobecnosci AS RN ON N.ID_rodzaj_nieobecnosci = RN. ID_rodzaj_nieobecnosci
+GO
+
+CREATE VIEW v_NieobecnoscCH
+AS
+SELECT V_N.ID_pracownik AS ID_pracownikCH, Nazwisko AS NazwiskoCH, Imię AS ImięCH, Rodzaj_nieobecnosci, SUM(Duration) AS Ilosc_CH, Miesiac_nieobecnosci
+FROM v_Nieobecnosc AS v_N
+WHERE Rodzaj_nieobecnosci LIKE 'CH'
+GROUP BY  ID_pracownik, Nazwisko,Imię, Rodzaj_nieobecnosci,Miesiac_nieobecnosci
+GO
+
+CREATE VIEW v_NieobecnoscCH_kwota
+AS
+SELECT v_Nieobecnosc.ID_pracownik, v_Nieobecnosc.Nazwisko,v_Nieobecnosc.Imię, Rodzaj_nieobecnosci,SUM(Duration) * (dbo.Rodzaj_nieobecnosci.Wspolczynnik_wynagrodzenia * dbo.v_Umowa.[Podstawa wynagrodzenia]/160) AS Suma_CH, Miesiac_nieobecnosci
+FROM v_Nieobecnosc
+INNER JOIN  dbo.v_Umowa ON dbo.v_Umowa.ID_pracownik = v_Nieobecnosc.ID_pracownik
+LEFT JOIN dbo.Rodzaj_nieobecnosci ON dbo.Rodzaj_nieobecnosci.ID_rodzaj_nieobecnosci = dbo.v_Nieobecnosc.ID_rodzaj_nieobecnosci
+WHERE Rodzaj_nieobecnosci LIKE 'CH'
+GROUP BY v_Nieobecnosc.ID_pracownik, v_Nieobecnosc.Nazwisko,v_Nieobecnosc.Imię, Rodzaj_nieobecnosci,Miesiac_nieobecnosci, dbo.v_Umowa.[Podstawa wynagrodzenia], dbo.Rodzaj_nieobecnosci.Wspolczynnik_wynagrodzenia
+GO
+
+CREATE VIEW v_NieobecnoscUW
+AS
+SELECT ID_pracownik, Nazwisko,Imię, Rodzaj_nieobecnosci,SUM(Duration) AS Ilosc_UW,Miesiac_nieobecnosci
+FROM v_Nieobecnosc
+WHERE Rodzaj_nieobecnosci LIKE 'UW'
+GROUP BY  ID_pracownik, Nazwisko,Imię, Rodzaj_nieobecnosci,Miesiac_nieobecnosci
+GO
+
+CREATE VIEW v_NieobecnoscNB
+AS
+SELECT ID_pracownik, Nazwisko,Imię, Rodzaj_nieobecnosci,SUM(Duration) AS Ilosc_NB,Miesiac_nieobecnosci
+FROM v_Nieobecnosc
+WHERE Rodzaj_nieobecnosci LIKE 'NB'
+GROUP BY  ID_pracownik, Nazwisko,Imię, Rodzaj_nieobecnosci,Miesiac_nieobecnosci
+GO
+
+CREATE VIEW v_NieobecnoscNB_kwota
+AS
+SELECT v_Nieobecnosc.ID_pracownik, v_Nieobecnosc.Nazwisko,v_Nieobecnosc.Imię, Rodzaj_nieobecnosci,SUM(Duration) * (dbo.Rodzaj_nieobecnosci.Wspolczynnik_wynagrodzenia*dbo.v_Umowa.[Podstawa wynagrodzenia]/160) AS Suma_NB, Miesiac_nieobecnosci
+FROM v_Nieobecnosc
+INNER JOIN  dbo.v_Umowa ON dbo.v_Umowa.ID_pracownik = v_Nieobecnosc.ID_pracownik
+LEFT JOIN dbo.Rodzaj_nieobecnosci ON dbo.Rodzaj_nieobecnosci.ID_rodzaj_nieobecnosci = dbo.v_Nieobecnosc.ID_rodzaj_nieobecnosci
+WHERE Rodzaj_nieobecnosci LIKE 'NB'
+GROUP BY v_Nieobecnosc.ID_pracownik, v_Nieobecnosc.Nazwisko,v_Nieobecnosc.Imię, Rodzaj_nieobecnosci,Miesiac_nieobecnosci, dbo.v_Umowa.[Podstawa wynagrodzenia],(dbo.Rodzaj_nieobecnosci.Wspolczynnik_wynagrodzenia)
 GO
 
 CREATE VIEW v_Sz_czas_proces_polprodukt_czynnosc
@@ -1878,7 +1920,6 @@ INNER JOIN Dzial AS D ON E.ID_dzial = D.ID_dzial
 WHERE Nazwa_dzial = 'Handlowy i marketingu'
 GO
 
-
 CREATE VIEW v_Koszt_godziny_pracy
 AS
 SELECT dbo.Pracownik.ID_pracownik, dbo.Pracownik.Nazwisko, dbo.Pracownik.Imie, dbo.Umowa.Wynagrodzenie, dbo.Czas_pracy.Liczba_godzin, dbo.Umowa.Wynagrodzenie / dbo.Czas_pracy.Liczba_godzin AS [Koszt godziny pracy],
@@ -1904,4 +1945,56 @@ FROM Proces_polprodukt_czynnosc AS PPPC
 INNER JOIN Slownik_polprodukt SPP ON PPPC.ID_polprodukt = SPP.ID_polprodukt
 INNER JOIN Czynnosc_produkcyjna CP ON PPPC.ID_czynnosc_produkcyjna = CP.ID_czynnosc_produkcyjna
 ORDER BY PPPC.ID_polprodukt DESC OFFSET 0 ROWS
+GO
+
+CREATE VIEW v_Wyplata
+AS
+SELECT dbo.Wyplata.ID_wyplata, dbo.Wyplata.ID_Pracownik, dbo.Wyplata.Data_wyplaty, MONTH(dbo.Wyplata.Data_wyplaty)  AS Miesiac_wyplata
+FROM dbo.Wyplata
+ORDER BY dbo.Wyplata.ID_pracownik DESC OFFSET 0 ROWS
+GO
+
+CREATE VIEW v_Wyplata_nieobecnosci
+AS
+SELECT DISTINCT v_Umowa.ID, v_Umowa.Nazwisko, v_Umowa.Imię, Miesiac_wyplata, ISNULL(Ilosc_CH,0) AS [Ilość dni CH], ISNULL(Ilosc_NB,0) AS [Ilość dni NB],
+ISNULL(Suma_CH,0) AS Kwota_CH ,
+ISNULL(Suma_NB,0) AS Kwota_NB
+FROM  v_Umowa
+INNER JOIN dbo.Pracownik ON dbo.v_Umowa.ID_pracownik = dbo.Pracownik.ID_pracownik
+INNER JOIN dbo.v_Wyplata ON dbo.v_Wyplata.ID_Pracownik = dbo.v_Umowa.ID_pracownik
+INNER JOIN dbo.v_Nadgodziny_suma_miesiac ON dbo.v_Nadgodziny_suma_miesiac.ID_Pracownik = dbo.v_Umowa.ID_pracownik
+LEFT JOIN dbo.v_Nieobecnosc ON dbo.v_Nieobecnosc.ID_pracownik = dbo.v_Umowa.ID_pracownik
+LEFT JOIN dbo.v_NieobecnoscCH_kwota ON dbo.v_NieobecnoscCH_kwota.ID_pracownik = dbo.v_Umowa.ID_pracownik
+LEFT JOIN dbo.v_NieobecnoscNB_kwota ON dbo.v_NieobecnoscNB_kwota.ID_pracownik = dbo.v_Umowa.ID_pracownik
+LEFT JOIN dbo.v_NieobecnoscCH ON dbo.v_NieobecnoscCH.ID_pracownikCH = dbo.v_Umowa.ID_pracownik
+LEFT JOIN dbo.v_NieobecnoscNB ON dbo.v_NieobecnoscNB.ID_pracownik = dbo.v_Umowa.ID_pracownik
+LEFT JOIN dbo.Rodzaj_nieobecnosci ON dbo.Rodzaj_nieobecnosci.ID_rodzaj_nieobecnosci = dbo.v_Nieobecnosc.ID_rodzaj_nieobecnosci
+GROUP BY v_Umowa.ID, v_Umowa.Nazwisko, v_Umowa.Imię, Miesiac_wyplata, Suma_CH,Suma_NB, [Podstawa wynagrodzenia], Ilosc_CH, Ilosc_NB
+GO
+
+CREATE VIEW v_Wyplata_suma
+AS
+SELECT DISTINCT v_Umowa.ID_pracownik, v_Umowa.Nazwisko, v_Umowa.Imię, v_Umowa.[Podstawa wynagrodzenia], Miesiac_wyplata,
+ISNULL((ISNULL(v_Nadgodziny_suma_miesiac.[Łączny czas],0) * ([Podstawa wynagrodzenia] / 160)), 0)  AS Wynagrodzenie_nadgodziny, ISNULL(dbo.v_NieobecnoscCH.Ilosc_CH,0) AS [Ilość dni CH], ISNULL(dbo.v_NieobecnoscNB.Ilosc_NB,0) AS [Ilość dni NB],
+ROUND(([Podstawa wynagrodzenia] + ISNULL(v_Nadgodziny_suma_miesiac.[Łączny czas],0) * ([Podstawa wynagrodzenia] / 160) + (ISNULL(dbo.v_NieobecnoscCH_kwota.Suma_CH,0)) +
+(ISNULL(dbo.v_NieobecnoscNB_kwota.Suma_NB,0))),2) AS Wypłata
+FROM  v_Umowa
+INNER JOIN dbo.Pracownik ON dbo.v_Umowa.ID_pracownik = dbo.Pracownik.ID_pracownik
+INNER JOIN dbo.v_Wyplata ON dbo.v_Wyplata.ID_Pracownik = dbo.v_Umowa.ID_pracownik
+INNER JOIN dbo.v_Nadgodziny_suma_miesiac ON dbo.v_Nadgodziny_suma_miesiac.ID_Pracownik = dbo.v_Umowa.ID_pracownik
+LEFT JOIN dbo.v_Nieobecnosc ON dbo.v_Nieobecnosc.ID_pracownik = dbo.v_Umowa.ID_pracownik
+LEFT JOIN dbo.v_NieobecnoscCH ON dbo.v_NieobecnoscCH.ID_pracownikCH = dbo.v_Umowa.ID_pracownik
+LEFT JOIN dbo.v_NieobecnoscNB ON dbo.v_NieobecnoscNB.ID_pracownik = dbo.v_Umowa.ID_pracownik
+LEFT JOIN dbo.v_NieobecnoscCH_kwota ON dbo.v_NieobecnoscCH_kwota.ID_pracownik = dbo.v_Umowa.ID_pracownik
+LEFT JOIN dbo.v_NieobecnoscNB_kwota ON dbo.v_NieobecnoscNB_kwota.ID_pracownik = dbo.v_Umowa.ID_pracownik
+LEFT JOIN dbo.Rodzaj_nieobecnosci ON dbo.Rodzaj_nieobecnosci.ID_rodzaj_nieobecnosci = dbo.v_Nieobecnosc.ID_rodzaj_nieobecnosci
+GROUP BY v_Umowa.ID_pracownik, v_Umowa.Nazwisko, v_Umowa.Imię, Miesiac_wyplata,v_Nadgodziny_suma_miesiac.[Łączny czas], dbo.v_NieobecnoscCH_kwota.Suma_CH, dbo.v_NieobecnoscNB_kwota.Suma_NB, [Podstawa wynagrodzenia], dbo.v_NieobecnoscCH.Ilosc_CH, dbo.v_NieobecnoscNB.Ilosc_NB
+GO
+
+CREATE VIEW v_Wymiar_pracy
+AS
+SELECT dbo.Pracownik.ID_pracownik, dbo.Pracownik.Nazwisko, dbo.Pracownik.Imie, Umowa.Wynagrodzenie, Wymiar_pracy.Wspolczynnik_wynagrodzenia
+FROM Pracownik
+INNER JOIN Umowa ON Umowa.ID_pracownik = Pracownik.ID_pracownik
+INNER JOIN Wymiar_pracy ON Wymiar_pracy.ID_wymiar_pracy = Umowa.ID_wymiar_pracy
 GO

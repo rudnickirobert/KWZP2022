@@ -6,7 +6,6 @@ CREATE DATABASE KWZP
 GO
 USE KWZP
 GO
-
 CREATE TABLE Wyksztalcenie(
 ID_wyksztalcenie INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 Nazwa VARCHAR(35) NOT NULL
@@ -309,6 +308,7 @@ CREATE TABLE Rodzaj_nieobecnosci
 	(
 	ID_rodzaj_nieobecnosci INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	Symbol NVARCHAR(10) NOT NULL,
+	Wspolczynnik_wynagrodzenia DECIMAL (2,1) 
 );
 
 CREATE TABLE Nieobecnosc
@@ -326,6 +326,7 @@ CREATE TABLE Wymiar_pracy
 	(
 	ID_wymiar_pracy INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	Nazwa NVARCHAR(50) NOT NULL,
+	Wspolczynnik_wynagrodzenia DECIMAL (2,1)
 );
 
 CREATE TABLE Umowa
@@ -853,9 +854,18 @@ CREATE TABLE Nadgodziny
 	Data_nadgodziny DATE NOT NULL,
 	Czas INT NOT NULL
 );
+
 CREATE TABLE Czas_pracy
-(
-ID_czas_pracy  INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-Data DATE NOT NULL,
-Liczba_godzin INT NOT NULL
+	(
+	ID_czas_pracy  INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	Data DATE NOT NULL,
+	Liczba_godzin INT NOT NULL
+);
+
+CREATE TABLE Wyplata
+	(
+	ID_wyplata INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	ID_Pracownik INT FOREIGN KEY
+		REFERENCES Pracownik(ID_pracownik) NOT NULL,
+	Data_wyplaty DATE NOT NULL
 );
