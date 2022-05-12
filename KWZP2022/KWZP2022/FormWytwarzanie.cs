@@ -91,6 +91,7 @@ namespace KWZP2022
             if (vOrderIdInt > 0)
             {
                 dgvZamowienieSzczegol.DataSource = vOrderId;
+                dgvZamowienieSzczegol.Columns["ID"].HeaderText = "ID zamówienia";
 
                 refreshScreen();
             }

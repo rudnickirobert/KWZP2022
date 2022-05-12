@@ -106,6 +106,5 @@ namespace KWZP2022
             showData();
             cleanTextBox();
         }
-
     }
 }

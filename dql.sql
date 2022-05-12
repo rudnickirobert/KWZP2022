@@ -342,7 +342,7 @@ INNER JOIN Zamowienie AS Z ON Z.ID_zamowienie = ZC.ID_zamowienie
 GO
 
 CREATE VIEW v_Zamowienie_produkcja AS
-SELECT Z.ID_zamowienie AS [ID], K.Nazwisko + ' ' + K.Imie + ' - ' + CONVERT(NVARCHAR,Z.Data_zamowienie) AS [Klient]
+SELECT Z.ID_zamowienie AS [ID], CONVERT(NVARCHAR,Z.ID_zamowienie) + ' ' + '-' + ' ' + K.Nazwisko + ' ' + K.Imie + ' - ' + CONVERT(NVARCHAR,Z.Data_zamowienie) AS [Klient]
 FROM Zamowienie AS Z
 INNER JOIN Klient AS K ON K.ID_klient = Z.ID_klient
 INNER JOIN Pracownik AS P ON P.ID_pracownik = Z.ID_pracownik
@@ -1943,7 +1943,7 @@ GO
 
 CREATE VIEW v_Wyplata
 AS
-SELECT dbo.Wyplata.ID_wypłata, dbo.Wyplata.ID_Pracownik, dbo.Wyplata.Data_wyplaty, MONTH(dbo.Wyplata.Data_wyplaty)  AS Miesiac_wyplata
+SELECT dbo.Wyplata.ID_wyplata, dbo.Wyplata.ID_Pracownik, dbo.Wyplata.Data_wyplaty, MONTH(dbo.Wyplata.Data_wyplaty)  AS Miesiac_wyplata
 FROM dbo.Wyplata
 ORDER BY dbo.Wyplata.ID_pracownik DESC OFFSET 0 ROWS 
 GO
@@ -1975,7 +1975,7 @@ ROUND(([Podstawa wynagrodzenia] + ISNULL(v_Nadgodziny_suma_miesiac.[Łączny cza
 FROM  v_Umowa
 INNER JOIN dbo.Pracownik ON dbo.v_Umowa.ID_pracownik = dbo.Pracownik.ID_pracownik 
 INNER JOIN dbo.v_Wyplata ON dbo.v_Wyplata.ID_Pracownik = dbo.v_Umowa.ID_pracownik 
-INNER JOIN dbo.v_Nadgodziny_suma_miesiac ON dbo.v_Nadgodziny_suma_miesiac.ID_Pracownik = dbo.v_Umowa.ID_pracownik
+LEFT JOIN dbo.v_Nadgodziny_suma_miesiac ON dbo.v_Nadgodziny_suma_miesiac.ID_Pracownik = dbo.v_Umowa.ID_pracownik
 LEFT JOIN dbo.v_Nieobecnosc ON dbo.v_Nieobecnosc.ID_pracownik = dbo.v_Umowa.ID_pracownik
 LEFT JOIN dbo.v_NieobecnoscCH ON dbo.v_NieobecnoscCH.ID_pracownikCH = dbo.v_Umowa.ID_pracownik
 LEFT JOIN dbo.v_NieobecnoscNB ON dbo.v_NieobecnoscNB.ID_pracownik = dbo.v_Umowa.ID_pracownik

@@ -38,6 +38,8 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnNewSalary = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalary)).BeginInit();
             this.SuspendLayout();
             // 
@@ -144,8 +146,23 @@
             this.btnNewSalary.Name = "btnNewSalary";
             this.btnNewSalary.Size = new System.Drawing.Size(151, 34);
             this.btnNewSalary.TabIndex = 48;
-            this.btnNewSalary.Text = "Dodaj wypłaty";
+            this.btnNewSalary.Text = "Dodaj wypłatę";
             this.btnNewSalary.UseVisualStyleBackColor = true;
+            this.btnNewSalary.Click += new System.EventHandler(this.btnNewSalary_Click);
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 23);
+            this.label1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 23);
+            this.label2.TabIndex = 0;
             // 
             // FormHRDepartmentSalary
             // 
@@ -184,5 +201,7 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnNewSalary;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
