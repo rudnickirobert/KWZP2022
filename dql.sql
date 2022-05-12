@@ -1967,7 +1967,7 @@ ROUND(([Podstawa wynagrodzenia] + ISNULL(v_Nadgodziny_suma_miesiac.[Łączny cza
 FROM  v_Umowa
 INNER JOIN dbo.Pracownik ON dbo.v_Umowa.ID_pracownik = dbo.Pracownik.ID_pracownik 
 INNER JOIN dbo.v_Wyplata ON dbo.v_Wyplata.ID_Pracownik = dbo.v_Umowa.ID_pracownik 
-INNER JOIN dbo.v_Nadgodziny_suma_miesiac ON dbo.v_Nadgodziny_suma_miesiac.ID_Pracownik = dbo.v_Umowa.ID_pracownik
+LEFT JOIN dbo.v_Nadgodziny_suma_miesiac ON dbo.v_Nadgodziny_suma_miesiac.ID_Pracownik = dbo.v_Umowa.ID_pracownik
 LEFT JOIN dbo.v_Nieobecnosc ON dbo.v_Nieobecnosc.ID_pracownik = dbo.v_Umowa.ID_pracownik
 LEFT JOIN dbo.v_NieobecnoscCH ON dbo.v_NieobecnoscCH.ID_pracownikCH = dbo.v_Umowa.ID_pracownik
 LEFT JOIN dbo.v_NieobecnoscNB ON dbo.v_NieobecnoscNB.ID_pracownik = dbo.v_Umowa.ID_pracownik
