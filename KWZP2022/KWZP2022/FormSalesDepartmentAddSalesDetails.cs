@@ -161,6 +161,7 @@ namespace KWZP2022
             comboBoxTaxData();
             textBoxAmountData();
             textBoxPriceData();
+            textBoxRealPriceForProductData();
         }
 
         private void comboBoxProduct_SelectionChangeCommitted(object sender, EventArgs e)
@@ -168,11 +169,13 @@ namespace KWZP2022
             textBoxPrice.Clear();
             textBoxAmountData();
             textBoxPriceData();
+            textBoxRealPriceForProductData();
         }
-
+        
         private void comboBoxTax_SelectionChangeCommitted(object sender, EventArgs e)
         {
             textBoxPriceData();
+            textBoxRealPriceForProductData();
         }
 
         private void dgvSalesDetails_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -190,6 +193,7 @@ namespace KWZP2022
             textBoxAmount.Text = selectedSaleDetail.Ilosc.ToString();
             textBoxPrice.Text = selectedSaleDetail.Kwota_sprzedaz.ToString();
             textBoxNoTel.Text = selectClient.Numer_telefonu_klient.ToString();
+            textBoxRealPriceForProductData();
         }
 
         private void btnModify_Click(object sender, EventArgs e)
@@ -225,6 +229,89 @@ namespace KWZP2022
                         MessageBox.Show("Zmodyfikowano dane!", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
+            }
+        }
+        private void textBoxRealPriceForProductData()
+        {
+            int numberSale = int.Parse(comboBoxNoSale.SelectedValue.ToString());
+            Sprzedaz selectedSale = this.db.Sprzedaz.Single(a => a.ID_sprzedaz == numberSale);
+            Umowa_sprzedaz selectedSaleAreement = this.db.Umowa_sprzedaz.Single(a => a.ID_umowa_sprzedaz == selectedSale.ID_umowa_sprzedaz);
+            Oferta_handlowa selectedCommercialOffer = this.db.Oferta_handlowa.Single(a => a.ID_oferta_handlowa == selectedSaleAreement.ID_oferta_handlowa);
+            Zamowienie selectedNoOrder = this.db.Zamowienie.Single(a => a.ID_zamowienie == selectedCommercialOffer.ID_zamowienie);
+            List<v_Calkowity_koszt_zamowienia> priceForOrderList = this.db.v_Calkowity_koszt_zamowienia.Where(a => a.ID_zamowienie == selectedNoOrder.ID_zamowienie).ToList();
+            List<v_Kwota_za_materialy> priceForMaterialsSelectedNoOrderFullProduct = this.db.v_Kwota_za_materialy.Where(a => a.ID_zamowienie == selectedNoOrder.ID_zamowienie).ToList();
+            List<v_Kwota_za_materialy_bez_produktu> priceForMaterialsSelectedNoOrderSemiFinishedProduct = this.db.v_Kwota_za_materialy_bez_produktu.Where(a => a.ID_zamowienie == selectedNoOrder.ID_zamowienie).ToList();
+            List<Zamowienie_szczegol> orderDetails = this.db.Zamowienie_szczegol.Where(a => a.ID_zamowienie == selectedNoOrder.ID_zamowienie).ToList();
+            int amountOrderDetails = orderDetails.Count();
+            List<v_Wytwarzanie_grupowane> prodecedProducts = this.db.v_Wytwarzanie_grupowane.ToList();
+            int i = 0;
+            foreach (v_Wytwarzanie_grupowane orderDetailsSearch in prodecedProducts)
+            {
+                foreach (Zamowienie_szczegol orderDetailsSelectedOrder in orderDetails)
+                {
+                    if (orderDetailsSearch.ID_zamowienie_szczegol == orderDetailsSelectedOrder.ID_zamowienie_szczegol)
+                    {
+                        i++;
+                    }
+                }
+            }
+            if(i == amountOrderDetails)
+            {
+                if (priceForOrderList.Count() <= 0)
+                {
+                    MessageBox.Show("Produkt nie został wytworzony", "Uwaga!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    EventArgs e = new EventArgs();
+                    comboBoxNoSale_SelectionChangeCommitted(comboBoxNoSale.SelectedIndex = 0, e);
+                    comboBoxProduct_SelectionChangeCommitted(comboBoxProduct.SelectedIndex = 0, e);
+                    comboBoxTax_SelectionChangeCommitted(comboBoxTax.SelectedIndex = 0, e);
+                }
+                else
+                {
+                    if (priceForMaterialsSelectedNoOrderFullProduct.Count() > 1)
+                    {
+                        v_Kwota_za_materialy priceForMaterialsSelectedNoOrder = this.db.v_Kwota_za_materialy.Single(a => a.ID_zamowienie == selectedNoOrder.ID_zamowienie);
+                        v_Calkowity_koszt_zamowienia priceForMachines = this.db.v_Calkowity_koszt_zamowienia.Single(a => a.ID_zamowienie == selectedNoOrder.ID_zamowienie);
+                        v_Szacowany_koszt_pracownik_do_zamowienia priceForEmployee = this.db.v_Szacowany_koszt_pracownik_do_zamowienia.Single(a => a.ID_zamowienie == selectedNoOrder.ID_zamowienie);
+                        decimal priceForOrder = Math.Round((decimal)(priceForMaterialsSelectedNoOrder.Cena_za_zamówienie.Value + priceForMachines.Koszt + priceForEmployee.Średnia) * 2);
+
+                        string selectedProductComboBox = comboBoxProduct.SelectedValue.ToString();
+                        Produkt selectedProductTable = this.db.Produkt.Single(a => a.Nazwa_produkt == selectedProductComboBox);
+                        List<v_Koszt_material_sztuka_suma> selectMaterialsCost = this.db.v_Koszt_material_sztuka_suma.Where(a => a.ID_produkt == selectedProductTable.ID_produkt).ToList();
+                        int selectedTaxComboBox = int.Parse(comboBoxTax.SelectedValue.ToString());
+                        Podatek selectedTaxTable = this.db.Podatek.Single(a => a.ID_podatek == selectedTaxComboBox);
+
+                        double multiplier = (double)priceForOrder / (double)priceForMaterialsSelectedNoOrder.Cena_za_zamówienie;
+                        int costProduct = decimal.ToInt32(selectMaterialsCost.Single(a => a.ID_produkt == selectedProductTable.ID_produkt).Suma_koszt_materiał.Value);
+                        int bruttoPrice = (int)(costProduct * multiplier + ((costProduct * multiplier) * ((double)selectedTaxTable.Procent / 100)));
+                        textBoxRealPriceForProduct.Text = bruttoPrice.ToString();
+                    }
+                    else
+                    {
+                        v_Kwota_za_materialy_bez_produktu priceForMaterialsSelectedNoOrder = this.db.v_Kwota_za_materialy_bez_produktu.Single(a => a.ID_zamowienie == selectedNoOrder.ID_zamowienie);
+                        v_Calkowity_koszt_zamowienia priceForMachines = this.db.v_Calkowity_koszt_zamowienia.Single(a => a.ID_zamowienie == selectedNoOrder.ID_zamowienie);
+                        v_Szacowany_koszt_pracownik_do_zamowienia priceForEmployee = this.db.v_Szacowany_koszt_pracownik_do_zamowienia.Single(a => a.ID_zamowienie == selectedNoOrder.ID_zamowienie);
+                        decimal priceForOrder = Math.Round((decimal)(priceForMaterialsSelectedNoOrder.Cena_za_zamówienie.Value + priceForMachines.Koszt + priceForEmployee.Średnia) * 2);
+
+                        string selectedProductComboBox = comboBoxProduct.SelectedValue.ToString();
+                        Produkt selectedProductTable = this.db.Produkt.Single(a => a.Nazwa_produkt == selectedProductComboBox);
+                        List<v_Koszt_material_polprodukt_sztuka_suma> selectMaterialsCost = this.db.v_Koszt_material_polprodukt_sztuka_suma.Where(a => a.ID_produkt == selectedProductTable.ID_produkt).ToList();
+                        int selectedTaxComboBox = int.Parse(comboBoxTax.SelectedValue.ToString());
+                        Podatek selectedTaxTable = this.db.Podatek.Single(a => a.ID_podatek == selectedTaxComboBox);
+
+                        double multiplier = (double)priceForOrder / (double)priceForMaterialsSelectedNoOrder.Cena_za_zamówienie;
+                        int costProduct = decimal.ToInt32(selectMaterialsCost.Single(a => a.ID_produkt == selectedProductTable.ID_produkt).Suma_koszt_material_na_półprodukt.Value);
+                        int bruttoPrice = (int)(costProduct * multiplier + ((costProduct * multiplier) * ((double)selectedTaxTable.Procent / 100)));
+                        textBoxRealPriceForProduct.Text = bruttoPrice.ToString();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Produkt nie został wytworzony", "Uwaga!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                EventArgs e = new EventArgs();
+                comboBoxNoSale_SelectionChangeCommitted(comboBoxNoSale.SelectedIndex = 0, e);
+                comboBoxProduct_SelectionChangeCommitted(comboBoxProduct.SelectedIndex = 0, e);
+                comboBoxTax_SelectionChangeCommitted(comboBoxTax.SelectedIndex = 0, e);
             }
         }
     }

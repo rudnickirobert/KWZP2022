@@ -1767,6 +1767,12 @@ CREATE VIEW v_Szczegol_sprzedaz AS
 	INNER JOIN Produkt AS P ON SS.ID_produkt = P.ID_produkt
 GO
 
+CREATE VIEW v_Wytwarzanie_grupowane AS
+	SELECT Wytwarzanie.ID_zamowienie_szczegol
+	FROM Wytwarzanie
+	GROUP BY Wytwarzanie.ID_zamowienie_szczegol
+GO
+
 	--HR DEPARTMENT --
 CREATE VIEW v_Pracownik
 AS

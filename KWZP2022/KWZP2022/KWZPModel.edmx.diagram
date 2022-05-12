@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="969966efeada46b0986a8702392696af" Name="Diagram1">
+      <Diagram DiagramId="7d264f4352db4e7db78fd341d831a9de" Name="Diagram1">
         <EntityTypeShape EntityType="KWZPModel.Alert" Width="1.5" PointX="11.25" PointY="22.5" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.Czas_pracy" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.Czesc" Width="1.5" PointX="20.75" PointY="67.75" IsExpanded="true" />
@@ -256,15 +256,16 @@
         <EntityTypeShape EntityType="KWZPModel.v_Wymiana_czesc_w_trakcie" Width="1.5" PointX="38.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.v_Wynik_kontroli" Width="1.5" PointX="38.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.v_Wytwarzanie" Width="1.5" PointX="38.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KWZPModel.v_Wytworzone_polprodukty_material" Width="1.5" PointX="38.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KWZPModel.v_Wytworzone_produkty" Width="1.5" PointX="38.75" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KWZPModel.v_Wytworzone_produkty_sklad" Width="1.5" PointX="38.75" PointY="17.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KWZPModel.v_Wytworzone_produkty_zamowienie" Width="1.5" PointX="38.75" PointY="20.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KWZPModel.v_Wytworzony_produkt_material" Width="1.5" PointX="38.75" PointY="24.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KWZPModel.v_Zamowienia_bez_umowy" Width="1.5" PointX="38.75" PointY="27.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KWZPModel.v_Zamowienia_czesc_status_zamowiono" Width="1.5" PointX="38.75" PointY="29.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KWZPModel.v_Zamowienia_czesc_status_zamowiono_zmiana_daty" Width="1.5" PointX="38.75" PointY="33.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KWZPModel.v_Zamowienia_czesci_w_trakcie" Width="1.5" PointX="39.75" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KWZPModel.v_Wytwarzanie_grupowane" Width="1.5" PointX="38.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KWZPModel.v_Wytworzone_polprodukty_material" Width="1.5" PointX="38.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KWZPModel.v_Wytworzone_produkty" Width="1.5" PointX="38.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KWZPModel.v_Wytworzone_produkty_sklad" Width="1.5" PointX="38.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KWZPModel.v_Wytworzone_produkty_zamowienie" Width="1.5" PointX="38.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KWZPModel.v_Wytworzony_produkt_material" Width="1.5" PointX="38.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KWZPModel.v_Zamowienia_bez_umowy" Width="1.5" PointX="38.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KWZPModel.v_Zamowienia_czesc_status_zamowiono" Width="1.5" PointX="38.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KWZPModel.v_Zamowienia_czesc_status_zamowiono_zmiana_daty" Width="1.5" PointX="39.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KWZPModel.v_Zamowienia_czesci_w_trakcie" Width="1.5" PointX="39.75" PointY="38.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.v_Zamowienia_czesci_w_trakcie_bez_odebranych" Width="1.5" PointX="40.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.v_Zamowienia_czesci_w_trakcie_wszystko" Width="1.5" PointX="40.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.v_Zamowienia_maszyna_status_zamowiono" Width="1.5" PointX="40.75" PointY="8.75" IsExpanded="true" />
@@ -276,10 +277,10 @@
         <EntityTypeShape EntityType="KWZPModel.v_Zamowienia_material_status_zamowiono_zmiana_daty" Width="1.5" PointX="40.75" PointY="31.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.v_Zamowienia_materialy_w_trakcie" Width="1.5" PointX="32.75" PointY="40.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.v_Zamowienia_materialy_w_trakcie_bez_odebranych" Width="1.5" PointX="34.75" PointY="40.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KWZPModel.v_Zamowienia_materialy_w_trakcie_wszystko" Width="1.5" PointX="39.75" PointY="40.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KWZPModel.v_Zamowienia_narzedzia_status_zamowiono" Width="1.5" PointX="41.75" PointY="34.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KWZPModel.v_Zamowienia_narzedzia_status_zamowiono_zmiana_daty" Width="1.5" PointX="36.75" PointY="41.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="KWZPModel.v_Zamowienia_narzedzia_w_trakcie" Width="1.5" PointX="41.75" PointY="38.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KWZPModel.v_Zamowienia_materialy_w_trakcie_wszystko" Width="1.5" PointX="41.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KWZPModel.v_Zamowienia_narzedzia_status_zamowiono" Width="1.5" PointX="36.75" PointY="41.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KWZPModel.v_Zamowienia_narzedzia_status_zamowiono_zmiana_daty" Width="1.5" PointX="41.75" PointY="38.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KWZPModel.v_Zamowienia_narzedzia_w_trakcie" Width="1.5" PointX="41.75" PointY="41.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.v_Zamowienia_narzedzia_w_trakcie_bez_odebranych" Width="1.5" PointX="42.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.v_Zamowienia_narzedzia_w_trakcie_wszystko" Width="1.5" PointX="42.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KWZPModel.v_Zamowienia_niesprzedane" Width="1.5" PointX="42.75" PointY="8.75" IsExpanded="true" />
