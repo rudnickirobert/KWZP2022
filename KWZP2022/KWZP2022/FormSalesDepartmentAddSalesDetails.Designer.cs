@@ -46,6 +46,8 @@
             this.dgvSalesDetails = new System.Windows.Forms.DataGridView();
             this.btnModify = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.textBoxRealPriceForProduct = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalesDetails)).BeginInit();
             this.SuspendLayout();
@@ -54,7 +56,7 @@
             // 
             this.btnAddNewSale.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddNewSale.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAddNewSale.Location = new System.Drawing.Point(431, 360);
+            this.btnAddNewSale.Location = new System.Drawing.Point(431, 400);
             this.btnAddNewSale.Name = "btnAddNewSale";
             this.btnAddNewSale.Size = new System.Drawing.Size(351, 27);
             this.btnAddNewSale.TabIndex = 98;
@@ -172,7 +174,7 @@
             // 
             this.textBoxNoTel.Enabled = false;
             this.textBoxNoTel.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.textBoxNoTel.Location = new System.Drawing.Point(576, 275);
+            this.textBoxNoTel.Location = new System.Drawing.Point(576, 315);
             this.textBoxNoTel.Name = "textBoxNoTel";
             this.textBoxNoTel.Size = new System.Drawing.Size(206, 26);
             this.textBoxNoTel.TabIndex = 104;
@@ -182,7 +184,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(427, 278);
+            this.label3.Location = new System.Drawing.Point(427, 318);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(145, 20);
             this.label3.TabIndex = 103;
@@ -208,7 +210,7 @@
             this.label2.Text = "Kwota za sztukę:";
             // 
             // dgvSalesDetails
-            // 
+            //
             this.dgvSalesDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSalesDetails.Location = new System.Drawing.Point(12, 247);
             this.dgvSalesDetails.Name = "dgvSalesDetails";
@@ -216,9 +218,9 @@
             this.dgvSalesDetails.Size = new System.Drawing.Size(380, 209);
             this.dgvSalesDetails.TabIndex = 107;
             this.dgvSalesDetails.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvSalesDetails_MouseDoubleClick);
-            // 
+            //
             // btnModify
-            // 
+            //
             this.btnModify.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnModify.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnModify.Location = new System.Drawing.Point(431, 452);
@@ -228,9 +230,9 @@
             this.btnModify.Text = "Modyfikuj";
             this.btnModify.UseVisualStyleBackColor = true;
             this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
-            // 
+            //
             // label6
-            // 
+            //
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -239,12 +241,34 @@
             this.label6.Size = new System.Drawing.Size(366, 20);
             this.label6.TabIndex = 109;
             this.label6.Text = "Kliknij dwukrotnie na szczegół, który chcesz zmodyfikować:";
-            // 
+            //
+            // textBoxRealPriceForProduct
+            //
+            this.textBoxRealPriceForProduct.Enabled = false;
+            this.textBoxRealPriceForProduct.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.textBoxRealPriceForProduct.Location = new System.Drawing.Point(576, 275);
+            this.textBoxRealPriceForProduct.Name = "textBoxRealPriceForProduct";
+            this.textBoxRealPriceForProduct.Size = new System.Drawing.Size(206, 26);
+            this.textBoxRealPriceForProduct.TabIndex = 111;
+            //
+            // label7
+            //
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label7.Location = new System.Drawing.Point(427, 278);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(154, 20);
+            this.label7.TabIndex = 110;
+            this.label7.Text = "Rzecz. kwota za sztukę:";
+            //
             // FormSalesDepartmentAddSalesDetails
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
             this.ClientSize = new System.Drawing.Size(794, 491);
+            this.Controls.Add(this.textBoxRealPriceForProduct);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.dgvSalesDetails);
@@ -295,5 +319,7 @@
         private System.Windows.Forms.DataGridView dgvSalesDetails;
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBoxRealPriceForProduct;
+        private System.Windows.Forms.Label label7;
     }
 }

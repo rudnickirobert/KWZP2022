@@ -757,9 +757,9 @@
         </EntityType>
         <EntityType Name="Wyplata">
           <Key>
-            <PropertyRef Name="ID_wypłata" />
+            <PropertyRef Name="ID_wyplata" />
           </Key>
-          <Property Name="ID_wypłata" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_wyplata" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Pracownik" Type="int" Nullable="false" />
           <Property Name="Data_wyplaty" Type="date" Nullable="false" />
         </EntityType>
@@ -3167,11 +3167,11 @@ warning 6002: The table/view 'KWZP.dbo.v_Wynik_kontroli' does not have a primary
 warning 6002: The table/view 'KWZP.dbo.v_Wyplata' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="v_Wyplata">
           <Key>
-            <PropertyRef Name="ID_wypłata" />
+            <PropertyRef Name="ID_wyplata" />
             <PropertyRef Name="ID_Pracownik" />
             <PropertyRef Name="Data_wyplaty" />
           </Key>
-          <Property Name="ID_wypłata" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_wyplata" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Pracownik" Type="int" Nullable="false" />
           <Property Name="Data_wyplaty" Type="date" Nullable="false" />
           <Property Name="Miesiac_wyplata" Type="int" />
@@ -3235,6 +3235,14 @@ warning 6002: The table/view 'KWZP.dbo.v_Wytwarzanie' does not have a primary ke
           <Property Name="Pracownik" Type="varchar" MaxLength="101" Nullable="false" />
           <Property Name="Data rozpoczęcia" Type="datetime" Nullable="false" />
           <Property Name="Data zakończenia" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KWZP.dbo.v_Wytwarzanie_grupowane' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_Wytwarzanie_grupowane">
+          <Key>
+            <PropertyRef Name="ID_zamowienie_szczegol" />
+          </Key>
+          <Property Name="ID_zamowienie_szczegol" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Wytworzone_polprodukty_material' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -3792,7 +3800,7 @@ warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_produkcja' does not have a p
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="Klient" Type="nvarchar" MaxLength="134" />
+          <Property Name="Klient" Type="nvarchar" MaxLength="167" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'KWZP.dbo.v_Zamowienie_szczegol' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -6865,7 +6873,7 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           </EntitySet>
           <EntitySet Name="v_Wyplata" EntityType="Self.v_Wyplata" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [v_Wyplata].[ID_wypłata] AS [ID_wypłata], 
+    [v_Wyplata].[ID_wyplata] AS [ID_wyplata], 
     [v_Wyplata].[ID_Pracownik] AS [ID_Pracownik], 
     [v_Wyplata].[Data_wyplaty] AS [Data_wyplaty], 
     [v_Wyplata].[Miesiac_wyplata] AS [Miesiac_wyplata]
@@ -6905,6 +6913,11 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
     [v_Wytwarzanie].[Data rozpoczęcia] AS [Data rozpoczęcia], 
     [v_Wytwarzanie].[Data zakończenia] AS [Data zakończenia]
     FROM [dbo].[v_Wytwarzanie] AS [v_Wytwarzanie]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="v_Wytwarzanie_grupowane" EntityType="Self.v_Wytwarzanie_grupowane" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_Wytwarzanie_grupowane].[ID_zamowienie_szczegol] AS [ID_zamowienie_szczegol]
+    FROM [dbo].[v_Wytwarzanie_grupowane] AS [v_Wytwarzanie_grupowane]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="v_Wytworzone_polprodukty_material" EntityType="Self.v_Wytworzone_polprodukty_material" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -8709,9 +8722,9 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
         </EntityType>
         <EntityType Name="Wyplata">
           <Key>
-            <PropertyRef Name="ID_wypłata" />
+            <PropertyRef Name="ID_wyplata" />
           </Key>
-          <Property Name="ID_wypłata" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_wyplata" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Pracownik" Type="Int32" Nullable="false" />
           <Property Name="Data_wyplaty" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="Pracownik" Relationship="Self.FK__Wyplata__ID_Prac__373B3228" FromRole="Wyplata" ToRole="Pracownik" />
@@ -10817,11 +10830,11 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
         </EntityType>
         <EntityType Name="v_Wyplata">
           <Key>
-            <PropertyRef Name="ID_wypłata" />
+            <PropertyRef Name="ID_wyplata" />
             <PropertyRef Name="ID_Pracownik" />
             <PropertyRef Name="Data_wyplaty" />
           </Key>
-          <Property Name="ID_wypłata" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_wyplata" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Pracownik" Type="Int32" Nullable="false" />
           <Property Name="Data_wyplaty" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Miesiac_wyplata" Type="Int32" />
@@ -10879,6 +10892,12 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <Property Name="Pracownik" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Data_rozpoczęcia" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Data_zakończenia" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="v_Wytwarzanie_grupowane">
+          <Key>
+            <PropertyRef Name="ID_zamowienie_szczegol" />
+          </Key>
+          <Property Name="ID_zamowienie_szczegol" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="v_Wytworzone_polprodukty_material">
           <Key>
@@ -11342,7 +11361,7 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Klient" Type="String" MaxLength="134" FixedLength="false" Unicode="true" />
+          <Property Name="Klient" Type="String" MaxLength="167" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="v_Zamowienie_szczegol">
           <Key>
@@ -13154,6 +13173,7 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <EntitySet Name="v_Wyplata_nieobecnosci" EntityType="Self.v_Wyplata_nieobecnosci" />
           <EntitySet Name="v_Wyplata_suma" EntityType="Self.v_Wyplata_suma" />
           <EntitySet Name="v_Wytwarzanie" EntityType="Self.v_Wytwarzanie" />
+          <EntitySet Name="v_Wytwarzanie_grupowane" EntityType="Self.v_Wytwarzanie_grupowane" />
           <EntitySet Name="v_Wytworzone_polprodukty_material" EntityType="Self.v_Wytworzone_polprodukty_material" />
           <EntitySet Name="v_Wytworzone_produkty" EntityType="Self.v_Wytworzone_produkty" />
           <EntitySet Name="v_Wytworzone_produkty_sklad" EntityType="Self.v_Wytworzone_produkty_sklad" />
@@ -14505,7 +14525,7 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <EntitySetMapping Name="Wyplata">
             <EntityTypeMapping TypeName="KWZPModel.Wyplata">
               <MappingFragment StoreEntitySet="Wyplata">
-                <ScalarProperty Name="ID_wypłata" ColumnName="ID_wypłata" />
+                <ScalarProperty Name="ID_wyplata" ColumnName="ID_wyplata" />
                 <ScalarProperty Name="ID_Pracownik" ColumnName="ID_Pracownik" />
                 <ScalarProperty Name="Data_wyplaty" ColumnName="Data_wyplaty" />
               </MappingFragment>
@@ -16323,7 +16343,7 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
           <EntitySetMapping Name="v_Wyplata">
             <EntityTypeMapping TypeName="KWZPModel.v_Wyplata">
               <MappingFragment StoreEntitySet="v_Wyplata">
-                <ScalarProperty Name="ID_wypłata" ColumnName="ID_wypłata" />
+                <ScalarProperty Name="ID_wyplata" ColumnName="ID_wyplata" />
                 <ScalarProperty Name="ID_Pracownik" ColumnName="ID_Pracownik" />
                 <ScalarProperty Name="Data_wyplaty" ColumnName="Data_wyplaty" />
                 <ScalarProperty Name="Miesiac_wyplata" ColumnName="Miesiac_wyplata" />
@@ -16368,6 +16388,13 @@ warning 6013: The table/view 'KWZP.dbo.v_Zarobek_sprzedaz_miesiac' does not have
                 <ScalarProperty Name="Pracownik" ColumnName="Pracownik" />
                 <ScalarProperty Name="Data_rozpoczęcia" ColumnName="Data rozpoczęcia" />
                 <ScalarProperty Name="Data_zakończenia" ColumnName="Data zakończenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_Wytwarzanie_grupowane">
+            <EntityTypeMapping TypeName="KWZPModel.v_Wytwarzanie_grupowane">
+              <MappingFragment StoreEntitySet="v_Wytwarzanie_grupowane">
+                <ScalarProperty Name="ID_zamowienie_szczegol" ColumnName="ID_zamowienie_szczegol" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -140,7 +140,7 @@ GO
 
 CREATE VIEW v_Koszt_procesow_polprodukt
 AS
-SELECT DISTINCT SP.ID_produkt, P.ID_polprodukt AS ID, P.Nazwa AS [Półprodukt], PPPC.Czas_trwania AS [Czas trwania], CP.Nazwa AS [Czynność], 
+SELECT DISTINCT SP.ID_produkt, P.ID_polprodukt AS ID, P.Nazwa AS [Półprodukt], PPPC.Czas_trwania AS [Czas trwania], CP.Nazwa AS [Czynność],
 CONVERT(DECIMAL(15,2),vK.[Koszt roboczogodziny stanowiska {PLN}] * PPPC.Czas_trwania/60) AS [Suma kosztu procesów]
 FROM Proces_wytwarzanie_polprodukt AS PWPP
 INNER JOIN Proces_polprodukt_czynnosc AS PPPC ON PWPP.ID_proces_polprodukt = PPPC.ID_proces_polprodukt
@@ -219,17 +219,17 @@ GO
 
 CREATE VIEW v_Wynik_kontroli
 AS
-SELECT ID_wytwarzanie, ID_produkt, SUM([Rezultat kontroli]) AS [Wynik_kontrola] 
+SELECT ID_wytwarzanie, ID_produkt, SUM([Rezultat kontroli]) AS [Wynik_kontrola]
 FROM v_Kontrola_parametr_produkt
 GROUP BY ID_wytwarzanie, ID_produkt
 GO
 
 CREATE VIEW v_Kontrola_pozytywna
 AS
-SELECT ID_wytwarzanie, ID_produkt, [Produkt], AVG([Rezultat kontroli]) AS [Wynik_kontrola], [ID_zamowienie]  
+SELECT ID_wytwarzanie, ID_produkt, [Produkt], AVG([Rezultat kontroli]) AS [Wynik_kontrola], [ID_zamowienie]
 FROM v_Kontrola_parametr_produkt
-GROUP BY ID_wytwarzanie, ID_produkt, [Produkt], [ID_zamowienie] 
-HAVING AVG([Rezultat kontroli]) = 1 
+GROUP BY ID_wytwarzanie, ID_produkt, [Produkt], [ID_zamowienie]
+HAVING AVG([Rezultat kontroli]) = 1
 GO
 
 CREATE VIEW v_Ilosc_kontrola_pozytywna
@@ -750,7 +750,7 @@ INNER JOIN Stanowisko_produkcyjne AS SP ON PWP.ID_stanowisko_produkcyjne = SP.ID
 INNER JOIN Slownik_stanowisko AS SS ON SP.ID_nazwa_stanowiska = SS.ID_nazwa_stanowiska
 LEFT JOIN v_Obslugi_w_trakcie AS OWT ON SP.ID_stanowisko_produkcyjne = OWT.[Nr stanowiska]
 WHERE W.Czas_do IS NULL OR W.Czas_do >= GETDATE() OR OWT.Obsługa IS NOT NULL
-UNION 
+UNION
 SELECT SP.ID_stanowisko_produkcyjne, SS.Nazwa_stanowiska AS Nazwa
 FROM Proces_wytwarzanie_polprodukt AS PWPP
 INNER JOIN Wytwarzanie AS W ON PWPP.ID_wytwarzanie = W.ID_wytwarzanie
@@ -830,7 +830,7 @@ GO
 
 CREATE VIEW v_Zamowienia_czesci_w_trakcie_wszystko 
 AS 
-SELECT ZC.ID_zamowienie_czesc AS [Nr zamówienia], C.Nazwa_czesc AS [Nazwa części], SRZC.Data_stan [Data zmiany stanu], Ilosc AS [Ilość], Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID], SZC.ID_czesc 
+SELECT ZC.ID_zamowienie_czesc AS [Nr zamówienia], C.Nazwa_czesc AS [Nazwa części], SRZC.Data_stan [Data zmiany stanu], Ilosc AS [Ilość], Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID], SZC.ID_czesc
 FROM Szczegoly_zamowienie_czesc AS SZC 
 INNER JOIN Zamowienie_czesc AS ZC ON SZC.ID_zamowienie_czesc = ZC.ID_zamowienie_czesc 
 INNER JOIN Czesc AS C ON SZC.ID_czesc = C.ID_czesc 
@@ -884,7 +884,7 @@ GO
 
 CREATE VIEW v_Zamowienia_narzedzia_w_trakcie_wszystko 
 AS 
-SELECT ZN.ID_zamowienie_narzedzie AS [Nr zamówienia], N.Nazwa_narzedzie AS [Nazwa narzędzia], SRZN.Data_stan [Data zmiany stanu], Sztuk, Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID], SZN.ID_narzedzie 
+SELECT ZN.ID_zamowienie_narzedzie AS [Nr zamówienia], N.Nazwa_narzedzie AS [Nazwa narzędzia], SRZN.Data_stan [Data zmiany stanu], Sztuk, Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID], SZN.ID_narzedzie
 FROM Szczegoly_zamowienie_narzedzie AS SZN 
 INNER JOIN Zamowienie_narzedzie AS ZN ON SZN.ID_zamowienie_narzedzie = ZN.ID_zamowienie_narzedzie 
 INNER JOIN Narzedzie AS N ON SZN.ID_narzedzie = N.ID_narzedzie
@@ -911,7 +911,7 @@ GO
 
 CREATE VIEW v_Zamowienia_maszyny_w_trakcie_wszystko 
 AS 
-SELECT ZM.ID_zamowienie_maszyna AS [Nr zamówienia], M.Nazwa_maszyna AS [Nazwa maszyny], SRZM.Data_stan AS [Data zmiany stanu], Ilosc AS [Ilość], Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID], SZM.ID_maszyna 
+SELECT ZM.ID_zamowienie_maszyna AS [Nr zamówienia], M.Nazwa_maszyna AS [Nazwa maszyny], SRZM.Data_stan AS [Data zmiany stanu], Ilosc AS [Ilość], Cena, D.Nazwa_dostawca AS [Dostawca], SZ.Nazwa_status AS [Status], SZ.ID_status_zamowienie AS [StatusID], SZM.ID_maszyna
 FROM Szczegoly_zamowienie_maszyna AS SZM 
 INNER JOIN Zamowienie_maszyna AS ZM ON SZM.ID_zamowienie_maszyna = ZM.ID_zamowienie_maszyna
 INNER JOIN Maszyna AS M ON SZM.ID_maszyna = M.ID_maszyna
@@ -1009,7 +1009,7 @@ GO
 
 CREATE VIEW v_Magazyn_czesci_wymienione
 AS
-SELECT C.Nazwa_czesc AS [Nazwa części], COUNT([Nazwa_czesc]) AS [Wymieniono], WC.ID_czesc 
+SELECT C.Nazwa_czesc AS [Nazwa części], COUNT([Nazwa_czesc]) AS [Wymieniono], WC.ID_czesc
 FROM Wymiana_czesc AS WC
 INNER JOIN Czesc AS C ON WC.ID_czesc = C.ID_czesc 
 GROUP BY C.Nazwa_czesc, WC.ID_czesc
@@ -1131,7 +1131,7 @@ GROUP BY MMP.ID_material, MMP.[Nazwa materiału], MMP.[Waga (g)]
 GO
 CREATE VIEW v_Magazyn_material_aktualny
 AS
-SELECT  MMP.ID_material, MMP.[Nazwa materiału], (MMP.[Waga (g)] - MMP.[Waga material polprodukt (g)] - MMP.[Waga material produkt (g)]) AS [Stan w magazynie g] 
+SELECT  MMP.ID_material, MMP.[Nazwa materiału], (MMP.[Waga (g)] - MMP.[Waga material polprodukt (g)] - MMP.[Waga material produkt (g)]) AS [Stan w magazynie g]
 FROM v_Magazyn_material_aktualny_dodanie AS MMP
 GROUP BY MMP.ID_material, MMP.[Nazwa materiału], MMP.[Waga (g)],MMP.[Waga material polprodukt (g)],MMP.[Waga material produkt (g)]
 GO
@@ -1536,7 +1536,7 @@ CREATE VIEW v_Potrzebne_materialy_do_zamowienia AS
 	FROM Zamowienie_szczegol
 	INNER JOIN Zamowienie ON Zamowienie_szczegol.ID_zamowienie = Zamowienie.ID_zamowienie
 	INNER JOIN Produkt ON Produkt.ID_produkt = Zamowienie_szczegol.ID_produkt
-	INNER JOIN Material ON Material.ID_material = Produkt.ID_produkt 
+	INNER JOIN Material ON Material.ID_material = Produkt.ID_produkt
 	INNER JOIN Sklad_polprodukt ON Sklad_polprodukt.ID_material = Material.ID_material
 	INNER JOIN Slownik_polprodukt ON Slownik_polprodukt.ID_polprodukt = Sklad_polprodukt.ID_polprodukt
 	GROUP BY Zamowienie_szczegol.ID_zamowienie, Material.Nazwa_material, Material.ID_material
@@ -1756,12 +1756,18 @@ CREATE VIEW v_Zamowienia_bez_umowy AS
 GO
 
 CREATE VIEW v_Szczegol_sprzedaz AS
-	SELECT SS.ID_szczegoly_sprzedaz, S.Nr_sprzedaz,SS.ID_produkt,P.Nazwa_produkt, 
+	SELECT SS.ID_szczegoly_sprzedaz, S.Nr_sprzedaz,SS.ID_produkt,P.Nazwa_produkt,
 		SS.ID_sprzedaz, SS.Ilosc, SS.ID_podatek, PD.Procent,SS.Kwota_sprzedaz
 	FROM Szczegoly_sprzedaz AS SS
 	INNER JOIN Sprzedaz AS S ON SS.ID_sprzedaz = S.ID_sprzedaz
 	INNER JOIN Podatek AS PD ON SS.ID_podatek = PD.ID_podatek
 	INNER JOIN Produkt AS P ON SS.ID_produkt = P.ID_produkt
+GO
+
+CREATE VIEW v_Wytwarzanie_grupowane AS
+	SELECT Wytwarzanie.ID_zamowienie_szczegol
+	FROM Wytwarzanie
+	GROUP BY Wytwarzanie.ID_zamowienie_szczegol
 GO
 
 	--HR DEPARTMENT --
@@ -1800,7 +1806,7 @@ GO
 
 CREATE VIEW v_Umowa
 AS
-SELECT UM.ID_umowa AS [ID],p.ID_pracownik, P.Nazwisko AS [Nazwisko], P.Imie AS [Imię], WP.Nazwa AS [Wymiar pracy], RU.Nazwa AS [Rodzaj Umowy], ST.Nazwa_stanowiska AS [Nazwa stanowiska], UM.Wynagrodzenie AS [Podstawa wynagrodzenia]  
+SELECT UM.ID_umowa AS [ID],p.ID_pracownik, P.Nazwisko AS [Nazwisko], P.Imie AS [Imię], WP.Nazwa AS [Wymiar pracy], RU.Nazwa AS [Rodzaj Umowy], ST.Nazwa_stanowiska AS [Nazwa stanowiska], UM.Wynagrodzenie AS [Podstawa wynagrodzenia]
 FROM Umowa AS UM
 INNER JOIN
 (Posada_pracownika AS PO INNER JOIN
@@ -1916,7 +1922,7 @@ GO
 
 CREATE VIEW v_Koszt_godziny_pracy
 AS
-SELECT dbo.Pracownik.ID_pracownik, dbo.Pracownik.Nazwisko, dbo.Pracownik.Imie, dbo.Umowa.Wynagrodzenie, dbo.Czas_pracy.Liczba_godzin, dbo.Umowa.Wynagrodzenie / dbo.Czas_pracy.Liczba_godzin AS [Koszt godziny pracy], 
+SELECT dbo.Pracownik.ID_pracownik, dbo.Pracownik.Nazwisko, dbo.Pracownik.Imie, dbo.Umowa.Wynagrodzenie, dbo.Czas_pracy.Liczba_godzin, dbo.Umowa.Wynagrodzenie / dbo.Czas_pracy.Liczba_godzin AS [Koszt godziny pracy],
 MONTH(dbo.Czas_pracy.Data) AS Miesiąc
 FROM     dbo.Umowa INNER JOIN
 dbo.Pracownik ON dbo.Umowa.ID_pracownik = dbo.Pracownik.ID_pracownik CROSS JOIN
@@ -1945,7 +1951,7 @@ CREATE VIEW v_Wyplata
 AS
 SELECT dbo.Wyplata.ID_wyplata, dbo.Wyplata.ID_Pracownik, dbo.Wyplata.Data_wyplaty, MONTH(dbo.Wyplata.Data_wyplaty)  AS Miesiac_wyplata
 FROM dbo.Wyplata
-ORDER BY dbo.Wyplata.ID_pracownik DESC OFFSET 0 ROWS 
+ORDER BY dbo.Wyplata.ID_pracownik DESC OFFSET 0 ROWS
 GO
 
 CREATE VIEW v_Wyplata_nieobecnosci
@@ -1954,8 +1960,8 @@ SELECT DISTINCT v_Umowa.ID, v_Umowa.Nazwisko, v_Umowa.Imię, Miesiac_wyplata, IS
 ISNULL(Suma_CH,0) AS Kwota_CH ,
 ISNULL(Suma_NB,0) AS Kwota_NB
 FROM  v_Umowa
-INNER JOIN dbo.Pracownik ON dbo.v_Umowa.ID_pracownik = dbo.Pracownik.ID_pracownik 
-INNER JOIN dbo.v_Wyplata ON dbo.v_Wyplata.ID_Pracownik = dbo.v_Umowa.ID_pracownik 
+INNER JOIN dbo.Pracownik ON dbo.v_Umowa.ID_pracownik = dbo.Pracownik.ID_pracownik
+INNER JOIN dbo.v_Wyplata ON dbo.v_Wyplata.ID_Pracownik = dbo.v_Umowa.ID_pracownik
 INNER JOIN dbo.v_Nadgodziny_suma_miesiac ON dbo.v_Nadgodziny_suma_miesiac.ID_Pracownik = dbo.v_Umowa.ID_pracownik
 LEFT JOIN dbo.v_Nieobecnosc ON dbo.v_Nieobecnosc.ID_pracownik = dbo.v_Umowa.ID_pracownik
 LEFT JOIN dbo.v_NieobecnoscCH_kwota ON dbo.v_NieobecnoscCH_kwota.ID_pracownik = dbo.v_Umowa.ID_pracownik
@@ -1970,7 +1976,7 @@ CREATE VIEW v_Wyplata_suma
 AS
 SELECT DISTINCT v_Umowa.ID_pracownik, v_Umowa.Nazwisko, v_Umowa.Imię, v_Umowa.[Podstawa wynagrodzenia], Miesiac_wyplata,
 ISNULL((ISNULL(v_Nadgodziny_suma_miesiac.[Łączny czas],0) * ([Podstawa wynagrodzenia] / 160)), 0)  AS Wynagrodzenie_nadgodziny, ISNULL(dbo.v_NieobecnoscCH.Ilosc_CH,0) AS [Ilość dni CH], ISNULL(dbo.v_NieobecnoscNB.Ilosc_NB,0) AS [Ilość dni NB],
-ROUND(([Podstawa wynagrodzenia] + ISNULL(v_Nadgodziny_suma_miesiac.[Łączny czas],0) * ([Podstawa wynagrodzenia] / 160) + (ISNULL(dbo.v_NieobecnoscCH_kwota.Suma_CH,0)) + 
+ROUND(([Podstawa wynagrodzenia] + ISNULL(v_Nadgodziny_suma_miesiac.[Łączny czas],0) * ([Podstawa wynagrodzenia] / 160) + (ISNULL(dbo.v_NieobecnoscCH_kwota.Suma_CH,0)) +
 (ISNULL(dbo.v_NieobecnoscNB_kwota.Suma_NB,0))),2) AS Wypłata
 FROM  v_Umowa
 INNER JOIN dbo.Pracownik ON dbo.v_Umowa.ID_pracownik = dbo.Pracownik.ID_pracownik 

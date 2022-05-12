@@ -12,11 +12,8 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Wyplata
+    public partial class v_Wytwarzanie_grupowane
     {
-        public int ID_wyplata { get; set; }
-        public int ID_Pracownik { get; set; }
-        public System.DateTime Data_wyplaty { get; set; }
-        public Nullable<int> Miesiac_wyplata { get; set; }
+        public int ID_zamowienie_szczegol { get; set; }
     }
 }
