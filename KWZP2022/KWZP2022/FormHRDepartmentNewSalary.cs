@@ -26,12 +26,6 @@ namespace KWZP2022
             dgvSalary.Columns["ID_pracownik"].Visible = false;
             this.dgvSalary.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
-        //private void showData()
-        //{
-        //    this.dgvSalary.DataSource = db.Wyplata.ToList();
-        //    //dgvSalary.Columns["ID_pracownik"].Visible = false;
-        //    this.dgvSalary.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-        //}
         private void comboBoxAddValue()
         {
             cbIDpracownik.DataSource = this.db.Pracownik.ToList();
