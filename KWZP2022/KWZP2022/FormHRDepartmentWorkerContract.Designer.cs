@@ -45,22 +45,22 @@
             // dgvWorker
             // 
             this.dgvWorker.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvWorker.Location = new System.Drawing.Point(12, 223);
-            this.dgvWorker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvWorker.Location = new System.Drawing.Point(9, 181);
+            this.dgvWorker.Margin = new System.Windows.Forms.Padding(2);
             this.dgvWorker.Name = "dgvWorker";
             this.dgvWorker.RowHeadersWidth = 51;
             this.dgvWorker.RowTemplate.Height = 24;
-            this.dgvWorker.Size = new System.Drawing.Size(1661, 610);
+            this.dgvWorker.Size = new System.Drawing.Size(1246, 496);
             this.dgvWorker.TabIndex = 58;
             // 
             // btnAddnew
             // 
             this.btnAddnew.BackColor = System.Drawing.Color.Red;
-            this.btnAddnew.Font = new System.Drawing.Font("Arial Narrow", 15F);
-            this.btnAddnew.Location = new System.Drawing.Point(929, 43);
-            this.btnAddnew.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddnew.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.btnAddnew.Location = new System.Drawing.Point(697, 35);
+            this.btnAddnew.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddnew.Name = "btnAddnew";
-            this.btnAddnew.Size = new System.Drawing.Size(201, 30);
+            this.btnAddnew.Size = new System.Drawing.Size(151, 34);
             this.btnAddnew.TabIndex = 57;
             this.btnAddnew.Text = "Nowa umowa";
             this.btnAddnew.UseVisualStyleBackColor = false;
@@ -69,11 +69,11 @@
             // btnRefresh
             // 
             this.btnRefresh.BackColor = System.Drawing.Color.Yellow;
-            this.btnRefresh.Font = new System.Drawing.Font("Arial Narrow", 15F);
-            this.btnRefresh.Location = new System.Drawing.Point(605, 154);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRefresh.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.btnRefresh.Location = new System.Drawing.Point(454, 125);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(201, 30);
+            this.btnRefresh.Size = new System.Drawing.Size(151, 34);
             this.btnRefresh.TabIndex = 56;
             this.btnRefresh.Text = "Odśwież";
             this.btnRefresh.UseVisualStyleBackColor = false;
@@ -82,11 +82,11 @@
             // btnSearch
             // 
             this.btnSearch.BackColor = System.Drawing.Color.Cyan;
-            this.btnSearch.Font = new System.Drawing.Font("Arial Narrow", 15F);
-            this.btnSearch.Location = new System.Drawing.Point(605, 43);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSearch.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.btnSearch.Location = new System.Drawing.Point(454, 35);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(201, 30);
+            this.btnSearch.Size = new System.Drawing.Size(151, 34);
             this.btnSearch.TabIndex = 55;
             this.btnSearch.Text = "Szukaj";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -95,19 +95,19 @@
             // tbNazwiskoU
             // 
             this.tbNazwiskoU.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.tbNazwiskoU.Location = new System.Drawing.Point(235, 102);
-            this.tbNazwiskoU.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbNazwiskoU.Location = new System.Drawing.Point(176, 83);
+            this.tbNazwiskoU.Margin = new System.Windows.Forms.Padding(2);
             this.tbNazwiskoU.Name = "tbNazwiskoU";
-            this.tbNazwiskoU.Size = new System.Drawing.Size(201, 26);
+            this.tbNazwiskoU.Size = new System.Drawing.Size(152, 26);
             this.tbNazwiskoU.TabIndex = 52;
             // 
             // tbImieU
             // 
             this.tbImieU.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.tbImieU.Location = new System.Drawing.Point(235, 47);
-            this.tbImieU.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbImieU.Location = new System.Drawing.Point(176, 38);
+            this.tbImieU.Margin = new System.Windows.Forms.Padding(2);
             this.tbImieU.Name = "tbImieU";
-            this.tbImieU.Size = new System.Drawing.Size(201, 26);
+            this.tbImieU.Size = new System.Drawing.Size(152, 26);
             this.tbImieU.TabIndex = 51;
             // 
             // label4
@@ -115,7 +115,8 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.label4.Location = new System.Drawing.Point(88, 162);
+            this.label4.Location = new System.Drawing.Point(66, 132);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 20);
             this.label4.TabIndex = 50;
@@ -126,7 +127,8 @@
             this.lblNazwisko.AutoSize = true;
             this.lblNazwisko.BackColor = System.Drawing.Color.Transparent;
             this.lblNazwisko.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.lblNazwisko.Location = new System.Drawing.Point(88, 102);
+            this.lblNazwisko.Location = new System.Drawing.Point(66, 83);
+            this.lblNazwisko.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNazwisko.Name = "lblNazwisko";
             this.lblNazwisko.Size = new System.Drawing.Size(70, 20);
             this.lblNazwisko.TabIndex = 48;
@@ -137,7 +139,8 @@
             this.lblImie.AutoSize = true;
             this.lblImie.BackColor = System.Drawing.Color.Transparent;
             this.lblImie.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.lblImie.Location = new System.Drawing.Point(88, 53);
+            this.lblImie.Location = new System.Drawing.Point(66, 43);
+            this.lblImie.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblImie.Name = "lblImie";
             this.lblImie.Size = new System.Drawing.Size(38, 20);
             this.lblImie.TabIndex = 47;
@@ -147,15 +150,17 @@
             // 
             this.cbPosition.Font = new System.Drawing.Font("Arial", 12F);
             this.cbPosition.FormattingEnabled = true;
-            this.cbPosition.Location = new System.Drawing.Point(235, 160);
+            this.cbPosition.Location = new System.Drawing.Point(176, 130);
+            this.cbPosition.Margin = new System.Windows.Forms.Padding(2);
             this.cbPosition.Name = "cbPosition";
-            this.cbPosition.Size = new System.Drawing.Size(201, 26);
+            this.cbPosition.Size = new System.Drawing.Size(152, 26);
             this.cbPosition.TabIndex = 59;
             // 
             // cbPositionFind
             // 
             this.cbPositionFind.AutoSize = true;
-            this.cbPositionFind.Location = new System.Drawing.Point(462, 161);
+            this.cbPositionFind.Location = new System.Drawing.Point(346, 131);
+            this.cbPositionFind.Margin = new System.Windows.Forms.Padding(2);
             this.cbPositionFind.Name = "cbPositionFind";
             this.cbPositionFind.Size = new System.Drawing.Size(15, 14);
             this.cbPositionFind.TabIndex = 60;
@@ -163,10 +168,10 @@
             // 
             // FormHRDepartmentWorkerContract
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background;
-            this.ClientSize = new System.Drawing.Size(1685, 875);
+            this.ClientSize = new System.Drawing.Size(1264, 711);
             this.Controls.Add(this.cbPositionFind);
             this.Controls.Add(this.cbPosition);
             this.Controls.Add(this.dgvWorker);
@@ -178,8 +183,8 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblNazwisko);
             this.Controls.Add(this.lblImie);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormHRDepartmentWorkerContract";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Umowy";
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorker)).EndInit();
             this.ResumeLayout(false);
