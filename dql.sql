@@ -342,7 +342,7 @@ INNER JOIN Zamowienie AS Z ON Z.ID_zamowienie = ZC.ID_zamowienie
 GO
 
 CREATE VIEW v_Zamowienie_produkcja AS
-SELECT Z.ID_zamowienie AS [ID], K.Nazwisko + ' ' + K.Imie + ' - ' + CONVERT(NVARCHAR,Z.Data_zamowienie) AS [Klient]
+SELECT Z.ID_zamowienie AS [ID], CONVERT(NVARCHAR,Z.ID_zamowienie) + ' ' + '-' + ' ' + K.Nazwisko + ' ' + K.Imie + ' - ' + CONVERT(NVARCHAR,Z.Data_zamowienie) AS [Klient]
 FROM Zamowienie AS Z
 INNER JOIN Klient AS K ON K.ID_klient = Z.ID_klient
 INNER JOIN Pracownik AS P ON P.ID_pracownik = Z.ID_pracownik
@@ -1943,7 +1943,7 @@ GO
 
 CREATE VIEW v_Wyplata
 AS
-SELECT dbo.Wyplata.ID_wypłata, dbo.Wyplata.ID_Pracownik, dbo.Wyplata.Data_wyplaty, MONTH(dbo.Wyplata.Data_wyplaty)  AS Miesiac_wyplata
+SELECT dbo.Wyplata.ID_wyplata, dbo.Wyplata.ID_Pracownik, dbo.Wyplata.Data_wyplaty, MONTH(dbo.Wyplata.Data_wyplaty)  AS Miesiac_wyplata
 FROM dbo.Wyplata
 ORDER BY dbo.Wyplata.ID_pracownik DESC OFFSET 0 ROWS 
 GO
