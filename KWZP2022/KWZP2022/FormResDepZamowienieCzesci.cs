@@ -116,15 +116,19 @@ namespace KWZP2022
 
         private void btnAktualizujStatus_Click(object sender, EventArgs e)
         {
-            Stan_realizacji_zamowienie_czesc stRealizacjaCzesc = new Stan_realizacji_zamowienie_czesc();
-            stRealizacjaCzesc.ID_zamowienie_czesc = (int)dgvZamowienieCzesci.CurrentRow.Cells[0].Value;
-            stRealizacjaCzesc.ID_status_zamowienie = (int)dgvZamowienieCzesci.CurrentRow.Cells[6].Value + 1;
-            stRealizacjaCzesc.Data_stan = System.DateTime.Now;
-            stRealizacjaCzesc.ID_pracownik = (int)cmbPracownik.SelectedValue;
-            db.Stan_realizacji_zamowienie_czesc.Add(stRealizacjaCzesc);
-            db.SaveChanges();
-            MessageBox.Show("Zmieniono status zamówienia dla: " + dgvZamowienieCzesci.CurrentRow.Cells[1].Value.ToString());
-            initDataGridView();
+            DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz zmienić status zamówienia: " + this.dgvZamowienieCzesci.CurrentRow.Cells[0].Value + "?", "Zmiana Statusu", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Stan_realizacji_zamowienie_czesc stRealizacjaCzesc = new Stan_realizacji_zamowienie_czesc();
+                stRealizacjaCzesc.ID_zamowienie_czesc = (int)dgvZamowienieCzesci.CurrentRow.Cells[0].Value;
+                stRealizacjaCzesc.ID_status_zamowienie = (int)dgvZamowienieCzesci.CurrentRow.Cells[6].Value + 1;
+                stRealizacjaCzesc.Data_stan = System.DateTime.Now;
+                stRealizacjaCzesc.ID_pracownik = (int)cmbPracownik.SelectedValue;
+                db.Stan_realizacji_zamowienie_czesc.Add(stRealizacjaCzesc);
+                db.SaveChanges();
+                MessageBox.Show("Zmieniono status zamówienia dla: " + dgvZamowienieCzesci.CurrentRow.Cells[1].Value.ToString());
+                initDataGridView();
+            }
         }
 
         private void btnOdswiez_Click(object sender, EventArgs e)

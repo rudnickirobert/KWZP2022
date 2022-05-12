@@ -44,6 +44,7 @@
             this.btnAddNewSale = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSalesDetails = new System.Windows.Forms.Button();
+            this.btnModify = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,6 +75,7 @@
             this.dgvSales.Name = "dgvSales";
             this.dgvSales.Size = new System.Drawing.Size(380, 450);
             this.dgvSales.TabIndex = 14;
+            this.dgvSales.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvSales_MouseDoubleClick);
             // 
             // dtpSaleBegin
             // 
@@ -215,11 +217,24 @@
             this.btnSalesDetails.UseVisualStyleBackColor = true;
             this.btnSalesDetails.Click += new System.EventHandler(this.btnSalesDetails_Click);
             // 
+            // btnModify
+            // 
+            this.btnModify.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModify.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnModify.Location = new System.Drawing.Point(454, 452);
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Size = new System.Drawing.Size(166, 27);
+            this.btnModify.TabIndex = 84;
+            this.btnModify.Text = "Modyfikuj";
+            this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
+            // 
             // FormSalesDepartmentAddSales
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
             this.ClientSize = new System.Drawing.Size(794, 491);
+            this.Controls.Add(this.btnModify);
             this.Controls.Add(this.btnSalesDetails);
             this.Controls.Add(this.btnAddNewSale);
             this.Controls.Add(this.btnClose);
@@ -264,5 +279,6 @@
         private System.Windows.Forms.Button btnAddNewSale;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSalesDetails;
+        private System.Windows.Forms.Button btnModify;
     }
 }

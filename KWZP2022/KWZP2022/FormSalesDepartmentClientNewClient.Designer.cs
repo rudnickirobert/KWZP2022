@@ -60,6 +60,7 @@
             this.dtpTelDate1 = new System.Windows.Forms.DateTimePicker();
             this.cbTelDate2 = new System.Windows.Forms.CheckBox();
             this.cbEmailDate2 = new System.Windows.Forms.CheckBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAddNewClient
@@ -376,11 +377,23 @@
             this.cbEmailDate2.TabIndex = 67;
             this.cbEmailDate2.UseVisualStyleBackColor = false;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label14.Location = new System.Drawing.Point(21, 38);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(138, 20);
+            this.label14.TabIndex = 68;
+            this.label14.Text = "* - pola obowiązkowe";
+            // 
             // FormSalesDepartmentClientNewClient
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
             this.ClientSize = new System.Drawing.Size(794, 491);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.cbEmailDate2);
             this.Controls.Add(this.cbTelDate2);
             this.Controls.Add(this.dtpTelDate2);
@@ -456,5 +469,6 @@
         private System.Windows.Forms.DateTimePicker dtpTelDate1;
         private System.Windows.Forms.CheckBox cbTelDate2;
         private System.Windows.Forms.CheckBox cbEmailDate2;
+        private System.Windows.Forms.Label label14;
     }
 }
