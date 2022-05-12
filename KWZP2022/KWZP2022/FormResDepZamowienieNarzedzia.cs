@@ -118,15 +118,19 @@ namespace KWZP2022
         }
         private void btnAktualizujStatus_Click(object sender, EventArgs e)
         {
-            Stan_realizacji_zamowienie_narzedzie stRealizacjaNerzedzie = new Stan_realizacji_zamowienie_narzedzie();
-            stRealizacjaNerzedzie.ID_zamowienie_narzedzie = (int)dgvZamowienieNarzedzia.CurrentRow.Cells[0].Value;
-            stRealizacjaNerzedzie.ID_status_zamowienie = (int)dgvZamowienieNarzedzia.CurrentRow.Cells[6].Value + 1;
-            stRealizacjaNerzedzie.Data_stan = System.DateTime.Now;
-            stRealizacjaNerzedzie.ID_pracownik = (int)cmbPracownik.SelectedValue;
-            db.Stan_realizacji_zamowienie_narzedzie.Add(stRealizacjaNerzedzie);
-            db.SaveChanges();
-            MessageBox.Show("Zmieniono status zamówienia dla:" + dgvZamowienieNarzedzia.CurrentRow.Cells[1].Value.ToString());
-            initDataGridView();
+            DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz zmienić status zamówienia: " + this.dgvZamowienieNarzedzia.CurrentRow.Cells[0].Value + "?", "Zmiana Statusu", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Stan_realizacji_zamowienie_narzedzie stRealizacjaNerzedzie = new Stan_realizacji_zamowienie_narzedzie();
+                stRealizacjaNerzedzie.ID_zamowienie_narzedzie = (int)dgvZamowienieNarzedzia.CurrentRow.Cells[0].Value;
+                stRealizacjaNerzedzie.ID_status_zamowienie = (int)dgvZamowienieNarzedzia.CurrentRow.Cells[6].Value + 1;
+                stRealizacjaNerzedzie.Data_stan = System.DateTime.Now;
+                stRealizacjaNerzedzie.ID_pracownik = (int)cmbPracownik.SelectedValue;
+                db.Stan_realizacji_zamowienie_narzedzie.Add(stRealizacjaNerzedzie);
+                db.SaveChanges();
+                MessageBox.Show("Zmieniono status zamówienia dla:" + dgvZamowienieNarzedzia.CurrentRow.Cells[1].Value.ToString());
+                initDataGridView();
+            }
         }
 
         private void btnOdswiez_Click(object sender, EventArgs e)
