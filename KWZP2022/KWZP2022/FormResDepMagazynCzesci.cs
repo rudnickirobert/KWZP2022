@@ -26,6 +26,7 @@ namespace KWZP2022
         }
         private void initDataGridView()
         {
+            this.db = new KWZPEntities();
             dgvMagazynCzesc.DataSource = db.v_Magazyn_czesci_aktualny.ToList();
             dgvMagazynCzesc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dgvMagazynCzesc.Columns[2].Visible = false;
