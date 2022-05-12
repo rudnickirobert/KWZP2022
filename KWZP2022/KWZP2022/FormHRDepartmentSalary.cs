@@ -19,7 +19,6 @@ namespace KWZP2022
             cleanTextBox();
             showData();
         }
-       
         private void cleanTextBox()
         {
             tbImie.Clear();
@@ -107,7 +106,7 @@ namespace KWZP2022
             showData();
             cleanTextBox();
         }
-
+        
         private void btnNewSalary_Click(object sender, EventArgs e)
         {
             FormHRDepartmentNewSalary formHRDepartmentNewSalary = new FormHRDepartmentNewSalary(db);

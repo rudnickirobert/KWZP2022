@@ -205,7 +205,7 @@ namespace KWZP2022
             }
             else
             {
-                MessageBox.Show("Brakuje zamówień dla których można stworzyć ofertę!", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Nie ma zamówień dla których można stworzyć ofertę", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         private void btnAddNewOffer_Click(object sender, EventArgs e)
@@ -288,6 +288,12 @@ namespace KWZP2022
                                             this.db.SaveChanges();
                                         }
                                     }
+                                    Alert newAlertForProductionDepartment = new Alert();
+                                    newAlertForProductionDepartment.ID_dzial = 3;
+                                    newAlertForProductionDepartment.Tresc = $"Nowe zamówienie nr: {newComertialOffer.ID_zamowienie}";
+                                    newAlertForProductionDepartment.Czy_odczytano = false;
+                                    this.db.Alert.Add(newAlertForProductionDepartment);
+                                    this.db.SaveChanges();
                                     comboBoxData();
                                 }
                             }
@@ -329,6 +335,12 @@ namespace KWZP2022
                                         this.db.SaveChanges();
                                     }
                                 }
+                                Alert newAlertForProductionDepartment = new Alert();
+                                newAlertForProductionDepartment.ID_dzial = 3;
+                                newAlertForProductionDepartment.Tresc = $"Nowe zamówienie nr: {newComertialOffer.ID_zamowienie}";
+                                newAlertForProductionDepartment.Czy_odczytano = false;
+                                this.db.Alert.Add(newAlertForProductionDepartment);
+                                this.db.SaveChanges();
                                 comboBoxData();
                             }
                         }

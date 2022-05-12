@@ -25,13 +25,14 @@ namespace KWZP2022
             this.db = new KWZPEntities();
             this.dgvSales.DataSource = this.db.v_Sprzedaz.ToList();
             this.dgvSales.Columns[0].HeaderText = "Nr sprzedaży";
-            this.dgvSales.Columns[1].HeaderText = "Nazwisko";
-            this.dgvSales.Columns[2].HeaderText = "Imię";
-            this.dgvSales.Columns[3].HeaderText = "NIP";
-            this.dgvSales.Columns[4].HeaderText = "Data początku sprzedaży";
-            this.dgvSales.Columns[5].HeaderText = "Data końca sprzedaży";
-            this.dgvSales.Columns[6].HeaderText = "Nr umowy";
-            this.dgvSales.Columns[7].HeaderText = "Koszt";
+            this.dgvSales.Columns[1].HeaderText = "Nr umowy";
+            this.dgvSales.Columns[2].HeaderText = "Nazwisko";
+            this.dgvSales.Columns[3].HeaderText = "Imię";
+            this.dgvSales.Columns[4].HeaderText = "NIP";
+            this.dgvSales.Columns[5].HeaderText = "Data początku sprzedaży";
+            this.dgvSales.Columns[6].HeaderText = "Data końca sprzedaży";
+            this.dgvSales.Columns[7].HeaderText = "Produkt";
+            this.dgvSales.Columns[8].HeaderText = "Koszt";
             this.dgvSales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
         }
 
@@ -143,7 +144,7 @@ namespace KWZP2022
             {
                 string dataArrangement = textBoxNrArrangement.Text;
                 int dataArrangementToINT = int.Parse(dataArrangement);
-                List<v_Sprzedaz> dataNoArrangement = db.v_Sprzedaz.Where(a => a.Umowa == dataArrangementToINT).ToList();
+                List<v_Sprzedaz> dataNoArrangement = db.v_Sprzedaz.Where(a => a.ID_umowa_sprzedaz == dataArrangementToINT).ToList();
                 if (dataNoArrangement.Count() > 0)
                 {
                     this.dgvSales.DataSource = dataNoArrangement;
@@ -169,7 +170,7 @@ namespace KWZP2022
             try
             {
                 int textINT = int.Parse(textBoxNrSale.Text);
-                List<v_Sprzedaz> dataNoSale = db.v_Sprzedaz.Where(a => a.Numer_sprzedaży == textINT).ToList().ToList();
+                List<v_Sprzedaz> dataNoSale = db.v_Sprzedaz.Where(a => a.Nr_sprzedaz == textINT).ToList().ToList();
                 if (dataNoSale.Count() > 0)
                 {
                     this.dgvSales.DataSource = dataNoSale;

@@ -12,16 +12,16 @@ namespace KWZP2022
     using System;
     using System.Collections.Generic;
     
-    public partial class v_Sprzedaz
+    public partial class v_Szczegol_sprzedaz
     {
+        public int ID_szczegoly_sprzedaz { get; set; }
         public int Nr_sprzedaz { get; set; }
-        public int ID_umowa_sprzedaz { get; set; }
-        public string Nazwisko_klienta { get; set; }
-        public string Imię_klienta { get; set; }
-        public string NIP { get; set; }
-        public System.DateTime Data_sprzedaz_poczatek { get; set; }
-        public System.DateTime Data_sprzedaz_koniec { get; set; }
+        public int ID_produkt { get; set; }
         public string Nazwa_produkt { get; set; }
-        public Nullable<int> Kwota { get; set; }
+        public int ID_sprzedaz { get; set; }
+        public int Ilosc { get; set; }
+        public int ID_podatek { get; set; }
+        public int Procent { get; set; }
+        public int Kwota_sprzedaz { get; set; }
     }
 }

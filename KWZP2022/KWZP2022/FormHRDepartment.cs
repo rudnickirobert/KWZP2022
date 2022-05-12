@@ -156,7 +156,6 @@ namespace KWZP2022
             FormHRDepartmentSalary formHRDepartmentSalary = new FormHRDepartmentSalary(db);
             formHRDepartmentSalary.ShowDialog();
         }
-
         private void btnNadgodziny_Click(object sender, EventArgs e)
         {
             FormHRDepartmentOvertime formHRDepartmentOvertime = new FormHRDepartmentOvertime(db);

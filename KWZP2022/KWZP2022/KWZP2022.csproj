@@ -1359,6 +1359,9 @@
     <Compile Include="v_Szczegoly_sprzedaz.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="v_Szczegol_sprzedaz.cs">
+      <DependentUpon>KWZPModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="v_Sz_czas_proces_polprodukt_czynnosc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
@@ -1536,6 +1539,7 @@
     <Compile Include="Zwrot.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+
     <EmbeddedResource Include="FormHRDepartmentNewSalary.resx">
       <DependentUpon>FormHRDepartmentNewSalary.cs</DependentUpon>
     </EmbeddedResource>

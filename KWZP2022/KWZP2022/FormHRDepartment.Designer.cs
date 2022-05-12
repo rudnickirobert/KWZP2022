@@ -44,6 +44,7 @@
             this.cbPositionSelected = new System.Windows.Forms.CheckBox();
             this.btnSalary = new System.Windows.Forms.Button();
             this.btnNadgodziny = new System.Windows.Forms.Button();
+
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorker)).BeginInit();
             this.SuspendLayout();
             // 
@@ -275,5 +276,6 @@
         private System.Windows.Forms.CheckBox cbPositionSelected;
         private System.Windows.Forms.Button btnSalary;
         private System.Windows.Forms.Button btnNadgodziny;
+
     }
 }
