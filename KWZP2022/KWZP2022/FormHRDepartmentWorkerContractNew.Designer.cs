@@ -55,7 +55,8 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(30, 171);
+            this.label4.Location = new System.Drawing.Point(22, 139);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 23);
             this.label4.TabIndex = 158;
@@ -63,57 +64,57 @@
             // 
             // tbSalary
             // 
-            this.tbSalary.Location = new System.Drawing.Point(186, 220);
-            this.tbSalary.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbSalary.Location = new System.Drawing.Point(235, 179);
+            this.tbSalary.Margin = new System.Windows.Forms.Padding(2);
             this.tbSalary.Name = "tbSalary";
-            this.tbSalary.Size = new System.Drawing.Size(184, 22);
+            this.tbSalary.Size = new System.Drawing.Size(139, 20);
             this.tbSalary.TabIndex = 157;
             // 
             // cbRContractType
             // 
             this.cbRContractType.FormattingEnabled = true;
-            this.cbRContractType.Location = new System.Drawing.Point(186, 124);
-            this.cbRContractType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbRContractType.Location = new System.Drawing.Point(235, 101);
+            this.cbRContractType.Margin = new System.Windows.Forms.Padding(2);
             this.cbRContractType.Name = "cbRContractType";
-            this.cbRContractType.Size = new System.Drawing.Size(184, 24);
+            this.cbRContractType.Size = new System.Drawing.Size(139, 21);
             this.cbRContractType.TabIndex = 156;
             // 
             // cbWorkingTime
             // 
             this.cbWorkingTime.FormattingEnabled = true;
-            this.cbWorkingTime.Location = new System.Drawing.Point(186, 71);
-            this.cbWorkingTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbWorkingTime.Location = new System.Drawing.Point(235, 58);
+            this.cbWorkingTime.Margin = new System.Windows.Forms.Padding(2);
             this.cbWorkingTime.Name = "cbWorkingTime";
-            this.cbWorkingTime.Size = new System.Drawing.Size(184, 24);
+            this.cbWorkingTime.Size = new System.Drawing.Size(139, 21);
             this.cbWorkingTime.TabIndex = 155;
             // 
             // cbWorker
             // 
             this.cbWorker.FormattingEnabled = true;
-            this.cbWorker.Location = new System.Drawing.Point(186, 18);
-            this.cbWorker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbWorker.Location = new System.Drawing.Point(235, 15);
+            this.cbWorker.Margin = new System.Windows.Forms.Padding(2);
             this.cbWorker.Name = "cbWorker";
-            this.cbWorker.Size = new System.Drawing.Size(184, 24);
+            this.cbWorker.Size = new System.Drawing.Size(139, 21);
             this.cbWorker.TabIndex = 154;
             // 
             // cbEtat
             // 
             this.cbEtat.FormattingEnabled = true;
-            this.cbEtat.Location = new System.Drawing.Point(186, 174);
-            this.cbEtat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbEtat.Location = new System.Drawing.Point(235, 141);
+            this.cbEtat.Margin = new System.Windows.Forms.Padding(2);
             this.cbEtat.Name = "cbEtat";
-            this.cbEtat.Size = new System.Drawing.Size(184, 24);
+            this.cbEtat.Size = new System.Drawing.Size(139, 21);
             this.cbEtat.TabIndex = 153;
             // 
             // dgvpracownik
             // 
             this.dgvpracownik.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvpracownik.Location = new System.Drawing.Point(12, 328);
-            this.dgvpracownik.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvpracownik.Location = new System.Drawing.Point(9, 266);
+            this.dgvpracownik.Margin = new System.Windows.Forms.Padding(2);
             this.dgvpracownik.Name = "dgvpracownik";
             this.dgvpracownik.RowHeadersWidth = 51;
             this.dgvpracownik.RowTemplate.Height = 24;
-            this.dgvpracownik.Size = new System.Drawing.Size(840, 372);
+            this.dgvpracownik.Size = new System.Drawing.Size(787, 434);
             this.dgvpracownik.TabIndex = 151;
             // 
             // label5
@@ -121,7 +122,8 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(29, 217);
+            this.label5.Location = new System.Drawing.Point(22, 176);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(145, 23);
             this.label5.TabIndex = 150;
@@ -132,7 +134,8 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(30, 124);
+            this.label3.Location = new System.Drawing.Point(22, 101);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(144, 23);
             this.label3.TabIndex = 149;
@@ -143,7 +146,8 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(30, 71);
+            this.label2.Location = new System.Drawing.Point(22, 58);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(138, 23);
             this.label2.TabIndex = 148;
@@ -154,7 +158,8 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(30, 19);
+            this.label1.Location = new System.Drawing.Point(22, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 23);
             this.label1.TabIndex = 147;
@@ -163,10 +168,10 @@
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.Red;
-            this.btnClose.Location = new System.Drawing.Point(1433, 14);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnClose.Location = new System.Drawing.Point(1075, 11);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(167, 46);
+            this.btnClose.Size = new System.Drawing.Size(125, 37);
             this.btnClose.TabIndex = 146;
             this.btnClose.Text = "Zamknij";
             this.btnClose.UseVisualStyleBackColor = false;
@@ -175,8 +180,8 @@
             // cbDateTo
             // 
             this.cbDateTo.AutoSize = true;
-            this.cbDateTo.Location = new System.Drawing.Point(365, 302);
-            this.cbDateTo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbDateTo.Location = new System.Drawing.Point(390, 242);
+            this.cbDateTo.Margin = new System.Windows.Forms.Padding(2);
             this.cbDateTo.Name = "cbDateTo";
             this.cbDateTo.Size = new System.Drawing.Size(15, 14);
             this.cbDateTo.TabIndex = 145;
@@ -185,29 +190,29 @@
             // dWorkerTo
             // 
             this.dWorkerTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dWorkerTo.Location = new System.Drawing.Point(186, 302);
-            this.dWorkerTo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dWorkerTo.Location = new System.Drawing.Point(235, 242);
+            this.dWorkerTo.Margin = new System.Windows.Forms.Padding(2);
             this.dWorkerTo.Name = "dWorkerTo";
-            this.dWorkerTo.Size = new System.Drawing.Size(172, 22);
+            this.dWorkerTo.Size = new System.Drawing.Size(139, 20);
             this.dWorkerTo.TabIndex = 144;
             // 
             // dWorkerFrom
             // 
             this.dWorkerFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dWorkerFrom.Location = new System.Drawing.Point(186, 267);
-            this.dWorkerFrom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dWorkerFrom.Location = new System.Drawing.Point(235, 214);
+            this.dWorkerFrom.Margin = new System.Windows.Forms.Padding(2);
             this.dWorkerFrom.Name = "dWorkerFrom";
-            this.dWorkerFrom.Size = new System.Drawing.Size(172, 22);
+            this.dWorkerFrom.Size = new System.Drawing.Size(139, 20);
             this.dWorkerFrom.TabIndex = 143;
             // 
             // btnAddnewcontract
             // 
             this.btnAddnewcontract.BackColor = System.Drawing.Color.Red;
-            this.btnAddnewcontract.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAddnewcontract.Location = new System.Drawing.Point(445, 140);
-            this.btnAddnewcontract.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddnewcontract.Font = new System.Drawing.Font("Arial", 12F);
+            this.btnAddnewcontract.Location = new System.Drawing.Point(462, 162);
+            this.btnAddnewcontract.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddnewcontract.Name = "btnAddnewcontract";
-            this.btnAddnewcontract.Size = new System.Drawing.Size(115, 46);
+            this.btnAddnewcontract.Size = new System.Drawing.Size(86, 37);
             this.btnAddnewcontract.TabIndex = 142;
             this.btnAddnewcontract.Text = "Zapisz";
             this.btnAddnewcontract.UseVisualStyleBackColor = false;
@@ -216,10 +221,9 @@
             // dgvEtat
             // 
             this.dgvEtat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEtat.Location = new System.Drawing.Point(877, 109);
-            this.dgvEtat.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvEtat.Location = new System.Drawing.Point(818, 101);
             this.dgvEtat.Name = "dgvEtat";
-            this.dgvEtat.Size = new System.Drawing.Size(374, 496);
+            this.dgvEtat.Size = new System.Drawing.Size(414, 475);
             this.dgvEtat.TabIndex = 160;
             // 
             // label6
@@ -227,7 +231,8 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(1011, 68);
+            this.label6.Location = new System.Drawing.Point(950, 75);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(150, 23);
             this.label6.TabIndex = 161;
@@ -235,7 +240,7 @@
             // 
             // FormHRDepartmentWorkerContractNew
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background;
             this.ClientSize = new System.Drawing.Size(1264, 711);
@@ -257,8 +262,8 @@
             this.Controls.Add(this.dWorkerTo);
             this.Controls.Add(this.dWorkerFrom);
             this.Controls.Add(this.btnAddnewcontract);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormHRDepartmentWorkerContractNew";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dodaj nową umowę";
             ((System.ComponentModel.ISupportInitialize)(this.dgvpracownik)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtat)).EndInit();

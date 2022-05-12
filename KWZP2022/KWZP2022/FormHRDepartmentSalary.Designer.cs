@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHRDepartmentSalary));
             this.dgvSalary = new System.Windows.Forms.DataGridView();
             this.lblImie = new System.Windows.Forms.Label();
             this.tbImie = new System.Windows.Forms.TextBox();
@@ -39,15 +38,17 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnNewSalary = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalary)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvSalary
             // 
             this.dgvSalary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSalary.Location = new System.Drawing.Point(22, 275);
+            this.dgvSalary.Location = new System.Drawing.Point(26, 165);
             this.dgvSalary.Name = "dgvSalary";
-            this.dgvSalary.Size = new System.Drawing.Size(1217, 390);
+            this.dgvSalary.Size = new System.Drawing.Size(756, 314);
             this.dgvSalary.TabIndex = 0;
             // 
             // lblImie
@@ -55,7 +56,7 @@
             this.lblImie.AutoSize = true;
             this.lblImie.BackColor = System.Drawing.Color.Transparent;
             this.lblImie.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.lblImie.Location = new System.Drawing.Point(97, 60);
+            this.lblImie.Location = new System.Drawing.Point(22, 16);
             this.lblImie.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblImie.Name = "lblImie";
             this.lblImie.Size = new System.Drawing.Size(38, 20);
@@ -65,7 +66,7 @@
             // tbImie
             // 
             this.tbImie.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.tbImie.Location = new System.Drawing.Point(179, 57);
+            this.tbImie.Location = new System.Drawing.Point(121, 10);
             this.tbImie.Margin = new System.Windows.Forms.Padding(2);
             this.tbImie.Name = "tbImie";
             this.tbImie.Size = new System.Drawing.Size(152, 26);
@@ -76,7 +77,7 @@
             this.lblNazwisko.AutoSize = true;
             this.lblNazwisko.BackColor = System.Drawing.Color.Transparent;
             this.lblNazwisko.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.lblNazwisko.Location = new System.Drawing.Point(97, 114);
+            this.lblNazwisko.Location = new System.Drawing.Point(22, 70);
             this.lblNazwisko.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNazwisko.Name = "lblNazwisko";
             this.lblNazwisko.Size = new System.Drawing.Size(70, 20);
@@ -86,7 +87,7 @@
             // tbNazwisko
             // 
             this.tbNazwisko.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.tbNazwisko.Location = new System.Drawing.Point(179, 108);
+            this.tbNazwisko.Location = new System.Drawing.Point(121, 61);
             this.tbNazwisko.Margin = new System.Windows.Forms.Padding(2);
             this.tbNazwisko.Name = "tbNazwisko";
             this.tbNazwisko.Size = new System.Drawing.Size(152, 26);
@@ -95,7 +96,7 @@
             // tbMonth
             // 
             this.tbMonth.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.tbMonth.Location = new System.Drawing.Point(179, 159);
+            this.tbMonth.Location = new System.Drawing.Point(121, 112);
             this.tbMonth.Margin = new System.Windows.Forms.Padding(2);
             this.tbMonth.Name = "tbMonth";
             this.tbMonth.Size = new System.Drawing.Size(152, 26);
@@ -106,7 +107,7 @@
             this.lblMonth.AutoSize = true;
             this.lblMonth.BackColor = System.Drawing.Color.Transparent;
             this.lblMonth.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.lblMonth.Location = new System.Drawing.Point(97, 162);
+            this.lblMonth.Location = new System.Drawing.Point(22, 118);
             this.lblMonth.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMonth.Name = "lblMonth";
             this.lblMonth.Size = new System.Drawing.Size(83, 20);
@@ -116,10 +117,10 @@
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.btnSearch.Location = new System.Drawing.Point(405, 58);
+            this.btnSearch.Location = new System.Drawing.Point(347, 6);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(151, 25);
+            this.btnSearch.Size = new System.Drawing.Size(151, 34);
             this.btnSearch.TabIndex = 46;
             this.btnSearch.Text = "Szukaj";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -128,10 +129,10 @@
             // btnRefresh
             // 
             this.btnRefresh.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.btnRefresh.Location = new System.Drawing.Point(405, 112);
+            this.btnRefresh.Location = new System.Drawing.Point(347, 57);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(151, 24);
+            this.btnRefresh.Size = new System.Drawing.Size(151, 34);
             this.btnRefresh.TabIndex = 47;
             this.btnRefresh.Text = "Odśwież";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -140,19 +141,34 @@
             // btnNewSalary
             // 
             this.btnNewSalary.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.btnNewSalary.Location = new System.Drawing.Point(405, 162);
+            this.btnNewSalary.Location = new System.Drawing.Point(347, 108);
             this.btnNewSalary.Margin = new System.Windows.Forms.Padding(2);
             this.btnNewSalary.Name = "btnNewSalary";
-            this.btnNewSalary.Size = new System.Drawing.Size(151, 25);
+            this.btnNewSalary.Size = new System.Drawing.Size(151, 34);
             this.btnNewSalary.TabIndex = 48;
-            this.btnNewSalary.Text = "Dodaj wypłaty";
+            this.btnNewSalary.Text = "Dodaj wypłatę";
             this.btnNewSalary.UseVisualStyleBackColor = true;
+            this.btnNewSalary.Click += new System.EventHandler(this.btnNewSalary_Click);
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 23);
+            this.label1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 23);
+            this.label2.TabIndex = 0;
             // 
             // FormHRDepartmentSalary
             // 
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1264, 711);
+            this.ClientSize = new System.Drawing.Size(794, 491);
             this.Controls.Add(this.btnNewSalary);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnSearch);
@@ -165,6 +181,7 @@
             this.Controls.Add(this.dgvSalary);
             this.DoubleBuffered = true;
             this.Name = "FormHRDepartmentSalary";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Pasek płacowy";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalary)).EndInit();
             this.ResumeLayout(false);
@@ -184,5 +201,7 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnNewSalary;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

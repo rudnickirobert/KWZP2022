@@ -24,6 +24,7 @@ namespace KWZP2022
         private void showData()
         {
             this.dgvpracownik.DataSource = this.db.v_Umowa.ToList();
+            dgvpracownik.Columns["ID_pracownik"].Visible = false;
             this.dgvpracownik.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvEtat.DataSource = this.db.v_Etat.ToList();
             this.dgvEtat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
