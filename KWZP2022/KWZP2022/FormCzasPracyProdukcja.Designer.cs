@@ -162,7 +162,7 @@
             this.lblSum.BackColor = System.Drawing.Color.Transparent;
             this.lblSum.Font = new System.Drawing.Font("Arial", 20F);
             this.lblSum.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblSum.Location = new System.Drawing.Point(120, 530);
+            this.lblSum.Location = new System.Drawing.Point(93, 526);
             this.lblSum.Name = "lblSum";
             this.lblSum.Size = new System.Drawing.Size(52, 32);
             this.lblSum.TabIndex = 13;
