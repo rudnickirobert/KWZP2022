@@ -98,6 +98,18 @@
     <Compile Include="Forma_platnosc.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FormHRDepartmentNewSalary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHRDepartmentNewSalary.Designer.cs">
+      <DependentUpon>FormHRDepartmentNewSalary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHRDepartmentOvertime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHRDepartmentOvertime.Designer.cs">
+      <DependentUpon>FormHRDepartmentOvertime.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormHRDepartmentSalary.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1527,6 +1539,13 @@
     <Compile Include="Zwrot.cs">
       <DependentUpon>KWZPModel.tt</DependentUpon>
     </Compile>
+
+    <EmbeddedResource Include="FormHRDepartmentNewSalary.resx">
+      <DependentUpon>FormHRDepartmentNewSalary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHRDepartmentOvertime.resx">
+      <DependentUpon>FormHRDepartmentOvertime.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormHRDepartmentSalary.resx">
       <DependentUpon>FormHRDepartmentSalary.cs</DependentUpon>
     </EmbeddedResource>
