@@ -45,10 +45,10 @@
             // 
             this.btnDodajNieobecnosc.BackColor = System.Drawing.Color.Red;
             this.btnDodajNieobecnosc.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDodajNieobecnosc.Location = new System.Drawing.Point(719, 96);
-            this.btnDodajNieobecnosc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDodajNieobecnosc.Location = new System.Drawing.Point(539, 78);
+            this.btnDodajNieobecnosc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDodajNieobecnosc.Name = "btnDodajNieobecnosc";
-            this.btnDodajNieobecnosc.Size = new System.Drawing.Size(115, 44);
+            this.btnDodajNieobecnosc.Size = new System.Drawing.Size(86, 36);
             this.btnDodajNieobecnosc.TabIndex = 29;
             this.btnDodajNieobecnosc.Text = "Dodaj";
             this.btnDodajNieobecnosc.UseVisualStyleBackColor = false;
@@ -57,48 +57,49 @@
             // dgvNieobecnosc
             // 
             this.dgvNieobecnosc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNieobecnosc.Location = new System.Drawing.Point(53, 257);
-            this.dgvNieobecnosc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvNieobecnosc.Location = new System.Drawing.Point(40, 209);
+            this.dgvNieobecnosc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvNieobecnosc.Name = "dgvNieobecnosc";
             this.dgvNieobecnosc.RowHeadersWidth = 51;
             this.dgvNieobecnosc.RowTemplate.Height = 24;
-            this.dgvNieobecnosc.Size = new System.Drawing.Size(961, 308);
+            this.dgvNieobecnosc.Size = new System.Drawing.Size(721, 250);
             this.dgvNieobecnosc.TabIndex = 28;
             // 
             // dtDO
             // 
             this.dtDO.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDO.Location = new System.Drawing.Point(335, 201);
-            this.dtDO.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtDO.Location = new System.Drawing.Point(251, 163);
+            this.dtDO.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtDO.Name = "dtDO";
-            this.dtDO.Size = new System.Drawing.Size(200, 22);
+            this.dtDO.Size = new System.Drawing.Size(151, 20);
             this.dtDO.TabIndex = 27;
             // 
             // dtOD
             // 
             this.dtOD.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtOD.Location = new System.Drawing.Point(335, 145);
-            this.dtOD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtOD.Location = new System.Drawing.Point(251, 118);
+            this.dtOD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtOD.Name = "dtOD";
-            this.dtOD.Size = new System.Drawing.Size(200, 22);
+            this.dtOD.Size = new System.Drawing.Size(151, 20);
             this.dtOD.TabIndex = 26;
             // 
             // cmbPracownik
             // 
             this.cmbPracownik.FormattingEnabled = true;
-            this.cmbPracownik.Location = new System.Drawing.Point(335, 47);
-            this.cmbPracownik.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbPracownik.Location = new System.Drawing.Point(251, 29);
+            this.cmbPracownik.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbPracownik.Name = "cmbPracownik";
-            this.cmbPracownik.Size = new System.Drawing.Size(187, 24);
+            this.cmbPracownik.Size = new System.Drawing.Size(141, 21);
             this.cmbPracownik.TabIndex = 25;
+            this.cmbPracownik.Text = " ";
             // 
             // cmbNieobecnosc
             // 
             this.cmbNieobecnosc.FormattingEnabled = true;
-            this.cmbNieobecnosc.Location = new System.Drawing.Point(335, 95);
-            this.cmbNieobecnosc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbNieobecnosc.Location = new System.Drawing.Point(251, 77);
+            this.cmbNieobecnosc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbNieobecnosc.Name = "cmbNieobecnosc";
-            this.cmbNieobecnosc.Size = new System.Drawing.Size(187, 24);
+            this.cmbNieobecnosc.Size = new System.Drawing.Size(141, 21);
             this.cmbNieobecnosc.TabIndex = 24;
             // 
             // label4
@@ -106,7 +107,8 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Arial", 12F);
-            this.label4.Location = new System.Drawing.Point(47, 199);
+            this.label4.Location = new System.Drawing.Point(35, 162);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 18);
             this.label4.TabIndex = 23;
@@ -117,7 +119,8 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial", 12F);
-            this.label3.Location = new System.Drawing.Point(47, 145);
+            this.label3.Location = new System.Drawing.Point(35, 118);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 18);
             this.label3.TabIndex = 22;
@@ -128,7 +131,8 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial", 12F);
-            this.label2.Location = new System.Drawing.Point(45, 96);
+            this.label2.Location = new System.Drawing.Point(34, 78);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(153, 18);
             this.label2.TabIndex = 21;
@@ -139,7 +143,8 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 12F);
-            this.label1.Location = new System.Drawing.Point(45, 39);
+            this.label1.Location = new System.Drawing.Point(34, 32);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 18);
             this.label1.TabIndex = 20;
@@ -147,10 +152,10 @@
             // 
             // FormHRDepartmentTimesheets
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background_small;
-            this.ClientSize = new System.Drawing.Size(1059, 604);
+            this.ClientSize = new System.Drawing.Size(794, 491);
             this.Controls.Add(this.btnDodajNieobecnosc);
             this.Controls.Add(this.dgvNieobecnosc);
             this.Controls.Add(this.dtDO);
@@ -161,8 +166,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormHRDepartmentTimesheets";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nieobecności";
             ((System.ComponentModel.ISupportInitialize)(this.dgvNieobecnosc)).EndInit();
             this.ResumeLayout(false);

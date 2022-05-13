@@ -28,6 +28,7 @@ namespace KWZP2022
         private void initDataGridView()
         {
             dgvNieobecnosc.DataSource = db.v_Nieobecnosc.ToList();
+            dgvNieobecnosc.Columns["ID_rodzaj_nieobecnosci"].Visible = false;
             dgvNieobecnosc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 
         }

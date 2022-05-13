@@ -43,6 +43,8 @@
             this.cbPosition = new System.Windows.Forms.ComboBox();
             this.cbPositionSelected = new System.Windows.Forms.CheckBox();
             this.btnSalary = new System.Windows.Forms.Button();
+            this.btnNadgodziny = new System.Windows.Forms.Button();
+            this.bntContract1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorker)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +54,7 @@
             this.btnNieobecnosci.Location = new System.Drawing.Point(953, 76);
             this.btnNieobecnosci.Margin = new System.Windows.Forms.Padding(2);
             this.btnNieobecnosci.Name = "btnNieobecnosci";
-            this.btnNieobecnosci.Size = new System.Drawing.Size(151, 24);
+            this.btnNieobecnosci.Size = new System.Drawing.Size(151, 34);
             this.btnNieobecnosci.TabIndex = 50;
             this.btnNieobecnosci.Text = " Nieobecności";
             this.btnNieobecnosci.UseVisualStyleBackColor = true;
@@ -72,22 +74,21 @@
             // btnContract
             // 
             this.btnContract.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.btnContract.Location = new System.Drawing.Point(953, 123);
+            this.btnContract.Location = new System.Drawing.Point(697, 170);
             this.btnContract.Margin = new System.Windows.Forms.Padding(2);
             this.btnContract.Name = "btnContract";
-            this.btnContract.Size = new System.Drawing.Size(151, 24);
+            this.btnContract.Size = new System.Drawing.Size(151, 34);
             this.btnContract.TabIndex = 48;
             this.btnContract.Text = "Umowa";
             this.btnContract.UseVisualStyleBackColor = true;
-            this.btnContract.Click += new System.EventHandler(this.btnContract_Click);
-            // 
+
             // btnChangedata
             // 
             this.btnChangedata.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.btnChangedata.Location = new System.Drawing.Point(697, 123);
             this.btnChangedata.Margin = new System.Windows.Forms.Padding(2);
             this.btnChangedata.Name = "btnChangedata";
-            this.btnChangedata.Size = new System.Drawing.Size(151, 24);
+            this.btnChangedata.Size = new System.Drawing.Size(151, 34);
             this.btnChangedata.TabIndex = 47;
             this.btnChangedata.Text = "Zmień dane";
             this.btnChangedata.UseVisualStyleBackColor = true;
@@ -99,7 +100,7 @@
             this.btnAddnew.Location = new System.Drawing.Point(697, 77);
             this.btnAddnew.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddnew.Name = "btnAddnew";
-            this.btnAddnew.Size = new System.Drawing.Size(151, 24);
+            this.btnAddnew.Size = new System.Drawing.Size(151, 34);
             this.btnAddnew.TabIndex = 46;
             this.btnAddnew.Text = "Nowy pracownik";
             this.btnAddnew.UseVisualStyleBackColor = true;
@@ -108,10 +109,10 @@
             // btnRefresh
             // 
             this.btnRefresh.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.btnRefresh.Location = new System.Drawing.Point(454, 123);
+            this.btnRefresh.Location = new System.Drawing.Point(454, 121);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(151, 24);
+            this.btnRefresh.Size = new System.Drawing.Size(151, 34);
             this.btnRefresh.TabIndex = 45;
             this.btnRefresh.Text = "Odśwież";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -123,7 +124,7 @@
             this.btnSearch.Location = new System.Drawing.Point(454, 77);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(151, 24);
+            this.btnSearch.Size = new System.Drawing.Size(151, 34);
             this.btnSearch.TabIndex = 44;
             this.btnSearch.Text = "Szukaj";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -205,14 +206,38 @@
             // btnSalary
             // 
             this.btnSalary.Font = new System.Drawing.Font("Arial Narrow", 12F);
-            this.btnSalary.Location = new System.Drawing.Point(913, 167);
+            this.btnSalary.Location = new System.Drawing.Point(697, 170);
             this.btnSalary.Margin = new System.Windows.Forms.Padding(2);
             this.btnSalary.Name = "btnSalary";
-            this.btnSalary.Size = new System.Drawing.Size(235, 34);
+            this.btnSalary.Size = new System.Drawing.Size(151, 34);
             this.btnSalary.TabIndex = 53;
             this.btnSalary.Text = "Pasek płacowy";
             this.btnSalary.UseVisualStyleBackColor = true;
             this.btnSalary.Click += new System.EventHandler(this.btnSalary_Click);
+            // 
+            // btnNadgodziny
+            // 
+            this.btnNadgodziny.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.btnNadgodziny.Location = new System.Drawing.Point(953, 122);
+            this.btnNadgodziny.Margin = new System.Windows.Forms.Padding(2);
+            this.btnNadgodziny.Name = "btnNadgodziny";
+            this.btnNadgodziny.Size = new System.Drawing.Size(151, 25);
+            this.btnNadgodziny.TabIndex = 54;
+            this.btnNadgodziny.Text = "Nadgodziny";
+            this.btnNadgodziny.UseVisualStyleBackColor = true;
+            this.btnNadgodziny.Click += new System.EventHandler(this.btnNadgodziny_Click);
+            // 
+            // bntContract1
+            // 
+            this.bntContract1.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.bntContract1.Location = new System.Drawing.Point(454, 170);
+            this.bntContract1.Margin = new System.Windows.Forms.Padding(2);
+            this.bntContract1.Name = "bntContract1";
+            this.bntContract1.Size = new System.Drawing.Size(151, 34);
+            this.bntContract1.TabIndex = 55;
+            this.bntContract1.Text = "Umowy";
+            this.bntContract1.UseVisualStyleBackColor = true;
+            this.bntContract1.Click += new System.EventHandler(this.bntContract1_Click);
             // 
             // FormHRDepartment
             // 
@@ -220,6 +245,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::KWZP2022.Properties.Resources.form_background;
             this.ClientSize = new System.Drawing.Size(1264, 711);
+            this.Controls.Add(this.bntContract1);
+            this.Controls.Add(this.btnNadgodziny);
             this.Controls.Add(this.btnSalary);
             this.Controls.Add(this.cbPositionSelected);
             this.Controls.Add(this.cbPosition);
@@ -236,6 +263,7 @@
             this.Controls.Add(this.lblNazwisko);
             this.Controls.Add(this.lblImie);
             this.Name = "FormHRDepartment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Pracownicy i umowy";
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorker)).EndInit();
             this.ResumeLayout(false);
@@ -260,5 +288,7 @@
         private System.Windows.Forms.ComboBox cbPosition;
         private System.Windows.Forms.CheckBox cbPositionSelected;
         private System.Windows.Forms.Button btnSalary;
+        private System.Windows.Forms.Button btnNadgodziny;
+        private System.Windows.Forms.Button bntContract1;
     }
 }
